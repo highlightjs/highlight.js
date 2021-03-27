@@ -5,6 +5,7 @@ Contributors: Marvin Saignat <contact@zgmrvn.com>, Dedmen Miller <dedmen@dedmen.
 Description: Scripting language for the Arma game series
 Website: https://community.bistudio.com/wiki/SQF_syntax
 Category: scripting
+Last Updated: 27.03.2021, Arma 3 Version 2.02
 */
 
 export default function(hljs) {
@@ -82,351 +83,394 @@ export default function(hljs) {
         'case catch default do else exit exitWith for forEach from if ' +
         'private switch then throw to try waitUntil while with',
       built_in:
-        'abs accTime acos action actionIDs actionKeys actionKeysImages actionKeysNames ' +
-        'actionKeysNamesArray actionName actionParams activateAddons activatedAddons activateKey ' +
-        'add3DENConnection add3DENEventHandler add3DENLayer addAction addBackpack addBackpackCargo ' +
-        'addBackpackCargoGlobal addBackpackGlobal addCamShake addCuratorAddons addCuratorCameraArea ' +
-        'addCuratorEditableObjects addCuratorEditingArea addCuratorPoints addEditorObject addEventHandler ' +
-        'addForce addGoggles addGroupIcon addHandgunItem addHeadgear addItem addItemCargo ' +
-        'addItemCargoGlobal addItemPool addItemToBackpack addItemToUniform addItemToVest addLiveStats ' +
-        'addMagazine addMagazineAmmoCargo addMagazineCargo addMagazineCargoGlobal addMagazineGlobal ' +
-        'addMagazinePool addMagazines addMagazineTurret addMenu addMenuItem addMissionEventHandler ' +
-        'addMPEventHandler addMusicEventHandler addOwnedMine addPlayerScores addPrimaryWeaponItem ' +
-        'addPublicVariableEventHandler addRating addResources addScore addScoreSide addSecondaryWeaponItem ' +
-        'addSwitchableUnit addTeamMember addToRemainsCollector addTorque addUniform addVehicle addVest ' +
-        'addWaypoint addWeapon addWeaponCargo addWeaponCargoGlobal addWeaponGlobal addWeaponItem ' +
-        'addWeaponPool addWeaponTurret admin agent agents AGLToASL aimedAtTarget aimPos airDensityRTD ' +
-        'airplaneThrottle airportSide AISFinishHeal alive all3DENEntities allAirports allControls ' +
-        'allCurators allCutLayers allDead allDeadMen allDisplays allGroups allMapMarkers allMines ' +
-        'allMissionObjects allow3DMode allowCrewInImmobile allowCuratorLogicIgnoreAreas allowDamage ' +
-        'allowDammage allowFileOperations allowFleeing allowGetIn allowSprint allPlayers allSimpleObjects ' +
-        'allSites allTurrets allUnits allUnitsUAV allVariables ammo ammoOnPylon and animate animateBay ' +
-        'animateDoor animatePylon animateSource animationNames animationPhase animationSourcePhase ' +
-        'animationState append apply armoryPoints arrayIntersect asin ASLToAGL ASLToATL assert ' +
-        'assignAsCargo assignAsCargoIndex assignAsCommander assignAsDriver assignAsGunner assignAsTurret ' +
-        'assignCurator assignedCargo assignedCommander assignedDriver assignedGunner assignedItems ' +
-        'assignedTarget assignedTeam assignedVehicle assignedVehicleRole assignItem assignTeam ' +
-        'assignToAirport atan atan2 atg ATLToASL attachedObject attachedObjects attachedTo attachObject ' +
-        'attachTo attackEnabled backpack backpackCargo backpackContainer backpackItems backpackMagazines ' +
-        'backpackSpaceFor behaviour benchmark binocular boundingBox boundingBoxReal boundingCenter ' +
-        'breakOut breakTo briefingName buildingExit buildingPos buttonAction buttonSetAction cadetMode ' +
-        'call callExtension camCommand camCommit camCommitPrepared camCommitted camConstuctionSetParams ' +
-        'camCreate camDestroy cameraEffect cameraEffectEnableHUD cameraInterest cameraOn cameraView ' +
-        'campaignConfigFile camPreload camPreloaded camPrepareBank camPrepareDir camPrepareDive ' +
-        'camPrepareFocus camPrepareFov camPrepareFovRange camPreparePos camPrepareRelPos camPrepareTarget ' +
-        'camSetBank camSetDir camSetDive camSetFocus camSetFov camSetFovRange camSetPos camSetRelPos ' +
-        'camSetTarget camTarget camUseNVG canAdd canAddItemToBackpack canAddItemToUniform canAddItemToVest ' +
-        'cancelSimpleTaskDestination canFire canMove canSlingLoad canStand canSuspend ' +
-        'canTriggerDynamicSimulation canUnloadInCombat canVehicleCargo captive captiveNum cbChecked ' +
-        'cbSetChecked ceil channelEnabled cheatsEnabled checkAIFeature checkVisibility className ' +
-        'clearAllItemsFromBackpack clearBackpackCargo clearBackpackCargoGlobal clearGroupIcons ' +
-        'clearItemCargo clearItemCargoGlobal clearItemPool clearMagazineCargo clearMagazineCargoGlobal ' +
-        'clearMagazinePool clearOverlay clearRadio clearWeaponCargo clearWeaponCargoGlobal clearWeaponPool ' +
-        'clientOwner closeDialog closeDisplay closeOverlay collapseObjectTree collect3DENHistory ' +
-        'collectiveRTD combatMode commandArtilleryFire commandChat commander commandFire commandFollow ' +
-        'commandFSM commandGetOut commandingMenu commandMove commandRadio commandStop ' +
-        'commandSuppressiveFire commandTarget commandWatch comment commitOverlay compile compileFinal ' +
-        'completedFSM composeText configClasses configFile configHierarchy configName configProperties ' +
-        'configSourceAddonList configSourceMod configSourceModList confirmSensorTarget ' +
-        'connectTerminalToUAV controlsGroupCtrl copyFromClipboard copyToClipboard copyWaypoints cos count ' +
-        'countEnemy countFriendly countSide countType countUnknown create3DENComposition create3DENEntity ' +
-        'createAgent createCenter createDialog createDiaryLink createDiaryRecord createDiarySubject ' +
-        'createDisplay createGearDialog createGroup createGuardedPoint createLocation createMarker ' +
-        'createMarkerLocal createMenu createMine createMissionDisplay createMPCampaignDisplay ' +
-        'createSimpleObject createSimpleTask createSite createSoundSource createTask createTeam ' +
-        'createTrigger createUnit createVehicle createVehicleCrew createVehicleLocal crew ctAddHeader ' +
-        'ctAddRow ctClear ctCurSel ctData ctFindHeaderRows ctFindRowHeader ctHeaderControls ctHeaderCount ' +
-        'ctRemoveHeaders ctRemoveRows ctrlActivate ctrlAddEventHandler ctrlAngle ctrlAutoScrollDelay ' +
-        'ctrlAutoScrollRewind ctrlAutoScrollSpeed ctrlChecked ctrlClassName ctrlCommit ctrlCommitted ' +
-        'ctrlCreate ctrlDelete ctrlEnable ctrlEnabled ctrlFade ctrlHTMLLoaded ctrlIDC ctrlIDD ' +
-        'ctrlMapAnimAdd ctrlMapAnimClear ctrlMapAnimCommit ctrlMapAnimDone ctrlMapCursor ctrlMapMouseOver ' +
-        'ctrlMapScale ctrlMapScreenToWorld ctrlMapWorldToScreen ctrlModel ctrlModelDirAndUp ctrlModelScale ' +
-        'ctrlParent ctrlParentControlsGroup ctrlPosition ctrlRemoveAllEventHandlers ctrlRemoveEventHandler ' +
-        'ctrlScale ctrlSetActiveColor ctrlSetAngle ctrlSetAutoScrollDelay ctrlSetAutoScrollRewind ' +
-        'ctrlSetAutoScrollSpeed ctrlSetBackgroundColor ctrlSetChecked ctrlSetEventHandler ctrlSetFade ' +
-        'ctrlSetFocus ctrlSetFont ctrlSetFontH1 ctrlSetFontH1B ctrlSetFontH2 ctrlSetFontH2B ctrlSetFontH3 ' +
-        'ctrlSetFontH3B ctrlSetFontH4 ctrlSetFontH4B ctrlSetFontH5 ctrlSetFontH5B ctrlSetFontH6 ' +
-        'ctrlSetFontH6B ctrlSetFontHeight ctrlSetFontHeightH1 ctrlSetFontHeightH2 ctrlSetFontHeightH3 ' +
-        'ctrlSetFontHeightH4 ctrlSetFontHeightH5 ctrlSetFontHeightH6 ctrlSetFontHeightSecondary ' +
-        'ctrlSetFontP ctrlSetFontPB ctrlSetFontSecondary ctrlSetForegroundColor ctrlSetModel ' +
-        'ctrlSetModelDirAndUp ctrlSetModelScale ctrlSetPixelPrecision ctrlSetPosition ctrlSetScale ' +
-        'ctrlSetStructuredText ctrlSetText ctrlSetTextColor ctrlSetTooltip ctrlSetTooltipColorBox ' +
-        'ctrlSetTooltipColorShade ctrlSetTooltipColorText ctrlShow ctrlShown ctrlText ctrlTextHeight ' +
-        'ctrlTextWidth ctrlType ctrlVisible ctRowControls ctRowCount ctSetCurSel ctSetData ' +
-        'ctSetHeaderTemplate ctSetRowTemplate ctSetValue ctValue curatorAddons curatorCamera ' +
-        'curatorCameraArea curatorCameraAreaCeiling curatorCoef curatorEditableObjects curatorEditingArea ' +
-        'curatorEditingAreaType curatorMouseOver curatorPoints curatorRegisteredObjects curatorSelected ' +
-        'curatorWaypointCost current3DENOperation currentChannel currentCommand currentMagazine ' +
-        'currentMagazineDetail currentMagazineDetailTurret currentMagazineTurret currentMuzzle ' +
-        'currentNamespace currentTask currentTasks currentThrowable currentVisionMode currentWaypoint ' +
-        'currentWeapon currentWeaponMode currentWeaponTurret currentZeroing cursorObject cursorTarget ' +
-        'customChat customRadio cutFadeOut cutObj cutRsc cutText damage date dateToNumber daytime ' +
-        'deActivateKey debriefingText debugFSM debugLog deg delete3DENEntities deleteAt deleteCenter ' +
-        'deleteCollection deleteEditorObject deleteGroup deleteGroupWhenEmpty deleteIdentity ' +
-        'deleteLocation deleteMarker deleteMarkerLocal deleteRange deleteResources deleteSite deleteStatus ' +
-        'deleteTeam deleteVehicle deleteVehicleCrew deleteWaypoint detach detectedMines ' +
-        'diag_activeMissionFSMs diag_activeScripts diag_activeSQFScripts diag_activeSQSScripts ' +
-        'diag_captureFrame diag_captureFrameToFile diag_captureSlowFrame diag_codePerformance ' +
-        'diag_drawMode diag_enable diag_enabled diag_fps diag_fpsMin diag_frameNo diag_lightNewLoad ' +
-        'diag_list diag_log diag_logSlowFrame diag_mergeConfigFile diag_recordTurretLimits ' +
-        'diag_setLightNew diag_tickTime diag_toggle dialog diarySubjectExists didJIP didJIPOwner ' +
-        'difficulty difficultyEnabled difficultyEnabledRTD difficultyOption direction directSay disableAI ' +
-        'disableCollisionWith disableConversation disableDebriefingStats disableMapIndicators ' +
-        'disableNVGEquipment disableRemoteSensors disableSerialization disableTIEquipment ' +
-        'disableUAVConnectability disableUserInput displayAddEventHandler displayCtrl displayParent ' +
-        'displayRemoveAllEventHandlers displayRemoveEventHandler displaySetEventHandler dissolveTeam ' +
-        'distance distance2D distanceSqr distributionRegion do3DENAction doArtilleryFire doFire doFollow ' +
-        'doFSM doGetOut doMove doorPhase doStop doSuppressiveFire doTarget doWatch drawArrow drawEllipse ' +
-        'drawIcon drawIcon3D drawLine drawLine3D drawLink drawLocation drawPolygon drawRectangle ' +
-        'drawTriangle driver drop dynamicSimulationDistance dynamicSimulationDistanceCoef ' +
-        'dynamicSimulationEnabled dynamicSimulationSystemEnabled echo edit3DENMissionAttributes editObject ' +
-        'editorSetEventHandler effectiveCommander emptyPositions enableAI enableAIFeature ' +
-        'enableAimPrecision enableAttack enableAudioFeature enableAutoStartUpRTD enableAutoTrimRTD ' +
-        'enableCamShake enableCaustics enableChannel enableCollisionWith enableCopilot ' +
-        'enableDebriefingStats enableDiagLegend enableDynamicSimulation enableDynamicSimulationSystem ' +
-        'enableEndDialog enableEngineArtillery enableEnvironment enableFatigue enableGunLights ' +
-        'enableInfoPanelComponent enableIRLasers enableMimics enablePersonTurret enableRadio enableReload ' +
-        'enableRopeAttach enableSatNormalOnDetail enableSaving enableSentences enableSimulation ' +
-        'enableSimulationGlobal enableStamina enableTeamSwitch enableTraffic enableUAVConnectability ' +
-        'enableUAVWaypoints enableVehicleCargo enableVehicleSensor enableWeaponDisassembly ' +
-        'endLoadingScreen endMission engineOn enginesIsOnRTD enginesRpmRTD enginesTorqueRTD entities ' +
-        'environmentEnabled estimatedEndServerTime estimatedTimeLeft evalObjectArgument everyBackpack ' +
-        'everyContainer exec execEditorScript execFSM execVM exp expectedDestination exportJIPMessages ' +
-        'eyeDirection eyePos face faction fadeMusic fadeRadio fadeSound fadeSpeech failMission ' +
-        'fillWeaponsFromPool find findCover findDisplay findEditorObject findEmptyPosition ' +
-        'findEmptyPositionReady findIf findNearestEnemy finishMissionInit finite fire fireAtTarget ' +
-        'firstBackpack flag flagAnimationPhase flagOwner flagSide flagTexture fleeing floor flyInHeight ' +
-        'flyInHeightASL fog fogForecast fogParams forceAddUniform forcedMap forceEnd forceFlagTexture ' +
-        'forceFollowRoad forceMap forceRespawn forceSpeed forceWalk forceWeaponFire forceWeatherChange ' +
-        'forEachMember forEachMemberAgent forEachMemberTeam forgetTarget format formation ' +
-        'formationDirection formationLeader formationMembers formationPosition formationTask formatText ' +
-        'formLeader freeLook fromEditor fuel fullCrew gearIDCAmmoCount gearSlotAmmoCount gearSlotData ' +
-        'get3DENActionState get3DENAttribute get3DENCamera get3DENConnections get3DENEntity ' +
-        'get3DENEntityID get3DENGrid get3DENIconsVisible get3DENLayerEntities get3DENLinesVisible ' +
-        'get3DENMissionAttribute get3DENMouseOver get3DENSelected getAimingCoef getAllEnvSoundControllers ' +
-        'getAllHitPointsDamage getAllOwnedMines getAllSoundControllers getAmmoCargo getAnimAimPrecision ' +
-        'getAnimSpeedCoef getArray getArtilleryAmmo getArtilleryComputerSettings getArtilleryETA ' +
-        'getAssignedCuratorLogic getAssignedCuratorUnit getBackpackCargo getBleedingRemaining ' +
-        'getBurningValue getCameraViewDirection getCargoIndex getCenterOfMass getClientState ' +
-        'getClientStateNumber getCompatiblePylonMagazines getConnectedUAV getContainerMaxLoad ' +
-        'getCursorObjectParams getCustomAimCoef getDammage getDescription getDir getDirVisual ' +
-        'getDLCAssetsUsage getDLCAssetsUsageByName getDLCs getEditorCamera getEditorMode ' +
-        'getEditorObjectScope getElevationOffset getEnvSoundController getFatigue getForcedFlagTexture ' +
-        'getFriend getFSMVariable getFuelCargo getGroupIcon getGroupIconParams getGroupIcons getHideFrom ' +
-        'getHit getHitIndex getHitPointDamage getItemCargo getMagazineCargo getMarkerColor getMarkerPos ' +
-        'getMarkerSize getMarkerType getMass getMissionConfig getMissionConfigValue getMissionDLCs ' +
-        'getMissionLayerEntities getModelInfo getMousePosition getMusicPlayedTime getNumber ' +
-        'getObjectArgument getObjectChildren getObjectDLC getObjectMaterials getObjectProxy ' +
-        'getObjectTextures getObjectType getObjectViewDistance getOxygenRemaining getPersonUsedDLCs ' +
-        'getPilotCameraDirection getPilotCameraPosition getPilotCameraRotation getPilotCameraTarget ' +
-        'getPlateNumber getPlayerChannel getPlayerScores getPlayerUID getPos getPosASL getPosASLVisual ' +
-        'getPosASLW getPosATL getPosATLVisual getPosVisual getPosWorld getPylonMagazines getRelDir ' +
-        'getRelPos getRemoteSensorsDisabled getRepairCargo getResolution getShadowDistance getShotParents ' +
-        'getSlingLoad getSoundController getSoundControllerResult getSpeed getStamina getStatValue ' +
-        'getSuppression getTerrainGrid getTerrainHeightASL getText getTotalDLCUsageTime getUnitLoadout ' +
-        'getUnitTrait getUserMFDText getUserMFDvalue getVariable getVehicleCargo getWeaponCargo ' +
-        'getWeaponSway getWingsOrientationRTD getWingsPositionRTD getWPPos glanceAt globalChat globalRadio ' +
-        'goggles goto group groupChat groupFromNetId groupIconSelectable groupIconsVisible groupId ' +
-        'groupOwner groupRadio groupSelectedUnits groupSelectUnit gunner gusts halt handgunItems ' +
-        'handgunMagazine handgunWeapon handsHit hasInterface hasPilotCamera hasWeapon hcAllGroups ' +
-        'hcGroupParams hcLeader hcRemoveAllGroups hcRemoveGroup hcSelected hcSelectGroup hcSetGroup ' +
-        'hcShowBar hcShownBar headgear hideBody hideObject hideObjectGlobal hideSelection hint hintC ' +
-        'hintCadet hintSilent hmd hostMission htmlLoad HUDMovementLevels humidity image importAllGroups ' +
-        'importance in inArea inAreaArray incapacitatedState inflame inflamed infoPanel ' +
-        'infoPanelComponentEnabled infoPanelComponents infoPanels inGameUISetEventHandler inheritsFrom ' +
-        'initAmbientLife inPolygon inputAction inRangeOfArtillery insertEditorObject intersect is3DEN ' +
-        'is3DENMultiplayer isAbleToBreathe isAgent isArray isAutoHoverOn isAutonomous isAutotest ' +
-        'isBleeding isBurning isClass isCollisionLightOn isCopilotEnabled isDamageAllowed isDedicated ' +
-        'isDLCAvailable isEngineOn isEqualTo isEqualType isEqualTypeAll isEqualTypeAny isEqualTypeArray ' +
-        'isEqualTypeParams isFilePatchingEnabled isFlashlightOn isFlatEmpty isForcedWalk isFormationLeader ' +
-        'isGroupDeletedWhenEmpty isHidden isInRemainsCollector isInstructorFigureEnabled isIRLaserOn ' +
-        'isKeyActive isKindOf isLaserOn isLightOn isLocalized isManualFire isMarkedForCollection ' +
-        'isMultiplayer isMultiplayerSolo isNil isNull isNumber isObjectHidden isObjectRTD isOnRoad ' +
-        'isPipEnabled isPlayer isRealTime isRemoteExecuted isRemoteExecutedJIP isServer isShowing3DIcons ' +
-        'isSimpleObject isSprintAllowed isStaminaEnabled isSteamMission isStreamFriendlyUIEnabled isText ' +
-        'isTouchingGround isTurnedOut isTutHintsEnabled isUAVConnectable isUAVConnected isUIContext ' +
-        'isUniformAllowed isVehicleCargo isVehicleRadarOn isVehicleSensorEnabled isWalking ' +
-        'isWeaponDeployed isWeaponRested itemCargo items itemsWithMagazines join joinAs joinAsSilent ' +
-        'joinSilent joinString kbAddDatabase kbAddDatabaseTargets kbAddTopic kbHasTopic kbReact ' +
-        'kbRemoveTopic kbTell kbWasSaid keyImage keyName knowsAbout land landAt landResult language ' +
-        'laserTarget lbAdd lbClear lbColor lbColorRight lbCurSel lbData lbDelete lbIsSelected lbPicture ' +
-        'lbPictureRight lbSelection lbSetColor lbSetColorRight lbSetCurSel lbSetData lbSetPicture ' +
-        'lbSetPictureColor lbSetPictureColorDisabled lbSetPictureColorSelected lbSetPictureRight ' +
-        'lbSetPictureRightColor lbSetPictureRightColorDisabled lbSetPictureRightColorSelected ' +
-        'lbSetSelectColor lbSetSelectColorRight lbSetSelected lbSetText lbSetTextRight lbSetTooltip ' +
-        'lbSetValue lbSize lbSort lbSortByValue lbText lbTextRight lbValue leader leaderboardDeInit ' +
-        'leaderboardGetRows leaderboardInit leaderboardRequestRowsFriends leaderboardsRequestUploadScore ' +
-        'leaderboardsRequestUploadScoreKeepBest leaderboardState leaveVehicle libraryCredits ' +
-        'libraryDisclaimers lifeState lightAttachObject lightDetachObject lightIsOn lightnings limitSpeed ' +
-        'linearConversion lineIntersects lineIntersectsObjs lineIntersectsSurfaces lineIntersectsWith ' +
-        'linkItem list listObjects listRemoteTargets listVehicleSensors ln lnbAddArray lnbAddColumn ' +
-        'lnbAddRow lnbClear lnbColor lnbCurSelRow lnbData lnbDeleteColumn lnbDeleteRow ' +
-        'lnbGetColumnsPosition lnbPicture lnbSetColor lnbSetColumnsPos lnbSetCurSelRow lnbSetData ' +
-        'lnbSetPicture lnbSetText lnbSetValue lnbSize lnbSort lnbSortByValue lnbText lnbValue load loadAbs ' +
-        'loadBackpack loadFile loadGame loadIdentity loadMagazine loadOverlay loadStatus loadUniform ' +
-        'loadVest local localize locationPosition lock lockCameraTo lockCargo lockDriver locked ' +
-        'lockedCargo lockedDriver lockedTurret lockIdentity lockTurret lockWP log logEntities logNetwork ' +
-        'logNetworkTerminate lookAt lookAtPos magazineCargo magazines magazinesAllTurrets magazinesAmmo ' +
-        'magazinesAmmoCargo magazinesAmmoFull magazinesDetail magazinesDetailBackpack ' +
-        'magazinesDetailUniform magazinesDetailVest magazinesTurret magazineTurretAmmo mapAnimAdd ' +
-        'mapAnimClear mapAnimCommit mapAnimDone mapCenterOnCamera mapGridPosition markAsFinishedOnSteam ' +
-        'markerAlpha markerBrush markerColor markerDir markerPos markerShape markerSize markerText ' +
-        'markerType max members menuAction menuAdd menuChecked menuClear menuCollapse menuData menuDelete ' +
-        'menuEnable menuEnabled menuExpand menuHover menuPicture menuSetAction menuSetCheck menuSetData ' +
-        'menuSetPicture menuSetValue menuShortcut menuShortcutText menuSize menuSort menuText menuURL ' +
-        'menuValue min mineActive mineDetectedBy missionConfigFile missionDifficulty missionName ' +
-        'missionNamespace missionStart missionVersion mod modelToWorld modelToWorldVisual ' +
-        'modelToWorldVisualWorld modelToWorldWorld modParams moonIntensity moonPhase morale move ' +
-        'move3DENCamera moveInAny moveInCargo moveInCommander moveInDriver moveInGunner moveInTurret ' +
-        'moveObjectToEnd moveOut moveTime moveTo moveToCompleted moveToFailed musicVolume name nameSound ' +
-        'nearEntities nearestBuilding nearestLocation nearestLocations nearestLocationWithDubbing ' +
-        'nearestObject nearestObjects nearestTerrainObjects nearObjects nearObjectsReady nearRoads ' +
-        'nearSupplies nearTargets needReload netId netObjNull newOverlay nextMenuItemIndex ' +
-        'nextWeatherChange nMenuItems not numberOfEnginesRTD numberToDate objectCurators objectFromNetId ' +
-        'objectParent objStatus onBriefingGroup onBriefingNotes onBriefingPlan onBriefingTeamSwitch ' +
-        'onCommandModeChanged onDoubleClick onEachFrame onGroupIconClick onGroupIconOverEnter ' +
-        'onGroupIconOverLeave onHCGroupSelectionChanged onMapSingleClick onPlayerConnected ' +
-        'onPlayerDisconnected onPreloadFinished onPreloadStarted onShowNewObject onTeamSwitch ' +
-        'openCuratorInterface openDLCPage openMap openSteamApp openYoutubeVideo or orderGetIn overcast ' +
-        'overcastForecast owner param params parseNumber parseSimpleArray parseText parsingNamespace ' +
-        'particlesQuality pickWeaponPool pitch pixelGrid pixelGridBase pixelGridNoUIScale pixelH pixelW ' +
-        'playableSlotsNumber playableUnits playAction playActionNow player playerRespawnTime playerSide ' +
-        'playersNumber playGesture playMission playMove playMoveNow playMusic playScriptedMission ' +
-        'playSound playSound3D position positionCameraToWorld posScreenToWorld posWorldToScreen ' +
-        'ppEffectAdjust ppEffectCommit ppEffectCommitted ppEffectCreate ppEffectDestroy ppEffectEnable ' +
-        'ppEffectEnabled ppEffectForceInNVG precision preloadCamera preloadObject preloadSound ' +
-        'preloadTitleObj preloadTitleRsc preprocessFile preprocessFileLineNumbers primaryWeapon ' +
-        'primaryWeaponItems primaryWeaponMagazine priority processDiaryLink productVersion profileName ' +
-        'profileNamespace profileNameSteam progressLoadingScreen progressPosition progressSetPosition ' +
-        'publicVariable publicVariableClient publicVariableServer pushBack pushBackUnique putWeaponPool ' +
-        'queryItemsPool queryMagazinePool queryWeaponPool rad radioChannelAdd radioChannelCreate ' +
-        'radioChannelRemove radioChannelSetCallSign radioChannelSetLabel radioVolume rain rainbow random ' +
-        'rank rankId rating rectangular registeredTasks registerTask reload reloadEnabled remoteControl ' +
-        'remoteExec remoteExecCall remoteExecutedOwner remove3DENConnection remove3DENEventHandler ' +
-        'remove3DENLayer removeAction removeAll3DENEventHandlers removeAllActions removeAllAssignedItems ' +
-        'removeAllContainers removeAllCuratorAddons removeAllCuratorCameraAreas ' +
-        'removeAllCuratorEditingAreas removeAllEventHandlers removeAllHandgunItems removeAllItems ' +
-        'removeAllItemsWithMagazines removeAllMissionEventHandlers removeAllMPEventHandlers ' +
-        'removeAllMusicEventHandlers removeAllOwnedMines removeAllPrimaryWeaponItems removeAllWeapons ' +
-        'removeBackpack removeBackpackGlobal removeCuratorAddons removeCuratorCameraArea ' +
-        'removeCuratorEditableObjects removeCuratorEditingArea removeDrawIcon removeDrawLinks ' +
-        'removeEventHandler removeFromRemainsCollector removeGoggles removeGroupIcon removeHandgunItem ' +
-        'removeHeadgear removeItem removeItemFromBackpack removeItemFromUniform removeItemFromVest ' +
-        'removeItems removeMagazine removeMagazineGlobal removeMagazines removeMagazinesTurret ' +
-        'removeMagazineTurret removeMenuItem removeMissionEventHandler removeMPEventHandler ' +
-        'removeMusicEventHandler removeOwnedMine removePrimaryWeaponItem removeSecondaryWeaponItem ' +
-        'removeSimpleTask removeSwitchableUnit removeTeamMember removeUniform removeVest removeWeapon ' +
-        'removeWeaponAttachmentCargo removeWeaponCargo removeWeaponGlobal removeWeaponTurret ' +
-        'reportRemoteTarget requiredVersion resetCamShake resetSubgroupDirection resize resources ' +
-        'respawnVehicle restartEditorCamera reveal revealMine reverse reversedMouseY roadAt ' +
-        'roadsConnectedTo roleDescription ropeAttachedObjects ropeAttachedTo ropeAttachEnabled ' +
-        'ropeAttachTo ropeCreate ropeCut ropeDestroy ropeDetach ropeEndPosition ropeLength ropes ' +
-        'ropeUnwind ropeUnwound rotorsForcesRTD rotorsRpmRTD round runInitScript safeZoneH safeZoneW ' +
-        'safeZoneWAbs safeZoneX safeZoneXAbs safeZoneY save3DENInventory saveGame saveIdentity ' +
-        'saveJoysticks saveOverlay saveProfileNamespace saveStatus saveVar savingEnabled say say2D say3D ' +
-        'scopeName score scoreSide screenshot screenToWorld scriptDone scriptName scudState ' +
-        'secondaryWeapon secondaryWeaponItems secondaryWeaponMagazine select selectBestPlaces ' +
-        'selectDiarySubject selectedEditorObjects selectEditorObject selectionNames selectionPosition ' +
-        'selectLeader selectMax selectMin selectNoPlayer selectPlayer selectRandom selectRandomWeighted ' +
-        'selectWeapon selectWeaponTurret sendAUMessage sendSimpleCommand sendTask sendTaskResult ' +
-        'sendUDPMessage serverCommand serverCommandAvailable serverCommandExecutable serverName serverTime ' +
-        'set set3DENAttribute set3DENAttributes set3DENGrid set3DENIconsVisible set3DENLayer ' +
-        'set3DENLinesVisible set3DENLogicType set3DENMissionAttribute set3DENMissionAttributes ' +
-        'set3DENModelsVisible set3DENObjectType set3DENSelected setAccTime setActualCollectiveRTD ' +
-        'setAirplaneThrottle setAirportSide setAmmo setAmmoCargo setAmmoOnPylon setAnimSpeedCoef ' +
-        'setAperture setApertureNew setArmoryPoints setAttributes setAutonomous setBehaviour ' +
-        'setBleedingRemaining setBrakesRTD setCameraInterest setCamShakeDefParams setCamShakeParams ' +
-        'setCamUseTI setCaptive setCenterOfMass setCollisionLight setCombatMode setCompassOscillation ' +
-        'setConvoySeparation setCuratorCameraAreaCeiling setCuratorCoef setCuratorEditingAreaType ' +
-        'setCuratorWaypointCost setCurrentChannel setCurrentTask setCurrentWaypoint setCustomAimCoef ' +
-        'setCustomWeightRTD setDamage setDammage setDate setDebriefingText setDefaultCamera setDestination ' +
-        'setDetailMapBlendPars setDir setDirection setDrawIcon setDriveOnPath setDropInterval ' +
-        'setDynamicSimulationDistance setDynamicSimulationDistanceCoef setEditorMode setEditorObjectScope ' +
-        'setEffectCondition setEngineRPMRTD setFace setFaceAnimation setFatigue setFeatureType ' +
-        'setFlagAnimationPhase setFlagOwner setFlagSide setFlagTexture setFog setFormation ' +
-        'setFormationTask setFormDir setFriend setFromEditor setFSMVariable setFuel setFuelCargo ' +
-        'setGroupIcon setGroupIconParams setGroupIconsSelectable setGroupIconsVisible setGroupId ' +
-        'setGroupIdGlobal setGroupOwner setGusts setHideBehind setHit setHitIndex setHitPointDamage ' +
-        'setHorizonParallaxCoef setHUDMovementLevels setIdentity setImportance setInfoPanel setLeader ' +
-        'setLightAmbient setLightAttenuation setLightBrightness setLightColor setLightDayLight ' +
-        'setLightFlareMaxDistance setLightFlareSize setLightIntensity setLightnings setLightUseFlare ' +
-        'setLocalWindParams setMagazineTurretAmmo setMarkerAlpha setMarkerAlphaLocal setMarkerBrush ' +
-        'setMarkerBrushLocal setMarkerColor setMarkerColorLocal setMarkerDir setMarkerDirLocal ' +
-        'setMarkerPos setMarkerPosLocal setMarkerShape setMarkerShapeLocal setMarkerSize ' +
-        'setMarkerSizeLocal setMarkerText setMarkerTextLocal setMarkerType setMarkerTypeLocal setMass ' +
-        'setMimic setMousePosition setMusicEffect setMusicEventHandler setName setNameSound ' +
-        'setObjectArguments setObjectMaterial setObjectMaterialGlobal setObjectProxy setObjectTexture ' +
-        'setObjectTextureGlobal setObjectViewDistance setOvercast setOwner setOxygenRemaining ' +
-        'setParticleCircle setParticleClass setParticleFire setParticleParams setParticleRandom ' +
-        'setPilotCameraDirection setPilotCameraRotation setPilotCameraTarget setPilotLight setPiPEffect ' +
-        'setPitch setPlateNumber setPlayable setPlayerRespawnTime setPos setPosASL setPosASL2 setPosASLW ' +
-        'setPosATL setPosition setPosWorld setPylonLoadOut setPylonsPriority setRadioMsg setRain ' +
-        'setRainbow setRandomLip setRank setRectangular setRepairCargo setRotorBrakeRTD setShadowDistance ' +
-        'setShotParents setSide setSimpleTaskAlwaysVisible setSimpleTaskCustomData ' +
-        'setSimpleTaskDescription setSimpleTaskDestination setSimpleTaskTarget setSimpleTaskType ' +
-        'setSimulWeatherLayers setSize setSkill setSlingLoad setSoundEffect setSpeaker setSpeech ' +
-        'setSpeedMode setStamina setStaminaScheme setStatValue setSuppression setSystemOfUnits ' +
-        'setTargetAge setTaskMarkerOffset setTaskResult setTaskState setTerrainGrid setText ' +
-        'setTimeMultiplier setTitleEffect setTrafficDensity setTrafficDistance setTrafficGap ' +
-        'setTrafficSpeed setTriggerActivation setTriggerArea setTriggerStatements setTriggerText ' +
-        'setTriggerTimeout setTriggerType setType setUnconscious setUnitAbility setUnitLoadout setUnitPos ' +
-        'setUnitPosWeak setUnitRank setUnitRecoilCoefficient setUnitTrait setUnloadInCombat ' +
-        'setUserActionText setUserMFDText setUserMFDvalue setVariable setVectorDir setVectorDirAndUp ' +
-        'setVectorUp setVehicleAmmo setVehicleAmmoDef setVehicleArmor setVehicleCargo setVehicleId ' +
-        'setVehicleLock setVehiclePosition setVehicleRadar setVehicleReceiveRemoteTargets ' +
-        'setVehicleReportOwnPosition setVehicleReportRemoteTargets setVehicleTIPars setVehicleVarName ' +
-        'setVelocity setVelocityModelSpace setVelocityTransformation setViewDistance ' +
-        'setVisibleIfTreeCollapsed setWantedRPMRTD setWaves setWaypointBehaviour setWaypointCombatMode ' +
-        'setWaypointCompletionRadius setWaypointDescription setWaypointForceBehaviour setWaypointFormation ' +
-        'setWaypointHousePosition setWaypointLoiterRadius setWaypointLoiterType setWaypointName ' +
-        'setWaypointPosition setWaypointScript setWaypointSpeed setWaypointStatements setWaypointTimeout ' +
-        'setWaypointType setWaypointVisible setWeaponReloadingTime setWind setWindDir setWindForce ' +
-        'setWindStr setWingForceScaleRTD setWPPos show3DIcons showChat showCinemaBorder showCommandingMenu ' +
-        'showCompass showCuratorCompass showGPS showHUD showLegend showMap shownArtilleryComputer ' +
-        'shownChat shownCompass shownCuratorCompass showNewEditorObject shownGPS shownHUD shownMap ' +
-        'shownPad shownRadio shownScoretable shownUAVFeed shownWarrant shownWatch showPad showRadio ' +
-        'showScoretable showSubtitles showUAVFeed showWarrant showWatch showWaypoint showWaypoints side ' +
-        'sideChat sideEnemy sideFriendly sideRadio simpleTasks simulationEnabled simulCloudDensity ' +
-        'simulCloudOcclusion simulInClouds simulWeatherSync sin size sizeOf skill skillFinal skipTime ' +
-        'sleep sliderPosition sliderRange sliderSetPosition sliderSetRange sliderSetSpeed sliderSpeed ' +
-        'slingLoadAssistantShown soldierMagazines someAmmo sort soundVolume spawn speaker speed speedMode ' +
-        'splitString sqrt squadParams stance startLoadingScreen step stop stopEngineRTD stopped str ' +
-        'sunOrMoon supportInfo suppressFor surfaceIsWater surfaceNormal surfaceType swimInDepth ' +
-        'switchableUnits switchAction switchCamera switchGesture switchLight switchMove ' +
-        'synchronizedObjects synchronizedTriggers synchronizedWaypoints synchronizeObjectsAdd ' +
-        'synchronizeObjectsRemove synchronizeTrigger synchronizeWaypoint systemChat systemOfUnits tan ' +
-        'targetKnowledge targets targetsAggregate targetsQuery taskAlwaysVisible taskChildren ' +
-        'taskCompleted taskCustomData taskDescription taskDestination taskHint taskMarkerOffset taskParent ' +
-        'taskResult taskState taskType teamMember teamName teams teamSwitch teamSwitchEnabled teamType ' +
-        'terminate terrainIntersect terrainIntersectASL terrainIntersectAtASL text textLog textLogFormat ' +
-        'tg time timeMultiplier titleCut titleFadeOut titleObj titleRsc titleText toArray toFixed toLower ' +
-        'toString toUpper triggerActivated triggerActivation triggerArea triggerAttachedVehicle ' +
-        'triggerAttachObject triggerAttachVehicle triggerDynamicSimulation triggerStatements triggerText ' +
-        'triggerTimeout triggerTimeoutCurrent triggerType turretLocal turretOwner turretUnit tvAdd tvClear ' +
-        'tvCollapse tvCollapseAll tvCount tvCurSel tvData tvDelete tvExpand tvExpandAll tvPicture ' +
-        'tvSetColor tvSetCurSel tvSetData tvSetPicture tvSetPictureColor tvSetPictureColorDisabled ' +
-        'tvSetPictureColorSelected tvSetPictureRight tvSetPictureRightColor tvSetPictureRightColorDisabled ' +
-        'tvSetPictureRightColorSelected tvSetText tvSetTooltip tvSetValue tvSort tvSortByValue tvText ' +
-        'tvTooltip tvValue type typeName typeOf UAVControl uiNamespace uiSleep unassignCurator ' +
-        'unassignItem unassignTeam unassignVehicle underwater uniform uniformContainer uniformItems ' +
-        'uniformMagazines unitAddons unitAimPosition unitAimPositionVisual unitBackpack unitIsUAV unitPos ' +
-        'unitReady unitRecoilCoefficient units unitsBelowHeight unlinkItem unlockAchievement ' +
-        'unregisterTask updateDrawIcon updateMenuItem updateObjectTree useAISteeringComponent ' +
-        'useAudioTimeForMoves userInputDisabled vectorAdd vectorCos vectorCrossProduct vectorDiff ' +
-        'vectorDir vectorDirVisual vectorDistance vectorDistanceSqr vectorDotProduct vectorFromTo ' +
-        'vectorMagnitude vectorMagnitudeSqr vectorModelToWorld vectorModelToWorldVisual vectorMultiply ' +
-        'vectorNormalized vectorUp vectorUpVisual vectorWorldToModel vectorWorldToModelVisual vehicle ' +
-        'vehicleCargoEnabled vehicleChat vehicleRadio vehicleReceiveRemoteTargets vehicleReportOwnPosition ' +
-        'vehicleReportRemoteTargets vehicles vehicleVarName velocity velocityModelSpace verifySignature ' +
-        'vest vestContainer vestItems vestMagazines viewDistance visibleCompass visibleGPS visibleMap ' +
-        'visiblePosition visiblePositionASL visibleScoretable visibleWatch waves waypointAttachedObject ' +
-        'waypointAttachedVehicle waypointAttachObject waypointAttachVehicle waypointBehaviour ' +
-        'waypointCombatMode waypointCompletionRadius waypointDescription waypointForceBehaviour ' +
-        'waypointFormation waypointHousePosition waypointLoiterRadius waypointLoiterType waypointName ' +
-        'waypointPosition waypoints waypointScript waypointsEnabledUAV waypointShow waypointSpeed ' +
-        'waypointStatements waypointTimeout waypointTimeoutCurrent waypointType waypointVisible ' +
-        'weaponAccessories weaponAccessoriesCargo weaponCargo weaponDirection weaponInertia weaponLowered ' +
-        'weapons weaponsItems weaponsItemsCargo weaponState weaponsTurret weightRTD WFSideText wind ',
+        'acctime acos action actionids actionkeys ' +
+        'actionkeysnames actionkeysnamesarray actionname actionparams activateaddons ' +
+        'activatekey add3denconnection add3deneventhandler add3denlayer addaction ' +
+        'addbackpackcargo addbackpackcargoglobal addbackpackglobal addbinocularitem addcamshake ' +
+        'addcuratorcameraarea addcuratoreditableobjects addcuratoreditingarea addcuratorpoints addeditorobject ' +
+        'addforce addforcegeneratorrtd addgoggles addgroupicon addhandgunitem ' +
+        'additem additemcargo additemcargoglobal additempool additemtobackpack ' +
+        'additemtovest addlivestats addmagazine addmagazineammocargo addmagazinecargo ' +
+        'addmagazineglobal addmagazinepool addmagazines addmagazineturret addmenu ' +
+        'addmissioneventhandler addmpeventhandler addmusiceventhandler addonfiles addownedmine ' +
+        'addprimaryweaponitem addpublicvariableeventhandler addrating addresources addscore ' +
+        'addsecondaryweaponitem addswitchableunit addteammember addtoremainscollector addtorque ' +
+        'addvehicle addvest addwaypoint addweapon addweaponcargo ' +
+        'addweaponglobal addweaponitem addweaponpool addweaponturret addweaponwithattachmentscargo ' +
+        'admin agent agents agltoasl aimedattarget ' +
+        'airdensitycurvertd airdensityrtd airplanethrottle airportside aisfinishheal ' +
+        'all3denentities allactivetitleeffects alladdonsinfo allairports allcontrols ' +
+        'allcutlayers alldead alldeadmen alldisplays allgroups ' +
+        'allmines allmissionobjects allow3dmode allowcrewinimmobile allowcuratorlogicignoreareas ' +
+        'allowdammage allowfileoperations allowfleeing allowgetin allowsprint ' +
+        'allsimpleobjects allsites allturrets allunits allunitsuav ' +
+        'ammo ammoonpylon and animate animatebay ' +
+        'animatepylon animatesource animationnames animationphase animationsourcephase ' +
+        'append apply armorypoints arrayintersect asin ' +
+        'asltoatl assert assignascargo assignascargoindex assignascommander ' +
+        'assignasgunner assignasturret assigncurator assignedcargo assignedcommander ' +
+        'assignedgunner assigneditems assignedtarget assignedteam assignedvehicle ' +
+        'assignitem assignteam assigntoairport atan atan2 ' +
+        'atltoasl attachedobject attachedobjects attachedto attachobject ' +
+        'attackenabled backpack backpackcargo backpackcontainer backpackitems ' +
+        'backpackspacefor behaviour benchmark bezierinterpolation binocular ' +
+        'binocularmagazine boundingbox boundingboxreal boundingcenter break ' +
+        'breakto breakwith briefingname buildingexit buildingpos ' +
+        'buldozer_isenabledroaddiag buldozer_loadnewroads buldozer_reloadopermap buttonaction buttonsetaction ' +
+        'calculatepath calculateplayervisibilitybyfriendly call callextension camcommand ' +
+        'camcommitprepared camcommitted camconstuctionsetparams camcreate camdestroy ' +
+        'cameraeffectenablehud camerainterest cameraon cameraview campaignconfigfile ' +
+        'campreloaded campreparebank campreparedir campreparedive campreparefocus ' +
+        'campreparefovrange campreparepos campreparerelpos campreparetarget camsetbank ' +
+        'camsetdive camsetfocus camsetfov camsetfovrange camsetpos ' +
+        'camsettarget camtarget camusenvg canadd canadditemtobackpack ' +
+        'canadditemtovest cancelsimpletaskdestination canfire canmove canslingload ' +
+        'cansuspend cantriggerdynamicsimulation canunloadincombat canvehiclecargo captive ' +
+        'cbchecked cbsetchecked ceil channelenabled cheatsenabled ' +
+        'checkvisibility classname clear3denattribute clear3deninventory clearallitemsfrombackpack ' +
+        'clearbackpackcargoglobal clearforcesrtd cleargroupicons clearitemcargo clearitemcargoglobal ' +
+        'clearmagazinecargo clearmagazinecargoglobal clearmagazinepool clearoverlay clearradio ' +
+        'clearweaponcargoglobal clearweaponpool clientowner closedialog closedisplay ' +
+        'collapseobjecttree collect3denhistory collectivertd combatmode commandartilleryfire ' +
+        'commander commandfire commandfollow commandfsm commandgetout ' +
+        'commandmove commandradio commandstop commandsuppressivefire commandtarget ' +
+        'comment commitoverlay compile compilefinal compilescript ' +
+        'composetext configclasses configfile confighierarchy configname ' +
+        'configof configproperties configsourceaddonlist configsourcemod configsourcemodlist ' +
+        'connectterminaltouav connecttoserver continue continuewith controlnull ' +
+        'copyfromclipboard copytoclipboard copywaypoints cos count ' +
+        'countfriendly countside counttype countunknown create3dencomposition ' +
+        'createagent createcenter createdialog creatediarylink creatediaryrecord ' +
+        'createdisplay creategeardialog creategroup createguardedpoint createhashmap ' +
+        'createlocation createmarker createmarkerlocal createmenu createmine ' +
+        'creatempcampaigndisplay createsimpleobject createsimpletask createsite createsoundsource ' +
+        'createteam createtrigger createunit createvehicle createvehiclecrew ' +
+        'crew ctaddheader ctaddrow ctclear ctcursel ' +
+        'ctfindheaderrows ctfindrowheader ctheadercontrols ctheadercount ctremoveheaders ' +
+        'ctrlactivate ctrladdeventhandler ctrlangle ctrlanimatemodel ctrlanimationphasemodel ' +
+        'ctrlautoscrollrewind ctrlautoscrollspeed ctrlchecked ctrlclassname ctrlcommit ' +
+        'ctrlcreate ctrldelete ctrlenable ctrlenabled ctrlfade ' +
+        'ctrlhtmlloaded ctrlidc ctrlidd ctrlmapanimadd ctrlmapanimclear ' +
+        'ctrlmapanimdone ctrlmapcursor ctrlmapmouseover ctrlmapscale ctrlmapscreentoworld ' +
+        'ctrlmodel ctrlmodeldirandup ctrlmodelscale ctrlmouseposition ctrlparent ' +
+        'ctrlposition ctrlremovealleventhandlers ctrlremoveeventhandler ctrlscale ctrlscrollvalues ' +
+        'ctrlsetangle ctrlsetautoscrolldelay ctrlsetautoscrollrewind ctrlsetautoscrollspeed ctrlsetbackgroundcolor ' +
+        'ctrlsetdisabledcolor ctrlseteventhandler ctrlsetfade ctrlsetfocus ctrlsetfont ' +
+        'ctrlsetfonth1b ctrlsetfonth2 ctrlsetfonth2b ctrlsetfonth3 ctrlsetfonth3b ' +
+        'ctrlsetfonth4b ctrlsetfonth5 ctrlsetfonth5b ctrlsetfonth6 ctrlsetfonth6b ' +
+        'ctrlsetfontheighth1 ctrlsetfontheighth2 ctrlsetfontheighth3 ctrlsetfontheighth4 ctrlsetfontheighth5 ' +
+        'ctrlsetfontheightsecondary ctrlsetfontp ctrlsetfontpb ctrlsetfontsecondary ctrlsetforegroundcolor ' +
+        'ctrlsetmodeldirandup ctrlsetmodelscale ctrlsetmouseposition ctrlsetpixelprecision ctrlsetposition ' +
+        'ctrlsetpositionw ctrlsetpositionx ctrlsetpositiony ctrlsetscale ctrlsetscrollvalues ' +
+        'ctrlsettext ctrlsettextcolor ctrlsettextcolorsecondary ctrlsettextsecondary ctrlsettextselection ' +
+        'ctrlsettooltipcolorbox ctrlsettooltipcolorshade ctrlsettooltipcolortext ctrlseturl ctrlshow ' +
+        'ctrlstyle ctrltext ctrltextcolor ctrltextheight ctrltextsecondary ' +
+        'ctrltextwidth ctrltooltip ctrltype ctrlurl ctrlvisible ' +
+        'ctrowcount ctsetcursel ctsetdata ctsetheadertemplate ctsetrowtemplate ' +
+        'ctvalue curatoraddons curatorcamera curatorcameraarea curatorcameraareaceiling ' +
+        'curatoreditableobjects curatoreditingarea curatoreditingareatype curatormouseover curatorpoints ' +
+        'curatorselected curatorwaypointcost current3denoperation currentchannel currentcommand ' +
+        'currentmagazinedetail currentmagazinedetailturret currentmagazineturret currentmuzzle currentnamespace ' +
+        'currenttask currenttasks currentthrowable currentvisionmode currentwaypoint ' +
+        'currentweaponmode currentweaponturret currentzeroing cursorobject cursortarget ' +
+        'customradio customwaypointposition cutfadeout cutobj cutrsc ' +
+        'damage date datetonumber daytime deactivatekey ' +
+        'debugfsm debuglog decaygraphvalues deg delete3denentities ' +
+        'deletecenter deletecollection deleteeditorobject deletegroup deletegroupwhenempty ' +
+        'deletelocation deletemarker deletemarkerlocal deleterange deleteresources ' +
+        'deletestatus deleteteam deletevehicle deletevehiclecrew deletewaypoint ' +
+        'detectedmines diag_activemissionfsms diag_activescripts diag_activesqfscripts diag_activesqsscripts ' +
+        'diag_codeperformance diag_deltatime diag_dynamicsimulationend diag_fps diag_fpsmin ' +
+        'diag_lightnewload diag_log diag_scope diag_setlightnew diag_ticktime ' +
+        'diaryrecordnull diarysubjectexists didjip didjipowner difficulty ' +
+        'difficultyenabledrtd difficultyoption direction directsay disableai ' +
+        'disableconversation disabledebriefingstats disablemapindicators disablenvgequipment disableremotesensors ' +
+        'disabletiequipment disableuavconnectability disableuserinput displayaddeventhandler displayctrl ' +
+        'displayparent displayremovealleventhandlers displayremoveeventhandler displayseteventhandler dissolveteam ' +
+        'distance2d distancesqr distributionregion do3denaction doartilleryfire ' +
+        'dofollow dofsm dogetout domove doorphase ' +
+        'dosuppressivefire dotarget dowatch drawarrow drawellipse ' +
+        'drawicon3d drawline drawline3d drawlink drawlocation ' +
+        'drawrectangle drawtriangle driver drop dynamicsimulationdistance ' +
+        'dynamicsimulationenabled dynamicsimulationsystemenabled echo edit3denmissionattributes editobject ' +
+        'effectivecommander elevateperiscope emptypositions enableai enableaifeature ' +
+        'enableattack enableaudiofeature enableautostartuprtd enableautotrimrtd enablecamshake ' +
+        'enablechannel enablecollisionwith enablecopilot enabledebriefingstats enablediaglegend ' +
+        'enabledynamicsimulationsystem enableenddialog enableengineartillery enableenvironment enablefatigue ' +
+        'enableinfopanelcomponent enableirlasers enablemimics enablepersonturret enableradio ' +
+        'enableropeattach enablesatnormalondetail enablesaving enablesentences enablesimulation ' +
+        'enablestamina enablestressdamage enableteamswitch enabletraffic enableuavconnectability ' +
+        'enablevehiclecargo enablevehiclesensor enableweapondisassembly endloadingscreen endmission ' +
+        'enginesisonrtd enginespowerrtd enginesrpmrtd enginestorquertd entities ' +
+        'estimatedendservertime estimatedtimeleft evalobjectargument everybackpack everycontainer ' +
+        'execeditorscript execfsm execvm exitwith exp ' +
+        'exportjipmessages eyedirection eyepos face faction ' +
+        'faderadio fadesound fadespeech failmission fileexists ' +
+        'find findcover finddisplay findeditorobject findemptyposition ' +
+        'findif findnearestenemy finishmissioninit finite fire ' +
+        'firstbackpack flag flaganimationphase flagowner flagside ' +
+        'flatten fleeing floor flyinheight flyinheightasl ' +
+        'fogforecast fogparams forceadduniform forceatpositionrtd forcecadetdifficulty ' +
+        'forceend forceflagtexture forcefollowroad forcegeneratorrtd forcemap ' +
+        'forcespeed forceunicode forcewalk forceweaponfire forceweatherchange ' +
+        'foreachmember foreachmemberagent foreachmemberteam forgettarget format ' +
+        'formationdirection formationleader formationmembers formationposition formationtask ' +
+        'formleader freelook fromeditor fuel fullcrew ' +
+        'gearslotammocount gearslotdata get get3denactionstate get3denattribute ' +
+        'get3denconnections get3denentity get3denentityid get3dengrid get3deniconsvisible ' +
+        'get3denlinesvisible get3denmissionattribute get3denmouseover get3denselected getaimingcoef ' +
+        'getallhitpointsdamage getallownedmines getallpylonsinfo getallsoundcontrollers getallunittraits ' +
+        'getanimaimprecision getanimspeedcoef getarray getartilleryammo getartillerycomputersettings ' +
+        'getassetdlcinfo getassignedcuratorlogic getassignedcuratorunit getattacktarget getaudiooptionvolumes ' +
+        'getbleedingremaining getburningvalue getcalculateplayervisibilitybyfriendly getcameraviewdirection getcargoindex ' +
+        'getclientstate getclientstatenumber getcompatiblepylonmagazines getconnecteduav getcontainermaxload ' +
+        'getcustomaimcoef getcustomsoundcontroller getcustomsoundcontrollercount getdammage getdescription ' +
+        'getdirvisual getdiverstate getdlcassetsusage getdlcassetsusagebyname getdlcs ' +
+        'geteditorcamera geteditormode geteditorobjectscope getelevationoffset getenginetargetrpmrtd ' +
+        'getfatigue getfieldmanualstartpage getforcedflagtexture getfriend getfsmvariable ' +
+        'getgraphvalues getgroupicon getgroupiconparams getgroupicons gethidefrom ' +
+        'gethitindex gethitpointdamage getitemcargo getlighting getlightingat ' +
+        'getmagazinecargo getmarkercolor getmarkerpos getmarkersize getmarkertype ' +
+        'getmissionconfig getmissionconfigvalue getmissiondlcs getmissionlayerentities getmissionlayers ' +
+        'getmodelinfo getmouseposition getmusicplayedtime getnumber getobjectargument ' +
+        'getobjectdlc getobjectfov getobjectmaterials getobjectproxy getobjectscale ' +
+        'getobjecttype getobjectviewdistance getordefault getoxygenremaining getpersonuseddlcs ' +
+        'getpilotcameraposition getpilotcamerarotation getpilotcameratarget getplatenumber getplayerchannel ' +
+        'getplayerscores getplayeruid getplayervonvolume getpos getposasl ' +
+        'getposaslw getposatl getposatlvisual getposvisual getposworld ' +
+        'getpylonmagazines getreldir getrelpos getremotesensorsdisabled getrepaircargo ' +
+        'getroadinfo getrotorbrakertd getshadowdistance getshotparents getslingload ' +
+        'getsoundcontrollerresult getspeed getstamina getstatvalue getsteamfriendsservers ' +
+        'getsuppression getterraingrid getterrainheightasl gettext gettextraw ' +
+        'gettotaldlcusagetime gettrimoffsetrtd getunitloadout getunittrait getusermfdtext ' +
+        'getvariable getvehiclecargo getvehicletipars getweaponcargo getweaponsway ' +
+        'getwingspositionrtd getwppos glanceat globalchat globalradio ' +
+        'goto group groupchat groupfromnetid groupiconselectable ' +
+        'groupid groupowner groupradio groupselectedunits groupselectunit ' +
+        'gunner gusts halt handgunitems handgunmagazine ' +
+        'handshit hasinterface haspilotcamera hasweapon hcallgroups ' +
+        'hcleader hcremoveallgroups hcremovegroup hcselected hcselectgroup ' +
+        'hcshowbar hcshownbar headgear hidebody hideobject ' +
+        'hideselection hint hintc hintcadet hintsilent ' +
+        'hostmission htmlload hudmovementlevels humidity image ' +
+        'importance in inarea inareaarray incapacitatedstate ' +
+        'inflamed infopanel infopanelcomponentenabled infopanelcomponents infopanels ' +
+        'inheritsfrom initambientlife inpolygon inputaction inrangeofartillery ' +
+        'inserteditorobject intersect is3den is3denmultiplayer is3denpreview ' +
+        'isactionmenuvisible isagent isaimprecisionenabled isarray isautohoveron ' +
+        'isautostartupenabledrtd isautotest isautotrimonrtd isbleeding isburning ' +
+        'iscollisionlighton iscopilotenabled isdamageallowed isdedicated isdlcavailable ' +
+        'isequalto isequaltype isequaltypeall isequaltypeany isequaltypearray ' +
+        'isfilepatchingenabled isfinal isflashlighton isflatempty isforcedwalk ' +
+        'isgamefocused isgamepaused isgroupdeletedwhenempty ishidden isinremainscollector ' +
+        'isirlaseron iskeyactive iskindof islaseron islighton ' +
+        'ismanualfire ismarkedforcollection ismultiplayer ismultiplayersolo isnil ' +
+        'isnull isnumber isobjecthidden isobjectrtd isonroad ' +
+        'isplayer isrealtime isremoteexecuted isremoteexecutedjip issensortargetconfirmed ' +
+        'isshowing3dicons issimpleobject issprintallowed isstaminaenabled issteammission ' +
+        'isstressdamageenabled istext istouchingground isturnedout istuthintsenabled ' +
+        'isuavconnected isuicontext isuniformallowed isvehiclecargo isvehicleradaron ' +
+        'iswalking isweapondeployed isweaponrested itemcargo items ' +
+        'join joinas joinassilent joinsilent joinstring ' +
+        'kbadddatabasetargets kbaddtopic kbhastopic kbreact kbremovetopic ' +
+        'kbwassaid keyimage keyname keys knowsabout ' +
+        'landat landresult language lasertarget lbadd ' +
+        'lbcolor lbcolorright lbcursel lbdata lbdelete ' +
+        'lbpicture lbpictureright lbselection lbsetcolor lbsetcolorright ' +
+        'lbsetdata lbsetpicture lbsetpicturecolor lbsetpicturecolordisabled lbsetpicturecolorselected ' +
+        'lbsetpicturerightcolor lbsetpicturerightcolordisabled lbsetpicturerightcolorselected lbsetselectcolor lbsetselectcolorright ' +
+        'lbsettext lbsettextright lbsettooltip lbsetvalue lbsize ' +
+        'lbsortbyvalue lbtext lbtextright lbvalue leader ' +
+        'leaderboardgetrows leaderboardinit leaderboardrequestrowsfriends leaderboardrequestrowsglobal leaderboardrequestrowsglobalarounduser ' +
+        'leaderboardsrequestuploadscorekeepbest leaderboardstate leavevehicle librarycredits librarydisclaimers ' +
+        'lightattachobject lightdetachobject lightison lightnings limitspeed ' +
+        'linebreak lineintersects lineintersectsobjs lineintersectssurfaces lineintersectswith ' +
+        'list listobjects listremotetargets listvehiclesensors ln ' +
+        'lnbaddcolumn lnbaddrow lnbclear lnbcolor lnbcolorright ' +
+        'lnbdata lnbdeletecolumn lnbdeleterow lnbgetcolumnsposition lnbpicture ' +
+        'lnbsetcolor lnbsetcolorright lnbsetcolumnspos lnbsetcurselrow lnbsetdata ' +
+        'lnbsetpicturecolor lnbsetpicturecolorright lnbsetpicturecolorselected lnbsetpicturecolorselectedright lnbsetpictureright ' +
+        'lnbsettextright lnbsettooltip lnbsetvalue lnbsize lnbsort ' +
+        'lnbtext lnbtextright lnbvalue load loadabs ' +
+        'loadfile loadgame loadidentity loadmagazine loadoverlay ' +
+        'loaduniform loadvest local localize localnamespace ' +
+        'locationposition lock lockcamerato lockcargo lockdriver ' +
+        'lockedcargo lockeddriver lockedinventory lockedturret lockidentity ' +
+        'lockturret lockwp log logentities lognetwork ' +
+        'lookat lookatpos magazinecargo magazines magazinesallturrets ' +
+        'magazinesammocargo magazinesammofull magazinesdetail magazinesdetailbackpack magazinesdetailuniform ' +
+        'magazinesturret magazineturretammo mapanimadd mapanimclear mapanimcommit ' +
+        'mapcenteroncamera mapgridposition markasfinishedonsteam markeralpha markerbrush ' +
+        'markercolor markerdir markerpolyline markerpos markershape ' +
+        'markertext markertype matrixmultiply matrixtranspose max ' +
+        'menuaction menuadd menuchecked menuclear menucollapse ' +
+        'menudelete menuenable menuenabled menuexpand menuhover ' +
+        'menusetaction menusetcheck menusetdata menusetpicture menusetshortcut ' +
+        'menuseturl menusetvalue menushortcut menushortcuttext menusize ' +
+        'menutext menuurl menuvalue merge min ' +
+        'minedetectedby missiletarget missiletargetpos missionconfigfile missiondifficulty ' +
+        'missionnamesource missionnamespace missionstart missionversion mod ' +
+        'modeltoworldvisual modeltoworldvisualworld modeltoworldworld modparams moonintensity ' +
+        'morale move move3dencamera moveinany moveincargo ' +
+        'moveindriver moveingunner moveinturret moveobjecttoend moveout ' +
+        'moveto movetocompleted movetofailed musicvolume name ' +
+        'namesound nearentities nearestbuilding nearestlocation nearestlocations ' +
+        'nearestobject nearestobjects nearestterrainobjects nearobjects nearobjectsready ' +
+        'nearsupplies neartargets needreload netid netobjnull ' +
+        'nextmenuitemindex nextweatherchange nmenuitems not numberofenginesrtd ' +
+        'objectcurators objectfromnetid objectparent objnull objstatus ' +
+        'onbriefingnotes onbriefingplan onbriefingteamswitch oncommandmodechanged ondoubleclick ' +
+        'ongroupiconclick ongroupiconoverenter ongroupiconoverleave onhcgroupselectionchanged onmapsingleclick ' +
+        'onplayerdisconnected onpreloadfinished onpreloadstarted onshownewobject onteamswitch ' +
+        'opendlcpage openmap opensteamapp openyoutubevideo or ' +
+        'overcast overcastforecast owner param params ' +
+        'parsesimplearray parsetext parsingnamespace particlesquality periscopeelevation ' +
+        'pitch pixelgrid pixelgridbase pixelgridnouiscale pixelh ' +
+        'playableslotsnumber playableunits playaction playactionnow player ' +
+        'playerside playersnumber playgesture playmission playmove ' +
+        'playmusic playscriptedmission playsound playsound3d position ' +
+        'posscreentoworld posworldtoscreen ppeffectadjust ppeffectcommit ppeffectcommitted ' +
+        'ppeffectdestroy ppeffectenable ppeffectenabled ppeffectforceinnvg precision ' +
+        'preloadobject preloadsound preloadtitleobj preloadtitlersc preprocessfile ' +
+        'primaryweapon primaryweaponitems primaryweaponmagazine priority processdiarylink ' +
+        'profilename profilenamespace profilenamesteam progressloadingscreen progressposition ' +
+        'publicvariable publicvariableclient publicvariableserver pushback pushbackunique ' +
+        'queryitemspool querymagazinepool queryweaponpool rad radiochanneladd ' +
+        'radiochannelinfo radiochannelremove radiochannelsetcallsign radiochannelsetlabel radiovolume ' +
+        'rainbow random rank rankid rating ' +
+        'registeredtasks registertask reload reloadenabled remotecontrol ' +
+        'remoteexeccall remoteexecutedowner remove3denconnection remove3deneventhandler remove3denlayer ' +
+        'removeall3deneventhandlers removeallactions removeallassigneditems removeallbinocularitems removeallcontainers ' +
+        'removeallcuratorcameraareas removeallcuratoreditingareas removealleventhandlers removeallhandgunitems removeallitems ' +
+        'removeallmissioneventhandlers removeallmpeventhandlers removeallmusiceventhandlers removeallownedmines removeallprimaryweaponitems ' +
+        'removeallweapons removebackpack removebackpackglobal removebinocularitem removecuratoraddons ' +
+        'removecuratoreditableobjects removecuratoreditingarea removediaryrecord removediarysubject removedrawicon ' +
+        'removeeventhandler removefromremainscollector removegoggles removegroupicon removehandgunitem ' +
+        'removeitem removeitemfrombackpack removeitemfromuniform removeitemfromvest removeitems ' +
+        'removemagazineglobal removemagazines removemagazinesturret removemagazineturret removemenuitem ' +
+        'removempeventhandler removemusiceventhandler removeownedmine removeprimaryweaponitem removesecondaryweaponitem ' +
+        'removeswitchableunit removeteammember removeuniform removevest removeweapon ' +
+        'removeweaponcargo removeweaponglobal removeweaponturret reportremotetarget requiredversion ' +
+        'resetsubgroupdirection resize resources respawnvehicle restarteditorcamera ' +
+        'revealmine reverse reversedmousey roadat roadsconnectedto ' +
+        'ropeattachedobjects ropeattachedto ropeattachenabled ropeattachto ropecreate ' +
+        'ropedestroy ropedetach ropeendposition ropelength ropes ' +
+        'ropeunwound rotorsforcesrtd rotorsrpmrtd round runinitscript ' +
+        'safezonew safezonewabs safezonex safezonexabs safezoney ' +
+        'savegame saveidentity savejoysticks saveoverlay saveprofilenamespace ' +
+        'savevar savingenabled say say2d say3d ' +
+        'score scoreside screenshot screentoworld scriptdone ' +
+        'scriptnull scudstate secondaryweapon secondaryweaponitems secondaryweaponmagazine ' +
+        'selectbestplaces selectdiarysubject selectededitorobjects selecteditorobject selectionnames ' +
+        'selectleader selectmax selectmin selectnoplayer selectplayer ' +
+        'selectrandomweighted selectweapon selectweaponturret sendaumessage sendsimplecommand ' +
+        'sendtaskresult sendudpmessage servercommand servercommandavailable servercommandexecutable ' +
+        'servertime set set3denattribute set3denattributes set3dengrid ' +
+        'set3denlayer set3denlinesvisible set3denlogictype set3denmissionattribute set3denmissionattributes ' +
+        'set3denobjecttype set3denselected setacctime setactualcollectivertd setairplanethrottle ' +
+        'setammo setammocargo setammoonpylon setanimspeedcoef setaperture ' +
+        'setarmorypoints setattributes setautonomous setbehaviour setbehaviourstrong ' +
+        'setbrakesrtd setcamerainterest setcamshakedefparams setcamshakeparams setcamuseti ' +
+        'setcenterofmass setcollisionlight setcombatmode setcompassoscillation setconvoyseparation ' +
+        'setcuratorcoef setcuratoreditingareatype setcuratorwaypointcost setcurrentchannel setcurrenttask ' +
+        'setcustomaimcoef setcustommissiondata setcustomsoundcontroller setcustomweightrtd setdamage ' +
+        'setdate setdebriefingtext setdefaultcamera setdestination setdetailmapblendpars ' +
+        'setdir setdirection setdrawicon setdriveonpath setdropinterval ' +
+        'setdynamicsimulationdistancecoef seteditormode seteditorobjectscope seteffectcondition seteffectivecommander ' +
+        'setface setfaceanimation setfatigue setfeaturetype setflaganimationphase ' +
+        'setflagside setflagtexture setfog setforcegeneratorrtd setformation ' +
+        'setformdir setfriend setfromeditor setfsmvariable setfuel ' +
+        'setgroupicon setgroupiconparams setgroupiconsselectable setgroupiconsvisible setgroupid ' +
+        'setgroupowner setgusts sethidebehind sethit sethitindex ' +
+        'sethorizonparallaxcoef sethudmovementlevels setidentity setimportance setinfopanel ' +
+        'setlightambient setlightattenuation setlightbrightness setlightcolor setlightdaylight ' +
+        'setlightflaresize setlightintensity setlightnings setlightuseflare setlocalwindparams ' +
+        'setmarkeralpha setmarkeralphalocal setmarkerbrush setmarkerbrushlocal setmarkercolor ' +
+        'setmarkerdir setmarkerdirlocal setmarkerpolyline setmarkerpolylinelocal setmarkerpos ' +
+        'setmarkershape setmarkershapelocal setmarkersize setmarkersizelocal setmarkertext ' +
+        'setmarkertype setmarkertypelocal setmass setmimic setmissiletarget ' +
+        'setmouseposition setmusiceffect setmusiceventhandler setname setnamesound ' +
+        'setobjectmaterial setobjectmaterialglobal setobjectproxy setobjectscale setobjecttexture ' +
+        'setobjectviewdistance setovercast setowner setoxygenremaining setparticlecircle ' +
+        'setparticlefire setparticleparams setparticlerandom setpilotcameradirection setpilotcamerarotation ' +
+        'setpilotlight setpipeffect setpitch setplatenumber setplayable ' +
+        'setplayervonvolume setpos setposasl setposasl2 setposaslw ' +
+        'setposition setposworld setpylonloadout setpylonspriority setradiomsg ' +
+        'setrainbow setrandomlip setrank setrectangular setrepaircargo ' +
+        'setshadowdistance setshotparents setside setsimpletaskalwaysvisible setsimpletaskcustomdata ' +
+        'setsimpletaskdestination setsimpletasktarget setsimpletasktype setsimulweatherlayers setsize ' +
+        'setslingload setsoundeffect setspeaker setspeech setspeedmode ' +
+        'setstaminascheme setstatvalue setsuppression setsystemofunits settargetage ' +
+        'settaskresult settaskstate setterraingrid settext settimemultiplier ' +
+        'settrafficdensity settrafficdistance settrafficgap settrafficspeed settriggeractivation ' +
+        'settriggerinterval settriggerstatements settriggertext settriggertimeout settriggertype ' +
+        'setunconscious setunitability setunitcombatmode setunitloadout setunitpos ' +
+        'setunitrank setunitrecoilcoefficient setunittrait setunloadincombat setuseractiontext ' +
+        'setusermfdvalue setvariable setvectordir setvectordirandup setvectorup ' +
+        'setvehicleammodef setvehiclearmor setvehiclecargo setvehicleid setvehiclelock ' +
+        'setvehicleradar setvehiclereceiveremotetargets setvehiclereportownposition setvehiclereportremotetargets setvehicletipars ' +
+        'setvelocity setvelocitymodelspace setvelocitytransformation setviewdistance setvisibleiftreecollapsed ' +
+        'setwaves setwaypointbehaviour setwaypointcombatmode setwaypointcompletionradius setwaypointdescription ' +
+        'setwaypointformation setwaypointhouseposition setwaypointloiteraltitude setwaypointloiterradius setwaypointloitertype ' +
+        'setwaypointposition setwaypointscript setwaypointspeed setwaypointstatements setwaypointtimeout ' +
+        'setwaypointvisible setweaponreloadingtime setwind setwinddir setwindforce ' +
+        'setwingforcescalertd setwppos show3dicons showchat showcinemaborder ' +
+        'showcompass showcuratorcompass showgps showhud showlegend ' +
+        'shownartillerycomputer shownchat showncompass showncuratorcompass showneweditorobject ' +
+        'shownhud shownmap shownpad shownradio shownscoretable ' +
+        'shownwarrant shownwatch showpad showradio showscoretable ' +
+        'showuavfeed showwarrant showwatch showwaypoint showwaypoints ' +
+        'sideambientlife sidechat sideempty sideenemy sidefriendly ' +
+        'sideradio sideunknown simpletasks simulationenabled simulclouddensity ' +
+        'simulinclouds simulweathersync sin size sizeof ' +
+        'skillfinal skiptime sleep sliderposition sliderrange ' +
+        'slidersetrange slidersetspeed sliderspeed slingloadassistantshown soldiermagazines ' +
+        'sort soundvolume spawn speaker speed ' +
+        'splitstring sqrt squadparams stance startloadingscreen ' +
+        'stop stopenginertd stopped str sunormoon ' +
+        'suppressfor surfaceiswater surfacenormal surfacetexture surfacetype ' +
+        'switchableunits switchaction switchcamera switchgesture switchlight ' +
+        'synchronizedobjects synchronizedtriggers synchronizedwaypoints synchronizeobjectsadd synchronizeobjectsremove ' +
+        'synchronizewaypoint systemchat systemofunits systemtime systemtimeutc ' +
+        'targetknowledge targets targetsaggregate targetsquery taskalwaysvisible ' +
+        'taskcompleted taskcustomdata taskdescription taskdestination taskhint ' +
+        'tasknull taskparent taskresult taskstate tasktype ' +
+        'teammembernull teamname teams teamswitch teamswitchenabled ' +
+        'terminate terrainintersect terrainintersectasl terrainintersectatasl text ' +
+        'textlogformat tg time timemultiplier titlecut ' +
+        'titleobj titlersc titletext toarray tofixed ' +
+        'toloweransi tostring toupper toupperansi triggeractivated ' +
+        'triggerammo triggerarea triggerattachedvehicle triggerattachobject triggerattachvehicle ' +
+        'triggerinterval triggerstatements triggertext triggertimeout triggertimeoutcurrent ' +
+        'trim turretlocal turretowner turretunit tvadd ' +
+        'tvcollapse tvcollapseall tvcount tvcursel tvdata ' +
+        'tvexpand tvexpandall tvisselected tvpicture tvpictureright ' +
+        'tvsetcolor tvsetcursel tvsetdata tvsetpicture tvsetpicturecolor ' +
+        'tvsetpicturecolorselected tvsetpictureright tvsetpicturerightcolor tvsetpicturerightcolordisabled tvsetpicturerightcolorselected ' +
+        'tvsetselected tvsettext tvsettooltip tvsetvalue tvsort ' +
+        'tvsortbyvalue tvsortbyvalueall tvtext tvtooltip tvvalue ' +
+        'typename typeof uavcontrol uinamespace uisleep ' +
+        'unassignitem unassignteam unassignvehicle underwater uniform ' +
+        'uniformitems uniformmagazines unitaddons unitaimposition unitaimpositionvisual ' +
+        'unitcombatmode unitisuav unitpos unitready unitrecoilcoefficient ' +
+        'unitsbelowheight unitturret unlinkitem unlockachievement unregistertask ' +
+        'updatemenuitem updateobjecttree useaiopermapobstructiontest useaisteeringcomponent useaudiotimeformoves ' +
+        'vectoradd vectorcos vectorcrossproduct vectordiff vectordir ' +
+        'vectordistance vectordistancesqr vectordotproduct vectorfromto vectorlinearconversion ' +
+        'vectormagnitudesqr vectormodeltoworld vectormodeltoworldvisual vectormultiply vectornormalized ' +
+        'vectorupvisual vectorworldtomodel vectorworldtomodelvisual vehicle vehiclecargoenabled ' +
+        'vehiclemoveinfo vehicleradio vehiclereceiveremotetargets vehiclereportownposition vehiclereportremotetargets ' +
+        'vehiclevarname velocity velocitymodelspace verifysignature vest ' +
+        'vestitems vestmagazines viewdistance visiblecompass visiblegps ' +
+        'visibleposition visiblepositionasl visiblescoretable visiblewatch waituntil ' +
+        'waypointattachedobject waypointattachedvehicle waypointattachobject waypointattachvehicle waypointbehaviour ' +
+        'waypointcompletionradius waypointdescription waypointforcebehaviour waypointformation waypointhouseposition ' +
+        'waypointloiterradius waypointloitertype waypointname waypointposition waypoints ' +
+        'waypointsenableduav waypointshow waypointspeed waypointstatements waypointtimeout ' +
+        'waypointtype waypointvisible weaponaccessories weaponaccessoriescargo weaponcargo ' +
+        'weaponinertia weaponlowered weapons weaponsitems weaponsitemscargo ' +
+        'weaponsturret weightrtd wfsidetext wind winddir ' +
+        'windstr wingsforcesrtd worldname worldsize worldtomodel worldtoscreen ',
       literal:
         'blufor civilian configNull controlNull displayNull east endl false grpNull independent lineBreak ' +
         'locationNull nil objNull opfor pi resistance scriptNull sideAmbientLife sideEmpty sideLogic ' +
