@@ -101,15 +101,34 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const KEYWORDS = [
+    "if",
+    "then",
+    "else",
+    "elif",
+    "fi",
+    "for",
+    "while",
+    "in",
+    "do",
+    "done",
+    "case",
+    "esac",
+    "function"
+  ];
+
+  const LITERALS = [
+    "true",
+    "false"
+  ];
+
   return {
     name: 'Bash',
     aliases: ['sh', 'zsh'],
     keywords: {
       $pattern: /\b[a-z._-]+\b/,
-      keyword:
-        'if then else elif fi for while in do done case esac function',
-      literal:
-        'true false',
+      keyword: KEYWORDS,
+      literal: LITERALS,
       built_in:
         // Shell built-ins
         // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html

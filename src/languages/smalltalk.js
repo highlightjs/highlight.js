@@ -18,7 +18,14 @@ export default function(hljs) {
   return {
     name: 'Smalltalk',
     aliases: [ 'st' ],
-    keywords: 'self super nil true false thisContext', // only 6
+    keywords: [
+      "self",
+      "super",
+      "nil",
+      "true",
+      "false",
+      "thisContext"
+    ],
     contains: [
       hljs.COMMENT('"', '"'),
       hljs.APOS_STRING_MODE,
