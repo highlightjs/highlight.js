@@ -96,7 +96,7 @@ export default function(hljs) {
 
       {
         className: 'variable',
-        begin: /[bwtglsav]:[\w\d_]*/
+        begin: /[bwtglsav]:[\w\d_]+/
       },
       {
         className: 'function',

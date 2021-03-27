@@ -5,6 +5,7 @@
 - enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
 - fix(nginx) fix bug with $ and @ variables [Josh Goebel][]
 - enh(nginx) improving highlighting of some sections [Josh Goebel][]
+- fix(vim) variable names may not be zero length [Josh Goebel][]
 
 Theme Improvements:
 
