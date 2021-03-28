@@ -84,8 +84,10 @@ export default function(hljs) {
       // which is what we want for page and font-face
       {
         begin: '@(page|font-face)',
-        lexemes: AT_IDENTIFIER,
-        keywords: '@page @font-face'
+        keywords: {
+          $pattern: AT_IDENTIFIER,
+          keyword: '@page @font-face'
+        }
       },
       {
         begin: '@',

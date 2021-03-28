@@ -304,7 +304,11 @@ export function compileLanguage(language, { plugins }) {
     mode.isCompiled = true;
 
     let keywordPattern = null;
-    if (typeof mode.keywords === "object") {
+    if (typeof mode.keywords === "object" && mode.keywords.$pattern) {
+      // we need a copy because keywords might be compiled multiple times
+      // so we can't go deleting $pattern from the original on the first
+      // pass
+      mode.keywords = Object.assign({}, mode.keywords);
       keywordPattern = mode.keywords.$pattern;
       delete mode.keywords.$pattern;
     }
