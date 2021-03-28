@@ -6,6 +6,7 @@
 - fix(nginx) fix bug with $ and @ variables [Josh Goebel][]
 - enh(nginx) improving highlighting of some sections [Josh Goebel][]
 - fix(vim) variable names may not be zero length [Josh Goebel][]
+- enh(sqf) Updated keywords to Arma 3 v2.02 (#3084) [R3voA3][]
 
 Theme Improvements:
 
