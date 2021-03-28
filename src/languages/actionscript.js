@@ -19,16 +19,71 @@ export default function(hljs) {
     relevance: 10
   };
 
+  const KEYWORDS = [
+    "as",
+    "break",
+    "case",
+    "catch",
+    "class",
+    "const",
+    "continue",
+    "default",
+    "delete",
+    "do",
+    "dynamic",
+    "each",
+    "else",
+    "extends",
+    "final",
+    "finally",
+    "for",
+    "function",
+    "get",
+    "if",
+    "implements",
+    "import",
+    "in",
+    "include",
+    "instanceof",
+    "interface",
+    "internal",
+    "is",
+    "namespace",
+    "native",
+    "new",
+    "override",
+    "package",
+    "private",
+    "protected",
+    "public",
+    "return",
+    "set",
+    "static",
+    "super",
+    "switch",
+    "this",
+    "throw",
+    "try",
+    "typeof",
+    "use",
+    "var",
+    "void",
+    "while",
+    "with"
+  ];
+  const LITERALS = [
+    "true",
+    "false",
+    "null",
+    "undefined"
+  ];
+
   return {
     name: 'ActionScript',
     aliases: [ 'as' ],
     keywords: {
-      keyword: 'as break case catch class const continue default delete do dynamic each ' +
-        'else extends final finally for function get if implements import in include ' +
-        'instanceof interface internal is namespace native new override package private ' +
-        'protected public return set static super switch this throw try typeof use var void ' +
-        'while with',
-      literal: 'true false null undefined'
+      keyword: KEYWORDS,
+      literal: LITERALS
     },
     contains: [
       hljs.APOS_STRING_MODE,

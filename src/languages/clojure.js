@@ -113,7 +113,10 @@ export default function(hljs) {
 
   const GLOBAL = {
     beginKeywords: globals,
-    lexemes: SYMBOL_RE,
+    keywords: {
+      $pattern: SYMBOL_RE,
+      keyword: globals
+    },
     end: '(\\[|#|\\d|"|:|\\{|\\)|\\(|$)',
     contains: [
       {

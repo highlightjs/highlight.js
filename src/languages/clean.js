@@ -7,6 +7,38 @@ Website: http://clean.cs.ru.nl
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const KEYWORDS = [
+    "if",
+    "let",
+    "in",
+    "with",
+    "where",
+    "case",
+    "of",
+    "class",
+    "instance",
+    "otherwise",
+    "implementation",
+    "definition",
+    "system",
+    "module",
+    "from",
+    "import",
+    "qualified",
+    "as",
+    "special",
+    "code",
+    "inline",
+    "foreign",
+    "export",
+    "ccall",
+    "stdcall",
+    "generic",
+    "derive",
+    "infix",
+    "infixl",
+    "infixr"
+  ];
   return {
     name: 'Clean',
     aliases: [
@@ -14,11 +46,7 @@ export default function(hljs) {
       'dcl'
     ],
     keywords: {
-      keyword:
-        'if let in with where case of class instance otherwise ' +
-        'implementation definition system module from import qualified as ' +
-        'special code inline foreign export ccall stdcall generic derive ' +
-        'infix infixl infixr',
+      keyword: KEYWORDS,
       built_in:
         'Int Real Char Bool',
       literal:

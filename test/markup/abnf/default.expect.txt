@@ -1,22 +1,22 @@
 <span class="hljs-comment">; line comment</span>
 
-<span class="hljs-attribute">ruleset</span>     =   [optional] *(group1 / group2 / <span class="hljs-keyword">SP</span>) <span class="hljs-keyword">CRLF</span> <span class="hljs-comment">; trailing comment</span>
+<span class="hljs-attribute">ruleset</span>     <span class="hljs-operator">=</span>   [optional] *(group1 / group2 / <span class="hljs-keyword">SP</span>) <span class="hljs-keyword">CRLF</span> <span class="hljs-comment">; trailing comment</span>
 
-<span class="hljs-attribute">group1</span>      =   alt1
-<span class="hljs-attribute">group1</span>      =/  alt2
+<span class="hljs-attribute">group1</span>      <span class="hljs-operator">=</span>   alt1
+<span class="hljs-attribute">group1</span>      <span class="hljs-operator">=/</span>  alt2
 
-<span class="hljs-attribute">alt1</span>        =   <span class="hljs-symbol">%x41-4D</span> / <span class="hljs-symbol">%d78-90</span>
+<span class="hljs-attribute">alt1</span>        <span class="hljs-operator">=</span>   <span class="hljs-symbol">%x41-4D</span> / <span class="hljs-symbol">%d78-90</span>
 
-<span class="hljs-attribute">alt2</span>        =   <span class="hljs-symbol">%b00100001</span>
+<span class="hljs-attribute">alt2</span>        <span class="hljs-operator">=</span>   <span class="hljs-symbol">%b00100001</span>
 
-<span class="hljs-attribute">group2</span>      =   *<span class="hljs-number">1</span><span class="hljs-keyword">DIGIT</span> / <span class="hljs-number">2</span>*<span class="hljs-keyword">HEXDIG</span> / <span class="hljs-number">3</span>*<span class="hljs-number">4</span><span class="hljs-keyword">OCTET</span>
+<span class="hljs-attribute">group2</span>      <span class="hljs-operator">=</span>   *<span class="hljs-number">1</span><span class="hljs-keyword">DIGIT</span> / <span class="hljs-number">2</span>*<span class="hljs-keyword">HEXDIG</span> / <span class="hljs-number">3</span>*<span class="hljs-number">4</span><span class="hljs-keyword">OCTET</span>
 a
-<span class="hljs-attribute">optional</span>    =   hex-codes
+<span class="hljs-attribute">optional</span>    <span class="hljs-operator">=</span>   hex-codes
                 / literal
                 / sensitive
                 / insensitive
 
-<span class="hljs-attribute">hex-codes</span>   =   <span class="hljs-symbol">%x68.65.6C.6C.6F</span>
-<span class="hljs-attribute">literal</span>     =   <span class="hljs-string">&quot;string literal&quot;</span>
-<span class="hljs-attribute">sensitive</span>   =   <span class="hljs-symbol">%s</span><span class="hljs-string">&quot;case-sensitive string&quot;</span>
-<span class="hljs-attribute">insensitive</span> =   <span class="hljs-symbol">%i</span><span class="hljs-string">&quot;case-insensitive string&quot;</span>
+<span class="hljs-attribute">hex-codes</span>   <span class="hljs-operator">=</span>   <span class="hljs-symbol">%x68.65.6C.6C.6F</span>
+<span class="hljs-attribute">literal</span>     <span class="hljs-operator">=</span>   <span class="hljs-string">&quot;string literal&quot;</span>
+<span class="hljs-attribute">sensitive</span>   <span class="hljs-operator">=</span>   <span class="hljs-symbol">%s</span><span class="hljs-string">&quot;case-sensitive string&quot;</span>
+<span class="hljs-attribute">insensitive</span> <span class="hljs-operator">=</span>   <span class="hljs-symbol">%i</span><span class="hljs-string">&quot;case-insensitive string&quot;</span>
