@@ -180,6 +180,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Smalltalk               | smalltalk, st          |         |
 | SML                     | sml, ml                |         |
 | Solidity                | solidity, sol          | [highlightjs-solidity](https://github.com/highlightjs/highlightjs-solidity) |
+| Splunk SPL              | spl                    | [highlightjs-spl](https://github.com/swsoyee/highlightjs-spl) |
 | Stan                    | stan, stanfuncs        |         |
 | Stata                   | stata                  |         |
 | Structured Text         | iecst, scl, stl, structured-text | [highlightjs-structured-text](https://github.com/highlightjs/highlightjs-structured-text) |
