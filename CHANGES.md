@@ -6,6 +6,7 @@
 - fix(nginx) fix bug with $ and @ variables [Josh Goebel][]
 - enh(nginx) improving highlighting of some sections [Josh Goebel][]
 - fix(vim) variable names may not be zero length [Josh Goebel][]
+- enh(sqf) Updated keywords to Arma 3 v2.02 (#3084) [R3voA3][]
 
 New Languages:
 
@@ -17,6 +18,7 @@ Theme Improvements:
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
+[R3voA3]: https://github.com/R3voA3
 [Wei Su]: https://github.com/swsoyee
 
 ## Version 10.7.1
