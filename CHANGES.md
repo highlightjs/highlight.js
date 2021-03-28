@@ -7,13 +7,17 @@
 - enh(nginx) improving highlighting of some sections [Josh Goebel][]
 - fix(vim) variable names may not be zero length [Josh Goebel][]
 
+New Languages:
+
+- Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]  
+
 Theme Improvements:
 
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
-
+[Wei Su]: https://github.com/swsoyee
 
 ## Version 10.7.1
 
