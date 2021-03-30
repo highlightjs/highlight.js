@@ -7,10 +7,11 @@
 - enh(nginx) improving highlighting of some sections [Josh Goebel][]
 - fix(vim) variable names may not be zero length [Josh Goebel][]
 - enh(sqf) Updated keywords to Arma 3 v2.02 (#3084) [R3voA3][]
+- (chore) throttle deprecation messages (#3092) [Mihkel Eidast][]
 
 New Languages:
 
-- Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]  
+- Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
 
 Theme Improvements:
 
