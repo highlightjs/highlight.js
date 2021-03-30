@@ -106,6 +106,7 @@ export default function(hljs) {
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
 
   const C_KEYWORDS = [
+    "asm",
     "auto",
     "break",
     "case",
@@ -117,6 +118,7 @@ export default function(hljs) {
     "enum",
     "extern",
     "for",
+    "fortran",
     "goto",
     "if",
     "inline",
@@ -137,7 +139,15 @@ export default function(hljs) {
     "_Generic",
     "_Noreturn",
     "_Static_assert",
-    "_Thread_local"
+    "_Thread_local",
+    // aliases
+    "alignas",
+    "alignof",
+    "noreturn",
+    "static_assert",
+    "thread_local",
+    // not a C keyword but is, for all intents and purposes, treated exactly like one.
+    "_Pragma"
   ];
 
   const C_TYPES = [
@@ -155,7 +165,11 @@ export default function(hljs) {
     "_Imaginary",
     "_Decimal32",
     "_Decimal64",
-    "_Decimal128"
+    "_Decimal128",
+    // aliases
+    "complex",
+    "bool",
+    "imaginary"
   ];
 
   const KEYWORDS = {
@@ -171,7 +185,7 @@ export default function(hljs) {
       'isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow ' +
       'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp ' +
       'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan ' +
-      'vfprintf vprintf vsprintf endl initializer_list unique_ptr _Bool complex _Complex imaginary _Imaginary',
+      'vfprintf vprintf vsprintf endl initializer_list unique_ptr',
   };
 
   const EXPRESSION_CONTAINS = [
