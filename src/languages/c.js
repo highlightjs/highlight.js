@@ -134,10 +134,7 @@ export default function(hljs) {
     "_Alignas",
     "_Alignof",
     "_Atomic",
-    "_Bool",
-    "_Complex",
     "_Generic",
-    "_Imaginary",
     "_Noreturn",
     "_Static_assert",
     "_Thread_local"
@@ -152,13 +149,19 @@ export default function(hljs) {
     "short",
     "long",
     "char",
-    "void"
+    "void",
+    "_Bool",
+    "_Complex",
+    "_Imaginary",
+    "_Decimal32",
+    "_Decimal64",
+    "_Decimal128"
   ];
 
   const KEYWORDS = {
     keyword: C_KEYWORDS,
     type: C_TYPES,
-    literal: 'true false nullptr NULL',
+    literal: 'true false NULL',
     // TODO: apply hinting work similar to what was done in cpp.js
     built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream ' +
       'auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set ' +
@@ -283,15 +286,6 @@ export default function(hljs) {
       EXPRESSION_CONTAINS,
       [
         PREPROCESSOR,
-        { // containers: ie, `vector <int> rooms (9);`
-          begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<',
-          end: '>',
-          keywords: KEYWORDS,
-          contains: [
-            'self',
-            PRIMITIVE_TYPES
-          ]
-        },
         {
           begin: hljs.IDENT_RE + '::',
           keywords: KEYWORDS
