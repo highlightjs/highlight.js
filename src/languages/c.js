@@ -26,9 +26,15 @@ export default function(hljs) {
     regex.optional(NAMESPACE_RE) +
     '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
   ')';
-  const PRIMITIVE_TYPES = {
+
+
+  const TYPES = {
     className: 'type',
-    begin: '\\b[a-z\\d_]*_t\\b'
+    variants: [
+      { begin: '\\b[a-z\\d_]*_t\\b' },
+      { match: /\batomic_[a-z]{3,6}\b/}
+    ]
+
   };
 
   // https://en.cppreference.com/w/cpp/language/escape
@@ -190,7 +196,7 @@ export default function(hljs) {
 
   const EXPRESSION_CONTAINS = [
     PREPROCESSOR,
-    PRIMITIVE_TYPES,
+    TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     NUMBERS,
@@ -259,7 +265,7 @@ export default function(hljs) {
           hljs.C_BLOCK_COMMENT_MODE,
           STRINGS,
           NUMBERS,
-          PRIMITIVE_TYPES,
+          TYPES,
           // Count matching parentheses.
           {
             begin: /\(/,
@@ -272,12 +278,12 @@ export default function(hljs) {
               hljs.C_BLOCK_COMMENT_MODE,
               STRINGS,
               NUMBERS,
-              PRIMITIVE_TYPES
+              TYPES
             ]
           }
         ]
       },
-      PRIMITIVE_TYPES,
+      TYPES,
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       PREPROCESSOR
