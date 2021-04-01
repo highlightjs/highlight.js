@@ -1,3 +1,10 @@
+## Version 10.7.2
+
+- (chore) throttle deprecation messages (#3092) [Mihkel Eidast][]
+
+[Mihkel Eidast]: https://github.com/mihkeleidast
+
+
 ## Version 10.7.1
 
 - fix(parser) Resolves issues with TypeScript types [Josh Goebel][]
