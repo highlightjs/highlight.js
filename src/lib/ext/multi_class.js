@@ -16,12 +16,11 @@ export function MultiClass(mode) {
   }
 
   if (typeof mode.className !== "object") {
-    console.error("className must be object or array");
+    console.error("className must be object");
     throw MultiClassError;
   }
 
   const items = mode.begin.map(x => regex.concat("(", x, ")"));
   mode.begin = regex.concat(...items);
   mode.isMultiClass = true;
-
 }

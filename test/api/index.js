@@ -15,4 +15,5 @@ describe('hljs', function() {
   require('./unregisterLanguage');
   require('./starters');
   require('./underscoreIdent');
+  require('./multiClassMatch');
 });
