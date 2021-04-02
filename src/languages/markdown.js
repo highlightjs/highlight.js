@@ -159,8 +159,8 @@ export default function(hljs) {
         ]
       },
       {
-        begin: '(^|[^a-zA-Z_])__',
-        end: '__(?=[^a-zA-Z])',
+        begin: '(^|\\s)__',
+        end: '__(?=\\s)',
         returnBegin: true,
         contains: [
           {
@@ -190,8 +190,8 @@ export default function(hljs) {
         ]
       },
       {
-        begin: '(^|[^a-zA-Z_])_(?!_)',
-        end: '_(?=[^a-zA-Z])',
+        begin: '(^|\\s)_(?!_)',
+        end: '_(?=\\s)',
         returnBegin: true,
         contains: [
           {
@@ -214,8 +214,8 @@ export default function(hljs) {
         end: '\\*\\*'
       },
       {
-        begin: '(^|[^a-zA-Z])__',
-        end: '__(?=[^a-zA-Z])',
+        begin: '(^|\\s)__',
+        end: '__(?=\\s)',
         returnBegin: true,
         contains: [
           {
@@ -238,8 +238,8 @@ export default function(hljs) {
         end: '\\*',
       },
       {
-        begin: '(^|[^a-zA-Z])_(?!_)',
-        end: '_(?=[^a-zA-Z])',
+        begin: '(^|\\s)_(?!_)',
+        end: '_(?=\\s)',
         returnBegin: true,
         contains: [
           {

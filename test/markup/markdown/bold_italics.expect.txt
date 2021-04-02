@@ -29,4 +29,13 @@ in list</span>
 in list</span>
 
 underscore_in_word
+
+underscore <span class="hljs-emphasis">_in_word</span>
+
+underscore_in_ word
+
 italic<span class="hljs-emphasis">*in*</span>word
+
+italic <span class="hljs-emphasis">*in*</span>word
+
+italic<span class="hljs-emphasis">*in*</span> word

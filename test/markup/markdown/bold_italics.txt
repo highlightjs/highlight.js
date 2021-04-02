@@ -29,4 +29,13 @@ in list
 in list
 
 underscore_in_word
+
+underscore _in_word
+
+underscore_in_ word
+
 italic*in*word
+
+italic *in*word
+
+italic*in* word
