@@ -9,60 +9,58 @@ Category: common, markup
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
+  let deepCopy = function(x) {
+    return JSON.parse(JSON.stringify(x));
+  };
   const INLINE_HTML = {
-    begin: /<\/?[A-Za-z_]/,
+    begin: '<\\/?[A-Za-z_]',
     end: '>',
     subLanguage: 'xml',
+    endsWithParent: true,
     relevance: 0
   };
   const HORIZONTAL_RULE = {
-    begin: '^[-\\*]{3,}',
-    end: '$'
+    className: 'section',
+    match: '^[ \\t]*([\\*-_])[ \\t]*\\1[ \\t]*\\1( |\\t|\\1)*$',
+    relevance: 0
   };
-  const CODE = {
+  const INDENTED_CODE = {
     className: 'code',
+    begin: '^( {4}|\\t)',
+    end: '^(?!( {4}|\\t))',
+    relevance: 0
+  };
+  const FENCED_CODE = {
     variants: [
-      // TODO: fix to allow these to work with sublanguage also
       {
-        begin: '(`{3,})[^`](.|\\n)*?\\1`*[ ]*'
-      },
-      {
-        begin: '(~{3,})[^~](.|\\n)*?\\1~*[ ]*'
-      },
-      // needed to allow markdown as a sublanguage to work
-      {
-        begin: '```',
-        end: '```+[ ]*$'
-      },
-      {
-        begin: '~~~',
-        end: '~~~+[ ]*$'
-      },
-      {
-        begin: '`.+?`'
-      },
-      {
-        begin: '(?=^( {4}|\\t))',
-        // use contains to gobble up multiple lines to allow the block to be whatever size
-        // but only have a single open/close tag vs one per line
+        begin: '^[ \t]*`{3,}',
+        end: '`{3,}[_\\t]*$',
+        returnBegin: true,
         contains: [
           {
-            begin: '^( {4}|\\t)',
-            end: '(\\n)$'
+            className: 'code',
+            begin: '`{3,}',
+            endsWithParent: true
           }
-        ],
-        relevance: 0
-      }
+        ]
+      },
+      {
+        begin: '^[ \t]*~{3,}',
+        end: '~{3,}[_\\t]*$',
+        returnBegin: true,
+        contains: [
+          {
+            className: 'code',
+            begin: '~{3,}',
+            endsWithParent: true
+          }
+        ]
+      },
     ]
-  };
-  const LIST = {
-    className: 'bullet',
-    begin: '^[ \t]*([*+-]|(\\d+\\.))(?=\\s+)',
-    end: '\\s+',
-    excludeEnd: true
   };
   const LINK_REFERENCE = {
     begin: /^\[[^\n]+\]:/,
+    end: '$',
     returnBegin: true,
     contains: [
       {
@@ -80,36 +78,37 @@ export default function(hljs) {
       }
     ]
   };
-  const URL_SCHEME = /[A-Za-z][A-Za-z0-9+.-]*/;
+  const URL_SCHEME = '[A-Za-z][A-Za-z0-9+.-]*';
   const LINK = {
     variants: [
       // too much like nested array access in so many languages
       // to have any real relevance
       {
-        begin: /\[.+?\]\[.*?\]/,
+        begin: '\\[.+?\\]\\[.*?\\]',
         relevance: 0
       },
       // popular internet URLs
       {
-        begin: /\[.+?\]\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/).*?\)/,
+        begin: '\\[.+?\\]\\(((data|javascript|mailto):|(?:http|ftp)s?:\\/\\/).*?\\)',
         relevance: 2
       },
       {
-        begin: regex.concat(/\[.+?\]\(/, URL_SCHEME, /:\/\/.*?\)/),
+        begin: '\\[.+?\\]\\(' + URL_SCHEME + ':\\/\\/.*?\\)',
         relevance: 2
       },
       // relative urls
       {
-        begin: /\[.+?\]\([./?&#].*?\)/,
+        begin: '\\[.+?\\]\\([.\\/?&#].*?\\)',
         relevance: 1
       },
       // whatever else, lower relevance (might not be a link at all)
       {
-        begin: /\[.+?\]\(.*?\)/,
+        begin: '\\[.+?\\]\\(.*?\\)',
         relevance: 0
       }
     ],
     returnBegin: true,
+    endsWithParent: true,
     contains: [
       {
         className: 'string',
@@ -137,78 +136,195 @@ export default function(hljs) {
       }
     ]
   };
-  const BOLD = {
-    className: 'strong',
-    contains: [], // defined later
+  const CODE_SPAN = {
+    className: 'code',
+    endsWithParent: true,
+    begin: '`+',
+    end: '`+',
+  }
+  const BOLD_CHILD = {
+    endsWithParent: true,
     variants: [
       {
-        begin: /_{2}/,
-        end: /_{2}/
+        begin: '[^*]\\*\\*',
+        end: '\\*\\*',
+        returnBegin: true,
+        contains: [
+          {
+            contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN]),
+            className: 'strong',
+            endsWithParent: true,
+            begin: '\\*\\*'
+          }
+        ]
       },
       {
-        begin: /\*{2}/,
-        end: /\*{2}/
-      }
+        begin: '(^|[^a-zA-Z_])__',
+        end: '__(?=[^a-zA-Z])',
+        returnBegin: true,
+        contains: [
+          {
+            contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN]),
+            className: 'strong',
+            endsWithParent: true,
+            begin: '__'
+          },
+        ]
+      },
+    ]
+  };
+  const ITALIC_CHILD = {
+    endsWithParent: true,
+    variants: [
+      {
+        begin: '[^*]\\*(?!\\*)',
+        end: '\\*',
+        returnBegin: true,
+        contains: [
+          {
+            contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN]),
+            className: 'emphasis',
+            endsWithParent: true,
+            begin: '\\*'
+          }
+        ]
+      },
+      {
+        begin: '(^|[^a-zA-Z_])_(?!_)',
+        end: '_(?=[^a-zA-Z])',
+        returnBegin: true,
+        contains: [
+          {
+            contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN]),
+            className: 'emphasis',
+            endsWithParent: true,
+            begin: '_'
+          }
+        ]
+      },
+    ]
+  };
+  const BOLD = {
+    endsWithParent: true,
+    variants: [
+      {
+        contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN, ITALIC_CHILD]),
+        className: 'strong',
+        begin: '\\*\\*',
+        end: '\\*\\*'
+      },
+      {
+        begin: '(^|[^a-zA-Z])__',
+        end: '__(?=[^a-zA-Z])',
+        returnBegin: true,
+        contains: [
+          {
+            contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN, ITALIC_CHILD]),
+            className: 'strong',
+            endsWithParent: true,
+            begin: '__'
+          },
+        ]
+      },
     ]
   };
   const ITALIC = {
-    className: 'emphasis',
-    contains: [], // defined later
+    endsWithParent: true,
     variants: [
       {
-        begin: /\*(?!\*)/,
-        end: /\*/
+        contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN, BOLD_CHILD]),
+        className: 'emphasis',
+        begin: '\\*(?!\\*)',
+        end: '\\*',
       },
       {
-        begin: /_(?!_)/,
-        end: /_/,
-        relevance: 0
-      }
+        begin: '(^|[^a-zA-Z])_(?!_)',
+        end: '_(?=[^a-zA-Z])',
+        returnBegin: true,
+        contains: [
+          {
+            contains: deepCopy([INLINE_HTML, LINK, CODE_SPAN, BOLD_CHILD]),
+            className: 'emphasis',
+            endsWithParent: true,
+            begin: '_'
+          }
+        ]
+      },
     ]
   };
-  BOLD.contains.push(ITALIC);
-  ITALIC.contains.push(BOLD);
-
   let CONTAINABLE = [
     INLINE_HTML,
-    LINK
+    LINK, 
+    CODE_SPAN, 
+    BOLD,
+    ITALIC,
   ];
-
-  BOLD.contains = BOLD.contains.concat(CONTAINABLE);
-  ITALIC.contains = ITALIC.contains.concat(CONTAINABLE);
-
-  CONTAINABLE = CONTAINABLE.concat(BOLD, ITALIC);
-
   const HEADER = {
     className: 'section',
     variants: [
       {
-        begin: '^#{1,6}',
+        begin: '^[ \\t]*#{1,6}',
         end: '$',
-        contains: CONTAINABLE
+        contains: deepCopy(CONTAINABLE)
       },
       {
-        begin: '(?=^.+?\\n[=-]{2,}$)',
+        begin: '^.*?\\n^[ \\t]*[=-]+[ \\t]*$',
+        returnBegin: true,
         contains: [
           {
-            begin: '^[=-]*$'
+            begin: '^[ \\t]*[=-]+[ \\t]*$',
+            endsParent: true,
           },
           {
             begin: '^',
-            end: "\\n",
-            contains: CONTAINABLE
+            end: '\\n',
+            contains: deepCopy(CONTAINABLE),
           }
         ]
       }
     ]
   };
-
   const BLOCKQUOTE = {
     className: 'quote',
-    begin: '^>\\s+',
-    contains: CONTAINABLE,
-    end: '$'
+    begin: '^[ \\t]*>+',
+    end: '$',
+    contains: deepCopy(CONTAINABLE),
   };
+  const BLANK_LINE = {
+    begin: '^[ \\t]*\\n',
+    relevance: 0
+  };
+  const LIST = {
+    returnBegin: true,
+    begin: '^[ \\t]*([*+-]|(\\d+\\.))[ \\t]',
+    end: '',
+    contains: [
+      {
+        className: 'bullet',
+        begin: '^[ \\t]*([*+-]|(\\d+\\.))',
+      },
+      ...deepCopy(CONTAINABLE)
+    ],
+  };
+  const PARAGRAPH = {
+    begin: '^',
+    end: '',
+    contains: deepCopy(CONTAINABLE),
+    relevance: 0
+  };
+  let BLOCK_END = '(' +
+    '(?=\\n' + BLANK_LINE.begin + ')|' +
+    '(?=\\n' + BLOCKQUOTE.begin + ')|' +
+    '(?=\\n' + HEADER.variants[0].begin + ')|' +
+    '(?=\\n' + HEADER.variants[1].begin + ')|' +
+    '(?=\\n' + HORIZONTAL_RULE.begin + ')|' +
+    '(?=\\n' + FENCED_CODE.variants[0].begin + ')|' +
+    '(?=\\n' + FENCED_CODE.variants[1].begin + ')|' +
+    '(?=\\n' + LINK_REFERENCE.begin + ')|' +
+    '(?=\\n' + LIST.begin + ')' +
+    ')';
+  LIST.end = BLOCK_END;
+  PARAGRAPH.end = BLOCK_END;
 
   return {
     name: 'Markdown',
@@ -218,16 +334,15 @@ export default function(hljs) {
       'mkd'
     ],
     contains: [
-      HEADER,
-      INLINE_HTML,
-      LIST,
-      BOLD,
-      ITALIC,
+      BLANK_LINE,
       BLOCKQUOTE,
-      CODE,
+      HEADER,
       HORIZONTAL_RULE,
-      LINK,
-      LINK_REFERENCE
+      FENCED_CODE,
+      LINK_REFERENCE,
+      LIST,
+      INDENTED_CODE,
+      PARAGRAPH,
     ]
   };
 }

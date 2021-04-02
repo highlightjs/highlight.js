@@ -6,7 +6,7 @@ __Bold__
 __Bold *then italic*__
 **Bold _then italic_**
 **Bold and <br/>**
-**_[this](https://google.com)_**
+** _[this](https://google.com)_ **
 
 > quoted **Bold _then italic_**
 > _[this](https://google.com)_
@@ -16,3 +16,17 @@ __Bold *then italic*__
 
 * list with a *italic item*
 * list with a **bold item**
+
+Unclosed _italic
+in paragraph
+
+Unclosed __bold
+in paragraph
+
+* Unclosed _italic
+in list
+* Unclosed _bold
+in list
+
+underscore_in_word
+italic*in*word

@@ -6,7 +6,7 @@
 <span class="hljs-strong">__Bold <span class="hljs-emphasis">*then italic*</span>__</span>
 <span class="hljs-strong">**Bold <span class="hljs-emphasis">_then italic_</span>**</span>
 <span class="hljs-strong">**Bold and <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span></span>**</span>
-<span class="hljs-strong">**<span class="hljs-emphasis">_[<span class="hljs-string">this</span>](<span class="hljs-link">https://google.com</span>)_</span>**</span>
+<span class="hljs-strong">** <span class="hljs-emphasis">_[<span class="hljs-string">this</span>](<span class="hljs-link">https://google.com</span>)_</span> **</span>
 
 <span class="hljs-quote">&gt; quoted <span class="hljs-strong">**Bold <span class="hljs-emphasis">_then italic_</span>**</span></span>
 <span class="hljs-quote">&gt; <span class="hljs-emphasis">_[<span class="hljs-string">this</span>](<span class="hljs-link">https://google.com</span>)_</span></span>
@@ -16,3 +16,17 @@
 
 <span class="hljs-bullet">*</span> list with a <span class="hljs-emphasis">*italic item*</span>
 <span class="hljs-bullet">*</span> list with a <span class="hljs-strong">**bold item**</span>
+
+Unclosed <span class="hljs-emphasis">_italic
+in paragraph</span>
+
+Unclosed <span class="hljs-strong">__bold
+in paragraph</span>
+
+<span class="hljs-bullet">*</span> Unclosed <span class="hljs-emphasis">_italic
+in list</span>
+<span class="hljs-bullet">*</span> Unclosed <span class="hljs-emphasis">_bold
+in list</span>
+
+underscore_in_word
+italic<span class="hljs-emphasis">*in*</span>word

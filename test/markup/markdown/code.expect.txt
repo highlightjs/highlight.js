@@ -7,9 +7,7 @@ var code = true;
 ```</span>
 
 <span class="hljs-code">````md
-```
 a = &#x27;This is a code block in python&#x27;
-```
 ````</span>
 
 <span class="hljs-code">~~~

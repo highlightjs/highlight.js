@@ -7,9 +7,7 @@ var code = true;
 ```
 
 ````md
-```
 a = 'This is a code block in python'
-```
 ````
 
 ~~~
