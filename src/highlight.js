@@ -248,7 +248,7 @@ const HLJS = function(hljs) {
 
     /**
      * @param {Mode} mode
-     * @param {EnhancedMatch} match
+     * @param {RegExpMatchArray} match
      */
     function emitMultiClass(mode, match) {
       let i = 1;
@@ -261,8 +261,8 @@ const HLJS = function(hljs) {
     }
 
     /**
-     * @param {Mode} mode - new mode to start
-     * @param {EnhancedMatch} match
+     * @param {CompiledMode} mode - new mode to start
+     * @param {RegExpMatchArray} match
      */
     function startNewMode(mode, match) {
       if (mode.isMultiClass) {
@@ -392,7 +392,7 @@ const HLJS = function(hljs) {
         }
       }
       do {
-        if (top.className) {
+        if (top.className && !top.isMultiClass) {
           emitter.closeNode();
         }
         if (!top.skip && !top.subLanguage) {
@@ -404,7 +404,7 @@ const HLJS = function(hljs) {
         if (endMode.endSameAsBegin) {
           endMode.starts.endRe = endMode.endRe;
         }
-        startNewMode(endMode.starts);
+        startNewMode(endMode.starts, match);
       }
       return origin.returnEnd ? 0 : lexeme.length;
     }
