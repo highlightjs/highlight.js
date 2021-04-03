@@ -3,8 +3,8 @@ Language: Handlebars
 Requires: xml.js
 Author: Robin Ward <robin.ward@gmail.com>
 Description: Matcher for Handlebars as well as EmberJS additions.
-Website: https://handlebarsjs.com
-Category: template
+Website: https://handlebarsjs.com, https://emberjs.com
+Category: common, template
 */
 
 import * as regex from '../lib/regex.js';
@@ -196,7 +196,7 @@ export default function(hljs) {
       BLOCK_PARAMS,
       HASH,
       HELPER_PARAMETER,
-      SUB_EXPRESSION
+      SUB_EXPRESSION,
     ],
     returnEnd: true
     // the property "end" is defined through inheritance when the mode is used. If depends
@@ -205,7 +205,7 @@ export default function(hljs) {
   };
 
   const SUB_EXPRESSION_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
-    className: 'name',
+    className: 'function',
     keywords: HELPERS,
     starts: hljs.inherit(HELPER_PARAMETERS, {
       end: /\)/
@@ -222,8 +222,12 @@ export default function(hljs) {
     className: 'keyword'
   });
 
-  const TAG_CONTENTS =  hljs.inherit({}, {
-
+  const TAG_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
+    keywords: BLOCK_HELPERS,
+    className: 'name',
+    starts: hljs.inherit(HELPER_PARAMETERS, {
+      end: />/
+    })
   });
 
   const OPENING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
@@ -296,14 +300,19 @@ export default function(hljs) {
         className: 'template-tag',
         begin: /<:?/,
         end: />/,
-        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS, BLOCK_PARAMS, KEYWORD_CONTENTS ]
+        contains: [
+          TAG_CONTENTS,
+          // OPENING_BLOCK_MUSTACHE_CONTENTS,
+          // BLOCK_PARAMS,
+          // KEYWORD_CONTENTS
+        ]
       },
       // end angle-brocket component invocation
       {
         className: 'template-tag',
         begin: /<:?\//,
         end: />/,
-        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS ]
+        contains: [  ]
       },
       {
         // open block statement
@@ -323,6 +332,12 @@ export default function(hljs) {
         begin: /\{\{(?=else if)/,
         end: /\}\}/,
         keywords: 'else if'
+      },
+      {
+        className: 'bulit_in',
+        begin: /\{\{/,
+        end: /\}\}/,
+        keywords: MODIFIERS
       },
       {
         // closing block statement
