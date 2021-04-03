@@ -9,51 +9,102 @@ Category: template
 
 import * as regex from '../lib/regex.js';
 
-export default function(hljs) {
-  const BUILT_INS = {
-    $pattern: /[\w.\/]+/,
-    'builtin-name': [
-      'action',
-      'bindattr',
-      'collection',
-      'component',
-      'concat',
-      'debugger',
-      'each',
-      'each-in',
-      'get',
-      'hash',
-      'if',
-      'in',
-      'input',
-      'link-to',
-      'loc',
-      'log',
-      'lookup',
-      'mut',
-      'outlet',
-      'partial',
-      'query-params',
-      'render',
-      'template',
-      'textarea',
-      'unbound',
-      'unless',
-      'view',
-      'with',
-      'yield'
-    ]
-  };
 
-  const LITERALS = {
-    $pattern: /[\w.\/]+/,
-    literal: [
-      'true',
-      'false',
-      'undefined',
-      'null'
-    ]
-  };
+export default function(hljs) {
+// Merged: https://github.com/emberjs/rfcs/pull/560
+  const EQUALITY_HELPERS = [
+    'eq',
+    'neq'
+  ];
+  // Merged: https://github.com/emberjs/rfcs/pull/561
+  const NUMERIC_COMPARISON_HELPERS = [
+    'gt',
+    'gte',
+    'le',
+    'lte'
+  ];
+  // Merged: https://github.com/emberjs/rfcs/pull/562/files
+  const LOGICAL_OPERATOR_HELPERS = [
+    'and',
+    'or',
+    'not'
+  ];
+
+  const OTHER_OPERATORS = [
+    // ember-truth-helpers
+    'not-eq',
+    'xor',
+    'is-array',
+    'is-object',
+    'is-equal'
+  ];
+  const BLOCK_HELPERS = [
+    'let',
+    'each',
+    'each-in',
+    'if',
+    'unless'
+  ];
+  const INLINE_HELPERS = [
+    'log',
+    'debugger',
+    'has-block',
+    'concat',
+    'fn',
+    'component',
+    'get',
+    'hash',
+    'query-params'
+  ];
+
+  const MODIFIERS = [
+    'action',
+    'on'
+  ];
+
+  const LEGACY = [
+    'input',
+    'link-to',
+    'mut',
+    'bindattr',
+    'collection',
+    'in',
+    'loc',
+    'lookup',
+    'partial',
+    'render',
+    'template',
+    'textarea',
+    'unbound',
+    'view',
+    'with',
+    'yield'
+  ];
+
+  const SPECIAL = [
+    'outlet',
+    'yield',
+    'as'
+  ];
+
+  const LITERALS = [
+    'true',
+    'false',
+    'undefined',
+    'null'
+  ];
+
+  const KEYWORD_REGEX = /[\w.\/]+/;
+
+  const HELPERS = [
+    ...SPECIAL,
+    ...LEGACY,
+    ...INLINE_HELPERS,
+    ...OTHER_OPERATORS,
+    ...LOGICAL_OPERATOR_HELPERS,
+    ...NUMERIC_COMPARISON_HELPERS,
+    ...EQUALITY_HELPERS
+  ];
 
   // as defined in https://handlebarsjs.com/guide/expressions.html#literal-segments
   // this regex matches literal segments like ' abc ' or [ abc ] as well as helpers and paths
@@ -69,7 +120,7 @@ export default function(hljs) {
     SINGLE_QUOTED_ID_REGEX,
     BRACKET_QUOTED_ID_REGEX,
     PLAIN_ID_REGEX
-    );
+  );
 
   const IDENTIFIER_REGEX = regex.concat(
     regex.optional(/\.|\.\/|\//), // relative or absolute path
@@ -155,30 +206,43 @@ export default function(hljs) {
 
   const SUB_EXPRESSION_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     className: 'name',
-    keywords: BUILT_INS,
+    keywords: HELPERS,
     starts: hljs.inherit(HELPER_PARAMETERS, {
       end: /\)/
     })
   });
 
-  SUB_EXPRESSION.contains = [SUB_EXPRESSION_CONTENTS];
+  SUB_EXPRESSION.contains = [ SUB_EXPRESSION_CONTENTS ];
+
+  const KEYWORD_CONTENTS = hljs.inherit({}, {
+    keywords: [
+      ...SPECIAL,
+      ...LITERALS
+    ],
+    className: 'keyword'
+  });
+
+  const TAG_CONTENTS =  hljs.inherit({}, {
+
+  });
 
   const OPENING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
-    keywords: BUILT_INS,
+    keywords: BLOCK_HELPERS,
     className: 'name',
     starts: hljs.inherit(HELPER_PARAMETERS, {
       end: /\}\}/
     })
   });
 
+
   const CLOSING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
-    keywords: BUILT_INS,
+    keywords: BLOCK_HELPERS,
     className: 'name'
   });
 
   const BASIC_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     className: 'name',
-    keywords: BUILT_INS,
+    keywords: HELPERS,
     starts: hljs.inherit(HELPER_PARAMETERS, {
       end: /\}\}/
     })
@@ -213,7 +277,7 @@ export default function(hljs) {
         className: 'template-tag',
         begin: /\{\{\{\{(?!\/)/,
         end: /\}\}\}\}/,
-        contains: [OPENING_BLOCK_MUSTACHE_CONTENTS],
+        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS ],
         starts: {
           end: /\{\{\{\{\//,
           returnEnd: true,
@@ -225,14 +289,28 @@ export default function(hljs) {
         className: 'template-tag',
         begin: /\{\{\{\{\//,
         end: /\}\}\}\}/,
-        contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS]
+        contains: [ CLOSING_BLOCK_MUSTACHE_CONTENTS ]
+      },
+      // open angle-brocket component invocation
+      {
+        className: 'template-tag',
+        begin: /<:?/,
+        end: />/,
+        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS, BLOCK_PARAMS, KEYWORD_CONTENTS ]
+      },
+      // end angle-brocket component invocation
+      {
+        className: 'template-tag',
+        begin: /<:?\//,
+        end: />/,
+        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS ]
       },
       {
         // open block statement
         className: 'template-tag',
         begin: /\{\{#/,
         end: /\}\}/,
-        contains: [OPENING_BLOCK_MUSTACHE_CONTENTS]
+        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS ]
       },
       {
         className: 'template-tag',
@@ -251,21 +329,21 @@ export default function(hljs) {
         className: 'template-tag',
         begin: /\{\{\//,
         end: /\}\}/,
-        contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS]
+        contains: [ CLOSING_BLOCK_MUSTACHE_CONTENTS ]
       },
       {
         // template variable or helper-call that is NOT html-escaped
         className: 'template-variable',
         begin: /\{\{\{/,
         end: /\}\}\}/,
-        contains: [BASIC_MUSTACHE_CONTENTS]
+        contains: [ BASIC_MUSTACHE_CONTENTS ]
       },
       {
         // template variable or helper-call that is html-escaped
         className: 'template-variable',
         begin: /\{\{/,
         end: /\}\}/,
-        contains: [BASIC_MUSTACHE_CONTENTS]
+        contains: [ BASIC_MUSTACHE_CONTENTS ]
       }
     ]
   };
