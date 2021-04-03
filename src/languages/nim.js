@@ -6,7 +6,7 @@ Category: system
 */
 
 export default function(hljs) {
-  const BUILT_INS = [
+  const TYPES = [
     "int",
     "int8",
     "int16",
@@ -82,6 +82,7 @@ export default function(hljs) {
     "from",
     "func",
     "generic",
+    "guarded",
     "if",
     "import",
     "in",
@@ -107,6 +108,7 @@ export default function(hljs) {
     "raise",
     "ref",
     "return",
+    "shared",
     "shl",
     "shr",
     "static",
@@ -123,13 +125,13 @@ export default function(hljs) {
     "xor",
     "yield"
   ];
-  const LITERALS = [
-    "shared",
-    "guarded",
+  const BUILT_INS = [
     "stdin",
     "stdout",
     "stderr",
-    "result",
+    "result"
+  ];
+  const LITERALS = [
     "true",
     "false"
   ];
@@ -138,6 +140,7 @@ export default function(hljs) {
     keywords: {
       keyword: KEYWORDS,
       literal: LITERALS,
+      type: TYPES,
       built_in: BUILT_INS
     },
     contains: [
