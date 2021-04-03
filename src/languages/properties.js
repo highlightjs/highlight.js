@@ -14,8 +14,7 @@ export default function(hljs) {
   var EQUAL_DELIM = WS0+'[:=]'+WS0;
   var WS_DELIM = WS1;
   var DELIM = '(' + EQUAL_DELIM + '|' + WS_DELIM + ')';
-  var KEY_ALPHANUM = '([^\\\\\\W:= \\t\\f\\n]|\\\\.)+';
-  var KEY_OTHER = '([^\\\\:= \\t\\f\\n]|\\\\.)+';
+  var KEY = '([^\\\\:= \\t\\f\\n]|\\\\.)+';
 
   var DELIM_AND_VALUE = {
           // skip DELIM
@@ -40,32 +39,17 @@ export default function(hljs) {
     contains: [
       hljs.COMMENT('^\\s*[!#]', '$'),
       // key: everything until whitespace or = or : (taking into account backslashes)
-      // case of a "normal" key
+      // case of a key-value pair
       {
         returnBegin: true,
         variants: [
-          { begin: KEY_ALPHANUM + EQUAL_DELIM, relevance: 1 },
-          { begin: KEY_ALPHANUM + WS_DELIM, relevance: 0 }
+          { begin: KEY + EQUAL_DELIM, relevance: 1 },
+          { begin: KEY + WS_DELIM, relevance: 0 }
         ],
         contains: [
           {
             className: 'attr',
-            begin: KEY_ALPHANUM,
-            endsParent: true,
-            relevance: 0
-          }
-        ],
-        starts: DELIM_AND_VALUE
-      },
-      // case of key containing non-alphanumeric chars => relevance = 0
-      {
-        begin: KEY_OTHER + DELIM,
-        returnBegin: true,
-        relevance: 0,
-        contains: [
-          {
-            className: 'meta',
-            begin: KEY_OTHER,
+            begin: KEY,
             endsParent: true,
             relevance: 0
           }
@@ -76,7 +60,7 @@ export default function(hljs) {
       {
         className: 'attr',
         relevance: 0,
-        begin: KEY_OTHER + WS0 + '$'
+        begin: KEY + WS0 + '$'
       }
     ]
   };
