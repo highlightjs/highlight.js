@@ -299,7 +299,7 @@
           // update data-klass post-render for cool class previews
           this.$nextTick(() => {
             $(".hljs span").each((_,el) => {
-              $(el).attr("data-klass", el.className.replace("hljs-",""))
+              $(el).attr("data-klass", el.className.replace(/hljs-/g,""))
             })
           })
         }
