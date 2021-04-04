@@ -214,8 +214,9 @@ requireLanguage
 
   requireLanguage(name)
 
-**This has been deprecated as of 10.4 and will be removed in a future release.**  If you
-need this type of functionality use ``getLanguage`` with your own error
+**This has been deprecated as of 10.4 and will be removed in a future release.** 
+
+If you need this type of functionality use ``getLanguage`` with your own error
 handling.  It is highly recommended that all inter-dependencies between grammars
 be handled at built-time, not run-time.  This is what the core library now does.
 
