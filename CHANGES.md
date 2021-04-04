@@ -24,6 +24,7 @@ Grammars:
 New Languages:
 
 - Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
+- Added 3rd party ZenScript grammar to SUPPORTED_LANGUAGES(#3106) [Jared Luboff][]
 
 Theme Improvements:
 
@@ -33,6 +34,7 @@ Theme Improvements:
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3
 [Wei Su]: https://github.com/swsoyee
+[Jared Luboff]: https://github.com/jaredlll08
 
 ## Version 10.7.1
 
