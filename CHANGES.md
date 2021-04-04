@@ -1,12 +1,32 @@
 ## Version next
 
+- chore(properties) disable auto-detection #3102 [Josh Goebel][]
+- fix(properties) fix incorrect handling of non-alphanumeric keys #3102 [Egor Rogov][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
 - enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]
+- fix(nginx) fix bug with $ and @ variables [Josh Goebel][]
+- enh(nginx) improving highlighting of some sections [Josh Goebel][]
+- fix(vim) variable names may not be zero length [Josh Goebel][]
+- enh(sqf) Updated keywords to Arma 3 v2.02 (#3084) [R3voA3][]
+- enh(nim) highlight types properly (not as built-ins) [Josh Goebel][]
+- (chore) throttle deprecation messages (#3092) [Mihkel Eidast][]
+- enh(c) Update keyword list for C11/C18 (#3010) [Josh Goebel][]
+- enh(parser) highlight object properties (#3072) [Josh Goebel][]
+- enh(javascript/typescript) highlight object properties (#3072) [Josh Goebel][]
+
+New Languages:
+
+- Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
+
+Theme Improvements:
+
+- chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
-
+[R3voA3]: https://github.com/R3voA3
+[Wei Su]: https://github.com/swsoyee
 
 ## Version 10.7.1
 
@@ -62,6 +82,7 @@ Deprecations:
   - Plugin callback now takes `el` vs `block` attribute
   - The old API and callbacks will be supported until v12.
 
+
 [Stef Levesque]: https://github.com/stef-levesque
 [Josh Goebel]: https://github.com/joshgoebel
 [John Cheung]: https://github.com/Real-John-Cheung
@@ -73,6 +94,7 @@ Deprecations:
 [David Ostrovsky]: https://github.com/davido
 [AndyKIron]: https://github.com/AndyKIron
 [Samuel Colvin]: https://github.com/samuelcolvin
+[Jan Pilzer]: https://github.com/Hirse
 
 ## Version 10.6.0
 

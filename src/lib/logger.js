@@ -6,6 +6,11 @@ https://github.com/highlightjs/highlight.js/issues/2880#issuecomment-747275419
 */
 
 /**
+ * @type {Record<string, boolean>}
+ */
+const seenDeprecations = {};
+
+/**
  * @param {string} message
  */
 export const error = (message) => {
@@ -32,5 +37,8 @@ export const notice = (message) => {
  * @param {string} message
  */
 export const deprecated = (version, message) => {
+  if (seenDeprecations[`${version}/${message}`]) return;
+
   console.log(`Deprecated as of ${version}. ${message}`);
+  seenDeprecations[`${version}/${message}`] = true;
 };

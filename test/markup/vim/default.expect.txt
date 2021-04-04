@@ -1,0 +1,17 @@
+<span class="hljs-keyword">if</span> foo &gt; <span class="hljs-number">2</span> || <span class="hljs-built_in">has</span>(<span class="hljs-string">&quot;gui_running&quot;</span>)
+  <span class="hljs-keyword">syntax</span> <span class="hljs-keyword">on</span>
+  <span class="hljs-keyword">set</span> hlsearch
+<span class="hljs-keyword">endif</span>
+
+<span class="hljs-keyword">set</span> autoindent
+
+<span class="hljs-comment">&quot; switch on highlighting</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UnComment</span><span class="hljs-params">(fl, ll)</span></span>
+  <span class="hljs-keyword">while</span> idx &gt;= <span class="hljs-variable">a:ll</span>
+    <span class="hljs-keyword">let</span> srclines=<span class="hljs-built_in">getline</span>(idx)
+    <span class="hljs-keyword">let</span> dstlines=<span class="hljs-keyword">substitute</span>(srclines, <span class="hljs-variable">b:comment</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)
+    <span class="hljs-keyword">call</span> <span class="hljs-built_in">setline</span>(idx, dstlines)
+  <span class="hljs-keyword">endwhile</span>
+<span class="hljs-keyword">endfunction</span>
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">conf</span> = {<span class="hljs-string">&#x27;command&#x27;</span>: <span class="hljs-string">&#x27;git&#x27;</span>}

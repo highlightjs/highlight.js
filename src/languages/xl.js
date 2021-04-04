@@ -6,28 +6,143 @@ Website: http://xlr.sf.net
 */
 
 export default function(hljs) {
-  const BUILTIN_MODULES =
-    'ObjectLoader Animate MovieCredits Slides Filters Shading Materials LensFlare Mapping VLCAudioVideo ' +
-    'StereoDecoder PointCloud NetworkAccess RemoteControl RegExp ChromaKey Snowfall NodeJS Speech Charts';
-
-  const XL_KEYWORDS = {
+  const KWS = [
+    "if",
+    "then",
+    "else",
+    "do",
+    "while",
+    "until",
+    "for",
+    "loop",
+    "import",
+    "with",
+    "is",
+    "as",
+    "where",
+    "when",
+    "by",
+    "data",
+    "constant",
+    "integer",
+    "real",
+    "text",
+    "name",
+    "boolean",
+    "symbol",
+    "infix",
+    "prefix",
+    "postfix",
+    "block",
+    "tree"
+  ];
+  const BUILT_INS = [
+    "in",
+    "mod",
+    "rem",
+    "and",
+    "or",
+    "xor",
+    "not",
+    "abs",
+    "sign",
+    "floor",
+    "ceil",
+    "sqrt",
+    "sin",
+    "cos",
+    "tan",
+    "asin",
+    "acos",
+    "atan",
+    "exp",
+    "expm1",
+    "log",
+    "log2",
+    "log10",
+    "log1p",
+    "pi",
+    "at",
+    "text_length",
+    "text_range",
+    "text_find",
+    "text_replace",
+    "contains",
+    "page",
+    "slide",
+    "basic_slide",
+    "title_slide",
+    "title",
+    "subtitle",
+    "fade_in",
+    "fade_out",
+    "fade_at",
+    "clear_color",
+    "color",
+    "line_color",
+    "line_width",
+    "texture_wrap",
+    "texture_transform",
+    "texture",
+    "scale_?x",
+    "scale_?y",
+    "scale_?z?",
+    "translate_?x",
+    "translate_?y",
+    "translate_?z?",
+    "rotate_?x",
+    "rotate_?y",
+    "rotate_?z?",
+    "rectangle",
+    "circle",
+    "ellipse",
+    "sphere",
+    "path",
+    "line_to",
+    "move_to",
+    "quad_to",
+    "curve_to",
+    "theme",
+    "background",
+    "contents",
+    "locally",
+    "time",
+    "mouse_?x",
+    "mouse_?y",
+    "mouse_buttons"
+  ];
+  const BUILTIN_MODULES = [
+    "ObjectLoader",
+    "Animate",
+    "MovieCredits",
+    "Slides",
+    "Filters",
+    "Shading",
+    "Materials",
+    "LensFlare",
+    "Mapping",
+    "VLCAudioVideo",
+    "StereoDecoder",
+    "PointCloud",
+    "NetworkAccess",
+    "RemoteControl",
+    "RegExp",
+    "ChromaKey",
+    "Snowfall",
+    "NodeJS",
+    "Speech",
+    "Charts"
+  ];
+  const LITERALS = [
+    "true",
+    "false",
+    "nil"
+  ];
+  const KEYWORDS = {
     $pattern: /[a-zA-Z][a-zA-Z0-9_?]*/,
-    keyword:
-      'if then else do while until for loop import with is as where when by data constant ' +
-      'integer real text name boolean symbol infix prefix postfix block tree',
-    literal:
-      'true false nil',
-    built_in:
-      'in mod rem and or xor not abs sign floor ceil sqrt sin cos tan asin ' +
-      'acos atan exp expm1 log log2 log10 log1p pi at text_length text_range ' +
-      'text_find text_replace contains page slide basic_slide title_slide ' +
-      'title subtitle fade_in fade_out fade_at clear_color color line_color ' +
-      'line_width texture_wrap texture_transform texture scale_?x scale_?y ' +
-      'scale_?z? translate_?x translate_?y translate_?z? rotate_?x rotate_?y ' +
-      'rotate_?z? rectangle circle ellipse sphere path line_to move_to ' +
-      'quad_to curve_to theme background contents locally time mouse_?x ' +
-      'mouse_?y mouse_buttons ' +
-      BUILTIN_MODULES
+    keyword: KWS,
+    literal: LITERALS,
+    built_in: BUILT_INS.concat(BUILTIN_MODULES)
   };
 
   const DOUBLE_QUOTE_TEXT = {
@@ -54,7 +169,7 @@ export default function(hljs) {
   const IMPORT = {
     beginKeywords: 'import',
     end: '$',
-    keywords: XL_KEYWORDS,
+    keywords: KEYWORDS,
     contains: [ DOUBLE_QUOTE_TEXT ]
   };
   const FUNCTION_DEFINITION = {
@@ -66,7 +181,7 @@ export default function(hljs) {
       hljs.inherit(hljs.TITLE_MODE, {
         starts: {
           endsWithParent: true,
-          keywords: XL_KEYWORDS
+          keywords: KEYWORDS
         }
       })
     ]
@@ -74,7 +189,7 @@ export default function(hljs) {
   return {
     name: 'XL',
     aliases: [ 'tao' ],
-    keywords: XL_KEYWORDS,
+    keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,

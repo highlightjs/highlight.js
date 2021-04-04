@@ -51,10 +51,24 @@ export default function(hljs) {
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
         keywords: {
-          nomarkup:
-            'order deny allow setenv rewriterule rewriteengine rewritecond documentroot ' +
-            'sethandler errordocument loadmodule options header listen serverroot ' +
-            'servername'
+          _: [
+            "order",
+            "deny",
+            "allow",
+            "setenv",
+            "rewriterule",
+            "rewriteengine",
+            "rewritecond",
+            "documentroot",
+            "sethandler",
+            "errordocument",
+            "loadmodule",
+            "options",
+            "header",
+            "listen",
+            "serverroot",
+            "servername"
+          ]
         },
         starts: {
           end: /$/,
