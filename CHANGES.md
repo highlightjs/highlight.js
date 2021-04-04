@@ -1,5 +1,8 @@
 ## Version 10.7.2
 
+This is a patch release.  The only change is that deprecation messages
+are throttled and shown only once.
+
 - (chore) throttle deprecation messages (#3092) [Mihkel Eidast][]
 
 [Mihkel Eidast]: https://github.com/mihkeleidast
