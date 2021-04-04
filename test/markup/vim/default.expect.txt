@@ -6,7 +6,7 @@
 <span class="hljs-keyword">set</span> autoindent
 
 <span class="hljs-comment">&quot; switch on highlighting</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UnComment</span><span class="hljs-params">(fl, ll)</span></span>
+<span class="hljs-keyword">function</span> <span class="hljs-title">UnComment</span><span class="hljs-params">(fl, ll)</span>
   <span class="hljs-keyword">while</span> idx &gt;= <span class="hljs-variable">a:ll</span>
     <span class="hljs-keyword">let</span> srclines=<span class="hljs-built_in">getline</span>(idx)
     <span class="hljs-keyword">let</span> dstlines=<span class="hljs-keyword">substitute</span>(srclines, <span class="hljs-variable">b:comment</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)

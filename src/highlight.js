@@ -247,10 +247,29 @@ const HLJS = function(hljs) {
     }
 
     /**
-     * @param {Mode} mode - new mode to start
+     * @param {CompiledMode} mode
+     * @param {RegExpMatchArray} match
      */
-    function startNewMode(mode) {
-      if (mode.className) {
+    function emitMultiClass(mode, match) {
+      let i = 1;
+      while (match[i]) {
+        const klass = language.classNameAliases[mode.className[i]] || mode.className[i];
+        const text = match[i];
+        if (klass) { emitter.addKeyword(text, klass); } else { emitter.addText(text); }
+        i++;
+      }
+    }
+
+    /**
+     * @param {CompiledMode} mode - new mode to start
+     * @param {RegExpMatchArray} match
+     */
+    function startNewMode(mode, match) {
+      if (mode.isMultiClass) {
+        // at this point modeBuffer should just be the match
+        modeBuffer = "";
+        emitMultiClass(mode, match);
+      } else if (mode.className) {
         emitter.openNode(language.classNameAliases[mode.className] || mode.className);
       }
       top = Object.create(mode, { parent: { value: top } });
@@ -340,7 +359,7 @@ const HLJS = function(hljs) {
           modeBuffer = lexeme;
         }
       }
-      startNewMode(newMode);
+      startNewMode(newMode, match);
       // if (mode["after:begin"]) {
       //   let resp = new Response(mode);
       //   mode["after:begin"](match, resp);
@@ -373,7 +392,7 @@ const HLJS = function(hljs) {
         }
       }
       do {
-        if (top.className) {
+        if (top.className && !top.isMultiClass) {
           emitter.closeNode();
         }
         if (!top.skip && !top.subLanguage) {
@@ -385,7 +404,7 @@ const HLJS = function(hljs) {
         if (endMode.endSameAsBegin) {
           endMode.starts.endRe = endMode.endRe;
         }
-        startNewMode(endMode.starts);
+        startNewMode(endMode.starts, match);
       }
       return origin.returnEnd ? 0 : lexeme.length;
     }

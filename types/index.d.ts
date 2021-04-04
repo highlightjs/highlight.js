@@ -206,7 +206,8 @@ type CompiledMode = Omit<Mode, 'contains'> &
         endRe: RegExp
         illegalRe: RegExp
         matcher: any
-        isCompiled: true
+        isCompiled: true,
+        isMultiClass?: boolean,
         starts?: CompiledMode
         parent?: CompiledMode
     }

@@ -154,16 +154,46 @@ for one thing like string in single or double quotes.
 begin
 ^^^^^
 
-- **type**: regexp
+- **type**: regexp or array of regexp
 
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
 
 
+You can also pass an array when you need to individually highlight portions of the match with different classes:
+
+::
+
+  {
+  begin: [
+    /function!/,
+    /\s+/,
+    hljs.IDENT_RE
+  ],
+  className: {
+    1: "keyword",
+    3: "title"
+  },
+  }
+
+This would highlight ``function!`` as a ``keyword`` while highlighting the name
+of the function as ``title``. The space(s) between would be matched, but not
+highlighted.
+
+Note: Internally, each regular expression in the array becomes a capture group
+inside a larger concatenated regex.  *These regular expressions many NOT include
+capture groups of their own yet.* If your regexes uses groups at all, they
+**must** be non-capturing, i.e. ``(?:regex)``.
+
+For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issues/3095>`_.
+
+
+
+
 match
 ^^^^^
 
-- **type**: regexp
+- **type**: regexp or array of regexp
 
 This is simply syntactic sugar for a ``begin`` when no ``end`` expression is
 necessary.   It may not be used with ``begin`` or ``end`` keys (that would make
@@ -532,4 +562,3 @@ handle pairs of ``/* .. */`` to correctly find the ending ``?>``::
 
 Without ``skip: true`` every comment would cause the parser to drop out back
 into the HTML mode.
-
