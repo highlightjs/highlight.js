@@ -8,6 +8,6 @@
 
     <span class="hljs-meta">@bar</span>()
     <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-title">myMethod</span>(<span class="hljs-params"><span class="hljs-meta">@bar</span>() z</span>)</span> {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Hello world.&#x27;</span>);
+        <span class="hljs-built_in">console</span>.<span class="hljs-property">log</span>(<span class="hljs-string">&#x27;Hello world.&#x27;</span>);
     }
 }
