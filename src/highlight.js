@@ -255,7 +255,11 @@ const HLJS = function(hljs) {
       while (match[i]) {
         const klass = language.classNameAliases[mode.className[i]] || mode.className[i];
         const text = match[i];
-        if (klass) { emitter.addKeyword(text, klass); } else { emitter.addText(text); }
+        if (klass) { emitter.addKeyword(text, klass); } else {
+          modeBuffer = text;
+          // emitter.addText(text);
+          processKeywords();
+        }
         i++;
       }
     }
@@ -267,8 +271,8 @@ const HLJS = function(hljs) {
     function startNewMode(mode, match) {
       if (mode.isMultiClass) {
         // at this point modeBuffer should just be the match
-        modeBuffer = "";
         emitMultiClass(mode, match);
+        modeBuffer = "";
       } else if (mode.className) {
         emitter.openNode(language.classNameAliases[mode.className] || mode.className);
       }
