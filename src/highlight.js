@@ -247,7 +247,7 @@ const HLJS = function(hljs) {
     }
 
     /**
-     * @param {Mode} mode
+     * @param {CompiledMode} mode
      * @param {RegExpMatchArray} match
      */
     function emitMultiClass(mode, match) {
