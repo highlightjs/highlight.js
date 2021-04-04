@@ -39,6 +39,8 @@ your language is not considered a "Markup" language.
 | punctuation              | aux. punctuation that should be subtly highlighted|
 |                          | (parentheses, brackets, etc.)                     |
 +--------------------------+---------------------------------------------------+
+| property                 | object property ``obj.prop1.prop2.value``         |
++--------------------------+---------------------------------------------------+
 | regexp                   | literal regular expression                        |
 +--------------------------+---------------------------------------------------+
 | string                   | literal string, character                         |
