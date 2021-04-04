@@ -1,5 +1,5 @@
 /* eslint-disable no-throw-literal */
-import * as logger from "./lib/logger.js";
+import * as logger from "../../lib/logger.js";
 import * as regex from "../regex.js";
 
 const MultiClassError = new Error();
