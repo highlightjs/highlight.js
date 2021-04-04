@@ -1,6 +1,7 @@
 ## Version next
 
-- fix(properties) fix incorrect handling of non-alphanumeric keys [Egor Rogov][]
+- chore(properties) disable auto-detection #3102 [Josh Goebel][]
+- fix(properties) fix incorrect handling of non-alphanumeric keys #3102 [Egor Rogov][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - enh(shell) add alias ShellSession [Ryan Mulligan][]
 - enh(shell) consider one space after prompt as part of prompt [Ryan Mulligan][]

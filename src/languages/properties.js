@@ -5,6 +5,7 @@ Website: https://en.wikipedia.org/wiki/.properties
 Category: common, config
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   // whitespaces: space, tab, formfeed
   const WS0 = '[ \\t\\f]*';
@@ -37,6 +38,7 @@ export default function(hljs) {
 
   return {
     name: '.properties',
+    disableAutodetect: true,
     case_insensitive: true,
     illegal: /\S/,
     contains: [
@@ -47,20 +49,17 @@ export default function(hljs) {
         returnBegin: true,
         variants: [
           {
-            begin: KEY + EQUAL_DELIM,
-            relevance: 1
+            begin: KEY + EQUAL_DELIM
           },
           {
-            begin: KEY + WS_DELIM,
-            relevance: 0
+            begin: KEY + WS_DELIM
           }
         ],
         contains: [
           {
             className: 'attr',
             begin: KEY,
-            endsParent: true,
-            relevance: 0
+            endsParent: true
           }
         ],
         starts: DELIM_AND_VALUE
@@ -68,7 +67,6 @@ export default function(hljs) {
       // case of an empty key
       {
         className: 'attr',
-        relevance: 0,
         begin: KEY + WS0 + '$'
       }
     ]
