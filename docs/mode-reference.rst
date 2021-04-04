@@ -180,9 +180,15 @@ This would highlight ``function!`` as a ``keyword`` while highlighting the name
 of the function as ``title``. The space(s) between would be matched, but not
 highlighted.
 
-\*Note: Internally, the array of regular expressions has each separate item converted
-into capture groups. However, `manually adding capture groups is not yet supported <https://github.com/highlightjs/highlight.js/issues/3095>`_.
-If your regexes use groups, they **must** be non-capturing groups, i.e. ``(?:regex)``.
+Note: Internally, each regular expression in the array becomes a capture group
+inside a larger concatenated regex.  *These regular expressions many NOT include
+capture groups of their own yet.* If your regexes uses groups at all, they
+**must** be non-capturing, i.e. ``(?:regex)``.
+
+For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issues/3095>`_.
+
+
+
 
 match
 ^^^^^
