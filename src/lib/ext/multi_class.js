@@ -12,7 +12,7 @@ export function MultiClass(mode) {
   if (!Array.isArray(mode.begin)) return;
 
   if (mode.skip || mode.excludeBegin || mode.returnBegin) {
-    logger.error("skip, excludeBegin, returnBegin not compatible with multi-class")
+    logger.error("skip, excludeBegin, returnBegin not compatible with multi-class");
     throw MultiClassError;
   }
 
