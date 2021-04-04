@@ -253,7 +253,7 @@ const HLJS = function(hljs) {
     function emitMultiClass(mode, match) {
       let i = 1;
       while (match[i]) {
-        const klass = mode.className[i];
+        const klass = language.classNameAliases[mode.className[i]] || mode.className[i];
         const text = match[i];
         if (klass) { emitter.addKeyword(text, klass); } else { emitter.addText(text); }
         i++;
