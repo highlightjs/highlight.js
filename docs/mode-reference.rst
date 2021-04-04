@@ -180,9 +180,9 @@ This would highlight ``function!`` as a ``keyword`` while highlighting the name
 of the function as ``title``. The space(s) between would be matched, but not
 highlighted.
 
-*Note: Internally this magic happens by wrapping each regex within it's own
-capture group.  If your regexes include any groups they must all be
-non-capturing, ie:* ``(?:regex)``.
+\*Note: Internally, the array of regular expressions has each separate item converted
+into capture groups. However, `manually adding capture groups is not yet supported <https://github.com/highlightjs/highlight.js/issues/3095>`_.
+If your regexes use groups, they **must** be non-capturing groups, i.e. ``(?:regex)``.
 
 match
 ^^^^^
@@ -556,4 +556,3 @@ handle pairs of ``/* .. */`` to correctly find the ending ``?>``::
 
 Without ``skip: true`` every comment would cause the parser to drop out back
 into the HTML mode.
-
