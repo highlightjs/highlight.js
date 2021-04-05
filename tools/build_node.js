@@ -65,6 +65,7 @@ async function buildNode(options) {
   install("./LICENSE", "LICENSE");
   install("./README.md", "README.md");
   install("./types/index.d.ts", "types/index.d.ts");
+  install("./src/core.d.ts","lib/core.d.ts");
 
   log("Writing styles.");
   const styles = await fs.readdir("./src/styles/");
