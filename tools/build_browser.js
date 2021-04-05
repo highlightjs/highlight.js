@@ -14,10 +14,11 @@ const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
 
 function buildHeader(args) {
-  return "/*\n" +
-  `  Highlight.js ${args.version} (${args.git_sha})\n` +
+  return "/*!\n" +
+  `  Highlight.js v${args.version} (git: ${args.git_sha})\n` +
+  `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n` +
   `  License: ${args.license}\n` +
-  `  Copyright (c) ${config.copyrightYears}, ${args.author.name}\n*/`;
+  ` */`;
 }
 
 async function buildBrowser(options) {
@@ -143,7 +144,7 @@ async function buildBrowserHighlightJS(languages, { minify }) {
   const git_sha = child_process
     .execSync("git rev-parse HEAD")
     .toString().trim()
-    .slice(0, 8);
+    .slice(0, 10);
   const versionDetails = { ...require("../package"), git_sha };
   const header = buildHeader(versionDetails);
 
