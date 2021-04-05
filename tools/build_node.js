@@ -13,7 +13,7 @@ const safeImportName = (s) => {
 };
 
 async function buildESMIndex(name, languages) {
-  const header = `import hljs from './core.mjs';`;
+  const header = `import hljs from './core.js';`;
   const footer = "export default hljs;";
 
 
@@ -152,15 +152,17 @@ async function buildNode(options) {
     install(`./src/styles/${file}`, `styles/${file}`);
     install(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
   });
-  log("Writing package.json.");
-  await buildPackageJSON(options);
 
   let languages = await getLanguages();
   // filter languages for inclusion in the highlight.js bundle
   languages = filter(languages, options.languages);
-
   const common = languages.filter(l => l.categories.includes("common"));
+
+  log("Writing package.json.");
+  await buildPackageJSON(options);
+
   if (options.esm) {
+    await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
     await buildESMIndex("index", languages);
     await buildESMIndex("common", common);
     await buildESMUtils();
