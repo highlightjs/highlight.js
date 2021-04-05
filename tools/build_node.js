@@ -40,14 +40,16 @@ async function buildCJSIndex(name, languages) {
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/${name}.js`, index);
 }
 
-async function buildNodeLanguage(language) {
+async function buildNodeLanguage(language, options) {
   const input = { ...config.rollup.node.input, input: language.path };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
   await rollupWrite(input, output);
-  await rollupWrite(input, {...output,
-    format: "es",
-    file: output.file.replace("/lib/", "/es/")
-  });
+  if (options.esm) {
+    await rollupWrite(input, {...output,
+      format: "es",
+      file: output.file.replace("/lib/", "/es/")
+    });
+  }
 }
 
 const EXCLUDE = ["join"];
@@ -62,23 +64,24 @@ async function buildESMUtils() {
       return code;
     }
   }];
-  const output = {
+  await rollupWrite(input, {
     ...config.rollup.node.output,
     format: "es",
     file: `${process.env.BUILD_DIR}/es/utils/regex.js`
-  };
-  await rollupWrite(input, output);
+  });
 }
 
-
-async function buildNodeHighlightJS() {
+async function buildNodeHighlightJS(options) {
   const input = { ...config.rollup.node.input, input: `src/highlight.js` };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
   await rollupWrite(input, output);
-  await rollupWrite(input, { ...output,
-    format: "es",
-    file: `${process.env.BUILD_DIR}/es/core.js`
-  });
+  if (options.esm) {
+    await rollupWrite(input, {
+      ...output,
+      format: "es",
+      file: `${process.env.BUILD_DIR}/es/core.js`
+    });
+  }
 }
 
 function dual(file) {
@@ -88,7 +91,7 @@ function dual(file) {
   };
 }
 
-async function buildPackageJSON() {
+async function buildPackageJSON(options) {
   const packageJson = require("../package");
 
   const exports = {
@@ -98,16 +101,16 @@ async function buildPackageJSON() {
     "./lib/core": dual("./lib/core.js"),
     "./lib/languages/*": dual("./lib/languages/*.js"),
   };
-  packageJson.exports = exports;
+  if (options.esm) packageJson.exports = exports;
 
   await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
 }
 
-async function buildLanguages(languages) {
+async function buildLanguages(languages, options) {
   log("Writing languages.");
   await Promise.all(
     languages.map(async(lang) => {
-      await buildNodeLanguage(lang);
+      await buildNodeLanguage(lang, options);
       process.stdout.write(".");
     })
   );
@@ -126,7 +129,6 @@ const CORE_FILES = [
 
 async function buildNode(options) {
   mkdir("lib/languages");
-  mkdir("es/languages");
   mkdir("scss");
   mkdir("styles");
   mkdir("types");
@@ -136,9 +138,13 @@ async function buildNode(options) {
     install(`./${file}`, file);
   });
   install("./src/core.d.ts", "lib/core.d.ts");
-  install("./src/core.d.ts", "es/core.d.ts");
   install("./src/core.d.ts", "lib/common.d.ts");
-  install("./src/core.d.ts", "es/common.d.ts");
+
+  if (options.esm) {
+    mkdir("es/languages");
+    install("./src/core.d.ts", "es/core.d.ts");
+    install("./src/core.d.ts", "es/common.d.ts");
+  }
 
   log("Writing styles.");
   const styles = await fs.readdir("./src/styles/");
@@ -147,23 +153,24 @@ async function buildNode(options) {
     install(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
   });
   log("Writing package.json.");
-  await buildPackageJSON();
+  await buildPackageJSON(options);
 
   let languages = await getLanguages();
   // filter languages for inclusion in the highlight.js bundle
   languages = filter(languages, options.languages);
 
   const common = languages.filter(l => l.categories.includes("common"));
-  await buildESMIndex("index", languages);
-  await buildESMIndex("common", common);
-  await buildESMUtils();
+  if (options.esm) {
+    await buildESMIndex("index", languages);
+    await buildESMIndex("common", common);
+    await buildESMUtils();
+  }
   await buildCJSIndex("index", languages);
   await buildCJSIndex("common", common);
-  await buildLanguages(languages);
+  await buildLanguages(languages, options);
 
   log("Writing highlight.js");
-  await buildNodeHighlightJS();
-
+  await buildNodeHighlightJS(options);
 }
 
 module.exports.build = buildNode;
