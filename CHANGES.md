@@ -16,6 +16,8 @@ Deprecations / Removals / API Changes:
 - `tabReplace` option removed. Consider a plugin.
 - `useBR` option removed. Consider a plugin or CSS.
 - `requireLanguage()` removed. **Use `getLanguage()`.**
+- `endSameAsBegin` mode key removed. **Use `hljs.END_SAME_AS_BEGIN`.**
+- `lexemes` mode key removed. **Use `keywords.$pattern`.**
 - The return values/keys of some APIs have changed slightly.
 
 Security:

@@ -128,6 +128,32 @@ This function was deprecated in v10.2.  It is not our goal to provide random str
 
 This rule was too broad for bring inclusion in core and has been removed.
 
+- `lexemes` mode attribute has been removed.
+
+Use the new `keywords.$pattern` instead.
+
+Before:
+
+```js
+{
+  keywords: "do.it start.now begin.later end.immediately"
+  lexemes: /[a-z.]+/
+}
+```
+
+After:
+
+```js
+{
+  keywords: {
+    $pattern: /[a-z.]+/
+    keyword: "do.it start.now begin.later end.immediately",
+  }
+}
+```
+
+This may required converting your `keywords` key into an object if it's not already (as shown above).
+
 - `endSameAsBegin` mode attribute has been removed.
 
 Use the new `END_SAME_AS_BEGIN` mode rule/function instead.
