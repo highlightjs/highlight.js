@@ -41,10 +41,28 @@ async function buildCJSIndex(name, languages) {
 }
 
 async function buildNodeLanguage(language, options) {
+  const EMIT = `function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      process.emitWarning(
+        'Using file extension in specifier is deprecated, use "highlight.js/lib/languages/%%%%" instead'
+      );
+    }
+  }
+  emitWarning();`;
+  const CJS_STUB = `${EMIT}
+    module.exports = require('./%%%%.js');`;
+  const ES_STUB = `${EMIT}
+    import lang from './%%%%.js';
+    export default lang;`;
   const input = { ...config.rollup.node.input, input: language.path };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
   await rollupWrite(input, output);
+  await fs.writeFile(`${process.env.BUILD_DIR}/lib/languages/${language.name}.js.js`,
+    CJS_STUB.replace(/%%%%/g, language.name));
   if (options.esm) {
+    await fs.writeFile(`${process.env.BUILD_DIR}/es/languages/${language.name}.js.js`,
+      ES_STUB.replace(/%%%%/g, language.name));
     await rollupWrite(input, {...output,
       format: "es",
       file: output.file.replace("/lib/", "/es/")
