@@ -45,7 +45,8 @@ async function buildNodeLanguage(language, options) {
     if (!emitWarning.warned) {
       emitWarning.warned = true;
       process.emitWarning(
-        'Using file extension in specifier is deprecated, use "highlight.js/lib/languages/%%%%" instead'
+        'Using file extension in specifier is deprecated, use "highlight.js/lib/languages/%%%%" instead',
+        'DeprecationWarning'
       );
     }
   }
