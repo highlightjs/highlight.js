@@ -46,19 +46,19 @@
   color: #b5bd68;
 }
 
-/* Blue */
-.hljs-title,
-.hljs-meta,
-.hljs-section {
-  color: #81a2be;
-}
-
 /* Purple */
 .hljs-selector-tag,
 .hljs-keyword,
 .hljs-function,
 .hljs-class {
   color: #be94bb;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-meta,
+.hljs-section {
+  color: #81a2be;
 }
 
 /* Purple light */
