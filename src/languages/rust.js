@@ -6,44 +6,170 @@ Website: https://www.rust-lang.org
 Category: common, system
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  const NUM_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
-  const KEYWORDS =
-    'abstract as async await become box break const continue crate do dyn ' +
-    'else enum extern false final fn for if impl in let loop macro match mod ' +
-    'move mut override priv pub ref return self Self static struct super ' +
-    'trait true try type typeof unsafe unsized use virtual where while yield';
-  const BUILTINS =
+  const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
+  const KEYWORDS = [
+    "abstract",
+    "as",
+    "async",
+    "await",
+    "become",
+    "box",
+    "break",
+    "const",
+    "continue",
+    "crate",
+    "do",
+    "dyn",
+    "else",
+    "enum",
+    "extern",
+    "false",
+    "final",
+    "fn",
+    "for",
+    "if",
+    "impl",
+    "in",
+    "let",
+    "loop",
+    "macro",
+    "match",
+    "mod",
+    "move",
+    "mut",
+    "override",
+    "priv",
+    "pub",
+    "ref",
+    "return",
+    "self",
+    "Self",
+    "static",
+    "struct",
+    "super",
+    "trait",
+    "true",
+    "try",
+    "type",
+    "typeof",
+    "unsafe",
+    "unsized",
+    "use",
+    "virtual",
+    "where",
+    "while",
+    "yield"
+  ];
+  const LITERALS = [
+    "true",
+    "false",
+    "Some",
+    "None",
+    "Ok",
+    "Err"
+  ];
+  const BUILTINS = [
     // functions
-    'drop ' +
-    // types
-    'i8 i16 i32 i64 i128 isize ' +
-    'u8 u16 u32 u64 u128 usize ' +
-    'f32 f64 ' +
-    'str char bool ' +
-    'Box Option Result String Vec ' +
+    'drop ',
     // traits
-    'Copy Send Sized Sync Drop Fn FnMut FnOnce ToOwned Clone Debug ' +
-    'PartialEq PartialOrd Eq Ord AsRef AsMut Into From Default Iterator ' +
-    'Extend IntoIterator DoubleEndedIterator ExactSizeIterator ' +
-    'SliceConcatExt ToString ' +
+    "Copy",
+    "Send",
+    "Sized",
+    "Sync",
+    "Drop",
+    "Fn",
+    "FnMut",
+    "FnOnce",
+    "ToOwned",
+    "Clone",
+    "Debug",
+    "PartialEq",
+    "PartialOrd",
+    "Eq",
+    "Ord",
+    "AsRef",
+    "AsMut",
+    "Into",
+    "From",
+    "Default",
+    "Iterator",
+    "Extend",
+    "IntoIterator",
+    "DoubleEndedIterator",
+    "ExactSizeIterator",
+    "SliceConcatExt",
+    "ToString",
     // macros
-    'assert! assert_eq! bitflags! bytes! cfg! col! concat! concat_idents! ' +
-    'debug_assert! debug_assert_eq! env! panic! file! format! format_args! ' +
-    'include_bin! include_str! line! local_data_key! module_path! ' +
-    'option_env! print! println! select! stringify! try! unimplemented! ' +
-    'unreachable! vec! write! writeln! macro_rules! assert_ne! debug_assert_ne!';
+    "assert!",
+    "assert_eq!",
+    "bitflags!",
+    "bytes!",
+    "cfg!",
+    "col!",
+    "concat!",
+    "concat_idents!",
+    "debug_assert!",
+    "debug_assert_eq!",
+    "env!",
+    "panic!",
+    "file!",
+    "format!",
+    "format_args!",
+    "include_bin!",
+    "include_str!",
+    "line!",
+    "local_data_key!",
+    "module_path!",
+    "option_env!",
+    "print!",
+    "println!",
+    "select!",
+    "stringify!",
+    "try!",
+    "unimplemented!",
+    "unreachable!",
+    "vec!",
+    "write!",
+    "writeln!",
+    "macro_rules!",
+    "assert_ne!",
+    "debug_assert_ne!"
+  ];
+  const TYPES = [
+    "i8",
+    "i16",
+    "i32",
+    "i64",
+    "i128",
+    "isize",
+    "u8",
+    "u16",
+    "u32",
+    "u64",
+    "u128",
+    "usize",
+    "f32",
+    "f64",
+    "str",
+    "char",
+    "bool",
+    "Box",
+    "Option",
+    "Result",
+    "String",
+    "Vec"
+  ];
   return {
     name: 'Rust',
     aliases: [ 'rs' ],
     keywords: {
       $pattern: hljs.IDENT_RE + '!?',
-      keyword:
-        KEYWORDS,
-      literal:
-        'true false Some None Ok Err',
-      built_in:
-        BUILTINS
+      type: TYPES,
+      keyword: KEYWORDS,
+      literal: LITERALS,
+      built_in: BUILTINS
     },
     illegal: '</',
     contains: [
@@ -74,27 +200,31 @@ export default function(hljs) {
         className: 'number',
         variants: [
           {
-            begin: '\\b0b([01_]+)' + NUM_SUFFIX
+            begin: '\\b0b([01_]+)' + NUMBER_SUFFIX
           },
           {
-            begin: '\\b0o([0-7_]+)' + NUM_SUFFIX
+            begin: '\\b0o([0-7_]+)' + NUMBER_SUFFIX
           },
           {
-            begin: '\\b0x([A-Fa-f0-9_]+)' + NUM_SUFFIX
+            begin: '\\b0x([A-Fa-f0-9_]+)' + NUMBER_SUFFIX
           },
           {
             begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)' +
-                   NUM_SUFFIX
+                   NUMBER_SUFFIX
           }
         ],
         relevance: 0
       },
       {
-        className: 'function',
-        beginKeywords: 'fn',
-        end: '(\\(|<)',
-        excludeEnd: true,
-        contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+        begin: [
+          /fn/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.function"
+        }
       },
       {
         className: 'meta',
@@ -109,34 +239,62 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'class',
-        beginKeywords: 'type',
-        end: ';',
-        contains: [
-          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {
-            endsParent: true
-          })
+        begin: [
+          /let/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE
         ],
-        illegal: '\\S'
+        className: {
+          1: "keyword",
+          3: "variable"
+        }
+      },
+      // must come before impl/for rule later
+      {
+        begin: [
+          /for/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE,
+          /\s+/,
+          /in/
+        ],
+        className: {
+          1: "keyword",
+          3: "variable",
+          5: "keyword"
+        }
       },
       {
-        className: 'class',
-        beginKeywords: 'trait enum struct union',
-        end: /\{/,
-        contains: [
-          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {
-            endsParent: true
-          })
+        begin: [
+          /type/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE
         ],
-        illegal: '[\\w\\d]'
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
+      },
+      {
+        begin: [
+          /(?:trait|enum|struct|union|impl|for)/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
       },
       {
         begin: hljs.IDENT_RE + '::',
         keywords: {
+          keyword: "Self",
           built_in: BUILTINS
         }
       },
       {
+        className: "punctuation",
         begin: '->'
       }
     ]
