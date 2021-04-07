@@ -34,13 +34,6 @@
   color: #f79a32;
 }
 
-/* Kimbie Yellow */
-.hljs-title,
-.hljs-section,
-.hljs-attribute {
-  color: #f06431;
-}
-
 /* Kimbie Green */
 .hljs-string,
 .hljs-symbol,
@@ -54,6 +47,13 @@
 .hljs-selector-tag,
 .hljs-function {
   color: #98676a;
+}
+
+/* Kimbie Yellow */
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: #f06431;
 }
 
 .hljs {
