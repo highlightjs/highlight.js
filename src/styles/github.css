@@ -50,7 +50,7 @@
 
 .hljs-built_in,
 .hljs-symbol,
-.hljs-title-class,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
   /* prettylights-syntax-variable */
   color: #e36209;

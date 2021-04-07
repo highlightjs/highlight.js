@@ -48,7 +48,7 @@ Date: 2013-04-02
 
 
 .hljs-class .hljs-title,
-.hljs-title-class,
+.hljs-title.hljs-class,
 .hljs-type {
   color: #458;
 }

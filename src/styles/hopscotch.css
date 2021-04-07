@@ -56,7 +56,7 @@
 }
 
 /* Yellow */
-.hljs-title-class,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
   color: #fdcc59;
 }

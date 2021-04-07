@@ -47,7 +47,7 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
   color: #a6e22e;
 }
 
-.hljs-title-class,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
   color: white;
 }

@@ -82,7 +82,7 @@
 }
 
 .hljs-code,
-.hljs-title-class,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title,
 .hljs-section {
   color: white;
