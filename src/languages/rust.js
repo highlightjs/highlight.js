@@ -6,8 +6,19 @@ Website: https://www.rust-lang.org
 Category: common, system
 */
 
+import * as regex from '../lib/regex.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
+  const FUNCTION_INVOKE = {
+    className: "title.function.invoke",
+    relevance: 0,
+    begin: regex.concat(
+      /\b/,
+      /(?!let\b)/,
+      hljs.IDENT_RE,
+      regex.lookahead(/\s*\(/))
+  };
   const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
   const KEYWORDS = [
     "abstract",
@@ -240,13 +251,14 @@ export default function(hljs) {
       },
       {
         begin: [
-          /let/,
-          /\s+/,
+          /let/, /\s+/,
+          /(?:mut\s+)?/,
           hljs.UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
-          3: "variable"
+          3: "keyword",
+          4: "variable"
         }
       },
       // must come before impl/for rule later
@@ -296,7 +308,8 @@ export default function(hljs) {
       {
         className: "punctuation",
         begin: '->'
-      }
+      },
+      FUNCTION_INVOKE
     ]
   };
 }

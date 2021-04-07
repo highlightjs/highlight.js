@@ -252,7 +252,8 @@ const HLJS = function(hljs) {
      */
     function emitMultiClass(mode, match) {
       let i = 1;
-      while (match[i]) {
+      // eslint-disable-next-line no-undefined
+      while (match[i] !== undefined) {
         const klass = language.classNameAliases[mode.className[i]] || mode.className[i];
         const text = match[i];
         if (klass) { emitter.addKeyword(text, klass); } else {
