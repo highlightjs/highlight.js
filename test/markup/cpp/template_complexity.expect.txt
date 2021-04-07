@@ -1,24 +1,24 @@
-<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title hljs-title-class">T</span>&gt; <span class="hljs-comment">// comment</span>
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-title hljs-class">T</span>&gt; <span class="hljs-comment">// comment</span>
 <span class="hljs-function"><span class="hljs-keyword">auto</span> <span class="hljs-title">foo</span><span class="hljs-params">(T x)</span> </span>{ ... };
 
 <span class="hljs-keyword">namespace</span> impl {
     <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
-    <span class="hljs-keyword">struct</span> <span class="hljs-title hljs-title-class">is_streamable</span>&lt;T, std::<span class="hljs-keyword">void_t</span>&lt;<span class="hljs-keyword">decltype</span>(std::declval&lt;std::wostream &amp;&gt;() &lt;&lt; std::declval&lt;T&gt;())&gt;&gt; : std::true_type { };
+    <span class="hljs-keyword">struct</span> <span class="hljs-title hljs-class">is_streamable</span>&lt;T, std::<span class="hljs-keyword">void_t</span>&lt;<span class="hljs-keyword">decltype</span>(std::declval&lt;std::wostream &amp;&gt;() &lt;&lt; std::declval&lt;T&gt;())&gt;&gt; : std::true_type { };
 }
 
 <span class="hljs-comment">// Disable overload for already valid operands.</span>
-<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title hljs-title-class">T</span>, class = std::<span class="hljs-keyword">enable_if_t</span>&lt;!impl::is_streamable_v&lt;<span class="hljs-keyword">const</span> T &amp;&gt; &amp;&amp; std::is_convertible_v&lt;<span class="hljs-keyword">const</span> T &amp;, std::wstring_view&gt;&gt;&gt;
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title hljs-class">T</span>, class = std::<span class="hljs-keyword">enable_if_t</span>&lt;!impl::is_streamable_v&lt;<span class="hljs-keyword">const</span> T &amp;&gt; &amp;&amp; std::is_convertible_v&lt;<span class="hljs-keyword">const</span> T &amp;, std::wstring_view&gt;&gt;&gt;
 std::wostream &amp;<span class="hljs-keyword">operator</span> &lt;&lt;(std::wostream &amp;stream, <span class="hljs-keyword">const</span> T &amp;thing)
 {
     <span class="hljs-keyword">return</span> stream &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;std::wstring_view&gt;(thing);
 }
 
-<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-title-class"><span class="hljs-keyword">struct</span></span> DataHolder { };
-<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-title-class"><span class="hljs-keyword">class</span></span> DataThingy { };
-<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-title-class"><span class="hljs-keyword">class</span></span> Boolean : <span class="hljs-keyword">char</span> {
+<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-class"><span class="hljs-keyword">struct</span></span> DataHolder { };
+<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-class"><span class="hljs-keyword">class</span></span> DataThingy { };
+<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-class"><span class="hljs-keyword">class</span></span> Boolean : <span class="hljs-keyword">char</span> {
     True, False, FileNotFound
 };
 
-<span class="hljs-keyword">union</span> <span class="hljs-title hljs-title-class">Soy</span>
+<span class="hljs-keyword">union</span> <span class="hljs-title hljs-class">Soy</span>
 {
 };

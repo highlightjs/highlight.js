@@ -1,7 +1,7 @@
 <span class="hljs-comment">/*
   Isolated test for the most recent version
 */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">offsetPopulation</span>(<span class="hljs-params">offset</span>)</span>{
+<span class="hljs-keyword">function</span> <span class="hljs-title hljs-function">offsetPopulation</span>(<span class="hljs-params">offset</span>){
    <span class="hljs-keyword">var</span> popDensity = <span class="hljs-built_in">Round</span>( <span class="hljs-symbol">$feature</span>.POPULATION / <span class="hljs-built_in">AreaGeodetic</span>(<span class="hljs-built_in">Geometry</span>(<span class="hljs-symbol">$feature</span>), <span class="hljs-string">&quot;square-kilometers&quot;</span>) );
    <span class="hljs-keyword">var</span> geom = <span class="hljs-built_in">Geometry</span>({ <span class="hljs-string">&#x27;x&#x27;</span>: offset.x, <span class="hljs-string">&#x27;y&#x27;</span>: offset.y, <span class="hljs-string">&#x27;spatialReference&#x27;</span>:{<span class="hljs-string">&#x27;wkid&#x27;</span>:<span class="hljs-number">102100</span>} });
    <span class="hljs-keyword">var</span> myLayer = <span class="hljs-built_in">FeatureSet</span>(<span class="hljs-symbol">$map</span>, [<span class="hljs-string">&quot;POPULATION&quot;</span>, <span class="hljs-string">&quot;ELECTION-DATA&quot;</span>]);
