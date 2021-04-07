@@ -114,13 +114,12 @@ export default function(hljs) {
         keywords: { 'meta-keyword': 'import include' }
       },
       {
-        className: 'function',
         beginKeywords: 'function',
         end: /[{;]/,
         excludeEnd: true,
         illegal: /\S/,
         contains: [
-          hljs.TITLE_MODE,
+          hljs.inherit(hljs.TITLE_MODE, { className: "title.function" }),
           {
             className: 'params',
             begin: /\(/,
