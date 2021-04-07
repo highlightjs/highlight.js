@@ -100,6 +100,7 @@ Aurora
   color: #88C0D0;
 }
 
+.hljs-title.hljs-function,
 .hljs-function > .hljs-title {
   color: #88C0D0;
 }

@@ -43,7 +43,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 .hljs-variable,
 .hljs-template-variable,
-.hljs-title-class,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title,
 .hljs-type,
 .hljs-tag {

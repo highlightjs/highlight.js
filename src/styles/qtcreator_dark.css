@@ -61,7 +61,7 @@ Qt Creator dark color scheme
 
 .hljs-variable,
 .hljs-params,
-.hljs-title-class,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
   color: #8888ff;
 }
