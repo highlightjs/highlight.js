@@ -84,7 +84,7 @@ export default function(hljs) {
       literal:
         'null missing _all_ _automatic_ _character_ _infile_ ' +
         '_n_ _name_ _null_ _numeric_ _user_ _webout_',
-      meta:
+      keyword:
         SAS_KEYWORDS
     },
     contains: [
@@ -99,10 +99,15 @@ export default function(hljs) {
         begin: /&[a-zA-Z_&][a-zA-Z0-9_]*\.?/
       },
       {
-        // Special emphasis for datalines|cards
-        className: 'emphasis',
-        begin: /^\s*datalines|cards.*;/,
-        end: /^\s*;\s*$/
+        begin: [
+          /^\s*datalines;|cards;/,
+          /(?:.*\n)+/,
+          /^\s*;\s*$/
+        ],
+        className: {
+          1: "keyword",
+          2: "string"
+        }
       },
       { // Built-in macro variables take precedence
         className: 'built_in',
@@ -110,12 +115,12 @@ export default function(hljs) {
       },
       {
         // User-defined macro functions highlighted after
-        className: 'name',
+        className: 'title.function',
         begin: /%[a-zA-Z_][a-zA-Z_0-9]*/
       },
       {
         className: 'meta',
-        begin: '[^%](' + SAS_FUN + ')[\(]'
+        begin: '[^%](' + SAS_FUN + ')(?=\\()'
       },
       {
         className: 'string',
