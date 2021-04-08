@@ -2,6 +2,7 @@
 Language: WebAssembly
 Website: https://webassembly.org
 Description:  Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.
+Category: web
 Audit: 2020
 */
 
