@@ -273,9 +273,9 @@
 
     <span class="hljs-comment">;; call the function, storing the result in the memstack</span>
     <span class="hljs-punctuation">(</span><span class="hljs-keyword">call</span> <span class="hljs-title.function">$sum_struct_create</span>
-      <span class="hljs-punctuation">((</span>;<span class="hljs-variable">$sum_struct_ptr</span>=;<span class="hljs-punctuation">)</span> <span class="hljs-keyword">get_local</span> <span class="hljs-variable">$local_memstack_ptr</span><span class="hljs-punctuation">)</span>
-      <span class="hljs-punctuation">((</span>;<span class="hljs-variable">$var</span><span class="hljs-variable">$a</span>=;<span class="hljs-punctuation">)</span> <span class="hljs-keyword">i32.const</span> <span class="hljs-number">40</span><span class="hljs-punctuation">)</span>
-      <span class="hljs-punctuation">((</span>;<span class="hljs-variable">$var</span><span class="hljs-variable">$b</span>=;<span class="hljs-punctuation">)</span> <span class="hljs-keyword">i32.const</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-comment">(;$sum_struct_ptr=;)</span> <span class="hljs-keyword">get_local</span> <span class="hljs-variable">$local_memstack_ptr</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-comment">(;$var$a=;)</span> <span class="hljs-keyword">i32.const</span> <span class="hljs-number">40</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-comment">(;$var$b=;)</span> <span class="hljs-keyword">i32.const</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span>
     <span class="hljs-punctuation">)</span>
 
     <span class="hljs-comment">;; retrieve values from struct</span>
