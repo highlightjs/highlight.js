@@ -80,7 +80,7 @@ export default function(hljs) {
   };
 
   const PARENS = {
-    match: /[()]+/,
+    match: /(\((?!;)|\))+/,
     className: "punctuation",
     relevance: 0
   };
