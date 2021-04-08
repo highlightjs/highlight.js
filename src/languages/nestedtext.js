@@ -22,8 +22,8 @@ export default function(hljs) {
   const DICTIONARY_ITEM = {
     match: [
       /^\s*(?=\S)/, // have to look forward here to avoid polynomial backtracking
-      /[^:]+/,
-      /:/,
+      /[^:]*[^: ]/,
+      /[ ]*:/,
       /[ ]/,
       /.*$/
     ],
