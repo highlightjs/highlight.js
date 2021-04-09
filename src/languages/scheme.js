@@ -15,7 +15,7 @@ export default function(hljs) {
   const SCHEME_COMPLEX_NUMBER_RE = SCHEME_SIMPLE_NUMBER_RE + '[+\\-]' + SCHEME_SIMPLE_NUMBER_RE + 'i';
   const KEYWORDS = {
     $pattern: SCHEME_IDENT_RE,
-    'builtin-name':
+    built_in:
       'case-lambda call/cc class define-class exit-handler field import ' +
       'inherit init-field interface let*-values let-values let/ec mixin ' +
       'opt-lambda override protect provide public rename require ' +

@@ -1,7 +1,7 @@
-(<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> (x y z) (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> y z))
+(<span class="hljs-name"><span class="hljs-built_in">lambda</span></span> (x y z) (<span class="hljs-name"><span class="hljs-built_in">+</span></span> y z))
 
-(<span class="hljs-name"><span class="hljs-builtin-name">define</span></span> add-point
-  (<span class="hljs-name"><span class="hljs-builtin-name">lambda</span></span> [p1 p2]
+(<span class="hljs-name"><span class="hljs-built_in">define</span></span> add-point
+  (<span class="hljs-name"><span class="hljs-built_in">lambda</span></span> [p1 p2]
     (<span class="hljs-name">make-point</span>
-      (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> (<span class="hljs-name">point-x</span> p1) (<span class="hljs-name">point-x</span> p2))
-      (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> (<span class="hljs-name">point-y</span> p1) (<span class="hljs-name">point-y</span> p2)))))
+      (<span class="hljs-name"><span class="hljs-built_in">+</span></span> (<span class="hljs-name">point-x</span> p1) (<span class="hljs-name">point-x</span> p2))
+      (<span class="hljs-name"><span class="hljs-built_in">+</span></span> (<span class="hljs-name">point-y</span> p1) (<span class="hljs-name">point-y</span> p2)))))

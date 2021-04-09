@@ -1,4 +1,4 @@
-(<span class="hljs-name"><span class="hljs-builtin-name">import</span></span> [java.lang.annotation Retention RetentionPolicy Target ElementType]
+(<span class="hljs-name"><span class="hljs-built_in">import</span></span> [java.lang.annotation Retention RetentionPolicy Target ElementType]
         [javax.xml.ws WebServiceRef WebServiceRefs])
 
 (<span class="hljs-name">definterface</span> Foo (<span class="hljs-name">foo</span> []))
@@ -29,6 +29,6 @@
                          (<span class="hljs-name">WebServiceRef</span> {<span class="hljs-symbol">:name</span> <span class="hljs-string">&quot;ethel&quot;</span> <span class="hljs-symbol">:mappedName</span> <span class="hljs-string">&quot;lucy&quot;</span>})]}</span>
        foo [this] <span class="hljs-number">42</span>))
 
-(<span class="hljs-name"><span class="hljs-builtin-name">seq</span></span> (<span class="hljs-name">.getAnnotations</span> Bar))
-(<span class="hljs-name"><span class="hljs-builtin-name">seq</span></span> (<span class="hljs-name">.getAnnotations</span> (<span class="hljs-name">.getField</span> Bar <span class="hljs-string">&quot;b&quot;</span>)))
-(<span class="hljs-name"><span class="hljs-builtin-name">seq</span></span> (<span class="hljs-name">.getAnnotations</span> (<span class="hljs-name">.getMethod</span> Bar <span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-literal">nil</span>)))
+(<span class="hljs-name"><span class="hljs-built_in">seq</span></span> (<span class="hljs-name">.getAnnotations</span> Bar))
+(<span class="hljs-name"><span class="hljs-built_in">seq</span></span> (<span class="hljs-name">.getAnnotations</span> (<span class="hljs-name">.getField</span> Bar <span class="hljs-string">&quot;b&quot;</span>)))
+(<span class="hljs-name"><span class="hljs-built_in">seq</span></span> (<span class="hljs-name">.getAnnotations</span> (<span class="hljs-name">.getMethod</span> Bar <span class="hljs-string">&quot;foo&quot;</span> <span class="hljs-literal">nil</span>)))

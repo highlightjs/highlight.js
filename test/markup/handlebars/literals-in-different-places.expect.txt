@@ -6,7 +6,7 @@
 
 </span><span class="hljs-template-tag">{{{{#<span class="hljs-name">helper</span> <span class="hljs-literal">true</span> <span class="hljs-literal">false</span>}}}}</span><span class="xml"> </span><span class="hljs-template-tag">{{{{/<span class="hljs-name">helper</span>}}}}</span><span class="xml">
 
-</span><span class="hljs-template-variable">{{&gt;<span class="hljs-name"><span class="hljs-builtin-name">partial</span></span> <span class="hljs-literal">true</span>}}</span><span class="xml">
+</span><span class="hljs-template-variable">{{&gt;<span class="hljs-name"><span class="hljs-built_in">partial</span></span> <span class="hljs-literal">true</span>}}</span><span class="xml">
 
 </span><span class="hljs-template-variable">{{<span class="hljs-name">helper</span> (<span class="hljs-name">helper</span> <span class="hljs-literal">true</span> <span class="hljs-literal">false</span>)}}</span><span class="xml">
 
