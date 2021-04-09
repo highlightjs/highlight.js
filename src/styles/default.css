@@ -19,9 +19,25 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   color: #444;
 }
 
+/* purposely ignored */
+.hljs-formula,
+.hljs-attr,
+.hljs-property,
+.hljs-params {}
+
 .hljs-comment {
   color: #888888;
 }
+.hljs-tag,
+.hljs-punctuation {
+  color: #444a;
+}
+
+.hljs-tag .hljs-name,
+.hljs-tag .hljs-attr {
+  color: #444;
+}
+
 
 .hljs-keyword,
 .hljs-attribute,
@@ -58,10 +74,10 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
+.hljs-operator,
 .hljs-selector-pseudo {
   color: #BC6060;
 }
-
 
 /* Language color: hue: 90; */
 

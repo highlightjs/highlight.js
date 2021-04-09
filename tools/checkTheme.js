@@ -143,7 +143,7 @@ function check_group(group, rules) {
   const has_rules = group.selectors.map(klass => {
     const selector = nameToSelector(klass);
     if (skips_rule(selector, rules)) {
-      console.log(`${selector} will not be highlighted.`.cyan);
+      console.log(`${selector} is not highlighted.`.cyan);
     }
     return has_rule(selector, rules);
   });
