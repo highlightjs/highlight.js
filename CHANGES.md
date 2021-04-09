@@ -30,6 +30,7 @@ New Languages:
 
 Theme Improvements:
 
+- chore(themes) remove `builtin-name` CSS class (#3119) [Josh Goebel][]
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 
 [Josh Goebel]: https://github.com/joshgoebel
