@@ -12,7 +12,7 @@ import * as regex from '../lib/regex.js';
 export default function(hljs) {
   const BUILT_INS = {
     $pattern: /[\w.\/]+/,
-    'builtin-name': [
+    built_in: [
       'action',
       'bindattr',
       'collection',

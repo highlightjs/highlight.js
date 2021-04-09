@@ -93,7 +93,6 @@ const TEMPLATES = {
   selectors: [
     "tag",
     "name",
-    "builtin-name",
     "attr",
     "attribute",
     "template-tag",

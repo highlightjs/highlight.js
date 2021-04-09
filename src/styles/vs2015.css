@@ -72,8 +72,7 @@
 }
 
 .hljs-attr,
-.hljs-attribute,
-.hljs-builtin-name {
+.hljs-attribute {
   color: #9CDCFE;
 }
 

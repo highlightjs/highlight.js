@@ -86,9 +86,6 @@ your language is not considered a "Markup" language.
 | name                     | name of an XML tag, the first word in an          |
 |                          | s-expression                                      |
 +--------------------------+---------------------------------------------------+
-| builtin-name             | s-expression name from the language standard      |
-|                          | library                                           |
-+--------------------------+---------------------------------------------------+
 | attr                     | name of an attribute with no language defined     |
 |                          | semantics (keys in JSON, setting names in .ini),  |
 |                          | also sub-attribute within another highlighted     |

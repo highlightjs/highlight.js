@@ -23,7 +23,6 @@
 /* Orange */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
@@ -77,7 +76,6 @@
   .hljs-addition,
   .hljs-attribute,
   .hljs-built_in,
-  .hljs-builtin-name,
   .hljs-bullet,
   .hljs-comment,
   .hljs-link,

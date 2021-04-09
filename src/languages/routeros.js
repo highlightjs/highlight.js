@@ -160,7 +160,7 @@ export default function(hljs) {
         returnBegin: true,
         contains: [
           {
-            className: 'builtin-name', // 'function',
+            className: 'built_in', // 'function',
             begin: /\w+/
           }
         ]

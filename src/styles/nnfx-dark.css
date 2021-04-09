@@ -57,8 +57,7 @@
 .hljs-title,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-built_in,
-.hljs-builtin-name {
+.hljs-built_in {
   color: #d40;
 }
 
