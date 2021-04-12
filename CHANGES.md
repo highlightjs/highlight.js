@@ -33,11 +33,16 @@ Theme Improvements:
 - chore(themes) remove `builtin-name` CSS class (#3119) [Josh Goebel][]
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 
+Dev Improvements:
+
+- Change the class structure inspector to utilize more vertical space
+
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3
 [Wei Su]: https://github.com/swsoyee
 [Jared Luboff]: https://github.com/jaredlll08
+[NullVoxPopuli]: https://github.com/NullVoxPopuli
 
 ## Version 10.7.1
 
