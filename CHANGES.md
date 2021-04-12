@@ -35,7 +35,7 @@ Theme Improvements:
 
 Dev Improvements:
 
-- Change the class structure inspector to utilize more vertical space
+- (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
