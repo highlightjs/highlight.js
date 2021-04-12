@@ -4,9 +4,20 @@ Parser:
 
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- adds `title.class` sub-scope support (#3078) [Josh Goebel][]
+- adds `title.function` sub-scope support (#3078) [Josh Goebel][]
+- adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
 
 Grammars:
 
+- enh(java) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(cpp) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(rust) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(actionscript) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(arcade) `function.title` => `title.function` (#3078) [Josh Goebel][]
+- enh(autoit) `function.title` => `title.function` (#3078) [Josh Goebel][]
+- enh(c) `function.title` => `title.function` (#3078) [Josh Goebel][]
+- enh(rust) support function invoke and `impl` (#3078) [Josh Goebel][]
 - chore(properties) disable auto-detection #3102 [Josh Goebel][]
 - fix(properties) fix incorrect handling of non-alphanumeric keys #3102 [Egor Rogov][]
 - enh(java) support functions with nested template types (#2641) [Josh Goebel][]
