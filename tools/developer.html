@@ -36,13 +36,15 @@
     }
 
     .visible-structure pre code span {
-      display: inline-block;
+      display: inline-flex;
+      align-items: baseline;
       padding: 0.25rem;
-      margin: 0.75rem 0.25rem 0.5rem 0.25rem;
+      padding-bottom: 0.125rem;
+      padding-top: 0.5rem;
+      margin: 0.5rem 0.25rem 0.125rem 0.25rem;
       border: 1px dashed #777;
       border-radius: 5px;
       white-space: pre;
-
       position: relative;
     }
 
@@ -56,9 +58,8 @@
       color:white;
       margin-right:0.25rem;
       font-weight: normal;
-
       position: absolute;
-      top: -0.75rem;
+      top: -0.5rem;
       left: -0.25rem;
     }
 
