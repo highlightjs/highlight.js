@@ -138,7 +138,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Oxygene                 | oxygene                |         |
 | PF                      | pf, pf.conf            |         |
 | PHP                     | php, php3, php4, php5, php6, php7, php8 |    |
-| Papyrus                 | papyrus, psc           |[highlight.js-papyrus](https://github.com/Pickysaurus/highlight.js-papyrus)    |
+| Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
 | Plaintext               | plaintext, txt, text   |         |
