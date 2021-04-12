@@ -27,6 +27,7 @@ New Languages:
 
 - Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
 - Added 3rd party ZenScript grammar to SUPPORTED_LANGUAGES(#3106) [Jared Luboff][]
+- Added 3rd party Papyrus grammar to SUPPORTED_LANGUAGES(#3125) [Mike Watling][]
 
 Theme Improvements:
 
@@ -43,6 +44,7 @@ Dev Improvements:
 [Wei Su]: https://github.com/swsoyee
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
+[Mike Watling]: https://github.com/Pickysaurus
 
 ## Version 10.7.1
 
