@@ -37,11 +37,13 @@
 
     .visible-structure pre code span {
       display: inline-block;
-      padding:2px;
-      margin: 3px 0;
+      padding: 0.25rem;
+      margin: 0.75rem 0.25rem 0.5rem 0.25rem;
       border: 1px dashed #777;
       border-radius: 5px;
       white-space: pre;
+
+      position: relative;
     }
 
     .visible-structure pre code span:before {
@@ -49,11 +51,23 @@
       content: attr(data-klass);
       font-size: 70%;
       background: #693;
-      padding:1px 5px;
-      border-radius: 3px;
+      padding:1px 4px;
+      border-radius: 2px;
       color:white;
-      margin-right:0.5em;
+      margin-right:0.25rem;
       font-weight: normal;
+
+      position: absolute;
+      top: -0.75rem;
+      left: -0.25rem;
+    }
+
+    .visible-structure pre code span:after {
+      display: block;
+      opacity: 0;
+      font-size: 70%;
+      content: attr(data-klass);
+      margin-top: -1rem;
     }
   </style>
 </head>
