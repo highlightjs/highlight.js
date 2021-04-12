@@ -1,7 +1,7 @@
-<span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> this.userData.isLoaded}}</span><span class="xml">
+<span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-built_in">if</span></span> this.userData.isLoaded}}</span><span class="xml">
   </span><span class="hljs-template-variable">{{<span class="hljs-name">this.userData.value.userName</span>}}</span><span class="xml">
 </span><span class="hljs-template-tag">{{<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> this.userData.isError}}</span><span class="xml">
   Whoops, something went wrong!
 </span><span class="hljs-template-tag">{{<span class="hljs-keyword">else</span>}}</span><span class="xml">
   Something else!
-</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">if</span></span>}}</span>
+</span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-built_in">if</span></span>}}</span>

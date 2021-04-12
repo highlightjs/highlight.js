@@ -1,4 +1,4 @@
-<span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">each</span></span> filter <span class="hljs-keyword">as</span> | value index|}}</span><span class="xml"> </span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">each</span></span>}}</span><span class="xml">
+<span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-built_in">each</span></span> filter <span class="hljs-keyword">as</span> | value index|}}</span><span class="xml"> </span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-built_in">each</span></span>}}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-builtin-name">with</span></span> as <span class="hljs-keyword">as</span> | as |}}</span><span class="xml"> </span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-builtin-name">with</span></span>}}</span><span class="xml">
+</span><span class="hljs-template-tag">{{#<span class="hljs-name"><span class="hljs-built_in">with</span></span> as <span class="hljs-keyword">as</span> | as |}}</span><span class="xml"> </span><span class="hljs-template-tag">{{/<span class="hljs-name"><span class="hljs-built_in">with</span></span>}}</span><span class="xml">
 </span>

@@ -16,7 +16,7 @@ export default function(hljs) {
   };
   const NUMBER = {
     className: 'number',
-    begin: /\d+/
+    begin: /\b\d+/
   };
   const IP_ADDRESS = {
     className: "number",
