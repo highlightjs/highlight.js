@@ -19,6 +19,7 @@ import * as logger from "./lib/logger.js";
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
 const NO_MATCH = Symbol("nomatch");
+const MAX_KEYWORD_HITS = 7;
 
 /**
  * @param {any} hljs - object that is extended (legacy)
@@ -162,15 +163,16 @@ const HLJS = function(hljs) {
    * @returns {HighlightResult} - result of the highlight operation
   */
   function _highlight(languageName, codeToHighlight, ignoreIllegals, continuation) {
+    const keywordHits = Object.create(null);
+
     /**
      * Return keyword data if a match is a keyword
      * @param {CompiledMode} mode - current mode
-     * @param {RegExpMatchArray} match - regexp match data
+     * @param {string} matchText - the textual match
      * @returns {KeywordData | false}
      */
-    function keywordData(mode, match) {
-      const matchText = language.case_insensitive ? match[0].toLowerCase() : match[0];
-      return Object.prototype.hasOwnProperty.call(mode.keywords, matchText) && mode.keywords[matchText];
+    function keywordData(mode, matchText) {
+      return mode.keywords[matchText];
     }
 
     function processKeywords() {
@@ -186,13 +188,15 @@ const HLJS = function(hljs) {
 
       while (match) {
         buf += modeBuffer.substring(lastIndex, match.index);
-        const data = keywordData(top, match);
+        const word = language.case_insensitive ? match[0].toLowerCase() : match[0];
+        const data = keywordData(top, word);
         if (data) {
           const [kind, keywordRelevance] = data;
           emitter.addText(buf);
           buf = "";
 
-          relevance += keywordRelevance;
+          keywordHits[word] = (keywordHits[word] || 0) + 1;
+          if (keywordHits[word] < MAX_KEYWORD_HITS) relevance += keywordRelevance;
           if (kind.startsWith("_")) {
             // _ implied for relevance only, do not highlight
             // by applying a class name
