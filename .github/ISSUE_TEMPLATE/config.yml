@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Join the Highlight.js Discord community
+  - name: Join our friendly Discord community
     url: https://discord.gg/M24EbU7ja9
-    about: We're friendly and helpful and we'd be happy to have you.
+    about: If you'd like to hang out, help out, or need some help - we're here.
   - name: Read our documentation
     url: https://highlightjs.readthedocs.io/
     about: Sometimes the answers are right there, just waiting to be discovered.
+  - name: Request a new language
+    url: https://highlightjs.readthedocs.io/en/latest/language-requests.html
+    about: Please read our policy on requesting new languages.
