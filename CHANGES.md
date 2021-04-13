@@ -10,6 +10,7 @@ Parser:
 
 Grammars:
 
+- enh(thrift) Use proper scope for types [Josh Goebel][]
 - enh(java) Simplified class-like matcher (#3078) [Josh Goebel][]
 - enh(cpp) Simplified class-like matcher (#3078) [Josh Goebel][]
 - enh(rust) Simplified class-like matcher (#3078) [Josh Goebel][]
