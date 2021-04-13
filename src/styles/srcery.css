@@ -6,9 +6,6 @@ Date: 2020-04-06
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #1C1B19;
   color: #FCE8C3;
 }

@@ -5,9 +5,7 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #3e5915;
   background:#f6f5b2;
 }
 
@@ -18,7 +16,6 @@ School Book style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
   font-weight:bold;
 }
 
-.hljs,
 .hljs-subst {
   color: #3e5915;
 }
