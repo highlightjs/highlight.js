@@ -5,13 +5,10 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #23241f;
+  color: #f8f8f2;
 }
 
-.hljs,
 .hljs-tag,
 .hljs-subst {
   color: #f8f8f2;

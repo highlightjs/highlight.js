@@ -5,13 +5,10 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #FFFFFF;
+  background: white;
+  color: #434f54;
 }
 
-.hljs,
 .hljs-subst {
   color: #434f54;
 }

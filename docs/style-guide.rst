@@ -60,7 +60,7 @@ Okay to use:
 These may seem arbitrary at first but it's what has shown to make sense in
 practice.
 
-There's also a common set of rules that *has* to be defined for the root
+There's also a common set of rules that *must* to be defined for the root
 container verbatim:
 
 ::
@@ -70,6 +70,9 @@ container verbatim:
     overflow-x: auto;
     padding: 0.5em;
   }
+
+If your theme exists within the core project you do not need to add these rules
+by hand as they are added to all themes by default during the build process.
 
 
 ``.subst``

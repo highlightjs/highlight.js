@@ -5,6 +5,11 @@
     URL:      https://github.com/idleberg/Kimbie-highlight.js
 */
 
+.hljs {
+  background: #221a0f;
+  color: #d3af86;
+}
+
 /* Kimbie Comment */
 .hljs-comment,
 .hljs-quote {
@@ -54,14 +59,6 @@
 .hljs-section,
 .hljs-attribute {
   color: #f06431;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #221a0f;
-  color: #d3af86;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {
