@@ -38,6 +38,7 @@ Language Grammars:
 - Default CDN build drops support for several languages.
 - Some language grammar files have been removed.
 - Some redundant language aliases have been removed.
+- Added 3rd party Glimmer grammar to SUPPORTED_LANGUAGES(#3123) [NullVoxPopuli][]
 
 ### Other changes
 
