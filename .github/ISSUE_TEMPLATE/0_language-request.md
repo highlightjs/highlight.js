@@ -1,5 +1,5 @@
 ---
-name: Language Request
+name: Request a new language
 about: Highlight.js should add support for a new language.
 title: PLEASE read the below carefully.
 labels: autoclose

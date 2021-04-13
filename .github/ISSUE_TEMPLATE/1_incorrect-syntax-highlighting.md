@@ -1,6 +1,6 @@
 ---
-name: Code is not highlighted correctly
-about: You have a specific snippet of code that is not highlighted incorrectly.
+name: Report code that we highlight wrong
+about: You have a specific snippet of code that is not highlighted correctly.
 title: "(language name) Short description of issue..."
 labels: bug, help welcome, language
 assignees: ''

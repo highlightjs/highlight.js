@@ -1,5 +1,5 @@
 ---
-name: Other Bug Report
+name: Report some other bug
 about: You are seeing other incorrect, unexpected or unexplained behavior.
 title: ""
 labels: bug, help welcome, parser
