@@ -2,6 +2,8 @@
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
+### Potentially breaking changes
+
 Unless otherwise attributed items below are thanks to [Josh Goebel][] (ref: [#2558](https://github.com/highlightjs/highlight.js/issues/2558)).
 
 *The below list should only be considered to be a high-level summary.*
@@ -37,10 +39,7 @@ Language Grammars:
 - Some language grammar files have been removed.
 - Some redundant language aliases have been removed.
 
-[Josh Goebel]: https://github.com/joshgoebel
-
-
-## Version next (maybe 10, maybe merged into 11?)
+### Other changes
 
 Parser:
 
@@ -99,6 +98,7 @@ Dev Improvements:
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
+
 
 ## Version 10.7.1
 

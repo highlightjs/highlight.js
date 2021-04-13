@@ -58,9 +58,11 @@ detection.
 
 ---
 
-#### Upgrading to Version 11
+#### Upgrading to Version 11 (currently in alpha)
 
 As always our major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
+
+**Latest:** 11.0.0-alpha0
 
 #### Upgrading to Version 10
 
@@ -69,6 +71,8 @@ Please read [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/
 #### Support for older versions <!-- omit in toc -->
 
 Please see [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/main/SECURITY.md) for support information.
+
+---
 
 ## Basic Usage
 ### In the Browser
