@@ -232,8 +232,8 @@
         vue.language = hljs.getLanguage(language) ? language : '';
 
         var rendering_stats = result.language + ': relevance ' + (result.relevance );
-        if (result.second_best) {
-            rendering_stats += ', ' + result.second_best.language + ': ' + (result.second_best.relevance || result.second_best.r);
+        if (result.secondBest) {
+            rendering_stats += ', ' + result.secondBest.language + ': ' + (result.secondBest.relevance || result.secondBest.r);
         }
         editor.find('.rendering_stats').text(rendering_stats);
         editor.find('.rendering_time').text(rendering_time);
