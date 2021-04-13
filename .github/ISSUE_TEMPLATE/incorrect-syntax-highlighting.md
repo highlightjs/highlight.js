@@ -1,6 +1,6 @@
 ---
-name: Incorrect syntax highlighting
-about: Report incorrect syntax highlighting...
+name: Code is not highlighted correctly
+about: You have a specific snippet of code that is not highlighted incorrectly.
 title: "(language name) Short description of issue..."
 labels: bug, help welcome, language
 assignees: ''

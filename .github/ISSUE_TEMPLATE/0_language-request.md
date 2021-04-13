@@ -1,8 +1,8 @@
 ---
-name: Language request
-about: I really wish Highlight.js could highlight ...
+name: Language Request
+about: Highlight.js should add support for a new language.
 title: PLEASE read the below carefully.
-labels: ''
+labels: autoclose
 assignees: ''
 
 ---
@@ -33,7 +33,7 @@ First let us say that we'd also love it if Highlight.js could highlight whicheve
     and for information on how to properly package your 3rd party language module
     see :doc:`language-contribution`.
 
-If you are interested in contributing a 3rd party language grammar you can start with: 
+If you are interested in contributing a 3rd party language grammar you can start with:
 
 - https://highlightjs.readthedocs.io/en/latest/language-contribution.html
 
