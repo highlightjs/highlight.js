@@ -30,7 +30,10 @@ const emitsWrappingTags = (node) => {
 const expandClassName = (name, { prefix }) => {
   if (name.includes(".")) {
     const pieces = name.split(".");
-    return pieces.map(x => `${prefix}${x}`).join(" ");
+    return [
+      `${prefix}${pieces.shift()}`,
+      ...(pieces.map((x, i) => `${x}${"_".repeat(i + 1)}`))
+    ].join(" ");
   }
   return `${prefix}${name}`;
 };

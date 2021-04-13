@@ -1,6 +1,6 @@
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title hljs-class">Greet</span> {
-    <span class="hljs-keyword">public</span> Either&lt;Integer, String&gt; <span class="hljs-title hljs-function">f</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> {
-        <span class="hljs-keyword">new</span> <span class="hljs-title hljs-class">Type</span>();
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Greet</span> {
+    <span class="hljs-keyword">public</span> Either&lt;Integer, String&gt; <span class="hljs-title function_">f</span><span class="hljs-params">(<span class="hljs-type">int</span> val)</span> {
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Type</span>();
         <span class="hljs-keyword">if</span> (val) {
             <span class="hljs-keyword">return</span> getType();
         } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!val) {
