@@ -63,13 +63,13 @@
   color: #a85;
 }
 
-.hljs-title.hljs-class,
+.hljs-title.class_,
 .hljs-class .hljs-title,
 .hljs-type {
   color: #96c;
 }
 
-.hljs-function.hljs-title,
+.hljs-title.function_,
 .hljs-function .hljs-title,
 .hljs-attr,
 .hljs-subst {

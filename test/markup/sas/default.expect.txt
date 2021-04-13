@@ -28,11 +28,11 @@ data </span>testing;
     <span class="hljs-keyword">end</span>;
 <span class="hljs-keyword">run;</span>
 
-<span class="hljs-built_in">%macro</span> <span class="hljs-title hljs-function">testMacro</span>(positional, named = value);
+<span class="hljs-built_in">%macro</span> <span class="hljs-title function_">testMacro</span>(positional, named = value);
     <span class="hljs-built_in">%put</span> positional = <span class="hljs-variable">&amp;positional.</span>;
     <span class="hljs-built_in">%put</span> named      = <span class="hljs-variable">&amp;named.</span>;
-<span class="hljs-built_in">%mend</span> <span class="hljs-title hljs-function">testMacro</span>;
-<span class="hljs-title hljs-function">%testMacro</span>(positional, named = value);
+<span class="hljs-built_in">%mend</span> <span class="hljs-title function_">testMacro</span>;
+<span class="hljs-title function_">%testMacro</span>(positional, named = value);
 
 <span class="hljs-keyword">dm</span> <span class="hljs-string">&#x27;clear log output odsresults&#x27;</span>;
 <span class="hljs-keyword">

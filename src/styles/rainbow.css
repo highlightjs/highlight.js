@@ -46,7 +46,7 @@ Style with support for rainbow parens
 .hljs-variable,
 .hljs-template-variable,
 .hljs-selector-id,
-.hljs-title.hljs-class,
+.hljs-title.class_,
 .hljs-class .hljs-title {
    color: #ffcc66;
 }

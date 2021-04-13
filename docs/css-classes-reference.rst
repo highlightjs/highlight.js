@@ -139,22 +139,35 @@ in mind so a better choice might be ``string`` or perhaps ``string.link``.
 | deletion                 | deleted line                                                |
 +--------------------------+-------------------------------------------------------------+
 
-A note on multi-scope classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A note on classes with sub-scopes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some scope names above have a ``.`` in them.  We use this notation to specify
-multiple scopes.  In the generated HTML this will output two separate classes.
-For example, Lets say the scope name is ``title.class``.  The generated HTML
-would be:
+sub-scopes.  In the generated HTML this will output multiple computed class
+names. The depth of nesting determines the number of underscores appended to
+sub-scope names. For example, Lets say the scope is ``title.class.other``.
+
+The CSS class names generated would be:
+
+- ``hljs-title``
+- ``class_``
+- ``other__``
+
+The top-level scope is always the one that has the configured prefix applied.
+
+The generated HTML would be:
 
 ::
 
-  class <span class="hljs-title hljs-class">Render</span>
+  <span class="hljs-title class_ other__">Render</span>
 
-Render is a ``title``, the title of a ``class`` in particular. Some definitions
-still use nested rules/tags to do this, but the preferred way is now to handle
-this with the new multi-scope classes and simplify the language definitions when
-possible.
+A theme could then simply target that using the following CSS:
+
+.. code-block:: css
+
+  .hljs-title.class_.other__ {
+     color: blue;
+  }
 
 
 A note on newer classes

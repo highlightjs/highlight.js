@@ -76,7 +76,7 @@ hue-6-2: #c18401
 }
 
 .hljs-built_in,
-.hljs-title.hljs-class,
+.hljs-title.class_,
 .hljs-class .hljs-title {
   color: #c18401;
 }

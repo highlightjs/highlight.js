@@ -53,7 +53,7 @@ Qt Creator light color scheme
 
 .hljs-variable,
 .hljs-params,
-.hljs-title.hljs-class,
+.hljs-title.class_,
 .hljs-class .hljs-title {
   color: #0055AF;
 }
