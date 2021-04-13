@@ -62,7 +62,7 @@ Returns an object with the following properties:
 * ``language``: detected language
 * ``relevance``: integer value representing the relevance score
 * ``value``: HTML string with highlighting markup
-* ``second_best``: object with the same structure for second-best heuristically detected language (may be absent)
+* ``secondBest``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
 fixMarkup
