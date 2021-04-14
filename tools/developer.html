@@ -36,7 +36,7 @@
     }
 
     .visible-structure pre code span {
-      display: inline-flex;
+      display: inline-block;
       align-items: baseline;
       padding: 0.25rem;
       padding-bottom: 0.125rem;
@@ -64,12 +64,16 @@
     }
 
     .visible-structure pre code span:after {
+      /* this hidden element is for stretching the span
+         to be at least the width of the before pseudo element */
       display: block;
       opacity: 0;
       font-size: 70%;
       content: attr(data-klass);
       margin-top: -1rem;
-      position: absolute;
+      position: relative;
+      top: -1rem;
+      left: -100%;
     }
   </style>
 </head>
