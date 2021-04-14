@@ -284,6 +284,7 @@ export function compileLanguage(language, { plugins }) {
     if (mode.isCompiled) return cmode;
 
     [
+      EXT.scopeClassName,
       // do this early so compiler extensions generally don't have to worry about
       // the distinction between match/begin
       EXT.compileMatch,

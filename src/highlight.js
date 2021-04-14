@@ -250,7 +250,7 @@ const HLJS = function(hljs) {
       // eslint-disable-next-line no-undefined
       while (match[i] !== undefined) {
         if (!mode._emit[i]) { i++; continue; }
-        const klass = language.classNameAliases[mode.className[i]] || mode.className[i];
+        const klass = language.classNameAliases[mode.scope[i]] || mode.scope[i];
         const text = match[i];
         if (klass) {
           emitter.addKeyword(text, klass);
@@ -271,8 +271,8 @@ const HLJS = function(hljs) {
         // at this point modeBuffer should just be the match
         emitMultiClass(mode, match);
         modeBuffer = "";
-      } else if (mode.className) {
-        emitter.openNode(language.classNameAliases[mode.className] || mode.className);
+      } else if (mode.scope) {
+        emitter.openNode(language.classNameAliases[mode.scope] || mode.scope);
       }
       top = Object.create(mode, { parent: { value: top } });
       return top;
@@ -386,7 +386,7 @@ const HLJS = function(hljs) {
         }
       }
       do {
-        if (top.className && !top.isMultiClass) {
+        if (top.scope && !top.isMultiClass) {
           emitter.closeNode();
         }
         if (!top.skip && !top.subLanguage) {
@@ -403,8 +403,8 @@ const HLJS = function(hljs) {
     function processContinuations() {
       const list = [];
       for (let current = top; current !== language; current = current.parent) {
-        if (current.className) {
-          list.unshift(current.className);
+        if (current.scope) {
+          list.unshift(current.scope);
         }
       }
       list.forEach(item => emitter.openNode(item));
@@ -453,7 +453,7 @@ const HLJS = function(hljs) {
       } else if (match.type === "illegal" && !ignoreIllegals) {
         // illegal match, we do not continue processing
         /** @type {AnnotatedError} */
-        const err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
+        const err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.scope || '<unnamed>') + '"');
         err.mode = top;
         throw err;
       } else if (match.type === "end") {

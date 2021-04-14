@@ -31,6 +31,16 @@ function skipIfhasPrecedingDot(match, response) {
   }
 }
 
+/**
+ *
+ * @type {CompilerExt}
+ */
+export function scopeClassName(mode, parent) {
+  if (mode.className) {
+    mode.scope = mode.className;
+    delete mode.className;
+  }
+}
 
 /**
  * `beginKeywords` syntactic sugar
