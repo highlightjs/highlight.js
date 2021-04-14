@@ -1,8 +1,8 @@
-<span class="xml">text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> abcd.[lite&quot;&#x27;ral}}segment] }}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="xml">
+<span class="language-xml">text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> abcd.[lite&quot;&#x27;ral}}segment] }}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="language-xml">
 
-text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> abcd.&quot;lite]&#x27;ral}}segment&quot; }}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="xml">
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> abcd.&quot;lite]&#x27;ral}}segment&quot; }}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="language-xml">
 
-text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> abcd.&#x27;lite]&quot;ral}}segment&#x27; }}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="xml">
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">abc</span> abcd.&#x27;lite]&quot;ral}}segment&#x27; }}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">abc</span>}}</span><span class="language-xml">
 
 text
 

@@ -5,6 +5,11 @@ Website: https://srcery-colors.github.io/
 Date: 2021-04-13
 */
 
+.hljs {
+  background: #1C1B19; /* Black */
+  color: #FCE8C3; /* Bright White */
+}
+
 /* Bright White */
 .hljs-subst,
 .hljs-quote,
@@ -72,14 +77,6 @@ Date: 2021-04-13
 .hljs-comment,
 .hljs-meta {
   color: #918175;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #1C1B19; /* Black */
-  color: #FCE8C3; /* Bright White */
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

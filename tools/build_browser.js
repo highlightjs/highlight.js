@@ -12,6 +12,8 @@ const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makes
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
+const Table = require('cli-table');
+const { result } = require('lodash');
 
 function buildHeader(args) {
   return "/*!\n" +
@@ -19,6 +21,23 @@ function buildHeader(args) {
   `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n` +
   `  License: ${args.license}\n` +
   ` */`;
+}
+
+function detailedGrammarSizes(languages) {
+  if (languages.length > 180) return;
+
+  const resultTable = new Table({
+    head: ['lang','minified'],
+    // colWidths: [20,20,10,20,10,20],
+    chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
+    style: {
+      head: ['grey']
+    }
+  });
+  languages.map(async(lang) => {
+    resultTable.push([lang.name, lang.data.length]);
+  });
+  console.log(resultTable.sort((b, a) => a[1] - b[1]).toString());
 }
 
 async function buildBrowser(options) {
@@ -32,23 +51,21 @@ async function buildBrowser(options) {
   log("Preparing languages.");
   await Promise.all(
     languages.map(async(lang) => {
-      await lang.compile({ terser: config.terser });
+      // await lang.compile({ terser: config.terser });
       process.stdout.write(".");
     })
   );
   log("");
+
+  detailedGrammarSizes(languages);
 
   const size = await buildBrowserHighlightJS(languages, { minify: options.minify });
 
   log("-----");
   log("Core                :", size.core, "bytes");
   if (options.minify) { log("Core (min)          :", size.core_min, "bytes"); }
-  log("Languages           :",
+  log("Languages (raw)     :",
     languages.map((el) => el.data.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  if (options.minify) {
-    log("Languages (min)     :",
-      languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  }
   log("highlight.js        :", size.full, "bytes");
   if (options.minify) {
     log("highlight.min.js    :", size.minified, "bytes");
@@ -151,19 +168,42 @@ async function buildBrowserHighlightJS(languages, { minify }) {
   const outFile = `${process.env.BUILD_DIR}/highlight.js`;
   const minifiedFile = outFile.replace(/js$/, "min.js");
 
-  const input = { ...config.rollup.browser_core.input, input: `src/highlight.js` };
+  const built_in_langs = {
+    name: "dynamicLanguages",
+    resolveId: (source) => {
+      if (source == "builtInLanguages") { return "builtInLanguages"}
+      return null;
+    },
+    load: (id) => {
+      if (id == "builtInLanguages") {
+        const escape = (s) => "grmr_" + s.replace("-", "_");
+        let src = "";
+        src += languages.map((x) => `import ${escape(x.name)} from '${x.path}'`).join("\n");
+        src += `\nexport {${languages.map((x) => escape(x.name)).join(",")}}`;
+        return src;
+      }
+      return null;
+    }
+  }
+
+  const plugins = [...config.rollup.browser_core.input.plugins, built_in_langs];
+
+  const input = { ...config.rollup.browser_core.input, input: `src/stub.js`, plugins };
   const output = { ...config.rollup.browser_core.output, file: outFile };
   let librarySrc = await rollupCode(input, output);
 
-  // var librarySrc = await fs.readFile("src/highlight.js", {encoding: "utf8"});
-  const coreSize = librarySrc.length;
+
+  // we don't use this, we just use it to get a size approximation for the build stats
+  const coreSrc = await rollupCode({ ...config.rollup.browser_core.input, input: `src/highlight.js`, plugins }, output);
+  const coreSize = coreSrc.length;
 
   // strip off the original top comment
   librarySrc = librarySrc.replace(/\/\*.*?\*\//s, "");
 
   const fullSrc = [
     header, librarySrc,
-    ...languages.map((lang) => lang.module)].join("\n");
+    // ...languages.map((lang) => lang.module)
+  ].join("\n");
 
   const tasks = [];
   tasks.push(fs.writeFile(outFile, fullSrc, { encoding: "utf8" }));
@@ -176,13 +216,15 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
   if (minify) {
     const tersed = await Terser.minify(librarySrc, config.terser);
+    const tersedCore = await Terser.minify(coreSrc, config.terser);
 
     minifiedSrc = [
       header, tersed.code,
-      ...languages.map((lang) => lang.minified)].join("\n");
+      // ...languages.map((lang) => lang.minified)
+    ].join("\n");
 
     // get approximate core minified size
-    core_min = [header, tersed.code].join().length;
+    core_min = [header, tersedCore.code].join().length;
 
     tasks.push(fs.writeFile(minifiedFile, minifiedSrc, { encoding: "utf8" }));
     shas["highlight.min.js"] = bundling.sha384(minifiedSrc);

@@ -4,12 +4,9 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 
 */
 
-/*background color*/
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #1d1f21;
+  color: #c5c8c6;
 }
 
 /*selection color*/
@@ -21,11 +18,6 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 .hljs::-moz-selection,
 .hljs span::-moz-selection {
   background: #373b41;
-}
-
-/*foreground color*/
-.hljs {
-  color: #c5c8c6;
 }
 
 /*color: fg_yellow*/

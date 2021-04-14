@@ -78,6 +78,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | GAUSS                   | gauss, gss             |         |
 | GDScript                | godot, gdscript        | [highlightjs-gdscript](https://github.com/highlightjs/highlightjs-gdscript) |
 | Gherkin                 | gherkin                |         |
+| Glimmer and EmberJS     | hbs, glimmer, html.hbs, html.handlebars, htmlbars | [highlightjs-glimmer](https://github.com/NullVoxPopuli/highlightjs-glimmer) |
 | GN for Ninja            | gn, gni                | [highlightjs-GN](https://github.com/highlightjs/highlightjs-GN) |
 | Go                      | go, golang             |         |
 | Grammatical Framework   | gf                     | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |

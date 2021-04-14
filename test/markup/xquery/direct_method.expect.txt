@@ -1,12 +1,12 @@
 <span class="hljs-title">xquery version &quot;3.1&quot;;</span>
-<span class="hljs-keyword">let</span> <span class="hljs-variable">$var</span> := <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">n</span>=<span class="hljs-string">&quot;x1&quot;</span>&gt;</span>&quot;rooting&quot; out 1 or 2 root causes<span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span></span>
+<span class="hljs-keyword">let</span> <span class="hljs-variable">$var</span> := <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">n</span>=<span class="hljs-string">&quot;x1&quot;</span>&gt;</span>&quot;rooting&quot; out 1 or 2 root causes<span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span></span>
 <span class="hljs-keyword">return</span>
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;test&quot;</span>&gt;</span>
-    disable highlight for a name such as root </span><span class="xquery">{
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;test&quot;</span>&gt;</span>
+    disable highlight for a name such as root </span><span class="language-xquery">{
       <span class="hljs-keyword">for</span> <span class="hljs-variable">$name</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$var</span>
       <span class="hljs-keyword">return</span>
         <span class="hljs-variable">$name</span> <span class="hljs-keyword">as</span> <span class="hljs-type">xs:string</span>
-      }</span><span class="xml">
+      }</span><span class="language-xml">
     return to unhighlighted order of things.
-    </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;{$name}&quot;</span>&gt;</span>&quot;rooting&quot; out root causes<span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span></span><span class="xml">
+    </span><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;{$name}&quot;</span>&gt;</span>&quot;rooting&quot; out root causes<span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span></span><span class="language-xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">result</span>&gt;</span></span>

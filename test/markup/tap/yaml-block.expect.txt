@@ -7,7 +7,7 @@
 <span class="hljs-symbol">ok</span>
 <span class="hljs-symbol">ok</span>
 <span class="hljs-symbol">ok</span>
-  <span class="yaml"><span class="hljs-meta">---</span>
+  <span class="language-yaml"><span class="hljs-meta">---</span>
   <span class="hljs-attr">message:</span> <span class="hljs-string">&quot;Board layout&quot;</span>
   <span class="hljs-attr">severity:</span> <span class="hljs-string">comment</span>
   <span class="hljs-attr">dump:</span>

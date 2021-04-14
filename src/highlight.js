@@ -12,8 +12,6 @@ import * as utils from './lib/utils.js';
 import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
-import { BuildVuePlugin } from "./plugins/vue.js";
-import { mergeHTMLPlugin } from "./plugins/merge_html.js";
 import * as logger from "./lib/logger.js";
 
 const escape = utils.escapeHTML;
@@ -36,7 +34,6 @@ const HLJS = function(hljs) {
   // safe/production mode - swallows more errors, tries to keep running
   // even if a single syntax or parse hits a fatal error
   let SAFE_MODE = true;
-  const fixMarkupRe = /(^(<[^>]+>|\t|)+|\n)/gm;
   const LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
   /** @type {Language} */
   const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] };
@@ -48,8 +45,6 @@ const HLJS = function(hljs) {
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
-    tabReplace: null,
-    useBR: false,
     languages: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
@@ -222,7 +217,7 @@ const HLJS = function(hljs) {
           return;
         }
         result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage]);
-        continuations[top.subLanguage] = /** @type {CompiledMode} */ (result.top);
+        continuations[top.subLanguage] = /** @type {CompiledMode} */ (result._top);
       } else {
         result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
       }
@@ -234,7 +229,7 @@ const HLJS = function(hljs) {
       if (top.relevance > 0) {
         relevance += result.relevance;
       }
-      emitter.addSublanguage(result.emitter, result.language);
+      emitter.addSublanguage(result._emitter, result.language);
     }
 
     function processBuffer() {
@@ -349,10 +344,6 @@ const HLJS = function(hljs) {
         if (resp.isMatchIgnored) return doIgnore(lexeme);
       }
 
-      if (newMode && newMode.endSameAsBegin) {
-        newMode.endRe = regex.escape(lexeme);
-      }
-
       if (newMode.skip) {
         modeBuffer += lexeme;
       } else {
@@ -365,10 +356,6 @@ const HLJS = function(hljs) {
         }
       }
       startNewMode(newMode, match);
-      // if (mode["after:begin"]) {
-      //   let resp = new Response(mode);
-      //   mode["after:begin"](match, resp);
-      // }
       return newMode.returnBegin ? 0 : lexeme.length;
     }
 
@@ -406,9 +393,6 @@ const HLJS = function(hljs) {
         top = top.parent;
       } while (top !== endMode.parent);
       if (endMode.starts) {
-        if (endMode.endSameAsBegin) {
-          endMode.starts.endRe = endMode.endRe;
-        }
         startNewMode(endMode.starts, match);
       }
       return origin.returnEnd ? 0 : lexeme.length;
@@ -495,13 +479,9 @@ const HLJS = function(hljs) {
       }
 
       /*
-      Why might be find ourselves here?  Only one occasion now.  An end match that was
-      triggered but could not be completed.  When might this happen?  When an `endSameasBegin`
-      rule sets the end rule to a specific match.  Since the overall mode termination rule that's
-      being used to scan the text isn't recompiled that means that any match that LOOKS like
-      the end (but is not, because it is not an exact match to the beginning) will
-      end up here.  A definite end match, but when `doEndMatch` tries to "reapply"
-      the end rule and fails to match, we wind up here, and just silently ignore the end.
+      Why might be find ourselves here?  An potential end match that was
+      triggered but could not be completed.  IE, `doEndMatch` returned NO_MATCH.
+      (this could be because a callback requests the match be ignored, etc)
 
       This causes no real harm other than stopping a few times too many.
       */
@@ -559,38 +539,37 @@ const HLJS = function(hljs) {
       result = emitter.toHTML();
 
       return {
-        // avoid possible breakage with v10 clients expecting
-        // this to always be an integer
-        relevance: Math.floor(relevance),
-        value: result,
         language: languageName,
+        value: result,
+        relevance: relevance,
         illegal: false,
-        emitter: emitter,
-        top: top
+        _emitter: emitter,
+        _top: top
       };
     } catch (err) {
       if (err.message && err.message.includes('Illegal')) {
         return {
-          illegal: true,
-          illegalBy: {
-            msg: err.message,
-            context: codeToHighlight.slice(index - 100, index + 100),
-            mode: err.mode
-          },
-          sofar: result,
-          relevance: 0,
           value: escape(codeToHighlight),
-          emitter: emitter
+          illegal: true,
+          relevance: 0,
+          _illegalBy: {
+            message: err.message,
+            index: index,
+            context: codeToHighlight.slice(index - 100, index + 100),
+            mode: err.mode,
+            resultSoFar: result
+          },
+          _emitter: emitter
         };
       } else if (SAFE_MODE) {
         return {
+          language: languageName,
+          value: escape(codeToHighlight),
           illegal: false,
           relevance: 0,
-          value: escape(codeToHighlight),
-          emitter: emitter,
-          language: languageName,
-          top: top,
-          errorRaised: err
+          errorRaised: err,
+          _emitter: emitter,
+          _top: top
         };
       } else {
         throw err;
@@ -607,13 +586,13 @@ const HLJS = function(hljs) {
    */
   function justTextHighlightResult(code) {
     const result = {
-      relevance: 0,
-      emitter: new options.__emitter(options),
       value: escape(code),
       illegal: false,
-      top: PLAINTEXT_LANGUAGE
+      relevance: 0,
+      _top: PLAINTEXT_LANGUAGE,
+      _emitter: new options.__emitter(options)
     };
-    result.emitter.addText(code);
+    result._emitter.addText(code);
     return result;
   }
 
@@ -624,7 +603,7 @@ const HLJS = function(hljs) {
   - language (detected language)
   - relevance (int)
   - value (an HTML string with highlighting markup)
-  - second_best (object with the same structure for second-best heuristically
+  - secondBest (object with the same structure for second-best heuristically
     detected language, may be absent)
 
     @param {string} code
@@ -665,33 +644,9 @@ const HLJS = function(hljs) {
 
     /** @type {AutoHighlightResult} */
     const result = best;
-    result.second_best = secondBest;
+    result.secondBest = secondBest;
 
     return result;
-  }
-
-  /**
-  Post-processing of the highlighted markup:
-
-  - replace TABs with something more useful
-  - replace real line-breaks with '<br>' for non-pre containers
-
-    @param {string} html
-    @returns {string}
-  */
-  function fixMarkup(html) {
-    if (!(options.tabReplace || options.useBR)) {
-      return html;
-    }
-
-    return html.replace(fixMarkupRe, match => {
-      if (match === '\n') {
-        return options.useBR ? '<br>' : match;
-      } else if (options.tabReplace) {
-        return match.replace(/\t/g, options.tabReplace);
-      }
-      return match;
-    });
   }
 
   /**
@@ -702,41 +657,14 @@ const HLJS = function(hljs) {
    * @param {string} [resultLang]
    */
   function updateClassName(element, currentLang, resultLang) {
-    const language = currentLang ? aliases[currentLang] : resultLang;
+    const language = (currentLang && aliases[currentLang]) || resultLang;
 
     element.classList.add("hljs");
-    if (language) element.classList.add(language);
+    element.classList.add(`language-${language}`);
   }
 
-  /** @type {HLJSPlugin} */
-  const brPlugin = {
-    "before:highlightElement": ({ el }) => {
-      if (options.useBR) {
-        el.innerHTML = el.innerHTML.replace(/\n/g, '').replace(/<br[ /]*>/g, '\n');
-      }
-    },
-    "after:highlightElement": ({ result }) => {
-      if (options.useBR) {
-        result.value = result.value.replace(/\n/g, "<br>");
-      }
-    }
-  };
-
-  const TAB_REPLACE_RE = /^(<[^>]+>|\t)+/gm;
-  /** @type {HLJSPlugin} */
-  const tabReplacePlugin = {
-    "after:highlightElement": ({ result }) => {
-      if (options.tabReplace) {
-        result.value = result.value.replace(TAB_REPLACE_RE, (m) =>
-          m.replace(/\t/g, options.tabReplace)
-        );
-      }
-    }
-  };
-
   /**
-   * Applies highlighting to a DOM node containing code. Accepts a DOM node and
-   * two optional parameters for fixMarkup.
+   * Applies highlighting to a DOM node containing code.
    *
    * @param {HighlightedHTMLElement} element - the HTML element to highlight
   */
@@ -766,12 +694,10 @@ const HLJS = function(hljs) {
       re: result.relevance,
       relavance: result.relevance
     };
-    if (result.second_best) {
-      element.second_best = {
-        language: result.second_best.language,
-        // TODO: remove with version 11.0
-        re: result.second_best.relevance,
-        relavance: result.second_best.relevance
+    if (result.secondBest) {
+      element.secondBest = {
+        language: result.secondBest.language,
+        relavance: result.secondBest.relevance
       };
     }
   }
@@ -782,34 +708,19 @@ const HLJS = function(hljs) {
    * @param {Partial<HLJSOptions>} userOptions
    */
   function configure(userOptions) {
-    if (userOptions.useBR) {
-      logger.deprecated("10.3.0", "'useBR' will be removed entirely in v11.0");
-      logger.deprecated("10.3.0", "Please see https://github.com/highlightjs/highlight.js/issues/2559");
-    }
     options = inherit(options, userOptions);
   }
 
-  /**
-   * Highlights to all <pre><code> blocks on a page
-   *
-   * @type {Function & {called?: boolean}}
-   */
   // TODO: remove v12, deprecated
   const initHighlighting = () => {
-    if (initHighlighting.called) return;
-    initHighlighting.called = true;
-
-    logger.deprecated("10.6.0", "initHighlighting() is deprecated.  Use highlightAll() instead.");
-
-    const blocks = document.querySelectorAll('pre code');
-    blocks.forEach(highlightElement);
+    highlightAll();
+    logger.deprecated("10.6.0", "initHighlighting() deprecated.  Use highlightAll() now.");
   };
 
-  // Higlights all when DOMContentLoaded fires
   // TODO: remove v12, deprecated
   function initHighlightingOnLoad() {
-    logger.deprecated("10.6.0", "initHighlightingOnLoad() is deprecated.  Use highlightAll() instead.");
-    wantsHighlight = true;
+    highlightAll();
+    logger.deprecated("10.6.0", "initHighlightingOnLoad() deprecated.  Use highlightAll() now.");
   }
 
   let wantsHighlight = false;
@@ -890,26 +801,6 @@ const HLJS = function(hljs) {
   }
 
   /**
-    intended usage: When one language truly requires another
-
-    Unlike `getLanguage`, this will throw when the requested language
-    is not available.
-
-    @param {string} name - name of the language to fetch/require
-    @returns {Language | never}
-  */
-  function requireLanguage(name) {
-    logger.deprecated("10.4.0", "requireLanguage will be removed entirely in v11.");
-    logger.deprecated("10.4.0", "Please see https://github.com/highlightjs/highlight.js/pull/2844");
-
-    const lang = getLanguage(name);
-    if (lang) { return lang; }
-
-    const err = new Error('The \'{}\' language is required, but not loaded.'.replace('{}', name));
-    throw err;
-  }
-
-  /**
    * @param {string} name - name of the language to retrieve
    * @returns {Language | undefined}
    */
@@ -985,19 +876,6 @@ const HLJS = function(hljs) {
   }
 
   /**
-  Note: fixMarkup is deprecated and will be removed entirely in v11
-
-  @param {string} arg
-  @returns {string}
-  */
-  function deprecateFixMarkup(arg) {
-    logger.deprecated("10.2.0", "fixMarkup will be removed entirely in v11.0");
-    logger.deprecated("10.2.0", "Please see https://github.com/highlightjs/highlight.js/issues/2534");
-
-    return fixMarkup(arg);
-  }
-
-  /**
    *
    * @param {HighlightedHTMLElement} el
    */
@@ -1013,7 +891,6 @@ const HLJS = function(hljs) {
     highlight,
     highlightAuto,
     highlightAll,
-    fixMarkup: deprecateFixMarkup,
     highlightElement,
     // TODO: Remove with v12 API
     highlightBlock: deprecateHighlightBlock,
@@ -1025,12 +902,9 @@ const HLJS = function(hljs) {
     listLanguages,
     getLanguage,
     registerAliases,
-    requireLanguage,
     autoDetection,
     inherit,
-    addPlugin,
-    // plugins for frameworks
-    vuePlugin: BuildVuePlugin(hljs).VuePlugin
+    addPlugin
   });
 
   hljs.debugMode = function() { SAFE_MODE = false; };
@@ -1048,10 +922,6 @@ const HLJS = function(hljs) {
   // merge all the modes/regexs into our main object
   Object.assign(hljs, MODES);
 
-  // built-in plugins, likely to be moved out of core in the future
-  hljs.addPlugin(brPlugin); // slated to be removed in v11
-  hljs.addPlugin(mergeHTMLPlugin);
-  hljs.addPlugin(tabReplacePlugin);
   return hljs;
 };
 

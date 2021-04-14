@@ -1,20 +1,20 @@
-<span class="hljs-meta">@CLASS</span><span class="xml">
+<span class="hljs-meta">@CLASS</span><span class="language-xml">
 base
 
-</span><span class="hljs-meta">@USE</span><span class="xml">
+</span><span class="hljs-meta">@USE</span><span class="language-xml">
 module.p
 
-</span><span class="hljs-meta">@BASE</span><span class="xml">
+</span><span class="hljs-meta">@BASE</span><span class="language-xml">
 class
 
-</span><span class="hljs-comment"># Comment for code</span><span class="xml">
-</span><span class="hljs-title">@create[aParam1;aParam2][local1;local2]</span><span class="xml">
-  </span><span class="hljs-keyword">^connect</span><span class="xml">[mysql://host/database?ClientCharset=windows</span><span class="hljs-number">-1251</span><span class="xml">]
-  </span><span class="hljs-keyword">^for</span><span class="xml">[i](</span><span class="hljs-number">1</span><span class="xml">;</span><span class="hljs-number">10</span><span class="xml">){
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;paragraph&quot;</span>&gt;</span></span><span class="hljs-keyword">^eval</span><span class="xml">(</span><span class="hljs-variable">$i</span><span class="xml">+</span><span class="hljs-number">10</span><span class="xml">)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    </span><span class="hljs-keyword">^connect</span><span class="xml">[mysql://host/database]{
-      </span><span class="hljs-variable">$tab</span><span class="xml">[</span><span class="hljs-keyword">^table::sql</span><span class="xml">{select * from `table` where a=&#x27;</span><span class="hljs-number">1</span><span class="xml">&#x27;}]
-      </span><span class="hljs-variable">$var_Name</span><span class="xml">[some</span><span class="hljs-variable">${value}</span><span class="xml">]
+</span><span class="hljs-comment"># Comment for code</span><span class="language-xml">
+</span><span class="hljs-title">@create[aParam1;aParam2][local1;local2]</span><span class="language-xml">
+  </span><span class="hljs-keyword">^connect</span><span class="language-xml">[mysql://host/database?ClientCharset=windows</span><span class="hljs-number">-1251</span><span class="language-xml">]
+  </span><span class="hljs-keyword">^for</span><span class="language-xml">[i](</span><span class="hljs-number">1</span><span class="language-xml">;</span><span class="hljs-number">10</span><span class="language-xml">){
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;paragraph&quot;</span>&gt;</span></span><span class="hljs-keyword">^eval</span><span class="language-xml">(</span><span class="hljs-variable">$i</span><span class="language-xml">+</span><span class="hljs-number">10</span><span class="language-xml">)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </span><span class="hljs-keyword">^connect</span><span class="language-xml">[mysql://host/database]{
+      </span><span class="hljs-variable">$tab</span><span class="language-xml">[</span><span class="hljs-keyword">^table::sql</span><span class="language-xml">{select * from `table` where a=&#x27;</span><span class="hljs-number">1</span><span class="language-xml">&#x27;}]
+      </span><span class="hljs-variable">$var_Name</span><span class="language-xml">[some</span><span class="hljs-variable">${value}</span><span class="language-xml">]
     }
   }
 
@@ -25,11 +25,11 @@ class
         ^sleep[]
       }</span>
     }</span>
-  }</span><span class="xml">
-  </span><span class="hljs-keyword">^taint</span><span class="xml">[</span><span class="hljs-number">^#0A</span><span class="xml">]
+  }</span><span class="language-xml">
+  </span><span class="hljs-keyword">^taint</span><span class="language-xml">[</span><span class="hljs-number">^#0A</span><span class="language-xml">]
 
-</span><span class="hljs-title">@GET_base[]</span><span class="xml">
-</span><span class="hljs-comment">## Comment for code</span><span class="xml">
+</span><span class="hljs-title">@GET_base[]</span><span class="language-xml">
+</span><span class="hljs-comment">## Comment for code</span><span class="language-xml">
   # Isn&#x27;t comment
-  </span><span class="hljs-variable">$result</span><span class="xml">[</span><span class="hljs-variable">$.hash_item1</span><span class="xml">[one] </span><span class="hljs-variable">$.hash_item2</span><span class="xml">[two]]
+  </span><span class="hljs-variable">$result</span><span class="language-xml">[</span><span class="hljs-variable">$.hash_item1</span><span class="language-xml">[one] </span><span class="hljs-variable">$.hash_item2</span><span class="language-xml">[two]]
 </span>

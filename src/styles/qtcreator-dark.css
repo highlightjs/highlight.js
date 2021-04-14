@@ -6,14 +6,8 @@ Qt Creator dark color scheme
 
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #000000;
-}
-
-.hljs {
   color: #aaaaaa;
+  background: #000000;
 }
 
 .hljs-strong,

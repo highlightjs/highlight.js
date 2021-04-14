@@ -194,6 +194,7 @@
   <script src="../build/highlight.js"></script>
   <script src="vendor/jquery-2.1.1.min.js"></script>
   <script src="vendor/vue.js"></script>
+  <script src="vendor/highlight-vue.min.js"></script>
 
   <script>
     hljs.debugMode();
@@ -232,8 +233,8 @@
         vue.language = hljs.getLanguage(language) ? language : '';
 
         var rendering_stats = result.language + ': relevance ' + (result.relevance );
-        if (result.second_best) {
-            rendering_stats += ', ' + result.second_best.language + ': ' + (result.second_best.relevance || result.second_best.r);
+        if (result.secondBest) {
+            rendering_stats += ', ' + result.secondBest.language + ': ' + (result.secondBest.relevance || result.secondBest.r);
         }
         editor.find('.rendering_stats').text(rendering_stats);
         editor.find('.rendering_time').text(rendering_time);
@@ -290,7 +291,7 @@
       });
     }());
 
-    Vue.use(hljs.vuePlugin);
+    Vue.use(hljsVuePlugin);
     let vue = new Vue({
       el: '#app',
       data: { code: "", language: "" },

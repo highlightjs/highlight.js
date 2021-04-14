@@ -85,6 +85,7 @@ async function buildNode(options) {
 
   log("Writing highlight.js");
   await buildNodeHighlightJS();
+
 }
 
 module.exports.build = buildNode;

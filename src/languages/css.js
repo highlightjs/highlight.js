@@ -43,7 +43,7 @@ export default function(hljs) {
       VENDOR_PREFIX,
       // to recognize keyframe 40% etc which are outside the scope of our
       // attribute value mode
-      hljs.CSS_NUMBER_MODE,
+      modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
         begin: /#[A-Za-z0-9_-]+/,
@@ -83,7 +83,7 @@ export default function(hljs) {
         contains: [
           modes.HEXCOLOR,
           modes.IMPORTANT,
-          hljs.CSS_NUMBER_MODE,
+          modes.CSS_NUMBER_MODE,
           ...STRINGS,
           // needed to highlight these as strings and to avoid issues with
           // illegal characters that might be inside urls that would tigger the
@@ -135,7 +135,7 @@ export default function(hljs) {
                 className: "attribute"
               },
               ...STRINGS,
-              hljs.CSS_NUMBER_MODE
+              modes.CSS_NUMBER_MODE
             ]
           }
         ]

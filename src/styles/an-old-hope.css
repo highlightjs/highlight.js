@@ -6,6 +6,13 @@ Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/Je
 
 */
 
+/* Millenium Falcon */
+.hljs
+{
+  background: #1C1D21;
+  color: #c0c5ce;
+}
+
 /* Death Star Comment */
 .hljs-comment,
 .hljs-quote
@@ -65,16 +72,6 @@ Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/Je
 .hljs-selector-tag
 {
   color: #B45EA4;
-}
-
-/* Millenium Falcon */
-.hljs
-{
-  display: block;
-  overflow-x: auto;
-  background: #1C1D21;
-  color: #c0c5ce;
-  padding: 0.5em;
 }
 
 .hljs-emphasis

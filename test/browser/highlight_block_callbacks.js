@@ -123,7 +123,7 @@ describe('after:highlightElement', function() {
     });
 
     this.hljs.highlightElement(this.block);
-    should(this.block.outerHTML.includes(`class="hljs basic"`)).equal(true);
+    should(this.block.outerHTML.includes(`class="hljs language-basic"`)).equal(true);
 
   })
   it('can modify result and affect the render output', async function() {
@@ -139,6 +139,6 @@ describe('after:highlightElement', function() {
     });
 
     this.hljs.highlightElement(this.block);
-    this.block.outerHTML.should.equal(`<code class="javascript hljs">redacted</code>`);
+    this.block.outerHTML.should.equal(`<code class="javascript hljs language-javascript">redacted</code>`);
   })
 })

@@ -1,7 +1,50 @@
-## Version next
+## Version 11.0.0-alpha0
+
+**This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
+
+### Potentially breaking changes
+
+Unless otherwise attributed items below are thanks to [Josh Goebel][] (ref: [#2558](https://github.com/highlightjs/highlight.js/issues/2558)).
+
+*The below list should only be considered to be a high-level summary.*
+
+Deprecations / Removals / API Changes:
+
+- `initHighlighting()` and `initHighlightingOnLoad()` deprecated. **Use `highlightAll()`.**
+- `highlightBlock(el)` deprecated. **Use `highlightElement(el)`**
+- `before:highlightBlock` & `after:highlightBlock` callbacks deprecated. **Use  equivalent `highlightElement` callbacks.**
+- `highlight(languageName, code, ignoreIllegals, continuation)` signature deprecated. **Use `highlight(code, {language, ignoreIllegals})`.**
+- Deprecated `highlight()` signature no longer supports `continuation` argument.
+- `tabReplace` option removed. Consider a plugin.
+- `useBR` option removed. Consider a plugin or CSS.
+- `requireLanguage()` removed. **Use `getLanguage()`.**
+- `endSameAsBegin` mode key removed. **Use `hljs.END_SAME_AS_BEGIN`.**
+- `lexemes` mode key removed. **Use `keywords.$pattern`.**
+- The return values/keys of some APIs have changed slightly.
+
+Security:
+
+- HTML auto-passthru has been removed. Consider a plugin.
+- Unescaped HTML is now stripped (for security). A warning is logged to the console. (#3057) [Josh Goebel][]
+
+Themes:
+
+- The default padding of all themes increases (0.5em => 1em).
+- `schoolbook` has been updated to remove the lined background.
+- `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+
+Language Grammars:
+
+- Default CDN build drops support for several languages.
+- Some language grammar files have been removed.
+- Some redundant language aliases have been removed.
+
+### Other changes
 
 Parser:
 
+- enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]
+  - subLanguage `span` tags now also always have the `language-` prefix added
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]
@@ -37,6 +80,7 @@ Grammars:
 
 New Languages:
 
+- Added 3rd party Glimmer grammar to SUPPORTED_LANGUAGES(#3123) [NullVoxPopuli][]
 - Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
 - Added 3rd party ZenScript grammar to SUPPORTED_LANGUAGES(#3106) [Jared Luboff][]
 - Added 3rd party Papyrus grammar to SUPPORTED_LANGUAGES(#3125) [Mike Watling][]
@@ -58,6 +102,7 @@ Dev Improvements:
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
+
 
 ## Version 10.7.1
 
