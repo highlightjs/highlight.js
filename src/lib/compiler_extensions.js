@@ -36,7 +36,8 @@ function skipIfhasPrecedingDot(match, response) {
  * @type {CompilerExt}
  */
 export function scopeClassName(mode, parent) {
-  if (mode.className) {
+  // eslint-disable-next-line no-undefined
+  if (mode.className !== undefined) {
     mode.scope = mode.className;
     delete mode.className;
   }
