@@ -549,6 +549,7 @@ const HLJS = function(hljs) {
     } catch (err) {
       if (err.message && err.message.includes('Illegal')) {
         return {
+          language: languageName,
           value: escape(codeToHighlight),
           illegal: true,
           relevance: 0,
