@@ -43,6 +43,8 @@ Language Grammars:
 
 Parser:
 
+- enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]
+  - subLanguage `span` tags now also always have the `language-` prefix added
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]

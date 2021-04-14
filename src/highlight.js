@@ -657,10 +657,10 @@ const HLJS = function(hljs) {
    * @param {string} [resultLang]
    */
   function updateClassName(element, currentLang, resultLang) {
-    const language = currentLang ? aliases[currentLang] : resultLang;
+    const language = (currentLang && aliases[currentLang]) || resultLang;
 
     element.classList.add("hljs");
-    if (language) element.classList.add(language);
+    element.classList.add(`language-${language}`);
   }
 
   /**

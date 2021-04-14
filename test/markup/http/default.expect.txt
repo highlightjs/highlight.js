@@ -3,5 +3,5 @@
 <span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/json; charset=utf-8
 <span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">: </span>19
 
-<span class="json">{<span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;ok&quot;</span>, <span class="hljs-attr">&quot;extended&quot;</span>: <span class="hljs-literal">true</span>}
+<span class="language-json">{<span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;ok&quot;</span>, <span class="hljs-attr">&quot;extended&quot;</span>: <span class="hljs-literal">true</span>}
 </span>

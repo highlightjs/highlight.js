@@ -1,2 +1,2 @@
-<span class="hljs-template-tag">{{#<span class="hljs-name">blockHelper</span> param1 param2}}</span><span class="xml">block content</span><span class="hljs-template-tag">{{/<span class="hljs-name">blockHelper</span>}}</span><span class="xml">
+<span class="hljs-template-tag">{{#<span class="hljs-name">blockHelper</span> param1 param2}}</span><span class="language-xml">block content</span><span class="hljs-template-tag">{{/<span class="hljs-name">blockHelper</span>}}</span><span class="language-xml">
 </span>
