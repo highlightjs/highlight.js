@@ -23,7 +23,7 @@ export const SHEBANG = (opts = {}) => {
       /\b.*/);
   }
   return inherit({
-    className: 'meta',
+    scope: 'meta',
     begin: beginShebang,
     end: /$/,
     relevance: 0,
@@ -39,14 +39,14 @@ export const BACKSLASH_ESCAPE = {
   begin: '\\\\[\\s\\S]', relevance: 0
 };
 export const APOS_STRING_MODE = {
-  className: 'string',
+  scope: 'string',
   begin: '\'',
   end: '\'',
   illegal: '\\n',
   contains: [BACKSLASH_ESCAPE]
 };
 export const QUOTE_STRING_MODE = {
-  className: 'string',
+  scope: 'string',
   begin: '"',
   end: '"',
   illegal: '\\n',
@@ -66,7 +66,7 @@ export const PHRASAL_WORDS_MODE = {
 export const COMMENT = function(begin, end, modeOptions = {}) {
   const mode = inherit(
     {
-      className: 'comment',
+      scope: 'comment',
       begin,
       end,
       contains: []
@@ -74,7 +74,7 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
     modeOptions
   );
   mode.contains.push({
-    className: 'doctag',
+    scope: 'doctag',
     // hack to avoid the space from being included. the space is necessary to
     // match here to prevent the plain text rule below from gobbling up doctags
     begin: '[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
@@ -132,17 +132,17 @@ export const C_LINE_COMMENT_MODE = COMMENT('//', '$');
 export const C_BLOCK_COMMENT_MODE = COMMENT('/\\*', '\\*/');
 export const HASH_COMMENT_MODE = COMMENT('#', '$');
 export const NUMBER_MODE = {
-  className: 'number',
+  scope: 'number',
   begin: NUMBER_RE,
   relevance: 0
 };
 export const C_NUMBER_MODE = {
-  className: 'number',
+  scope: 'number',
   begin: C_NUMBER_RE,
   relevance: 0
 };
 export const BINARY_NUMBER_MODE = {
-  className: 'number',
+  scope: 'number',
   begin: BINARY_NUMBER_RE,
   relevance: 0
 };
@@ -155,7 +155,7 @@ export const REGEXP_MODE = {
   // (which will then blow up when regex's `illegal` sees the newline)
   begin: /(?=\/[^/\n]*\/)/,
   contains: [{
-    className: 'regexp',
+    scope: 'regexp',
     begin: /\//,
     end: /\/[gimuy]*/,
     illegal: /\n/,
@@ -171,12 +171,12 @@ export const REGEXP_MODE = {
   }]
 };
 export const TITLE_MODE = {
-  className: 'title',
+  scope: 'title',
   begin: IDENT_RE,
   relevance: 0
 };
 export const UNDERSCORE_TITLE_MODE = {
-  className: 'title',
+  scope: 'title',
   begin: UNDERSCORE_IDENT_RE,
   relevance: 0
 };
