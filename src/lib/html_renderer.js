@@ -27,7 +27,7 @@ const emitsWrappingTags = (node) => {
  * @param {string} name
  * @param {{prefix:string}} options
  */
-const expandClassName = (name, { prefix }) => {
+const expandScopeName = (name, { prefix }) => {
   if (name.includes(".")) {
     const pieces = name.split(".");
     return [
@@ -67,13 +67,13 @@ export default class HTMLRenderer {
   openNode(node) {
     if (!emitsWrappingTags(node)) return;
 
-    let className = node.kind;
+    let scope = node.kind;
     if (node.sublanguage) {
-      className = `language-${className}`;
+      scope = `language-${scope}`;
     } else {
-      className = expandClassName(className, { prefix: this.classPrefix });
+      scope = expandScopeName(scope, { prefix: this.classPrefix });
     }
-    this.span(className);
+    this.span(scope);
   }
 
   /**

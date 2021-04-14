@@ -33,32 +33,32 @@ export default function(hljs) {
   const COMMENT = hljs.COMMENT(/;/, /$/);
 
   const TERMINAL_BINARY = {
-    className: "symbol",
+    scope: "symbol",
     match: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+)?/
   };
 
   const TERMINAL_DECIMAL = {
-    className: "symbol",
+    scope: "symbol",
     match: /%d[0-9]+(-[0-9]+|(\.[0-9]+)+)?/
   };
 
   const TERMINAL_HEXADECIMAL = {
-    className: "symbol",
+    scope: "symbol",
     match: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+)?/
   };
 
   const CASE_SENSITIVITY = {
-    className: "symbol",
+    scope: "symbol",
     match: /%[si](?=".*")/
   };
 
   const RULE_DECLARATION = {
-    className: "attribute",
+    scope: "attribute",
     match: regex.concat(IDENT, /(?=\s*=)/)
   };
 
   const ASSIGNMENT = {
-    className: "operator",
+    scope: "operator",
     match: /=\/?/
   };
 
