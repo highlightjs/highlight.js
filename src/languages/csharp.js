@@ -375,7 +375,7 @@ export default function(hljs) {
       {
         // [Attributes("")]
         className: 'meta',
-        begin: '^\\s*\\[(?=[\w])',
+        begin: '^\\s*\\[(?=[\\w])',
         excludeBegin: true,
         end: '\\]',
         excludeEnd: true,
