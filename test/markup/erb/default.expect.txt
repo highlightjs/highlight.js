@@ -1,11 +1,11 @@
-<span class="hljs-comment">&lt;%# this is a comment %&gt;</span><span class="xml">
+<span class="hljs-comment">&lt;%# this is a comment %&gt;</span><span class="language-xml">
 
-&lt;%</span><span class="ruby"> <span class="hljs-variable">@posts</span>.each <span class="hljs-keyword">do</span> <span class="hljs-params">|post|</span> </span><span class="xml">%&gt;
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&lt;%=</span><span class="ruby"> link_to post.title, post </span><span class="xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-&lt;%</span><span class="ruby"> <span class="hljs-keyword">end</span> </span><span class="xml">%&gt;
+&lt;%</span><span class="language-ruby"> <span class="hljs-variable">@posts</span>.each <span class="hljs-keyword">do</span> <span class="hljs-params">|post|</span> </span><span class="language-xml">%&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&lt;%=</span><span class="language-ruby"> link_to post.title, post </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+&lt;%</span><span class="language-ruby"> <span class="hljs-keyword">end</span> </span><span class="language-xml">%&gt;
 
-&lt;%-</span><span class="ruby"> available_things = things.select(&amp;<span class="hljs-symbol">:available?</span>) </span><span class="xml">-%&gt;
-&lt;%%</span><span class="ruby">- x = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> -</span><span class="xml">%%&gt;
-&lt;%%</span><span class="ruby"> value = <span class="hljs-string">&#x27;real string <span class="hljs-subst">#{<span class="hljs-variable">@value</span>}</span>&#x27;</span> </span><span class="xml">%%&gt;
-&lt;%%</span><span class="ruby">= available_things.inspect </span><span class="xml">%%&gt;
+&lt;%-</span><span class="language-ruby"> available_things = things.select(&amp;<span class="hljs-symbol">:available?</span>) </span><span class="language-xml">-%&gt;
+&lt;%%</span><span class="language-ruby">- x = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> -</span><span class="language-xml">%%&gt;
+&lt;%%</span><span class="language-ruby"> value = <span class="hljs-string">&#x27;real string <span class="hljs-subst">#{<span class="hljs-variable">@value</span>}</span>&#x27;</span> </span><span class="language-xml">%%&gt;
+&lt;%%</span><span class="language-ruby">= available_things.inspect </span><span class="language-xml">%%&gt;
 </span>

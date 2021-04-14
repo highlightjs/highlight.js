@@ -16,7 +16,7 @@
 
 <span class="hljs-keyword">declare</span> <span class="hljs-meta">%templates:wrap-all</span> <span class="hljs-keyword">function</span> <span class="hljs-built_in">app:helloworld</span>(<span class="hljs-variable">$node</span> <span class="hljs-keyword">as</span> <span class="hljs-type">node</span>(), <span class="hljs-variable">$model</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">map</span>(*), <span class="hljs-variable">$name</span> <span class="hljs-keyword">as</span> <span class="hljs-type">xs:string</span>?) {
     <span class="hljs-keyword">if</span> (<span class="hljs-variable">$name</span>) <span class="hljs-keyword">then</span>
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello </span><span class="xquery">{<span class="hljs-variable">$name</span>}</span><span class="xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello </span><span class="language-xquery">{<span class="hljs-variable">$name</span>}</span><span class="language-xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
     <span class="hljs-keyword">else</span>
         ()
 };

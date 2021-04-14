@@ -65,7 +65,9 @@ export default class HTMLRenderer {
     if (!emitsWrappingTags(node)) return;
 
     let className = node.kind;
-    if (!node.sublanguage) {
+    if (node.sublanguage) {
+      className = `language-${className}`;
+    } else {
       className = expandClassName(className, { prefix: this.classPrefix });
     }
     this.span(className);
