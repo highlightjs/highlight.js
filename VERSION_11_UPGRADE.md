@@ -103,7 +103,9 @@ Note: The object literal passed to the `before:highlightElement` callback now pa
 - `highlightElement()`'s result now no longer includes a `re` key. Use the `relevance` key now.
 - `highlight()` renames some result keys to more clearly mark them as private: `_top`, `_emitter`, and `_illegalBy`. You should not depend on these keys as they are subject to change at any time.
 - The `relevance` key returned by `highlight()` is no longer guaranteed to be an even integer.
+- `highlightElement` now always tags blocks with a consistent `language-[name]` class
 
+This behavior was inconsistent before.  Sometimes `[name]` class would be added, sometimes the alias name would be added, something no class would be added.  now `language-[name]` is always added. This also affects sublanguage `span` tags which now also include the `language-` prefix.
 
 #### Feature Removal
 
