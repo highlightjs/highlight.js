@@ -113,7 +113,7 @@ export default function(hljs) {
         begin: /'/
       },
       {
-        // TODO: Use `beforeMatch:` for leading spaces
+        // TODO: Use multi-class for leading spaces
         begin: /([\t ]|^)REM(?=\s)/
       }
     ]
@@ -121,7 +121,7 @@ export default function(hljs) {
 
   const DIRECTIVES = {
     className: 'meta',
-    // TODO: Use `beforeMatch:` for indentation once available
+    // TODO: Use multi-class for indentation once available
     begin: /[\t ]*#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
     end: /$/,
     keywords: {
