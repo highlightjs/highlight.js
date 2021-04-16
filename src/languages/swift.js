@@ -399,11 +399,12 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID375
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID379
   const INIT_SUBSCRIPT = {
-    className: 'function',
-    match: /\b(subscript|init[?!]?)\s*(?=[<(])/,
-    keywords: {
-      keyword: "subscript init init? init!",
-      $pattern: /\w+[?!]?/
+    match: [
+      /\b(subscript|init[?!]?)/,
+      /\s*(?=[<(])/,
+    ],
+    className: {
+      1: "keyword"
     },
     contains: [
       GENERIC_PARAMETERS,
