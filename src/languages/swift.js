@@ -400,7 +400,7 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID379
   const INIT_SUBSCRIPT = {
     match: [
-      /\b(subscript|init[?!]?)/,
+      /\b(?:subscript|init[?!]?)/,
       /\s*(?=[<(])/,
     ],
     className: {
