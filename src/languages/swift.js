@@ -414,40 +414,34 @@ export default function(hljs) {
   };
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380
   const OPERATOR_DECLARATION = {
-    beginKeywords: 'operator',
-    end: hljs.MATCH_NOTHING_RE,
-    contains: [
-      {
-        className: 'title',
-        match: Swift.operator,
-        endsParent: true,
-        relevance: 0
-      }
-    ]
+    match: [
+      /operator/,
+      /\s+/,
+      Swift.operator
+    ],
+    className: {
+      1: "keyword",
+      3: "title"
+    }
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID550
   const PRECEDENCEGROUP = {
-    beginKeywords: 'precedencegroup',
-    end: hljs.MATCH_NOTHING_RE,
-    contains: [
-      {
-        className: 'title',
-        match: Swift.typeIdentifier,
-        relevance: 0
-      },
-      {
-        begin: /{/,
-        end: /}/,
-        relevance: 0,
-        endsParent: true,
-        keywords: [
-          ...Swift.precedencegroupKeywords,
-          ...Swift.literals
-        ],
-        contains: [ TYPE ]
-      }
-    ]
+    begin: [
+      /precedencegroup/,
+      /\s+/,
+      Swift.typeIdentifier
+    ],
+    className: {
+      1: "keyword",
+      3: "title"
+    },
+    contains: [ TYPE ],
+    keywords: [
+      ...Swift.precedencegroupKeywords,
+      ...Swift.literals
+    ],
+    end: /}/
   };
 
   // Add supported submodes to string interpolation.
