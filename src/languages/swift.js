@@ -36,10 +36,13 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
   const DOT_KEYWORD = {
-    className: 'keyword',
-    begin: concat(/\./, lookahead(either(...Swift.dotKeywords, ...Swift.optionalDotKeywords))),
-    end: either(...Swift.dotKeywords, ...Swift.optionalDotKeywords),
-    excludeBegin: true
+    match: [
+      /\./,
+      either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)
+    ],
+    className: {
+      2: "keyword"
+    }
   };
   const KEYWORD_GUARD = {
     // Consume .keyword to prevent highlighting properties and methods as keywords.
@@ -319,24 +322,6 @@ export default function(hljs) {
     ]
   };
 
-  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
-  // Matches both the keyword func and the function title.
-  // Grouping these lets us differentiate between the operator function <
-  // and the start of the generic parameter clause (also <).
-  const FUNC_PLUS_TITLE = {
-    beginKeywords: 'func',
-    contains: [
-      {
-        className: 'title',
-        match: either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator),
-        // Required to make sure the opening < of the generic parameter clause
-        // isn't parsed as a second title.
-        endsParent: true,
-        relevance: 0
-      },
-      WHITESPACE
-    ]
-  };
   const GENERIC_PARAMETERS = {
     begin: /</,
     end: />/,
@@ -381,11 +366,18 @@ export default function(hljs) {
     endsParent: true,
     illegal: /["']/
   };
+  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
   const FUNCTION = {
-    className: 'function',
-    match: lookahead(/\bfunc\b/),
+    match: [
+      /func/,
+      /\s+/,
+      either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator)
+    ],
+    className: {
+      1: "keyword",
+      3: "title.function"
+    },
     contains: [
-      FUNC_PLUS_TITLE,
       GENERIC_PARAMETERS,
       FUNCTION_PARAMETERS,
       WHITESPACE
