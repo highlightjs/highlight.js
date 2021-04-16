@@ -140,6 +140,7 @@ const CORE_FILES = [
   "LICENSE",
   "README.md",
   "VERSION_10_UPGRADE.md",
+  "VERSION_11_UPGRADE.md",
   "SUPPORTED_LANGUAGES.md",
   "SECURITY.md",
   "CHANGES.md",
