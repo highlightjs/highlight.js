@@ -94,7 +94,7 @@ Theme Improvements:
 Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
-- added new pde to processing language as that is its file extension [DylanMcBean][]
+- added new pde to processing language as that is its file extension (#3142) [DylanMcBean][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
