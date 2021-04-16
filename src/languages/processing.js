@@ -280,6 +280,7 @@ export default function(hljs) {
         className: "built_in"
       },
       {
+        relevance: 0,
         match: regex.concat(
           /\b(?!for|if|while)/,
           IDENT, regex.lookahead(/\s*\(/)),
@@ -298,6 +299,7 @@ export default function(hljs) {
     }
   };
   const PROPERTY = {
+    relevance: 0,
     match: [
       /\./,
       IDENT
