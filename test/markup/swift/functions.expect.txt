@@ -23,7 +23,7 @@
 
 <span class="hljs-keyword">subscript</span>&lt;<span class="hljs-type">X</span>: <span class="hljs-type">A</span>&gt;(<span class="hljs-keyword">_</span> <span class="hljs-params">p</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-keyword">inout</span> (x: <span class="hljs-type">Int</span>, var: <span class="hljs-type">Int</span>) <span class="hljs-operator">=</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>))  { }
 
-<span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">Comparable</span>: <span class="hljs-title">Equatable</span> </span>{
+<span class="hljs-keyword">protocol</span> <span class="hljs-title hljs-class">Comparable</span>: <span class="hljs-title hljs-class">Equatable</span> {
 
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title hljs-function">&lt;</span> (<span class="hljs-params">lhs</span>: <span class="hljs-keyword">Self</span>, <span class="hljs-params">rhs</span>: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-type">Bool</span>
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title hljs-function">&lt;=</span> (<span class="hljs-params">lhs</span>: <span class="hljs-keyword">Self</span>, <span class="hljs-params">rhs</span>: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-type">Bool</span>

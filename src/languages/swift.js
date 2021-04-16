@@ -471,13 +471,13 @@ export default function(hljs) {
       FUNCTION,
       INIT_SUBSCRIPT,
       {
-        className: 'class',
         beginKeywords: 'struct protocol class extension enum',
         end: '\\{',
         excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
+            className: "title.class",
             begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
           }),
           ...KEYWORD_MODES
