@@ -48,6 +48,7 @@ Parser:
   - subLanguage `span` tags now also always have the `language-` prefix added
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- adds `title.class.inherited` sub-scope support [Josh Goebel][]
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]
 - adds `title.function` sub-scope support (#3078) [Josh Goebel][]
 - adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
