@@ -1,17 +1,17 @@
 <span class="hljs-keyword">import</span> java.util.LinkedList;
 <span class="hljs-keyword">import</span> java.awt.Point;
 
-<span class="hljs-keyword">PGraphics</span> pg;
-<span class="hljs-keyword">String</span> load;
+<span class="hljs-built_in">PGraphics</span> pg;
+<span class="hljs-built_in">String</span> load;
 
-<span class="hljs-keyword">void</span> <span class="hljs-title">setup</span>() {
+<span class="hljs-keyword">void</span> <span class="hljs-title hljs-function">setup</span>() {
   <span class="hljs-built_in">size</span>(<span class="hljs-built_in">displayWidth</span>, <span class="hljs-built_in">displayHeight</span>, <span class="hljs-literal">P3D</span>);
   pg = <span class="hljs-built_in">createGraphics</span>(<span class="hljs-built_in">displayWidth</span>*<span class="hljs-number">2</span>,<span class="hljs-built_in">displayHeight</span>,<span class="hljs-literal">P2D</span>);
   pg.<span class="hljs-built_in">beginDraw</span>();
   pg.<span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>);
   <span class="hljs-comment">//pg.smooth(8);</span>
-  pg.endDraw();
+  pg.<span class="hljs-title hljs-function">endDraw</span>();
 }
-<span class="hljs-keyword">void</span> <span class="hljs-title">draw</span>(){
+<span class="hljs-keyword">void</span> <span class="hljs-title hljs-function">draw</span>(){
   <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
 }
