@@ -297,6 +297,15 @@ export default function(hljs) {
       2: "class.title"
     }
   };
+  const PROPERTY = {
+    match: [
+      /\./,
+      IDENT
+    ],
+    className: {
+      2: "property"
+    }
+  };
   const CLASS = {
     variants: [
       {
@@ -347,6 +356,7 @@ export default function(hljs) {
     "String",
     "Array",
     "FloatDict",
+    "ArrayList",
     "FloatList",
     "IntDict",
     "IntList",
@@ -422,6 +432,7 @@ export default function(hljs) {
       CLASS,
       NEW_CLASS,
       FUNC_NAME,
+      PROPERTY,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
