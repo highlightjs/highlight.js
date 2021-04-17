@@ -17,7 +17,6 @@
   color: #d700ff;
 }
 
-/* Red */
 .hljs-tag,
 .hljs-selector-id,
 .hljs-number,
@@ -33,7 +32,6 @@
   color: #005faf;
 }
 
-/* devibeans blue */
 .hljs-selector-class,
 .hljs-variable,
 .hljs-template-variable,
@@ -42,14 +40,12 @@
   color: #64b5f6;
 }
 
-/* Paraíso Orange */
 .hljs-built_in,
 .hljs-title,
 .hljs-deletion {
   color: #ff8700;
 }
 
-/* Paraíso Yellow */
 .hljs-type,
 .hljs-section,
 .hljs-function,
@@ -58,7 +54,6 @@
   color: #ffd75f;
 }
 
-/* Paraíso Green */
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
@@ -66,7 +61,6 @@
   color: #558b2f;
 }
 
-/* Paraíso Purple */
 .hljs-selector-tag {
   color: #9966ff;
 }
