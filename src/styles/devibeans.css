@@ -1,0 +1,88 @@
+/*
+    devibeans (dark)
+    Created by Farzad Sadeghi (http://github.com/terminaldweller)
+    Inspired by vim's jellybeans theme (https://github.com/nanotech/jellybeans.vim)
+*/
+
+.hljs-comment,
+.hljs-quote {
+  color: #339966;
+}
+
+.hljs-params {
+  color: #a39e9b;
+}
+
+.hljs-regexp {
+  color: #d700ff;
+}
+
+/* Red */
+.hljs-tag,
+.hljs-selector-id,
+.hljs-number,
+.hljs-literal {
+  color: #ef5350;
+}
+
+.hljs.meta {
+  color: #0087ff;
+}
+
+.hljs-operator {
+  color: #005faf;
+}
+
+/* devibeans blue */
+.hljs-selector-class,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-keyword {
+  color: #64b5f6;
+}
+
+/* Paraíso Orange */
+.hljs-built_in,
+.hljs-title,
+.hljs-deletion {
+  color: #ff8700;
+}
+
+/* Paraíso Yellow */
+.hljs-type,
+.hljs-section,
+.hljs-function,
+.hljs-name,
+.hljs-attribute {
+  color: #ffd75f;
+}
+
+/* Paraíso Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #558b2f;
+}
+
+/* Paraíso Purple */
+.hljs-selector-tag {
+  color: #9966ff;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #000000;
+  color: #a39e9b;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
