@@ -137,47 +137,70 @@ export default function(hljs) {
       }
     ]
   };
-  const BOLD = {
-    className: 'strong',
-    contains: [], // defined later
-    variants: [
-      {
-        begin: /_{2}/,
-        end: /_{2}/
-      },
-      {
-        begin: /\*{2}/,
-        end: /\*{2}/
-      }
-    ]
+  function boldChild() {
+    return {
+      relevance: 0,
+      variants: [
+        {
+          contains: [INLINE_HTML, LINK],
+          className: 'strong',
+          begin: /\*\*/,
+          end: /\*\*/
+        },
+        {
+          begin: /(^|[\s\*])__/,
+          end: /__(?=[\s\*])/,
+          returnBegin: true,
+          contains: [
+            {
+              contains: [INLINE_HTML, LINK],
+              className: 'strong',
+              endsWithParent: true,
+              begin: '__'
+            },
+          ]
+        },
+      ]
+    };
+  }
+  function italicChild() {
+    return {
+      relevance: 0,
+      variants: [
+        {
+          contains: [INLINE_HTML, LINK],
+          className: 'emphasis',
+          begin: /\*(?!\*)/,
+          end: /\*/,
+        },
+        {
+          begin: /(^|[\s\*])_(?!_)/,
+          end: /_(?=[\s\*])/,
+          returnBegin: true,
+          contains: [
+            {
+              contains: [INLINE_HTML, LINK],
+              className: 'emphasis',
+              endsWithParent: true,
+              begin: /_/
+            }
+          ]
+        },
+      ]
+    };
+  }
+  function bold() {
+    let v = boldChild()
+    v.variants[0].contains.push(italicChild());
+    v.variants[1].contains[0].contains.push(italicChild());
+    return v;
   };
-  const ITALIC = {
-    className: 'emphasis',
-    contains: [], // defined later
-    variants: [
-      {
-        begin: /\*(?!\*)/,
-        end: /\*/
-      },
-      {
-        begin: /_(?!_)/,
-        end: /_/,
-        relevance: 0
-      }
-    ]
-  };
-  BOLD.contains.push(ITALIC);
-  ITALIC.contains.push(BOLD);
-
-  let CONTAINABLE = [
-    INLINE_HTML,
-    LINK
-  ];
-
-  BOLD.contains = BOLD.contains.concat(CONTAINABLE);
-  ITALIC.contains = ITALIC.contains.concat(CONTAINABLE);
-
-  CONTAINABLE = CONTAINABLE.concat(BOLD, ITALIC);
+  function italic() {
+    let v = italicChild();
+    v.variants[0].contains.push(boldChild());
+    v.variants[1].contains[0].contains.push(boldChild());
+    return v;
+  }
 
   const HEADER = {
     className: 'section',
@@ -185,7 +208,7 @@ export default function(hljs) {
       {
         begin: '^#{1,6}',
         end: '$',
-        contains: CONTAINABLE
+        contains: [INLINE_HTML, LINK, bold(), italic()]
       },
       {
         begin: '(?=^.+?\\n[=-]{2,}$)',
@@ -196,7 +219,7 @@ export default function(hljs) {
           {
             begin: '^',
             end: "\\n",
-            contains: CONTAINABLE
+            contains: [INLINE_HTML, LINK, bold(), italic()]
           }
         ]
       }
@@ -206,7 +229,7 @@ export default function(hljs) {
   const BLOCKQUOTE = {
     className: 'quote',
     begin: '^>\\s+',
-    contains: CONTAINABLE,
+    contains: [INLINE_HTML, LINK, bold(), italic()],
     end: '$'
   };
 
@@ -221,8 +244,8 @@ export default function(hljs) {
       HEADER,
       INLINE_HTML,
       LIST,
-      BOLD,
-      ITALIC,
+      bold(),
+      italic(),
       BLOCKQUOTE,
       CODE,
       HORIZONTAL_RULE,
