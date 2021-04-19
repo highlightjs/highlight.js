@@ -79,6 +79,7 @@ Grammars:
 - enh(parser) highlight object properties (#3072) [Josh Goebel][]
 - enh(javascript/typescript) highlight object properties (#3072) [Josh Goebel][]
 - enh(haskell) add support for BinaryLiterals (#3150) [Martijn Bastiaan][]
+- enh(haskell) add support for NumericUnderscores (#3150) [Martijn Bastiaan][]
 
 New Languages:
 

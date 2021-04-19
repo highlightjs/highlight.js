@@ -154,11 +154,16 @@ export default function(hljs) {
       PREPROCESSOR,
 
       // Literals and names.
+      hljs.inherit(hljs.BINARY_NUMBER_MODE, {
+        begin: '\\b(0b[01_]+)'
+      }),
+
+      hljs.inherit(hljs.C_NUMBER_MODE, {
+        begin: '(-?)(\\b0[xX][a-fA-F0-9_]+|(\\b(\\d|_)+(\\.(\\d|_)*)?|\\.(\\d|_)+)([eE][-+]?(\\d|_)+)?)'
+      }),
 
       // TODO: characters.
       hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE,
-      hljs.BINARY_NUMBER_MODE,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, {
         begin: '^[_a-z][\\w\']*'

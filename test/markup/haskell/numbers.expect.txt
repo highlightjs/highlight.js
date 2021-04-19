@@ -1,0 +1,3 @@
+<span class="hljs-number">0b001_001</span>
+<span class="hljs-number">0x000_0FF</span>
+<span class="hljs-number">132_15</span>
