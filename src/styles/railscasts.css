@@ -5,9 +5,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #232323;
   color: #e6e1dc;
 }
@@ -48,7 +45,6 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 .hljs-symbol,
 .hljs-bullet,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-attr,
 .hljs-link {
   color: #6d9cbe;

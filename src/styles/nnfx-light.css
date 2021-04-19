@@ -7,9 +7,6 @@
  */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #fff;
   color: #000;
 }
@@ -57,8 +54,7 @@
 .hljs-title,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-built_in,
-.hljs-builtin-name {
+.hljs-built_in {
   color: #f40;
 }
 
@@ -67,11 +63,13 @@
   color: #642;
 }
 
+.hljs-title.hljs-class,
 .hljs-class .hljs-title,
 .hljs-type {
   color: #639;
 }
 
+.hljs-function.hljs-title,
 .hljs-function .hljs-title,
 .hljs-attr,
 .hljs-subst {

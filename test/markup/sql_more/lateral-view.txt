@@ -1,7 +1,0 @@
-SELECT 
-    master_child.col1 AS master_id, 
-    child_table.child_id 
-FROM VALUES 
-    ( 1 , ARRAY(1,2,3)), 
-    (2, ARRAY(4,5,6)) AS master_child 
-LATERAL VIEW EXPLODE(master_child.col2) child_table AS child_id;

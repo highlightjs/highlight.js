@@ -2,6 +2,11 @@
 /* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
+.hljs {
+  background: #fefbec;
+  color: #6e6b5e;
+}
+
 /* Atelier-Dune Comment */
 .hljs-comment,
 .hljs-quote {
@@ -26,7 +31,6 @@
 .hljs-number,
 .hljs-meta,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params {
@@ -50,14 +54,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #b854d4;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #fefbec;
-  color: #6e6b5e;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

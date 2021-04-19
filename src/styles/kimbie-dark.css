@@ -1,14 +1,19 @@
 /*
-    Name:     Kimbie (light)
+    Name:     Kimbie (dark)
     Author:   Jan T. Sott
     License:  Creative Commons Attribution-ShareAlike 4.0 Unported License
     URL:      https://github.com/idleberg/Kimbie-highlight.js
 */
 
+.hljs {
+  background: #221a0f;
+  color: #d3af86;
+}
+
 /* Kimbie Comment */
 .hljs-comment,
 .hljs-quote {
-  color: #a57a4c;
+  color: #d6baad;
 }
 
 /* Kimbie Red */
@@ -26,20 +31,12 @@
 /* Kimbie Orange */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
 .hljs-deletion,
 .hljs-link {
   color: #f79a32;
-}
-
-/* Kimbie Yellow */
-.hljs-title,
-.hljs-section,
-.hljs-attribute {
-  color: #f06431;
 }
 
 /* Kimbie Green */
@@ -57,12 +54,11 @@
   color: #98676a;
 }
 
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #fbebd4;
-  color: #84613d;
-  padding: 0.5em;
+/* Kimbie Yellow */
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: #f06431;
 }
 
 .hljs-emphasis {

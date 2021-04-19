@@ -235,7 +235,6 @@ export default function(hljs) {
   };
 
   const FUNCTION_DECLARATION = {
-    className: 'function',
     begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
     returnBegin: true,
     end: /[{;=]/,
@@ -251,7 +250,9 @@ export default function(hljs) {
       {
         begin: FUNCTION_TITLE,
         returnBegin: true,
-        contains: [ TITLE_MODE ],
+        contains: [
+          hljs.inherit(TITLE_MODE, { className: "title.function" })
+        ],
         relevance: 0
       },
       {

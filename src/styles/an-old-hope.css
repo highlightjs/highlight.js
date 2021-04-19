@@ -1,4 +1,4 @@
-/* 
+/*
 
 An Old Hope – Star Wars Syntax (c) Gustavo Costa <gusbemacbe@gmail.com>
 Original theme - Ocean Dark Theme – by https://github.com/gavsiu
@@ -6,9 +6,16 @@ Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/Je
 
 */
 
+/* Millenium Falcon */
+.hljs
+{
+  background: #1C1D21;
+  color: #c0c5ce;
+}
+
 /* Death Star Comment */
 .hljs-comment,
-.hljs-quote 
+.hljs-quote
 {
   color: #B6B18B;
 }
@@ -21,7 +28,7 @@ Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/Je
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
-.hljs-deletion 
+.hljs-deletion
 {
   color: #EB3C54;
 }
@@ -29,18 +36,17 @@ Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/Je
 /* Threepio */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
 .hljs-meta,
-.hljs-link 
+.hljs-link
 {
   color: #E7CE56;
 }
 
 /* Luke Skywalker */
-.hljs-attribute 
+.hljs-attribute
 {
   color: #EE7C2B;
 }
@@ -49,41 +55,31 @@ Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/Je
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-addition 
+.hljs-addition
 {
   color: #4FB4D7;
 }
 
 /* Yoda */
 .hljs-title,
-.hljs-section 
+.hljs-section
 {
   color: #78BB65;
 }
 
 /* Mace Windu */
 .hljs-keyword,
-.hljs-selector-tag 
+.hljs-selector-tag
 {
   color: #B45EA4;
 }
 
-/* Millenium Falcon */
-.hljs 
-{
-  display: block;
-  overflow-x: auto;
-  background: #1C1D21;
-  color: #c0c5ce;
-  padding: 0.5em;
-}
-
-.hljs-emphasis 
+.hljs-emphasis
 {
   font-style: italic;
 }
 
-.hljs-strong 
+.hljs-strong
 {
   font-weight: bold;
 }

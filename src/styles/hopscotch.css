@@ -6,6 +6,11 @@
  * This work is licensed under the Creative Commons CC0 1.0 Universal License
  */
 
+.hljs {
+  background: #322931;
+  color: #b9b5b8;
+}
+
 /* Comment */
 .hljs-comment,
 .hljs-quote {
@@ -29,16 +34,10 @@
 /* Orange */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params {
   color: #fd8b19;
-}
-
-/* Yellow */
-.hljs-class .hljs-title {
-  color: #fdcc59;
 }
 
 /* Green */
@@ -61,18 +60,16 @@
   color: #1290bf;
 }
 
+/* Yellow */
+.hljs-title.hljs-class,
+.hljs-class .hljs-title {
+  color: #fdcc59;
+}
+
 /* Purple */
 .hljs-keyword,
 .hljs-selector-tag {
   color: #c85e7c;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #322931;
-  color: #b9b5b8;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

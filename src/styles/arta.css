@@ -4,13 +4,10 @@ Author: pumbur <pumbur@pumbur.net>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #222;
+  color: #aaa;
 }
 
-.hljs,
 .hljs-subst {
   color: #aaa;
 }
@@ -38,7 +35,6 @@ Author: pumbur <pumbur@pumbur.net>
 }
 
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-template-variable,

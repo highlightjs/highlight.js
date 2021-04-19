@@ -6,7 +6,7 @@ __Bold__
 __Bold *then italic*__
 **Bold _then italic_**
 **Bold and <br/>**
-** _[this](https://google.com)_ **
+__*[this](https://google.com)*__
 
 > quoted **Bold _then italic_**
 

@@ -3,9 +3,9 @@ name: Release
 on:
   push:
     tags:
-      - "*beta*"
+      - "*alpha*"
       - "*pre*"
-      # uncomment this later when we're ready for production releases
+      - "*beta*"
       - "1[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
@@ -27,12 +27,12 @@ jobs:
         run: false
         # run: echo "TAG_NAME=0.0.0-test0" >> $GITHUB_ENV
 
-      - if: contains(github.ref, 'beta') || contains(github.ref, 'pre')
+      - if: contains(github.ref, 'beta') || contains(github.ref, 'pre') || contains(github.ref, 'alpha')
         run: |
           echo "NPM_TAG=beta" >> $GITHUB_ENV
           echo "RELEASING=beta" >> $GITHUB_ENV
 
-      - if: ${{ !(contains(github.ref, 'beta') || contains(github.ref, 'pre')) }}
+      - if: ${{ !(contains(github.ref, 'beta') || contains(github.ref, 'pre') || contains(github.ref, 'alpha')) }}
         run: |
           echo "NPM_TAG=latest" >> $GITHUB_ENV
           echo "RELEASING=stable" >> $GITHUB_ENV

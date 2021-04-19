@@ -5,7 +5,6 @@ describe('hljs', function() {
   require('./beginKeywords');
   require('./binaryNumber');
   require('./cNumber');
-  require('./fixmarkup');
   require('./getLanguage');
   require('./highlight');
   require('./ident');
@@ -15,4 +14,5 @@ describe('hljs', function() {
   require('./unregisterLanguage');
   require('./starters');
   require('./underscoreIdent');
+  require('./multiClassMatch');
 });

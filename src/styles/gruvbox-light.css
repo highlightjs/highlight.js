@@ -5,15 +5,13 @@ Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/mo
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #3c3836;
   background: #fbf1c7;
 }
 
-.hljs,
+
 .hljs-subst {
-  color: #3c3836;
+  /* default */
 }
 
 /* Gruvbox Red */
@@ -25,17 +23,6 @@ Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/mo
   color: #9d0006;
 }
 
-/* Gruvbox Blue */
-.hljs-built_in,
-.hljs-emphasis,
-.hljs-name,
-.hljs-quote,
-.hljs-strong,
-.hljs-title,
-.hljs-variable {
-  color: #076678;
-}
-
 /* Gruvbox Yellow */
 .hljs-attr,
 .hljs-params,
@@ -45,7 +32,6 @@ Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/mo
 }
 
 /* Gruvbox Purple */
-.hljs-builtin-name,
 .hljs-doctag,
 .hljs-literal,
 .hljs-number {
@@ -82,6 +68,17 @@ Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/mo
 .hljs-selector-pseudo,
 .hljs-tag {
   color: #427b58;
+}
+
+/* Gruvbox Blue */
+.hljs-built_in,
+.hljs-emphasis,
+.hljs-name,
+.hljs-quote,
+.hljs-strong,
+.hljs-title,
+.hljs-variable {
+  color: #076678;
 }
 
 /* Gruvbox Gray */

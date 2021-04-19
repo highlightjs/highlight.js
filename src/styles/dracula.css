@@ -15,9 +15,7 @@ http://zenorocha.mit-license.org
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #f8f8f2;
   background: #282a36;
 }
 
@@ -33,9 +31,8 @@ http://zenorocha.mit-license.org
   color: #ff79c6;
 }
 
-.hljs,
 .hljs-subst {
-  color: #f8f8f2;
+  /* default */
 }
 
 .hljs-string,

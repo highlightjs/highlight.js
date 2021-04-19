@@ -5,9 +5,6 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #404040;
   color: #f0f0f0;
 }
@@ -51,16 +48,6 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
   color: #f0f0f0;
 }
 
-.hljs-title,
-.hljs-section {
-  color: #df471e;
-}
-
-.hljs-title>.hljs-built_in {
-  color: #81bce9;
-  font-weight: normal;
-}
-
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
@@ -88,6 +75,16 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 .hljs-class  {
   color: #ce9d4d;
   font-weight: bold;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #df471e;
+}
+
+.hljs-title>.hljs-built_in {
+  color: #81bce9;
+  font-weight: normal;
 }
 
 /* Meta color: hue: 200 */

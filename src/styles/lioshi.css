@@ -1,6 +1,11 @@
 /* lioshi Theme */
 /* Original theme - https://github.com/lioshi/vscode-lioshi-theme */
 
+.hljs {
+  background: #303030;
+  color: #c5c8c6;
+}
+
 /* Comment */
 .hljs-comment {
   color: #8d8d8d;
@@ -26,7 +31,6 @@
 /* Orange */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-subst
@@ -47,13 +51,6 @@
   color: #b5bd68;
 }
 
-/* Blue */
-.hljs-title,
-.hljs-meta,
-.hljs-section {
-  color: #81a2be;
-}
-
 /* Purple */
 .hljs-selector-tag,
 .hljs-keyword,
@@ -62,17 +59,16 @@
   color: #be94bb;
 }
 
+/* Blue */
+.hljs-title,
+.hljs-meta,
+.hljs-section {
+  color: #81a2be;
+}
+
 /* Purple light */
 .hljs-symbol {
   color: #dbc4d9;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #303030;
-  color: #c5c8c6;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

@@ -17,9 +17,6 @@
  */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #333;
   color: white;
 }
@@ -55,8 +52,7 @@
 .hljs-section,
 .hljs-attribute,
 .hljs-quote,
-.hljs-built_in,
-.hljs-builtin-name {
+.hljs-built_in {
   color: #ffa;
 }
 
