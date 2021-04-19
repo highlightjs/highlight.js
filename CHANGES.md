@@ -53,7 +53,7 @@ Parser:
 
 Grammars:
 
-- enh(swift) add `@resultBuilder` attribute (#?) [Bradley Mackey][]
+- enh(swift) add `@resultBuilder` attribute (#3151) [Bradley Mackey][]
 - enh(processing) added `pde` alias (#3142) [Dylan McBean][]
 - enh(thrift) Use proper scope for types [Josh Goebel][]
 - enh(java) Simplified class-like matcher (#3078) [Josh Goebel][]
