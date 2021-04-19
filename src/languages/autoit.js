@@ -29,7 +29,7 @@ export default function(hljs) {
     "Tidy_On",
     "Tidy_Parameters"
   ]
-  
+
   const LITERAL = 'True False And Null Not Or Default';
 
   const BUILT_IN
@@ -140,12 +140,11 @@ export default function(hljs) {
   };
 
   const FUNCTION = {
-    className: 'function',
     beginKeywords: 'Func',
     end: '$',
     illegal: '\\$|\\[|%',
     contains: [
-      hljs.UNDERSCORE_TITLE_MODE,
+      hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { className: "title.function" }),
       {
         className: 'params',
         begin: '\\(',

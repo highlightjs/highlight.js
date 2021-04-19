@@ -8,6 +8,13 @@
     https://github.com/JesseLeite/an-old-hope-syntax-atom
 */
 
+/* Millenium Falcon */
+.hljs
+{
+  background: #1C1D21;
+  color: #c0c5ce;
+}
+
 /* Death Star Comment */
 .hljs-comment,
 .hljs-quote
@@ -31,7 +38,6 @@
 /* Threepio */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
@@ -68,16 +74,6 @@
 .hljs-selector-tag
 {
   color: #B45EA4;
-}
-
-/* Millenium Falcon */
-.hljs
-{
-  display: block;
-  overflow-x: auto;
-  background: #1C1D21;
-  color: #c0c5ce;
-  padding: 0.5em;
 }
 
 .hljs-emphasis

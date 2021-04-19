@@ -62,21 +62,7 @@ Returns an object with the following properties:
 * ``language``: detected language
 * ``relevance``: integer value representing the relevance score
 * ``value``: HTML string with highlighting markup
-* ``second_best``: object with the same structure for second-best heuristically detected language (may be absent)
-
-
-fixMarkup
----------
-
-::
-
-  fixMarkup(value)
-
-**fixMarkup is deprecated as of 10.3 and will be removed entirely in v11.**
-
-Post-processing of the highlighted markup. Currently consists of replacing indentation TAB characters and using ``<br>`` tags instead of new-line characters. Options are set globally with ``configure``.
-
-Accepts a string with the highlighted markup.
+* ``secondBest``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
 highlightElement
@@ -105,8 +91,6 @@ configure
 
 Configures global options:
 
-* ``tabReplace``: a string used to replace TAB characters in indentation.
-* ``useBR``: a flag to generate ``<br>`` tags instead of new-line characters in the output, useful when code is marked up using a non-``<pre>`` container.
 * ``classPrefix``: a string prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
 * ``languages``: an array of language names and aliases restricting auto detection to only these languages.
 * ``languageDetectRe``: a regex to configure how CSS class names map to language (allows class names like say `color-as-php` vs the default of `language-php`, etc.)
@@ -116,11 +100,12 @@ Accepts an object representing options with the values to updated. Other options
 ::
 
   hljs.configure({
-    tabReplace: '    ', // 4 spaces
+    noHighlightRe: /^do-not-highlightme$/i,
+    languageDetectRe: /\bgrammar-([\w-]+)\b/i, // for `grammar-swift` style CSS naming
     classPrefix: ''     // don't append class prefix
                         // … other options aren't changed
   });
-  hljs.initHighlighting();
+  hljs.highlightAll();
 
 
 highlightAll
@@ -205,28 +190,6 @@ getLanguage
 Looks up a language by name or alias.
 
 Returns the language object if found, ``undefined`` otherwise.
-
-
-requireLanguage
----------------
-
-::
-
-  requireLanguage(name)
-
-**This has been deprecated as of 10.4 and will be removed in a future release.** 
-
-If you need this type of functionality use ``getLanguage`` with your own error
-handling.  It is highly recommended that all inter-dependencies between grammars
-be handled at built-time, not run-time.  This is what the core library now does.
-
-Looks up a language by name or alias.
-
-This should be used when one language definition depends on another.
-Using this function (vs ``getLanguage``) will provide better error messaging
-when a required language is missing.
-
-Returns the language object if found, raises a hard error otherwise.
 
 
 debugMode

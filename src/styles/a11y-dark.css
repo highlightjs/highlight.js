@@ -6,6 +6,11 @@
   Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
 */
 
+.hljs {
+  background: #2b2b2b;
+  color: #f8f8f2;
+}
+
 /* Comment */
 .hljs-comment,
 .hljs-quote {
@@ -27,7 +32,6 @@
 /* Orange */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
@@ -61,14 +65,6 @@
   color: #dcc6e0;
 }
 
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #2b2b2b;
-  color: #f8f8f2;
-  padding: 0.5em;
-}
-
 .hljs-emphasis {
   font-style: italic;
 }
@@ -81,7 +77,6 @@
   .hljs-addition,
   .hljs-attribute,
   .hljs-built_in,
-  .hljs-builtin-name,
   .hljs-bullet,
   .hljs-comment,
   .hljs-link,

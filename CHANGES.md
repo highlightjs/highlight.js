@@ -1,12 +1,68 @@
-## Version next
+## Version 11.0.0-alpha0
+
+**This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
+
+### Potentially breaking changes
+
+Unless otherwise attributed items below are thanks to [Josh Goebel][] (ref: [#2558](https://github.com/highlightjs/highlight.js/issues/2558)).
+
+*The below list should only be considered to be a high-level summary.*
+
+Deprecations / Removals / API Changes:
+
+- `initHighlighting()` and `initHighlightingOnLoad()` deprecated. **Use `highlightAll()`.**
+- `highlightBlock(el)` deprecated. **Use `highlightElement(el)`**
+- `before:highlightBlock` & `after:highlightBlock` callbacks deprecated. **Use  equivalent `highlightElement` callbacks.**
+- `highlight(languageName, code, ignoreIllegals, continuation)` signature deprecated. **Use `highlight(code, {language, ignoreIllegals})`.**
+- Deprecated `highlight()` signature no longer supports `continuation` argument.
+- `tabReplace` option removed. Consider a plugin.
+- `useBR` option removed. Consider a plugin or CSS.
+- `requireLanguage()` removed. **Use `getLanguage()`.**
+- `endSameAsBegin` mode key removed. **Use `hljs.END_SAME_AS_BEGIN`.**
+- `lexemes` mode key removed. **Use `keywords.$pattern`.**
+- The return values/keys of some APIs have changed slightly.
+
+Security:
+
+- HTML auto-passthru has been removed. Consider a plugin.
+- Unescaped HTML is now stripped (for security). A warning is logged to the console. (#3057) [Josh Goebel][]
+
+Themes:
+
+- The default padding of all themes increases (0.5em => 1em).
+- `schoolbook` has been updated to remove the lined background.
+- `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+
+Language Grammars:
+
+- Default CDN build drops support for several languages.
+- Some language grammar files have been removed.
+- Some redundant language aliases have been removed.
+
+### Other changes
 
 Parser:
 
+- enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]
+  - subLanguage `span` tags now also always have the `language-` prefix added
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- adds `title.class` sub-scope support (#3078) [Josh Goebel][]
+- adds `title.function` sub-scope support (#3078) [Josh Goebel][]
+- adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
 
 Grammars:
 
+- enh(processing) added `pde` alias (#3142) [Dylan McBean][]
+- enh(thrift) Use proper scope for types [Josh Goebel][]
+- enh(java) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(cpp) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(rust) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(actionscript) Simplified class-like matcher (#3078) [Josh Goebel][]
+- enh(arcade) `function.title` => `title.function` (#3078) [Josh Goebel][]
+- enh(autoit) `function.title` => `title.function` (#3078) [Josh Goebel][]
+- enh(c) `function.title` => `title.function` (#3078) [Josh Goebel][]
+- enh(rust) support function invoke and `impl` (#3078) [Josh Goebel][]
 - chore(properties) disable auto-detection #3102 [Josh Goebel][]
 - fix(properties) fix incorrect handling of non-alphanumeric keys #3102 [Egor Rogov][]
 - enh(java) support functions with nested template types (#2641) [Josh Goebel][]
@@ -25,18 +81,30 @@ Grammars:
 
 New Languages:
 
+- Added 3rd party Glimmer grammar to SUPPORTED_LANGUAGES(#3123) [NullVoxPopuli][]
 - Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
 - Added 3rd party ZenScript grammar to SUPPORTED_LANGUAGES(#3106) [Jared Luboff][]
+- Added 3rd party Papyrus grammar to SUPPORTED_LANGUAGES(#3125) [Mike Watling][]
 
 Theme Improvements:
 
+- chore(themes) remove `builtin-name` CSS class (#3119) [Josh Goebel][]
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
+- chore(theme) Update Srcery theme css to match its Emacs implementation [Chen Bin][]
 
+Dev Improvements:
+
+- (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
+
+[Dylan McBean]: https://github.com/DylanMcBean
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3
 [Wei Su]: https://github.com/swsoyee
 [Jared Luboff]: https://github.com/jaredlll08
+[NullVoxPopuli]: https://github.com/NullVoxPopuli
+[Mike Watling]: https://github.com/Pickysaurus
+
 
 ## Version 10.7.1
 

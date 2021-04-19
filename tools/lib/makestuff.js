@@ -14,8 +14,17 @@ function install(file, dest = file) {
   fs.copyFileSync(file, `${process.env.BUILD_DIR}/${dest}`);
 }
 
+const DEFAULT_CSS = `
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+}
+`.trim();
+
 function installCleanCSS(file, dest) {
-  const content = fs.readFileSync(file, { encoding: "utf8" });
+  const theme = fs.readFileSync(file, { encoding: "utf8" });
+  const content = DEFAULT_CSS + "\n" + theme;
   const out = new CleanCSS(config.clean_css).minify(content).styles;
   fs.writeFileSync(`${process.env.BUILD_DIR}/${dest}`, out);
 }

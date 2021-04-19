@@ -11,7 +11,7 @@ export default function(hljs) {
   const SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
   const keywords = {
     $pattern: SYMBOL_RE,
-    'builtin-name':
+    built_in:
       // keywords
       '!= % %= & &= * ** **= *= *map ' +
       '+ += , --build-class-- --import-- -= . / // //= ' +

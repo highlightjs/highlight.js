@@ -1,2 +1,2 @@
-<span class="hljs-meta">user=&gt;</span><span class="clojure"> </span>
-<span class="hljs-meta">=&gt;</span><span class="clojure"> </span>
+<span class="hljs-meta">user=&gt;</span><span class="language-clojure"> </span>
+<span class="hljs-meta">=&gt;</span><span class="language-clojure"> </span>

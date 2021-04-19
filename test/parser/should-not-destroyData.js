@@ -33,7 +33,7 @@ describe("parser/should not destroy data", function () {
       should(() => {
         hljs.highlight('The number is 123_longint yes.', {language: 'test-language'}).value
        }).throw(Error, {
-         message: "0 width match regex",
+         message: /0 width match regex/,
          languageName: "test-language"})
     })
   })

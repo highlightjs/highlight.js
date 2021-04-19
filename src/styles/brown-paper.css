@@ -5,9 +5,7 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #363c69;
   background:#b7a68e url(./brown-papersq.png);
 }
 
@@ -18,9 +16,8 @@ Brown Paper style from goldblog.com.ua (c) Zaripov Yura <yur4ik7@ukr.net>
   font-weight:bold;
 }
 
-.hljs,
 .hljs-subst {
-  color: #363c69;
+  /* default */
 }
 
 .hljs-string,

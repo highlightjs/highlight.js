@@ -6,9 +6,6 @@ Gradient Light (c) Samia Ali <samiaab1990@gmail.com>
 
 .hljs
 {
-display: block;
-overflow-x: auto;
-padding: 0.5em;
 background: rgb(255,253,141);
 background: linear-gradient(142deg, rgba(255,253,141,1) 0%, rgba(252,183,255,1) 35%, rgba(144,236,255,1) 100%);
 color:#250482;
@@ -42,7 +39,7 @@ color:#01958B;
 
 {
   color:#43449F;
-  
+
 }
 
 .hljs-keyword,
@@ -83,7 +80,6 @@ color:#01958B;
   color:#025C8F;
 }
 
-.hljs-builtin-name,
 .hljs-built_in,
 .hljs-formula,
 .hljs-name,

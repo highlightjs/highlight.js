@@ -6,9 +6,6 @@ based on dark.css by Ivan Sagalaev
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #3f3f3f;
   color: #dcdcdc;
 }
@@ -58,8 +55,7 @@ based on dark.css by Ivan Sagalaev
 
 .hljs-deletion,
 .hljs-string,
-.hljs-built_in,
-.hljs-builtin-name {
+.hljs-built_in {
   color: #cc9393;
 }
 

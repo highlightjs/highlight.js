@@ -89,6 +89,7 @@ export function startsWith(re, lexeme) {
 //   follow the '(' with a '?'.
 const BACKREF_RE = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
 
+// **INTERNAL** Not intended for outside usage
 // join logically computes regexps.join(separator), but fixes the
 // backreferences so they continue to match.
 // it also places each individual regular expression into it's own
@@ -99,7 +100,7 @@ const BACKREF_RE = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
  * @param {string} separator
  * @returns {string}
  */
-export function join(regexps, separator = "|") {
+export function _eitherRewriteBackreferences(regexps) {
   let numCaptures = 0;
 
   return regexps.map((regex) => {
@@ -127,5 +128,5 @@ export function join(regexps, separator = "|") {
       }
     }
     return out;
-  }).map(re => `(${re})`).join(separator);
+  }).map(re => `(${re})`).join("|");
 }

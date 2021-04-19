@@ -6,9 +6,6 @@ Gradient Dark (c) Samia Ali <samiaab1990@gmail.com>
 
 .hljs
 {
-display: block;
-overflow-x: auto;
-padding: 0.5em;
 background: rgb(80,31,122);
 background: linear-gradient(166deg, rgba(80,31,122,1) 0%, rgba(40,32,179,1) 80%);
 color:#e7e4eb;
@@ -42,7 +39,7 @@ color:#e7e4eb;
 
 {
   color:#F19FFF;
-  
+
 }
 
 .hljs-keyword,
@@ -83,7 +80,6 @@ color:#e7e4eb;
   color:#E447FF;
 }
 
-.hljs-builtin-name,
 .hljs-built_in,
 .hljs-formula,
 .hljs-name,

@@ -444,7 +444,7 @@ export default function(hljs) {
     "unique",
     "unknown",
     "unnest",
-    "update   ",
+    "update",
     "upper",
     "user",
     "using",

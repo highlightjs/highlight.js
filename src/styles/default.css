@@ -11,16 +11,16 @@
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
+  padding: 1em;
   background: #F0F0F0;
+  color: #444;
 }
 
 
 /* Base color: saturation 0; */
 
-.hljs,
 .hljs-subst {
-  color: #444;
+  /* default */
 }
 
 /* purposely ignored */

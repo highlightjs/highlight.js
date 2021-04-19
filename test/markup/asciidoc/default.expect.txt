@@ -36,7 +36,7 @@ Want to see a image::<span class="hljs-link">images/tiger.png</span>[<span class
 
 <span class="hljs-title">.Nested highlighting</span>
 ++++
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">this_is</span> <span class="hljs-attr">inline</span>=<span class="hljs-string">&quot;xml&quot;</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">this_is</span>&gt;</span></span>
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">this_is</span> <span class="hljs-attr">inline</span>=<span class="hljs-string">&quot;xml&quot;</span>&gt;</span></span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">this_is</span>&gt;</span></span>
 ++++
 
 <span class="hljs-quote">____

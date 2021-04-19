@@ -135,12 +135,12 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'function',
         beginKeywords: 'function',
         end: /\{/,
         excludeEnd: true,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
+            className: "title.function",
             begin: IDENT_RE
           }),
           {

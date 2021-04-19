@@ -4,7 +4,7 @@ Author: Ruslan Keba <rukeba@gmail.com>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://httpd.apache.org
 Description: language definition for Apache configuration files (httpd.conf & .htaccess)
-Category: common, config
+Category: config
 Audit: 2020
 */
 
@@ -16,7 +16,7 @@ export default function(hljs) {
   };
   const NUMBER = {
     className: 'number',
-    begin: /\d+/
+    begin: /\b\d+/
   };
   const IP_ADDRESS = {
     className: "number",

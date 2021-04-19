@@ -1,27 +1,18 @@
 /*
 
-Qt Creator light color scheme
+Qt Creator dark color scheme
 
 */
 
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #ffffff;
-}
-
-.hljs,
-.hljs-subst,
-.hljs-tag,
-.hljs-title {
-  color: #000000;
+  color: #aaaaaa;
+  background: #000000;
 }
 
 .hljs-strong,
 .hljs-emphasis {
-  color: #000000;
+  color: #a8a8a2;
 }
 
 .hljs-bullet,
@@ -29,12 +20,12 @@ Qt Creator light color scheme
 .hljs-number,
 .hljs-regexp,
 .hljs-literal {
-  color: #000080;
+  color: #ff55ff;
 }
 
 .hljs-code
 .hljs-selector-class {
-  color: #800080;
+  color: #aaaaff;
 }
 
 .hljs-emphasis,
@@ -49,17 +40,24 @@ Qt Creator light color scheme
 .hljs-section,
 .hljs-symbol,
 .hljs-name {
-  color: #808000;
+  color: #ffff55;
+}
+
+.hljs-subst,
+.hljs-tag,
+.hljs-title {
+  color: #aaaaaa;
 }
 
 .hljs-attribute {
-  color: #800000;
+  color: #ff5555;
 }
 
 .hljs-variable,
 .hljs-params,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
-  color: #0055AF;
+  color: #8888ff;
 }
 
 .hljs-string,
@@ -68,16 +66,15 @@ Qt Creator light color scheme
 .hljs-selector-pseudo,
 .hljs-type,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-template-tag,
 .hljs-template-variable,
 .hljs-addition,
 .hljs-link {
-  color: #008000;
+  color: #ff55ff;
 }
 
 .hljs-comment,
 .hljs-meta,
 .hljs-deletion {
-  color: #008000;
+  color: #55ffff;
 }

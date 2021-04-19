@@ -1,5 +1,10 @@
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
+.hljs {
+  background: white;
+  color: #4d4d4c;
+}
+
 /* Tomorrow Comment */
 .hljs-comment,
 .hljs-quote {
@@ -21,7 +26,6 @@
 /* Tomorrow Orange */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
@@ -53,14 +57,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #8959a8;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: white;
-  color: #4d4d4c;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {
