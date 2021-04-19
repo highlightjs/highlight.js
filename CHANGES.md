@@ -53,6 +53,7 @@ Parser:
 
 Grammars:
 
+- enh(swift) add `@resultBuilder` attribute (#3151) [Bradley Mackey][]
 - enh(processing) added `pde` alias (#3142) [Dylan McBean][]
 - enh(thrift) Use proper scope for types [Josh Goebel][]
 - enh(java) Simplified class-like matcher (#3078) [Josh Goebel][]
@@ -96,6 +97,7 @@ Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
 
+[Bradley Mackey]: https://github.com/bradleymackey
 [Dylan McBean]: https://github.com/DylanMcBean
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
