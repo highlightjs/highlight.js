@@ -201,6 +201,9 @@ export default function(hljs) {
     v.variants[1].contains[0].contains.push(boldChild());
     return v;
   }
+  function inline() {
+    return [INLINE_HTML, LINK, bold(), italic()]
+  }
 
   const HEADER = {
     className: 'section',
@@ -208,7 +211,7 @@ export default function(hljs) {
       {
         begin: '^#{1,6}',
         end: '$',
-        contains: [INLINE_HTML, LINK, bold(), italic()]
+        contains: inline()
       },
       {
         begin: '(?=^.+?\\n[=-]{2,}$)',
@@ -219,7 +222,7 @@ export default function(hljs) {
           {
             begin: '^',
             end: "\\n",
-            contains: [INLINE_HTML, LINK, bold(), italic()]
+            contains: inline()
           }
         ]
       }
@@ -229,7 +232,7 @@ export default function(hljs) {
   const BLOCKQUOTE = {
     className: 'quote',
     begin: '^>\\s+',
-    contains: [INLINE_HTML, LINK, bold(), italic()],
+    contains: inline(),
     end: '$'
   };
 

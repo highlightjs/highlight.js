@@ -9,6 +9,7 @@ __Bold *then italic*__
 __*[this](https://google.com)*__
 
 > quoted **Bold _then italic_**
+> *[this](https://google.com)*
 
   *this is a emphasized paragraph*
   *this is too*
