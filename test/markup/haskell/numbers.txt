@@ -1,3 +1,64 @@
-0b001_001
-0x000_0FF
-132_15
+-- decimal
+million    = 1_000_000
+billion    = 1_000_000_000
+lightspeed = 299_792_458
+version    = 8_04_1
+date       = 2017_12_31
+the_answer = 42
+
+-- hexadecimal
+red_mask = 0xff_00_00
+size1G   = 0x3fff_fff
+bigX     = 0Xffff
+
+-- octal
+world = 0o777
+me    = 0o700
+bigO  = 0O700
+
+-- binary
+bit8th   = 0b01_0000_0000
+packbits = 0b1_11_01_0000_0_111
+bigbits  = 0b1100_1011__1110_1111__0101_0011
+bigB     = 0B10
+
+-- float
+pi       = 3.141_592_653_589_793
+faraday  = 96_485.332_89
+avogadro = 6.022_140_857e+23
+
+-- Negative numbers. Note: `-` is an unary operator or infix binary operator
+-- depending on context. This is complex to parse, so we've settled on never
+-- considering it part of the number across hightlight.js. If this test ever
+-- breaks, be sure to check whether `5-3` still highlights as expected.
+n0 = -1
+n1 = -1.0
+n2 = -0xFF0
+n3 = -0o123
+n4 = -0b001
+
+-- Numeric underscores
+x0 = 1_000_000
+x1 = 1__000000
+
+e0 = 0.0001
+e1 = 0.000_1
+
+f0 = 1e+23
+f1 = 1_e+23
+f2 = 1__e+23
+
+g0 = 1e+23
+
+h0 = 0xffff
+h1 = 0xff_ff
+h2 = 0x_ffff
+h3 = 0x__ffff
+
+-- hex float
+hf0 = 0x0.1
+hf1 = 0x0.01
+hf2 = 0xF.FF
+hf3 = 0x0.1p41
+hf4 = 0x0.1p-4
+hf5 = 0x0.1p12

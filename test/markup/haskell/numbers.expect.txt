@@ -1,3 +1,64 @@
-<span class="hljs-number">0b001_001</span>
-<span class="hljs-number">0x000_0FF</span>
-<span class="hljs-number">132_15</span>
+<span class="hljs-comment">-- decimal</span>
+<span class="hljs-title">million</span>    = <span class="hljs-number">1_000_000</span>
+<span class="hljs-title">billion</span>    = <span class="hljs-number">1_000_000_000</span>
+<span class="hljs-title">lightspeed</span> = <span class="hljs-number">299_792_458</span>
+<span class="hljs-title">version</span>    = <span class="hljs-number">8_04_1</span>
+<span class="hljs-title">date</span>       = <span class="hljs-number">2017_12_31</span>
+<span class="hljs-title">the_answer</span> = <span class="hljs-number">42</span>
+
+<span class="hljs-comment">-- hexadecimal</span>
+<span class="hljs-title">red_mask</span> = <span class="hljs-number">0xff_00_00</span>
+<span class="hljs-title">size1G</span>   = <span class="hljs-number">0x3fff_fff</span>
+<span class="hljs-title">bigX</span>     = <span class="hljs-number">0Xffff</span>
+
+<span class="hljs-comment">-- octal</span>
+<span class="hljs-title">world</span> = <span class="hljs-number">0o777</span>
+<span class="hljs-title">me</span>    = <span class="hljs-number">0o700</span>
+<span class="hljs-title">bigO</span>  = <span class="hljs-number">0O700</span>
+
+<span class="hljs-comment">-- binary</span>
+<span class="hljs-title">bit8th</span>   = <span class="hljs-number">0b01_0000_0000</span>
+<span class="hljs-title">packbits</span> = <span class="hljs-number">0b1_11_01_0000_0_111</span>
+<span class="hljs-title">bigbits</span>  = <span class="hljs-number">0b1100_1011__1110_1111__0101_0011</span>
+<span class="hljs-title">bigB</span>     = <span class="hljs-number">0B10</span>
+
+<span class="hljs-comment">-- float</span>
+<span class="hljs-title">pi</span>       = <span class="hljs-number">3.141_592_653_589_793</span>
+<span class="hljs-title">faraday</span>  = <span class="hljs-number">96_485.332_89</span>
+<span class="hljs-title">avogadro</span> = <span class="hljs-number">6.022_140_857e+23</span>
+
+<span class="hljs-comment">-- Negative numbers. Note: `-` is an unary operator or infix binary operator</span>
+<span class="hljs-comment">-- depending on context. This is complex to parse, so we&#x27;ve settled on never</span>
+<span class="hljs-comment">-- considering it part of the number across hightlight.js. If this test ever</span>
+<span class="hljs-comment">-- breaks, be sure to check whether `5-3` still highlights as expected.</span>
+<span class="hljs-title">n0</span> = -<span class="hljs-number">1</span>
+<span class="hljs-title">n1</span> = -<span class="hljs-number">1.0</span>
+<span class="hljs-title">n2</span> = -<span class="hljs-number">0xFF0</span>
+<span class="hljs-title">n3</span> = -<span class="hljs-number">0o123</span>
+<span class="hljs-title">n4</span> = -<span class="hljs-number">0b001</span>
+
+<span class="hljs-comment">-- Numeric underscores</span>
+<span class="hljs-title">x0</span> = <span class="hljs-number">1_000_000</span>
+<span class="hljs-title">x1</span> = <span class="hljs-number">1__000000</span>
+
+<span class="hljs-title">e0</span> = <span class="hljs-number">0.0001</span>
+<span class="hljs-title">e1</span> = <span class="hljs-number">0.000_1</span>
+
+<span class="hljs-title">f0</span> = <span class="hljs-number">1e+23</span>
+<span class="hljs-title">f1</span> = <span class="hljs-number">1_e+23</span>
+<span class="hljs-title">f2</span> = <span class="hljs-number">1__e+23</span>
+
+<span class="hljs-title">g0</span> = <span class="hljs-number">1e+23</span>
+
+<span class="hljs-title">h0</span> = <span class="hljs-number">0xffff</span>
+<span class="hljs-title">h1</span> = <span class="hljs-number">0xff_ff</span>
+<span class="hljs-title">h2</span> = <span class="hljs-number">0x_ffff</span>
+<span class="hljs-title">h3</span> = <span class="hljs-number">0x__ffff</span>
+
+<span class="hljs-comment">-- hex float</span>
+<span class="hljs-title">hf0</span> = <span class="hljs-number">0x0.1</span>
+<span class="hljs-title">hf1</span> = <span class="hljs-number">0x0.01</span>
+<span class="hljs-title">hf2</span> = <span class="hljs-number">0xF.FF</span>
+<span class="hljs-title">hf3</span> = <span class="hljs-number">0x0.1p41</span>
+<span class="hljs-title">hf4</span> = <span class="hljs-number">0x0.1p-4</span>
+<span class="hljs-title">hf5</span> = <span class="hljs-number">0x0.1p12</span>
