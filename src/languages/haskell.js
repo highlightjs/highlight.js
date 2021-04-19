@@ -158,6 +158,7 @@ export default function(hljs) {
       // TODO: characters.
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
+      hljs.BINARY_NUMBER_MODE,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, {
         begin: '^[_a-z][\\w\']*'

@@ -78,6 +78,7 @@ Grammars:
 - enh(c) Update keyword list for C11/C18 (#3010) [Josh Goebel][]
 - enh(parser) highlight object properties (#3072) [Josh Goebel][]
 - enh(javascript/typescript) highlight object properties (#3072) [Josh Goebel][]
+- enh(haskell) add support for BinaryLiterals (#3150) [Martijn Bastiaan][]
 
 New Languages:
 
