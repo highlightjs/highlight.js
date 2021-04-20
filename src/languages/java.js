@@ -163,10 +163,15 @@ export default function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        beforeMatch: /\b(class|interface|enum|extends|implements|new)\s+/,
-        keywords: "class interface enum extends implements new",
-        match: JAVA_IDENT_RE,
-        className: "title.class"
+        match: [
+          /\b(?:class|interface|enum|extends|implements|new)/,
+          /\s+/,
+          JAVA_IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
       },
       {
         begin: [
