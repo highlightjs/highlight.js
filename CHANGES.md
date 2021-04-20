@@ -100,10 +100,15 @@ Theme Improvements:
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 - chore(theme) Update Srcery theme css to match its Emacs implementation [Chen Bin][]
 
+New Themes:
+
+- DeviBeans Dark by [Farzad Sadeghi][]
+
 Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
 
+[Farzad Sadeghi]: https://github.com/terminaldweller
 [Martijn Bastiaan]: https://github.com/martijnbastiaan
 [Bradley Mackey]: https://github.com/bradleymackey
 [Dylan McBean]: https://github.com/DylanMcBean
