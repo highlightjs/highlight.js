@@ -33,6 +33,10 @@ Theme Improvements:
 - chore(themes) remove `builtin-name` CSS class (#3119) [Josh Goebel][]
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 
+New Themes:
+
+- DeviBeans Dark by [Farzad Sadeghi](https://github.com/terminaldweller)
+
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3
