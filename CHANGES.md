@@ -81,6 +81,9 @@ Grammars:
 - enh(c) Update keyword list for C11/C18 (#3010) [Josh Goebel][]
 - enh(parser) highlight object properties (#3072) [Josh Goebel][]
 - enh(javascript/typescript) highlight object properties (#3072) [Josh Goebel][]
+- enh(haskell) add support for BinaryLiterals (#3150) [Martijn Bastiaan][]
+- enh(haskell) add support for NumericUnderscores (#3150) [Martijn Bastiaan][]
+- enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
 
 New Languages:
 
@@ -101,6 +104,7 @@ Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
 
+[Martijn Bastiaan]: https://github.com/martijnbastiaan
 [Bradley Mackey]: https://github.com/bradleymackey
 [Dylan McBean]: https://github.com/DylanMcBean
 [Josh Goebel]: https://github.com/joshgoebel
