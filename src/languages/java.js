@@ -8,6 +8,7 @@ Website: https://www.java.com/
 import {
   NUMERIC as NUMBER
 } from "./lib/java.js";
+import * as regex from '../lib/regex.js';
 
 /**
  * Allows recursive regex expressions to a given depth
@@ -32,7 +33,7 @@ function recurRegex(re, substitution, depth) {
 export default function(hljs) {
   const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   const GENERIC_IDENT_RE = JAVA_IDENT_RE +
-    recurRegex('(<' + JAVA_IDENT_RE + '~~~(\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?', /~~~/g, 2);
+    recurRegex('(?:<' + JAVA_IDENT_RE + '~~~(?:\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?', /~~~/g, 2);
   const MAIN_KEYWORDS = [
     'synchronized',
     'abstract',
@@ -56,7 +57,6 @@ export default function(hljs) {
     'transient',
     'catch',
     'instanceof',
-    'super',
     'volatile',
     'case',
     'assert',
@@ -64,7 +64,6 @@ export default function(hljs) {
     'default',
     'public',
     'try',
-    'this',
     'switch',
     'continue',
     'throws',
@@ -75,6 +74,11 @@ export default function(hljs) {
     'requires',
     'exports',
     'do'
+  ];
+
+  const BUILT_INS = [
+    'super',
+    'this'
   ];
 
   const LITERALS = [
@@ -97,7 +101,8 @@ export default function(hljs) {
   const KEYWORDS = {
     keyword: MAIN_KEYWORDS,
     literal: LITERALS,
-    type: TYPES
+    type: TYPES,
+    built_in: BUILT_INS
   };
 
   const ANNOTATION = {
@@ -110,6 +115,17 @@ export default function(hljs) {
         contains: [ "self" ] // allow nested () inside our annotation
       }
     ]
+  };
+  const PARAMS = {
+    className: 'params',
+    begin: /\(/,
+    end: /\)/,
+    keywords: KEYWORDS,
+    relevance: 0,
+    contains: [
+      hljs.C_BLOCK_COMMENT_MODE
+    ],
+    endsParent: true
   };
 
   return {
@@ -147,22 +163,44 @@ export default function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        className: 'class',
-        beginKeywords: 'class interface enum',
-        end: /[{;=]/,
-        excludeEnd: true,
-        // TODO: can this be removed somehow?
-        // an extra boost because Java is more popular than other languages with
-        // this same syntax feature (this is just to preserve our tests passing
-        // for now)
-        relevance: 1,
-        keywords: 'class interface enum',
-        illegal: /[:"\[\]]/,
+        match: [
+          /\b(?:class|interface|enum|extends|implements|new)/,
+          /\s+/,
+          JAVA_IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
+      },
+      {
+        begin: [
+          JAVA_IDENT_RE,
+          /\s+/,
+          JAVA_IDENT_RE,
+          /\s+/,
+          /=/
+        ],
+        className: {
+          1: "type",
+          3: "variable",
+          5: "operator"
+        }
+      },
+      {
+        begin: [
+          /record/,
+          /\s+/,
+          JAVA_IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        },
         contains: [
-          {
-            beginKeywords: 'extends implements'
-          },
-          hljs.UNDERSCORE_TITLE_MODE
+          PARAMS,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
         ]
       },
       {
@@ -172,48 +210,16 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'class',
-        begin: 'record\\s+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-        returnBegin: true,
-        excludeEnd: true,
-        end: /[{;=]/,
+        begin: [
+          '(?:' + GENERIC_IDENT_RE + '\\s+)',
+          hljs.UNDERSCORE_IDENT_RE,
+          /\s*(?=\()/
+        ],
+        className: {
+          2: "title.function"
+        },
         keywords: KEYWORDS,
         contains: [
-          {
-            beginKeywords: "record"
-          },
-          {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-            returnBegin: true,
-            relevance: 0,
-            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
-          },
-          {
-            className: 'params',
-            begin: /\(/,
-            end: /\)/,
-            keywords: KEYWORDS,
-            relevance: 0,
-            contains: [ hljs.C_BLOCK_COMMENT_MODE ]
-          },
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE
-        ]
-      },
-      {
-        className: 'function',
-        begin: '(' + GENERIC_IDENT_RE + '\\s+)+' + hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-        returnBegin: true,
-        end: /[{;=]/,
-        excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          {
-            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
-            returnBegin: true,
-            relevance: 0,
-            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
-          },
           {
             className: 'params',
             begin: /\(/,

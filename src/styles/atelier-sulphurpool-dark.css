@@ -2,6 +2,11 @@
 /* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/sulphurpool) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 
+.hljs {
+  background: #202746;
+  color: #979db4;
+}
+
 /* Atelier-Sulphurpool Comment */
 .hljs-comment,
 .hljs-quote {
@@ -49,14 +54,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #6679cc;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #202746;
-  color: #979db4;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

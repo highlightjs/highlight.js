@@ -5,7 +5,9 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve');
 module.exports = {
   build_dir: "build",
   copyrightYears: `2006-${new Date().getFullYear()}`,
-  clean_css: {},
+  clean_css: {
+    level: 2
+  },
   rollup: {
     node: {
       output: { format: "cjs", strict: false, exports: "auto" },

@@ -351,38 +351,6 @@ tell it to end the function definition after itself:
 
 (The ``end: /\B\b/`` regex tells function to never end by itself.)
 
-.. _endSameAsBegin:
-
-endSameAsBegin (deprecated as of 10.1)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Deprecated:** *This attribute has been deprecated.*  You should instead use the
-``END_SAME_AS_BEGIN`` mode or use the ``on:begin`` and ``on:end`` attributes to
-build more complex paired matchers.
-
-- **type**: boolean
-
-Acts as ``end`` matching exactly the same string that was found by the
-corresponding ``begin`` regexp.
-
-For example, in PostgreSQL string constants can use "dollar quotes",
-consisting of a dollar sign, an optional tag of zero or more characters,
-and another dollar sign. String constant must be ended with the same
-construct using the same tag. It is possible to nest dollar-quoted string
-constants by choosing different tags at each nesting level:
-
-::
-
-  $foo$
-    ...
-    $bar$ nested $bar$
-    ...
-  $foo$
-
-In this case you can't simply specify the same regexp for ``begin`` and
-``end`` (say, ``"\\$[a-z]\\$"``), but you can use ``begin: "\\$[a-z]\\$"``
-and ``endSameAsBegin: true``.
-
 
 .. _lexemes:
 

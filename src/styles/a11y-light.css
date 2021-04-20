@@ -1,6 +1,15 @@
-/* a11y-light theme */
-/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
-/* @author: ericwbailey */
+/*!
+  Theme: a11y-light
+  Author: @ericwbailey
+  Maintainer: @ericwbailey
+
+  Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
+*/
+
+.hljs {
+  background: #fefefe;
+  color: #545454;
+}
 
 /* Comment */
 .hljs-comment,
@@ -54,14 +63,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #7928a1;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #fefefe;
-  color: #545454;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

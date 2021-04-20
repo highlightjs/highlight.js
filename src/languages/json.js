@@ -3,59 +3,44 @@ Language: JSON
 Description: JSON (JavaScript Object Notation) is a lightweight data-interchange format.
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: http://www.json.org
-Category: common, protocols
+Category: common, protocols, web
 */
 
 export default function(hljs) {
+  const ATTRIBUTE = {
+    className: 'attr',
+    begin: /"(\\.|[^\\"\r\n])*"(?=\s*:)/,
+    relevance: 1.01
+  };
+  const PUNCTUATION = {
+    match: /[{}[\],:]/,
+    className: "punctuation",
+    relevance: 0
+  };
+  // normally we would rely on `keywords` for this but using a mode here allows us
+  // to use the very tight `illegal: \S` rule later to flag any other character
+  // as illegal indicating that despite looking like JSON we do not truly have
+  // JSON and thus improve false-positively greatly since JSON will try and claim
+  // all sorts of JSON looking stuff
   const LITERALS = {
-    literal: 'true false null'
+    beginKeywords: [
+      "true",
+      "false",
+      "null"
+    ].join(" ")
   };
-  const ALLOWED_COMMENTS = [
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.C_BLOCK_COMMENT_MODE
-  ];
-  const TYPES = [
-    hljs.QUOTE_STRING_MODE,
-    hljs.C_NUMBER_MODE
-  ];
-  const VALUE_CONTAINER = {
-    end: ',',
-    endsWithParent: true,
-    excludeEnd: true,
-    contains: TYPES,
-    keywords: LITERALS
-  };
-  const OBJECT = {
-    begin: /\{/,
-    end: /\}/,
-    contains: [
-      {
-        className: 'attr',
-        begin: /"/,
-        end: /"/,
-        contains: [hljs.BACKSLASH_ESCAPE],
-        illegal: '\\n'
-      },
-      hljs.inherit(VALUE_CONTAINER, {
-        begin: /:/
-      })
-    ].concat(ALLOWED_COMMENTS),
-    illegal: '\\S'
-  };
-  const ARRAY = {
-    begin: '\\[',
-    end: '\\]',
-    contains: [hljs.inherit(VALUE_CONTAINER)], // inherit is a workaround for a bug that makes shared modes with endsWithParent compile only the ending of one of the parents
-    illegal: '\\S'
-  };
-  TYPES.push(OBJECT, ARRAY);
-  ALLOWED_COMMENTS.forEach(function(rule) {
-    TYPES.push(rule);
-  });
+
   return {
     name: 'JSON',
-    contains: TYPES,
-    keywords: LITERALS,
+    contains: [
+      ATTRIBUTE,
+      PUNCTUATION,
+      hljs.QUOTE_STRING_MODE,
+      LITERALS,
+      hljs.C_NUMBER_MODE,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ],
     illegal: '\\S'
   };
 }

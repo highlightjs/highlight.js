@@ -35,11 +35,11 @@ describe('.highlight()', () => {
     const result = hljs.highlight(code, { language: "java" });
 
     result.value.should.equal(
-      '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +
-      '<span class="hljs-keyword">void</span> <span class="hljs-title">moveTo</span>' +
+      '<span class="hljs-keyword">public</span> ' +
+      '<span class="hljs-keyword">void</span> <span class="hljs-title hljs-function">moveTo</span>' +
       '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
       '<span class="hljs-type">int</span> y, ' +
-      '<span class="hljs-type">int</span> z)</span></span>;'
+      '<span class="hljs-type">int</span> z)</span>;'
     );
   });
   it('should works without continuation', () => {
@@ -47,11 +47,11 @@ describe('.highlight()', () => {
     const result = hljs.highlight(code, { language: 'java' });
 
     result.value.should.equal(
-      '<span class="hljs-function"><span class="hljs-keyword">public</span> ' +
-      '<span class="hljs-keyword">void</span> <span class="hljs-title">moveTo</span>' +
+      '<span class="hljs-keyword">public</span> ' +
+      '<span class="hljs-keyword">void</span> <span class="hljs-title hljs-function">moveTo</span>' +
       '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
       '<span class="hljs-type">int</span> y, ' +
-      '<span class="hljs-type">int</span> z)</span></span>;'
+      '<span class="hljs-type">int</span> z)</span>;'
     );
   });
 });

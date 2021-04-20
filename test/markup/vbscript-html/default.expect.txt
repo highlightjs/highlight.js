@@ -1,8 +1,8 @@
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-</span><span class="vbscript">&lt;%
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</span><span class="language-vbscript">&lt;%
 <span class="hljs-keyword">If</span> i &lt;  <span class="hljs-number">10</span> <span class="hljs-keyword">Then</span>
   <span class="hljs-built_in">response</span>.write(<span class="hljs-string">&quot;Good morning!&quot;</span>)
 <span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
-%&gt;</span><span class="xml">
+%&gt;</span><span class="language-xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 </span>

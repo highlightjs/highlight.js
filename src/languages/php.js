@@ -103,7 +103,6 @@ export default function(hljs) {
     'Directory __PHP_Incomplete_Class parent php_user_filter self static stdClass'
   };
   return {
-    aliases: ['php3', 'php4', 'php5', 'php6', 'php7', 'php8'],
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: [

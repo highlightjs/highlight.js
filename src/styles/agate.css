@@ -1,5 +1,8 @@
 /*!
- * Agate by Taufik Nurrohman <https://github.com/taufik-nurrohman>
+ Theme: Agate
+ Author: Taufik Nurrohman <https://github.com/taufik-nurrohman>
+ Maintainer: @taufik-nurrohman
+
  * ---------------------------------------------------------------
  *
  * #ade5fc
@@ -17,9 +20,6 @@
  */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #333;
   color: white;
 }

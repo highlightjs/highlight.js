@@ -5,6 +5,11 @@
     URL:      https://github.com/idleberg/Kimbie-highlight.js
 */
 
+.hljs {
+  background: #fbebd4;
+  color: #84613d;
+}
+
 /* Kimbie Comment */
 .hljs-comment,
 .hljs-quote {
@@ -34,13 +39,6 @@
   color: #f79a32;
 }
 
-/* Kimbie Yellow */
-.hljs-title,
-.hljs-section,
-.hljs-attribute {
-  color: #f06431;
-}
-
 /* Kimbie Green */
 .hljs-string,
 .hljs-symbol,
@@ -56,12 +54,11 @@
   color: #98676a;
 }
 
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #fbebd4;
-  color: #84613d;
-  padding: 0.5em;
+/* Kimbie Yellow */
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: #f06431;
 }
 
 .hljs-emphasis {

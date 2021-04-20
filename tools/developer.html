@@ -36,12 +36,16 @@
     }
 
     .visible-structure pre code span {
-      display: inline-block;
-      padding:2px;
-      margin: 3px 0;
+      display: inline-flex;
+      align-items: baseline;
+      padding: 0.25rem;
+      padding-bottom: 0.125rem;
+      padding-top: 0.5rem;
+      margin: 0.5rem 0.25rem 0.125rem 0.25rem;
       border: 1px dashed #777;
       border-radius: 5px;
       white-space: pre;
+      position: relative;
     }
 
     .visible-structure pre code span:before {
@@ -49,11 +53,22 @@
       content: attr(data-klass);
       font-size: 70%;
       background: #693;
-      padding:1px 5px;
-      border-radius: 3px;
+      padding:1px 4px;
+      border-radius: 2px;
       color:white;
-      margin-right:0.5em;
+      margin-right:0.25rem;
       font-weight: normal;
+      position: absolute;
+      top: -0.5rem;
+      left: -0.25rem;
+    }
+
+    .visible-structure pre code span:after {
+      display: block;
+      opacity: 0;
+      font-size: 70%;
+      content: attr(data-klass);
+      margin-top: -1rem;
     }
   </style>
 </head>
@@ -132,6 +147,8 @@
           <option>monokai.css</option>
           <option>night-owl.css</option>
           <option>nord.css</option>
+          <option>nnfx.css</option>
+          <option>nnfx-dark.css</option>
           <option>obsidian.css</option>
           <option>ocean.css</option>
           <option>paraiso-dark.css</option>
@@ -177,6 +194,7 @@
   <script src="../build/highlight.js"></script>
   <script src="vendor/jquery-2.1.1.min.js"></script>
   <script src="vendor/vue.js"></script>
+  <script src="vendor/highlight-vue.min.js"></script>
 
   <script>
     hljs.debugMode();
@@ -215,8 +233,8 @@
         vue.language = hljs.getLanguage(language) ? language : '';
 
         var rendering_stats = result.language + ': relevance ' + (result.relevance );
-        if (result.second_best) {
-            rendering_stats += ', ' + result.second_best.language + ': ' + (result.second_best.relevance || result.second_best.r);
+        if (result.secondBest) {
+            rendering_stats += ', ' + result.secondBest.language + ': ' + (result.secondBest.relevance || result.secondBest.r);
         }
         editor.find('.rendering_stats').text(rendering_stats);
         editor.find('.rendering_time').text(rendering_time);
@@ -273,7 +291,7 @@
       });
     }());
 
-    Vue.use(hljs.vuePlugin);
+    Vue.use(hljsVuePlugin);
     let vue = new Vue({
       el: '#app',
       data: { code: "", language: "" },
@@ -282,7 +300,7 @@
           // update data-klass post-render for cool class previews
           this.$nextTick(() => {
             $(".hljs span").each((_,el) => {
-              $(el).attr("data-klass", el.className.replace("hljs-",""))
+              $(el).attr("data-klass", el.className.replace(/hljs-/g,""))
             })
           })
         }

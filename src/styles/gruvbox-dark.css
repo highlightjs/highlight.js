@@ -5,15 +5,13 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #ebdbb2;
   background: #282828;
 }
 
-.hljs,
+
 .hljs-subst {
-  color: #ebdbb2;
+  /* default */
 }
 
 /* Gruvbox Red */
@@ -23,17 +21,6 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 .hljs-link,
 .hljs-selector-tag {
   color: #fb4934;
-}
-
-/* Gruvbox Blue */
-.hljs-built_in,
-.hljs-emphasis,
-.hljs-name,
-.hljs-quote,
-.hljs-strong,
-.hljs-title,
-.hljs-variable {
-  color: #83a598;
 }
 
 /* Gruvbox Yellow */
@@ -81,6 +68,17 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 .hljs-selector-pseudo,
 .hljs-tag {
   color: #8ec07c;
+}
+
+/* Gruvbox Blue */
+.hljs-built_in,
+.hljs-emphasis,
+.hljs-name,
+.hljs-quote,
+.hljs-strong,
+.hljs-title,
+.hljs-variable {
+  color: #83a598;
 }
 
 /* Gruvbox Gray */

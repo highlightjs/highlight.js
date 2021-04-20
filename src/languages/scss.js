@@ -3,7 +3,7 @@ Language: SCSS
 Description: Scss is an extension of the syntax of CSS.
 Author: Kurt Emch <kurt@kurtemch.com>
 Website: https://sass-lang.com
-Category: common, css
+Category: common, css, web
 */
 
 import * as css from "./lib/css-shared.js";
@@ -58,7 +58,7 @@ export default function(hljs) {
       { // pseudo-selector params
         begin: /\(/,
         end: /\)/,
-        contains: [ hljs.CSS_NUMBER_MODE ]
+        contains: [ modes.CSS_NUMBER_MODE ]
       },
       {
         className: 'attribute',
@@ -73,7 +73,7 @@ export default function(hljs) {
         contains: [
           VARIABLE,
           modes.HEXCOLOR,
-          hljs.CSS_NUMBER_MODE,
+          modes.CSS_NUMBER_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           modes.IMPORTANT
@@ -111,7 +111,7 @@ export default function(hljs) {
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           modes.HEXCOLOR,
-          hljs.CSS_NUMBER_MODE
+          modes.CSS_NUMBER_MODE
         ]
       }
     ]

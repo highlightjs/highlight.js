@@ -12,7 +12,6 @@ module.exports = {
     ecmaVersion: 2015,
     sourceType: "module"
   },
-  parser: '@typescript-eslint/parser',
   plugins: [
     "@typescript-eslint"
   ],
@@ -42,6 +41,10 @@ module.exports = {
     "import/extensions": ["error", "always"]
   },
   overrides: [
+    {
+      files: ["types/*.ts", "src/*.ts"],
+      parser: '@typescript-eslint/parser'
+    },
     {
       files: ["src/**/*.js"],
       rules: {

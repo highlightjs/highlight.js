@@ -10,6 +10,10 @@ import * as regex from '../lib/regex.js';
 /** @type LanguageFn */
 export default function(hljs) {
   const IDENT_RE = /[a-zA-Z_$][a-zA-Z0-9_$]*/;
+  const PKG_NAME_RE = regex.concat(
+    IDENT_RE,
+    regex.concat("(\\.", IDENT_RE, ")*")
+  );
   const IDENT_FUNC_RETURN_TYPE_RE = /([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)/;
 
   const AS3_REST_ARG_MODE = {
@@ -92,20 +96,26 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       {
-        className: 'class',
-        beginKeywords: 'package',
-        end: /\{/,
-        contains: [ hljs.TITLE_MODE ]
+        match: [
+          /\bpackage/,
+          /\s+/,
+          PKG_NAME_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
       },
       {
-        className: 'class',
-        beginKeywords: 'class interface',
-        end: /\{/,
-        excludeEnd: true,
-        contains: [
-          { beginKeywords: 'extends implements' },
-          hljs.TITLE_MODE
-        ]
+        match: [
+          /\b(?:class|interface|extends|implements)/,
+          /\s+/,
+          IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
       },
       {
         className: 'meta',
@@ -114,13 +124,12 @@ export default function(hljs) {
         keywords: { 'meta-keyword': 'import include' }
       },
       {
-        className: 'function',
         beginKeywords: 'function',
         end: /[{;]/,
         excludeEnd: true,
         illegal: /\S/,
         contains: [
-          hljs.TITLE_MODE,
+          hljs.inherit(hljs.TITLE_MODE, { className: "title.function" }),
           {
             className: 'params',
             begin: /\(/,

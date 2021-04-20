@@ -1,1 +1,1 @@
-<span class="hljs-meta">&gt; </span><span class="bash">/bin/sh</span>
+<span class="hljs-meta">&gt; </span><span class="language-bash">/bin/sh</span>

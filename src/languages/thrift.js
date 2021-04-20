@@ -7,7 +7,7 @@ Category: protocols
 */
 
 export default function(hljs) {
-  const BUILT_INS = [
+  const TYPES = [
     "bool",
     "byte",
     "i16",
@@ -37,7 +37,7 @@ export default function(hljs) {
     name: 'Thrift',
     keywords: {
       keyword: KEYWORDS,
-      built_in: BUILT_INS,
+      type: TYPES,
       literal: 'true false'
     },
     contains: [
@@ -62,8 +62,10 @@ export default function(hljs) {
       },
       {
         begin: '\\b(set|list|map)\\s*<',
+        keywords: {
+          type: [...TYPES, "set", "list", "map"]
+        },
         end: '>',
-        keywords: BUILT_INS,
         contains: [ 'self' ]
       }
     ]

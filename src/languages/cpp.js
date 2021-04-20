@@ -21,7 +21,7 @@ export default function(hljs) {
   const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
   const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
   const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
-  const FUNCTION_TYPE_RE = '(' +
+  const FUNCTION_TYPE_RE = '(?!struct)(' +
     DECLTYPE_AUTO_RE + '|' +
     regex.optional(NAMESPACE_RE) +
     '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
@@ -233,7 +233,7 @@ export default function(hljs) {
       'atomic_bool atomic_char atomic_schar ' +
       'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
       'atomic_ullong new throw return ' +
-      'and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq',
+      'and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq struct',
     built_in: '_Bool _Complex _Imaginary',
     _relevance_hints: COMMON_CPP_HINTS,
     literal: 'true false nullptr NULL'
@@ -403,21 +403,17 @@ export default function(hljs) {
           keywords: CPP_KEYWORDS
         },
         {
-          className: 'class',
-          beginKeywords: 'enum class struct union',
-          end: /[{;:<>=]/,
-          contains: [
-            {
-              beginKeywords: "final class struct"
-            },
-            hljs.TITLE_MODE
-          ]
+          match: [
+            // extra complexity to deal with `enum class` and `enum struct`
+            /\b(?:enum(?:\s+(?:class|struct))?|class|struct|union)/,
+            /\s+/,
+            /\w+/
+          ],
+          className: {
+            1: "keyword",
+            3: "title.class"
+          }
         }
-      ]),
-    exports: {
-      preprocessor: PREPROCESSOR,
-      strings: STRINGS,
-      keywords: CPP_KEYWORDS
-    }
+      ])
   };
 }

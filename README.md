@@ -58,17 +58,21 @@ detection.
 
 ---
 
-### Upgrade to Version 10
+#### Upgrading to Version 11 (currently in alpha)
 
-Version 10 is one of the biggest releases in quite some time.  If you're
-upgrading from version 9, there are some breaking changes and things you may
-want to double check first.
+As always our major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
+
+**Latest:** 11.0.0-alpha0
+
+#### Upgrading to Version 10
 
 Please read [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_UPGRADE.md) for  high-level summary of breaking changes and any actions you may need to take. See [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_BREAKING_CHANGES.md) for a more detailed list and [CHANGES.md](https://github.com/highlightjs/highlight.js/blob/main/CHANGES.md) to learn what else is new.
 
 #### Support for older versions <!-- omit in toc -->
 
 Please see [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/main/SECURITY.md) for support information.
+
+---
 
 ## Basic Usage
 ### In the Browser
@@ -197,14 +201,9 @@ div.code {
 
 ### Using with Vue.js
 
-Simply register the plugin with Vue:
+See [highlightjs/vue-plugin](https://github.com/highlightjs/vue-plugin) for a simple Vue plugin that works great with Highlight.js.
 
-```js
-Vue.use(hljs.vuePlugin);
-```
-
-And you'll be provided with a `highlightjs` component for use
-in your templates:
+An example of `vue-plugin` in action:
 
 ```html
   <div id="app">
@@ -256,11 +255,16 @@ const hljs = require('./highlight.js');
 const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 ```
 
-For a smaller footprint, load only the languages you need.
+For a smaller footprint, load our common subset of languages (the same set used for our default web build).
 
 ```js
-const hljs = require('highlight.js/lib/core');  // require only the core library
-// separately require languages
+const hljs = require('highlight.js/lib/common');
+```
+
+For the smallest footprint, load only the languages you need:
+
+```js
+const hljs = require('highlight.js/lib/core');
 hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 
 const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: 'xml'}).value

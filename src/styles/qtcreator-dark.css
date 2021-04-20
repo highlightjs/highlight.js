@@ -6,17 +6,8 @@ Qt Creator dark color scheme
 
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #000000;
-}
-
-.hljs,
-.hljs-subst,
-.hljs-tag,
-.hljs-title {
   color: #aaaaaa;
+  background: #000000;
 }
 
 .hljs-strong,
@@ -52,12 +43,19 @@ Qt Creator dark color scheme
   color: #ffff55;
 }
 
+.hljs-subst,
+.hljs-tag,
+.hljs-title {
+  color: #aaaaaa;
+}
+
 .hljs-attribute {
   color: #ff5555;
 }
 
 .hljs-variable,
 .hljs-params,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
   color: #8888ff;
 }

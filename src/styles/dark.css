@@ -5,9 +5,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #ddd;
   background: #444;
 }
 
@@ -19,9 +17,9 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
   color: white;
 }
 
-.hljs,
+
 .hljs-subst {
-  color: #ddd;
+  /* default */
 }
 
 .hljs-string,

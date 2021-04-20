@@ -3,6 +3,7 @@
  Author: Oleg Efimov <efimovov@gmail.com>
  Description: Apache/Nginx Access Logs
  Website: https://httpd.apache.org/docs/2.4/logs.html#accesslog
+ Category: web, logs
  Audit: 2020
  */
 
