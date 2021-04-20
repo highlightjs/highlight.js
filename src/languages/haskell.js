@@ -62,6 +62,42 @@ export default function(hljs) {
     contains: LIST.contains
   };
 
+  /* See:
+
+     - https://www.haskell.org/onlinereport/lexemes.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/binary_literals.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/numeric_underscores.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/hex_float_literals.html
+
+  */
+  const decimalDigits = '([0-9]_*)+';
+  const hexDigits = '([0-9a-fA-F]_*)+';
+  const binaryDigits = '([01]_*)+';
+  const octalDigits = '([0-7]_*)+';
+
+  const NUMBER = {
+    className: 'number',
+    relevance: 0,
+    variants: [
+      // decimal floating-point-literal (subsumes decimal-literal)
+      {
+        match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b`
+      },
+      // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
+      {
+        match: `\\b0[xX]_*(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b`
+      },
+      // octal-literal
+      {
+        match: `\\b0[oO](${octalDigits})\\b`
+      },
+      // binary-literal
+      {
+        match: `\\b0[bB](${binaryDigits})\\b`
+      }
+    ]
+  };
+
   return {
     name: 'Haskell',
     aliases: ['hs'],
@@ -157,7 +193,7 @@ export default function(hljs) {
 
       // TODO: characters.
       hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE,
+      NUMBER,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, {
         begin: '^[_a-z][\\w\']*'
