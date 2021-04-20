@@ -297,6 +297,7 @@ export const keywordAttributes = [
   'objcMembers',
   'propertyWrapper',
   'requires_stored_property_inits',
+  'resultBuilder',
   'testable',
   'UIApplicationMain',
   'unknown',
