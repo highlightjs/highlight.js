@@ -1,10 +1,15 @@
 /*!
-    Theme: devibeans(dark)
+    Theme: devibeans (dark)
     Author: @terminaldweller
     Maintainer: @terminaldweller
 
     Inspired by vim's jellybeans theme (https://github.com/nanotech/jellybeans.vim)
 */
+
+.hljs {
+  background: #000000;
+  color: #a39e9b;
+}
 
 .hljs-attr,
 .hljs-template-tag {
@@ -37,6 +42,7 @@
   color: #0087ff;
 }
 
+/* opt-out */
 .hljs-operator,
 .hljs-punctuation{
 }
@@ -79,14 +85,6 @@
 
 .hljs-selector-tag {
   color: #9966ff;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #000000;
-  color: #a39e9b;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {
