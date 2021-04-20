@@ -99,6 +99,7 @@ Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
 
+[Martijn Bastiaan]: https://github.com/martijnbastiaan
 [Dylan McBean]: https://github.com/DylanMcBean
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
