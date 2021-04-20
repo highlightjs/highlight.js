@@ -13,9 +13,9 @@ std::wostream &amp;<span class="hljs-keyword">operator</span> &lt;&lt;(std::wost
     <span class="hljs-keyword">return</span> stream &lt;&lt; <span class="hljs-keyword">static_cast</span>&lt;std::wstring_view&gt;(thing);
 }
 
-<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-class"><span class="hljs-keyword">struct</span></span> DataHolder { };
-<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-class"><span class="hljs-keyword">class</span></span> DataThingy { };
-<span class="hljs-keyword">enum</span> <span class="hljs-title hljs-class"><span class="hljs-keyword">class</span></span> Boolean : <span class="hljs-keyword">char</span> {
+<span class="hljs-keyword">enum struct</span> <span class="hljs-title hljs-class">DataHolder</span> { };
+<span class="hljs-keyword">enum class</span> <span class="hljs-title hljs-class">DataThingy</span> { };
+<span class="hljs-keyword">enum class</span> <span class="hljs-title hljs-class">Boolean</span> : <span class="hljs-keyword">char</span> {
     True, False, FileNotFound
 };
 

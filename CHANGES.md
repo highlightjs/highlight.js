@@ -53,6 +53,10 @@ Parser:
 
 Grammars:
 
+- enh(crystal) highlight variables (#3154) [Josh Goebel][]
+- fix(ruby) Heredoc without interpolation (#3154) [Josh Goebel][]
+- enh(swift) add `@resultBuilder` attribute (#3151) [Bradley Mackey][]
+- enh(processing) added `pde` alias (#3142) [Dylan McBean][]
 - enh(thrift) Use proper scope for types [Josh Goebel][]
 - enh(java) Simplified class-like matcher (#3078) [Josh Goebel][]
 - enh(cpp) Simplified class-like matcher (#3078) [Josh Goebel][]
@@ -77,10 +81,15 @@ Grammars:
 - enh(c) Update keyword list for C11/C18 (#3010) [Josh Goebel][]
 - enh(parser) highlight object properties (#3072) [Josh Goebel][]
 - enh(javascript/typescript) highlight object properties (#3072) [Josh Goebel][]
+- enh(haskell) add support for BinaryLiterals (#3150) [Martijn Bastiaan][]
+- enh(haskell) add support for NumericUnderscores (#3150) [Martijn Bastiaan][]
+- enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
 
 New Languages:
 
 - Added 3rd party Glimmer grammar to SUPPORTED_LANGUAGES(#3123) [NullVoxPopuli][]
+- Added NestedText support [Josh Goebel][]
+- Added WebAssembly language grammar [Josh Goebel][]
 - Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
 - Added 3rd party ZenScript grammar to SUPPORTED_LANGUAGES(#3106) [Jared Luboff][]
 - Added 3rd party Papyrus grammar to SUPPORTED_LANGUAGES(#3125) [Mike Watling][]
@@ -89,11 +98,15 @@ Theme Improvements:
 
 - chore(themes) remove `builtin-name` CSS class (#3119) [Josh Goebel][]
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
+- chore(theme) Update Srcery theme css to match its Emacs implementation [Chen Bin][]
 
 Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
 
+[Martijn Bastiaan]: https://github.com/martijnbastiaan
+[Bradley Mackey]: https://github.com/bradleymackey
+[Dylan McBean]: https://github.com/DylanMcBean
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3

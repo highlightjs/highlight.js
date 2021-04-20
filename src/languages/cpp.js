@@ -403,10 +403,16 @@ export default function(hljs) {
           keywords: CPP_KEYWORDS
         },
         {
-          beforeMatch: /\b(enum|class|struct|union)\s+/,
-          keywords: "enum class struct union",
-          match: /\w+/,
-          className: "title.class"
+          match: [
+            // extra complexity to deal with `enum class` and `enum struct`
+            /\b(?:enum(?:\s+(?:class|struct))?|class|struct|union)/,
+            /\s+/,
+            /\w+/
+          ],
+          className: {
+            1: "keyword",
+            3: "title.class"
+          }
         }
       ])
   };

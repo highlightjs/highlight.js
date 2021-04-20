@@ -1,3 +1,18 @@
+# standard heredoc
+message = <<-MESSAGE
+  This looks good
+MESSAGE
+
+# heredoc without interpolation
+message = <<-'MESSAGE'
+  This isn't highlighted correctly
+MESSAGE
+
+# with a method call
+message = <<-MESSAGE.chomp
+  This looks good
+MESSAGE
+
 def foo()
   msg = <<-HTML
   <div>
@@ -13,3 +28,4 @@ def baz()
   </div>
   FOO
 end
+

@@ -96,16 +96,26 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       {
-        beforeMatch: /\b(package)\s+/,
-        keywords: "package",
-        match: PKG_NAME_RE,
-        className: "title.class"
+        match: [
+          /\bpackage/,
+          /\s+/,
+          PKG_NAME_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
       },
       {
-        beforeMatch: /\b(class|interface|extends|implements)\s+/,
-        keywords: "class interface extends implements",
-        match: IDENT_RE,
-        className: "title.class"
+        match: [
+          /\b(?:class|interface|extends|implements)/,
+          /\s+/,
+          IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title.class"
+        }
       },
       {
         className: 'meta',

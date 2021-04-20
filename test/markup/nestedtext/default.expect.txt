@@ -1,0 +1,27 @@
+<span class="hljs-comment"># Contact information for our officers</span>
+
+<span class="hljs-attribute">president</span><span class="hljs-punctuation">:</span>
+    <span class="hljs-attribute">name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Katheryn McDaniel</span>
+    <span class="hljs-attribute">address</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-punctuation">&gt;</span> <span class="hljs-string">138 Almond Street</span>
+        <span class="hljs-punctuation">&gt;</span> <span class="hljs-string">Topeka, Kansas 20697</span>
+    <span class="hljs-attribute">phone</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-attribute">cell</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1-210-555-5297</span>
+        <span class="hljs-attribute">home</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1-210-555-8470</span>
+            <span class="hljs-comment"># Katheryn prefers that we always call her on her cell phone.</span>
+    <span class="hljs-attribute">email</span><span class="hljs-punctuation">:</span> <span class="hljs-string">KateMcD@aol.com</span>
+    <span class="hljs-attribute">kids</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">Joanie</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">Terrance</span>
+
+<span class="hljs-attribute">vice president</span><span class="hljs-punctuation">:</span>
+    <span class="hljs-attribute">name</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Margaret Hodge</span>
+    <span class="hljs-attribute">address</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-punctuation">&gt;</span> <span class="hljs-string">2586 Marigold Land</span>
+        <span class="hljs-punctuation">&gt;</span> <span class="hljs-string">Topeka, Kansas 20697</span>
+    <span class="hljs-attribute">phone</span><span class="hljs-punctuation">:</span> <span class="hljs-string">1-470-555-0398</span>
+    <span class="hljs-attribute">email</span><span class="hljs-punctuation">:</span> <span class="hljs-string">margaret.hodge@ku.edu</span>
+    <span class="hljs-attribute">kids</span><span class="hljs-punctuation">:</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">Arnie</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">Zach</span>
+        <span class="hljs-bullet">-</span> <span class="hljs-string">Maggie</span>

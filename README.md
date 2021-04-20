@@ -255,11 +255,16 @@ const hljs = require('./highlight.js');
 const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
 ```
 
-For a smaller footprint, load only the languages you need.
+For a smaller footprint, load our common subset of languages (the same set used for our default web build).
 
 ```js
-const hljs = require('highlight.js/lib/core');  // require only the core library
-// separately require languages
+const hljs = require('highlight.js/lib/common');
+```
+
+For the smallest footprint, load only the languages you need:
+
+```js
+const hljs = require('highlight.js/lib/core');
 hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 
 const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: 'xml'}).value

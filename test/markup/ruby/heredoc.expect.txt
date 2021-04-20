@@ -1,3 +1,18 @@
+<span class="hljs-comment"># standard heredoc</span>
+message = <span class="hljs-string">&lt;&lt;-MESSAGE
+  This looks good
+MESSAGE</span>
+
+<span class="hljs-comment"># heredoc without interpolation</span>
+message = <span class="hljs-string">&lt;&lt;-&#x27;MESSAGE&#x27;
+  This isn&#x27;t highlighted correctly
+MESSAGE</span>
+
+<span class="hljs-comment"># with a method call</span>
+message = <span class="hljs-string">&lt;&lt;-MESSAGE.chomp
+  This looks good
+MESSAGE</span>
+
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>
   msg = <span class="hljs-string">&lt;&lt;-HTML
   &lt;div&gt;
@@ -13,3 +28,4 @@
   &lt;/div&gt;
   FOO</span>
 <span class="hljs-keyword">end</span>
+
