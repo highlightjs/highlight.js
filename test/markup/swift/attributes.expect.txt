@@ -5,5 +5,6 @@
 
 <span class="hljs-keyword">@propertyWrapper</span>
 <span class="hljs-meta">@SomeWrapper</span>(value: <span class="hljs-number">1.0</span>, other: <span class="hljs-string">&quot;string&quot;</span>, bool: <span class="hljs-literal">false</span>)
+<span class="hljs-keyword">@resultBuilder</span>
 
 @ notAnAttribute

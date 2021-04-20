@@ -72,7 +72,8 @@ export default function(hljs) {
   };
   const COLLECTION = {
     begin: '[\\[\\{]',
-    end: '[\\]\\}]'
+    end: '[\\]\\}]',
+    relevance: 0
   };
   const HINT = {
     className: 'comment',
