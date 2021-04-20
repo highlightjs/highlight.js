@@ -1,6 +1,7 @@
 'use strict';
 
 const hljs = require('../../build');
+hljs.debugMode();
 
 describe('multi-class matchers', () => {
   before(() => {
@@ -36,7 +37,7 @@ describe('multi-class matchers', () => {
           },
           {
             match: [
-              /func/,
+              /((func))/,
               /\(\)/,
               /{.*}/
             ],

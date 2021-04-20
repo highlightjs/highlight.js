@@ -249,11 +249,13 @@ const HLJS = function(hljs) {
       let i = 1;
       // eslint-disable-next-line no-undefined
       while (match[i] !== undefined) {
+        if (!mode._emit[i]) { i++; continue; }
         const klass = language.classNameAliases[mode.className[i]] || mode.className[i];
         const text = match[i];
-        if (klass) { emitter.addKeyword(text, klass); } else {
+        if (klass) {
+          emitter.addKeyword(text, klass);
+        } else {
           modeBuffer = text;
-          // emitter.addText(text);
           processKeywords();
         }
         i++;

@@ -97,10 +97,10 @@ const BACKREF_RE = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
 // is currently an exercise for the caller. :-)
 /**
  * @param {(string | RegExp)[]} regexps
- * @param {string} separator
+ * @param {{joinWith: string}} opts
  * @returns {string}
  */
-export function _eitherRewriteBackreferences(regexps) {
+export function _rewriteBackreferences(regexps, { joinWith }) {
   let numCaptures = 0;
 
   return regexps.map((regex) => {
@@ -128,5 +128,5 @@ export function _eitherRewriteBackreferences(regexps) {
       }
     }
     return out;
-  }).map(re => `(${re})`).join("|");
+  }).map(re => `(${re})`).join(joinWith);
 }
