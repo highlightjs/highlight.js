@@ -5,9 +5,6 @@ Style with support for rainbow parens
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #474949;
   color: #d1d9e1;
 }
@@ -49,6 +46,7 @@ Style with support for rainbow parens
 .hljs-variable,
 .hljs-template-variable,
 .hljs-selector-id,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
    color: #ffcc66;
 }

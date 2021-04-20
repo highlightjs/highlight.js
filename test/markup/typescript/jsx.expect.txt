@@ -3,7 +3,7 @@
         <span class="hljs-keyword">let</span> a : <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt; = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]];
         <span class="hljs-keyword">let</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">number</span>&gt;();
         <span class="hljs-keyword">return</span> (
-            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> /&gt;</span></span>
+            <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> /&gt;</span></span>
         );
     }
 }

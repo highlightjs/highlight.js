@@ -5,9 +5,6 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #002b36;
   color: #839496;
 }
@@ -48,6 +45,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
 .hljs-attr,
 .hljs-variable,
 .hljs-template-variable,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title,
 .hljs-type {
   color: #b58900;

@@ -3,9 +3,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #272822;
   color: #ddd;
 }
@@ -21,10 +18,6 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 
 .hljs-code {
   color: #66d9ef;
-}
-
-.hljs-class .hljs-title {
-  color: white;
 }
 
 .hljs-attribute,
@@ -49,6 +42,11 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-template-tag,
 .hljs-template-variable {
   color: #a6e22e;
+}
+
+.hljs-title.hljs-class,
+.hljs-class .hljs-title {
+  color: white;
 }
 
 .hljs-comment,

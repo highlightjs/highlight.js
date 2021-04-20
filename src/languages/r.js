@@ -56,30 +56,6 @@ export default function(hljs) {
         'standardGeneric substitute sum switch tan tanh tanpi tracemem ' +
         'trigamma trunc unclass untracemem UseMethod xtfrm',
     },
-    compilerExtensions: [
-      // allow beforeMatch to act as a "qualifier" for the match
-      // the full match begin must be [beforeMatch][begin]
-      (mode, parent) => {
-        if (!mode.beforeMatch) return;
-        // starts conflicts with endsParent which we need to make sure the child
-        // rule is not matched multiple times
-        if (mode.starts) throw new Error("beforeMatch cannot be used with starts");
-
-        const originalMode = Object.assign({}, mode);
-        Object.keys(mode).forEach((key) => { delete mode[key]; });
-
-        mode.begin = regex.concat(originalMode.beforeMatch, regex.lookahead(originalMode.begin));
-        mode.starts = {
-          relevance: 0,
-          contains: [
-            Object.assign(originalMode, { endsParent: true })
-          ]
-        };
-        mode.relevance = 0;
-
-        delete originalMode.beforeMatch;
-      }
-    ],
     contains: [
       // Roxygen comments
       hljs.COMMENT(
@@ -156,9 +132,10 @@ export default function(hljs) {
         ],
       },
       {
-        className: 'number',
         relevance: 0,
-        beforeMatch: /([^a-zA-Z0-9._])/, // not part of an identifier
+        className: {
+          2: "number"
+        },
         variants: [
           // TODO: replace with negative look-behind when available
           // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/ },
@@ -166,15 +143,24 @@ export default function(hljs) {
           // { begin: /(?<![a-zA-Z0-9._])(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
           {
             // Special case: only hexadecimal binary powers can contain fractions.
-            match: /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/,
+            match: [
+              /[^a-zA-Z0-9._]/, // not part of an identifier
+              /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/
+            ]
           },
           {
-            match: /0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/
+            match: [
+              /[^a-zA-Z0-9._]/, // not part of an identifier
+              /0[xX][0-9a-fA-F]+(?:[pP][+-]?\d+)?[Li]?/
+            ]
           },
           {
-            match: /(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/,
+            match: [
+              /[^a-zA-Z0-9._]/, // not part of an identifier
+              /(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?/
+            ]
           }
-        ],
+        ]
       },
       {
         // infix operator

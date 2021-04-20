@@ -5,9 +5,7 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
+  color: #444;
   background: #fff;
 }
 
@@ -19,9 +17,8 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
     color:#778899;
 }
 
-.hljs,
 .hljs-subst {
-    color: #444
+  /* default */
 }
 
 .hljs-comment {

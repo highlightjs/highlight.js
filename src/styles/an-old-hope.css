@@ -1,10 +1,19 @@
-/*
+/*!
+  Theme: An Old Hope – Star Wars Syntax
+  Author: (c) Gustavo Costa <gusbemacbe@gmail.com>
+  Maintainer: @gusbemacbe
 
-An Old Hope – Star Wars Syntax (c) Gustavo Costa <gusbemacbe@gmail.com>
-Original theme - Ocean Dark Theme – by https://github.com/gavsiu
-Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/JesseLeite/an-old-hope-syntax-atom
-
+  Original theme - Ocean Dark Theme – by https://github.com/gavsiu
+  Based on Jesse Leite's Atom syntax theme 'An Old Hope'
+    https://github.com/JesseLeite/an-old-hope-syntax-atom
 */
+
+/* Millenium Falcon */
+.hljs
+{
+  background: #1C1D21;
+  color: #c0c5ce;
+}
 
 /* Death Star Comment */
 .hljs-comment,
@@ -65,16 +74,6 @@ Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/Je
 .hljs-selector-tag
 {
   color: #B45EA4;
-}
-
-/* Millenium Falcon */
-.hljs
-{
-  display: block;
-  overflow-x: auto;
-  background: #1C1D21;
-  color: #c0c5ce;
-  padding: 0.5em;
 }
 
 .hljs-emphasis

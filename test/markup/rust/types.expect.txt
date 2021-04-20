@@ -1,4 +1,4 @@
-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">A</span></span>: Trait;
-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">A</span></span>;
-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">A</span></span> = B;
-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">R</span></span>&lt;T&gt; = m::R&lt;T, ConcreteError&gt;
+<span class="hljs-keyword">type</span> <span class="hljs-title hljs-class">A</span>: Trait;
+<span class="hljs-keyword">type</span> <span class="hljs-title hljs-class">A</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-title hljs-class">A</span> = B;
+<span class="hljs-keyword">type</span> <span class="hljs-title hljs-class">R</span>&lt;T&gt; = m::R&lt;T, ConcreteError&gt;

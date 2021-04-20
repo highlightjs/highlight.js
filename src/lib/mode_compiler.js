@@ -1,6 +1,7 @@
 import * as regex from './regex.js';
 import { inherit } from './utils.js';
 import * as EXT from "./compiler_extensions.js";
+import { beforeMatchExt } from "./exts/before_match.js";
 import { compileKeywords } from "./compile_keywords.js";
 import { MultiClass } from "./ext/multi_class.js";
 
@@ -67,7 +68,7 @@ export function compileLanguage(language, { plugins }) {
         this.exec = () => null;
       }
       const terminators = this.regexes.map(el => el[1]);
-      this.matcherRe = langRe(regex.join(terminators), true);
+      this.matcherRe = langRe(regex._eitherRewriteBackreferences(terminators), true);
       this.lastIndex = 0;
     }
 
@@ -286,7 +287,8 @@ export function compileLanguage(language, { plugins }) {
       // do this early so compiler extensions generally don't have to worry about
       // the distinction between match/begin
       EXT.compileMatch,
-      MultiClass
+      MultiClass,
+      beforeMatchExt
     ].forEach(ext => ext(mode, parent));
 
     language.compilerExtensions.forEach(ext => ext(mode, parent));
@@ -314,25 +316,17 @@ export function compileLanguage(language, { plugins }) {
       keywordPattern = mode.keywords.$pattern;
       delete mode.keywords.$pattern;
     }
+    keywordPattern = keywordPattern || /\w+/;
 
     if (mode.keywords) {
       mode.keywords = compileKeywords(mode.keywords, language.case_insensitive);
     }
 
-    // both are not allowed
-    if (mode.lexemes && keywordPattern) {
-      throw new Error("ERR: Prefer `keywords.$pattern` to `mode.lexemes`, BOTH are not allowed. (see mode reference) ");
-    }
-
-    // `mode.lexemes` was the old standard before we added and now recommend
-    // using `keywords.$pattern` to pass the keyword pattern
-    keywordPattern = keywordPattern || mode.lexemes || /\w+/;
     cmode.keywordPatternRe = langRe(keywordPattern, true);
 
     if (parent) {
       if (!mode.begin) mode.begin = /\B|\b/;
       cmode.beginRe = langRe(mode.begin);
-      if (mode.endSameAsBegin) mode.end = mode.begin;
       if (!mode.end && !mode.endsWithParent) mode.end = /\B|\b/;
       if (mode.end) cmode.endRe = langRe(mode.end);
       cmode.terminatorEnd = regex.source(mode.end) || '';

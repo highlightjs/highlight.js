@@ -37,8 +37,8 @@
   color: #0087ff;
 }
 
-.hljs-operator {
-  color: #005faf;
+.hljs-operator,
+.hljs-punctuation{
 }
 
 .hljs-selector-class,
@@ -79,10 +79,6 @@
 
 .hljs-selector-tag {
   color: #9966ff;
-}
-
-.hljs-punctuation {
-  color: #a39e9b;
 }
 
 .hljs {

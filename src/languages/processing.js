@@ -9,6 +9,7 @@ Category: graphics
 export default function(hljs) {
   return {
     name: 'Processing',
+    aliases: [ 'pde' ],
     keywords: {
       keyword: 'BufferedReader PVector PFont PImage PGraphics HashMap boolean byte char color ' +
         'double float int long String Array FloatDict FloatList IntDict IntList JSONArray JSONObject ' +

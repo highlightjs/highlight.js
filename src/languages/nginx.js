@@ -2,7 +2,7 @@
 Language: Nginx config
 Author: Peter Leonov <gojpeg@yandex.ru>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
-Category: common, config
+Category: config, web
 Website: https://www.nginx.com
 */
 

@@ -6,9 +6,6 @@
  */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   color: #24292e;
   background: #ffffff;
 }
@@ -50,6 +47,7 @@
 
 .hljs-built_in,
 .hljs-symbol,
+.hljs-title.hljs-class,
 .hljs-class .hljs-title {
   /* prettylights-syntax-variable */
   color: #e36209;

@@ -14,7 +14,6 @@ declare module 'highlight.js' {
     interface PublicApi {
         highlight: (codeOrlanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
         highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
-        fixMarkup: (html: string) => string
         highlightBlock: (element: HTMLElement) => void
         highlightElement: (element: HTMLElement) => void
         configure: (options: Partial<HLJSOptions>) => void
@@ -26,7 +25,6 @@ declare module 'highlight.js' {
         listLanguages: () => string[]
         registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void
         getLanguage: (languageName: string) => Language | undefined
-        requireLanguage: (languageName: string) => Language | never
         autoDetection: (languageName: string) => boolean
         inherit: <T>(original: T, ...args: Record<string, any>[]) => T
         addPlugin: (plugin: HLJSPlugin) => void
@@ -49,7 +47,6 @@ declare module 'highlight.js' {
         NUMBER_MODE: Mode
         C_NUMBER_MODE: Mode
         BINARY_NUMBER_MODE: Mode
-        CSS_NUMBER_MODE: Mode
         REGEXP_MODE: Mode
         TITLE_MODE: Mode
         UNDERSCORE_TITLE_MODE: Mode
@@ -69,24 +66,26 @@ declare module 'highlight.js' {
     export type CompilerExt = (mode: Mode, parent: Mode | Language | null) => void
 
     export interface HighlightResult {
+        code?: string
         relevance : number
         value : string
         language? : string
-        emitter : Emitter
         illegal : boolean
-        top? : Language | CompiledMode
-        illegalBy? : illegalData
-        sofar? : string
         errorRaised? : Error
         // * for auto-highlight
-        second_best? : Omit<HighlightResult, 'second_best'>
-        code?: string
+        secondBest? : Omit<HighlightResult, 'second_best'>
+        // private
+        _illegalBy? : illegalData
+        _emitter : Emitter
+        _top? : Language | CompiledMode
     }
     export interface AutoHighlightResult extends HighlightResult {}
 
     export interface illegalData {
-        msg: string
+        message: string
         context: string
+        index: number
+        resultSoFar : string
         mode: CompiledMode
     }
 
@@ -119,8 +118,6 @@ declare module 'highlight.js' {
         noHighlightRe: RegExp
         languageDetectRe: RegExp
         classPrefix: string
-        tabReplace?: string
-        useBR: boolean
         languages?: string[]
         __emitter: EmitterConstructor
     }
@@ -170,7 +167,7 @@ declare module 'highlight.js' {
     /* for jsdoc annotations in the JS source files */
 
     type AnnotatedError = Error & {mode?: Mode | Language, languageName?: string, badRule?: Mode}
-    type HighlightedHTMLElement = HTMLElement & {result?: object, second_best?: object, parentNode: HTMLElement}
+    type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
     type EnhancedMatch = RegExpMatchArray & {rule: CompiledMode, type: MatchType}
     type MatchType = "begin" | "end" | "illegal"
 
