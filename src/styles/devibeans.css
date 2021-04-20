@@ -6,7 +6,13 @@
     Inspired by vim's jellybeans theme (https://github.com/nanotech/jellybeans.vim)
 */
 
+.hljs-attr,
+.hljs-template-tag {
+  color: #8787d7;
+}
+
 .hljs-comment,
+.hljs-doctag,
 .hljs-quote {
   color: #339966;
 }
@@ -26,7 +32,8 @@
   color: #ef5350;
 }
 
-.hljs.meta {
+.hljs-meta,
+.hljs-meta-keyword {
   color: #0087ff;
 }
 
@@ -35,8 +42,12 @@
 }
 
 .hljs-selector-class,
+.hljs-code,
+.hljs-formula,
 .hljs-variable,
 .hljs-template-variable,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
 .hljs-link,
 .hljs-keyword {
   color: #64b5f6;
@@ -52,11 +63,14 @@
 .hljs-section,
 .hljs-function,
 .hljs-name,
+.hljs-property,
 .hljs-attribute {
   color: #ffd75f;
 }
 
+.hljs-meta-string,
 .hljs-string,
+.hljs-subst,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
@@ -65,6 +79,10 @@
 
 .hljs-selector-tag {
   color: #9966ff;
+}
+
+.hljs-punctuation {
+  color: #a39e9b;
 }
 
 .hljs {
