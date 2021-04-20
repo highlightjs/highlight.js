@@ -3,7 +3,7 @@ Language: JSON
 Description: JSON (JavaScript Object Notation) is a lightweight data-interchange format.
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: http://www.json.org
-Category: common, protocols
+Category: common, protocols, web
 */
 
 export default function(hljs) {

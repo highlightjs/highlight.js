@@ -83,6 +83,8 @@ Grammars:
 New Languages:
 
 - Added 3rd party Glimmer grammar to SUPPORTED_LANGUAGES(#3123) [NullVoxPopuli][]
+- Added NestedText support [Josh Goebel][]
+- Added WebAssembly language grammar [Josh Goebel][]
 - Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
 - Added 3rd party ZenScript grammar to SUPPORTED_LANGUAGES(#3106) [Jared Luboff][]
 - Added 3rd party Papyrus grammar to SUPPORTED_LANGUAGES(#3125) [Mike Watling][]
