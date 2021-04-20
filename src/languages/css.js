@@ -1,6 +1,6 @@
 /*
 Language: CSS
-Category: common, css
+Category: common, css, web
 Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
