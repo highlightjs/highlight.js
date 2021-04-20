@@ -6,6 +6,11 @@
     Inspired by vim's jellybeans theme (https://github.com/nanotech/jellybeans.vim)
 */
 
+.hljs {
+  background: #000000;
+  color: #a39e9b;
+}
+
 .hljs-comment,
 .hljs-quote {
   color: #339966;
@@ -65,14 +70,6 @@
 
 .hljs-selector-tag {
   color: #9966ff;
-}
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #000000;
-  color: #a39e9b;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {
