@@ -130,7 +130,7 @@ export default function(hljs) {
         // positive (auto-detect, etc.)
         begin: regex.concat(
           /<<[-~]?'?/,
-          regex.lookahead(/(\w+)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b/)
+          regex.lookahead(/(\w+)(?=\W)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b/)
         ),
         contains: [
           hljs.END_SAME_AS_BEGIN({
