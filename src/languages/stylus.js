@@ -3,7 +3,7 @@ Language: Stylus
 Author: Bryant Williams <b.n.williams@gmail.com>
 Description: Stylus is an expressive, robust, feature-rich CSS language built for nodejs.
 Website: https://github.com/stylus/stylus
-Category: css
+Category: css, web
 */
 
 import * as css from "./lib/css-shared.js";
