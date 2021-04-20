@@ -53,6 +53,7 @@ Parser:
 
 Grammars:
 
+- enh(crystal) highlight variables (#3154) [Josh Goebel][]
 - fix(ruby) Heredoc without interpolation (#3154) [Josh Goebel][]
 - enh(swift) add `@resultBuilder` attribute (#3151) [Bradley Mackey][]
 - enh(processing) added `pde` alias (#3142) [Dylan McBean][]
