@@ -124,13 +124,15 @@ export default function(hljs) {
       {
         begin: /\B\?\\?\S/
       },
-      { // heredocs
-        begin: /<<[-~]?'?(\w+)\n(?:[^\n]*\n)*?\s*\1\b/,
-        returnBegin: true,
+      // heredocs
+      {
+        // this guard makes sure that we have an entire heredoc and not a false
+        // positive (auto-detect, etc.)
+        begin: regex.concat(
+          /<<[-~]?'?/,
+          regex.lookahead(/(\w+)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b/)
+        ),
         contains: [
-          {
-            begin: /<<[-~]?'?/
-          },
           hljs.END_SAME_AS_BEGIN({
             begin: /(\w+)/,
             end: /(\w+)/,
