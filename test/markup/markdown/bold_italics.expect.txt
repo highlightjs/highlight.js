@@ -16,3 +16,9 @@
 
 <span class="hljs-bullet">*</span> list with a <span class="hljs-emphasis">*italic item*</span>
 <span class="hljs-bullet">*</span> list with a <span class="hljs-strong">**bold item**</span>
+
+ word_with_underscores
+ <span class="hljs-emphasis">_italic_word_with_underscore_</span>
+
+ word<span class="hljs-emphasis">*with*</span>asterisks
+ <span class="hljs-emphasis">*italic*</span>wordwith<span class="hljs-emphasis">*asterisks*</span>

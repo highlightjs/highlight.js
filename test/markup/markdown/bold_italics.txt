@@ -16,3 +16,9 @@ __Bold *then italic*__
 
 * list with a *italic item*
 * list with a **bold item**
+
+ word_with_underscores
+ _italic_word_with_underscore_
+
+ word*with*asterisks
+ *italic*wordwith*asterisks*
