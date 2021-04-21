@@ -22,3 +22,21 @@
 
  word<span class="hljs-emphasis">*with*</span>asterisks
  <span class="hljs-emphasis">*italic*</span>wordwith<span class="hljs-emphasis">*asterisks*</span>
+
+
+// Special handling
+
+This is how both TextMate and GitHub handle the following even
+if it doesn&#x27;t follow the Markdown spec.
+
+test that *emphasis
+does not* carry across lines
+
+test that _emphasis
+does not_ carry across lines
+
+test that **strong
+does not** carry across lines
+
+test that __strong
+does not__ carry across lines
