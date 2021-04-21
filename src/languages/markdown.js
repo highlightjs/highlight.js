@@ -161,7 +161,7 @@ export default function(hljs) {
       },
       {
         begin: /_(?!_)/,
-        end: /_/,
+        end: /_(?!\w)/,
         relevance: 0
       }
     ]
@@ -221,6 +221,9 @@ export default function(hljs) {
       HEADER,
       INLINE_HTML,
       LIST,
+      {
+        match: /(?!_)[\w_]+/
+      },
       BOLD,
       ITALIC,
       BLOCKQUOTE,
