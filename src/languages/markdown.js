@@ -221,7 +221,10 @@ export default function(hljs) {
       HEADER,
       INLINE_HTML,
       LIST,
+      // matches normal words to prevent the `_` inside them from
+      // matching as emphasis, all because we do not have look-behind
       {
+        relevance: 0,
         match: /(?!_)[\w_]+/
       },
       BOLD,
