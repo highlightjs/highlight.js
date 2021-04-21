@@ -2,6 +2,7 @@ import HTMLRenderer from './html_renderer.js';
 
 /** @typedef {{kind?: string, sublanguage?: boolean, children: Node[]} | string} Node */
 /** @typedef {{kind?: string, sublanguage?: boolean, children: Node[]} } DataNode */
+/** @typedef {import('highlight.js').Emitter} Emitter */
 /**  */
 
 class TokenTree {

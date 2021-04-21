@@ -3,7 +3,19 @@
 // For TS consumers who use Node and don't have dom in their tsconfig lib, import the necessary types here.
 /// <reference lib="dom" />
 
+declare module 'highlight.js/private' {
+    import { CompiledMode, Mode, Language } from "highlight.js";
+
+    type MatchType = "begin" | "end" | "illegal"
+    type EnhancedMatch = RegExpMatchArray & {rule: CompiledMode, type: MatchType}
+    type AnnotatedError = Error & {mode?: Mode | Language, languageName?: string, badRule?: Mode}
+
+    type KeywordData = [string, number];
+    type KeywordDict = Record<string, KeywordData>
+}
 declare module 'highlight.js' {
+
+    import { KeywordDict} from "highlight.js/private";
 
     export type HLJSApi = PublicApi & ModesAPI
 
@@ -12,7 +24,7 @@ declare module 'highlight.js' {
     }
 
     interface PublicApi {
-        highlight: (codeOrlanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
+        highlight: (codeOrLanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean, continuation?: Mode) => HighlightResult
         highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
         highlightBlock: (element: HTMLElement) => void
         highlightElement: (element: HTMLElement) => void
@@ -160,16 +172,7 @@ declare module 'highlight.js' {
         addSublanguage(emitter: Emitter, subLanguageName: string): void
     }
 
-    /************
-     PRIVATE API
-    ************/
-
-    /* for jsdoc annotations in the JS source files */
-
-    type AnnotatedError = Error & {mode?: Mode | Language, languageName?: string, badRule?: Mode}
-    type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
-    type EnhancedMatch = RegExpMatchArray & {rule: CompiledMode, type: MatchType}
-    type MatchType = "begin" | "end" | "illegal"
+    export type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
 
     /* modes */
 
@@ -178,14 +181,11 @@ declare module 'highlight.js' {
         "on:begin"?: ModeCallback
     }
 
-    interface CompiledLanguage extends LanguageDetail, CompiledMode {
+    export interface CompiledLanguage extends LanguageDetail, CompiledMode {
         isCompiled: true
         contains: CompiledMode[]
         keywords: Record<string, any>
     }
-
-    type KeywordData = [string, number];
-    type KeywordDict = Record<string, KeywordData>
 
     export type CompiledMode = Omit<Mode, 'contains'> &
         {
@@ -209,6 +209,8 @@ declare module 'highlight.js' {
         match?: RegExp | string
         end?: RegExp | string
         className?: string
+        _emit?: Record<number, boolean>
+        scope?: string | Record<number, string>
         contains?: ("self" | Mode)[]
         endsParent?: boolean
         endsWithParent?: boolean

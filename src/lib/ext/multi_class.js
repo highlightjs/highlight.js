@@ -2,6 +2,10 @@
 import * as logger from "../../lib/logger.js";
 import * as regex from "../regex.js";
 
+/**
+@typedef {import('highlight.js').CompiledMode} CompiledMode
+*/
+
 const MultiClassError = new Error();
 
 /**
@@ -36,7 +40,7 @@ function remapScopeNames(mode, regexes) {
   const scopeNames = mode.scope;
   /** @type Record<number,boolean> */
   const emit = {};
-  /** @type Record<number,string|true> */
+  /** @type Record<number,string> */
   const positions = {};
 
   for (let i = 1; i <= regexes.length; i++) {
