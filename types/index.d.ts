@@ -202,6 +202,8 @@ declare module 'highlight.js' {
             isMultiClass?: boolean
             starts?: CompiledMode
             parent?: CompiledMode
+            beginScope?: Record<number, string> & {_emit?: Record<number,boolean>, _multi?: boolean, _wrap?: string}
+            endScope?: Record<number, string> & {_emit?: Record<number,boolean>, _multi?: boolean, _wrap?: string}
         }
 
     interface ModeDetails {
@@ -211,6 +213,7 @@ declare module 'highlight.js' {
         className?: string
         _emit?: Record<number, boolean>
         scope?: string | Record<number, string>
+        beginScope?: string | Record<number, string>
         contains?: ("self" | Mode)[]
         endsParent?: boolean
         endsWithParent?: boolean

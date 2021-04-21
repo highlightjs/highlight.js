@@ -266,18 +266,19 @@ const HLJS = function(hljs) {
      * @param {CompiledMode} mode
      * @param {RegExpMatchArray} match
      */
-    function emitMultiClass(mode, match) {
+    function emitMultiClass(scope, match) {
       let i = 1;
       // eslint-disable-next-line no-undefined
       while (match[i] !== undefined) {
-        if (!mode._emit[i]) { i++; continue; }
-        const klass = language.classNameAliases[mode.scope[i]] || mode.scope[i];
+        if (!scope._emit[i]) { i++; continue; }
+        const klass = language.classNameAliases[scope[i]] || scope[i];
         const text = match[i];
         if (klass) {
           emitter.addKeyword(text, klass);
         } else {
           modeBuffer = text;
           processKeywords();
+          modeBuffer = "";
         }
         i++;
       }
@@ -288,13 +289,21 @@ const HLJS = function(hljs) {
      * @param {RegExpMatchArray} match
      */
     function startNewMode(mode, match) {
-      if (mode.isMultiClass) {
-        // at this point modeBuffer should just be the match
-        emitMultiClass(mode, match);
-        modeBuffer = "";
-      } else if (mode.scope && typeof mode.scope === "string") {
+      if (mode.scope && typeof mode.scope === "string") {
         emitter.openNode(language.classNameAliases[mode.scope] || mode.scope);
       }
+      if (mode.beginScope) {
+        // beginScope just wraps the begin match itself in a scope
+        if (mode.beginScope._wrap) {
+          emitter.addKeyword(modeBuffer, language.classNameAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
+          modeBuffer = "";
+        } else if (mode.beginScope._multi) {
+          // at this point modeBuffer should just be the match
+          emitMultiClass(mode.beginScope, match);
+          modeBuffer = "";
+        }
+      }
+
       top = Object.create(mode, { parent: { value: top } });
       return top;
     }
@@ -395,7 +404,13 @@ const HLJS = function(hljs) {
       if (!endMode) { return NO_MATCH; }
 
       const origin = top;
-      if (origin.skip) {
+      if (top.endScope && top.endScope._wrap) {
+        processBuffer();
+        emitter.addKeyword(lexeme, top.endScope._wrap);
+      } else if (top.endScope && top.endScope._multi) {
+        processBuffer();
+        emitMultiClass(top.endScope, match);
+      } else if (origin.skip) {
         modeBuffer += lexeme;
       } else {
         if (!(origin.returnEnd || origin.excludeEnd)) {

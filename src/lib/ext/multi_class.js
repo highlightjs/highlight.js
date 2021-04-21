@@ -34,10 +34,11 @@ const MultiClassError = new Error();
  *
  * @param {CompiledMode} mode
  * @param {Array<RegExp>} regexes
+ * @param {{key: "beginScope"|"endScope"}} opts
  */
-function remapScopeNames(mode, regexes) {
+function remapScopeNames(mode, regexes, { key }) {
   let offset = 0;
-  const scopeNames = mode.scope;
+  const scopeNames = mode[key];
   /** @type Record<number,boolean> */
   const emit = {};
   /** @type Record<number,string> */
@@ -50,28 +51,82 @@ function remapScopeNames(mode, regexes) {
   }
   // we use _emit to keep track of which match groups are "top-level" to avoid double
   // output from inside match groups
-  mode._emit = emit;
-  mode.scope = positions;
+  mode[key] = positions;
+  mode[key]._emit = emit;
+  mode[key]._multi = true;
+}
+
+/**
+ * @param {CompiledMode} mode
+ */
+function beginMultiClass(mode) {
+  if (!Array.isArray(mode.begin)) return;
+
+  if (mode.skip || mode.excludeBegin || mode.returnBegin) {
+    logger.error("skip, excludeBegin, returnBegin not compatible with beginScope: {}");
+    throw MultiClassError;
+  }
+
+  if (typeof mode.beginScope !== "object" || mode.beginScope === null) {
+    logger.error("beginScope must be object");
+    throw MultiClassError;
+  }
+
+  remapScopeNames(mode, mode.begin, {key: "beginScope"});
+  mode.begin = regex._rewriteBackreferences(mode.begin, { joinWith: "" });
+}
+
+/**
+ * @param {CompiledMode} mode
+ */
+function endMultiClass(mode) {
+  if (!Array.isArray(mode.end)) return;
+
+  if (mode.skip || mode.excludeEnd || mode.returnEnd) {
+    logger.error("skip, excludeEnd, returnEnd not compatible with endScope: {}");
+    throw MultiClassError;
+  }
+
+  if (typeof mode.endScope !== "object" || mode.endScope === null) {
+    logger.error("endScope must be object");
+    throw MultiClassError;
+  }
+
+  remapScopeNames(mode, mode.end, {key: "endScope"});
+  mode.end = regex._rewriteBackreferences(mode.end, { joinWith: "" });
+}
+
+/**
+ * this exists only to allow `scope: {}` to be used beside `match:`
+ * Otherwise `beginScope` would necessary and that would look weird
+
+  {
+    match: [ /def/, /\w+/ ]
+    scope: { 1: "keyword" , 2: "title" }
+  }
+
+ * @param {CompiledMode} mode
+ */
+function scopeSugar(mode) {
+  if (mode.scope && typeof mode.scope === "object" && mode.scope !== null) {
+    mode.beginScope = mode.scope;
+    delete mode.scope;
+  }
 }
 
 /**
  * @param {CompiledMode} mode
  */
 export function MultiClass(mode) {
-  if (!Array.isArray(mode.begin)) return;
+  scopeSugar(mode)
 
-  if (mode.skip || mode.excludeBegin || mode.returnBegin) {
-    logger.error("skip, excludeBegin, returnBegin not compatible with multi-class");
-    throw MultiClassError;
+  if (typeof mode.beginScope === "string") {
+    mode.beginScope = { _wrap: mode.beginScope };
+  }
+  if (typeof mode.endScope === "string") {
+    mode.endScope = { _wrap: mode.endScope };
   }
 
-  if (typeof mode.scope !== "object" || mode.scope == null) {
-    logger.error("scope/className must be object");
-    throw MultiClassError;
-  }
-
-  const matchers = mode.begin;
-  remapScopeNames(mode, matchers);
-  mode.begin = regex._rewriteBackreferences(mode.begin, { joinWith: "" });
-  mode.isMultiClass = true;
+  beginMultiClass(mode)
+  endMultiClass(mode)
 }
