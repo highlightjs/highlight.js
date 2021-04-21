@@ -41,7 +41,7 @@ Here's an example:
     keywords: 'for if while',
     contains: [
       {
-        className: 'string',
+        scope: 'string',
         begin: '"', end: '"'
       },
       hljs.COMMENT(
@@ -50,7 +50,7 @@ Here's an example:
         {
           contains: [
             {
-              className: 'doc', begin: '@\\w+'
+              scope: 'doc', begin: '@\\w+'
             }
           ]
         }
@@ -135,7 +135,7 @@ This is commonly used to define nested modes:
 ::
 
   {
-    className: 'object',
+    scope: 'object',
     begin: /\{/, end: /\}/,
     contains: [hljs.QUOTE_STRING_MODE, 'self']
   }
@@ -170,11 +170,11 @@ Modes usually generate actual highlighting markup — ``<span>`` elements with s
   {
     contains: [
       {
-        className: 'string',
+        scope: 'string',
         // ... other attributes
       },
       {
-        className: 'number',
+        scope: 'number',
         // ...
       }
     ]
@@ -189,7 +189,7 @@ A classic example is an escaping sequence inside strings allowing them to contai
 ::
 
   {
-    className: 'string',
+    scope: 'string',
     begin: '"', end: '"',
     contains: [{begin: '\\\\.'}],
   }
@@ -220,7 +220,7 @@ So these string modes are given high relevance:
 ::
 
   {
-    className: 'string',
+    scope: 'string',
     begin: 'r"', end: '"',
     relevance: 10
   }
@@ -231,7 +231,7 @@ and it makes sense to bring their relevance to zero to lessen statistical noise:
 ::
 
   {
-    className: 'string',
+    scope: 'string',
     begin: '"', end: '"',
     relevance: 0
   }
@@ -267,7 +267,7 @@ Illegal symbols are defined using a single regular expression:
 ::
 
   {
-    className: 'class',
+    scope: 'class',
     illegal: '[${]'
   }
 
