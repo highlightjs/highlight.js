@@ -1,22 +1,21 @@
-CSS classes reference
-=====================
+Scopes Reference
+================
 
 
-Stylable classes
+Stylable Scopes
 ----------------
 
-The general purpose classes are intended to be used for any language, but the
-other classes may also be used when they are semantically correct.  For example
-if you had a general purpose language that allowed inline URLs:
+The general purpose scopes are intended to be used for any language, but the
+other scopes may also be used when semantically correct.  For example if you had
+a general purpose language that allowed inline URLs:
 
 ::
 
   var GOOGLE = https://www.google.com/
 
-
 It would be reasonable to use the ``link`` class for this, even if your language
 is not a markup language.  However, many themes might not be designed with this
-in mind so a better choice might be ``string`` or perhaps ``string.link``.
+in mind so a better choice (for best theme support) might possibly be ``string``.
 
 +----------------------------------------------------------------------------------------+
 | **General purpose**                                                                    |
@@ -139,8 +138,8 @@ in mind so a better choice might be ``string`` or perhaps ``string.link``.
 | deletion                 | deleted line                                                |
 +--------------------------+-------------------------------------------------------------+
 
-A note on classes with sub-scopes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A note on scopes with sub-scopes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some scope names above have a ``.`` in them.  We use this notation to specify
 sub-scopes.  In the generated HTML this will output multiple computed class
@@ -170,25 +169,25 @@ A theme could then simply target that using the following CSS:
   }
 
 
-A note on newer classes
-^^^^^^^^^^^^^^^^^^^^^^^
+A note on newer scopes
+^^^^^^^^^^^^^^^^^^^^^^
 
-Some classes have been added more recently and do not enjoy universal theme
+Some scopes have been added more recently and do not enjoy universal theme
 support.  For themes without support, these items will simply not be
 highlighted.  This doesn't mean not to use them, only that they will be
 highlighted better as support improves over time.
 
-A list of these classes:
+A list of these scopes:
 
 - operator
 - punctuation
 - property
 
 
-Reserved classes
-^^^^^^^^^^^^^^^^
+Reserved scopes
+^^^^^^^^^^^^^^^
 
-The below classes (ReasonML) are left here for documentation purposes but may
+The below scopes (ReasonML) are left here for documentation purposes but may
 not be used in other grammars because they are very poorly supported by all
 themes.
 

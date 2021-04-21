@@ -9,8 +9,10 @@ Types
 Types of attributes values in this reference:
 
 +------------+-------------------------------------------------------------------------------------+
-| identifier | String suitable to be used as a JavaScript variable and CSS class name              |
+| identifier | String suitable to be used as a JavaScript variable or CSS class name               |
 |            | (i.e. mostly ``/[A-Za-z0-9_]+/``)                                                   |
++------------+-------------------------------------------------------------------------------------+
+| scope      | A valid grammar scope: ``title.function.call``                                      |
 +------------+-------------------------------------------------------------------------------------+
 | regexp     | String representing a JavaScript regexp.                                            |
 |            | Note that since it's not a literal regexp all back-slashes should be repeated twice |
@@ -60,7 +62,7 @@ classNameAliases
 
 - **type**: object
 
-A mapping table of any custom class names your grammar uses and their supported  equivalencies.  Perhaps your language has a concept of "slots" that roughly correspond to variables in other languages.  This allows you to write grammar code like:
+A mapping table of any custom scope names your grammar uses and their supported equivalencies.  Perhaps your language has a concept of "slots" that roughly correspond to variables in other languages.  This allows you to write grammar code like:
 
 ::
 
@@ -71,15 +73,15 @@ A mapping table of any custom class names your grammar uses and their supported 
     },
     contains: [
       {
-        className: "slot",
+        scope: "slot",
         begin: // ...
       }
     ]
   }
 
-The final HTML output will render slots with the CSS class as ``hljs-variable``.  This feature exists to make it easier for grammar maintainers to think in their own language when maintaining a grammar.
+The final HTML output will render slots with a CSS class of ``hljs-variable``.  This feature exists to make it easier for grammar maintainers to think in their own language when maintaining a grammar.
 
-For a list of all supported class names please see the :doc:`CSS class reference
+For a list of all supported scope names please see the :doc:`Scopes Reference
 </css-classes-reference>`.
 
 
@@ -139,17 +141,33 @@ mode itself.
 Mode Attributes
 ---------------
 
-
 className
 ^^^^^^^^^
 
-- **type**: identifier
+- **type**: scope
 
-The name of the mode. It is used as a class name in HTML markup.
+Deprecated with version 11.  Use ``scope`` instead.
 
-Multiple modes can have the same name. This is useful when a language has multiple variants of syntax
+
+scope
+^^^^^
+
+- **type**: scope
+
+The scope of a given mode. Scopes are converted to CSS class names in HTML markup.
+
+Multiple modes can have the same scope. This is useful when a language has multiple variants of syntax
 for one thing like string in single or double quotes.
 
+::
+
+  {
+    scope: "title.function.call",
+    begin: /[a-z]+\(/
+  }
+
+
+See :doc:`scopes reference</css-classes-reference>` for details on scopes and CSS classes.
 
 begin
 ^^^^^
@@ -160,7 +178,7 @@ Regular expression starting a mode. For example a single quote for strings or tw
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
 
 
-You can also pass an array when you need to individually highlight portions of the match with different classes:
+You can also pass an array when you need to individually highlight portions of the match using different scopes:
 
 ::
 
@@ -170,7 +188,7 @@ You can also pass an array when you need to individually highlight portions of t
     /\s+/,
     hljs.IDENT_RE
   ],
-  className: {
+  scope: {
     1: "keyword",
     3: "title"
   },
@@ -202,8 +220,17 @@ no sense).  It exists simply to help make grammars more readable.
 ::
 
   {
-    className: "title",
+    scope: "title",
     match: /Fish/
+  }
+
+This is equivalent to:
+
+::
+
+  {
+    scope: "title",
+    begin: /Fish/
   }
 
 
@@ -303,9 +330,9 @@ This is when ``endsWithParent`` comes into play:
 ::
 
   {
-    className: 'rules', begin: /\{/, end: /\}/,
+    scope: 'rules', begin: /\{/, end: /\}/,
     contains: [
-      {className: 'rule', /* ... */ end: ';', endsWithParent: true}
+      {scope: 'rule', /* ... */ end: ';', endsWithParent: true}
     ]
   }
 
@@ -339,11 +366,11 @@ tell it to end the function definition after itself:
 ::
 
   {
-    className: 'function',
+    scope: 'function',
     beginKeywords: 'def', end: /\B\b/,
     contains: [
       {
-        className: 'title',
+        scope: 'title',
         begin: hljs.IDENT_RE, endsParent: true
       }
     ]
@@ -461,7 +488,7 @@ Modification to the main definitions of the mode, effectively expanding it into 
 each having all the attributes from the main definition augmented or overridden by the variants::
 
   {
-    className: 'string',
+    scope: 'string',
     contains: ['self', hljs.BACKSLASH_ESCAPE],
     relevance: 0,
     variants: [
@@ -477,8 +504,8 @@ does not allow for this.
 
 The variants are compiled into to two *discrete* modes::
 
-  { className: 'string', begin: /"/, contains: ['self', ... ] }
-  { className: 'string', begin: /'/, contains: ['self', ... ] }
+  { scope: 'string', begin: /"/, contains: ['self', ... ] }
+  { scope: 'string', begin: /'/, contains: ['self', ... ] }
 
 Each mode's ``self`` refers only to the new expanded mode, not the original mode
 with variants (which no longer exists after compiling).
@@ -496,7 +523,10 @@ subLanguage
 
 Highlights the entire contents of the mode with another language.
 
-When using this attribute there's no point to define internal parsing rules like :ref:`lexemes` or :ref:`keywords`. Also it is recommended to skip ``className`` attribute since the sublanguage will wrap the text in its own ``<span class="language-name">``.
+When using this attribute there's no point to define internal parsing rules like
+:ref:`keywords`, etc. Also it is recommended to avoid the ``scope`` attribute
+since the sublanguage already wraps the text in its own ``<span
+class="language-name">`` tag.
 
 The value of the attribute controls which language or languages will be used for highlighting:
 
