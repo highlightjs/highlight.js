@@ -43,6 +43,8 @@ Language Grammars:
 
 Parser:
 
+- enh(parser) add `beginScope` and `endScope` to allow separate scoping begin and end (#3159) [Josh Goebel][]
+- enh(parsed) `endScope` now supports multi-class matchers as well (#3159) [Josh Goebel][]
 - enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]
   - subLanguage `span` tags now also always have the `language-` prefix added
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
