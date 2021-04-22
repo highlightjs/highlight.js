@@ -255,6 +255,12 @@ export default function(hljs) {
         ],
         relevance: 0
       },
+      // allow for multiple declarations, e.g.:
+      // extern void f(int), g(char);
+      {
+        relevance: 0,
+        match: /,/
+      },
       {
         className: 'params',
         begin: /\(/,

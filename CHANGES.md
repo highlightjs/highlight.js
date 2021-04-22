@@ -84,6 +84,7 @@ Grammars:
 - enh(haskell) add support for BinaryLiterals (#3150) [Martijn Bastiaan][]
 - enh(haskell) add support for NumericUnderscores (#3150) [Martijn Bastiaan][]
 - enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
+- fix(c,cpp) allow declaring multiple functions and (for C++) parenthetical initializers (#3155) [Erik Demaine][]
 
 New Languages:
 
@@ -869,6 +870,7 @@ Language Improvements:
 [Mike Schall]: https://github.com/schallm
 [Kirill Saksin]: https://github.com/saksmt
 [Samia Ali]:https://github.com/samiaab1990
+[Erik Demaine]:https://github.com/edemaine
 
 
 ## Version 9.16.2
