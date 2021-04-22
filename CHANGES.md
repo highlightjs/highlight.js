@@ -2,6 +2,12 @@
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
+This release is:
+
+- main @ 3470e22f9eb8d5a4067b512e781ef9c6b6d46e3a
+- https://github.com/highlightjs/highlight.js/pull/3159
+- https://github.com/highlightjs/highlight.js/pull/3139
+
 ### Potentially breaking changes
 
 Unless otherwise attributed items below are thanks to [Josh Goebel][] (ref: [#2558](https://github.com/highlightjs/highlight.js/issues/2558)).
