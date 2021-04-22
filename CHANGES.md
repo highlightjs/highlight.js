@@ -32,6 +32,7 @@ Themes:
 - The default padding of all themes increases (0.5em => 1em).
 - `schoolbook` has been updated to remove the lined background.
 - `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+- Base16 named themes have been updated to their "canonical" versions
 
 Language Grammars:
 
@@ -49,6 +50,7 @@ Parser:
   - subLanguage `span` tags now also always have the `language-` prefix added
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- adds `title.class.inherited` sub-scope support [Josh Goebel][]
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]
 - adds `title.function` sub-scope support (#3078) [Josh Goebel][]
 - adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
@@ -98,6 +100,7 @@ New Languages:
 
 Theme Improvements:
 
+- Added all official Base16 themes (over 150 new themes) [Josh Goebel][]
 - chore(themes) remove `builtin-name` CSS class (#3119) [Josh Goebel][]
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 - chore(theme) Update Srcery theme css to match its Emacs implementation [Chen Bin][]
