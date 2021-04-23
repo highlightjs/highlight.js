@@ -10,7 +10,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */</span>
-<span class="hljs-meta-keyword">/include/</span> <span class="hljs-string">&quot;skeleton.dtsi&quot;</span>
+<span class="hljs-meta">/include/</span> <span class="hljs-string">&quot;skeleton.dtsi&quot;</span>
 
 <span class="hljs-title class_">/</span> <span class="hljs-punctuation">{</span>
 	<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;xlnx,zynq-7000&quot;</span><span class="hljs-punctuation">;</span>
