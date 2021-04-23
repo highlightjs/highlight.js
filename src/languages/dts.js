@@ -82,7 +82,7 @@ export default function(hljs) {
   };
 
   const KEYWORD = {
-    className: 'meta-keyword',
+    className: 'meta',
     begin: '/[a-z][a-z\\d-]*/'
   };
 
