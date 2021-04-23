@@ -93,6 +93,7 @@ export default function(hljs) {
 
   const CELL_PROPERTY = {
     className: 'params',
+    relevance: 0,
     begin: '<',
     end: '>',
     contains: [
@@ -108,7 +109,7 @@ export default function(hljs) {
 
   const ROOT_NODE = {
     className: 'title.class',
-    begin: /\/(?=\s*\{)/,
+    begin: /^\/(?=\s*\{)/,
     relevance: 10
   };
 
