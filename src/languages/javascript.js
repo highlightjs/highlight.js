@@ -249,31 +249,10 @@ export default function(hljs) {
         className: "title.class"
       },
       NUMBER,
-      { // object attr container
-        begin: regex.concat(/[{,\n]\s*/,
-          // we need to look ahead to make sure that we actually have an
-          // attribute coming up so we don't steal a comma from a potential
-          // "value" container
-          //
-          // NOTE: this might not work how you think.  We don't actually always
-          // enter this mode and stay.  Instead it might merely match `,
-          // <comments up next>` and then immediately end after the , because it
-          // fails to find any actual attrs. But this still does the job because
-          // it prevents the value contain rule from grabbing this instead and
-          // prevening this rule from firing when we actually DO have keys.
-          regex.lookahead(regex.concat(
-            // we also need to allow for multiple possible comments inbetween
-            // the first key:value pairing
-            /(((\/\/.*$)|(\/\*(\*[^/]|[^*])*\*\/))\s*)*/,
-            IDENT_RE + '\\s*:'))),
-        relevance: 0,
-        contains: [
-          {
-            className: 'attr',
-            begin: IDENT_RE + regex.lookahead('\\s*:'),
-            relevance: 0
-          }
-        ]
+      {
+        className: 'attr',
+        begin: regex.concat(IDENT_RE,regex.lookahead(/[ ]*:/)),
+        relevance: 0
       },
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
