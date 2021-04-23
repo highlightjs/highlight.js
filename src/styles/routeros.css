@@ -21,7 +21,8 @@
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-doctag,
 .hljs-name {
   font-weight: bold;
@@ -85,7 +86,7 @@
   color: #1f7199;
 }
 
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #4d99bf;
 }
 

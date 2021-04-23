@@ -1,6 +1,6 @@
-<span class="hljs-meta">#<span class="hljs-meta-keyword">NoTrayIcon</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">NoTrayIcon</span></span>
 <span class="hljs-meta">#AutoIt3Wrapper_Run_Tidy=Y</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;Misc.au3&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;Misc.au3&gt;</span></span>
 
 _Singleton(<span class="hljs-symbol">@ScriptName</span>) <span class="hljs-comment">; Allow only one instance</span>
 example(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)

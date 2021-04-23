@@ -12,7 +12,8 @@
 
 .hljs-doctag,
 .hljs-keyword,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-template-tag,
 .hljs-template-variable,
 .hljs-type {
@@ -40,7 +41,7 @@
 
 .hljs-regexp,
 .hljs-string,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   /* prettylights-syntax-string */
   color: #032f62;
 }

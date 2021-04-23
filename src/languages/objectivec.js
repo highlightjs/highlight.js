@@ -209,7 +209,7 @@ export default function(hljs) {
         begin: /#\s*[a-z]+\b/,
         end: /$/,
         keywords: {
-          'meta-keyword':
+          'keyword':
             'if else elif endif define undef warning error line ' +
             'pragma ifdef ifndef include'
         },
@@ -219,10 +219,10 @@ export default function(hljs) {
             relevance: 0
           },
           hljs.inherit(hljs.QUOTE_STRING_MODE, {
-            className: 'meta-string'
+            className: 'string'
           }),
           {
-            className: 'meta-string',
+            className: 'string',
             begin: /<.*?>/,
             end: /$/,
             illegal: '\\n'

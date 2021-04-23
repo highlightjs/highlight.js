@@ -53,7 +53,8 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
   color: rgba(149,165,166,.8);
 }
 
-.hljs-meta-keyword {
+.hljs-meta .hljs-keyword {
+
   color: #728E00;
 }
 

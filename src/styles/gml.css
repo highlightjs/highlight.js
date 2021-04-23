@@ -60,7 +60,8 @@ GML Theme - Meseta <meseta@gmail.com>
 .hljs-title,
 .hljs-section,
 .hljs-function,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-meta,
 .hljs-subst {
   color: #C0C0C0;

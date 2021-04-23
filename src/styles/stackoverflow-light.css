@@ -16,7 +16,8 @@
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-doctag,
 .hljs-section,
 .hljs-selector-class,
@@ -49,7 +50,7 @@
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #54790d;
 }
 

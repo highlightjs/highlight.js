@@ -83,7 +83,7 @@ export default function(hljs) {
     begin: '#',
     end: '$',
     keywords: {
-      'meta-keyword': DIRECTIVES
+      'keyword': DIRECTIVES
     },
     contains: [
       {
@@ -93,13 +93,13 @@ export default function(hljs) {
       {
         beginKeywords: 'include',
         keywords: {
-          'meta-keyword': 'include'
+          'keyword': 'include'
         },
         end: '$',
         contains: [
           STRING,
           {
-            className: 'meta-string',
+            className: 'string',
             variants: [
               {
                 begin: '<',

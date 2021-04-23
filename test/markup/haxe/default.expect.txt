@@ -1,12 +1,12 @@
 <span class="hljs-keyword">package</span> my.<span class="hljs-keyword">package</span>;
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> js</span>
+<span class="hljs-meta">#<span class="hljs-keyword">if</span> js</span>
 <span class="hljs-keyword">import</span> js.Browser;
-<span class="hljs-meta">#<span class="hljs-meta-keyword">elseif</span> sys</span>
+<span class="hljs-meta">#<span class="hljs-keyword">elseif</span> sys</span>
 <span class="hljs-keyword">import</span> Sys;
-<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">else</span></span>
 <span class="hljs-keyword">import</span> Date;
-<span class="hljs-meta">#<span class="hljs-meta-keyword">end</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">end</span></span>
 
 <span class="hljs-keyword">import</span> Lambda;
 <span class="hljs-keyword">using</span> Main.IntExtender;

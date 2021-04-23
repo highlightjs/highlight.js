@@ -35,7 +35,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 .hljs-code,
 .hljs-string,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #c41a16;
 }
 
