@@ -240,6 +240,14 @@ export default function(hljs) {
       CSS_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
+      {
+        match: /\b[A-Z][A-Z_]+\b/,
+        className: "variable.constant"
+      },
+      {
+        match: /\b[A-Z][a-z]+([A-Z][a-z]+)*/,
+        className: "title.class"
+      },
       NUMBER,
       { // object attr container
         begin: regex.concat(/[{,\n]\s*/,
@@ -346,16 +354,17 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'function',
-        beginKeywords: 'function',
-        end: /[{;]/,
-        excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          'self',
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
-          PARAMS
+        match: [
+          /function/,
+          /\s+/,
+          IDENT_RE,
+          /(?=\s*\()/
         ],
+        className: {
+          1: "keyword",
+          3: "title.function"
+        },
+        contains: [ PARAMS ],
         illegal: /%/
       },
       {
@@ -363,32 +372,19 @@ export default function(hljs) {
         // since they appear "function like"
         beginKeywords: "while if switch catch for"
       },
-      {
-        className: 'function',
-        // we have to count the parens to make sure we actually have the correct
-        // bounding ( ).  There could be any number of sub-expressions inside
-        // also surrounded by parens.
-        begin: hljs.UNDERSCORE_IDENT_RE +
-          '\\(' + // first parens
-          '[^()]*(\\(' +
-            '[^()]*(\\(' +
-              '[^()]*' +
-            '\\)[^()]*)*' +
-          '\\)[^()]*)*' +
-          '\\)\\s*\\{', // end parens
-        returnBegin:true,
-        contains: [
-          PARAMS,
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
-        ]
-      },
       // catch ... so it won't trigger the property rule below
       {
         begin: /\.\.\./,
         relevance: 0
       },
       {
-        begin: regex.concat(/\./, regex.lookahead(IDENT_RE)),
+        match: regex.concat(IDENT_RE, regex.lookahead(/\(/)),
+        className: "title.function"
+      },
+      {
+        begin: regex.concat(/\./, regex.lookahead(
+          regex.concat(IDENT_RE, /(?![0-9A-Za-z$_(])/)
+        )),
         end: IDENT_RE,
         excludeBegin: true,
         keywords: "prototype",
@@ -396,45 +392,21 @@ export default function(hljs) {
         relevance: 0
       },
       // hack: prevents detection of keywords in some circumstances
-      // .keyword()
       // $keyword = x
       {
-        variants: [
-          { begin: '\\.' + IDENT_RE },
-          { begin: '\\$' + IDENT_RE }
-        ],
+        begin: '\\$' + IDENT_RE,
         relevance: 0
       },
       { // ES6 class
-        className: 'class',
-        beginKeywords: 'class',
-        end: /[{;=]/,
-        excludeEnd: true,
-        illegal: /[:"[\]]/,
-        contains: [
-          { beginKeywords: 'extends' },
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
-      },
-      {
-        begin: /\b(?=constructor)/,
-        end: /[{;]/,
-        excludeEnd: true,
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
-          'self',
-          PARAMS
-        ]
-      },
-      {
-        begin: '(get|set)\\s+(?=' + IDENT_RE + '\\()',
-        end: /\{/,
-        keywords: "get set",
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
-          { begin: /\(\)/ }, // eat to avoid empty params
-          PARAMS
-        ]
+        match: [
+          /class|extends/,
+          /\s+/,
+          IDENT_RE
+        ],
+        scope: {
+          1: "keyword",
+          3: "title.class"
+        }
       },
       {
         begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`

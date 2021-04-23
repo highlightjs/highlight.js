@@ -30,9 +30,8 @@ const KEYWORDS = [
   "yield",
   "const",
   "class",
-  // JS handles these with a special rule
-  // "get",
-  // "set",
+  "get",
+  "set",
   "debugger",
   "async",
   "await",
