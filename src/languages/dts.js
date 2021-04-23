@@ -76,72 +76,86 @@ export default function(hljs) {
     ]
   };
 
-  const DTS_REFERENCE = {
+  const REFERENCE = {
     className: 'variable',
     begin: /&[a-z\d_]*\b/
   };
 
-  const DTS_KEYWORD = {
+  const KEYWORD = {
     className: 'meta-keyword',
     begin: '/[a-z][a-z\\d-]*/'
   };
 
-  const DTS_LABEL = {
+  const LABEL = {
     className: 'symbol',
     begin: '^\\s*[a-zA-Z_][a-zA-Z\\d_]*:'
   };
 
-  const DTS_CELL_PROPERTY = {
+  const CELL_PROPERTY = {
     className: 'params',
     begin: '<',
     end: '>',
     contains: [
       NUMBERS,
-      DTS_REFERENCE
+      REFERENCE
     ]
   };
 
-  const DTS_NODE = {
-    className: 'class',
-    begin: /[a-zA-Z_][a-zA-Z\d_@]*\s\{/,
-    end: /[{;=]/,
-    returnBegin: true,
-    excludeEnd: true
+  const NODE = {
+    className: 'title.class',
+    begin: /[a-zA-Z_][a-zA-Z\d_@-]*(?=\s\{)/
   };
 
-  const DTS_ROOT_NODE = {
-    className: 'class',
-    begin: '/\\s*\\{',
-    end: /\};/,
-    relevance: 10,
-    contains: [
-      DTS_REFERENCE,
-      DTS_KEYWORD,
-      DTS_LABEL,
-      DTS_NODE,
-      DTS_CELL_PROPERTY,
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      NUMBERS,
-      STRINGS
-    ]
+  const ROOT_NODE = {
+    className: 'title.class',
+    begin: /\/(?=\s*\{)/,
+    relevance: 10
+  };
+
+  // TODO: `attribute` might be the right scope here, unsure
+  // I'm not sure if all these key names have semantic meaning or not
+  const ATTR_NO_VALUE = {
+    match: /[a-z][a-z-,]+(?=;)/,
+    relevance: 0,
+    scope: "attr"
+  };
+  const ATTR = {
+    relevance: 0,
+    match: [
+      /[a-z][a-z-,]+/,
+      /\s*/,
+      /=/
+    ],
+    scope: {
+      1: "attr",
+      3: "operator"
+    }
+  };
+
+  const PUNC = {
+    scope: "punctuation",
+    relevance: 0,
+    // `};` combined is just to avoid tons of useless punctuation nodes
+    match: /\};|[;{}]/
   };
 
   return {
     name: 'Device Tree',
-    keywords: "",
     contains: [
-      DTS_ROOT_NODE,
-      DTS_REFERENCE,
-      DTS_KEYWORD,
-      DTS_LABEL,
-      DTS_NODE,
-      DTS_CELL_PROPERTY,
+      ROOT_NODE,
+      REFERENCE,
+      KEYWORD,
+      LABEL,
+      NODE,
+      ATTR,
+      ATTR_NO_VALUE,
+      CELL_PROPERTY,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBERS,
       STRINGS,
       PREPROCESSOR,
+      PUNC,
       {
         begin: hljs.IDENT_RE + '::',
         keywords: ""
