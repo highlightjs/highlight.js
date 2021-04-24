@@ -1,4 +1,4 @@
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Vehicle</span> </span>{
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Vehicle</span> {
   <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">speed, cost</span>)</span> {
     <span class="hljs-built_in">super</span>(speed);
 

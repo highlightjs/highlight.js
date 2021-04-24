@@ -215,6 +215,25 @@ export default function(hljs) {
     contains: PARAMS_CONTAINS
   };
 
+  // ES6 classes
+  const CLASS_OR_EXTENDS = {
+    match: [
+      /class|extends/,
+      /\s+/,
+      regex.concat(IDENT_RE, "(", regex.concat(/\./, IDENT_RE), ")*")
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.class"
+    }
+  };
+
+  const CLASS_REFERENCE = {
+    relevance: 0,
+    match: /\b[A-Z][a-z]+([A-Z][a-z]+)*/,
+    className: "title.class"
+  };
+
   return {
     name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -241,6 +260,7 @@ export default function(hljs) {
       TEMPLATE_STRING,
       COMMENT,
       NUMBER,
+      // CLASS_REFERENCE,
       { // object attr container
         begin: regex.concat(/[{,\n]\s*/,
           // we need to look ahead to make sure that we actually have an
@@ -405,17 +425,7 @@ export default function(hljs) {
         ],
         relevance: 0
       },
-      { // ES6 class
-        className: 'class',
-        beginKeywords: 'class',
-        end: /[{;=]/,
-        excludeEnd: true,
-        illegal: /[:"[\]]/,
-        contains: [
-          { beginKeywords: 'extends' },
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
-      },
+      CLASS_OR_EXTENDS,
       {
         begin: /\b(?=constructor)/,
         end: /[{;]/,
