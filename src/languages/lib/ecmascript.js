@@ -51,7 +51,7 @@ const LITERALS = [
   "Infinity"
 ];
 
-const TYPES = [
+export const TYPES = [
   "Intl",
   "DataView",
   "Number",
@@ -88,7 +88,7 @@ const TYPES = [
   "BigInt"
 ];
 
-const ERROR_TYPES = [
+export const ERROR_TYPES = [
   "EvalError",
   "InternalError",
   "RangeError",

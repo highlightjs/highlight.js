@@ -3,7 +3,7 @@
   <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">speed, cost</span>)</span> {
     <span class="hljs-built_in">super</span>(speed);
 
-    <span class="hljs-keyword">var</span> c = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&#x27;cost&#x27;</span>);
+    <span class="hljs-keyword">var</span> c = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;cost&#x27;</span>);
     <span class="hljs-built_in">this</span>[c] = cost;
 
     <span class="hljs-built_in">this</span>.<span class="hljs-property">intro</span> = <span class="hljs-string">`This is a car runs at

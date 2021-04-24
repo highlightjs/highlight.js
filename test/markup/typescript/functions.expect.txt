@@ -10,7 +10,7 @@
   <span class="hljs-keyword">return</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
 }
 
-<span class="hljs-keyword">type</span> Foo = {
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Foo</span> = {
     functionInFoo(): <span class="hljs-built_in">void</span>;
 };
 

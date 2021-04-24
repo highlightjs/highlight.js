@@ -1,7 +1,7 @@
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Component</span>&lt;Props&gt; {
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Component</span>&lt;<span class="hljs-title class_">Props</span>&gt; {
     <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> {
-        <span class="hljs-keyword">let</span> a : <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt; = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]];
-        <span class="hljs-keyword">let</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">number</span>&gt;();
+        <span class="hljs-keyword">let</span> a : <span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">Array</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt; = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]];
+        <span class="hljs-keyword">let</span> b = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">number</span>&gt;();
         <span class="hljs-keyword">return</span> (
             <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> /&gt;</span></span>
         );
@@ -9,11 +9,11 @@
 }
 
 <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getModuleInstanceState</span>(<span class="hljs-params">node: Node</span>): <span class="hljs-title">ModuleInstanceState</span> </span>{
-    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node.<span class="hljs-property">kind</span> === SyntaxKind.<span class="hljs-property">ModuleDeclaration</span>) {
-        <span class="hljs-keyword">return</span> getModuleInstanceState((&lt;<span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt;node).<span class="hljs-property">body</span>);
-        <span class="hljs-keyword">return</span> getModuleInstanceState((&lt;ModuleDeclaration&gt;node).<span class="hljs-property">body</span>);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node.<span class="hljs-property">kind</span> === <span class="hljs-title class_">SyntaxKind</span>.<span class="hljs-property">ModuleDeclaration</span>) {
+        <span class="hljs-keyword">return</span> getModuleInstanceState((&lt;<span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">Array</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt;node).<span class="hljs-property">body</span>);
+        <span class="hljs-keyword">return</span> getModuleInstanceState((&lt;<span class="hljs-title class_">ModuleDeclaration</span>&gt;node).<span class="hljs-property">body</span>);
     }
     <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> ModuleInstanceState.<span class="hljs-property">Instantiated</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-title class_">ModuleInstanceState</span>.<span class="hljs-property">Instantiated</span>;
     }
 }

@@ -231,7 +231,14 @@ export default function(hljs) {
   const CLASS_REFERENCE = {
     relevance: 0,
     match: /\b[A-Z][a-z]+([A-Z][a-z]+)*/,
-    className: "title.class"
+    className: "title.class",
+    keywords: {
+      _: [
+        // se we still get relevance credit for JS library classes
+        ...ECMAScript.TYPES,
+        ...ECMAScript.ERROR_TYPES
+      ]
+    }
   };
 
   return {
@@ -260,7 +267,7 @@ export default function(hljs) {
       TEMPLATE_STRING,
       COMMENT,
       NUMBER,
-      // CLASS_REFERENCE,
+      CLASS_REFERENCE,
       { // object attr container
         begin: regex.concat(/[{,\n]\s*/,
           // we need to look ahead to make sure that we actually have an
