@@ -281,6 +281,33 @@ export default function(hljs) {
     className: "variable.constant"
   };
 
+  function noneOf(list) {
+    return regex.concat("(?!", list.join("|"), ")");
+  }
+
+  const FUNCTION_CALL = {
+    match: regex.concat(
+      /\b/,
+      noneOf([
+        ...ECMAScript.BUILT_IN_GLOBALS,
+        "super"
+      ]),
+      IDENT_RE, regex.lookahead(/\(/)),
+    className: "title.function",
+    relevance: 0
+  };
+
+  const PROPERTY_ACCESS = {
+    begin: regex.concat(/\./, regex.lookahead(
+      regex.concat(IDENT_RE, /(?![0-9A-Za-z$_(])/)
+    )),
+    end: IDENT_RE,
+    excludeBegin: true,
+    keywords: "prototype",
+    className: "property",
+    relevance: 0
+  };
+
   return {
     name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -437,31 +464,25 @@ export default function(hljs) {
         begin: /\.\.\./,
         relevance: 0
       },
-      {
-        begin: regex.concat(/\./, regex.lookahead(IDENT_RE)),
-        end: IDENT_RE,
-        excludeBegin: true,
-        keywords: "prototype",
-        className: "property",
-        relevance: 0
-      },
+      PROPERTY_ACCESS,
       // hack: prevents detection of keywords in some circumstances
       // .keyword()
       // $keyword = x
       {
         variants: [
-          { begin: '\\.' + IDENT_RE },
+          // { begin: '\\.' + IDENT_RE },
           { begin: '\\$' + IDENT_RE }
         ],
         relevance: 0
       },
-      UPPER_CASE_CONSTANT,
-      CLASS_OR_EXTENDS,
       {
         match: /\bconstructor(?=\s*\()/,
         className: "title.function",
         contains: [ PARAMS ]
       },
+      FUNCTION_CALL,
+      UPPER_CASE_CONSTANT,
+      CLASS_OR_EXTENDS,
       {
         match: [
           /get|set/,

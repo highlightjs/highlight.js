@@ -63,7 +63,7 @@
 <span class="hljs-number">00</span>, <span class="hljs-number">04</span>, <span class="hljs-number">0777</span>, <span class="hljs-number">08</span>, <span class="hljs-number">008</span>
 
 <span class="hljs-comment">// expressions containing numeric literals</span>
-<span class="hljs-number">0.</span>.<span class="hljs-property">toString</span>, <span class="hljs-number">1e1</span>.<span class="hljs-property">toString</span>, fn(<span class="hljs-number">.5</span>)
+<span class="hljs-number">0.</span>.<span class="hljs-property">toString</span>, <span class="hljs-number">1e1</span>.<span class="hljs-property">toString</span>, <span class="hljs-title function_">fn</span>(<span class="hljs-number">.5</span>)
 
 <span class="hljs-comment">// expressions not containing numeric literals</span>
 x0.<span class="hljs-property">e1</span>

@@ -12,10 +12,10 @@
   <span class="hljs-function"><span class="hljs-title">join</span>(<span class="hljs-params"></span>)</span> {
   }
   <span class="hljs-function"><span class="hljs-title">other</span>(<span class="hljs-params">a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ) </span>)</span> {
-    <span class="hljs-built_in">console</span>.<span class="hljs-property">log</span>(a)
+    <span class="hljs-built_in">console</span>.<span class="hljs-title function_">log</span>(a)
   }
   <span class="hljs-function"><span class="hljs-title">something</span>(<span class="hljs-params">a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ), b = <span class="hljs-number">1</span> </span>)</span> {
-    <span class="hljs-built_in">console</span>.<span class="hljs-property">log</span>(a)
+    <span class="hljs-built_in">console</span>.<span class="hljs-title function_">log</span>(a)
   }
   <span class="hljs-function"><span class="hljs-title">onemore</span>(<span class="hljs-params">a=(<span class="hljs-number">3</span>+<span class="hljs-number">2</span>, b=(<span class="hljs-number">5</span>*<span class="hljs-number">9</span>))</span>)</span> {}
 }

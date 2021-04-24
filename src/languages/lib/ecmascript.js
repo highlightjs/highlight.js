@@ -98,7 +98,7 @@ export const ERROR_TYPES = [
   "URIError"
 ];
 
-const BUILT_IN_GLOBALS = [
+export const BUILT_IN_GLOBALS = [
   "setInterval",
   "setTimeout",
   "clearInterval",
