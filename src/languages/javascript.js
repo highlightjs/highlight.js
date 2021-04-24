@@ -328,6 +328,30 @@ export default function(hljs) {
     ]
   };
 
+  const FUNC_LEAD_IN_RE = '(\\(' +
+    '[^()]*(\\(' +
+    '[^()]*(\\(' +
+    '[^()]*' +
+    '\\)[^()]*)*' +
+    '\\)[^()]*)*' +
+    '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>';
+
+  const FUNCTION_VARIABLE = {
+    match: [
+      /const|var|let/, /\s+/,
+      IDENT_RE, /\s*/,
+      /=\s*/,
+      regex.lookahead(FUNC_LEAD_IN_RE)
+    ],
+    className: {
+      1: "keyword",
+      3: "title.function"
+    },
+    contains: [
+      PARAMS
+    ]
+  };
+
   return {
     name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -355,9 +379,11 @@ export default function(hljs) {
         begin: IDENT_RE + regex.lookahead(':'),
         relevance: 0
       },
+      FUNCTION_VARIABLE,
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
+        relevance: 0,
         contains: [
           COMMENT,
           hljs.REGEXP_MODE,
@@ -366,13 +392,7 @@ export default function(hljs) {
             // we have to count the parens to make sure we actually have the
             // correct bounding ( ) before the =>.  There could be any number of
             // sub-expressions inside also surrounded by parens.
-            begin: '(\\(' +
-            '[^()]*(\\(' +
-            '[^()]*(\\(' +
-            '[^()]*' +
-            '\\)[^()]*)*' +
-            '\\)[^()]*)*' +
-            '\\)|' + hljs.UNDERSCORE_IDENT_RE + ')\\s*=>',
+            begin: FUNC_LEAD_IN_RE,
             returnBegin: true,
             end: '\\s*=>',
             contains: [
@@ -401,13 +421,12 @@ export default function(hljs) {
             ]
           },
           { // could be a comma delimited list of params to a function call
-            begin: /,/, relevance: 0
+            begin: /,/,
+            relevance: 0
           },
           {
-            className: '',
-            begin: /\s/,
-            end: /\s*/,
-            skip: true
+            match: /\s+/,
+            relevance: 0
           },
           { // JSX
             variants: [
@@ -431,7 +450,6 @@ export default function(hljs) {
             ]
           }
         ],
-        relevance: 0
       },
       FUNCTION_DEFINITION,
       {
@@ -460,7 +478,7 @@ export default function(hljs) {
       },
       // catch ... so it won't trigger the property rule below
       {
-        begin: /\.\.\./,
+        match: /\.\.\./,
         relevance: 0
       },
       PROPERTY_ACCESS,
@@ -468,10 +486,7 @@ export default function(hljs) {
       // .keyword()
       // $keyword = x
       {
-        variants: [
-          // { begin: '\\.' + IDENT_RE },
-          { begin: '\\$' + IDENT_RE }
-        ],
+        match: '\\$' + IDENT_RE,
         relevance: 0
       },
       {
@@ -484,7 +499,7 @@ export default function(hljs) {
       CLASS_OR_EXTENDS,
       GETTER_OR_SETTER,
       {
-        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
+        match: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       }
     ]
   };
