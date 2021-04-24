@@ -309,6 +309,25 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const GETTER_OR_SETTER = {
+    match: [
+      /get|set/,
+      /\s+/,
+      IDENT_RE,
+      /(?=\()/
+    ],
+    className: {
+      1: "keyword",
+      3: "title.function"
+    },
+    contains: [
+      { // eat to avoid empty params
+        begin: /\(\)/
+      },
+      PARAMS
+    ]
+  };
+
   return {
     name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -463,24 +482,7 @@ export default function(hljs) {
       FUNCTION_CALL,
       UPPER_CASE_CONSTANT,
       CLASS_OR_EXTENDS,
-      {
-        match: [
-          /get|set/,
-          /\s+/,
-          IDENT_RE,
-          /(?=\()/
-        ],
-        className: {
-          1: "keyword",
-          3: "title.function"
-        },
-        contains: [
-          { // eat to avoid empty params
-            begin: /\(\)/
-          },
-          PARAMS
-        ]
-      },
+      GETTER_OR_SETTER,
       {
         begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
       }
