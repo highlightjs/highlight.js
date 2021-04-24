@@ -255,7 +255,8 @@ export default function(hljs) {
 
   const FUNCTION_CALL = {
     match: regex.concat(IDENT_RE, regex.lookahead(/\(/)),
-    className: "title.function"
+    className: "title.function",
+    relevance: 0
   };
 
   const PROPERTY_ACCESS = {
@@ -280,6 +281,7 @@ export default function(hljs) {
       1: "keyword",
       3: "title.function"
     },
+    label: "func.def",
     contains: [ PARAMS ],
     illegal: /%/
   };

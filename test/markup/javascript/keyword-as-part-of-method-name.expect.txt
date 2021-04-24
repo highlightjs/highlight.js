@@ -1,2 +1,2 @@
-<span class="hljs-built_in">setTimeout</span>();
-<span class="hljs-built_in">setInterval</span>();
+<span class="hljs-title function_">setTimeout</span>();
+<span class="hljs-title function_">setInterval</span>();
