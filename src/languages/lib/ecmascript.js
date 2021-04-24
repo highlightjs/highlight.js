@@ -120,7 +120,7 @@ export const BUILT_IN_GLOBALS = [
   "unescape"
 ];
 
-const BUILT_IN_VARIABLES = [
+export const BUILT_IN_VARIABLES = [
   "arguments",
   "this",
   "super",
@@ -134,7 +134,6 @@ const BUILT_IN_VARIABLES = [
 
 const BUILT_INS = [].concat(
   BUILT_IN_GLOBALS,
-  BUILT_IN_VARIABLES,
   TYPES,
   ERROR_TYPES
 );

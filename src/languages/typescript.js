@@ -52,7 +52,8 @@ export default function(hljs) {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
     literal: ECMAScript.LITERALS,
-    built_in: ECMAScript.BUILT_INS.concat(TYPES)
+    built_in: ECMAScript.BUILT_INS.concat(TYPES),
+    "variable.language": ECMAScript.BUILT_IN_VARIABLES
   };
   const DECORATOR = {
     className: 'meta',

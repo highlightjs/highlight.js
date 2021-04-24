@@ -60,7 +60,8 @@ export default function(hljs) {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS,
     literal: ECMAScript.LITERALS,
-    built_in: ECMAScript.BUILT_INS
+    built_in: ECMAScript.BUILT_INS,
+    "variable.language": ECMAScript.BUILT_IN_VARIABLES
   };
 
   // https://tc39.es/ecma262/#sec-literals-numeric-literals
