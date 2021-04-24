@@ -61,6 +61,8 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | title.class              | name of a class (interface, trait, module, etc)             |
 +--------------------------+-------------------------------------------------------------+
+| title.class.inherited    | name of class being inherited from, extended, etc.          |
++--------------------------+-------------------------------------------------------------+
 | title.function           | name of a function                                          |
 +--------------------------+-------------------------------------------------------------+
 | params                   | block of function arguments (parameters) at the             |

@@ -1,4 +1,4 @@
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">declare</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CommandHandler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">EventEmitter</span> {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">declare</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CommandHandler</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">EventEmitter</span> {
 
     <span class="hljs-title function_">constructor</span>(<span class="hljs-params">config: CommandHandlerConfig</span>);
     <span class="hljs-comment">/**

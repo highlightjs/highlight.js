@@ -224,15 +224,30 @@ export default function(hljs) {
 
   // ES6 classes
   const CLASS_OR_EXTENDS = {
-    match: [
-      /class|extends/,
-      /\s+/,
-      regex.concat(IDENT_RE, "(", regex.concat(/\./, IDENT_RE), ")*")
-    ],
-    scope: {
-      1: "keyword",
-      3: "title.class"
-    }
+    variants: [
+      {
+        match: [
+          /class/,
+          /\s+/,
+          IDENT_RE
+        ],
+        scope: {
+          1: "keyword",
+          3: "title.class"
+        }
+      },
+      {
+        match: [
+          /extends/,
+          /\s+/,
+          regex.concat(IDENT_RE, "(", regex.concat(/\./, IDENT_RE), ")*")
+        ],
+        scope: {
+          1: "keyword",
+          3: "title.class.inherited"
+        }
+      }
+    ]
   };
 
   const CLASS_REFERENCE = {

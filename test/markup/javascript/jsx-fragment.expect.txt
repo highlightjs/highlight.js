@@ -1,4 +1,4 @@
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">Columns</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">React.Component</span> {
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Columns</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
   <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
     <span class="hljs-keyword">return</span> (
       <span class="language-xml"><span class="hljs-tag">&lt;&gt;</span>
