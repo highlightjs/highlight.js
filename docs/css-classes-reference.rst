@@ -50,10 +50,10 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 | symbol                   | symbolic constant, interned string, goto label              |
 +--------------------------+-------------------------------------------------------------+
 | class                    | relating to a class, typically paired with                  |
-|                          | another scope such as ``title.class``                             |
+|                          | another scope such as ``title.class``                       |
 +--------------------------+-------------------------------------------------------------+
 | function                 | relating to a function, typically paired with               |
-|                          | another scope such as ``title.function``                             |
+|                          | another scope such as ``title.function``                    |
 +--------------------------+-------------------------------------------------------------+
 | variable                 | variables                                                   |
 +--------------------------+-------------------------------------------------------------+
@@ -68,7 +68,7 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | comment                  | comments                                                    |
 +--------------------------+-------------------------------------------------------------+
-| doctag                   | documentation markup within comments                        |
+| doctag                   | documentation markup within comments, e.g. ``@params``      |
 +--------------------------+-------------------------------------------------------------+
 | **Meta**                                                                               |
 +--------------------------+-------------------------------------------------------------+

@@ -142,13 +142,19 @@ export default function(hljs) {
       relevance: 0,
       contains: [
         {
-          className: 'doctag',
-          begin: '@[A-Za-z]+',
+          begin: '(?=@[A-Za-z]+)',
+          relevance: 0,
           contains: [
+            {
+              className: 'doctag',
+              begin: '@[A-Za-z]+'
+            },
             {
               className: 'type',
               begin: '\\{',
               end: '\\}',
+              excludeEnd: true,
+              excludeBegin: true,
               relevance: 0
             },
             {
