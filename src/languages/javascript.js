@@ -275,6 +275,12 @@ export default function(hljs) {
     illegal: /%/
   };
 
+  const UPPER_CASE_CONSTANT = {
+    relevance: 0,
+    match: /\b[A-Z][A-Z_]+\b/,
+    className: "variable.constant"
+  };
+
   return {
     name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -449,6 +455,7 @@ export default function(hljs) {
         ],
         relevance: 0
       },
+      UPPER_CASE_CONSTANT,
       CLASS_OR_EXTENDS,
       {
         begin: /\b(?=constructor)/,
