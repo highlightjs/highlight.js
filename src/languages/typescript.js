@@ -85,7 +85,7 @@ export default function(hljs) {
   // JS use strict rule purposely excludes `asm` which makes no sense
   swapMode(tsLanguage, "use_strict", USE_STRICT);
 
-  const functionDeclaration = tsLanguage.contains.find(m => m.className === "function");
+  const functionDeclaration = tsLanguage.contains.find(m => m.label === "func.def");
   functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
 
   Object.assign(tsLanguage, {

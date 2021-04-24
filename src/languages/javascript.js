@@ -421,7 +421,6 @@ export default function(hljs) {
         beginKeywords: "while if switch catch for"
       },
       {
-        className: 'function',
         // we have to count the parens to make sure we actually have the correct
         // bounding ( ).  There could be any number of sub-expressions inside
         // also surrounded by parens.
@@ -434,9 +433,10 @@ export default function(hljs) {
           '\\)[^()]*)*' +
           '\\)\\s*\\{', // end parens
         returnBegin:true,
+        label: "func.def",
         contains: [
           PARAMS,
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE, className: "title.function" })
         ]
       },
       // catch ... so it won't trigger the property rule below

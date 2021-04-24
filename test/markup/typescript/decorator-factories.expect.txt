@@ -7,7 +7,7 @@
                 <span class="hljs-meta">@bar</span>(qux(quux(<span class="hljs-literal">true</span>))) <span class="hljs-keyword">private</span> y</span>) { }
 
     <span class="hljs-meta">@bar</span>()
-    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-title">myMethod</span>(<span class="hljs-params"><span class="hljs-meta">@bar</span>() z</span>)</span> {
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">myMethod</span>(<span class="hljs-params"><span class="hljs-meta">@bar</span>() z</span>) {
         <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Hello world.&#x27;</span>);
     }
 }

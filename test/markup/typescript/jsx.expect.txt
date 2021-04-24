@@ -1,5 +1,5 @@
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Component</span>&lt;<span class="hljs-title class_">Props</span>&gt; {
-    <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> {
+    <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
         <span class="hljs-keyword">let</span> a : <span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">Array</span>&lt;<span class="hljs-built_in">number</span>&gt;&gt; = [[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]];
         <span class="hljs-keyword">let</span> b = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>&lt;<span class="hljs-built_in">string</span>,<span class="hljs-built_in">number</span>&gt;();
         <span class="hljs-keyword">return</span> (
