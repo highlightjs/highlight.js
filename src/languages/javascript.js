@@ -215,6 +215,75 @@ export default function(hljs) {
     contains: PARAMS_CONTAINS
   };
 
+  const UPPER_CASE_CONSTANT = {
+    relevance: 0,
+    match: /\b[A-Z][A-Z_]+\b/,
+    className: "variable.constant"
+  };
+
+  const CLASS_REFERENCE = {
+    relevance: 0,
+    match: /\b[A-Z][a-z]+([A-Z][a-z]+)*/,
+    className: "title.class"
+  };
+
+  const USE_STRICT = {
+    label: "use_strict",
+    className: 'meta',
+    relevance: 10,
+    begin: /^\s*['"]use (strict|asm)['"]/
+  };
+
+  const OBJECT_ATTRIBUTE = {
+    className: 'attr',
+    begin: regex.concat(IDENT_RE, regex.lookahead(/[ ]*:/)),
+    relevance: 0
+  };
+
+  // ES6 classes
+  const CLASS_OR_EXTENDS = {
+    match: [
+      /class|extends/,
+      /\s+/,
+      IDENT_RE
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.class"
+    }
+  };
+
+  const FUNCTION_CALL = {
+    match: regex.concat(IDENT_RE, regex.lookahead(/\(/)),
+    className: "title.function"
+  };
+
+  const PROPERTY_ACCESS = {
+    begin: regex.concat(/\./, regex.lookahead(
+      regex.concat(IDENT_RE, /(?![0-9A-Za-z$_(])/)
+    )),
+    end: IDENT_RE,
+    excludeBegin: true,
+    keywords: "prototype",
+    className: "property",
+    relevance: 0
+  };
+
+  const FUNCTION_DEFINITION = {
+    match: [
+      /function/,
+      /\s+/,
+      IDENT_RE,
+      /(?=\s*\()/
+    ],
+    className: {
+      1: "keyword",
+      3: "title.function"
+    },
+    contains: [ PARAMS ],
+    illegal: /%/
+  };
+
   return {
     name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -228,32 +297,17 @@ export default function(hljs) {
         binary: "node",
         relevance: 5
       }),
-      {
-        label: "use_strict",
-        className: 'meta',
-        relevance: 10,
-        begin: /^\s*['"]use (strict|asm)['"]/
-      },
+      USE_STRICT,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,
       CSS_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
-      {
-        match: /\b[A-Z][A-Z_]+\b/,
-        className: "variable.constant"
-      },
-      {
-        match: /\b[A-Z][a-z]+([A-Z][a-z]+)*/,
-        className: "title.class"
-      },
+      UPPER_CASE_CONSTANT,
+      CLASS_REFERENCE,
       NUMBER,
-      {
-        className: 'attr',
-        begin: regex.concat(IDENT_RE,regex.lookahead(/[ ]*:/)),
-        relevance: 0
-      },
+      OBJECT_ATTRIBUTE,
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
@@ -300,10 +354,10 @@ export default function(hljs) {
             ]
           },
           { // could be a comma delimited list of params to a function call
-            begin: /,/, relevance: 0
+            begin: /,/,
+            relevance: 0
           },
           {
-            className: '',
             begin: /\s/,
             end: /\s*/,
             skip: true
@@ -332,20 +386,7 @@ export default function(hljs) {
         ],
         relevance: 0
       },
-      {
-        match: [
-          /function/,
-          /\s+/,
-          IDENT_RE,
-          /(?=\s*\()/
-        ],
-        className: {
-          1: "keyword",
-          3: "title.function"
-        },
-        contains: [ PARAMS ],
-        illegal: /%/
-      },
+      FUNCTION_DEFINITION,
       {
         // prevent this from getting swallowed up by function
         // since they appear "function like"
@@ -356,36 +397,14 @@ export default function(hljs) {
         begin: /\.\.\./,
         relevance: 0
       },
-      {
-        match: regex.concat(IDENT_RE, regex.lookahead(/\(/)),
-        className: "title.function"
-      },
-      {
-        begin: regex.concat(/\./, regex.lookahead(
-          regex.concat(IDENT_RE, /(?![0-9A-Za-z$_(])/)
-        )),
-        end: IDENT_RE,
-        excludeBegin: true,
-        keywords: "prototype",
-        className: "property",
-        relevance: 0
-      },
+      FUNCTION_CALL,
+      PROPERTY_ACCESS,
+      CLASS_OR_EXTENDS,
       // hack: prevents detection of keywords in some circumstances
       // $keyword = x
       {
         begin: '\\$' + IDENT_RE,
         relevance: 0
-      },
-      { // ES6 class
-        match: [
-          /class|extends/,
-          /\s+/,
-          IDENT_RE
-        ],
-        scope: {
-          1: "keyword",
-          3: "title.class"
-        }
       },
       {
         begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
