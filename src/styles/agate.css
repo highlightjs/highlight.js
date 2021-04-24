@@ -2,13 +2,15 @@
    Theme: Agate
    Author: (c) Taufik Nurrohman <hi@taufik-nurrohman.com>
    Maintainer: @taufik-nurrohman
-   Updated: 2021-04-23
+   Updated: 2021-04-24
 
    #333
    #62c8f3
+   #7bd694
    #888
    #a2fca2
    #ade5fc
+   #b8d8a2
    #c6b4f0
    #d36363
    #fc9b9b
@@ -22,6 +24,7 @@
   color: #fff;
 }
 
+.hljs-meta-keyword,
 .hljs-name,
 .hljs-strong {
   font-weight: bold;
@@ -32,37 +35,49 @@
   font-style: italic;
 }
 
+.hljs-section,
 .hljs-tag {
   color: #62c8f3;
 }
 
+.hljs-function .hljs-title,
 .hljs-selector-class,
-.hljs-selector-id,
-.hljs-template-variable,
-.hljs-variable {
+.hljs-selector-id {
   color: #ade5fc;
 }
 
-.hljs-bullet,
+.hljs-meta-string,
 .hljs-string {
   color: #a2fca2;
 }
 
-.hljs-attribute,
-.hljs-built_in,
+.hljs-attr,
 .hljs-quote,
-.hljs-section,
+.hljs-selector-attr {
+  color: #7bd694;
+}
+
+.hljs-tag .hljs-attr {
+  color: inherit;
+}
+
+.hljs-attribute,
 .hljs-title,
 .hljs-type {
   color: #ffa;
 }
 
-.hljs-bullet,
 .hljs-number,
 .hljs-symbol {
   color: #d36363;
 }
 
+.hljs-bullet,
+.hljs-template-tag {
+  color: #b8d8a2;
+}
+
+.hljs-built_in,
 .hljs-keyword,
 .hljs-literal,
 .hljs-selector-tag {
@@ -70,15 +85,18 @@
 }
 
 .hljs-code,
-.hljs-comment {
+.hljs-comment,
+.hljs-formula {
   color: #888;
 }
 
 .hljs-link,
+.hljs-selector-pseudo,
 .hljs-regexp {
   color: #c6b4f0;
 }
 
+.hljs-doctag,
 .hljs-meta {
   color: #fc9b9b;
 }
@@ -93,11 +111,13 @@
   color: #333;
 }
 
-.hljs-formula,
+/* Purposely ignored */
 .hljs-operator,
 .hljs-params,
 .hljs-property,
-.hljs-punctuation {}
+.hljs-punctuation,
+.hljs-template-variable,
+.hljs-variable {}
 
 .hljs-subst {
   color: #fff;
