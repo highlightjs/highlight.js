@@ -236,7 +236,7 @@ export default function(hljs) {
 
   const OBJECT_ATTRIBUTE = {
     className: 'attr',
-    begin: regex.concat(IDENT_RE, regex.lookahead(/[ ]*:/)),
+    begin: regex.concat(IDENT_RE, regex.lookahead(/:/)),
     relevance: 0
   };
 
