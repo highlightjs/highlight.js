@@ -458,14 +458,9 @@ export default function(hljs) {
       UPPER_CASE_CONSTANT,
       CLASS_OR_EXTENDS,
       {
-        begin: /\b(?=constructor)/,
-        end: /[{;]/,
-        excludeEnd: true,
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
-          'self',
-          PARAMS
-        ]
+        match: /\bconstructor(?=\s*\()/,
+        className: "title.function",
+        contains: [ PARAMS ]
       },
       {
         begin: '(get|set)\\s+(?=' + IDENT_RE + '\\()',
