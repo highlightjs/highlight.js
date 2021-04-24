@@ -141,6 +141,10 @@ New Languages:
 
 Language grammar improvements:
 
+- enh(js/ts) class references (CamelCase) are highlighted (#3169) [Josh Goebel][]
+- enh(js/ts) constants (ALL_CAPS) are highlighted (#3169) [Josh Goebel][]
+- enh(js/ts) highlights function invokation (#3169) [Josh Goebel][]
+- enh(js/ts) functions assigned to variables are now highlighted `title.function` (#3169) [Josh Goebel][]
 - enh(parser) smarter detection of comments (#2827) [Josh Goebel][]
 - fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
 - fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]
