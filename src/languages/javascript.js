@@ -463,12 +463,20 @@ export default function(hljs) {
         contains: [ PARAMS ]
       },
       {
-        begin: '(get|set)\\s+(?=' + IDENT_RE + '\\()',
-        end: /\{/,
-        keywords: "get set",
+        match: [
+          /get|set/,
+          /\s+/,
+          IDENT_RE,
+          /(?=\()/
+        ],
+        className: {
+          1: "keyword",
+          3: "title.function"
+        },
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
-          { begin: /\(\)/ }, // eat to avoid empty params
+          { // eat to avoid empty params
+            begin: /\(\)/
+          },
           PARAMS
         ]
       },
