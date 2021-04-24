@@ -49,11 +49,9 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | symbol                   | symbolic constant, interned string, goto label              |
 +--------------------------+-------------------------------------------------------------+
-| class                    | relating to a class, typically paired with                  |
-|                          | another scope such as ``title.class``                       |
+| class                    | **deprecated** You probably want ``title.class``            |
 +--------------------------+-------------------------------------------------------------+
-| function                 | relating to a function, typically paired with               |
-|                          | another scope such as ``title.function``                    |
+| function                 | **deprecated** You probably want ``title.function``         |
 +--------------------------+-------------------------------------------------------------+
 | variable                 | variables                                                   |
 +--------------------------+-------------------------------------------------------------+
