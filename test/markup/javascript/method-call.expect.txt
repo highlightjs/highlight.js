@@ -1,7 +1,7 @@
 x.<span class="hljs-title function_">continue</span>(<span class="hljs-number">0</span>);
 
 x = [
-hljs.<span class="hljs-variable constant_">COMMENT</span>(<span class="hljs-regexp">/\{%\s*comment\s*%}/</span>, <span class="hljs-regexp">/\{%\s*endcomment\s*%}/</span>),
-hljs.<span class="hljs-variable constant_">COMMENT</span>(<span class="hljs-regexp">/\{#/</span>, <span class="hljs-regexp">/#}/</span>),
+hljs.<span class="hljs-title function_">COMMENT</span>(<span class="hljs-regexp">/\{%\s*comment\s*%}/</span>, <span class="hljs-regexp">/\{%\s*endcomment\s*%}/</span>),
+hljs.<span class="hljs-title function_">COMMENT</span>(<span class="hljs-regexp">/\{#/</span>, <span class="hljs-regexp">/#}/</span>),
 ]
 

@@ -306,7 +306,6 @@ export default function(hljs) {
       CSS_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
-      UPPER_CASE_CONSTANT,
       CLASS_REFERENCE,
       NUMBER,
       OBJECT_ATTRIBUTE,
@@ -400,6 +399,7 @@ export default function(hljs) {
         relevance: 0
       },
       FUNCTION_CALL,
+      UPPER_CASE_CONSTANT,
       PROPERTY_ACCESS,
       CLASS_OR_EXTENDS,
       // hack: prevents detection of keywords in some circumstances
