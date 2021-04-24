@@ -241,6 +241,40 @@ export default function(hljs) {
     }
   };
 
+  const USE_STRICT = {
+    label: "use_strict",
+    className: 'meta',
+    relevance: 10,
+    begin: /^\s*['"]use (strict|asm)['"]/
+  };
+
+  const FUNCTION_DEFINITION = {
+    variants: [
+      {
+        match: [
+          /function/,
+          /\s+/,
+          IDENT_RE,
+          /(?=\s*\()/
+        ]
+      },
+      // anonymous function
+      {
+        match: [
+          /function/,
+          /\s*(?=\()/
+        ]
+      }
+    ],
+    className: {
+      1: "keyword",
+      3: "title.function"
+    },
+    label: "func.def",
+    contains: [ PARAMS ],
+    illegal: /%/
+  };
+
   return {
     name: 'Javascript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -254,12 +288,7 @@ export default function(hljs) {
         binary: "node",
         relevance: 5
       }),
-      {
-        label: "use_strict",
-        className: 'meta',
-        relevance: 10,
-        begin: /^\s*['"]use (strict|asm)['"]/
-      },
+      USE_STRICT,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,
@@ -372,19 +401,7 @@ export default function(hljs) {
         ],
         relevance: 0
       },
-      {
-        className: 'function',
-        beginKeywords: 'function',
-        end: /[{;]/,
-        excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          'self',
-          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
-          PARAMS
-        ],
-        illegal: /%/
-      },
+      FUNCTION_DEFINITION,
       {
         // prevent this from getting swallowed up by function
         // since they appear "function like"
@@ -395,7 +412,7 @@ export default function(hljs) {
         // we have to count the parens to make sure we actually have the correct
         // bounding ( ).  There could be any number of sub-expressions inside
         // also surrounded by parens.
-        begin: hljs.UNDERSCORE_IDENT_RE +
+        begin: '\\b(?!function)' + hljs.UNDERSCORE_IDENT_RE +
           '\\(' + // first parens
           '[^()]*(\\(' +
             '[^()]*(\\(' +

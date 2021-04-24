@@ -1,4 +1,4 @@
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$initHighlight</span>(<span class="hljs-params">block, cls</span>) </span>{
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">$initHighlight</span>(<span class="hljs-params">block, cls</span>) {
   <span class="hljs-keyword">try</span> {
     <span class="hljs-keyword">if</span> (cls.<span class="hljs-property">search</span>(<span class="hljs-regexp">/\bno\-highlight\b/</span>) != -<span class="hljs-number">1</span>)
       <span class="hljs-keyword">return</span> process(block, <span class="hljs-literal">true</span>, <span class="hljs-number">0x0F</span>) +
