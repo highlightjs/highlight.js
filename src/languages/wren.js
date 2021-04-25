@@ -195,6 +195,36 @@ export default function(hljs) {
       ]
     }
   );
+  const SUBST = {
+    scope: "subst",
+    begin: /%\(/,
+    end: /\)/,
+    contains: [
+      NUMBER,
+      CLASS_REFERENCE,
+      FUNCTION,
+      FIELD,
+      OPERATOR
+    ]
+  };
+  const STRING = {
+    scope: "string",
+    begin: /"/,
+    end: /"/,
+    contains: [
+      SUBST,
+      {
+        scope: "char.escape",
+        variants: [
+          { match: /\\\\|\\["0%abefnrtv]/ },
+          { match: /\\x[0-9A-F]{2}/ },
+          { match: /\\u[0-9A-F]{4}/ },
+          { match: /\\U[0-9A-F]{8}/ }
+        ]
+      }
+    ]
+  };
+  SUBST.contains.push(STRING);
 
   return {
     name: "Wren",
@@ -205,7 +235,7 @@ export default function(hljs) {
     },
     contains: [
       NUMBER,
-      hljs.QUOTE_STRING_MODE,
+      STRING,
       TRIPLE_STRING,
       COMMENT_DOCS,
       hljs.C_LINE_COMMENT_MODE,

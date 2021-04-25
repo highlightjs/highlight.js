@@ -45,6 +45,8 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | string                   | literal string, character                                   |
 +--------------------------+-------------------------------------------------------------+
+| char.escape              | an escape character such as ``\n``                          |
++--------------------------+-------------------------------------------------------------+
 | subst                    | parsed section inside a literal string                      |
 +--------------------------+-------------------------------------------------------------+
 | symbol                   | symbolic constant, interned string, goto label              |
