@@ -54,16 +54,40 @@ export default function(hljs) {
     "String",
     "System"
   ];
+  const OPERATORS = [
+    "-",
+    "~",
+    /\*/,
+    "%",
+    /\.\.\./,
+    /\.\./,
+    /\+/,
+    "<<", ">>",
+    ">=", "<=",
+    "<", ">",
+    /\^/,
+    /!=/,
+    /!/,
+    /\bis\b/,
+    "==",
+    "&&",
+    "&",
+    /\|\|/,
+    /\|/,
+    /\?:/,
+    "="
+  ];
   const FUNCTION = {
     relevance: 0,
     match: regex.concat(/\b(?!(if|while|for|else|super)\b)/, IDENT_RE, /(?=\s*[({])/),
     className: "title.function"
   };
   const FUNCTION_DEFINITION = {
-    relevance: 0,
     match: regex.concat(
-      /\b(?!(if|while|for|else|super)\b)/,
-      IDENT_RE,
+      regex.either(
+        regex.concat(/\b(?!(if|while|for|else|super)\b)/, IDENT_RE),
+        regex.either(...OPERATORS)
+      ),
       /(?=\s*\([^)]+\)\s*\{)/),
     className: "title.function",
     starts: {
@@ -108,29 +132,7 @@ export default function(hljs) {
 
   const OPERATOR = {
     relevance: 0,
-    match: regex.either(...[
-      "-",
-      "~",
-      /\*/,
-      "%",
-      /\.\.\./,
-      /\.\./,
-      /\+/,
-      "<<", ">>",
-      ">=", "<=",
-      "<", ">",
-      /\^/,
-      /!=/,
-      /!/,
-      /\bis\b/,
-      "==",
-      "&&",
-      "&",
-      /\|\|/,
-      /\|/,
-      /\?:/,
-      "="
-    ]),
+    match: regex.either(...OPERATORS),
     className: "operator"
   };
 
@@ -141,11 +143,10 @@ export default function(hljs) {
   };
 
   const PROPERTY = {
+    className: "property",
     begin: regex.concat(/\./, regex.lookahead(IDENT_RE)),
     end: IDENT_RE,
     excludeBegin: true,
-    keywords: "prototype",
-    className: "property",
     relevance: 0
   };
 
@@ -172,11 +173,12 @@ export default function(hljs) {
     match: [
       IDENT_RE, /\s*/,
       /=/, /\s*/,
-      /\(/, IDENT_RE, /\)/
+      /\(/, IDENT_RE, /\)\s*\{/
     ],
     scope: {
       1: "title.function",
-      3: "operator"
+      3: "operator",
+      6: "params"
     }
   };
 
