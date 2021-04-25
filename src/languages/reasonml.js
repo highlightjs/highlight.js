@@ -249,6 +249,7 @@ export default function(hljs) {
 
   return {
     name: 'ReasonML',
+    disableAutodetect: true,
     aliases: [ 're' ],
     keywords: KEYWORDS,
     illegal: '(:-|:=|\\$\\{|\\+=)',
