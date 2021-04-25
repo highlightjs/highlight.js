@@ -94,6 +94,7 @@ Grammars:
 New Languages:
 
 - Added 3rd party Glimmer grammar to SUPPORTED_LANGUAGES(#3123) [NullVoxPopuli][]
+- Added Wren support [Josh Goebel][]
 - Added NestedText support [Josh Goebel][]
 - Added WebAssembly language grammar [Josh Goebel][]
 - Added 3rd party Splunk search processing language grammar to SUPPORTED_LANGUAGES (#3090) [Wei Su][]
