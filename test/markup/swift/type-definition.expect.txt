@@ -2,3 +2,5 @@
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TestStruct</span> </span>{}
 <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">TestEnum</span> </span>{}
 <span class="hljs-class"><span class="hljs-keyword">actor</span> <span class="hljs-title">TestActor</span> </span>{}
+<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">TestExtension</span> </span>{}
+<span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>{}

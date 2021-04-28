@@ -2,3 +2,5 @@ class TestClass {}
 struct TestStruct {}
 enum TestEnum {}
 actor TestActor {}
+extension TestExtension {}
+protocol TestProtocol {}
