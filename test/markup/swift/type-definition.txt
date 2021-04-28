@@ -1,0 +1,5 @@
+class TestClass {}
+struct TestStruct {}
+enum TestEnum {}
+actor TestActor {}
+
