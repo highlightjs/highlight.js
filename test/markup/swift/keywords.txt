@@ -4,6 +4,11 @@ String.Type Type
 String.init init
 String.self self
 
+class
+struct
+enum
+actor
+
 Any Self
 (_ name: String)
 x as Int

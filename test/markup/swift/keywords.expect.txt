@@ -4,6 +4,11 @@
 <span class="hljs-type">String</span>.<span class="hljs-keyword">init</span> <span class="hljs-keyword">init</span>
 <span class="hljs-type">String</span>.<span class="hljs-keyword">self</span> <span class="hljs-keyword">self</span>
 
+<span class="hljs-keyword">class</span>
+<span class="hljs-keyword">struct</span>
+<span class="hljs-keyword">enum</span>
+<span class="hljs-keyword">actor</span>
+
 <span class="hljs-keyword">Any</span> <span class="hljs-keyword">Self</span>
 (<span class="hljs-keyword">_</span> name: <span class="hljs-type">String</span>)
 x <span class="hljs-keyword">as</span> <span class="hljs-type">Int</span>
