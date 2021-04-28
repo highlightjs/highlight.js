@@ -57,7 +57,7 @@ Parser:
 
 Grammars:
 
-- enh(swift) add `actor` keyword (#?) [Bradley Mackey][]
+- enh(swift) add `actor` keyword (#3171) [Bradley Mackey][]
 - enh(crystal) highlight variables (#3154) [Josh Goebel][]
 - fix(ruby) Heredoc without interpolation (#3154) [Josh Goebel][]
 - enh(swift) add `@resultBuilder` attribute (#3151) [Bradley Mackey][]
