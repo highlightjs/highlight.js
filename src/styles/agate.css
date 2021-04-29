@@ -24,6 +24,7 @@
   color: #fff;
 }
 
+.hljs-doctag,
 .hljs-meta-keyword,
 .hljs-name,
 .hljs-strong {
@@ -40,9 +41,10 @@
   color: #62c8f3;
 }
 
-.hljs-function .hljs-title,
 .hljs-selector-class,
-.hljs-selector-id {
+.hljs-selector-id,
+.hljs-template-variable,
+.hljs-variable {
   color: #ade5fc;
 }
 
@@ -96,7 +98,6 @@
   color: #c6b4f0;
 }
 
-.hljs-doctag,
 .hljs-meta {
   color: #fc9b9b;
 }
@@ -115,9 +116,7 @@
 .hljs-operator,
 .hljs-params,
 .hljs-property,
-.hljs-punctuation,
-.hljs-template-variable,
-.hljs-variable {}
+.hljs-punctuation {}
 
 .hljs-subst {
   color: #fff;
