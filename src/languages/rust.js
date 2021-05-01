@@ -196,7 +196,7 @@ export default function(hljs) {
         className: 'string',
         variants: [
           {
-            begin: /r(#*)"(.|\n)*?"\1(?!#)/
+            begin: /b?r(#*)"(.|\n)*?"\1(?!#)/
           },
           {
             begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/
