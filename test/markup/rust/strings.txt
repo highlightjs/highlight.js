@@ -12,3 +12,7 @@ r"hello";
 r###"world"###;
 r##" "###
 "# "##;
+
+br" ";
+br#"hello"#;
+br##"foo"##;
