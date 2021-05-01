@@ -85,6 +85,7 @@ Grammars:
 - enh(haskell) add support for NumericUnderscores (#3150) [Martijn Bastiaan][]
 - enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
 - fix(c,cpp) allow declaring multiple functions and (for C++) parenthetical initializers (#3155) [Erik Demaine][]
+- enh(rust) highlight raw byte string literals correctly (#3173) [Nico Abram][]
 
 New Languages:
 
@@ -871,6 +872,7 @@ Language Improvements:
 [Kirill Saksin]: https://github.com/saksmt
 [Samia Ali]:https://github.com/samiaab1990
 [Erik Demaine]:https://github.com/edemaine
+[Nico Abram]:https://github.com/nico-abram
 
 
 ## Version 9.16.2
