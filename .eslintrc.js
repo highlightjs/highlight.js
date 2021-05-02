@@ -82,7 +82,7 @@ module.exports = {
         }],
         "array-element-newline": "warn",
         "object-curly-newline": [1, {
-          minProperties: 1
+          minProperties: 2
         }],
         "object-property-newline": [2,
           { allowAllPropertiesOnSameLine: false }

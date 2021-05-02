@@ -52,7 +52,8 @@ export default function(hljs) {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
     literal: ECMAScript.LITERALS,
-    built_in: ECMAScript.BUILT_INS.concat(TYPES)
+    built_in: ECMAScript.BUILT_INS.concat(TYPES),
+    "variable.language": ECMAScript.BUILT_IN_VARIABLES
   };
   const DECORATOR = {
     className: 'meta',
@@ -84,7 +85,7 @@ export default function(hljs) {
   // JS use strict rule purposely excludes `asm` which makes no sense
   swapMode(tsLanguage, "use_strict", USE_STRICT);
 
-  const functionDeclaration = tsLanguage.contains.find(m => m.className === "function");
+  const functionDeclaration = tsLanguage.contains.find(m => m.label === "func.def");
   functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
 
   Object.assign(tsLanguage, {
