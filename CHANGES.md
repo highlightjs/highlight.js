@@ -121,6 +121,7 @@ Dev Improvements:
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
+[Nico Abram]:https://github.com/nico-abram
 
 
 ## Version 10.7.1
@@ -872,7 +873,6 @@ Language Improvements:
 [Kirill Saksin]: https://github.com/saksmt
 [Samia Ali]:https://github.com/samiaab1990
 [Erik Demaine]:https://github.com/edemaine
-[Nico Abram]:https://github.com/nico-abram
 
 
 ## Version 9.16.2
