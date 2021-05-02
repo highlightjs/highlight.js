@@ -177,8 +177,25 @@ begin
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
 
+This may also be an array.  See beginScope.
 
-You can also pass an array when you need to individually highlight portions of the match using different scopes:
+beginScope
+^^^^^^^^^^
+
+- **type**: scope
+- **type**: numeric index of scopes (when ``begin`` is an array)
+
+This can be used to apply a scope to just the begin match portion.
+
+::
+
+  {
+    begin: /def/,
+    beginScope: "keyword"
+  }
+
+You can also use ``beginScope`` to individually highlight portions of the match
+with different scopes by passing an array to ``begin``.
 
 ::
 
@@ -188,7 +205,7 @@ You can also pass an array when you need to individually highlight portions of t
     /\s+/,
     hljs.IDENT_RE
   ],
-  scope: {
+  beginScope: {
     1: "keyword",
     3: "title"
   },
@@ -206,6 +223,22 @@ capture groups of their own yet.* If your regexes uses groups at all, they
 For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issues/3095>`_.
 
 
+endScope
+^^^^^^^^
+
+- **type**: scope
+- **type**: numeric index of scopes (when ``end`` is an array)
+
+This has the same behavior as ``beginScope`` but applies to the content of the
+``end`` match.
+
+::
+
+  {
+    begin: /FIRST/,
+    end: /LAST/,
+    endScope: "built_in"
+  }
 
 
 match
