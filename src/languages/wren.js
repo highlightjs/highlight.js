@@ -238,6 +238,29 @@ export default function(hljs) {
     className: "variable"
   };
 
+  const ATTRIBUTE = {
+    scope: "meta",
+    variants: [
+      {
+        begin: [/#/, /[A-Za-z_]+(?=\()/],
+        beginScope: { 2: "attr" },
+        keywords: {
+          literal: LITERALS
+        },
+        contains: [
+          NUMBER,
+          VARIABLE
+        ],
+        end: /\)/
+      },
+      {
+        begin: [/#/, /[A-Za-z_]+/],
+        beginScope: { 2: "attr" },
+        end: /$/
+      }
+    ]
+  };
+
   return {
     name: "Wren",
     keywords: {
@@ -246,6 +269,7 @@ export default function(hljs) {
       literal: LITERALS
     },
     contains: [
+      ATTRIBUTE,
       NUMBER,
       STRING,
       TRIPLE_STRING,
