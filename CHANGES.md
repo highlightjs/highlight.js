@@ -115,6 +115,7 @@ New Themes:
 Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
+- (fix) CSS used for devtool needed an adjustment to fix too wide of content (#3133) [NullVoxPopuli][]
 
 [Farzad Sadeghi]: https://github.com/terminaldweller
 [Martijn Bastiaan]: https://github.com/martijnbastiaan
