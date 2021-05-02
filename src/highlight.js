@@ -14,6 +14,27 @@ import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
 import * as logger from "./lib/logger.js";
 
+/**
+@typedef {import('highlight.js').Mode} Mode
+@typedef {import('highlight.js').CompiledMode} CompiledMode
+@typedef {import('highlight.js').Language} Language
+@typedef {import('highlight.js').HLJSApi} HLJSApi
+@typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
+@typedef {import('highlight.js').PluginEvent} PluginEvent
+@typedef {import('highlight.js').HLJSOptions} HLJSOptions
+@typedef {import('highlight.js').LanguageFn} LanguageFn
+@typedef {import('highlight.js').HighlightedHTMLElement} HighlightedHTMLElement
+@typedef {import('highlight.js').BeforeHighlightContext} BeforeHighlightContext
+@typedef {import('highlight.js/private').MatchType} MatchType
+@typedef {import('highlight.js/private').KeywordData} KeywordData
+@typedef {import('highlight.js/private').EnhancedMatch} EnhancedMatch
+@typedef {import('highlight.js/private').AnnotatedError} AnnotatedError
+@typedef {import('highlight.js').AutoHighlightResult} AutoHighlightResult
+@typedef {import('highlight.js').HighlightOptions} HighlightOptions
+@typedef {import('highlight.js').HighlightResult} HighlightResult
+*/
+
+
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
 const NO_MATCH = Symbol("nomatch");
@@ -42,6 +63,7 @@ const HLJS = function(hljs) {
   // calling the `hljs.configure` function.
   /** @type HLJSOptions */
   let options = {
+    ignoreUnescapedHTML: false,
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
@@ -94,7 +116,7 @@ const HLJS = function(hljs) {
    * NEW API
    * highlight(code, {lang, ignoreIllegals})
    *
-   * @param {string} codeOrlanguageName - the language to use for highlighting
+   * @param {string} codeOrLanguageName - the language to use for highlighting
    * @param {string | HighlightOptions} optionsOrCode - the code to highlight
    * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
    * @param {CompiledMode} [continuation] - current continuation mode, if any
@@ -107,11 +129,11 @@ const HLJS = function(hljs) {
    * @property {CompiledMode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
-  function highlight(codeOrlanguageName, optionsOrCode, ignoreIllegals, continuation) {
+  function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals, continuation) {
     let code = "";
     let languageName = "";
     if (typeof optionsOrCode === "object") {
-      code = codeOrlanguageName;
+      code = codeOrLanguageName;
       ignoreIllegals = optionsOrCode.ignoreIllegals;
       languageName = optionsOrCode.language;
       // continuation not supported at all via the new API
@@ -121,7 +143,7 @@ const HLJS = function(hljs) {
       // old API
       logger.deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
       logger.deprecated("10.7.0", "Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277");
-      languageName = codeOrlanguageName;
+      languageName = codeOrLanguageName;
       code = optionsOrCode;
     }
 
@@ -245,18 +267,19 @@ const HLJS = function(hljs) {
      * @param {CompiledMode} mode
      * @param {RegExpMatchArray} match
      */
-    function emitMultiClass(mode, match) {
+    function emitMultiClass(scope, match) {
       let i = 1;
       // eslint-disable-next-line no-undefined
       while (match[i] !== undefined) {
-        if (!mode._emit[i]) { i++; continue; }
-        const klass = language.classNameAliases[mode.scope[i]] || mode.scope[i];
+        if (!scope._emit[i]) { i++; continue; }
+        const klass = language.classNameAliases[scope[i]] || scope[i];
         const text = match[i];
         if (klass) {
           emitter.addKeyword(text, klass);
         } else {
           modeBuffer = text;
           processKeywords();
+          modeBuffer = "";
         }
         i++;
       }
@@ -267,13 +290,21 @@ const HLJS = function(hljs) {
      * @param {RegExpMatchArray} match
      */
     function startNewMode(mode, match) {
-      if (mode.isMultiClass) {
-        // at this point modeBuffer should just be the match
-        emitMultiClass(mode, match);
-        modeBuffer = "";
-      } else if (mode.scope) {
+      if (mode.scope && typeof mode.scope === "string") {
         emitter.openNode(language.classNameAliases[mode.scope] || mode.scope);
       }
+      if (mode.beginScope) {
+        // beginScope just wraps the begin match itself in a scope
+        if (mode.beginScope._wrap) {
+          emitter.addKeyword(modeBuffer, language.classNameAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
+          modeBuffer = "";
+        } else if (mode.beginScope._multi) {
+          // at this point modeBuffer should just be the match
+          emitMultiClass(mode.beginScope, match);
+          modeBuffer = "";
+        }
+      }
+
       top = Object.create(mode, { parent: { value: top } });
       return top;
     }
@@ -315,7 +346,7 @@ const HLJS = function(hljs) {
      */
     function doIgnore(lexeme) {
       if (top.matcher.regexIndex === 0) {
-        // no more regexs to potentially match here, so we move the cursor forward one
+        // no more regexes to potentially match here, so we move the cursor forward one
         // space
         modeBuffer += lexeme[0];
         return 1;
@@ -374,7 +405,13 @@ const HLJS = function(hljs) {
       if (!endMode) { return NO_MATCH; }
 
       const origin = top;
-      if (origin.skip) {
+      if (top.endScope && top.endScope._wrap) {
+        processBuffer();
+        emitter.addKeyword(lexeme, top.endScope._wrap);
+      } else if (top.endScope && top.endScope._multi) {
+        processBuffer();
+        emitMultiClass(top.endScope, match);
+      } else if (origin.skip) {
         modeBuffer += lexeme;
       } else {
         if (!(origin.returnEnd || origin.excludeEnd)) {
@@ -416,7 +453,7 @@ const HLJS = function(hljs) {
     /**
      *  Process an individual match
      *
-     * @param {string} textBeforeMatch - text preceeding the match (since the last match)
+     * @param {string} textBeforeMatch - text preceding the match (since the last match)
      * @param {EnhancedMatch} [match] - the match itself
      */
     function processLexeme(textBeforeMatch, match) {
@@ -498,7 +535,7 @@ const HLJS = function(hljs) {
       throw new Error('Unknown language: "' + languageName + '"');
     }
 
-    const md = compileLanguage(language, { plugins });
+    const md = compileLanguage(language);
     let result = '';
     /** @type {CompiledMode} */
     let top = continuation || md;
@@ -678,15 +715,20 @@ const HLJS = function(hljs) {
 
     if (shouldNotHighlight(language)) return;
 
-    // support for v10 API
     fire("before:highlightElement",
       { el: element, language: language });
+
+    // we should be all text, no child nodes
+    if (!options.ignoreUnescapedHTML && element.children.length > 0) {
+      console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
+      console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
+      console.warn(element);
+    }
 
     node = element;
     const text = node.textContent;
     const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
 
-    // support for v10 API
     fire("after:highlightElement", { el: element, result, text });
 
     element.innerHTML = result.value;
@@ -695,12 +737,12 @@ const HLJS = function(hljs) {
       language: result.language,
       // TODO: remove with version 11.0
       re: result.relevance,
-      relavance: result.relevance
+      relevance: result.relevance
     };
     if (result.secondBest) {
       element.secondBest = {
         language: result.secondBest.language,
-        relavance: result.secondBest.relevance
+        relevance: result.secondBest.relevance
       };
     }
   }
@@ -922,7 +964,7 @@ const HLJS = function(hljs) {
     }
   }
 
-  // merge all the modes/regexs into our main object
+  // merge all the modes/regexes into our main object
   Object.assign(hljs, MODES);
 
   return hljs;

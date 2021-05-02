@@ -43,7 +43,11 @@ module.exports = {
   overrides: [
     {
       files: ["types/*.ts", "src/*.ts"],
-      parser: '@typescript-eslint/parser'
+      parser: '@typescript-eslint/parser',
+      rules: {
+        "import/no-duplicates": "off",
+        "import/extensions": "off"
+      }
     },
     {
       files: ["src/**/*.js"],
