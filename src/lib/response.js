@@ -1,4 +1,7 @@
+/** @typedef {import('highlight.js').CallbackResponse} CallbackResponse */
+/** @typedef {import('highlight.js').CompiledMode} CompiledMode */
 /** @implements CallbackResponse */
+
 export default class Response {
   /**
    * @param {CompiledMode} mode

@@ -5,6 +5,14 @@ import { beforeMatchExt } from "./exts/before_match.js";
 import { compileKeywords } from "./compile_keywords.js";
 import { MultiClass } from "./ext/multi_class.js";
 
+/**
+@typedef {import('highlight.js').Mode} Mode
+@typedef {import('highlight.js').CompiledMode} CompiledMode
+@typedef {import('highlight.js').Language} Language
+@typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
+@typedef {import('highlight.js').CompiledLanguage} CompiledLanguage
+*/
+
 // compilation
 
 /**
@@ -13,12 +21,11 @@ import { MultiClass } from "./ext/multi_class.js";
  * Given the raw result of a language definition (Language), compiles this so
  * that it is ready for highlighting code.
  * @param {Language} language
- * @param {{plugins: HLJSPlugin[]}} opts
  * @returns {CompiledLanguage}
  */
-export function compileLanguage(language, { plugins }) {
+export function compileLanguage(language) {
   /**
-   * Builds a regex with the case sensativility of the current language
+   * Builds a regex with the case sensitivity of the current language
    *
    * @param {RegExp | string} value
    * @param {boolean} [global]
