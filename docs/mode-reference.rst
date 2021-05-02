@@ -216,9 +216,9 @@ of the function as ``title``. The space(s) between would be matched, but not
 highlighted.
 
 Note: Internally, each regular expression in the array becomes a capture group
-inside a larger concatenated regex.  *These regular expressions must NOT include
-capture groups of their own yet.* If your regexes uses groups at all, they
-**must** be non-capturing, i.e. ``(?:regex)``.
+inside a larger concatenated regex.  If your regular expresions use capture 
+groups (or references) they will be auto-magically renumerated so that they 
+continue to work without any changes.
 
 For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issues/3095>`_.
 
