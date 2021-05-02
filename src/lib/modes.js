@@ -1,6 +1,9 @@
 import { inherit } from './utils.js';
 import * as regex from './regex.js';
 
+/** @typedef {import('highlight.js').Mode} Mode */
+/** @typedef {import('highlight.js').ModeCallback} ModeCallback */
+
 // Common regexps
 export const MATCH_NOTHING_RE = /\b\B/;
 export const IDENT_RE = '[a-zA-Z]\\w*';
