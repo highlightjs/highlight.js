@@ -67,7 +67,7 @@ module.exports = {
         camelcase: "off",
         "no-control-regex": "off",
         "no-useless-escape": "off",
-        "comma-dangle": "warn",
+        "comma-dangle": "off",
         "array-bracket-spacing": ["error", "always"
           // {
           //   objectsInArrays: true

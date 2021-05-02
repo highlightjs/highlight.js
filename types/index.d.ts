@@ -132,6 +132,7 @@ declare module 'highlight.js' {
         classPrefix: string
         languages?: string[]
         __emitter: EmitterConstructor
+        ignoreUnescapedHTML?: boolean
     }
 
     export interface CallbackResponse {

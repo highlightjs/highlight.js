@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const fs = require("fs").promises;
+const fss = require("fs");
 const glob = require("glob-promise");
 const path = require("path");
 const zlib = require('zlib');
@@ -21,6 +22,14 @@ function buildHeader(args) {
   `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n` +
   `  License: ${args.license}\n` +
   ` */`;
+}
+
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+    const x = a[key];
+    const y = b[key];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
 }
 
 function detailedGrammarSizes(languages) {
@@ -120,10 +129,19 @@ async function renderIndex(languages, minify) {
       count: categoryCounter.get(category)
     }));
 
-  const css = await glob("styles/*.css", { cwd: "./src" });
-  const styles = css
-    .map((el) => ({ name: _.startCase(path.basename(el, ".css")), path: el }))
+  function nameForStyle(file) {
+    let name = _.startCase(path.basename(file, ".css"));
+    if (file.includes("base16/")) {
+      name = `Base16 / ${name}`;
+    }
+    return name;
+  }
+
+  const css = await glob("styles/**/*.css", { cwd: "./src" });
+  let styles = css
+    .map((el) => ({ name: nameForStyle(el), path: el }))
     .filter((style) => style.name !== "Default");
+  styles = sortByKey(styles, "name");
 
   renderTemplate("./demo/index.html", "./demo/index.html", {
     categories,
@@ -144,11 +162,13 @@ async function installDocs() {
 function installDemoStyles() {
   log("Writing style files.");
   mkdir("demo/styles");
+  mkdir("demo/styles/base16");
 
-  glob.sync("*", { cwd: "./src/styles" }).forEach((file) => {
+  glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
+    const stat = fss.statSync(`./src/styles/${file}`);
     if (file.endsWith(".css")) {
       installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
-    } else {
+    } else if (!stat.isDirectory) {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `demo/styles/${file}`);
     }

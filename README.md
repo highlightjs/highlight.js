@@ -62,7 +62,7 @@ detection.
 
 As always our major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
 
-**Latest:** 11.0.0-alpha0
+**Latest:** https://github.com/highlightjs/highlight.js/issues/3131
 
 #### Upgrading to Version 10
 

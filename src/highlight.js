@@ -63,6 +63,7 @@ const HLJS = function(hljs) {
   // calling the `hljs.configure` function.
   /** @type HLJSOptions */
   let options = {
+    ignoreUnescapedHTML: false,
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
@@ -714,15 +715,20 @@ const HLJS = function(hljs) {
 
     if (shouldNotHighlight(language)) return;
 
-    // support for v10 API
     fire("before:highlightElement",
       { el: element, language: language });
+
+    // we should be all text, no child nodes
+    if (!options.ignoreUnescapedHTML && element.children.length > 0) {
+      console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
+      console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
+      console.warn(element);
+    }
 
     node = element;
     const text = node.textContent;
     const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
 
-    // support for v10 API
     fire("after:highlightElement", { el: element, result, text });
 
     element.innerHTML = result.value;
