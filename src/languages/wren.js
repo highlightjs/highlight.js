@@ -226,6 +226,18 @@ export default function(hljs) {
   };
   SUBST.contains.push(STRING);
 
+  const ALL_KWS = [...KEYWORDS, ...LANGUAGE_VARS, ...LITERALS];
+  const VARIABLE = {
+    relevance: 0,
+    match: regex.concat(
+      "\\b(?!",
+      ALL_KWS.join("|"),
+      "\\b)",
+      /[a-zA-Z_]\w*(?:[?!]|\b)/
+    ),
+    className: "variable"
+  };
+
   return {
     name: "Wren",
     keywords: {
@@ -247,7 +259,8 @@ export default function(hljs) {
       FUNCTION,
       OPERATOR,
       FIELD,
-      PROPERTY
+      PROPERTY,
+      VARIABLE
     ]
   };
 }
