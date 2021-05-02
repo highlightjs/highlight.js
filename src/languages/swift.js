@@ -36,10 +36,13 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
   const DOT_KEYWORD = {
-    className: 'keyword',
-    begin: concat(/\./, lookahead(either(...Swift.dotKeywords, ...Swift.optionalDotKeywords))),
-    end: either(...Swift.dotKeywords, ...Swift.optionalDotKeywords),
-    excludeBegin: true
+    match: [
+      /\./,
+      either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)
+    ],
+    className: {
+      2: "keyword"
+    }
   };
   const KEYWORD_GUARD = {
     // Consume .keyword to prevent highlighting properties and methods as keywords.
@@ -319,24 +322,6 @@ export default function(hljs) {
     ]
   };
 
-  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
-  // Matches both the keyword func and the function title.
-  // Grouping these lets us differentiate between the operator function <
-  // and the start of the generic parameter clause (also <).
-  const FUNC_PLUS_TITLE = {
-    beginKeywords: 'func',
-    contains: [
-      {
-        className: 'title',
-        match: either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator),
-        // Required to make sure the opening < of the generic parameter clause
-        // isn't parsed as a second title.
-        endsParent: true,
-        relevance: 0
-      },
-      WHITESPACE
-    ]
-  };
   const GENERIC_PARAMETERS = {
     begin: /</,
     end: />/,
@@ -381,11 +366,18 @@ export default function(hljs) {
     endsParent: true,
     illegal: /["']/
   };
+  // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
   const FUNCTION = {
-    className: 'function',
-    match: lookahead(/\bfunc\b/),
+    match: [
+      /func/,
+      /\s+/,
+      either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator)
+    ],
+    className: {
+      1: "keyword",
+      3: "title.function"
+    },
     contains: [
-      FUNC_PLUS_TITLE,
       GENERIC_PARAMETERS,
       FUNCTION_PARAMETERS,
       WHITESPACE
@@ -399,11 +391,12 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID375
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID379
   const INIT_SUBSCRIPT = {
-    className: 'function',
-    match: /\b(subscript|init[?!]?)\s*(?=[<(])/,
-    keywords: {
-      keyword: "subscript init init? init!",
-      $pattern: /\w+[?!]?/
+    match: [
+      /\b(?:subscript|init[?!]?)/,
+      /\s*(?=[<(])/,
+    ],
+    className: {
+      1: "keyword"
     },
     contains: [
       GENERIC_PARAMETERS,
@@ -414,40 +407,34 @@ export default function(hljs) {
   };
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380
   const OPERATOR_DECLARATION = {
-    beginKeywords: 'operator',
-    end: hljs.MATCH_NOTHING_RE,
-    contains: [
-      {
-        className: 'title',
-        match: Swift.operator,
-        endsParent: true,
-        relevance: 0
-      }
-    ]
+    match: [
+      /operator/,
+      /\s+/,
+      Swift.operator
+    ],
+    className: {
+      1: "keyword",
+      3: "title"
+    }
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID550
   const PRECEDENCEGROUP = {
-    beginKeywords: 'precedencegroup',
-    end: hljs.MATCH_NOTHING_RE,
-    contains: [
-      {
-        className: 'title',
-        match: Swift.typeIdentifier,
-        relevance: 0
-      },
-      {
-        begin: /{/,
-        end: /}/,
-        relevance: 0,
-        endsParent: true,
-        keywords: [
-          ...Swift.precedencegroupKeywords,
-          ...Swift.literals
-        ],
-        contains: [ TYPE ]
-      }
-    ]
+    begin: [
+      /precedencegroup/,
+      /\s+/,
+      Swift.typeIdentifier
+    ],
+    className: {
+      1: "keyword",
+      3: "title"
+    },
+    contains: [ TYPE ],
+    keywords: [
+      ...Swift.precedencegroupKeywords,
+      ...Swift.literals
+    ],
+    end: /}/
   };
 
   // Add supported submodes to string interpolation.
@@ -484,13 +471,13 @@ export default function(hljs) {
       FUNCTION,
       INIT_SUBSCRIPT,
       {
-        className: 'class',
         beginKeywords: 'struct protocol class extension enum',
         end: '\\{',
         excludeEnd: true,
         keywords: KEYWORDS,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
+            className: "title.class",
             begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
           }),
           ...KEYWORD_MODES
