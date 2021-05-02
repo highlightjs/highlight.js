@@ -1,0 +1,2 @@
+string a("hello"), b("world");
+vector<int> u(1), v(2);
