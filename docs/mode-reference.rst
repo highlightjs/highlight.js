@@ -216,7 +216,7 @@ of the function as ``title``. The space(s) between would be matched, but not
 highlighted.
 
 Note: Internally, each regular expression in the array becomes a capture group
-inside a larger concatenated regex.  If your regular expresions use capture 
+inside a larger concatenated regex.  If your regular expressions use capture 
 groups (or references) they will be auto-magically renumerated so that they 
 continue to work without any changes.
 
