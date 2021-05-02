@@ -1,4 +1,5 @@
 const fs = require("fs").promises;
+const fss = require("fs");
 const glob = require("glob");
 const zlib = require('zlib');
 const { getLanguages } = require("./lib/language");
@@ -11,8 +12,8 @@ const { buildPackageJSON } = require("./build_node");
 const path = require("path");
 const bundling = require('./lib/bundling.js');
 
-async function installPackageJSON() {
-  await buildPackageJSON();
+async function installPackageJSON(options) {
+  await buildPackageJSON(options);
   const json = require(`${process.env.BUILD_DIR}/package`);
   json.name = "@highlightjs/cdn-assets";
   json.description = json.description.concat(" (pre-compiled CDN assets)");
@@ -24,7 +25,7 @@ let shas = {};
 async function buildCDN(options) {
   install("./LICENSE", "LICENSE");
   install("./README.CDN.md", "README.md");
-  installPackageJSON();
+  installPackageJSON(options);
 
   installStyles();
 
@@ -104,9 +105,12 @@ async function installLanguages(languages) {
 
 function installStyles() {
   log("Writing style files.");
-  mkdir("styles");
+  mkdir("styles/base16");
 
-  glob.sync("*", { cwd: "./src/styles" }).forEach((file) => {
+  glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
+    const stat = fss.statSync(`./src/styles/${file}`);
+    if (stat.isDirectory()) return;
+
     if (file.endsWith(".css")) {
       installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`);
     } else {

@@ -1,4 +1,4 @@
-## Version 11.0.0-alpha0
+## Version 11.0.0-alpha1
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
@@ -86,6 +86,8 @@ Grammars:
 - enh(haskell) add support for BinaryLiterals (#3150) [Martijn Bastiaan][]
 - enh(haskell) add support for NumericUnderscores (#3150) [Martijn Bastiaan][]
 - enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
+- fix(c,cpp) allow declaring multiple functions and (for C++) parenthetical initializers (#3155) [Erik Demaine][]
+- enh(rust) highlight raw byte string literals correctly (#3173) [Nico Abram][]
 
 New Languages:
 
@@ -121,6 +123,7 @@ Dev Improvements:
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
+[Nico Abram]:https://github.com/nico-abram
 
 
 ## Version 10.7.1
@@ -871,6 +874,7 @@ Language Improvements:
 [Mike Schall]: https://github.com/schallm
 [Kirill Saksin]: https://github.com/saksmt
 [Samia Ali]:https://github.com/samiaab1990
+[Erik Demaine]:https://github.com/edemaine
 
 
 ## Version 9.16.2
