@@ -1,5 +1,7 @@
 const fs = require("fs").promises;
+const fss = require("fs");
 const config = require("./build_config");
+const glob = require("glob-promise");
 const { getLanguages } = require("./lib/language");
 const { install, mkdir } = require("./lib/makestuff");
 const { filter } = require("./lib/dependencies");
@@ -149,8 +151,8 @@ const CORE_FILES = [
 
 async function buildNode(options) {
   mkdir("lib/languages");
-  mkdir("scss");
-  mkdir("styles");
+  mkdir("scss/base16");
+  mkdir("styles/base16");
   mkdir("types");
 
 
@@ -167,8 +169,11 @@ async function buildNode(options) {
   }
 
   log("Writing styles.");
-  const styles = await fs.readdir("./src/styles/");
-  styles.forEach((file) => {
+  // const styles = await fs.readdir("./src/styles/");
+  glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
+    const stat = fss.statSync(`./src/styles/${file}`);
+    if (stat.isDirectory()) return;
+
     install(`./src/styles/${file}`, `styles/${file}`);
     install(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
   });
