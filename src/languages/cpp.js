@@ -330,6 +330,12 @@ export default function(hljs) {
           NUMBERS
         ]
       },
+      // allow for multiple declarations, e.g.:
+      // extern void f(int), g(char);
+      {
+        relevance: 0,
+        match: /,/
+      },
       {
         className: 'params',
         begin: /\(/,

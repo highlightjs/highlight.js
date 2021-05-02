@@ -43,7 +43,11 @@ module.exports = {
   overrides: [
     {
       files: ["types/*.ts", "src/*.ts"],
-      parser: '@typescript-eslint/parser'
+      parser: '@typescript-eslint/parser',
+      rules: {
+        "import/no-duplicates": "off",
+        "import/extensions": "off"
+      }
     },
     {
       files: ["src/**/*.js"],
@@ -63,7 +67,7 @@ module.exports = {
         camelcase: "off",
         "no-control-regex": "off",
         "no-useless-escape": "off",
-        "comma-dangle": "warn",
+        "comma-dangle": "off",
         "array-bracket-spacing": ["error", "always"
           // {
           //   objectsInArrays: true
