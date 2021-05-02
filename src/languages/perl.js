@@ -409,7 +409,7 @@ export default function(hljs) {
           className: 'regexp',
           variants: [
             // allow matching common delimiters
-            { begin: PAIRED_DOUBLE_RE("s|tr|y", regex.either(...REGEX_DELIMS)) },
+            { begin: PAIRED_DOUBLE_RE("s|tr|y", regex.either(...REGEX_DELIMS, { capture: true })) },
             // and then paired delmis
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\(", "\\)") },
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\[", "\\]") },
@@ -429,7 +429,7 @@ export default function(hljs) {
             // prefix is optional with /regex/
             { begin: PAIRED_RE("(?:m|qr)?", /\//, /\//)},
             // allow matching common delimiters
-            { begin: PAIRED_RE("m|qr", regex.either(...REGEX_DELIMS), /\1/)},
+            { begin: PAIRED_RE("m|qr", regex.either(...REGEX_DELIMS, { capture: true }), /\1/)},
             // allow common paired delmins
             { begin: PAIRED_RE("m|qr", /\(/, /\)/)},
             { begin: PAIRED_RE("m|qr", /\[/, /\]/)},

@@ -468,6 +468,35 @@ export default function(hljs) {
     'wishart'
   ];
 
+  const BLOCK_COMMENT = hljs.COMMENT(
+    /\/\*/,
+    /\*\//,
+    {
+      relevance: 0,
+      contains: [
+        {
+          className: 'doctag',
+          match: /@(return|param)/
+        }
+      ]
+    }
+  );
+
+  const INCLUDE = {
+    className: 'meta',
+    begin: /^#include\b/,
+    end: /$/,
+    relevance: 0, // relevance comes from keywords
+    keywords: "include",
+    contains: [
+      {
+        match: /[a-z][a-z-.]+/,
+        className: "string"
+      },
+      hljs.C_LINE_COMMENT_MODE
+    ]
+  };
+
   return {
     name: 'Stan',
     aliases: [ 'stanfuncs' ],
@@ -479,30 +508,9 @@ export default function(hljs) {
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT(
-        /#/,
-        /$/,
-        {
-          relevance: 0,
-          keywords: {
-            'meta-keyword': 'include'
-          }
-        }
-      ),
-      hljs.COMMENT(
-        /\/\*/,
-        /\*\//,
-        {
-          relevance: 0,
-          // highlight doc strings mentioned in Stan reference
-          contains: [
-            {
-              className: 'doctag',
-              begin: /@(return|param)/
-            }
-          ]
-        }
-      ),
+      INCLUDE,
+      hljs.HASH_COMMENT_MODE,
+      BLOCK_COMMENT,
       {
         // hack: in range constraints, lower must follow "<"
         begin: /<\s*lower\s*=/,
@@ -516,8 +524,7 @@ export default function(hljs) {
       },
       {
         className: 'keyword',
-        begin: /\btarget\s*\+=/,
-        relevance: 10
+        begin: /\btarget\s*\+=/
       },
       {
         begin: '~\\s*(' + hljs.IDENT_RE + ')\\s*\\(',

@@ -32,6 +32,7 @@ Themes:
 - The default padding of all themes increases (0.5em => 1em).
 - `schoolbook` has been updated to remove the lined background.
 - `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+- Base16 named themes have been updated to their "canonical" versions
 
 Language Grammars:
 
@@ -43,16 +44,20 @@ Language Grammars:
 
 Parser:
 
+- enh(parser) add `beginScope` and `endScope` to allow separate scoping begin and end (#3159) [Josh Goebel][]
+- enh(parsed) `endScope` now supports multi-class matchers as well (#3159) [Josh Goebel][]
 - enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]
   - subLanguage `span` tags now also always have the `language-` prefix added
 - enh(parser) support multi-class matchers (#3081) [Josh Goebel][]
 - enh(parser) Detect comments based on english like text, rather than keyword list [Josh Goebel][]
+- adds `title.class.inherited` sub-scope support [Josh Goebel][]
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]
 - adds `title.function` sub-scope support (#3078) [Josh Goebel][]
 - adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
 
 Grammars:
 
+- enh(swift) add `actor` keyword (#3171) [Bradley Mackey][]
 - enh(crystal) highlight variables (#3154) [Josh Goebel][]
 - fix(ruby) Heredoc without interpolation (#3154) [Josh Goebel][]
 - enh(swift) add `@resultBuilder` attribute (#3151) [Bradley Mackey][]
@@ -85,6 +90,7 @@ Grammars:
 - enh(haskell) add support for NumericUnderscores (#3150) [Martijn Bastiaan][]
 - enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
 - fix(c,cpp) allow declaring multiple functions and (for C++) parenthetical initializers (#3155) [Erik Demaine][]
+- enh(rust) highlight raw byte string literals correctly (#3173) [Nico Abram][]
 
 New Languages:
 
@@ -97,6 +103,7 @@ New Languages:
 
 Theme Improvements:
 
+- Added all official Base16 themes (over 150 new themes) [Josh Goebel][]
 - chore(themes) remove `builtin-name` CSS class (#3119) [Josh Goebel][]
 - chore(theme) Update GitHub theme css to match GitHub's current styling (#1616) [Jan Pilzer][]
 - chore(theme) Update Srcery theme css to match its Emacs implementation [Chen Bin][]
@@ -120,6 +127,7 @@ Dev Improvements:
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
+[Nico Abram]:https://github.com/nico-abram
 
 
 ## Version 10.7.1

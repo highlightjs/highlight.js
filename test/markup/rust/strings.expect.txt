@@ -12,3 +12,7 @@
 <span class="hljs-string">r###&quot;world&quot;###</span>;
 <span class="hljs-string">r##&quot; &quot;###
 &quot;# &quot;##</span>;
+
+<span class="hljs-string">br&quot; &quot;</span>;
+<span class="hljs-string">br#&quot;hello&quot;#</span>;
+<span class="hljs-string">br##&quot;foo&quot;##</span>;
