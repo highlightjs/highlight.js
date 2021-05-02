@@ -1,6 +1,6 @@
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestClass</span> </span>{}
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TestStruct</span> </span>{}
-<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">TestEnum</span> </span>{}
-<span class="hljs-class"><span class="hljs-keyword">actor</span> <span class="hljs-title">TestActor</span> </span>{}
-<span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">TestExtension</span> </span>{}
-<span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">TestProtocol</span> </span>{}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span> {}
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">TestStruct</span> {}
+<span class="hljs-keyword">enum</span> <span class="hljs-title class_">TestEnum</span> {}
+<span class="hljs-keyword">actor</span> <span class="hljs-title class_">TestActor</span> {}
+<span class="hljs-keyword">extension</span> <span class="hljs-title class_">TestExtension</span> {}
+<span class="hljs-keyword">protocol</span> <span class="hljs-title class_">TestProtocol</span> {}
