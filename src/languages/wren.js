@@ -242,7 +242,7 @@ export default function(hljs) {
     scope: "meta",
     variants: [
       {
-        begin: [/#/, /[A-Za-z_]+(?=\()/],
+        begin: [/#!?/, /[A-Za-z_]+(?=\()/],
         beginScope: { 2: "attr" },
         keywords: {
           literal: LITERALS
@@ -254,7 +254,7 @@ export default function(hljs) {
         end: /\)/
       },
       {
-        begin: [/#/, /[A-Za-z_]+/],
+        begin: [/#!?/, /[A-Za-z_]+/],
         beginScope: { 2: "attr" },
         end: /$/
       }
