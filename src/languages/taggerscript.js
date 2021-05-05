@@ -22,25 +22,22 @@ export default function(hljs) {
 
   const FUNCTION = {
     className: 'keyword',
-    begin: /\$(?!noop)[_a-zA-Z0-9]*/,
-    end: /\(/,
-    excludeEnd: true
+    begin: /\$(?!noop)[_a-zA-Z0-9]+(?=\()/
   };
 
   const VARIABLE = {
     className: 'variable',
-    begin: /%[_a-zA-Z0-9:]*/,
-    end: '%'
-  };
-
-  const ESCAPE_SEQUENCE = {
-    className: 'symbol',
-    begin: /\\[^u]/
+    begin: /%[_a-zA-Z0-9:]+%/
   };
 
   const ESCAPE_SEQUENCE_UNICODE = {
     className: 'symbol',
     begin: /\\u[a-fA-F0-9]{4}/
+  };
+
+  const ESCAPE_SEQUENCE = {
+    className: 'symbol',
+    begin: /\\[\\nt$%,()]/
   };
 
   return {
