@@ -1,4 +1,4 @@
-<span class="hljs-keyword">$if</span>(<span class="hljs-keyword">$is_video</span>(),video,<span class="hljs-keyword">$if</span>(<span class="hljs-keyword">$is_lossless</span>(),lossless,lossy))/
+<span class="hljs-keyword">$if</span>(<span class="hljs-keyword">$is_video</span>(),video,<span class="hljs-keyword">$if</span>(<span class="hljs-keyword">$_lossless</span>(),lossless,lossy))/
 <span class="hljs-keyword">$if</span>(<span class="hljs-keyword">$is_video</span>(),
 <span class="hljs-comment">$noop(Video track)</span>
 <span class="hljs-keyword">$if</span>(<span class="hljs-keyword">$ne</span>(<span class="hljs-variable">%album%</span>,[non-album tracks]),

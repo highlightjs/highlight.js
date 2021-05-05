@@ -22,7 +22,7 @@ export default function(hljs) {
 
   const FUNCTION = {
     className: 'keyword',
-    begin: /\$(?!noop)[a-zA-Z][_a-zA-Z0-9]*/,
+    begin: /\$(?!noop)[_a-zA-Z0-9]*/,
     end: /\(/,
     excludeEnd: true
   };

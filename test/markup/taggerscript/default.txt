@@ -1,4 +1,4 @@
-$if($is_video(),video,$if($is_lossless(),lossless,lossy))/
+$if($is_video(),video,$if($_lossless(),lossless,lossy))/
 $if($is_video(),
 $noop(Video track)
 $if($ne(%album%,[non-album tracks]),
