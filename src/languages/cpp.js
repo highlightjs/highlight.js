@@ -218,16 +218,30 @@ export default function(hljs) {
     'stderr',
     'stringstream',
     'istringstream',
-    'ostringstream'
+    'ostringstream',
+    'optional',
+    'pair',
+    'tuple',
+    'make_tuple',
+    'any',
+    'function',
+    'variant',
+    'visit',
+    'forward',
+    'move'
   ];
 
   const CPP_KEYWORDS = {
     keyword: 'int float while private char char8_t char16_t char32_t catch import module export virtual operator sizeof ' +
+      'int8_t int16_t int32_t int64_t int_fast8_t int_fast16_t int_fast32_t int_fast64_t ' +
+      'int_least8_t int_least16_t int_least32_t int_least64_t intmax_t intptr_t uint8_t ' +
+      'uint16_t uint32_t uint64_t uint_fast8_t uint_fast16_t uint_fast32_t uint_fast64_t ' +
+      'uint_least8_t uint_least16_t uint_least32_t uint_least64_t uintmax_t uintptr_t ' +
       'dynamic_cast|10 typedef const_cast|10 const for static_cast|10 union namespace ' +
       'unsigned long volatile static protected bool template mutable if public friend ' +
       'do goto auto void enum else break extern using asm case typeid wchar_t ' +
       'short reinterpret_cast|10 default double register explicit signed typename try this ' +
-      'switch continue inline delete alignas alignof constexpr consteval constinit decltype ' +
+      'switch continue inline delete alignas alignof constexpr consteval constinit decltype declval ' +
       'concept co_await co_return co_yield requires ' +
       'noexcept static_assert thread_local restrict final override ' +
       'atomic_bool atomic_char atomic_schar ' +
@@ -236,7 +250,7 @@ export default function(hljs) {
       'and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq struct',
     built_in: '_Bool _Complex _Imaginary',
     _relevance_hints: COMMON_CPP_HINTS,
-    literal: 'true false nullptr NULL'
+    literal: 'true false nullptr NULL nullopt'
   };
 
   const FUNCTION_DISPATCH = {
