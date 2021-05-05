@@ -9,13 +9,14 @@ export default function(hljs) {
     className: 'comment',
     begin: /\$noop\(/,
     end: /\)/,
-    contains: [ {
+    contains: [{
+      begin: /\\[()]/
+    }, {
       begin: /\(/,
       end: /\)/,
-      contains: [ 'self',
-        {
-          begin: /\\./
-        } ]
+      contains: [{
+        begin: /\\[()]/
+      }, 'self']
     } ],
     relevance: 10
   };
