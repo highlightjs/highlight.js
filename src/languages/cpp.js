@@ -227,8 +227,14 @@ export default function(hljs) {
     'function',
     'variant',
     'visit',
+    'apply',
+    'as_const',
+    'to_underlying',
+    'swap',
+    'exchange',
     'forward',
-    'move'
+    'move',
+    'declval'
   ];
 
   const CPP_KEYWORDS = {
@@ -241,7 +247,7 @@ export default function(hljs) {
       'unsigned long volatile static protected bool template mutable if public friend ' +
       'do goto auto void enum else break extern using asm case typeid wchar_t ' +
       'short reinterpret_cast|10 default double register explicit signed typename try this ' +
-      'switch continue inline delete alignas alignof constexpr consteval constinit decltype declval ' +
+      'switch continue inline delete alignas alignof constexpr consteval constinit decltype ' +
       'concept co_await co_return co_yield requires ' +
       'noexcept static_assert thread_local restrict final override ' +
       'atomic_bool atomic_char atomic_schar ' +
