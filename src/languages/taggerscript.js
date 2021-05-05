@@ -35,7 +35,12 @@ export default function(hljs) {
 
   const ESCAPE_SEQUENCE = {
     className: 'symbol',
-    begin: /\\./
+    begin: /\\[^u]/
+  };
+
+  const ESCAPE_SEQUENCE_UNICODE = {
+    className: 'symbol',
+    begin: /\\u[a-fA-F0-9]{4}/
   };
 
   return {
@@ -44,7 +49,8 @@ export default function(hljs) {
       COMMENT,
       FUNCTION,
       VARIABLE,
-      ESCAPE_SEQUENCE
+      ESCAPE_SEQUENCE,
+      ESCAPE_SEQUENCE_UNICODE
     ]
   };
 }

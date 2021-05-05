@@ -2,7 +2,7 @@ $if($is_video(),video,$if($is_lossless(),lossless,lossy))/
 $if($is_video(),
 $noop(Video track)
 $if($ne(%album%,[non-album tracks]),
-$if2(%albumartist%,%artist%) - %album%$if(%discsubtitle%, - %discsubtitle%)/%_discandtracknumber%%title%,
+$if2(%albumartist%,%artist%) - %album%$if(%discsubtitle%, \u2014 %discsubtitle%)/%_discandtracknumber%%title%,
 Music Videos/%artist%/%artist% - %title%),
 $if($eq(%compilation%,1),
 $noop(Various Artist albums)
