@@ -238,14 +238,10 @@ export default function(hljs) {
   ];
 
   const CPP_KEYWORDS = {
-    keyword: 'int float while private char char8_t char16_t char32_t catch import module export virtual operator sizeof ' +
-      'int8_t int16_t int32_t int64_t int_fast8_t int_fast16_t int_fast32_t int_fast64_t ' +
-      'int_least8_t int_least16_t int_least32_t int_least64_t intmax_t intptr_t uint8_t ' +
-      'uint16_t uint32_t uint64_t uint_fast8_t uint_fast16_t uint_fast32_t uint_fast64_t ' +
-      'uint_least8_t uint_least16_t uint_least32_t uint_least64_t uintmax_t uintptr_t ' +
+    keyword: 'int float while private char catch import module export virtual operator sizeof ' +
       'dynamic_cast|10 typedef const_cast|10 const for static_cast|10 union namespace ' +
       'unsigned long volatile static protected bool template mutable if public friend ' +
-      'do goto auto void enum else break extern using asm case typeid wchar_t ' +
+      'do goto auto void enum else break extern using asm case typeid ' +
       'short reinterpret_cast|10 default double register explicit signed typename try this ' +
       'switch continue inline delete alignas alignof constexpr consteval constinit decltype ' +
       'concept co_await co_return co_yield requires ' +
