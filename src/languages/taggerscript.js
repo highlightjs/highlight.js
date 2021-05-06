@@ -5,7 +5,7 @@ Description: Syntax Highlighting for the Tagger Script as used by MusicBrainz Pi
 Website: https://picard.musicbrainz.org
  */
 export default function(hljs) {
-  const COMMENT = {
+  const NOOP = {
     className: 'comment',
     begin: /\$noop\(/,
     end: /\)/,
@@ -23,7 +23,7 @@ export default function(hljs) {
 
   const FUNCTION = {
     className: 'keyword',
-    begin: /\$(?!noop)[_a-zA-Z0-9]+(?=\()/
+    begin: /\$[_a-zA-Z0-9]+(?=\()/
   };
 
   const VARIABLE = {
@@ -44,7 +44,7 @@ export default function(hljs) {
   return {
     name: 'Tagger Script',
     contains: [
-      COMMENT,
+      NOOP,
       FUNCTION,
       VARIABLE,
       ESCAPE_SEQUENCE,

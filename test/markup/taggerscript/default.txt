@@ -10,5 +10,3 @@ $noop($firstalphachar($if2(%albumartistsort%$noop(,%artistsort%)))/)$if2(%albuma
 $noop(Single Artist Albums)
 $firstalphachar($if2(%albumartistsort%,%artistsort%))/$if2(%albumartist%,%artist%)/%album%$if(%_releasecomment%, \(%_releasecomment%\),)/%_discandtracknumber%%title%
 ))
-$noop(\))text
-$noop(\()text
