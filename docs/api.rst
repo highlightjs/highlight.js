@@ -122,7 +122,7 @@ initHighlighting
 
 *Deprecated as of 10.6:* Please use ``highlightAll()`` instead.
 
-Applies highlighting to all elements on a page matching ``allCodeSelector``.
+Applies highlighting to all elements on a page matching ``cssSelector ``.
 
 
 initHighlightingOnLoad
