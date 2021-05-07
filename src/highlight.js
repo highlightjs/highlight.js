@@ -71,7 +71,6 @@ const HLJS = function(hljs) {
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
     __emitter: TokenTreeEmitter,
-    // https://github.com/highlightjs/highlight.js/pull/3180
     cssSelector: 'pre code',
   };
 
