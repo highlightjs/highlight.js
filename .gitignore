@@ -8,6 +8,11 @@ node_modules
 yarn.lock
 extra/
 
+# play stuff
+quick*
+test*
+extra*
+
 # editors
 .idea/
 .vscode/
