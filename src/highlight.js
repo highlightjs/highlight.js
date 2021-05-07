@@ -70,7 +70,9 @@ const HLJS = function(hljs) {
     languages: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
-    __emitter: TokenTreeEmitter
+    __emitter: TokenTreeEmitter,
+    // https://github.com/highlightjs/highlight.js/pull/3180
+    allCodeSelector: 'pre code',
   };
 
   /* Utility functions */
@@ -773,14 +775,14 @@ const HLJS = function(hljs) {
   /**
    * auto-highlights all pre>code elements on the page
    */
-  function highlightAll(selector='pre code') {
+  function highlightAll() {
     // if we are called too early in the loading process
     if (document.readyState === "loading") {
       wantsHighlight = true;
       return;
     }
 
-    const blocks = document.querySelectorAll(selector);
+    const blocks = document.querySelectorAll(options.allCodeSelector);
     blocks.forEach(highlightElement);
   }
 
