@@ -67,11 +67,11 @@ const HLJS = function(hljs) {
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
+    cssSelector: 'pre code',
     languages: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
     __emitter: TokenTreeEmitter,
-    cssSelector: 'pre code'
   };
 
   /* Utility functions */
