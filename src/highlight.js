@@ -773,14 +773,14 @@ const HLJS = function(hljs) {
   /**
    * auto-highlights all pre>code elements on the page
    */
-  function highlightAll() {
+  function highlightAll(selector='pre code') {
     // if we are called too early in the loading process
     if (document.readyState === "loading") {
       wantsHighlight = true;
       return;
     }
 
-    const blocks = document.querySelectorAll('pre code');
+    const blocks = document.querySelectorAll(selector);
     blocks.forEach(highlightElement);
   }
 
