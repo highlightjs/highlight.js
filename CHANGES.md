@@ -54,7 +54,7 @@ Parser:
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]
 - adds `title.function` sub-scope support (#3078) [Josh Goebel][]
 - adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
-- adds `allCodeSelector` option (#3180) [James Edington][]
+- adds `cssSelector ` configuration option (#3180) [James Edington][]
 
 Grammars:
 
