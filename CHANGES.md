@@ -129,7 +129,7 @@ Dev Improvements:
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
-[Nico Abram]:https://github.com/nico-abram
+[Nico Abram]: https://github.com/nico-abram
 [James Edington]: http://www.ishygddt.xyz/
 
 
