@@ -72,7 +72,7 @@ const HLJS = function(hljs) {
     // https://github.com/highlightjs/highlight.js/issues/1086
     __emitter: TokenTreeEmitter,
     // https://github.com/highlightjs/highlight.js/pull/3180
-    allCodeSelector: 'pre code',
+    cssSelector: 'pre code',
   };
 
   /* Utility functions */
@@ -782,7 +782,7 @@ const HLJS = function(hljs) {
       return;
     }
 
-    const blocks = document.querySelectorAll(options.allCodeSelector);
+    const blocks = document.querySelectorAll(options.cssSelector);
     blocks.forEach(highlightElement);
   }
 
