@@ -147,6 +147,10 @@ const HLJS = function(hljs) {
       code = optionsOrCode;
     }
 
+    // https://github.com/highlightjs/highlight.js/issues/3149
+    // eslint-disable-next-line no-undefined
+    if (ignoreIllegals === undefined) { ignoreIllegals = true; }
+
     /** @type {BeforeHighlightContext} */
     const context = {
       code,
