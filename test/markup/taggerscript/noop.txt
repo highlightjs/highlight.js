@@ -1,0 +1,6 @@
+$noop(\))text
+$noop(\()text
+$noop(\($noop(abc$func(\))\)xyz))text
+$noop(Multiline \(comment
+    $func($noop(test))
+)text
