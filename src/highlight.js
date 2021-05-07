@@ -71,7 +71,7 @@ const HLJS = function(hljs) {
     languages: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
-    __emitter: TokenTreeEmitter,
+    __emitter: TokenTreeEmitter
   };
 
   /* Utility functions */
