@@ -9,6 +9,7 @@
 */
 
 .hljs {
+  display: block;
   overflow-x: auto;
   padding: 1em;
   background: #F0F0F0;
