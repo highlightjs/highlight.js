@@ -11,7 +11,7 @@ foo = 42&quot;
 <span class="hljs-meta">&gt;&gt;&gt;</span> <span class="language-python"><span class="hljs-string">&quot;&quot;&quot;</span></span>
 <span class="hljs-meta">...</span> <span class="language-python"><span class="hljs-string">abc</span></span>
 <span class="hljs-meta">...</span> <span class="language-python"><span class="hljs-string">&quot;&quot;&quot;</span></span>
-<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span>():</span></span>
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>():</span>
 <span class="hljs-meta">...</span> <span class="language-python">    <span class="hljs-keyword">pass</span></span>
 <span class="hljs-meta">&gt;&gt;&gt;</span>
 <span class="hljs-meta">&gt;&gt;&gt;</span>

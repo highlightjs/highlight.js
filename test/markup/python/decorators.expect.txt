@@ -1,31 +1,31 @@
 <span class="hljs-meta">@foo</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bar</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">bar</span>():
     <span class="hljs-keyword">pass</span>
 
 <span class="hljs-meta">@foo  </span><span class="hljs-comment"># bar</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">baz</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">baz</span>():
     <span class="hljs-keyword">pass</span>
 
 <span class="hljs-meta">@foo.bar.baz</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qux</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">qux</span>():
     <span class="hljs-keyword">pass</span>
 
 <span class="hljs-meta">@surround_with(<span class="hljs-params"><span class="hljs-string">&quot;#&quot;</span>, repeat=<span class="hljs-number">3</span></span>)</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">text</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">text</span>():
     <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hi!&quot;</span>
 
 <span class="hljs-meta">@py38.style</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():
     <span class="hljs-keyword">pass</span>
 
 <span class="hljs-meta">@py[<span class="hljs-string">&quot;3.9&quot;</span>].style</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():
     <span class="hljs-keyword">pass</span>
 
 <span class="hljs-meta">@py[<span class="hljs-number">3.9</span>].style</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():
     <span class="hljs-keyword">pass</span>
 
 <span class="hljs-meta">@<span class="hljs-number">2</span> + <span class="hljs-number">2</span> == <span class="hljs-number">5</span></span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span>():</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():
     <span class="hljs-keyword">pass</span>
