@@ -82,6 +82,7 @@ Grammars:
 - enh(nginx) improving highlighting of some sections [Josh Goebel][]
 - fix(vim) variable names may not be zero length [Josh Goebel][]
 - enh(sqf) Updated keywords to Arma 3 v2.02 (#3084) [R3voA3][]
+- enh(sqf) Refactored function regex to match CBA component func naming scheme (#3181) [JonBons][]
 - enh(nim) highlight types properly (not as built-ins) [Josh Goebel][]
 - (chore) throttle deprecation messages (#3092) [Mihkel Eidast][]
 - enh(c) Update keyword list for C11/C18 (#3010) [Josh Goebel][]
@@ -125,6 +126,7 @@ Dev Improvements:
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3
+[JonBons]: https://github.com/JonBons
 [Wei Su]: https://github.com/swsoyee
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
