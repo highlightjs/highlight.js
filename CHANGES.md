@@ -126,6 +126,7 @@ Dev Improvements:
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3
+[JonBons]: https://github.com/JonBons
 [Wei Su]: https://github.com/swsoyee
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
