@@ -54,6 +54,7 @@ Parser:
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]
 - adds `title.function` sub-scope support (#3078) [Josh Goebel][]
 - adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
+- adds `cssSelector ` configuration option (#3180) [James Edington][]
 
 Grammars:
 
@@ -128,7 +129,8 @@ Dev Improvements:
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
-[Nico Abram]:https://github.com/nico-abram
+[Nico Abram]: https://github.com/nico-abram
+[James Edington]: http://www.ishygddt.xyz/
 
 
 ## Version 10.7.1
