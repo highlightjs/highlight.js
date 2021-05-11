@@ -27,7 +27,7 @@ export default function(hljs) {
     '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
   ')';
   const CPP_PRIMITIVE_TYPES = {
-    className: 'keyword',
+    className: 'type',
     begin: '\\b[a-z\\d_]*_t\\b'
   };
 
