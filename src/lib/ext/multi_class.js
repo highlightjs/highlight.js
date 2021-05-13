@@ -118,7 +118,7 @@ function scopeSugar(mode) {
  * @param {CompiledMode} mode
  */
 export function MultiClass(mode) {
-  scopeSugar(mode)
+  scopeSugar(mode);
 
   if (typeof mode.beginScope === "string") {
     mode.beginScope = { _wrap: mode.beginScope };
@@ -127,6 +127,6 @@ export function MultiClass(mode) {
     mode.endScope = { _wrap: mode.endScope };
   }
 
-  beginMultiClass(mode)
-  endMultiClass(mode)
+  beginMultiClass(mode);
+  endMultiClass(mode);
 }

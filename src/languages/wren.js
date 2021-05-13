@@ -238,24 +238,30 @@ export default function(hljs) {
     className: "variable"
   };
 
+  // TODO: reconsider this in the future
   const ATTRIBUTE = {
-    scope: "meta",
+    // scope: "meta",
+    scope: "comment",
     variants: [
       {
         begin: [/#!?/, /[A-Za-z_]+(?=\()/],
-        beginScope: { 2: "attr" },
+        beginScope: {
+          // 2: "attr"
+        },
         keywords: {
           literal: LITERALS
         },
         contains: [
-          NUMBER,
-          VARIABLE
+          // NUMBER,
+          // VARIABLE
         ],
         end: /\)/
       },
       {
         begin: [/#!?/, /[A-Za-z_]+/],
-        beginScope: { 2: "attr" },
+        beginScope: {
+          // 2: "attr"
+        },
         end: /$/
       }
     ]
