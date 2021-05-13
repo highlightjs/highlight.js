@@ -3,7 +3,7 @@
   Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Version: 2021.04.0
+  Version: 2021.05.0
 */
 
 /*
@@ -34,10 +34,17 @@ base0E  #d485ad  Keywords, Storage, Selector, Markup Italic, Diff Changed
 base0F  #d65d0e  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 */
 
-.hljs {
+pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+.hljs {
   color: #dab997;
   background: #262626;
 }
@@ -150,10 +157,19 @@ base0F  #d65d0e  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php 
 }
 
 /* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
-.hljs-meta {
+.hljs-meta,
+/*
+  prevent top level .keyword and .string scopes
+  from leaking into meta by accident
+*/
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string
+{
   color: #d65d0e;
 }
 
+.hljs-meta .hljs-keyword,
+/* for v10 compatible themes */
 .hljs-meta-keyword {
   font-weight: bold;
 }
