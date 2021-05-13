@@ -90,6 +90,7 @@ export default function(hljs) {
       className: 'module',
       begin: "\\b" + RE_MODULE_IDENT,
       returnBegin: true,
+      relevance: 0,
       end: "\.",
       contains: [
         {
@@ -233,6 +234,7 @@ export default function(hljs) {
           {
             begin: '\\(',
             end: '\\)',
+            relevance: 0,
             skip: true
           }
         ].concat(MODULE_ACCESS_CONTENTS)
@@ -249,7 +251,6 @@ export default function(hljs) {
 
   return {
     name: 'ReasonML',
-    disableAutodetect: true,
     aliases: [ 're' ],
     keywords: KEYWORDS,
     illegal: '(:-|:=|\\$\\{|\\+=)',
@@ -310,6 +311,7 @@ export default function(hljs) {
           {
             begin: /\{/,
             end: /\}/,
+            relevance: 0,
             skip: true
           }
         ].concat(MODULE_ACCESS_CONTENTS)
