@@ -121,6 +121,9 @@ async function buildPackageJSON(options) {
     "./lib/common": dual("./lib/common.js"),
     "./lib/core": dual("./lib/core.js"),
     "./lib/languages/*": dual("./lib/languages/*.js"),
+    "./scss/*": "./scss/*",
+    "./styles/*": "./styles/*",
+    "./types/*": "./types/*",
   };
   if (options.esm) packageJson.exports = exports;
 

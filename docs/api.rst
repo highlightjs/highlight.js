@@ -95,6 +95,7 @@ Configures global options:
 * ``languages``: an array of language names and aliases restricting auto detection to only these languages.
 * ``languageDetectRe``: a regex to configure how CSS class names map to language (allows class names like say `color-as-php` vs the default of `language-php`, etc.)
 * ``noHighlightRe``: a regex to configure which CSS classes are to be skipped completely.
+* ``cssSelector``: a CSS selector to configure which elements are affected by ``hljs.highlightAll``. Defaults to ``'pre code'``.
 
 Accepts an object representing options with the values to updated. Other options don't change
 ::
@@ -111,7 +112,8 @@ Accepts an object representing options with the values to updated. Other options
 highlightAll
 ------------
 
-Applies highlighting to all ``<pre><code>...</code></pre>`` blocks on a page.
+Applies highlighting to all elements on a page matching the configured ``cssSelector``.
+The default ``cssSelector`` value is ``'pre code'``, which highlights all code blocks.
 This can be called before or after the page's ``onload`` event has fired.
 
 
@@ -120,7 +122,7 @@ initHighlighting
 
 *Deprecated as of 10.6:* Please use ``highlightAll()`` instead.
 
-Applies highlighting to all ``<pre><code>...</code></pre>`` blocks on a page.
+Applies highlighting to all elements on a page matching ``cssSelector ``.
 
 
 initHighlightingOnLoad

@@ -200,8 +200,9 @@ export default function(hljs) {
         begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
       },
       {
-        begin: '\\(',
-        end: '\\)',
+        begin: /\(/,
+        end: /\)/,
+        relevance: 0,
         contains: VALUE_WITH_RULESETS
       }, // argument list of parametric mixins
       {

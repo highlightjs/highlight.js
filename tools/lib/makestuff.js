@@ -15,10 +15,14 @@ function install(file, dest = file) {
 }
 
 const DEFAULT_CSS = `
-.hljs {
+pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
+  padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
 }
 `.trim();
 

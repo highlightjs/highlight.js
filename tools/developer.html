@@ -21,6 +21,9 @@
 
     pre code,
     pre output {
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.15rem;
       display: block;
       padding:20px !important;
     }
@@ -36,16 +39,16 @@
     }
 
     .visible-structure pre code span {
-      display: inline-flex;
-      align-items: baseline;
-      padding: 0.25rem;
-      padding-bottom: 0.125rem;
-      padding-top: 0.5rem;
-      margin: 0.5rem 0.25rem 0.125rem 0.25rem;
+      display: inline flow-root list-item;
+      list-style: none;
+      padding: 0.2rem 0.25rem;
+      padding-bottom: 0.25rem;
+      margin: 0.5rem 0.25rem 0.25rem 0.25rem;
       border: 1px dashed #777;
-      border-radius: 5px;
+      border-radius: 3px;
       white-space: pre;
       position: relative;
+      vertical-align: super;
     }
 
     .visible-structure pre code span:before {
@@ -64,11 +67,15 @@
     }
 
     .visible-structure pre code span:after {
-      display: block;
+      /* this hidden element is for stretching the span
+         to be at least the width of the before pseudo element */
       opacity: 0;
       font-size: 70%;
       content: attr(data-klass);
       margin-top: -1rem;
+      position: relative;
+      left: -100%;
+      display: flex;
     }
   </style>
 </head>
@@ -87,6 +94,10 @@
           <option>codepen-embed.css</option>
           <option>docco.css</option>
           <option>github.css</option>
+          <option>github-dark.css</option>
+          <option>gml.css</option>
+          <option>googlecode.css</option>
+          <option>gradient-dark.css</option>
           <option>stackoverflow-dark.css</option>
           <option>grayscale.css</option>
           <option>gml.css</option>

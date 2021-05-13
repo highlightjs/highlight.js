@@ -5,6 +5,7 @@ Website: https://www.python.org
 Category: common
 */
 
+import { IDENT_RE } from '../lib/modes.js';
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
@@ -376,27 +377,37 @@ export default function(hljs) {
       COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,
       {
+        match: [
+          /def/, /\s+/,
+          IDENT_RE
+        ],
+        scope: {
+          1: "keyword",
+          3: "title.function"
+        },
+        contains: [ PARAMS ]
+      },
+      {
         variants: [
           {
-            className: 'function',
-            beginKeywords: 'def'
+            match: [
+              /class/, /\s+/,
+              IDENT_RE, /\s*/,
+              /\(\s*/, IDENT_RE,/\s*\)/
+            ],
           },
           {
-            className: 'class',
-            beginKeywords: 'class'
+            match: [
+              /class/, /\s+/,
+              IDENT_RE
+            ],
           }
         ],
-        end: /:/,
-        illegal: /[${=;\n,]/,
-        contains: [
-          hljs.UNDERSCORE_TITLE_MODE,
-          PARAMS,
-          {
-            begin: /->/,
-            endsWithParent: true,
-            keywords: KEYWORDS
-          }
-        ]
+        scope: {
+          1: "keyword",
+          3: "title.class",
+          6: "title.class.inherited",
+        }
       },
       {
         className: 'meta',

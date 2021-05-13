@@ -163,7 +163,7 @@ Parameters for the function are:
 Markup generation
 -----------------
 
-Modes usually generate actual highlighting markup — ``<span>`` elements with specific class names that are defined by the ``className`` attribute:
+Modes usually generate actual highlighting markup — ``<span>`` elements with specific class names that are defined by the ``scope`` attribute:
 
 ::
 
@@ -180,7 +180,7 @@ Modes usually generate actual highlighting markup — ``<span>`` elements with s
     ]
   }
 
-Names are not required to be unique, it's quite common to have several definitions with the same name.
+Scopes are not required to be unique; it's quite common to have several definitions with the same scope.
 For example, many languages have various syntaxes for strings, comments, etc…
 
 Sometimes modes are defined only to support specific parsing rules and aren't needed in the final markup.
@@ -194,7 +194,10 @@ A classic example is an escaping sequence inside strings allowing them to contai
     contains: [{begin: '\\\\.'}],
   }
 
-For such modes, the ``className`` attribute should be omitted so they won't generate excessive markup.
+For such modes, the ``scope`` attribute should be omitted so they won't generate excessive markup.
+
+For a list of all supported scope names please see the :doc:`Scopes Reference
+</css-classes-reference>`.
 
 
 Mode attributes

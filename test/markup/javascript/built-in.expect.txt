@@ -1,4 +1,4 @@
-<span class="hljs-keyword">let</span> bi = <span class="hljs-built_in">BigInt</span>(<span class="hljs-string">&#x27;1&#x27;</span>);
-<span class="hljs-keyword">let</span> inf = <span class="hljs-literal">Infinity</span>
-<span class="hljs-built_in">Number</span>(<span class="hljs-literal">undefined</span>)
-<span class="hljs-keyword">let</span> today = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()
+<span class="hljs-keyword">let</span> bi = <span class="hljs-title class_">BigInt</span>(<span class="hljs-string">&#x27;1&#x27;</span>);
+<span class="hljs-keyword">let</span> inf = <span class="hljs-title class_">Infinity</span>
+<span class="hljs-title class_">Number</span>(<span class="hljs-literal">undefined</span>)
+<span class="hljs-keyword">let</span> today = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()

@@ -1,4 +1,4 @@
-## Version 11.0.0-alpha1
+## Version 11.0.0-beta0
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
@@ -54,9 +54,11 @@ Parser:
 - adds `title.class` sub-scope support (#3078) [Josh Goebel][]
 - adds `title.function` sub-scope support (#3078) [Josh Goebel][]
 - adds `beforeMatch` compiler extension (#3078) [Josh Goebel][]
+- adds `cssSelector ` configuration option (#3180) [James Edington][]
 
 Grammars:
 
+- enh(swift) add `actor` keyword (#3171) [Bradley Mackey][]
 - enh(crystal) highlight variables (#3154) [Josh Goebel][]
 - fix(ruby) Heredoc without interpolation (#3154) [Josh Goebel][]
 - enh(swift) add `@resultBuilder` attribute (#3151) [Bradley Mackey][]
@@ -80,6 +82,7 @@ Grammars:
 - enh(nginx) improving highlighting of some sections [Josh Goebel][]
 - fix(vim) variable names may not be zero length [Josh Goebel][]
 - enh(sqf) Updated keywords to Arma 3 v2.02 (#3084) [R3voA3][]
+- enh(sqf) Refactored function regex to match CBA component func naming scheme (#3181) [JonBons][]
 - enh(nim) highlight types properly (not as built-ins) [Josh Goebel][]
 - (chore) throttle deprecation messages (#3092) [Mihkel Eidast][]
 - enh(c) Update keyword list for C11/C18 (#3010) [Josh Goebel][]
@@ -115,6 +118,7 @@ New Themes:
 Dev Improvements:
 
 - (chore) greatly improve match scope visualization in dev tool (#3126) [NullVoxPopuli][]
+- (fix) CSS used for devtool needed an adjustment to fix too wide of content (#3133) [NullVoxPopuli][]
 
 [Farzad Sadeghi]: https://github.com/terminaldweller
 [Martijn Bastiaan]: https://github.com/martijnbastiaan
@@ -123,11 +127,13 @@ Dev Improvements:
 [Josh Goebel]: https://github.com/joshgoebel
 [Ryan Mulligan]: https://github.com/ryantm
 [R3voA3]: https://github.com/R3voA3
+[JonBons]: https://github.com/JonBons
 [Wei Su]: https://github.com/swsoyee
 [Jared Luboff]: https://github.com/jaredlll08
 [NullVoxPopuli]: https://github.com/NullVoxPopuli
 [Mike Watling]: https://github.com/Pickysaurus
-[Nico Abram]:https://github.com/nico-abram
+[Nico Abram]: https://github.com/nico-abram
+[James Edington]: http://www.ishygddt.xyz/
 
 
 ## Version 10.7.1
@@ -150,6 +156,10 @@ New Languages:
 
 Language grammar improvements:
 
+- enh(js/ts) class references (CamelCase) are highlighted (#3169) [Josh Goebel][]
+- enh(js/ts) constants (ALL_CAPS) are highlighted (#3169) [Josh Goebel][]
+- enh(js/ts) highlights function invokation (#3169) [Josh Goebel][]
+- enh(js/ts) functions assigned to variables are now highlighted `title.function` (#3169) [Josh Goebel][]
 - enh(parser) smarter detection of comments (#2827) [Josh Goebel][]
 - fix(python) allow keywords immediately following numbers (#2985) [Josh Goebel][]
 - fix(xml) char immediately following tag close mis-highlighted (#3044) [Josh Goebel][]

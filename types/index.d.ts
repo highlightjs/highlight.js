@@ -130,6 +130,7 @@ declare module 'highlight.js' {
         noHighlightRe: RegExp
         languageDetectRe: RegExp
         classPrefix: string
+        cssSelector: string
         languages?: string[]
         __emitter: EmitterConstructor
         ignoreUnescapedHTML?: boolean

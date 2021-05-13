@@ -1,5 +1,5 @@
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shorty</span>(<span class="hljs-params"><span class="hljs-built_in">dict</span></span>):</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">len</span>(<span class="hljs-params">self</span>):</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Shorty</span>(<span class="hljs-title class_ inherited__">dict</span>):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">len</span>(<span class="hljs-params">self</span>):
         <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span>
 
 x = Shorty()

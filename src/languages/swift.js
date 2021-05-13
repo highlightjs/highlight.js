@@ -471,7 +471,7 @@ export default function(hljs) {
       FUNCTION,
       INIT_SUBSCRIPT,
       {
-        beginKeywords: 'struct protocol class extension enum',
+        beginKeywords: 'struct protocol class extension enum actor',
         end: '\\{',
         excludeEnd: true,
         keywords: KEYWORDS,

@@ -51,17 +51,20 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | symbol                   | symbolic constant, interned string, goto label              |
 +--------------------------+-------------------------------------------------------------+
-| class                    | relating to a class, typically paired with                  |
-|                          | another scope such as ``title.class``                             |
+| class                    | **deprecated** You probably want ``title.class``            |
 +--------------------------+-------------------------------------------------------------+
-| function                 | relating to a function, typically paired with               |
-|                          | another scope such as ``title.function``                             |
+| function                 | **deprecated** You probably want ``title.function``         |
 +--------------------------+-------------------------------------------------------------+
 | variable                 | variables                                                   |
++--------------------------+-------------------------------------------------------------+
+| variable.language        | variable with special meaning in a language, e.g.:          |
+|                          | ``this``, ``window``, ``super``, ``self``, etc.             |
 +--------------------------+-------------------------------------------------------------+
 | title                    | name of a class or a function                               |
 +--------------------------+-------------------------------------------------------------+
 | title.class              | name of a class (interface, trait, module, etc)             |
++--------------------------+-------------------------------------------------------------+
+| title.class.inherited    | name of class being inherited from, extended, etc.          |
 +--------------------------+-------------------------------------------------------------+
 | title.function           | name of a function                                          |
 +--------------------------+-------------------------------------------------------------+
@@ -70,7 +73,7 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | comment                  | comments                                                    |
 +--------------------------+-------------------------------------------------------------+
-| doctag                   | documentation markup within comments                        |
+| doctag                   | documentation markup within comments, e.g. ``@params``      |
 +--------------------------+-------------------------------------------------------------+
 | **Meta**                                                                               |
 +--------------------------+-------------------------------------------------------------+

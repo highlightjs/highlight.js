@@ -1,14 +1,14 @@
 <span class="hljs-meta">@Component</span>({
   <span class="hljs-attr">selector</span>: <span class="hljs-string">&#x27;my-example&#x27;</span>,
-  <span class="hljs-attr">directives</span>: [SomeDirective],
+  <span class="hljs-attr">directives</span>: [<span class="hljs-title class_">SomeDirective</span>],
   <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;./my-example.component.html&#x27;</span>,
-  <span class="hljs-attr">moduleId</span>: <span class="hljs-built_in">module</span>.<span class="hljs-property">id</span>,
+  <span class="hljs-attr">moduleId</span>: <span class="hljs-variable language_">module</span>.<span class="hljs-property">id</span>,
   <span class="hljs-attr">styles</span>: [<span class="hljs-string">`
     .my-example {
       padding: 5px;
     }
   `</span>]
 })
-<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyExampleComponent</span> </span>{
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyExampleComponent</span> {
   <span class="hljs-attr">someProp</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&quot;blah&quot;</span>;
 }

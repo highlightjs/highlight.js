@@ -1,0 +1,5 @@
+text$func(
+    par1$noop(comment),\),
+    $func(%abc%,xyz),
+    $noopnot(not a comment$noop(proper\( comment))
+)text
