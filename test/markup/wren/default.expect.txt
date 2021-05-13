@@ -29,33 +29,33 @@ borrowed from https://github.com/paladin-t/b95/blob/master/b95.wren
 			<span class="hljs-title class_">Fiber</span>.<span class="hljs-property">abort</span>(<span class="hljs-string">&quot;Popping from empty stack.&quot;</span>)
 		}
 
-		<span class="hljs-keyword">var</span> ret <span class="hljs-operator">=</span> <span class="hljs-variable">_list</span>[<span class="hljs-variable">_list</span>.<span class="hljs-property">count</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span>]
+		<span class="hljs-keyword">var</span> <span class="hljs-variable">ret</span> <span class="hljs-operator">=</span> <span class="hljs-variable">_list</span>[<span class="hljs-variable">_list</span>.<span class="hljs-property">count</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span>]
 		<span class="hljs-variable">_list</span>.<span class="hljs-property">removeAt</span>(<span class="hljs-variable">_list</span>.<span class="hljs-property">count</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span>)
 
-		<span class="hljs-keyword">return</span> ret
+		<span class="hljs-keyword">return</span> <span class="hljs-variable">ret</span>
 	}
 	<span class="hljs-title function_">push</span>(<span class="hljs-params">val</span>) {
-		<span class="hljs-variable">_list</span>.<span class="hljs-property">add</span>(val)
+		<span class="hljs-variable">_list</span>.<span class="hljs-property">add</span>(<span class="hljs-variable">val</span>)
 
 		<span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>
 	}
 
 	<span class="hljs-comment">// Iterates top-down, but doesn&#x27;t pop anything.</span>
 	<span class="hljs-title function_">iterate</span>(<span class="hljs-params">iterator</span>) {
-		<span class="hljs-keyword">if</span> (iterator <span class="hljs-operator">==</span> <span class="hljs-literal">null</span>) {
-			iterator <span class="hljs-operator">=</span> <span class="hljs-variable">_list</span>.<span class="hljs-property">count</span>
+		<span class="hljs-keyword">if</span> (<span class="hljs-variable">iterator</span> <span class="hljs-operator">==</span> <span class="hljs-literal">null</span>) {
+			<span class="hljs-variable">iterator</span> <span class="hljs-operator">=</span> <span class="hljs-variable">_list</span>.<span class="hljs-property">count</span>
 		}
-		iterator <span class="hljs-operator">=</span> iterator <span class="hljs-operator">-</span> <span class="hljs-number">1</span>
-		<span class="hljs-keyword">if</span> (iterator <span class="hljs-operator">&lt;</span> <span class="hljs-number">0</span>) {
+		<span class="hljs-variable">iterator</span> <span class="hljs-operator">=</span> <span class="hljs-variable">iterator</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span>
+		<span class="hljs-keyword">if</span> (<span class="hljs-variable">iterator</span> <span class="hljs-operator">&lt;</span> <span class="hljs-number">0</span>) {
 			<span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>
 		}
 
-		<span class="hljs-keyword">return</span> iterator
+		<span class="hljs-keyword">return</span> <span class="hljs-variable">iterator</span>
 	}
 	<span class="hljs-title function_">iteratorValue</span>(<span class="hljs-params">iterator</span>) {
-		<span class="hljs-keyword">return</span> <span class="hljs-variable">_list</span>[iterator]
+		<span class="hljs-keyword">return</span> <span class="hljs-variable">_list</span>[<span class="hljs-variable">iterator</span>]
 	}
 }
 
-<span class="hljs-keyword">var</span> add <span class="hljs-operator">=</span> <span class="hljs-title class_">Fn</span>.<span class="hljs-property">new</span> { <span class="hljs-operator">|</span>a,b<span class="hljs-operator">|</span> a <span class="hljs-operator">+</span> b }
-<span class="hljs-keyword">var</span> mul <span class="hljs-operator">=</span> <span class="hljs-title class_">Fn</span>.<span class="hljs-property">new</span> { <span class="hljs-operator">|</span>a,b<span class="hljs-operator">|</span> a <span class="hljs-operator">*</span> b }
+<span class="hljs-keyword">var</span> <span class="hljs-variable">add</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Fn</span>.<span class="hljs-property">new</span> { <span class="hljs-operator">|</span><span class="hljs-variable">a</span>,<span class="hljs-variable">b</span><span class="hljs-operator">|</span> <span class="hljs-variable">a</span> <span class="hljs-operator">+</span> <span class="hljs-variable">b</span> }
+<span class="hljs-keyword">var</span> <span class="hljs-variable">mul</span> <span class="hljs-operator">=</span> <span class="hljs-title class_">Fn</span>.<span class="hljs-property">new</span> { <span class="hljs-operator">|</span><span class="hljs-variable">a</span>,<span class="hljs-variable">b</span><span class="hljs-operator">|</span> <span class="hljs-variable">a</span> <span class="hljs-operator">*</span> <span class="hljs-variable">b</span> }

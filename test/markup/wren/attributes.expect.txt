@@ -1,0 +1,16 @@
+<span class="hljs-meta">#<span class="hljs-attr">key</span></span>
+<span class="hljs-meta">#<span class="hljs-attr">key</span> = value</span>
+<span class="hljs-meta">#<span class="hljs-attr">group</span>(
+  <span class="hljs-variable">multiple</span>,
+  <span class="hljs-variable">lines</span> = <span class="hljs-literal">true</span>,
+  <span class="hljs-variable">lines</span> = <span class="hljs-number">0</span>
+)</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Example</span> {
+  <span class="hljs-meta">#<span class="hljs-attr">test</span>(<span class="hljs-variable">skip</span> = <span class="hljs-literal">true</span>, <span class="hljs-variable">iterations</span> = <span class="hljs-number">32</span>)</span>
+  <span class="hljs-title function_">doStuff</span>() {}
+
+  <span class="hljs-meta">#<span class="hljs-attr">doc</span> = &quot;not runtime data&quot;</span>
+  <span class="hljs-meta">#!<span class="hljs-attr">runtimeAccess</span> = true</span>
+  <span class="hljs-meta">#!<span class="hljs-attr">maxIterations</span> = 16</span>
+  <span class="hljs-title function_">anotherFn</span>() {}
+}
