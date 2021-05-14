@@ -33,6 +33,7 @@ Themes:
 - `schoolbook` has been updated to remove the lined background.
 - `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
 - Base16 named themes have been updated to their "canonical" versions
+- `nnfx` updated for v11 xml styles and improved css support
 
 Language Grammars:
 
