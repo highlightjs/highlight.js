@@ -45,7 +45,7 @@ export default function(hljs) {
     begin: '#',
     end: '$',
     keywords: {
-      'keyword': 'if else elif endif define undef ifdef ifndef'
+      keyword: 'if else elif endif define undef ifdef ifndef'
     },
     contains: [
       {
@@ -56,7 +56,7 @@ export default function(hljs) {
         beginKeywords: 'include',
         end: '$',
         keywords: {
-          'keyword': 'include'
+          keyword: 'include'
         },
         contains: [
           hljs.inherit(STRINGS, {

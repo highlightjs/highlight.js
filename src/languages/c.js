@@ -82,7 +82,7 @@ export default function(hljs) {
     begin: /#\s*[a-z]+\b/,
     end: /$/,
     keywords: {
-      'keyword':
+      keyword:
         'if else elif endif define undef warning error line ' +
         'pragma _Pragma ifdef ifndef include'
     },

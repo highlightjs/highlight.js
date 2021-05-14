@@ -55,7 +55,7 @@ export default function(hljs) {
     end: /$/,
     keywords: {
       $pattern: /[\.\w]+/,
-      'keyword': '.PHONY'
+      keyword: '.PHONY'
     }
   };
   /* Targets */

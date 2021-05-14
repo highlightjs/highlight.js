@@ -450,7 +450,7 @@ export default function(hljs) {
     begin: '#|&', end: '$',
     keywords: {
       $pattern: UNDERSCORE_IDENT_RE,
-      'keyword': KEYWORD + METAKEYWORD
+      keyword: KEYWORD + METAKEYWORD
     },
     contains: [
       COMMENTS

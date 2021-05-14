@@ -68,7 +68,7 @@ export default function(hljs) {
         begin: '\\s*#',
         end: '$',
         keywords: {
-          'keyword': 'if else elseif endif end then'
+          keyword: 'if else elseif endif end then'
         }
       },
       {

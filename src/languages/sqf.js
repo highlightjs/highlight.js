@@ -2463,7 +2463,7 @@ export default function(hljs) {
     begin: /#\s*[a-z]+\b/,
     end: /$/,
     keywords: {
-      'keyword':
+      keyword:
         'define undef ifdef ifndef else endif include'
     },
     contains: [

@@ -125,7 +125,7 @@ export default function(hljs) {
     begin: /[\t ]*#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
     end: /$/,
     keywords: {
-      'keyword':
+      keyword:
         'const disable else elseif enable end externalsource if region then'
     },
     contains: [ COMMENT ]

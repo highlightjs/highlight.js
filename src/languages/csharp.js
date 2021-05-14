@@ -329,7 +329,7 @@ export default function(hljs) {
         begin: '#',
         end: '$',
         keywords: {
-          'keyword': 'if else elif endif define undef warning error line region endregion pragma checksum'
+          keyword: 'if else elif endif define undef warning error line region endregion pragma checksum'
         }
       },
       STRING,
