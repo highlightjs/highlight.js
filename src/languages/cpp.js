@@ -223,7 +223,6 @@ export default function(hljs) {
   const TYPES = [
     'any',
     'array',
-    'auto',
     'auto_ptr',
     'bitset',
     'complex',
