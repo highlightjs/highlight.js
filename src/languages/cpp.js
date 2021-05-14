@@ -48,7 +48,7 @@ export default function(hljs) {
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       {
-        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + "|.)",
+        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + '|.)',
         end: '\'',
         illegal: '.'
       },
@@ -363,17 +363,17 @@ export default function(hljs) {
   ];
 
   const BUILT_INS = [
-    "_Bool",
-    "_Complex",
-    "_Imaginary"
+    '_Bool',
+    '_Complex',
+    '_Imaginary'
   ];
 
   const LITERALS = [
-    "NULL",
-    "false",
-    "nullopt",
-    "nullptr",
-    "true"
+    'NULL',
+    'false',
+    'nullopt',
+    'nullptr',
+    'true'
   ];
 
   const CPP_KEYWORDS = {
@@ -384,7 +384,7 @@ export default function(hljs) {
   };
 
   const FUNCTION_DISPATCH = {
-    className: "function.dispatch",
+    className: 'function.dispatch',
     relevance: 0,
     keywords: COMMON_FUNCTIONS,
     begin: regex.concat(
@@ -529,7 +529,7 @@ export default function(hljs) {
     keywords: CPP_KEYWORDS,
     illegal: '</',
     classNameAliases: {
-      "function.dispatch": "built_in"
+      'function.dispatch': 'built_in'
     },
     contains: [].concat(
       EXPRESSION_CONTEXT,
@@ -559,8 +559,8 @@ export default function(hljs) {
             /\w+/
           ],
           className: {
-            1: "keyword",
-            3: "title.class"
+            1: 'keyword',
+            3: 'title.class'
           }
         }
       ])
