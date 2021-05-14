@@ -11,7 +11,7 @@
 <span class="hljs-function">B::type <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{};
 
 <span class="hljs-comment">// template</span>
-<span class="hljs-function">boost::optional&lt;application&gt; <span class="hljs-title">handle_key</span><span class="hljs-params">(application state, key_code key, coord size)</span></span>;
+<span class="hljs-function">boost::<span class="hljs-type">optional</span>&lt;application&gt; <span class="hljs-title">handle_key</span><span class="hljs-params">(application state, key_code key, coord size)</span></span>;
 
 <span class="hljs-comment">// pack expansion in function arguments</span>
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T...&gt;

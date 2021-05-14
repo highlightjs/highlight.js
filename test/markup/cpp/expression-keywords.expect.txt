@@ -1,2 +1,2 @@
-<span class="hljs-keyword">double</span> x = <span class="hljs-built_in">exp</span>(<span class="hljs-built_in">log</span>(<span class="hljs-number">2</span>)); <span class="hljs-comment">// recognize built-ins</span>
+<span class="hljs-keyword">double</span> x = <span class="hljs-built_in"><span class="hljs-keyword">exp</span></span>(<span class="hljs-built_in"><span class="hljs-keyword">log</span></span>(<span class="hljs-number">2</span>)); <span class="hljs-comment">// recognize built-ins</span>
 <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;  <span class="hljs-comment">// recognize keyword that started the expression</span>
