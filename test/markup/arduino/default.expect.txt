@@ -22,4 +22,3 @@
   <span class="hljs-built_in">digitalWrite</span>(led, <span class="hljs-literal">LOW</span>);    <span class="hljs-comment">// turn the LED off by making the voltage LOW</span>
   <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);               <span class="hljs-comment">// wait for a second</span>
 }
-
