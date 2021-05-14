@@ -1,63 +1,63 @@
 <span class="hljs-comment">// Unicode literals</span>
-<span class="hljs-keyword">auto</span> str   = <span class="hljs-string">&quot;Hello regular string&quot;</span>;
-<span class="hljs-keyword">auto</span> utf8  = <span class="hljs-string">u8&quot;Hello utf-8 string&quot;</span>;
-<span class="hljs-keyword">auto</span> utf16 = <span class="hljs-string">u&quot;Hello utf-16 string&quot;</span>;
-<span class="hljs-keyword">auto</span> utf32 = <span class="hljs-string">U&quot;Hello utf-32 string&quot;</span>;
+<span class="hljs-type">auto</span> str   = <span class="hljs-string">&quot;Hello regular string&quot;</span>;
+<span class="hljs-type">auto</span> utf8  = <span class="hljs-string">u8&quot;Hello utf-8 string&quot;</span>;
+<span class="hljs-type">auto</span> utf16 = <span class="hljs-string">u&quot;Hello utf-16 string&quot;</span>;
+<span class="hljs-type">auto</span> utf32 = <span class="hljs-string">U&quot;Hello utf-32 string&quot;</span>;
 
 <span class="hljs-comment">// Wide-character strings</span>
-<span class="hljs-keyword">auto</span> wide_char = <span class="hljs-string">L&quot;Hello wchar_t string&quot;</span>;
-<span class="hljs-keyword">auto</span> lr = <span class="hljs-string">LR&quot;(Hello
+<span class="hljs-type">auto</span> wide_char = <span class="hljs-string">L&quot;Hello wchar_t string&quot;</span>;
+<span class="hljs-type">auto</span> lr = <span class="hljs-string">LR&quot;(Hello
 world)&quot;</span>;
 
 <span class="hljs-comment">// character literals</span>
-<span class="hljs-keyword">auto</span> wide_char = <span class="hljs-string">L&#x27;H&#x27;</span>;
-<span class="hljs-keyword">auto</span> cr   = <span class="hljs-string">&#x27;\n&#x27;</span>;
-<span class="hljs-keyword">auto</span> chr   = <span class="hljs-string">&#x27;H&#x27;</span>;
-<span class="hljs-keyword">auto</span> utf8  = <span class="hljs-string">u8&#x27;H&#x27;</span>;
-<span class="hljs-keyword">auto</span> utf16 = <span class="hljs-string">u&#x27;H&#x27;</span>;
-<span class="hljs-keyword">auto</span> utf32 = <span class="hljs-string">U&#x27;H&#x27;</span>;
-<span class="hljs-keyword">auto</span> unicode = <span class="hljs-string">L&#x27;\u202e&#x27;</span>
-<span class="hljs-keyword">auto</span> hex = <span class="hljs-string">&#x27;\xFF&#x27;</span>
-<span class="hljs-keyword">auto</span> octal = <span class="hljs-string">&#x27;\123&#x27;</span>
+<span class="hljs-type">auto</span> wide_char = <span class="hljs-string">L&#x27;H&#x27;</span>;
+<span class="hljs-type">auto</span> cr   = <span class="hljs-string">&#x27;\n&#x27;</span>;
+<span class="hljs-type">auto</span> chr   = <span class="hljs-string">&#x27;H&#x27;</span>;
+<span class="hljs-type">auto</span> utf8  = <span class="hljs-string">u8&#x27;H&#x27;</span>;
+<span class="hljs-type">auto</span> utf16 = <span class="hljs-string">u&#x27;H&#x27;</span>;
+<span class="hljs-type">auto</span> utf32 = <span class="hljs-string">U&#x27;H&#x27;</span>;
+<span class="hljs-type">auto</span> unicode = <span class="hljs-string">L&#x27;\u202e&#x27;</span>
+<span class="hljs-type">auto</span> hex = <span class="hljs-string">&#x27;\xFF&#x27;</span>
+<span class="hljs-type">auto</span> octal = <span class="hljs-string">&#x27;\123&#x27;</span>
 
 <span class="hljs-comment">// Raw string literals (multiline)</span>
-<span class="hljs-keyword">auto</span> char_multi  = <span class="hljs-string">R&quot;(Hello
+<span class="hljs-type">auto</span> char_multi  = <span class="hljs-string">R&quot;(Hello
 &quot;normal&quot;
 multiline
 string.)&quot;</span>;
-<span class="hljs-keyword">auto</span> utf8_multi  = <span class="hljs-string">u8R&quot;(Hello
+<span class="hljs-type">auto</span> utf8_multi  = <span class="hljs-string">u8R&quot;(Hello
 &quot;utf-8&quot;
 multiline
 string)&quot;</span>;
-<span class="hljs-keyword">auto</span> utf16_multi = <span class="hljs-string">uR&quot;(Hello
+<span class="hljs-type">auto</span> utf16_multi = <span class="hljs-string">uR&quot;(Hello
 &quot;utf-16&quot;
 multiline
 string)&quot;</span>;
-<span class="hljs-keyword">auto</span> utf32_multi = <span class="hljs-string">UR&quot;(Hello
+<span class="hljs-type">auto</span> utf32_multi = <span class="hljs-string">UR&quot;(Hello
 &quot;utf-32&quot;
 multiline
 string)&quot;</span>;
 
 <span class="hljs-comment">// Raw string literals with delimiter (multiline)</span>
-<span class="hljs-keyword">auto</span> char_multi  = <span class="hljs-string">R&quot;blah1(Hello
+<span class="hljs-type">auto</span> char_multi  = <span class="hljs-string">R&quot;blah1(Hello
 &quot;normal&quot;
 multiline
 )&quot;
 )blah&quot;
 string.)blah1&quot;</span>;
-<span class="hljs-keyword">auto</span> utf8_multi  = <span class="hljs-string">u8R&quot;blah2(Hello
+<span class="hljs-type">auto</span> utf8_multi  = <span class="hljs-string">u8R&quot;blah2(Hello
 &quot;utf-8&quot;
 multiline
 )&quot;
 )blah&quot;
 string)blah2&quot;</span>;
-<span class="hljs-keyword">auto</span> utf16_multi = <span class="hljs-string">uR&quot;blah3(Hello
+<span class="hljs-type">auto</span> utf16_multi = <span class="hljs-string">uR&quot;blah3(Hello
 &quot;utf-16&quot;
 multiline
 )&quot;
 )blah&quot;
 string)blah3&quot;</span>;
-<span class="hljs-keyword">auto</span> utf32_multi = <span class="hljs-string">UR&quot;blah4(Hello
+<span class="hljs-type">auto</span> utf32_multi = <span class="hljs-string">UR&quot;blah4(Hello
 &quot;utf-32&quot;
 multiline
 )&quot;

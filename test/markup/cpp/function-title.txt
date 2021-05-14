@@ -1,5 +1,5 @@
-int main() {
-  A a = new A();
+int main(int argc, char** argv) {
+  auto a = std::make_unique<A>();
   int b = b * sum(1, 2);
   if (a->check1())
     return 3;

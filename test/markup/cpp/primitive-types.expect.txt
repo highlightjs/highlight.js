@@ -54,4 +54,4 @@
   <span class="hljs-keyword">using</span> <span class="hljs-type">decayed_t</span> = <span class="hljs-keyword">typename</span> std::<span class="hljs-type">decay_t</span>&lt;X&lt;T&gt;&gt;;
 };
 
-X&lt;<span class="hljs-keyword">int</span>&amp;&gt;::<span class="hljs-type">decayed_t</span> x;
+X&lt;<span class="hljs-type">int</span>&amp;&gt;::<span class="hljs-type">decayed_t</span> x;
