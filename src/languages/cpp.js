@@ -26,6 +26,7 @@ export default function(hljs) {
     regex.optional(NAMESPACE_RE) +
     '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
   ')';
+
   const CPP_PRIMITIVE_TYPES = {
     className: 'type',
     begin: '\\b[a-z\\d_]*_t\\b'
@@ -278,7 +279,6 @@ export default function(hljs) {
     NUMBERS,
     STRINGS
   ];
-
 
   const EXPRESSION_CONTEXT = {
     // This mode covers expression context where we can't expect a function
