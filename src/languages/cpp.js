@@ -362,11 +362,25 @@ export default function(hljs) {
     'vsprintf'
   ];
 
+  const BUILT_INS = [
+    "_Bool",
+    "_Complex",
+    "_Imaginary"
+  ];
+
+  const LITERALS = [
+    "true",
+    "false",
+    "nullptr",
+    "NULL",
+    "nullopt"
+  ];
+
   const CPP_KEYWORDS = {
     type: TYPES,
     keyword: KEYWORDS,
-    built_in: '_Bool _Complex _Imaginary',
-    literal: 'true false nullptr NULL nullopt'
+    built_in: BUILT_INS,
+    literal: LITERALS
   };
 
   const FUNCTION_DISPATCH = {
