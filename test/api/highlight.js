@@ -24,11 +24,11 @@ describe('.highlight()', () => {
     result.value.should.equal("float # float");
     result.illegal.should.equal(true);
 
-    // defaults to false
+    // defaults to true
     code = "float # float";
     result = hljs.highlight(code, { language: "java" });
-    result.value.should.equal("float # float");
-    result.illegal.should.equal(true);
+    result.value.should.equal(`<span class="hljs-type">float</span> # <span class="hljs-type">float</span>`);
+    result.illegal.should.equal(false);
   });
   it('should use new API with options', () => {
     const code = "public void moveTo(int x, int y, int z);";

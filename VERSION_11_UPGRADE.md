@@ -58,6 +58,7 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 - The default padding on `.hljs` element has been increased and is now `1em` (it was `0.5em` previously). If your design depends on the smaller spacing you may need to update your CSS to override.
 - `schoolbook` no longer has a custom lined background, it is solid color now.  The old image and CSS can be found in the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles) if you wish to manually copy it into your project.
 - `github` includes significant changes to more properly match modern GitHub syntax highlighting. If you desire the old theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
+- The `.hljs` CSS selector is now further scoped.  It now targets `code.hljs` (inline code) and `pre code.hljs` (code blocks). If you are using a different element you may need to update your CSS to reapply some styling.
 
 
 ### Behavioral changes

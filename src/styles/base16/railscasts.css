@@ -3,7 +3,7 @@
   Author: Ryan Bates (http://railscasts.com)
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Version: 2021.04.0
+  Version: 2021.05.0
 */
 
 /*
@@ -34,10 +34,17 @@ base0E  #b6b3eb  Keywords, Storage, Selector, Markup Italic, Diff Changed
 base0F  #bc9458  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 */
 
-.hljs {
+pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+.hljs {
   color: #e6e1dc;
   background: #2b2b2b;
 }
@@ -150,10 +157,19 @@ base0F  #bc9458  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php 
 }
 
 /* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
-.hljs-meta {
+.hljs-meta,
+/*
+  prevent top level .keyword and .string scopes
+  from leaking into meta by accident
+*/
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string
+{
   color: #bc9458;
 }
 
+.hljs-meta .hljs-keyword,
+/* for v10 compatible themes */
 .hljs-meta-keyword {
   font-weight: bold;
 }

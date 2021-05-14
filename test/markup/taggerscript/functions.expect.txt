@@ -1,0 +1,5 @@
+text<span class="hljs-keyword">$func</span>(
+    par1<span class="hljs-comment">$noop(comment)</span>,<span class="hljs-symbol">\)</span>,
+    <span class="hljs-keyword">$func</span>(<span class="hljs-variable">%abc%</span>,xyz),
+    <span class="hljs-keyword">$noopnot</span>(not a comment<span class="hljs-comment">$noop(proper\( comment)</span>)
+)text

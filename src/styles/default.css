@@ -8,14 +8,27 @@
   Touched: 2021
 */
 
-.hljs {
+/*
+This is left on purpose making default.css the single file that can be lifted
+as-is from the repository directly without the need for a build step
+
+Typically this "required" baseline CSS is added by `makestuff.js` during build.
+*/
+pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+/* end baseline CSS */
+
+.hljs {
   background: #F0F0F0;
   color: #444;
 }
-
 
 /* Base color: saturation 0; */
 

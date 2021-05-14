@@ -13,4 +13,5 @@ _unit addAction ["Eat Energy Bar", {
     // 4 - means something...
     Z_obj_vip = nil;
     [_boat, ["Black", 1], true] call BIS_fnc_initVehicle;
+    [_boat] call myTag_component_fnc_initVehicle;
 }];

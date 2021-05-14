@@ -1,0 +1,16 @@
+#key
+#key = value
+#group(
+  multiple,
+  lines = true,
+  lines = 0
+)
+class Example {
+  #test(skip = true, iterations = 32)
+  doStuff() {}
+
+  #doc = "not runtime data"
+  #!runtimeAccess = true
+  #!maxIterations = 16
+  anotherFn() {}
+}
