@@ -369,11 +369,11 @@ export default function(hljs) {
   ];
 
   const LITERALS = [
-    "true",
-    "false",
-    "nullptr",
     "NULL",
-    "nullopt"
+    "false",
+    "nullopt",
+    "nullptr",
+    "true"
   ];
 
   const CPP_KEYWORDS = {
