@@ -301,6 +301,7 @@ export default function(hljs) {
     'cos',
     'cosh',
     'cout',
+    'declval',
     'endl',
     'exchange',
     'exit',
