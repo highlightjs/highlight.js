@@ -137,6 +137,7 @@ Dev Improvements:
 [Mike Watling]: https://github.com/Pickysaurus
 [Nico Abram]: https://github.com/nico-abram
 [James Edington]: http://www.ishygddt.xyz/
+[Kris van Rens]: https://github.com/krisvanrens
 
 
 ## Version 10.7.1
