@@ -411,7 +411,10 @@ export default function(hljs) {
   const FUNCTION_DISPATCH = {
     className: 'function.dispatch',
     relevance: 0,
-    keywords: COMMON_FUNCTIONS,
+    keywords: {
+      // only for relevance, not highlighting
+      _hint: COMMON_FUNCTIONS
+    },
     begin: regex.concat(
       /\b/,
       /(?!decltype)/,
