@@ -58,6 +58,8 @@ Parser:
 
 Grammars:
 
+- enh(all) `.meta-keyword` => `.meta .keyword` (nested scopes) (#3167) [Josh Goebel][]
+- enh(all) `.meta-string` => `.meta .string` (nested scopes) (#3167) [Josh Goebel][]
 - enh(swift) add `actor` keyword (#3171) [Bradley Mackey][]
 - enh(crystal) highlight variables (#3154) [Josh Goebel][]
 - fix(ruby) Heredoc without interpolation (#3154) [Josh Goebel][]
