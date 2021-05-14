@@ -1,8 +1,8 @@
 /**
  * nnfx dark - a theme inspired by Netscape Navigator/Firefox
  *
- * @version 1.0.0
- * @author (c) 2020 Jim Mason <jmason@ibinx.com>
+ * @version 1.1.0
+ * @author (c) 2020-2021 Jim Mason <jmason@ibinx.com>
  * @license https://creativecommons.org/licenses/by-sa/4.0  CC BY-SA 4.0
  */
 
@@ -11,7 +11,8 @@
   color: #fff;
 }
 
-.xml .hljs-meta {
+.language-xml .hljs-meta,
+.language-xml .hljs-meta-string {
   font-weight: bold;
   font-style: italic;
   color: #69f;
@@ -24,7 +25,8 @@
 }
 
 .hljs-name,
-.hljs-keyword {
+.hljs-keyword,
+.hljs-attribute {
   color: #a7a;
 }
 
@@ -72,7 +74,8 @@
 .hljs-title.function_,
 .hljs-function .hljs-title,
 .hljs-attr,
-.hljs-subst {
+.hljs-subst,
+.hljs-tag {
   color: #fff;
 }
 
@@ -90,7 +93,8 @@
 }
 
 .hljs-selector-id,
-.hljs-selector-class {
+.hljs-selector-class,
+.hljs-selector-tag {
   color: #964;
 }
 
