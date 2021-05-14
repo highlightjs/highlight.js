@@ -80,9 +80,11 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 | meta                     | flags, modifiers, annotations, processing                   |
 |                          | instructions, preprocessor directives, etc                  |
 +--------------------------+-------------------------------------------------------------+
-| meta-keyword             | keyword or built-in within meta construct                   |
+| meta keyword             | a keyword inside a meta block                               |
+|                          | (note this is nested, not subscoped)                        |
 +--------------------------+-------------------------------------------------------------+
-| meta-string              | string within meta construct                                |
+| meta string              | a string inside a meta block                                |
+|                          | (note this is nested, not subscoped)                        |
 +--------------------------+-------------------------------------------------------------+
 | **Tags, attributes, configs**                                                          |
 +--------------------------+-------------------------------------------------------------+

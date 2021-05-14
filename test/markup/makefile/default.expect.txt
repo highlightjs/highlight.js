@@ -3,7 +3,7 @@
 BUILDDIR      = _build
 EXTRAS       ?= <span class="hljs-variable">$(BUILDDIR)</span>/extras
 
-<span class="hljs-meta"><span class="hljs-meta-keyword">.PHONY</span>: main clean</span>
+<span class="hljs-meta"><span class="hljs-keyword">.PHONY</span>: main clean</span>
 
 <span class="hljs-section">main:</span>
 	@echo <span class="hljs-string">&quot;Building main facility...&quot;</span>

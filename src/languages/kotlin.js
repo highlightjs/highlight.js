@@ -96,7 +96,7 @@ export default function(hljs) {
         end: /\)/,
         contains: [
           hljs.inherit(STRING, {
-            className: 'meta-string'
+            className: 'string'
           })
         ]
       }

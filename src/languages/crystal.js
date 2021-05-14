@@ -207,7 +207,7 @@ export default function(hljs) {
     end: '\\]',
     contains: [
       hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        className: 'meta-string'
+        className: 'string'
       })
     ]
   };

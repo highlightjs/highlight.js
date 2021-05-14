@@ -3,6 +3,7 @@
   - [Language Files](#language-files)
   - [Language Aliases](#language-aliases)
   - [Styles and CSS](#styles-and-css)
+    - [Grammar Scopes](#grammar-scopes)
   - [Behavioral changes](#behavioral-changes)
     - [API changes](#api-changes)
       - [Changes to Result Data](#changes-to-result-data)
@@ -36,14 +37,14 @@ This would matter if you are requiring any of these files directly (via Node.js 
 
 - `htmlbars` has been removed. Use `handlebars` instead.
 - `c-like` has been removed. Use `c`, `cpp`, or `arduino`.
-- `sql_more` has been removed. Use `sql` instead.
+- `sql_more` has been removed. Use `sql` instead or a more specific 3rd party grammar.
 
 
 ### Language Aliases
 
 This would matter if you are using these aliases.
 
-- `php3`,`php4`,`php5`, `php6`, `php7`, and `php8` havbe been removed. Use `php` instead.
+- `php3`,`php4`,`php5`, `php6`, `php7`, and `php8` have been removed. Use `php` instead.
 - `zsh` has been removed. Use `sh` or `bash` instead.
 - `freepascal`, `lazarus`, `lpr`, and `lpm` removed. Use `delphi` instead.
 
@@ -60,6 +61,11 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 - `github` includes significant changes to more properly match modern GitHub syntax highlighting. If you desire the old theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
 - The `.hljs` CSS selector is now further scoped.  It now targets `code.hljs` (inline code) and `pre code.hljs` (code blocks). If you are using a different element you may need to update your CSS to reapply some styling.
 
+
+#### Grammar Scopes
+
+- `.meta-string` removed/deprecated.  Use `.meta .string` (a nested scope) instead. See [meta-keyword][].
+- `.meta-keyword` removed/deprecated.  Use `.meta .keyword` (a nested scope) instead. See [meta-keyword][].
 
 ### Behavioral changes
 
@@ -177,3 +183,5 @@ This configuration option was deprecated in v10.5. Use a plugin or pre-render co
 ### Small Things
 
 - The `regex` utility `join` has been renamed to `_eitherRewriteBackreferences` (this has always been intended for internal use only)
+
+[meta-keyword]: https://github.com/highlightjs/highlight.js/pull/3167

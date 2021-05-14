@@ -24,7 +24,8 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 .hljs-keyword,
 .hljs-attribute,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-doctag,
 .hljs-name {
   color: #f0f0f0;
@@ -93,7 +94,7 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
   color: #1f7199;
 }
 
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #4d99bf;
 }
 

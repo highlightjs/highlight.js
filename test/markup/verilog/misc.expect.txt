@@ -1,4 +1,4 @@
-<span class="hljs-meta">`<span class="hljs-meta-keyword">timescale</span> 1ns / 1ps</span>
+<span class="hljs-meta">`<span class="hljs-keyword">timescale</span> 1ns / 1ps</span>
 
 <span class="hljs-comment">/**
  * counter: a generic clearable up-counter

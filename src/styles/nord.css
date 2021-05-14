@@ -165,11 +165,12 @@ Aurora
 }
 
 .hljs-meta,
-.hljs-meta-keyword {
+.hljs-meta .hljs-keyword {
+
   color: #5E81AC;
 }
 
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #A3BE8C;
 }
 
@@ -251,7 +252,7 @@ Aurora
   color: #88C0D0;
 }
 
-.language-cpp .hljs-meta-string {
+.language-cpp .hljs-meta .hljs-string {
   color: #8FBCBB;
 }
 

@@ -117,7 +117,7 @@ export default function(hljs) {
     begin: '#',
     end: '$',
     keywords: {
-      'meta-keyword': 'define definecs|10 undef ifdef ifndef iflight ifdllcall ifmac ifos2win ifunix else endif lineson linesoff srcfile srcline'
+      keyword: 'define definecs|10 undef ifdef ifndef iflight ifdllcall ifmac ifos2win ifunix else endif lineson linesoff srcfile srcline'
     },
     contains: [
       {
@@ -128,11 +128,11 @@ export default function(hljs) {
         beginKeywords: 'include',
         end: '$',
         keywords: {
-          'meta-keyword': 'include'
+          keyword: 'include'
         },
         contains: [
           {
-            className: 'meta-string',
+            className: 'string',
             begin: '"',
             end: '"',
             illegal: '\\n'
