@@ -2,6 +2,9 @@
 Language: C++
 Category: common, system
 Website: https://isocpp.org
+
+TODO: Properly handle common namespaces (std, chrono, etc.).
+TODO: Properly handle type traits and type trait helper types (_t) and values (_v).
 */
 
 import * as regex from '../lib/regex.js';
