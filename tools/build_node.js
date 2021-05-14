@@ -8,25 +8,13 @@ const { filter } = require("./lib/dependencies");
 const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
 
-const safeImportName = (s) => {
-  s = s.replace(/-/g, "_");
-  if (/^\d/.test(s)) s = `L_${s}`;
-  return s;
-};
-
-async function buildESMIndex(name, languages) {
-  const header = `import hljs from './core.js';`;
-  const footer = "export default hljs;";
-
-
-  const registration = languages.map((lang) => {
-    const importName = safeImportName(lang.name);
-    return `import ${importName} from './languages/${lang.name}.js';\n` +
-      `hljs.registerLanguage('${lang.name}', ${importName});`;
-  });
-
-  const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
-  await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, index);
+// https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards
+async function buildESMStub(name) {
+  const code =
+    `// https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards\n` +
+    `import hljs from '../lib/${name}.js';\n` +
+    `export default hljs;\n`;
+  await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, code);
 }
 
 async function buildCJSIndex(name, languages) {
@@ -97,11 +85,7 @@ async function buildNodeHighlightJS(options) {
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
   await rollupWrite(input, output);
   if (options.esm) {
-    await rollupWrite(input, {
-      ...output,
-      format: "es",
-      file: `${process.env.BUILD_DIR}/es/core.js`
-    });
+    buildESMStub("core");
   }
 }
 
@@ -191,8 +175,8 @@ async function buildNode(options) {
 
   if (options.esm) {
     await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
-    await buildESMIndex("index", languages);
-    await buildESMIndex("common", common);
+    await buildESMStub("index");
+    await buildESMStub("common");
     await buildESMUtils();
   }
   await buildCJSIndex("index", languages);
