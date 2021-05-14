@@ -419,7 +419,7 @@ export default function(hljs) {
       /(?!for)/,
       /(?!while)/,
       hljs.IDENT_RE,
-      regex.lookahead(/\s*\(/))
+      regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
 
   const EXPRESSION_CONTAINS = [
