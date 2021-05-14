@@ -3,7 +3,7 @@
 
 <span class="hljs-keyword">namespace</span> impl {
     <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
-    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">is_streamable</span>&lt;T, std::<span class="hljs-type">void_t</span>&lt;<span class="hljs-keyword">decltype</span>(std::<span class="hljs-built_in"><span class="hljs-keyword">declval</span></span>&lt;std::wostream &amp;&gt;() &lt;&lt; std::<span class="hljs-built_in"><span class="hljs-keyword">declval</span></span>&lt;T&gt;())&gt;&gt; : std::<span class="hljs-type">true_type</span> { };
+    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">is_streamable</span>&lt;T, std::<span class="hljs-type">void_t</span>&lt;<span class="hljs-keyword">decltype</span>(std::<span class="hljs-built_in">declval</span>&lt;std::wostream &amp;&gt;() &lt;&lt; std::<span class="hljs-built_in">declval</span>&lt;T&gt;())&gt;&gt; : std::<span class="hljs-type">true_type</span> { };
 }
 
 <span class="hljs-comment">// Disable overload for already valid operands.</span>
