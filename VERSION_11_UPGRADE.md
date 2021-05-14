@@ -71,6 +71,7 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 
 #### API changes
 
+- The option `ignoreIllegals` is now `true` by default (for `highlight()`). Previously it was `false`.
 - The `highlight(language,code, ...args)` API no longer accepts `continuation` as a 4th argument.
 - The `highlight(language,code, ...args)` API is deprecated (to be removed in 12.0).
 
