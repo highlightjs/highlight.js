@@ -110,7 +110,7 @@ export default function(hljs) {
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
 
   // https://en.cppreference.com/w/cpp/keyword
-  const KEYWORDS = [
+  const RESERVED_KEYWORDS = [
     'alignas',
     'alignof',
     'and',
@@ -119,18 +119,11 @@ export default function(hljs) {
     'atomic_cancel',
     'atomic_commit',
     'atomic_noexcept',
-    'auto',
     'bitand',
     'bitor',
-    'bool',
     'break',
     'case',
     'catch',
-    'char',
-    'char16_t',
-    'char32_t',
-    'char8_t',
-    'class',
     'co_await',
     'co_return',
     'co_yield',
@@ -146,24 +139,19 @@ export default function(hljs) {
     'default',
     'delete',
     'do',
-    'double',
     'dynamic_cast|10',
     'else',
-    'enum',
     'explicit',
     'export',
     'extern',
     'false',
     'final',
-    'float',
     'for',
     'friend',
     'goto',
     'if',
     'import',
     'inline',
-    'int',
-    'long',
     'module',
     'mutable',
     'namespace',
@@ -184,13 +172,11 @@ export default function(hljs) {
     'reinterpret_cast|10',
     'requires',
     'return',
-    'short',
     'signed',
     'sizeof',
     'static',
     'static_assert',
     'static_cast|10',
-    'struct',
     'switch',
     'synchronized',
     'template',
@@ -204,16 +190,34 @@ export default function(hljs) {
     'typedef',
     'typeid',
     'typename',
-    'union',
     'unsigned',
     'using',
     'virtual',
-    'void',
     'volatile',
-    'wchar_t',
     'while',
     'xor',
     'xor_eq,'
+  ];
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const RESERVED_TYPES = [
+    'auto',
+    'bool',
+    'char',
+    'char16_t',
+    'char32_t',
+    'char8_t',
+    'class',
+    'double',
+    'enum',
+    'float',
+    'int',
+    'long',
+    'short',
+    'struct',
+    'union',
+    'void',
+    'wchar_t'
   ];
 
   const TYPES = [
@@ -377,8 +381,8 @@ export default function(hljs) {
   ];
 
   const CPP_KEYWORDS = {
-    type: TYPES,
-    keyword: KEYWORDS,
+    type: [...RESERVED_TYPES, ...TYPES],
+    keyword: RESERVED_KEYWORDS,
     built_in: BUILT_INS,
     literal: LITERALS
   };
