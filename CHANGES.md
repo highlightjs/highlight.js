@@ -142,6 +142,7 @@ Dev Improvements:
 [Nico Abram]: https://github.com/nico-abram
 [James Edington]: http://www.ishygddt.xyz/
 [Jan Pilzer]: https://github.com/Hirse
+[Kris van Rens]: https://github.com/krisvanrens
 
 
 ## Version 10.7.1
