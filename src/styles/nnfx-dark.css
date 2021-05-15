@@ -26,6 +26,7 @@
 
 .hljs-name,
 .hljs-keyword,
+.hljs-built_in,
 .hljs-attribute {
   color: #a7a;
 }
@@ -37,11 +38,6 @@
 
 .hljs-string {
   font-weight: normal;
-}
-
-.hljs-variable,
-.hljs-template-variable {
-  color: #588;
 }
 
 .hljs-code,
@@ -56,8 +52,8 @@
 .hljs-title,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-built_in,
-.hljs-variable.language_ {
+.hljs-variable,
+.hljs-template-variable {
   color: #d40;
 }
 
