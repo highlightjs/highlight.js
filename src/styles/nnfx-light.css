@@ -26,8 +26,7 @@
 
 .hljs-name,
 .hljs-keyword,
-.hljs-built_in,
-.hljs-attribute {
+.hljs-built_in {
   color: #808;
 }
 
