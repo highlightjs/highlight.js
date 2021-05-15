@@ -61,14 +61,10 @@
   color: #d40;
 }
 
-.hljs-section,
-.hljs-meta {
-  color: #a85;
-}
-
 .hljs-title.class_,
 .hljs-class .hljs-title,
 .hljs-type {
+  font-weight: bold;
   color: #96c;
 }
 
@@ -93,10 +89,19 @@
   background-color: #c99;
 }
 
+.hljs-meta,
+.hljs-section,
 .hljs-selector-id,
 .hljs-selector-class,
+.hljs-selector-pseudo,
 .hljs-selector-tag {
+  font-weight: bold;
   color: #69f;
+}
+
+
+.hljs-selector-pseudo {
+  font-style: italic;
 }
 
 .hljs-doctag,
