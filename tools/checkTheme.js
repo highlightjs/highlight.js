@@ -162,18 +162,24 @@ function scopeToSelector(name) {
 function check_group(group, rules) {
   const has_rules = group.scopes.map(scope => {
     const selector = scopeToSelector(scope);
-    if (skips_rule(selector, rules)) {
-      console.log(`${selector} is not highlighted.`.cyan);
-    }
-    return [scope, has_rule(selector, rules)];
+    return [scope, has_rule(selector, rules), skips_rule(selector, rules)];
   });
 
 
-  if (has_rules.map(x => x[1]).includes(false)) {
-    console.log(`Theme does not fully support ${group.name}.`.yellow);
+  let doesNotSupport = has_rules.map(x => x[1]).includes(false);
+  let skipped = has_rules.find(x => x[2]);
+  if (doesNotSupport || skipped) {
+    console.log(group.name.yellow);
+    if (doesNotSupport) {
+      console.log(`- Theme does not fully support.`.brightMagenta);
+    }
+
     has_rules.filter(x => !x[1]).forEach(([scope,_]) => {
       const selector = scopeToSelector(scope);
       console.log(`- scope ${scope.cyan} is not highlighted\n  (css: ${selector.green})`);
+    });
+    has_rules.filter(x => x[2]).forEach(([scope,_]) => {
+      console.log(` - scope ${scope.cyan} [purposely] un-highlighted.`.cyan);
     });
     console.log();
   }
