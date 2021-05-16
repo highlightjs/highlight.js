@@ -8,4 +8,5 @@ describe('hljs', function() {
   require('./reuse-endsWithParent');
   require('./should-not-destroyData');
   require('./compiler-extensions');
+  require('./max_keyword_hits');
 });
