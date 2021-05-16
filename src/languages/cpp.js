@@ -284,7 +284,7 @@ export default function(hljs) {
     'wstring_view'
   ];
 
-  const COMMON_FUNCTIONS = [
+  const FUNCTION_HINTS = [
     'abort',
     'abs',
     'acos',
@@ -416,8 +416,8 @@ export default function(hljs) {
     className: 'function.dispatch',
     relevance: 0,
     keywords: {
-      // only for relevance, not highlighting
-      _hint: COMMON_FUNCTIONS
+      // Only for relevance, not highlighting.
+      _hint: FUNCTION_HINTS
     },
     begin: regex.concat(
       /\b/,
