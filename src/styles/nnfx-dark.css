@@ -84,7 +84,10 @@
   background-color: #c99;
 }
 
-.hljs-meta,
+.hljs-meta {
+  color: #69f;
+}
+
 .hljs-section,
 .hljs-selector-id,
 .hljs-selector-class,
