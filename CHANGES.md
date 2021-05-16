@@ -117,6 +117,7 @@ Theme Improvements:
 New Themes:
 
 - DeviBeans Dark by [Farzad Sadeghi][]
+- GitHub Dark and GitHub Dark Dimmed [Jan Pilzer][]
 
 Dev Improvements:
 
