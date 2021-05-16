@@ -212,7 +212,6 @@ Deprecations:
 [David Ostrovsky]: https://github.com/davido
 [AndyKIron]: https://github.com/AndyKIron
 [Samuel Colvin]: https://github.com/samuelcolvin
-[Jan Pilzer]: https://github.com/Hirse
 
 ## Version 10.6.0
 
@@ -258,6 +257,7 @@ Deprecations:
 [Josh Goebel]: https://github.com/joshgoebel
 [Vaibhav Chanana]: https://github.com/il3ven
 [davidhcefx]: https://github.com/davidhcefx
+[Jan Pilzer]: https://github.com/Hirse
 
 
 ## Version 10.5.0
