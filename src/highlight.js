@@ -196,7 +196,7 @@ const HLJS = function(hljs) {
           buf = "";
 
           keywordHits[word] = (keywordHits[word] || 0) + 1;
-          if (keywordHits[word] < MAX_KEYWORD_HITS) relevance += keywordRelevance;
+          if (keywordHits[word] <= MAX_KEYWORD_HITS) relevance += keywordRelevance;
           if (kind.startsWith("_")) {
             // _ implied for relevance only, do not highlight
             // by applying a class name
