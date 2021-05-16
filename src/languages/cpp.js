@@ -2,6 +2,9 @@
 Language: C++
 Category: common, system
 Website: https://isocpp.org
+
+TODO: Properly handle common namespaces (std, chrono, etc.).
+TODO: Properly handle type traits and type trait helper types (_t) and values (_v).
 */
 
 import * as regex from '../lib/regex.js';
@@ -26,8 +29,9 @@ export default function(hljs) {
     regex.optional(NAMESPACE_RE) +
     '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
   ')';
+
   const CPP_PRIMITIVE_TYPES = {
-    className: 'keyword',
+    className: 'type',
     begin: '\\b[a-z\\d_]*_t\\b'
   };
 
@@ -44,7 +48,7 @@ export default function(hljs) {
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       {
-        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + "|.)",
+        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + '|.)',
         end: '\'',
         illegal: '.'
       },
@@ -105,38 +109,214 @@ export default function(hljs) {
 
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
 
-  const COMMON_CPP_HINTS = [
+  // https://en.cppreference.com/w/cpp/keyword
+  const RESERVED_KEYWORDS = [
+    'alignas',
+    'alignof',
+    'and',
+    'and_eq',
+    'asm',
+    'atomic_cancel',
+    'atomic_commit',
+    'atomic_noexcept',
+    'auto',
+    'bitand',
+    'bitor',
+    'break',
+    'case',
+    'catch',
+    'class',
+    'co_await',
+    'co_return',
+    'co_yield',
+    'compl',
+    'concept',
+    'const',
+    'const_cast|10',
+    'consteval',
+    'constexpr',
+    'constinit',
+    'continue',
+    'decltype',
+    'default',
+    'delete',
+    'do',
+    'dynamic_cast|10',
+    'else',
+    'enum',
+    'explicit',
+    'export',
+    'extern',
+    'false',
+    'final',
+    'for',
+    'friend',
+    'goto',
+    'if',
+    'import',
+    'inline',
+    'module',
+    'mutable',
+    'namespace',
+    'new',
+    'noexcept',
+    'not',
+    'not_eq',
+    'nullptr',
+    'operator',
+    'or',
+    'or_eq',
+    'override',
+    'private',
+    'protected',
+    'public',
+    'reflexpr',
+    'register',
+    'reinterpret_cast|10',
+    'requires',
+    'return',
+    'signed',
+    'sizeof',
+    'static',
+    'static_assert',
+    'static_cast|10',
+    'struct',
+    'switch',
+    'synchronized',
+    'template',
+    'this',
+    'thread_local',
+    'throw',
+    'transaction_safe',
+    'transaction_safe_dynamic',
+    'true',
+    'try',
+    'typedef',
+    'typeid',
+    'typename',
+    'union',
+    'unsigned',
+    'using',
+    'virtual',
+    'volatile',
+    'while',
+    'xor',
+    'xor_eq,'
+  ];
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const RESERVED_TYPES = [
+    'bool',
+    'char',
+    'char16_t',
+    'char32_t',
+    'char8_t',
+    'double',
+    'float',
+    'int',
+    'long',
+    'short',
+    'void',
+    'wchar_t'
+  ];
+
+  const TYPES = [
+    'any',
+    'array',
+    'async',
+    'auto_ptr',
+    'barrier',
+    'binary_semaphore',
+    'bitset',
+    'complex',
+    'condition_variable',
+    'condition_variable_any',
+    'counting_semaphore',
+    'deque',
+    'false_type',
+    'function',
+    'future',
+    'imaginary',
+    'initializer_list',
+    'istringstream',
+    'jthread',
+    'latch',
+    'list',
+    'lock_guard',
+    'map',
+    'multimap',
+    'multiset',
+    'mutex',
+    'optional',
+    'ostringstream',
+    'packaged_task',
+    'pair',
+    'promise',
+    'priority_queue',
+    'queue',
+    'recursive_mutex',
+    'recursive_timed_mutex',
+    'scoped_lock',
+    'set',
+    'shared_future',
+    'shared_lock',
+    'shared_mutex',
+    'shared_timed_mutex',
+    'shared_ptr',
+    'stack',
+    'string',
+    'string_view',
+    'stringstream',
+    'timed_mutex',
+    'thread',
+    'true_type',
+    'tuple',
+    'unique_lock',
+    'unique_ptr',
+    'unordered_map',
+    'unordered_multimap',
+    'unordered_multiset',
+    'unordered_set',
+    'variant',
+    'vector',
+    'weak_ptr',
+    'wstring',
+    'wstring_view'
+  ];
+
+  const COMMON_FUNCTIONS = [
+    'abort',
+    'abs',
+    'acos',
+    'apply',
+    'as_const',
     'asin',
-    'atan2',
     'atan',
+    'atan2',
     'calloc',
     'ceil',
-    'cosh',
+    'cerr',
+    'cin',
+    'clog',
     'cos',
+    'cosh',
+    'cout',
+    'declval',
+    'endl',
+    'exchange',
     'exit',
     'exp',
     'fabs',
     'floor',
     'fmod',
+    'forward',
     'fprintf',
     'fputs',
     'free',
     'frexp',
-    'auto_ptr',
-    'deque',
-    'list',
-    'queue',
-    'stack',
-    'vector',
-    'map',
-    'set',
-    'pair',
-    'bitset',
-    'multiset',
-    'multimap',
-    'unordered_set',
     'fscanf',
     'future',
+    'invoke',
     'isalnum',
     'isalpha',
     'iscntrl',
@@ -148,30 +328,39 @@ export default function(hljs) {
     'isspace',
     'isupper',
     'isxdigit',
-    'tolower',
-    'toupper',
     'labs',
+    'launder',
     'ldexp',
-    'log10',
     'log',
+    'log10',
+    'make_pair',
+    'make_shared',
+    'make_shared_for_overwrite',
+    'make_tuple',
+    'make_unique',
     'malloc',
-    'realloc',
     'memchr',
     'memcmp',
     'memcpy',
     'memset',
     'modf',
+    'move',
     'pow',
     'printf',
     'putchar',
     'puts',
+    'realloc',
     'scanf',
-    'sinh',
     'sin',
+    'sinh',
     'snprintf',
     'sprintf',
     'sqrt',
     'sscanf',
+    'std',
+    'stderr',
+    'stdin',
+    'stdout',
     'strcat',
     'strchr',
     'strcmp',
@@ -185,64 +374,47 @@ export default function(hljs) {
     'strrchr',
     'strspn',
     'strstr',
-    'tanh',
+    'swap',
     'tan',
-    'unordered_map',
-    'unordered_multiset',
-    'unordered_multimap',
-    'priority_queue',
-    'make_pair',
-    'array',
-    'shared_ptr',
-    'abort',
+    'tanh',
     'terminate',
-    'abs',
-    'acos',
+    'to_underlying',
+    'tolower',
+    'toupper',
     'vfprintf',
+    'visit',
     'vprintf',
-    'vsprintf',
-    'endl',
-    'initializer_list',
-    'unique_ptr',
-    'complex',
-    'imaginary',
-    'std',
-    'string',
-    'wstring',
-    'cin',
-    'cout',
-    'cerr',
-    'clog',
-    'stdin',
-    'stdout',
-    'stderr',
-    'stringstream',
-    'istringstream',
-    'ostringstream'
+    'vsprintf'
+  ];
+
+  const BUILT_INS = [
+    '_Bool',
+    '_Complex',
+    '_Imaginary'
+  ];
+
+  const LITERALS = [
+    'NULL',
+    'false',
+    'nullopt',
+    'nullptr',
+    'true'
   ];
 
   const CPP_KEYWORDS = {
-    keyword: 'int float while private char char8_t char16_t char32_t catch import module export virtual operator sizeof ' +
-      'dynamic_cast|10 typedef const_cast|10 const for static_cast|10 union namespace ' +
-      'unsigned long volatile static protected bool template mutable if public friend ' +
-      'do goto auto void enum else break extern using asm case typeid wchar_t ' +
-      'short reinterpret_cast|10 default double register explicit signed typename try this ' +
-      'switch continue inline delete alignas alignof constexpr consteval constinit decltype ' +
-      'concept co_await co_return co_yield requires ' +
-      'noexcept static_assert thread_local restrict final override ' +
-      'atomic_bool atomic_char atomic_schar ' +
-      'atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong ' +
-      'atomic_ullong new throw return ' +
-      'and and_eq bitand bitor compl not not_eq or or_eq xor xor_eq struct',
-    built_in: '_Bool _Complex _Imaginary',
-    _relevance_hints: COMMON_CPP_HINTS,
-    literal: 'true false nullptr NULL'
+    type: [...RESERVED_TYPES, ...TYPES],
+    keyword: RESERVED_KEYWORDS,
+    built_in: BUILT_INS,
+    literal: LITERALS
   };
 
   const FUNCTION_DISPATCH = {
-    className: "function.dispatch",
+    className: 'function.dispatch',
     relevance: 0,
-    keywords: CPP_KEYWORDS,
+    keywords: {
+      // only for relevance, not highlighting
+      _hint: COMMON_FUNCTIONS
+    },
     begin: regex.concat(
       /\b/,
       /(?!decltype)/,
@@ -250,7 +422,7 @@ export default function(hljs) {
       /(?!for)/,
       /(?!while)/,
       hljs.IDENT_RE,
-      regex.lookahead(/\s*\(/))
+      regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
 
   const EXPRESSION_CONTAINS = [
@@ -262,7 +434,6 @@ export default function(hljs) {
     NUMBERS,
     STRINGS
   ];
-
 
   const EXPRESSION_CONTEXT = {
     // This mode covers expression context where we can't expect a function
@@ -386,7 +557,7 @@ export default function(hljs) {
     keywords: CPP_KEYWORDS,
     illegal: '</',
     classNameAliases: {
-      "function.dispatch": "built_in"
+      'function.dispatch': 'built_in'
     },
     contains: [].concat(
       EXPRESSION_CONTEXT,
@@ -396,7 +567,7 @@ export default function(hljs) {
       [
         PREPROCESSOR,
         { // containers: ie, `vector <int> rooms (9);`
-          begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<',
+          begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function)\\s*<',
           end: '>',
           keywords: CPP_KEYWORDS,
           contains: [
@@ -416,8 +587,8 @@ export default function(hljs) {
             /\w+/
           ],
           className: {
-            1: "keyword",
-            3: "title.class"
+            1: 'keyword',
+            3: 'title.class'
           }
         }
       ])

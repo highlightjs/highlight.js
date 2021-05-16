@@ -1,25 +1,25 @@
 <span class="hljs-function"><span class="hljs-keyword">decltype</span>(<span class="hljs-keyword">auto</span>) <span class="hljs-title">look_up_a_string_1</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">lookup1</span>(); }
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">look_up_a_string_2</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">lookup2</span>(); }
-<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">A::showB</span><span class="hljs-params">(B x)</span> </span>{}
-<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showB</span><span class="hljs-params">(B x)</span> </span>{}
-<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showB</span><span class="hljs-params">(B::SomeType x)</span> </span>{}
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>{}
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">look_up_a_string_2</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-built_in">lookup2</span>(); }
+<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-type">void</span> <span class="hljs-title">A::showB</span><span class="hljs-params">(B x)</span> </span>{}
+<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-type">void</span> <span class="hljs-title">showB</span><span class="hljs-params">(B x)</span> </span>{}
+<span class="hljs-function"><span class="hljs-keyword">friend</span> <span class="hljs-type">void</span> <span class="hljs-title">showB</span><span class="hljs-params">(B::SomeType x)</span> </span>{}
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>{}
 <span class="hljs-function">int8t <span class="hljs-title">Get_Tile_Value</span><span class="hljs-params">()</span> </span>{}
 
-<span class="hljs-function"><span class="hljs-keyword">int8_t</span> <span class="hljs-title">Get_Tile_Value</span><span class="hljs-params">()</span> </span>{}
+<span class="hljs-function"><span class="hljs-type">int8_t</span> <span class="hljs-title">Get_Tile_Value</span><span class="hljs-params">()</span> </span>{}
 
 <span class="hljs-function">B::type <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{};
 
 <span class="hljs-comment">// template</span>
-<span class="hljs-function">boost::optional&lt;application&gt; <span class="hljs-title">handle_key</span><span class="hljs-params">(application state, key_code key, coord size)</span></span>;
+<span class="hljs-function">boost::<span class="hljs-type">optional</span>&lt;application&gt; <span class="hljs-title">handle_key</span><span class="hljs-params">(application state, key_code key, coord size)</span></span>;
 
 <span class="hljs-comment">// pack expansion in function arguments</span>
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T...&gt;
-<span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(T... args)</span> </span>{}
+<span class="hljs-type">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(T... args)</span> </span>{}
 
 <span class="hljs-built_in">test</span>();
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) {</span>}
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) {</span>}
 <span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) {</span>}
 
-<span class="hljs-function"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-keyword">int</span>)</span>, <span class="hljs-title">g</span><span class="hljs-params">(<span class="hljs-keyword">char</span>)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">extern</span> <span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span>)</span>, <span class="hljs-title">g</span><span class="hljs-params">(<span class="hljs-type">char</span>)</span></span>;
