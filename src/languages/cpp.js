@@ -220,7 +220,7 @@ export default function(hljs) {
     'wchar_t'
   ];
 
-  const TYPES = [
+  const TYPE_HINTS = [
     'any',
     'array',
     'async',
@@ -402,10 +402,14 @@ export default function(hljs) {
   ];
 
   const CPP_KEYWORDS = {
-    type: [...RESERVED_TYPES, ...TYPES],
+    type: RESERVED_TYPES,
     keyword: RESERVED_KEYWORDS,
     built_in: BUILT_INS,
-    literal: LITERALS
+    literal: LITERALS,
+    keywords: {
+      // Only for relevance, not highlighting.
+      _hint: TYPE_HINTS
+    }
   };
 
   const FUNCTION_DISPATCH = {
