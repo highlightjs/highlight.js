@@ -32,6 +32,7 @@ Themes:
 - The default padding of all themes increases (0.5em => 1em).
 - `schoolbook` has been updated to remove the lined background.
 - `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+- `github-gist` has been removed in favor of `github` [Jan Pilzer][]
 - Base16 named themes have been updated to their "canonical" versions
 
 Language Grammars:
@@ -136,6 +137,7 @@ Dev Improvements:
 [Mike Watling]: https://github.com/Pickysaurus
 [Nico Abram]: https://github.com/nico-abram
 [James Edington]: http://www.ishygddt.xyz/
+[Jan Pilzer]: https://github.com/Hirse
 
 
 ## Version 10.7.1
