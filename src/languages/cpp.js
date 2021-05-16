@@ -381,12 +381,6 @@ export default function(hljs) {
     'vsprintf'
   ];
 
-  const BUILT_INS = [
-    '_Bool',
-    '_Complex',
-    '_Imaginary'
-  ];
-
   const LITERALS = [
     'NULL',
     'false',
@@ -398,7 +392,6 @@ export default function(hljs) {
   const CPP_KEYWORDS = {
     type: RESERVED_TYPES,
     keyword: RESERVED_KEYWORDS,
-    built_in: BUILT_INS,
     literal: LITERALS,
     keywords: {
       // Only for relevance, not highlighting.
