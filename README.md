@@ -58,7 +58,7 @@ detection.
 
 ---
 
-#### Upgrading to Version 11 (currently in beta)
+#### Upgrading to Version 11 (currently in final beta)
 
 As always our major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
 

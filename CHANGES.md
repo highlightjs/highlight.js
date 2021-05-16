@@ -1,4 +1,4 @@
-## Version 11.0.0-beta0
+## Version 11.0.0-beta1
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
