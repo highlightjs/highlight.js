@@ -66,6 +66,7 @@ Dev Improvements:
 
 Parser:
 
+- keywords now have a maximum # of times they provide relevance (#3129) [Josh Goebel][]
 - enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
 - enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 - fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
