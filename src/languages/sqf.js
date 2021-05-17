@@ -2473,6 +2473,6 @@ export default function(hljs) {
       STRINGS,
       PREPROCESSOR
     ],
-    illegal: /^\$ /
+    illegal: /\w\$|\?|\@/
   };
 }
