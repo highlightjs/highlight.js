@@ -390,7 +390,7 @@ export default function(hljs) {
     type: RESERVED_TYPES,
     keyword: RESERVED_KEYWORDS,
     literal: LITERALS,
-    _hint: TYPE_HINTS
+    _type_hints: TYPE_HINTS
   };
 
   const FUNCTION_DISPATCH = {
