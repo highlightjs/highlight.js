@@ -390,10 +390,7 @@ export default function(hljs) {
     type: RESERVED_TYPES,
     keyword: RESERVED_KEYWORDS,
     literal: LITERALS,
-    keywords: {
-      // Only for relevance, not highlighting.
-      _hint: TYPE_HINTS
-    }
+    _hint: TYPE_HINTS
   };
 
   const FUNCTION_DISPATCH = {
