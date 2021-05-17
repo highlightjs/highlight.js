@@ -386,10 +386,16 @@ export default function(hljs) {
     'true'
   ];
 
+  // https://en.cppreference.com/w/cpp/keyword
+  const BUILT_IN = [
+    '_Pragma'
+  ];
+
   const CPP_KEYWORDS = {
     type: RESERVED_TYPES,
     keyword: RESERVED_KEYWORDS,
     literal: LITERALS,
+    built_in: BUILT_IN,
     _type_hints: TYPE_HINTS
   };
 
