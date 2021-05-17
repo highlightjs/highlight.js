@@ -96,6 +96,9 @@ Grammars:
 - enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
 - fix(c,cpp) allow declaring multiple functions and (for C++) parenthetical initializers (#3155) [Erik Demaine][]
 - enh(rust) highlight raw byte string literals correctly (#3173) [Nico Abram][]
+- fix(cpp) fix detection of common functions that are function templates (#3178) [Kris van Rens][]
+- enh(cpp) add various keywords and commonly used types for hinting (#3178) [Kris van Rens][]
+- enh(cpp) cleanup reserved keywords and type lists (#3178) [Kris van Rens][]
 
 New Languages:
 
@@ -139,6 +142,7 @@ Dev Improvements:
 [Nico Abram]: https://github.com/nico-abram
 [James Edington]: http://www.ishygddt.xyz/
 [Jan Pilzer]: https://github.com/Hirse
+[Kris van Rens]: https://github.com/krisvanrens
 
 
 ## Version 10.7.1

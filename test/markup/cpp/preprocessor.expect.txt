@@ -2,9 +2,9 @@
 <span class="hljs-meta">#<span class="hljs-keyword">define</span> foo 1&lt;&lt;16</span>
 
 <span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> DEBUG</span>
-<span class="hljs-function">TYPE1 <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+<span class="hljs-function">TYPE1 <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
 <span class="hljs-meta">#<span class="hljs-keyword">else</span></span>
-<span class="hljs-keyword">int</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+<span class="hljs-type">int</span> <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
 <span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
 </span>{ }
 
@@ -15,7 +15,7 @@
 <span class="hljs-meta">#<span class="hljs-keyword">if</span> MACRO_WITH_STRING_ARG(<span class="hljs-string">&quot;hello \&quot;world\&quot;&quot;</span>)</span>
 <span class="hljs-meta">#<span class="hljs-keyword">elif</span> MULTI_LINE <span class="hljs-comment">/* comment */</span> &lt; \
     EXPRESSION</span>
-<span class="hljs-keyword">int</span> bar;
+<span class="hljs-type">int</span> bar;
 <span class="hljs-meta">#<span class="hljs-keyword">endif</span>  <span class="hljs-comment">// comment</span></span>
 
 <span class="hljs-keyword">if</span> (p) {
