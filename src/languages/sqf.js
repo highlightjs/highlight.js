@@ -2504,9 +2504,9 @@ export default function(hljs) {
       PREPROCESSOR
     ],
     illegal: [
-      '\w\$',  //$ is only valid when used with Hex numbers (e.g. $FF) or at the beginning of localized strings (e.g. "$STR_HELLO")
-      '\?',    //There's no ? in SQF
-      '\@'    //There's no @ in SQF
+      /\w\$/,   //$ is only valid when used with Hex numbers (e.g. $FF) or at the beginning of localized strings (e.g. "$STR_HELLO")
+      /\?/  ,   //There's no ? in SQF
+      /@/       //There's no @ in SQF
     ]
   };
 }
