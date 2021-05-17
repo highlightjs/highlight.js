@@ -1,5 +1,5 @@
 <span class="hljs-keyword">Imports</span> System.IO
-<span class="hljs-meta">#<span class="hljs-meta-keyword">Const</span> DEBUG = True <span class="hljs-comment">&#x27; Set to false for prod</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">Const</span> DEBUG = True <span class="hljs-comment">&#x27; Set to false for prod</span></span>
 
 <span class="hljs-keyword">Namespace</span> Highlighter.Test
   <span class="hljs-comment">&#x27;&#x27;&#x27; <span class="hljs-doctag">&lt;summary&gt;</span>This is an example class.<span class="hljs-doctag">&lt;/summary&gt;</span></span>
@@ -7,7 +7,7 @@
     <span class="hljs-keyword">Protected</span> <span class="hljs-keyword">Shared</span> hello <span class="hljs-keyword">As</span> <span class="hljs-type">Integer</span> = <span class="hljs-number">3</span>
     <span class="hljs-keyword">Private</span> <span class="hljs-keyword">Const</span> ABC <span class="hljs-keyword">As</span> <span class="hljs-type">Boolean</span> = <span class="hljs-literal">False</span>
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">Region</span> &quot;Code&quot;</span>
+<span class="hljs-meta">#<span class="hljs-keyword">Region</span> &quot;Code&quot;</span>
     <span class="hljs-comment">&#x27; Cheers!</span>
     &lt;STAThread()&gt; _
     <span class="hljs-keyword">Public</span> <span class="hljs-keyword">Shared</span> <span class="hljs-keyword">Sub</span> Main(<span class="hljs-keyword">ByVal</span> args() <span class="hljs-keyword">As</span> <span class="hljs-type">String</span>, <span class="hljs-keyword">ParamArray</span> arr <span class="hljs-keyword">As</span> <span class="hljs-type">Object</span>) <span class="hljs-keyword">Handles</span> Form1.Click
@@ -36,6 +36,6 @@
         <span class="hljs-keyword">Do</span> : Laugh() : <span class="hljs-keyword">Loop</span> <span class="hljs-keyword">Until</span> hello = <span class="hljs-number">4</span>
       <span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
     <span class="hljs-keyword">End</span> <span class="hljs-keyword">Sub</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">End</span> <span class="hljs-meta-keyword">Region</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">End</span> <span class="hljs-keyword">Region</span></span>
   <span class="hljs-keyword">End</span> <span class="hljs-keyword">Class</span>
 <span class="hljs-keyword">End</span> <span class="hljs-keyword">Namespace</span>

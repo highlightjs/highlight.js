@@ -119,7 +119,7 @@ export default function(hljs) {
         returnBegin: true,
         contains: [
           {
-            className: 'meta-keyword',
+            className: 'keyword',
             begin: '^\\$[a-z0-9]+'
           }
         ]

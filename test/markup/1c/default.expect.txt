@@ -1,6 +1,6 @@
-<span class="hljs-meta">#<span class="hljs-meta-keyword">ЗагрузитьИзФайла</span> ext_module.txt <span class="hljs-comment">// директива 7.7</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">Если</span> <span class="hljs-meta-keyword">Клиент</span> <span class="hljs-meta-keyword">ИЛИ</span> <span class="hljs-meta-keyword">НаКлиенте</span> <span class="hljs-meta-keyword">Тогда</span> <span class="hljs-comment">// инструкции препроцессора</span></span>
-	<span class="hljs-meta">&amp;<span class="hljs-meta-keyword">НаКлиентеНаСервереБезКонтекста</span> <span class="hljs-comment">// директивы компиляции</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">ЗагрузитьИзФайла</span> ext_module.txt <span class="hljs-comment">// директива 7.7</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">Если</span> <span class="hljs-keyword">Клиент</span> <span class="hljs-keyword">ИЛИ</span> <span class="hljs-keyword">НаКлиенте</span> <span class="hljs-keyword">Тогда</span> <span class="hljs-comment">// инструкции препроцессора</span></span>
+	<span class="hljs-meta">&amp;<span class="hljs-keyword">НаКлиентеНаСервереБезКонтекста</span> <span class="hljs-comment">// директивы компиляции</span></span>
 	<span class="hljs-function">Функция <span class="hljs-title">ТолстыйКлиентОбычноеПриложение</span>(<span class="hljs-params"><span class="hljs-keyword">Знач</span> Параметр<span class="hljs-number">1</span> = <span class="hljs-literal">Неопределено</span></span>, <span class="hljs-comment">// комментарий</span>
 		<span class="hljs-params">Параметр2 = <span class="hljs-string">&quot;&quot;</span></span>, <span class="hljs-params">ПараметрN = <span class="hljs-number">123.45</span></span>, <span class="hljs-params">ПарамNN</span></span>) <span class="hljs-keyword">Экспорт</span> <span class="hljs-comment">// еще комментарий</span>
 		<span class="hljs-keyword">Попытка</span>
@@ -27,4 +27,4 @@
 		<span class="hljs-symbol">~МеткаGOTO</span>: <span class="hljs-comment">// еще комментарий</span>
 		ВД = <span class="hljs-class">ВидДвиженияБухгалтерии</span>.Дебет;
 	<span class="hljs-function">КонецФункции</span> <span class="hljs-comment">// ТолстыйКлиентОбычноеПриложение()</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">КонецЕсли</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">КонецЕсли</span></span>

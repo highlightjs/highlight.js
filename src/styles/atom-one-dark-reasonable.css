@@ -49,7 +49,7 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 .hljs-literal {
   color: #56b6c2;
 }
-.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta-string {
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta .hljs-string {
   color: #98c379;
 }
 .hljs-built_in,

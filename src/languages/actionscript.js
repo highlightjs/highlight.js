@@ -121,7 +121,7 @@ export default function(hljs) {
         className: 'meta',
         beginKeywords: 'import include',
         end: /;/,
-        keywords: { 'meta-keyword': 'import include' }
+        keywords: { keyword: 'import include' }
       },
       {
         beginKeywords: 'function',

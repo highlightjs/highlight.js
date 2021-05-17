@@ -38,7 +38,8 @@
 }
 
 .hljs-meta,
-.hljs-meta-keyword {
+.hljs-meta .hljs-keyword {
+
   color: #0087ff;
 }
 
@@ -74,7 +75,7 @@
   color: #ffd75f;
 }
 
-.hljs-meta-string,
+.hljs-meta .hljs-string,
 .hljs-string,
 .hljs-subst,
 .hljs-symbol,

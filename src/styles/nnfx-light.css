@@ -41,7 +41,7 @@
 
 .hljs-code,
 .hljs-string,
-.hljs-meta-string,
+.hljs-meta .hljs-string,
 .hljs-number,
 .hljs-regexp,
 .hljs-link {

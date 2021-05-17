@@ -7,15 +7,13 @@ require("colors");
 
 const CODE = {
   name: "program code",
-  selectors: [
+  scopes: [
     "comment",
     "keyword",
     "built_in",
     "type",
     "literal",
     "number",
-    "operator",
-    "punctuation",
     "property",
     "regexp",
     "string",
@@ -35,17 +33,30 @@ const CODE = {
 };
 
 const OTHER = {
-  name: "nice to haves (many code grammars use)",
-  selectors: [
-    "meta-keyword",
-    "meta-string"
+  name: "nice to haves (optional, but many grammars use)",
+  scopes: [
+    "meta keyword",
+    "meta string"
   ]
-}
+};
+
+const HIGH_FIDELITY = {
+  name: "high fidelity highlighting (this is optional)",
+  scopes: [
+    "title.class",
+    "title.class.inherited",
+    "punctuation",
+    "operator",
+    "title.function",
+    "char.escape",
+    "variable.language"
+  ]
+};
 
 const CONFIG = {
   required: true,
   name: "Config files",
-  selectors: [
+  scopes: [
     "meta",
     "number",
     "string",
@@ -59,7 +70,7 @@ const CONFIG = {
 const MARKUP = {
   required: true,
   name: "Markup (Markdown, etc)",
-  selectors: [
+  scopes: [
     "section",
     "bullet",
     "code",
@@ -74,7 +85,7 @@ const MARKUP = {
 const CSS = {
   name: "CSS/Less/etc",
   required: true,
-  selectors: [
+  scopes: [
     "attribute",
     "string",
     "keyword",
@@ -90,7 +101,7 @@ const CSS = {
 const TEMPLATES = {
   name: "Templates/HTML/XML, etc.",
   required: true,
-  selectors: [
+  scopes: [
     "tag",
     "name",
     "attr",
@@ -103,7 +114,7 @@ const TEMPLATES = {
 const DIFF = {
   name: "Diff",
   required: true,
-  selectors: [
+  scopes: [
     "meta",
     "comment",
     "addition",
@@ -125,7 +136,6 @@ function matching_rules(selector, rules) {
 function has_rule(selector, rules) {
   if (matching_rules(selector, rules).length > 0) return true;
 
-  console.log(`Missing selector ${selector}`);
   return false;
 }
 
@@ -134,22 +144,44 @@ function skips_rule(selector, rules) {
     .some(rule => rule.declarations.length === 0);
 }
 
-function nameToSelector(name) {
-  return `.hljs-${name}`;
+const expandScopeName = (name, { prefix }) => {
+  if (name.includes(".")) {
+    const pieces = name.split(".");
+    return [
+      `${prefix}${pieces.shift()}`,
+      ...(pieces.map((x, i) => `${x}${"_".repeat(i + 1)}`))
+    ].join(".");
+  }
+  return `${prefix}${name}`;
+};
+
+function scopeToSelector(name) {
+  return name.split(" ").map(n => expandScopeName(n, { prefix: ".hljs-" })).join(" ");
 }
 
 function check_group(group, rules) {
-  const has_rules = group.selectors.map(klass => {
-    const selector = nameToSelector(klass);
-    if (skips_rule(selector, rules)) {
-      console.log(`${selector} is not highlighted.`.cyan);
-    }
-    return has_rule(selector, rules);
+  const has_rules = group.scopes.map(scope => {
+    const selector = scopeToSelector(scope);
+    return [scope, has_rule(selector, rules), skips_rule(selector, rules)];
   });
 
 
-  if (has_rules.includes(false)) {
-    console.log(`Theme does not fully support ${group.name}.\n`.yellow)
+  let doesNotSupport = has_rules.map(x => x[1]).includes(false);
+  let skipped = has_rules.find(x => x[2]);
+  if (doesNotSupport || skipped) {
+    console.log(group.name.yellow);
+    if (doesNotSupport) {
+      console.log(`- Theme does not fully support.`.brightMagenta);
+    }
+
+    has_rules.filter(x => !x[1]).forEach(([scope,_]) => {
+      const selector = scopeToSelector(scope);
+      console.log(`- scope ${scope.cyan} is not highlighted\n  (css: ${selector.green})`);
+    });
+    has_rules.filter(x => x[2]).forEach(([scope,_]) => {
+      console.log(` - scope ${scope.cyan} [purposely] un-highlighted.`.cyan);
+    });
+    console.log();
   }
 }
 
@@ -161,8 +193,9 @@ function validate(data) {
   check_group(CONFIG, rules);
   check_group(CSS, rules);
   check_group(MARKUP, rules);
-  check_group(OTHER, rules);
   check_group(CODE, rules);
+  check_group(OTHER, rules);
+  check_group(HIGH_FIDELITY, rules);
 }
 
 process.argv.shift();

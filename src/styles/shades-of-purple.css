@@ -61,7 +61,7 @@
 }
 
 .hljs-meta,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #fb9e00;
 }
 

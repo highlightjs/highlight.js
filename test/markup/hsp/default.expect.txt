@@ -1,4 +1,4 @@
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;foo.hsp&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;foo.hsp&quot;</span></span>
 
 	<span class="hljs-comment">// line comment</span>
 	message = <span class="hljs-string">&quot;Hello, World!&quot;</span>

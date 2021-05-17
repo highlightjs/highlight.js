@@ -108,7 +108,7 @@ export default function(hljs) {
               begin: /@[a-zA-Z]+/
             },
             {
-              className: 'meta-keyword',
+              className: 'keyword',
               begin: /\\[a-zA-Z]+/,
             }
           ]

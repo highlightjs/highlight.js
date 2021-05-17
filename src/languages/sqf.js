@@ -2463,7 +2463,7 @@ export default function(hljs) {
     begin: /#\s*[a-z]+\b/,
     end: /$/,
     keywords: {
-      'meta-keyword':
+      keyword:
         'define undef ifdef ifndef else endif include'
     },
     contains: [
@@ -2472,10 +2472,10 @@ export default function(hljs) {
         relevance: 0
       },
       hljs.inherit(STRINGS, {
-        className: 'meta-string'
+        className: 'string'
       }),
       {
-        className: 'meta-string',
+        className: 'string',
         begin: /<[^\n>]*>/,
         end: /$/,
         illegal: '\\n'
