@@ -1,10 +1,13 @@
-/**
- * nnfx dark - a theme inspired by Netscape Navigator/Firefox
- *
- * @version 1.1.0
- * @author (c) 2020-2021 Jim Mason <jmason@ibinx.com>
- * @license https://creativecommons.org/licenses/by-sa/4.0  CC BY-SA 4.0
- */
+ /*!
+  Theme: nnfx dark
+  Description: a theme inspired by Netscape Navigator/Firefox
+  Author: (c) 2020-2021 Jim Mason <jmason@ibinx.com>
+  Maintainer: @RocketMan
+  License: https://creativecommons.org/licenses/by-sa/4.0  CC BY-SA 4.0
+  Updated: 2021-05-17
+
+  @version 1.1.0
+*/
 
 .hljs {
   background: #333;
