@@ -1,11 +1,41 @@
 /*
 Language: SQF
 Author: Søren Enevoldsen <senevoldsen90@gmail.com>
-Contributors: Marvin Saignat <contact@zgmrvn.com>, Dedmen Miller <dedmen@dedmen.de>
+Contributors: Marvin Saignat <contact@zgmrvn.com>, Dedmen Miller <dedmen@dedmen.de>, Leopard20
 Description: Scripting language for the Arma game series
 Website: https://community.bistudio.com/wiki/SQF_syntax
 Category: scripting
 Last update: 17.05.2021, Arma 3 v2.05
+*/
+
+/*
+////////////////////////////////////////////////////////////////////////////////////////////
+	* Author: Leopard20
+	
+	* Description:
+	This script can be used to dump all commands to the clipboard.
+	Make sure you're using the Diag EXE to dump all of the commands.
+	
+	* How to use:
+	Simply replace the _KEYWORDS and _LITERALS arrays with the one from this sqf.js file.
+	Execute the script from the debug console.
+	All commands will be copied to the clipboard.
+////////////////////////////////////////////////////////////////////////////////////////////
+_KEYWORDS = ['if'];                                                //Array of all KEYWORDS
+_LITERALS = ['west'];                                              //Array of all LITERALS
+_allCommands = createHashMap;
+{
+	_type = _x select [0,1];
+	if (_type != "t") then {
+		_command_lowercase = ((_x select [2]) splitString " ")#(((["n", "u", "b"] find _type) - 1) max 0);
+		_command_uppercase = supportInfo ("i:" + _command_lowercase) # 0 # 2;
+		_allCommands set [_command_lowercase, _command_uppercase];
+	};
+} forEach supportInfo "";
+_allCommands = _allCommands toArray false;
+_allCommands sort true;                                            //sort by lowercase
+_allCommands = ((_allCommands apply {_x#1}) -_KEYWORDS)-_LITERALS; //remove KEYWORDS and LITERALS
+copyToClipboard str (_allCommands select {_x regexMatch "\w+"});
 */
 
 export default function(hljs) {
@@ -2473,6 +2503,10 @@ export default function(hljs) {
       STRINGS,
       PREPROCESSOR
     ],
-    illegal: /\w\$|\?|\@/
+    illegal: [
+      '\w\$',  //$ is only valid when used with Hex numbers (e.g. $FF) or at the beginning of localized strings (e.g. "$STR_HELLO")
+      '\?',    //There's no ? in SQF
+      '\@/'    //There's no @ in SQF
+    ]
   };
 }
