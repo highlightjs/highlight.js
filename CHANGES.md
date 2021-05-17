@@ -32,6 +32,7 @@ Themes:
 - The default padding of all themes increases (0.5em => 1em).
 - `schoolbook` has been updated to remove the lined background.
 - `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+- `github-gist` has been removed in favor of `github` [Jan Pilzer][]
 - Base16 named themes have been updated to their "canonical" versions
 
 Language Grammars:
@@ -116,6 +117,7 @@ Theme Improvements:
 New Themes:
 
 - DeviBeans Dark by [Farzad Sadeghi][]
+- GitHub Dark and GitHub Dark Dimmed [Jan Pilzer][]
 
 Dev Improvements:
 
@@ -136,6 +138,7 @@ Dev Improvements:
 [Mike Watling]: https://github.com/Pickysaurus
 [Nico Abram]: https://github.com/nico-abram
 [James Edington]: http://www.ishygddt.xyz/
+[Jan Pilzer]: https://github.com/Hirse
 
 
 ## Version 10.7.1
@@ -209,7 +212,6 @@ Deprecations:
 [David Ostrovsky]: https://github.com/davido
 [AndyKIron]: https://github.com/AndyKIron
 [Samuel Colvin]: https://github.com/samuelcolvin
-[Jan Pilzer]: https://github.com/Hirse
 
 ## Version 10.6.0
 
@@ -255,6 +257,7 @@ Deprecations:
 [Josh Goebel]: https://github.com/joshgoebel
 [Vaibhav Chanana]: https://github.com/il3ven
 [davidhcefx]: https://github.com/davidhcefx
+[Jan Pilzer]: https://github.com/Hirse
 
 
 ## Version 10.5.0
