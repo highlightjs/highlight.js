@@ -186,7 +186,7 @@ export default function(hljs) {
             scope: { 2: 'number' },
             relevance: 0,
             match: [
-              /[^a-zA-Z0-9._]|^/, // not part of an identifier
+              /[^a-zA-Z0-9._]|^/, // not part of an identifier, or start of document
               NUMBER_TYPES_RE
             ]
           }
