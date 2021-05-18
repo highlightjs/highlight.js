@@ -27,7 +27,14 @@ export default function(hljs) {
     /(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?/
   );
   const OPERATORS_RE = /[=!<>:]=|\|\||&&|:::?|<-|<<-|->>|->|\|>|[-+*\/?!$&|:<=>@^~]|\*\*/;
-  const PUNCTUATION_RE = /\[\[|[(){}[\]\\,]/;
+  const PUNCTUATION_RE = regex.either(
+    /[()]/,
+    /[{}]/,
+    /\[\[/,
+    /[[\]]/,
+    /\\/,
+    /,/
+  );
 
   return {
     name: 'R',
