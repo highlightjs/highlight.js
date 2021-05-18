@@ -196,6 +196,10 @@ export default function(hljs) {
       // Operators/punctuation when they're not directly followed by numbers
       {
         scope: 'operator',
+        match: /<-/
+      },
+      {
+        scope: 'operator',
         variants: [
           {
             relevance: 0,
