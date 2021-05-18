@@ -178,8 +178,8 @@ export default function(hljs) {
               2: 'number'
             },
             match: [
-              PUNCTUATION,
-              NUMBER_TYPES
+              PUNCTUATION_RE,
+              NUMBER_TYPES_RE
             ]
           },
           {
