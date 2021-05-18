@@ -18,7 +18,7 @@ export default function(hljs) {
   // handled in a separate mode. See `test/markup/r/names.txt` for examples.
   // FIXME: Support Unicode identifiers.
   const IDENT_RE = /(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)/;
-  const NUMBER_TYPES = regex.either(
+  const NUMBER_TYPES_RE = regex.either(
     // Special case: only hexadecimal binary powers can contain fractions
     /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/,
     // Hexadecimal numbers without fraction and optional binary power
@@ -26,8 +26,8 @@ export default function(hljs) {
     // Decimal numbers
     /(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?/
   );
-  const OPERATORS = /[=!<>:]=|\|\||&&|:::?|<-|<<-|->>|->|\|>|[-+*\/?!$&|:<=>@^~]|\*\*/;
-  const PUNCTUATION = /\[\[|[(){}[\]\\,]/;
+  const OPERATORS_RE = /[=!<>:]=|\|\||&&|:::?|<-|<<-|->>|->|\|>|[-+*\/?!$&|:<=>@^~]|\*\*/;
+  const PUNCTUATION_RE = /\[\[|[(){}[\]\\,]/;
 
   return {
     name: 'R',
@@ -158,8 +158,8 @@ export default function(hljs) {
               2: 'number'
             },
             match: [
-              OPERATORS,
-              NUMBER_TYPES
+              OPERATORS_RE,
+              NUMBER_TYPES_RE
             ]
           },
           {
@@ -169,7 +169,7 @@ export default function(hljs) {
             },
             match: [
               /%[^%]*%/,
-              NUMBER_TYPES
+              NUMBER_TYPES_RE
             ]
           },
           {
@@ -187,7 +187,7 @@ export default function(hljs) {
             relevance: 0,
             match: [
               /[^a-zA-Z0-9._]|^/, // not part of an identifier
-              NUMBER_TYPES
+              NUMBER_TYPES_RE
             ]
           }
         ]
@@ -199,7 +199,7 @@ export default function(hljs) {
         variants: [
           {
             relevance: 0,
-            match: OPERATORS
+            match: OPERATORS_RE
           },
           { match: /%[^%]*%/ }
         ]
@@ -208,7 +208,7 @@ export default function(hljs) {
       {
         scope: 'punctuation',
         relevance: 0,
-        match: PUNCTUATION
+        match: PUNCTUATION_RE
       },
 
       {
