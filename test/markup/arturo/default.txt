@@ -1,0 +1,84 @@
+;
+; Brainf*ck compiler
+; In Arturo
+;
+ 
+Tape: [0]
+DataPointer: new 0
+InstructionPointer: new 0
+ 
+; Look for jumps in Code an register them
+; in the Jumps table
+ 
+precomputeJumps: function [][
+    vstack: new []
+    jumphash: new #[]
+    instrPointer: 0
+ 
+    while [instrPointer<CodeLength] [
+        command: get split Code instrPointer
+        if? command="[" -> 'vstack ++ instrPointer
+        else [
+            if command="]" [
+                target: last vstack
+                chop 'vstack
+                jumphash\[target]: instrPointer
+                jumphash\[instrPointer]: target
+            ]
+        ]
+        instrPointer: instrPointer+1
+    ]
+    jumphash
+]
+ 
+; Check if current state is valid
+ 
+StateIsValid: function [][
+    all? @[
+        0 =< DataPointer 
+        DataPointer < size Tape
+        0 =< InstructionPointer 
+        InstructionPointer < CodeLength
+    ]
+]
+
+; Compile the program
+ 
+interpret: function [].export:[DataPointer,InstructionPointer,Tape][
+    while [StateIsValid][
+        command: get split Code InstructionPointer
+        case [command=]
+            when? ["+"] -> Tape\[DataPointer]: Tape\[DataPointer]+1
+            when? ["-"] -> Tape\[DataPointer]: Tape\[DataPointer]-1
+            when? [">"] [
+                inc 'DataPointer
+                if DataPointer = size Tape -> Tape: Tape ++ 0
+            ]
+            when? ["<"] -> dec 'DataPointer
+            when? ["."] -> prints to :string to :char Tape\[DataPointer]
+            when? [","][
+                inp: to :integer input ""
+                if inp=13 -> inp: 10
+                if inp=3  -> panic "something went wrong!"
+                set Tape DataPointer inp
+            ]
+            when? ["["] ->
+                if 0 = get Tape DataPointer [ InstructionPointer: new get Jumps InstructionPointer ]
+
+            when? ["]"] ->
+                if 0 <> get Tape DataPointer [
+                    InstructionPointer: new get Jumps InstructionPointer
+                ]
+ 
+        inc 'InstructionPointer
+    ]
+]
+ 
+Code: ""
+if? 1>size arg  -> Code: "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>."
+else            -> Code: read arg\0
+
+CodeLength: size Code
+Jumps: precomputeJumps
+
+interpret
