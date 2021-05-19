@@ -1,0 +1,84 @@
+<span class="hljs-comment">;</span>
+<span class="hljs-comment">; Brainf*ck compiler</span>
+<span class="hljs-comment">; In Arturo</span>
+<span class="hljs-comment">;</span>
+ 
+<span class="hljs-addition">Tape:</span> [0]
+<span class="hljs-addition">DataPointer:</span> <span class="hljs-built_in">new</span> 0
+<span class="hljs-addition">InstructionPointer:</span> <span class="hljs-built_in">new</span> 0
+ 
+<span class="hljs-comment">; Look for jumps in Code an register them</span>
+<span class="hljs-comment">; in the Jumps table</span>
+ 
+<span class="hljs-addition">precomputeJumps:</span> <span class="hljs-built_in">function</span> [][
+    <span class="hljs-addition">vstack:</span> <span class="hljs-built_in">new</span> []
+    <span class="hljs-addition">jumphash:</span> <span class="hljs-built_in">new</span> <span class="hljs-deletion">#</span>[]
+    <span class="hljs-addition">instrPointer:</span> 0
+ 
+    <span class="hljs-built_in">while</span> [instrPointer<span class="hljs-deletion">&lt;</span>CodeLength] [
+        <span class="hljs-addition">command:</span> <span class="hljs-built_in">get</span> <span class="hljs-built_in">split</span> Code instrPointer
+        <span class="hljs-built_in">if?</span> command<span class="hljs-deletion">=</span><span class="hljs-string">&quot;[&quot;</span> <span class="hljs-strong">-&gt;</span> <span class="hljs-keyword">&#x27;vstack</span> <span class="hljs-deletion">+</span><span class="hljs-deletion">+</span> instrPointer
+        <span class="hljs-built_in">else</span> [
+            <span class="hljs-built_in">if</span> command<span class="hljs-deletion">=</span><span class="hljs-string">&quot;]&quot;</span> [
+                <span class="hljs-addition">target:</span> <span class="hljs-built_in">last</span> vstack
+                <span class="hljs-built_in">chop</span> <span class="hljs-keyword">&#x27;vstack</span>
+                jumphash<span class="hljs-deletion">\</span>[target]: instrPointer
+                jumphash<span class="hljs-deletion">\</span>[instrPointer]: target
+            ]
+        ]
+        <span class="hljs-addition">instrPointer:</span> instrPointer<span class="hljs-deletion">+</span>1
+    ]
+    jumphash
+]
+ 
+<span class="hljs-comment">; Check if current state is valid</span>
+ 
+<span class="hljs-addition">StateIsValid:</span> <span class="hljs-built_in">function</span> [][
+    <span class="hljs-built_in">all?</span> <span class="hljs-deletion">@</span>[
+        0 <span class="hljs-deletion">=</span><span class="hljs-deletion">&lt;</span> DataPointer 
+        DataPointer <span class="hljs-deletion">&lt;</span> <span class="hljs-built_in">size</span> Tape
+        0 <span class="hljs-deletion">=</span><span class="hljs-deletion">&lt;</span> InstructionPointer 
+        InstructionPointer <span class="hljs-deletion">&lt;</span> CodeLength
+    ]
+]
+
+<span class="hljs-comment">; Compile the program</span>
+ 
+<span class="hljs-addition">interpret:</span> <span class="hljs-built_in">function</span> [].<span class="hljs-addition">export:</span>[DataPointer,InstructionPointer,Tape][
+    <span class="hljs-built_in">while</span> [StateIsValid][
+        <span class="hljs-addition">command:</span> <span class="hljs-built_in">get</span> <span class="hljs-built_in">split</span> Code InstructionPointer
+        <span class="hljs-built_in">case</span> [command<span class="hljs-deletion">=</span>]
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;+&quot;</span>] <span class="hljs-strong">-&gt;</span> Tape<span class="hljs-deletion">\</span>[DataPointer]: Tape<span class="hljs-deletion">\</span>[DataPointer]<span class="hljs-deletion">+</span>1
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;-&quot;</span>] <span class="hljs-strong">-&gt;</span> Tape<span class="hljs-deletion">\</span>[DataPointer]: Tape<span class="hljs-deletion">\</span>[DataPointer]<span class="hljs-deletion">-</span>1
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;&gt;&quot;</span>] [
+                <span class="hljs-built_in">inc</span> <span class="hljs-keyword">&#x27;DataPointer</span>
+                <span class="hljs-built_in">if</span> DataPointer <span class="hljs-deletion">=</span> <span class="hljs-built_in">size</span> Tape <span class="hljs-strong">-&gt;</span> <span class="hljs-addition">Tape:</span> Tape <span class="hljs-deletion">+</span><span class="hljs-deletion">+</span> 0
+            ]
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;&lt;&quot;</span>] <span class="hljs-strong">-&gt;</span> <span class="hljs-built_in">dec</span> <span class="hljs-keyword">&#x27;DataPointer</span>
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;.&quot;</span>] <span class="hljs-strong">-&gt;</span> <span class="hljs-built_in">prints</span> <span class="hljs-built_in">to</span> <span class="hljs-keyword">:string</span> <span class="hljs-built_in">to</span> <span class="hljs-keyword">:char</span> Tape<span class="hljs-deletion">\</span>[DataPointer]
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;,&quot;</span>][
+                <span class="hljs-addition">inp:</span> <span class="hljs-built_in">to</span> <span class="hljs-keyword">:integer</span> <span class="hljs-built_in">input</span> <span class="hljs-string">&quot;&quot;</span>
+                <span class="hljs-built_in">if</span> inp<span class="hljs-deletion">=</span>13 <span class="hljs-strong">-&gt;</span> <span class="hljs-addition">inp:</span> 10
+                <span class="hljs-built_in">if</span> inp<span class="hljs-deletion">=</span>3  <span class="hljs-strong">-&gt;</span> <span class="hljs-built_in">panic</span> <span class="hljs-string">&quot;something went wrong!&quot;</span>
+                <span class="hljs-built_in">set</span> Tape DataPointer inp
+            ]
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;[&quot;</span>] <span class="hljs-strong">-&gt;</span>
+                <span class="hljs-built_in">if</span> 0 <span class="hljs-deletion">=</span> <span class="hljs-built_in">get</span> Tape DataPointer [ <span class="hljs-addition">InstructionPointer:</span> <span class="hljs-built_in">new</span> <span class="hljs-built_in">get</span> Jumps InstructionPointer ]
+
+            <span class="hljs-built_in">when?</span> [<span class="hljs-string">&quot;]&quot;</span>] <span class="hljs-strong">-&gt;</span>
+                <span class="hljs-built_in">if</span> 0 <span class="hljs-deletion">&lt;</span><span class="hljs-deletion">&gt;</span> <span class="hljs-built_in">get</span> Tape DataPointer [
+                    <span class="hljs-addition">InstructionPointer:</span> <span class="hljs-built_in">new</span> <span class="hljs-built_in">get</span> Jumps InstructionPointer
+                ]
+ 
+        <span class="hljs-built_in">inc</span> <span class="hljs-keyword">&#x27;InstructionPointer</span>
+    ]
+]
+ 
+<span class="hljs-addition">Code:</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-built_in">if?</span> 1<span class="hljs-deletion">&gt;</span><span class="hljs-built_in">size</span> <span class="hljs-built_in">arg</span>  <span class="hljs-strong">-&gt;</span> <span class="hljs-addition">Code:</span> <span class="hljs-string">&quot;++++++++++[&gt;+++++++&gt;++++++++++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;++.&gt;+.+++++++..+++.&gt;++.&lt;&lt;+++++++++++++++.&gt;.+++.------.--------.&gt;+.&gt;.&quot;</span>
+<span class="hljs-built_in">else</span>            <span class="hljs-strong">-&gt;</span> <span class="hljs-addition">Code:</span> <span class="hljs-built_in">read</span> <span class="hljs-built_in">arg</span><span class="hljs-deletion">\</span>0
+
+<span class="hljs-addition">CodeLength:</span> <span class="hljs-built_in">size</span> Code
+<span class="hljs-addition">Jumps:</span> precomputeJumps
+
+interpret
