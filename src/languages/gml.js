@@ -1872,7 +1872,6 @@ export default function(hljs) {
     "keyboard_virtual_height"
   ];
   const LITERALS = [
-    "self",
     "other",
     "all",
     "noone",
@@ -2777,6 +2776,9 @@ export default function(hljs) {
     "phy_position_xprevious",
     "phy_position_yprevious"
   ];
+  const LANGUAGE_VARIABLES = [
+    "self"
+  ];
 
   return {
     name: 'GML',
@@ -2785,7 +2787,8 @@ export default function(hljs) {
       keyword: KEYWORDS,
       built_in: BUILT_INS,
       literal: LITERALS,
-      symbol: SYMBOLS
+      symbol: SYMBOLS,
+      "variable.language": LANGUAGE_VARIABLES
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
