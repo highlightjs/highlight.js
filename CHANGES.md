@@ -103,6 +103,7 @@ Grammars:
 
 New Languages:
 
+- Added Arturo support [drkameleon][]
 - Added 3rd party Glimmer grammar to SUPPORTED_LANGUAGES(#3123) [NullVoxPopuli][]
 - Added Wren support [Josh Goebel][]
 - Added NestedText support [Josh Goebel][]
