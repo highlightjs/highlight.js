@@ -202,12 +202,6 @@ export default function(hljs) {
 
       // Operators/punctuation when they're not directly followed by numbers
       {
-        // Avoid false detections of other languages.
-        scope: 'operator',
-        relevance: 0,
-        match: /<-/
-      },
-      {
         // Relevance boost for the most common assignment form.
         scope: { 3: 'operator' },
         match: [
@@ -217,6 +211,7 @@ export default function(hljs) {
           /\s+/
         ]
       },
+
       {
         scope: 'operator',
         variants: [
