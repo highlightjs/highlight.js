@@ -46,6 +46,8 @@ Language Grammars:
 
 Parser:
 
+- enh(vala) improve language detection for Vala (#3195) [Konrad Rudolph][]
+- enh(r) add support for operators, fix number highlighting bug (#3194, #3195) [Konrad Rudolph][]
 - enh(parser) add `beginScope` and `endScope` to allow separate scoping begin and end (#3159) [Josh Goebel][]
 - enh(parsed) `endScope` now supports multi-class matchers as well (#3159) [Josh Goebel][]
 - enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]
