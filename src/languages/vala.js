@@ -52,7 +52,6 @@ export default function(hljs) {
         className: 'meta',
         begin: '^#',
         end: '$',
-        relevance: 2
       }
     ]
   };

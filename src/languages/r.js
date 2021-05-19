@@ -191,7 +191,6 @@ export default function(hljs) {
           },
           {
             scope: { 2: 'number' },
-            relevance: 0,
             match: [
               /[^a-zA-Z0-9._]|^/, // not part of an identifier, or start of document
               NUMBER_TYPES_RE
@@ -214,11 +213,9 @@ export default function(hljs) {
 
       {
         scope: 'operator',
+        relevance: 0,
         variants: [
-          {
-            relevance: 0,
-            match: OPERATORS_RE
-          },
+          { match: OPERATORS_RE },
           { match: /%[^%]*%/ }
         ]
       },
