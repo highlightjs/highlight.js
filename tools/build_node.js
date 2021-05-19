@@ -15,7 +15,7 @@ const safeImportName = (s) => {
 };
 
 async function buildESMIndex(name, languages) {
-  const header = `import hljs from './core.js';`;
+  const header = `import hljs from 'highlight.js/lib/core';`;
   const footer = "export default hljs;";
 
 
@@ -119,7 +119,10 @@ async function buildPackageJSON(options) {
     ".": dual("./lib/index.js"),
     "./package.json": "./package.json",
     "./lib/common": dual("./lib/common.js"),
-    "./lib/core": dual("./lib/core.js"),
+    "./lib/core": {
+      get node() { return this.require; },
+      ...dual("./lib/core.js"),
+    },
     "./lib/languages/*": dual("./lib/languages/*.js"),
     "./scss/*": "./scss/*",
     "./styles/*": "./styles/*",
