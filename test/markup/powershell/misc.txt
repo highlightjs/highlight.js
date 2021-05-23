@@ -19,7 +19,6 @@ enum MediaTypes {
 "Good Dog" -match "Dog"
 2 -eq 2
 "abc" -ne "def"
-"abc" --ne "def"
 
 $hash = @{
     SomeKey = 'SomeValue'
