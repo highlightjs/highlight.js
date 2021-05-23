@@ -46,6 +46,7 @@ Language Grammars:
 
 Parser:
 
+- fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
 - enh(vala) improve language detection for Vala (#3195) [Konrad Rudolph][]
 - enh(r) add support for operators, fix number highlighting bug (#3194, #3195) [Konrad Rudolph][]
 - enh(parser) add `beginScope` and `endScope` to allow separate scoping begin and end (#3159) [Josh Goebel][]
