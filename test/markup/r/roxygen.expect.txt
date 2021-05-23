@@ -22,3 +22,7 @@ sum_all <span class="hljs-operator">&lt;-</span> <span class="hljs-keyword">func
 <span class="hljs-comment"># Weird identifier in @param string</span>
 
 <span class="hljs-comment">#&#x27; <span class="hljs-doctag">@param <span class="hljs-variable">`a\`b\\`</span></span> test</span>
+
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@examples</span>
+#&#x27; test = &#x27;\code{1 + 2} @return&#x27;</span>
+format <span class="hljs-operator">=</span> <span class="hljs-keyword">function</span> <span class="hljs-punctuation">(</span>str<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>

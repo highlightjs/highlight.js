@@ -88,13 +88,12 @@ export default function(hljs) {
               begin: '@examples',
               starts: {
                 contains: [
-                  { begin: /\n/ },
                   {
-                    begin: /#'\s*(?=@[a-zA-Z]+)/,
+                    begin: /\n#'\s*(?=@[a-zA-Z]+)/,
                     endsParent: true,
                   },
                   {
-                    begin: /#'/,
+                    begin: /\n#'/,
                     end: /$/,
                     excludeBegin: true,
                   }
