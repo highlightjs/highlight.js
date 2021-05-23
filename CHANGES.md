@@ -62,6 +62,7 @@ Parser:
 
 Grammars:
 
+- fix(ps1) Flag highlighted incorrectly (#3167) [Josh Goebel][]
 - enh(all) `.meta-keyword` => `.meta .keyword` (nested scopes) (#3167) [Josh Goebel][]
 - enh(all) `.meta-string` => `.meta .string` (nested scopes) (#3167) [Josh Goebel][]
 - enh(swift) add `actor` keyword (#3171) [Bradley Mackey][]
