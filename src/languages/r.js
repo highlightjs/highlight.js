@@ -88,14 +88,19 @@ export default function(hljs) {
               match: '@examples',
               starts: {
                 contains: [
+                  // Continue mode into the next doc comment line ...
                   {
-                    match: /\n#'\s*(?=@[a-zA-Z]+)/,
+                    match: /\n(?=#')/,
+                  },
+                  // ... but stop if that line starts with a new Roxygen tag ...
+                  {
+                    match: /^#'\s*(?=@[a-zA-Z]+)/,
                     endsParent: true
                   },
+                  // ... otherwise consume the line.
                   {
-                    begin: /\n#'/,
-                    end: /$/,
-                    excludeBegin: true
+                    begin: /^/,
+                    end: /$/
                   }
                 ]
               }
