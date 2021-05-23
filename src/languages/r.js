@@ -85,17 +85,17 @@ export default function(hljs) {
               // doctags shouldn’t be treated as such. See
               // `test/markup/r/roxygen.txt` for an example.
               scope: 'doctag',
-              begin: '@examples',
+              match: '@examples',
               starts: {
                 contains: [
                   {
-                    begin: /\n#'\s*(?=@[a-zA-Z]+)/,
-                    endsParent: true,
+                    match: /\n#'\s*(?=@[a-zA-Z]+)/,
+                    endsParent: true
                   },
                   {
                     begin: /\n#'/,
                     end: /$/,
-                    excludeBegin: true,
+                    excludeBegin: true
                   }
                 ]
               }
@@ -110,8 +110,8 @@ export default function(hljs) {
                 {
                   scope: 'variable',
                   variants: [
-                    { begin: IDENT_RE },
-                    { begin: /`(?:\\.|[^`\\])+`/ }
+                    { match: IDENT_RE },
+                    { match: /`(?:\\.|[^`\\])+`/ }
                   ],
                   endsParent: true
                 }
@@ -119,11 +119,11 @@ export default function(hljs) {
             },
             {
               scope: 'doctag',
-              begin: /@[a-zA-Z]+/
+              match: /@[a-zA-Z]+/
             },
             {
               scope: 'keyword',
-              begin: /\\[a-zA-Z]+/,
+              match: /\\[a-zA-Z]+/
             }
           ]
         }
