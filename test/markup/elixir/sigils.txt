@@ -21,3 +21,12 @@
 ~s[hello #{name}]
 ~s{hello #{name}}
 ~s<hello #{name}>
+
+~r/hello/
+~r|hello|
+~r"hello"
+~r'hello'
+~r(hello)
+~r[hello]
+~r{hello}
+~r<hello>

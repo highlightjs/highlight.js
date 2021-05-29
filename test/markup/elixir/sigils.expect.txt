@@ -21,3 +21,12 @@
 <span class="hljs-string">~s[hello <span class="hljs-subst">#{name}</span>]</span>
 <span class="hljs-string">~s{hello <span class="hljs-subst">#{name}</span>}</span>
 <span class="hljs-string">~s&lt;hello <span class="hljs-subst">#{name}</span>&gt;</span>
+
+<span class="hljs-string">~r/hello/</span>
+<span class="hljs-string">~r|hello|</span>
+<span class="hljs-string">~r&quot;hello&quot;</span>
+<span class="hljs-string">~r&#x27;hello&#x27;</span>
+<span class="hljs-string">~r(hello)</span>
+<span class="hljs-string">~r[hello]</span>
+<span class="hljs-string">~r{hello}</span>
+<span class="hljs-string">~r&lt;hello&gt;</span>

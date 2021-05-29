@@ -10,17 +10,53 @@ Website: https://elixir-lang.org
 export default function(hljs) {
   const ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(!|\\?)?';
   const ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
-  const ELIXIR_KEYWORDS = {
+  const KEYWORDS = [
+    "alias",
+    "alias",
+    "and",
+    "begin",
+    "break",
+    "case",
+    "cond",
+    "defined",
+    "do",
+    "end",
+    "ensure",
+    "false",
+    "fn",
+    "for",
+    "import",
+    "in",
+    "include",
+    "module",
+    "next",
+    "nil",
+    "not",
+    "or",
+    "quote",
+    "redo",
+    "require",
+    "retry",
+    "return",
+    "self",
+    "then",
+    "true",
+    "unless",
+    "until",
+    "use",
+    "when",
+    "while",
+    "with|0"
+  ];
+  const KWS = {
     $pattern: ELIXIR_IDENT_RE,
-    keyword: 'and false then defined module in return redo retry end for true self when ' +
-    'next until do begin unless nil break not case cond alias while ensure or ' +
-    'include use alias fn quote require import with|0'
+    keyword: KEYWORDS
   };
   const SUBST = {
     className: 'subst',
     begin: /#\{/,
     end: /\}/,
-    keywords: ELIXIR_KEYWORDS
+    keywords: KWS
   };
   const NUMBER = {
     className: 'number',
@@ -28,54 +64,50 @@ export default function(hljs) {
     relevance: 0
   };
   const SIGIL_DELIMITERS = '[/|([{<"\']';
+  const SIGIL_DELIMITER_MODES = [
+    {
+      begin: /"/,
+      end: /"/
+    },
+    {
+      begin: /'/,
+      end: /'/
+    },
+    {
+      begin: /\//,
+      end: /\//
+    },
+    {
+      begin: /\|/,
+      end: /\|/
+    },
+    {
+      begin: /\(/,
+      end: /\)/
+    },
+    {
+      begin: /\[/,
+      end: /\]/
+    },
+    {
+      begin: /\{/,
+      end: /\}/
+    },
+    {
+      begin: /</,
+      end: />/
+    }
+  ];
   const LOWERCASE_SIGIL = {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: [
       {
-        endsParent: true,
         contains: [
-          {
-            contains: [
-              hljs.BACKSLASH_ESCAPE,
-              SUBST
-            ],
-            variants: [
-              {
-                begin: /"/,
-                end: /"/
-              },
-              {
-                begin: /'/,
-                end: /'/
-              },
-              {
-                begin: /\//,
-                end: /\//
-              },
-              {
-                begin: /\|/,
-                end: /\|/
-              },
-              {
-                begin: /\(/,
-                end: /\)/
-              },
-              {
-                begin: /\[/,
-                end: /\]/
-              },
-              {
-                begin: /\{/,
-                end: /\}/
-              },
-              {
-                begin: /</,
-                end: />/
-              }
-            ]
-          }
-        ]
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ],
+        variants: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x))
       }
     ]
   };
@@ -83,40 +115,7 @@ export default function(hljs) {
   const UPCASE_SIGIL = {
     className: 'string',
     begin: '~[A-Z]' + '(?=' + SIGIL_DELIMITERS + ')',
-    contains: [
-      {
-        begin: /"/,
-        end: /"/
-      },
-      {
-        begin: /'/,
-        end: /'/
-      },
-      {
-        begin: /\//,
-        end: /\//
-      },
-      {
-        begin: /\|/,
-        end: /\|/
-      },
-      {
-        begin: /\(/,
-        end: /\)/
-      },
-      {
-        begin: /\[/,
-        end: /\]/
-      },
-      {
-        begin: /\{/,
-        end: /\}/
-      },
-      {
-        begin: /</,
-        end: />/
-      }
-    ]
+    contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x))
   };
 
   const STRING = {
@@ -226,6 +225,10 @@ export default function(hljs) {
           contains: [NUMBER]
         },
         {
+          scope: "number",
+          match: /&[a-z][a-z_]+\??\/\d+/
+        },
+        {
           className: 'regexp',
           illegal: '\\n',
           contains: [
@@ -251,7 +254,7 @@ export default function(hljs) {
 
   return {
     name: 'Elixir',
-    keywords: ELIXIR_KEYWORDS,
+    keywords: KWS,
     contains: ELIXIR_DEFAULT_CONTAINS
   };
 }
