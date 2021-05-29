@@ -118,6 +118,27 @@ export default function(hljs) {
     contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x))
   };
 
+  const REGEX_SIGIL = {
+    className: 'regex',
+    variants: [
+      {
+        begin: '~r' + '(?=' + SIGIL_DELIMITERS + ')',
+        contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
+          {
+            contains: [
+              hljs.BACKSLASH_ESCAPE,
+              SUBST
+            ]
+          }
+        ))
+      },
+      {
+        begin: '~R' + '(?=' + SIGIL_DELIMITERS + ')',
+        contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x))
+      }
+    ]
+  };
+
   const STRING = {
     className: 'string',
     contains: [
@@ -181,6 +202,7 @@ export default function(hljs) {
   });
   const ELIXIR_DEFAULT_CONTAINS = [
     STRING,
+    REGEX_SIGIL,
     UPCASE_SIGIL,
     LOWERCASE_SIGIL,
     hljs.HASH_COMMENT_MODE,
