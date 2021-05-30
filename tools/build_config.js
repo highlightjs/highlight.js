@@ -44,14 +44,10 @@ module.exports = {
     },
     browser: {
       input: {
-        plugins: [
-          cjsPlugin(),
-          jsonPlugin()
-        ]
+        plugins: []
       },
       output: {
-        format: "iife",
-        outro: "return module.exports.definer || module.exports;",
+        format: "es",
         interop: false
       }
     }

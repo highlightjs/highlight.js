@@ -95,22 +95,25 @@ function dual(file) {
   };
 }
 
-async function buildPackageJSON(options) {
+const generatePackageExports = () => ({
+  ".": dual("./lib/index.js"),
+  "./package.json": "./package.json",
+  "./lib/common": dual("./lib/common.js"),
+  "./lib/core": dual("./lib/core.js"),
+  "./lib/languages/*": dual("./lib/languages/*.js"),
+  "./scss/*": "./scss/*",
+  "./styles/*": "./styles/*",
+  "./types/*": "./types/*",
+});
+function buildPackageJSON(options, exports = generatePackageExports()) {
   const packageJson = require("../package");
 
-  const exports = {
-    ".": dual("./lib/index.js"),
-    "./package.json": "./package.json",
-    "./lib/common": dual("./lib/common.js"),
-    "./lib/core": dual("./lib/core.js"),
-    "./lib/languages/*": dual("./lib/languages/*.js"),
-    "./scss/*": "./scss/*",
-    "./styles/*": "./styles/*",
-    "./types/*": "./types/*",
-  };
   if (options.esm) packageJson.exports = exports;
 
-  await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
+  return packageJson;
+}
+function writePackageJSON(packageJson) {
+  return fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
 }
 
 async function buildLanguages(languages, options) {
@@ -170,7 +173,7 @@ async function buildNode(options) {
   const common = languages.filter(l => l.categories.includes("common"));
 
   log("Writing package.json.");
-  await buildPackageJSON(options);
+  await writePackageJSON(buildPackageJSON(options));
 
   if (options.esm) {
     await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
@@ -188,3 +191,4 @@ async function buildNode(options) {
 
 module.exports.build = buildNode;
 module.exports.buildPackageJSON = buildPackageJSON;
+module.exports.writePackageJSON = writePackageJSON;

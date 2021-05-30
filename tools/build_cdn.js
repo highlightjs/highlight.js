@@ -1,6 +1,7 @@
 const fs = require("fs").promises;
 const fss = require("fs");
 const glob = require("glob");
+const Terser = require("terser");
 const zlib = require('zlib');
 const { getLanguages } = require("./lib/language");
 const { filter } = require("./lib/dependencies");
@@ -8,13 +9,26 @@ const config = require("./build_config");
 const { install, installCleanCSS, mkdir } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
 const { buildBrowserHighlightJS } = require("./build_browser");
-const { buildPackageJSON } = require("./build_node");
+const { buildPackageJSON, writePackageJSON } = require("./build_node");
+const { rollupCode } = require("./lib/bundling.js");
 const path = require("path");
 const bundling = require('./lib/bundling.js');
 
 async function installPackageJSON(options) {
-  await buildPackageJSON(options);
-  const json = require(`${process.env.BUILD_DIR}/package`);
+  const json = buildPackageJSON(options, {
+    ".": {
+      import: "./es/index.js",
+      browser: "./highlight.min.js",
+    },
+    "./lib/languages/*": {
+      import: "./es/languages/*.js",
+      browser: "./languages/*.js"
+    },
+    "./lib/common": { import: "./es/index.js" },
+    "./lib/core": { import: "./es/core.js" },
+    "./styles/*": "./styles/*",
+    "./package.json": "./package.json",
+  });
   json.name = "@highlightjs/cdn-assets";
   json.description = json.description.concat(" (pre-compiled CDN assets)");
   // this is not a replacement for `highlightjs` package
@@ -22,7 +36,41 @@ async function installPackageJSON(options) {
   delete json.type;
   delete json.main;
   delete json.types;
-  fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
+  await writePackageJSON(json);
+}
+
+const safeImportName = (s) => {
+  s = s.replace(/-/g, "_");
+  if (/^\d/.test(s)) s = `L_${s}`;
+  return s;
+};
+
+async function buildESMIndex(name, languages) {
+  const header = `import hljs from './core.js';`;
+  const footer = "export default hljs;";
+
+  const registration = languages.map((lang) => {
+    const importName = safeImportName(lang.name);
+    return `import ${importName} from './languages/${lang.name}.js';\n` +
+      `hljs.registerLanguage('${lang.name}', ${importName});`;
+  });
+
+  const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
+  await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, index);
+}
+
+async function buildESMCore(options) {
+  const input = { ...config.rollup.node.input, input: `src/highlight.js` };
+  const output = {
+    ...config.rollup.node.output,
+    format: "es",
+    file: `${process.env.BUILD_DIR}/es/core.js`,
+  };
+  const core = await rollupCode(input, output);
+
+  const miniCore = options.minify ? await Terser.minify(core, config.terser) : { code: core };
+  await fs.writeFile(output.file, miniCore.code || core);
+  return miniCore.code.length;
 }
 
 let shas = {};
@@ -30,13 +78,21 @@ let shas = {};
 async function buildCDN(options) {
   install("./LICENSE", "LICENSE");
   install("./README.CDN.md", "README.md");
-  installPackageJSON(options);
+  await installPackageJSON(options);
 
   installStyles();
 
   // all the languages are built for the CDN and placed into `/languages`
   const languages = await getLanguages();
-  await installLanguages(languages);
+  
+  let esmCoreSize;
+  if (options.esm) {
+    mkdir("es");
+    await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
+    esmCoreSize = await buildESMCore(options);
+  }
+
+  await installLanguages(languages, options);
 
   // filter languages for inclusion in the highlight.js bundle
   let embedLanguages = filter(languages, options.languages);
@@ -49,6 +105,7 @@ async function buildCDN(options) {
   }
 
   const size = await buildBrowserHighlightJS(embedLanguages, { minify: options.minify });
+  if (options.esm) await buildESMIndex("index", embedLanguages, { minify: options.minify });
   shas = Object.assign({}, size.shas, shas);
 
   await buildSRIDigests(shas);
@@ -60,6 +117,8 @@ async function buildCDN(options) {
     languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
   log("highlight.js        :",
     size.full, "bytes");
+  if(options.esm)
+    log("es/core.js          :", esmCoreSize, "bytes");
 
   if (options.minify) {
     log("highlight.min.js    :", size.minified, "bytes");
@@ -86,13 +145,14 @@ async function buildSRIDigests(shas) {
   fs.writeFile(`${process.env.BUILD_DIR}/DIGESTS.md`, out);
 }
 
-async function installLanguages(languages) {
+async function installLanguages(languages, options) {
   log("Building language files.");
   mkdir("languages");
+  if(options.esm) mkdir("es/languages");
 
   await Promise.all(
     languages.map(async(language) => {
-      await buildCDNLanguage(language);
+      await buildCDNLanguage(language, options);
       process.stdout.write(".");
     })
   );
@@ -100,9 +160,7 @@ async function installLanguages(languages) {
 
   await Promise.all(
     languages.filter((l) => l.third_party)
-      .map(async(language) => {
-        await buildDistributable(language);
-      })
+      .map(buildDistributable)
   );
 
   log("");
@@ -131,16 +189,17 @@ async function buildDistributable(language) {
   const distDir = path.join(language.moduleDir, "dist");
   log(`Building ${distDir}/${filename}.`);
   await fs.mkdir(distDir, { recursive: true });
-  fs.writeFile(path.join(language.moduleDir, "dist", filename), language.minified);
+  await fs.writeFile(path.join(language.moduleDir, "dist", filename), language.minified);
 }
 
-async function buildCDNLanguage(language) {
+async function buildCDNLanguage(language, options) {
   const name = `languages/${language.name}.min.js`;
-  const filename = `${process.env.BUILD_DIR}/${name}`;
 
   await language.compile({ terser: config.terser });
   shas[name] = bundling.sha384(language.minified);
-  fs.writeFile(filename, language.minified);
+  await fs.writeFile(`${process.env.BUILD_DIR}/${name}`, language.minified);
+  if (options.esm)
+    await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}`, language.minifiedESM);
 }
 
 module.exports.build = buildCDN;
