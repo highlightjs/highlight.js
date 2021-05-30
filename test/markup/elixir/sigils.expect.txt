@@ -1,11 +1,11 @@
 <span class="hljs-regex">~R&#x27;this + i\s &quot;a&quot; regex too&#x27;</span>
 <span class="hljs-string">~w(hello <span class="hljs-subst">#{ [<span class="hljs-string">&quot;has&quot;</span> &lt;&gt; <span class="hljs-string">&quot;123&quot;</span>, <span class="hljs-string">&#x27;\c\d&#x27;</span>, <span class="hljs-string">&quot;\123 interpol&quot;</span> | []] }</span> world)</span>s
 <span class="hljs-string">~W(hello #{no &quot;123&quot; \c\d \123 interpol} world)</span>s
-<span class="hljs-string">~s{Escapes terminators \{ and \}, but no {balancing}</span> <span class="hljs-comment"># outside of sigil here }</span>
+<span class="hljs-string">~s{Escapes terminators <span class="hljs-char escape_">\{</span> and <span class="hljs-char escape_">\}</span>, but no {balancing}</span> <span class="hljs-comment"># outside of sigil here }</span>
 <span class="hljs-string">~S&quot;No escapes \s\t\n and no #{interpolation}&quot;</span>
 
 <span class="hljs-string">~S(No escapes \&quot; \&#x27; \\ \a \b \d \e \f \n \r \s \t \v \0)</span>
-<span class="hljs-string">~s(Plenty of escapes \&quot; \&#x27; \\ \a \b \d \e \f \n \r \s \t \v \0)</span>
+<span class="hljs-string">~s(Plenty of escapes <span class="hljs-char escape_">\&quot;</span> <span class="hljs-char escape_">\&#x27;</span> <span class="hljs-char escape_">\\</span> <span class="hljs-char escape_">\a</span> <span class="hljs-char escape_">\b</span> <span class="hljs-char escape_">\d</span> <span class="hljs-char escape_">\e</span> <span class="hljs-char escape_">\f</span> <span class="hljs-char escape_">\n</span> <span class="hljs-char escape_">\r</span> <span class="hljs-char escape_">\s</span> <span class="hljs-char escape_">\t</span> <span class="hljs-char escape_">\v</span> <span class="hljs-char escape_">\0</span>)</span>
 
 <span class="hljs-string">~S/hello/</span>
 <span class="hljs-string">~S|hello|</span>

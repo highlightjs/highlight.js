@@ -63,6 +63,18 @@ export default function(hljs) {
     begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(\\.[0-9_]+([eE][-+]?[0-9]+)?)?)',
     relevance: 0
   };
+  // TODO: could be tightened
+  // https://elixir-lang.readthedocs.io/en/latest/intro/18.html
+  // but you also need to include closing delemeters in the escape list per
+  // individual sigil mode from what I can tell,
+  // ie: \} might or might not be an escape depending on the sigil used
+  const ESCAPES_RE = /\\[\s\S]/;
+  // const ESCAPES_RE = /\\["'\\abdefnrstv0]/;
+  const BACKSLASH_ESCAPE = {
+    match: ESCAPES_RE,
+    scope: "char.escape",
+    relevance: 0
+  };
   const SIGIL_DELIMITERS = '[/|([{<"\']';
   const SIGIL_DELIMITER_MODES = [
     {
@@ -101,15 +113,14 @@ export default function(hljs) {
   const LOWERCASE_SIGIL = {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
-    contains: [
+    contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
       {
         contains: [
-          hljs.BACKSLASH_ESCAPE,
+          BACKSLASH_ESCAPE,
           SUBST
-        ],
-        variants: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x))
+        ]
       }
-    ]
+    ))
   };
 
   const UPCASE_SIGIL = {
@@ -126,7 +137,7 @@ export default function(hljs) {
         contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
           {
             contains: [
-              hljs.BACKSLASH_ESCAPE,
+              BACKSLASH_ESCAPE,
               SUBST
             ]
           }
