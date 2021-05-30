@@ -166,7 +166,7 @@ export default function(hljs) {
   };
   const FUNCTION = {
     className: 'function',
-    beginKeywords: 'def defp defmacro',
+    beginKeywords: 'def defp defmacro defmacrop',
     end: /\B\b/, // the mode is ended by the title
     contains: [
       hljs.inherit(hljs.TITLE_MODE, {
