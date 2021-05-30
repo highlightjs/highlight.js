@@ -1,18 +1,20 @@
+<span class="hljs-number">1</span> <span class="hljs-comment"># Regression caused numbers at beginning not to be highlighted.</span>
+
 <span class="hljs-comment"># Numbers</span>
 
-<span class="hljs-number">0</span>, <span class="hljs-number">01</span>, <span class="hljs-number">08</span>, <span class="hljs-number">123456</span>, <span class="hljs-number">1256.701</span>, <span class="hljs-number">123e3</span>, <span class="hljs-number">123E+3</span>, <span class="hljs-number">1.23e-3</span>, <span class="hljs-number">1.23E3</span>, <span class="hljs-number">.25</span>, <span class="hljs-number">2.</span>
+<span class="hljs-number">0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">01</span><span class="hljs-punctuation">,</span> <span class="hljs-number">08</span><span class="hljs-punctuation">,</span> <span class="hljs-number">123456</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1256.701</span><span class="hljs-punctuation">,</span> <span class="hljs-number">123e3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">123E+3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1.23e-3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1.23E3</span><span class="hljs-punctuation">,</span> <span class="hljs-number">.25</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2.</span>
 
 <span class="hljs-comment"># Integers</span>
 
-<span class="hljs-number">123L</span>, -<span class="hljs-number">50L</span>
+<span class="hljs-number">123L</span><span class="hljs-punctuation">,</span> <span class="hljs-operator">-</span><span class="hljs-number">50L</span>
 
 <span class="hljs-comment"># Imaginary numbers</span>
 
-<span class="hljs-number">123i</span>, -<span class="hljs-number">123i</span>, <span class="hljs-number">1.2e-3i</span>, <span class="hljs-number">1.i</span>, <span class="hljs-number">.0i</span>
+<span class="hljs-number">123i</span><span class="hljs-punctuation">,</span> <span class="hljs-operator">-</span><span class="hljs-number">123i</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1.2e-3i</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1.i</span><span class="hljs-punctuation">,</span> <span class="hljs-number">.0i</span>
 
 <span class="hljs-comment"># Hex numbers</span>
 
-<span class="hljs-number">0x0</span>, <span class="hljs-number">0xabcdefABCDEF01234</span>, <span class="hljs-number">0xabcp123</span>, <span class="hljs-number">0xabcP-123</span>, <span class="hljs-number">0x1.2p2</span>, <span class="hljs-number">0xa.bp-3i</span>
+<span class="hljs-number">0x0</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0xabcdefABCDEF01234</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0xabcp123</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0xabcP-123</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0x1.2p2</span><span class="hljs-punctuation">,</span> <span class="hljs-number">0xa.bp-3i</span>
 
 <span class="hljs-comment"># Invalid/not literals (for reference)</span>
 

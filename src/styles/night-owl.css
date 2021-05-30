@@ -87,10 +87,11 @@ SOFTWARE.
 .hljs-meta {
   color: #82aaff;
 }
-.hljs-meta-keyword {
+.hljs-meta .hljs-keyword {
+
   color: #82aaff;
 }
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #ecc48d;
 }
 

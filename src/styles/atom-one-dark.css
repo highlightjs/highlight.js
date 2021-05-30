@@ -51,7 +51,7 @@ hue-6-2: #e6c07b
 .hljs-regexp,
 .hljs-addition,
 .hljs-attribute,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #98c379;
 }
 

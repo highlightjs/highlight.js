@@ -243,7 +243,7 @@ export default function(hljs) {
         end: '\\]',
         contains: [
           {
-            className: 'meta-string',
+            className: 'string',
             begin: /"/,
             end: /"/
           }

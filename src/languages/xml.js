@@ -20,7 +20,7 @@ export default function(hljs) {
     begin: /\s/,
     contains: [
       {
-        className: 'meta-keyword',
+        className: 'keyword',
         begin: /#?[a-z_][a-z1-9_-]+/,
         illegal: /\n/
       }
@@ -31,10 +31,10 @@ export default function(hljs) {
     end: /\)/
   });
   const APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {
-    className: 'meta-string'
+    className: 'string'
   });
   const QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
-    className: 'meta-string'
+    className: 'string'
   });
   const TAG_INTERNALS = {
     endsWithParent: true,

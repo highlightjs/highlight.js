@@ -28,7 +28,8 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
 .hljs-keyword,
 .hljs-attribute,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-doctag,
 .hljs-name {
     font-weight: bold
@@ -72,7 +73,7 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
     color: #25c6c6
 }
 
-.hljs-meta-string {
+.hljs-meta .hljs-string {
     color: #4d99bf
 }
 

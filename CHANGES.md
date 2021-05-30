@@ -32,7 +32,9 @@ Themes:
 - The default padding of all themes increases (0.5em => 1em).
 - `schoolbook` has been updated to remove the lined background.
 - `github` updated to better match modern GitHub (#1616) [Jan Pilzer][]
+- `github-gist` has been removed in favor of `github` [Jan Pilzer][]
 - Base16 named themes have been updated to their "canonical" versions
+- `nnfx` updated for v11 xml styles and improved css support
 
 Language Grammars:
 
@@ -44,6 +46,8 @@ Language Grammars:
 
 Parser:
 
+- enh(vala) improve language detection for Vala (#3195) [Konrad Rudolph][]
+- enh(r) add support for operators, fix number highlighting bug (#3194, #3195) [Konrad Rudolph][]
 - enh(parser) add `beginScope` and `endScope` to allow separate scoping begin and end (#3159) [Josh Goebel][]
 - enh(parsed) `endScope` now supports multi-class matchers as well (#3159) [Josh Goebel][]
 - enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]
@@ -58,6 +62,8 @@ Parser:
 
 Grammars:
 
+- enh(all) `.meta-keyword` => `.meta .keyword` (nested scopes) (#3167) [Josh Goebel][]
+- enh(all) `.meta-string` => `.meta .string` (nested scopes) (#3167) [Josh Goebel][]
 - enh(swift) add `actor` keyword (#3171) [Bradley Mackey][]
 - enh(crystal) highlight variables (#3154) [Josh Goebel][]
 - fix(ruby) Heredoc without interpolation (#3154) [Josh Goebel][]
@@ -93,6 +99,9 @@ Grammars:
 - enh(haskell) add support for HexFloatLiterals (#3150) [Martijn Bastiaan][]
 - fix(c,cpp) allow declaring multiple functions and (for C++) parenthetical initializers (#3155) [Erik Demaine][]
 - enh(rust) highlight raw byte string literals correctly (#3173) [Nico Abram][]
+- fix(cpp) fix detection of common functions that are function templates (#3178) [Kris van Rens][]
+- enh(cpp) add various keywords and commonly used types for hinting (#3178) [Kris van Rens][]
+- enh(cpp) cleanup reserved keywords and type lists (#3178) [Kris van Rens][]
 
 New Languages:
 
@@ -114,6 +123,7 @@ Theme Improvements:
 New Themes:
 
 - DeviBeans Dark by [Farzad Sadeghi][]
+- GitHub Dark and GitHub Dark Dimmed [Jan Pilzer][]
 
 Dev Improvements:
 
@@ -134,6 +144,8 @@ Dev Improvements:
 [Mike Watling]: https://github.com/Pickysaurus
 [Nico Abram]: https://github.com/nico-abram
 [James Edington]: http://www.ishygddt.xyz/
+[Jan Pilzer]: https://github.com/Hirse
+[Kris van Rens]: https://github.com/krisvanrens
 
 
 ## Version 10.7.1
@@ -144,6 +156,7 @@ Dev Improvements:
 
 Parser:
 
+- keywords now have a maximum # of times they provide relevance (#3129) [Josh Goebel][]
 - enh(api) add `unregisterLanguage` method (#3009) [Antoine du Hamel][]
 - enh: Make alias registration case insensitive (#3026) [David Ostrovsky][]
 - fix(parser) `highlightAll()` now works if the library is lazy loaded [Josh Goebel][]
@@ -206,7 +219,6 @@ Deprecations:
 [David Ostrovsky]: https://github.com/davido
 [AndyKIron]: https://github.com/AndyKIron
 [Samuel Colvin]: https://github.com/samuelcolvin
-[Jan Pilzer]: https://github.com/Hirse
 
 ## Version 10.6.0
 
@@ -252,6 +264,7 @@ Deprecations:
 [Josh Goebel]: https://github.com/joshgoebel
 [Vaibhav Chanana]: https://github.com/il3ven
 [davidhcefx]: https://github.com/davidhcefx
+[Jan Pilzer]: https://github.com/Hirse
 
 
 ## Version 10.5.0

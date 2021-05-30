@@ -23,7 +23,7 @@ const DEFAULT_KEYWORD_SCOPE = "keyword";
  */
 export function compileKeywords(rawKeywords, caseInsensitive, scopeName = DEFAULT_KEYWORD_SCOPE) {
   /** @type KeywordDict */
-  const compiledKeywords = {};
+  const compiledKeywords = Object.create(null);
 
   // input can be a string of keywords, an array of keywords, or a object with
   // named keys representing scopeName (which can then point to a string or array)

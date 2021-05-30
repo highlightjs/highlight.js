@@ -46,7 +46,8 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 
 .hljs-keyword, /* --- used for PureBASIC Keywords --- */
 .hljs-class,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-selector-class,
 .hljs-built_in {
 	color: #006666; /* Blue Stone (approx.) */

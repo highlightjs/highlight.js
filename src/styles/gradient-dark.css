@@ -44,7 +44,8 @@ color:#e7e4eb;
 
 .hljs-keyword,
 .hljs-section,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-symbol,
 .hljs-type
 

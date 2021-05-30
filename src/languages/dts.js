@@ -45,7 +45,7 @@ export default function(hljs) {
     begin: '#',
     end: '$',
     keywords: {
-      'meta-keyword': 'if else elif endif define undef ifdef ifndef'
+      keyword: 'if else elif endif define undef ifdef ifndef'
     },
     contains: [
       {
@@ -56,14 +56,14 @@ export default function(hljs) {
         beginKeywords: 'include',
         end: '$',
         keywords: {
-          'meta-keyword': 'include'
+          keyword: 'include'
         },
         contains: [
           hljs.inherit(STRINGS, {
-            className: 'meta-string'
+            className: 'string'
           }),
           {
-            className: 'meta-string',
+            className: 'string',
             begin: '<',
             end: '>',
             illegal: '\\n'
@@ -82,7 +82,7 @@ export default function(hljs) {
   };
 
   const KEYWORD = {
-    className: 'meta',
+    className: 'keyword',
     begin: '/[a-z][a-z\\d-]*/'
   };
 

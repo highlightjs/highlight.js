@@ -26,7 +26,7 @@ export default function(hljs) {
   const PREPRO = {
     className: 'meta',
     keywords: {
-      'meta-keyword': 'include use'
+      keyword: 'include use'
     },
     begin: 'include|use <',
     end: '>'
