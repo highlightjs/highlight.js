@@ -180,12 +180,18 @@ export default function(hljs) {
     beginKeywords: 'defimpl defmodule defprotocol defrecord',
     end: /\bdo\b|$|;/
   });
+  const DEFSTRUCT = {
+    className: 'class',
+    beginKeywords: 'defstruct'
+    // ends immediately
+  };
   const ELIXIR_DEFAULT_CONTAINS = [
     STRING,
     UPCASE_SIGIL,
     LOWERCASE_SIGIL,
     hljs.HASH_COMMENT_MODE,
     CLASS,
+    DEFSTRUCT,
     FUNCTION,
     {
       begin: '::'
