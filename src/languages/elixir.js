@@ -245,42 +245,6 @@ export default function(hljs) {
     },
     {
       begin: '->'
-    },
-    { // regexp container
-      begin: '(' + hljs.RE_STARTERS_RE + ')\\s*',
-      contains: [
-        hljs.HASH_COMMENT_MODE,
-        {
-          // to prevent false regex triggers for the division function:
-          // /:
-          begin: /\/: (?=\d+\s*[,\]])/,
-          relevance: 0,
-          contains: [NUMBER]
-        },
-        {
-          scope: "number",
-          match: /&[a-z][a-z_]+\??\/\d+/
-        },
-        {
-          className: 'regexp',
-          illegal: '\\n',
-          contains: [
-            hljs.BACKSLASH_ESCAPE,
-            SUBST
-          ],
-          variants: [
-            {
-              begin: '/',
-              end: '/[a-z]*'
-            },
-            {
-              begin: '%r\\[',
-              end: '\\][a-z]*'
-            }
-          ]
-        }
-      ],
-      relevance: 0
     }
   ];
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
