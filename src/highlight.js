@@ -738,8 +738,6 @@ const HLJS = function(hljs) {
     const text = node.textContent;
     const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
 
-    fire("after:highlightElement", { el: element, result, text });
-
     element.innerHTML = result.value;
     updateClassName(element, language, result.language);
     element.result = {
@@ -754,6 +752,8 @@ const HLJS = function(hljs) {
         relevance: result.secondBest.relevance
       };
     }
+
+    fire("after:highlightElement", { el: element, result, text });
   }
 
   /**
