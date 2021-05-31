@@ -6,6 +6,8 @@ Category: functional
 Website: https://elixir-lang.org
 */
 
+import * as regex from '../lib/regex.js';
+
 /** @type LanguageFn */
 export default function(hljs) {
   const ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(!|\\?)?';
@@ -136,6 +138,7 @@ export default function(hljs) {
         begin: '~r' + '(?=' + SIGIL_DELIMITERS + ')',
         contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
           {
+            end: regex.concat(x.end, /[uismxfU]{0,7}/),
             contains: [
               BACKSLASH_ESCAPE,
               SUBST
@@ -145,7 +148,11 @@ export default function(hljs) {
       },
       {
         begin: '~R' + '(?=' + SIGIL_DELIMITERS + ')',
-        contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x))
+        contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
+          {
+            end: regex.concat(x.end, /[uismxfU]{0,7}/)
+          })
+        )
       }
     ]
   };

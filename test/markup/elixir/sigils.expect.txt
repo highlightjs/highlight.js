@@ -26,10 +26,15 @@
 <span class="hljs-string">~s&lt;hello <span class="hljs-subst">#{name}</span>&gt;</span>
 
 <span class="hljs-regex">~r/hello/</span>
-<span class="hljs-regex">~r|hello|</span>
-<span class="hljs-regex">~r&quot;hello&quot;</span>
-<span class="hljs-regex">~r&#x27;hello&#x27;</span>
-<span class="hljs-regex">~r(hello)</span>
-<span class="hljs-regex">~r[hello]</span>
-<span class="hljs-regex">~r{hello}</span>
+<span class="hljs-regex">~r|hello|u</span>
+<span class="hljs-regex">~r&quot;hello&quot;i</span>
+<span class="hljs-regex">~r&#x27;hello&#x27;m</span>
+<span class="hljs-regex">~r(hello)x</span>
+<span class="hljs-regex">~r[hello]f</span>
+<span class="hljs-regex">~r{hello}U</span>
 <span class="hljs-regex">~r&lt;hello&gt;</span>
+
+<span class="hljs-regex">~r&lt;regex here&gt;uismxfU</span>
+<span class="hljs-regex">~r/regex here/uismxfU</span>
+<span class="hljs-regex">~R&lt;regex here&gt;uismxfU</span>
+<span class="hljs-regex">~R/regex here/uismxfU</span>

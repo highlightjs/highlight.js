@@ -26,10 +26,15 @@
 ~s<hello #{name}>
 
 ~r/hello/
-~r|hello|
-~r"hello"
-~r'hello'
-~r(hello)
-~r[hello]
-~r{hello}
+~r|hello|u
+~r"hello"i
+~r'hello'm
+~r(hello)x
+~r[hello]f
+~r{hello}U
 ~r<hello>
+
+~r<regex here>uismxfU
+~r/regex here/uismxfU
+~R<regex here>uismxfU
+~R/regex here/uismxfU
