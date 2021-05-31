@@ -38,3 +38,12 @@
 <span class="hljs-regex">~r/regex here/uismxfU</span>
 <span class="hljs-regex">~R&lt;regex here&gt;uismxfU</span>
 <span class="hljs-regex">~R/regex here/uismxfU</span>
+
+<span class="hljs-regex">~r|foo<span class="hljs-char escape_">\|</span>bar|</span>
+<span class="hljs-regex">~R|foo<span class="hljs-char escape_">\|</span>bar|</span>
+
+<span class="hljs-regex">~r(hello( there<span class="hljs-char escape_">\)</span>*!)u</span>
+<span class="hljs-regex">~R(hello( there<span class="hljs-char escape_">\)</span>*!)u</span>
+
+<span class="hljs-string">~s|foo<span class="hljs-char escape_">\|</span>bar|</span>
+<span class="hljs-string">~S|foo<span class="hljs-char escape_">\|</span>bar|</span>

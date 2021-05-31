@@ -38,3 +38,12 @@
 ~r/regex here/uismxfU
 ~R<regex here>uismxfU
 ~R/regex here/uismxfU
+
+~r|foo\|bar|
+~R|foo\|bar|
+
+~r(hello( there\)*!)u
+~R(hello( there\)*!)u
+
+~s|foo\|bar|
+~S|foo\|bar|

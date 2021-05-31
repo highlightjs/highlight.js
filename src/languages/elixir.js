@@ -112,12 +112,20 @@ export default function(hljs) {
       end: />/
     }
   ];
+  const escapeSigilEnd = (end) => {
+    return {
+      scope: "char.escape",
+      begin: regex.concat(/\\/, end),
+      relevance: 0
+    };
+  };
   const LOWERCASE_SIGIL = {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
       {
         contains: [
+          escapeSigilEnd(x.end),
           BACKSLASH_ESCAPE,
           SUBST
         ]
@@ -128,7 +136,11 @@ export default function(hljs) {
   const UPCASE_SIGIL = {
     className: 'string',
     begin: '~[A-Z]' + '(?=' + SIGIL_DELIMITERS + ')',
-    contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x))
+    contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
+      {
+        contains: [ escapeSigilEnd(x.end) ]
+      }
+    ))
   };
 
   const REGEX_SIGIL = {
@@ -140,6 +152,7 @@ export default function(hljs) {
           {
             end: regex.concat(x.end, /[uismxfU]{0,7}/),
             contains: [
+              escapeSigilEnd(x.end),
               BACKSLASH_ESCAPE,
               SUBST
             ]
@@ -150,7 +163,8 @@ export default function(hljs) {
         begin: '~R' + '(?=' + SIGIL_DELIMITERS + ')',
         contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
           {
-            end: regex.concat(x.end, /[uismxfU]{0,7}/)
+            end: regex.concat(x.end, /[uismxfU]{0,7}/),
+            contains: [ escapeSigilEnd(x.end) ]
           })
         )
       }
