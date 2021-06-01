@@ -120,6 +120,7 @@ export default function(hljs) {
     "atomic",
     "authorization",
     "avg",
+    "backfill",
     "begin",
     "begin_frame",
     "begin_partition",
