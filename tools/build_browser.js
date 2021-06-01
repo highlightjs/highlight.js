@@ -17,7 +17,13 @@ const Table = require('cli-table');
 
 const textEncoder = new TextEncoder();
 
-function buildHeader(args) {
+const getDefaultHeader = () => ({
+  ...require('../package.json'),
+  git_sha : child_process
+    .execSync("git rev-parse --short=10 HEAD")
+    .toString().trim(),
+});
+function buildHeader(args = getDefaultHeader()) {
   return "/*!\n" +
   `  Highlight.js v${args.version} (git: ${args.git_sha})\n` +
   `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n` +
@@ -179,12 +185,7 @@ function installDemoStyles() {
 async function buildBrowserHighlightJS(languages, { minify }) {
   log("Building highlight.js.");
 
-  const git_sha = child_process
-    .execSync("git rev-parse HEAD")
-    .toString().trim()
-    .slice(0, 10);
-  const versionDetails = { ...require("../package"), git_sha };
-  const header = buildHeader(versionDetails);
+  const header = buildHeader();
 
   const outFile = `${process.env.BUILD_DIR}/highlight.js`;
   const minifiedFile = outFile.replace(/js$/, "min.js");
@@ -263,6 +264,8 @@ const safeImportName = (s) => {
 };
 
 async function buildBrowserESMHighlightJS(name, languages, options) {
+  log("Building highlight.mjs.");
+  const header = buildHeader();
   const input = { ...config.rollup.node.input, input: `src/stub.js`, plugins: [
     ...config.rollup.node.input.plugins,
     {
@@ -291,19 +294,18 @@ async function buildBrowserESMHighlightJS(name, languages, options) {
     file: `${process.env.BUILD_DIR}/es/${name}.js`,
   };
 
-
   const index = await rollupCode(input, output);
   const sizeInfo = {}
   const writePromises = []
   if (options.minify) {
     const { code } = await Terser.minify(index, {...config.terser, module: true})
-    const buf = textEncoder.encode(code);
+    const buf = textEncoder.encode(`${header}\n${code}`);
     writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), buf));
     sizeInfo.minified = buf.length;
     sizeInfo.minifiedSrc = buf;
   }
   {
-    const buf = textEncoder.encode(index);
+    const buf = textEncoder.encode(`${header}\n${index}`);
     writePromises.push(fs.writeFile(output.file, buf));
     sizeInfo.fullSize = buf.length;
     sizeInfo.fullSrc = buf;

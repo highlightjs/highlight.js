@@ -108,8 +108,8 @@ async function buildCDN(options) {
     log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length, "bytes");
   }
   if(options.esm) {
-    log("es/index.js         :", esmIndexSize.fullSize, "bytes");
     log("es/core.js          :", esmCoreSize, "bytes");
+    log("es/index.js         :", esmIndexSize.fullSize, "bytes");
     if (options.minify) {
       log("es/index.min.js     :", esmIndexSize.minified, "bytes");
       log("es/index.min.js.gz  :", zlib.gzipSync(esmIndexSize.minifiedSrc).length, "bytes");
