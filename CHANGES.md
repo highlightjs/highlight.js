@@ -102,6 +102,7 @@ Grammars:
 - fix(cpp) fix detection of common functions that are function templates (#3178) [Kris van Rens][]
 - enh(cpp) add various keywords and commonly used types for hinting (#3178) [Kris van Rens][]
 - enh(cpp) cleanup reserved keywords and type lists (#3178) [Kris van Rens][]
+- enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
 
 New Languages:
 
