@@ -14,7 +14,8 @@ const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
 const Table = require('cli-table');
-const { result } = require('lodash');
+
+const textEncoder = new TextEncoder();
 
 function buildHeader(args) {
   return "/*!\n" +
@@ -214,16 +215,13 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
 
   // we don't use this, we just use it to get a size approximation for the build stats
-  const coreSrc = await rollupCode({ ...config.rollup.browser_core.input, input: `src/highlight.js`, plugins }, output);
+  const coreSrc = textEncoder.encode(await rollupCode({ ...config.rollup.browser_core.input, input: `src/highlight.js`, plugins }, output));
   const coreSize = coreSrc.length;
 
   // strip off the original top comment
   librarySrc = librarySrc.replace(/\/\*.*?\*\//s, "");
 
-  const fullSrc = [
-    header, librarySrc,
-    // ...languages.map((lang) => lang.module)
-  ].join("\n");
+  const fullSrc = textEncoder.encode(`${header}\n${librarySrc}`);
 
   const tasks = [];
   tasks.push(fs.writeFile(outFile, fullSrc, { encoding: "utf8" }));
@@ -232,19 +230,15 @@ async function buildBrowserHighlightJS(languages, { minify }) {
   };
 
   let core_min = [];
-  let minifiedSrc = "";
+  let minifiedSrc;
 
   if (minify) {
     const tersed = await Terser.minify(librarySrc, config.terser);
-    const tersedCore = await Terser.minify(coreSrc, config.terser);
 
-    minifiedSrc = [
-      header, tersed.code,
-      // ...languages.map((lang) => lang.minified)
-    ].join("\n");
+    minifiedSrc = textEncoder.encode(`${header}\n${tersed.code}`);
 
     // get approximate core minified size
-    core_min = [header, tersedCore.code].join().length;
+    core_min = minifiedSrc.length;
 
     tasks.push(fs.writeFile(minifiedFile, minifiedSrc, { encoding: "utf8" }));
     shas["highlight.min.js"] = bundling.sha384(minifiedSrc);
@@ -254,14 +248,71 @@ async function buildBrowserHighlightJS(languages, { minify }) {
   return {
     core: coreSize,
     core_min: core_min,
-    minified: Buffer.byteLength(minifiedSrc, 'utf8'),
+    minified: minifiedSrc.length,
     minifiedSrc,
     fullSrc,
     shas,
-    full: Buffer.byteLength(fullSrc, 'utf8')
+    full: fullSrc.length,
   };
+}
+
+const safeImportName = (s) => {
+  s = s.replace(/-/g, "_");
+  if (/^\d/.test(s)) s = `L_${s}`;
+  return s;
+};
+
+async function buildBrowserESMHighlightJS(name, languages, options) {
+  const input = { ...config.rollup.node.input, input: `src/stub.js`, plugins: [
+    ...config.rollup.node.input.plugins,
+    {
+        name: "hljs-index",
+        resolveId(source) {
+          if (source === "builtInLanguages") {
+            return source; // this signals that rollup should not ask other plugins or check the file system to find this id
+          }
+          return null; // other ids should be handled as usually
+        },
+        load(id) {
+          if (id === "builtInLanguages") {
+            return languages.map((lang) => {
+              const importName = safeImportName(lang.name);
+              return `import ${importName} from './languages/${lang.name}.js';\n` +
+                `hljs.registerLanguage('${lang.name}', ${importName});`;
+            }).join("\n");
+          }
+          return null;
+        },
+      },
+  ] };
+  const output = {
+    ...config.rollup.node.output,
+    format: "es",
+    file: `${process.env.BUILD_DIR}/es/${name}.js`,
+  };
+
+
+  const index = await rollupCode(input, output);
+  const sizeInfo = {}
+  const writePromises = []
+  if (options.minify) {
+    const { code } = await Terser.minify(index, {...config.terser, module: true})
+    const buf = textEncoder.encode(code);
+    writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), buf));
+    sizeInfo.minified = buf.length;
+    sizeInfo.minifiedSrc = buf;
+  }
+  {
+    const buf = textEncoder.encode(index);
+    writePromises.push(fs.writeFile(output.file, buf));
+    sizeInfo.fullSize = buf.length;
+    sizeInfo.fullSrc = buf;
+  }
+  await Promise.all(writePromises);
+  return sizeInfo;
 }
 
 // CDN build uses the exact same highlight.js distributable
 module.exports.buildBrowserHighlightJS = buildBrowserHighlightJS;
+module.exports.buildBrowserESMHighlightJS = buildBrowserESMHighlightJS;
 module.exports.build = buildBrowser;

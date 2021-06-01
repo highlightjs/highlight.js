@@ -8,23 +8,25 @@ const { filter } = require("./lib/dependencies");
 const config = require("./build_config");
 const { install, installCleanCSS, mkdir } = require("./lib/makestuff");
 const log = (...args) => console.log(...args);
-const { buildBrowserHighlightJS } = require("./build_browser");
+const { buildBrowserHighlightJS, buildBrowserESMHighlightJS } = require("./build_browser");
 const { buildPackageJSON, writePackageJSON } = require("./build_node");
 const { rollupCode } = require("./lib/bundling.js");
 const path = require("path");
 const bundling = require('./lib/bundling.js');
 
+const textEncoder = new TextEncoder();
+
 async function installPackageJSON(options) {
   const json = buildPackageJSON(options, {
     ".": {
-      import: "./es/index.js",
-      browser: "./highlight.min.js",
+      import: options.minify ? "./es/index.min.js" : "./es/index.js",
+      browser: options.minify ? "./highlight.min.js" : "./highlight.js",
     },
     "./lib/languages/*": {
       import: "./es/languages/*.js",
       browser: "./languages/*.js"
     },
-    "./lib/common": { import: "./es/index.js" },
+    get "./lib/common"(){ return this["."]; },
     "./lib/core": { import: "./es/core.js" },
     "./styles/*": "./styles/*",
     "./package.json": "./package.json",
@@ -39,26 +41,6 @@ async function installPackageJSON(options) {
   await writePackageJSON(json);
 }
 
-const safeImportName = (s) => {
-  s = s.replace(/-/g, "_");
-  if (/^\d/.test(s)) s = `L_${s}`;
-  return s;
-};
-
-async function buildESMIndex(name, languages) {
-  const header = `import hljs from './core.js';`;
-  const footer = "export default hljs;";
-
-  const registration = languages.map((lang) => {
-    const importName = safeImportName(lang.name);
-    return `import ${importName} from './languages/${lang.name}.js';\n` +
-      `hljs.registerLanguage('${lang.name}', ${importName});`;
-  });
-
-  const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
-  await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, index);
-}
-
 async function buildESMCore(options) {
   const input = { ...config.rollup.node.input, input: `src/highlight.js` };
   const output = {
@@ -68,9 +50,10 @@ async function buildESMCore(options) {
   };
   const core = await rollupCode(input, output);
 
-  const miniCore = options.minify ? await Terser.minify(core, config.terser) : { code: core };
-  await fs.writeFile(output.file, miniCore.code || core);
-  return miniCore.code.length;
+  const miniCore = options.minify ? await Terser.minify(core, {...config.terser, module: true}) : { code: core };
+  const code = textEncoder.encode(miniCore.code || core);
+  await fs.writeFile(output.file, code);
+  return code.length;
 }
 
 let shas = {};
@@ -85,7 +68,7 @@ async function buildCDN(options) {
   // all the languages are built for the CDN and placed into `/languages`
   const languages = await getLanguages();
   
-  let esmCoreSize;
+  let esmCoreSize, esmIndexSize;
   if (options.esm) {
     mkdir("es");
     await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
@@ -105,7 +88,7 @@ async function buildCDN(options) {
   }
 
   const size = await buildBrowserHighlightJS(embedLanguages, { minify: options.minify });
-  if (options.esm) await buildESMIndex("index", embedLanguages, { minify: options.minify });
+  if (options.esm) esmIndexSize = await buildBrowserESMHighlightJS("index", embedLanguages, { minify: options.minify });
   shas = Object.assign({}, size.shas, shas);
 
   await buildSRIDigests(shas);
@@ -117,14 +100,22 @@ async function buildCDN(options) {
     languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
   log("highlight.js        :",
     size.full, "bytes");
-  if(options.esm)
-    log("es/core.js          :", esmCoreSize, "bytes");
 
   if (options.minify) {
     log("highlight.min.js    :", size.minified, "bytes");
     log("highlight.min.js.gz :", zlib.gzipSync(size.minifiedSrc).length, "bytes");
   } else {
     log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length, "bytes");
+  }
+  if(options.esm) {
+    log("es/index.js         :", esmIndexSize.fullSize, "bytes");
+    log("es/core.js          :", esmCoreSize, "bytes");
+    if (options.minify) {
+      log("es/index.min.js     :", esmIndexSize.minified, "bytes");
+      log("es/index.min.js.gz  :", zlib.gzipSync(esmIndexSize.minifiedSrc).length, "bytes");
+    } else {
+      log("es/index.js.gz      :", zlib.gzipSync(esmIndexSize.fullSrc).length, "bytes");
+    }
   }
   log("-----");
 }
