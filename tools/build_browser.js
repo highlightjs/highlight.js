@@ -215,7 +215,6 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
   // we don't use this, we just use it to get a size approximation for the build stats
   const coreSrc = await rollupCode({ ...config.rollup.browser_core.input, input: `src/highlight.js`, plugins }, output);
-  const coreSize = coreSrc.length;
 
   // strip off the original top comment
   librarySrc = librarySrc.replace(/\/\*.*?\*\//s, "");
@@ -228,8 +227,7 @@ async function buildBrowserHighlightJS(languages, { minify }) {
     "highlight.js": bundling.sha384(fullSrc)
   };
 
-  let core_min = [];
-  let minifiedSrc;
+  let minifiedSrc, minified;
 
   if (minify) {
     const tersed = await Terser.minify(librarySrc, config.terser);
@@ -237,7 +235,7 @@ async function buildBrowserHighlightJS(languages, { minify }) {
     minifiedSrc = `${header}\n${tersed.code}`;
 
     // get approximate core minified size
-    core_min = minifiedSrc.length;
+    minified = minifiedSrc.length;
 
     tasks.push(fs.writeFile(minifiedFile, minifiedSrc, { encoding: "utf8" }));
     shas["highlight.min.js"] = bundling.sha384(minifiedSrc);
@@ -245,13 +243,12 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
   await Promise.all(tasks);
   return {
-    core: coreSize,
-    core_min: core_min,
-    minified: minifiedSrc.length,
-    minifiedSrc,
     fullSrc,
-    shas,
     full: fullSrc.length,
+    core: coreSrc.length,
+    minifiedSrc,
+    minified,
+    shas,
   };
 }
 
