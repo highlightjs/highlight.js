@@ -1,3 +1,12 @@
+## Version 11.1.0 (pending)
+
+Grammars:
+
+- enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
+
+[Stel Abrego]: https://github.com/stelcodes
+
+
 ## Version 11.0.0
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
@@ -102,7 +111,6 @@ Grammars:
 - fix(cpp) fix detection of common functions that are function templates (#3178) [Kris van Rens][]
 - enh(cpp) add various keywords and commonly used types for hinting (#3178) [Kris van Rens][]
 - enh(cpp) cleanup reserved keywords and type lists (#3178) [Kris van Rens][]
-- enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
 
 New Languages:
 
