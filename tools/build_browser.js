@@ -230,7 +230,7 @@ async function buildCore(name, languages, options) {
   const sizeInfo = { shas: [] };
   const writePromises = [];
   if (options.minify) {
-    const { code } = await Terser.minify(index, {...config.terser, module: true})
+    const { code } = await Terser.minify(index, {...config.terser, module: (options.format === "es") });
     const src = `${header}\n${code}`;
     writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), src));
     sizeInfo.minified = src.length;
