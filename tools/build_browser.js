@@ -233,10 +233,13 @@ async function buildBrowserHighlightJS(languages, { minify }) {
     "highlight.js": bundling.sha384(fullSrc)
   };
 
-  let minifiedSrc, minified;
+  let minifiedSrc, minified, core_min;
 
   if (minify) {
     const tersed = await Terser.minify(librarySrc, config.terser);
+
+    const coreTersed = await Terser.minify(coreSrc, config.terser);
+    core_min = header.length + 1 + coreTersed.code.length;
 
     minifiedSrc = `${header}\n${tersed.code}`;
 
@@ -249,9 +252,10 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
   await Promise.all(tasks);
   return {
+    core: coreSrc.length,
+    core_min,
     fullSrc,
     full: fullSrc.length,
-    core: coreSrc.length,
     minifiedSrc,
     minified,
     shas,
