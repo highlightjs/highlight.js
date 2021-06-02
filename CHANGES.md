@@ -3,9 +3,10 @@
 Grammars:
 
 - enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
+- enh(elixir) much improved regular expression sigil support (#3207) [Josh Goebel][]
 
 [Stel Abrego]: https://github.com/stelcodes
-
+[Josh Goebel]: https://github.com/joshgoebel
 
 ## Version 11.0.0
 
