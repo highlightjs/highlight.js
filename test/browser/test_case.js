@@ -25,7 +25,7 @@ function newTestCase(opts) {
   test.html = opts.html;
   test.expect = opts.expect;
   test.language = opts.language;
-  test.html = test.html || `<pre><code class='${test.language}'>${test.code}</code></pre>`;
+  test.html = test.html || `<pre><code class='language-${test.language}'>${test.code}</code></pre>`;
   test.runner = async function() {
     await buildFakeDOM.bind(this, test)();
     this.hljs.highlightElement(this.block);
