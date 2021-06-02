@@ -209,7 +209,7 @@ async function buildCore(name, languages, options) {
     builtInLanguagesPlugin(languages)
   ];
   const output = {
-    ...config.rollup.node.output,
+    ...(options.format === "es" ? config.rollup.node.output : config.rollup.browser_iife.output),
     file: `${process.env.BUILD_DIR}/${name}.js`
   };
 
