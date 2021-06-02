@@ -5,7 +5,7 @@ Website: https://www.python.org
 Category: common
 */
 
-import { IDENT_RE } from '../lib/modes.js';
+import { UNDERSCORE_IDENT_RE } from '../lib/modes.js';
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
@@ -379,7 +379,7 @@ export default function(hljs) {
       {
         match: [
           /def/, /\s+/,
-          IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         scope: {
           1: "keyword",
@@ -392,14 +392,14 @@ export default function(hljs) {
           {
             match: [
               /class/, /\s+/,
-              IDENT_RE, /\s*/,
-              /\(\s*/, IDENT_RE,/\s*\)/
+              UNDERSCORE_IDENT_RE, /\s*/,
+              /\(\s*/, UNDERSCORE_IDENT_RE,/\s*\)/
             ],
           },
           {
             match: [
               /class/, /\s+/,
-              IDENT_RE
+              UNDERSCORE_IDENT_RE
             ],
           }
         ],
