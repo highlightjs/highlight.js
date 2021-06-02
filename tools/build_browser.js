@@ -180,11 +180,6 @@ function installDemoStyles() {
   });
 }
 
-const safeImportName = (s) => {
-  s = s.replace(/-/g, "_");
-  if (/^\d/.test(s)) s = `L_${s}`;
-  return s;
-};
 const builtInLanguagesPlugin = (languages) => ({
   name: "hljs-index",
   resolveId(source) {
@@ -194,12 +189,11 @@ const builtInLanguagesPlugin = (languages) => ({
     return null; // other ids should be handled as usually
   },
   load(id) {
+    const escape = (s) => "grmr_" + s.replace("-", "_");
     if (id === "builtInLanguages") {
-      return languages.map((lang) => {
-        const importName = safeImportName(lang.name);
-        return `import ${importName} from ${JSON.stringify(lang.path)};\n` +
-          `hljs.registerLanguage(${JSON.stringify(lang.name)}, ${importName});`;
-      }).join("\n");
+      return languages.map((lang) => 
+        `export { default as ${escape(lang.name)} } from ${JSON.stringify(lang.path)};`
+      ).join("\n");
     }
     return null;
   },
