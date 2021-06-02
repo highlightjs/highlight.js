@@ -15,8 +15,6 @@ const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
 const Table = require('cli-table');
 
-const textEncoder = new TextEncoder();
-
 const getDefaultHeader = () => ({
   ...require('../package.json'),
   git_sha : child_process
@@ -216,13 +214,13 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
 
   // we don't use this, we just use it to get a size approximation for the build stats
-  const coreSrc = textEncoder.encode(await rollupCode({ ...config.rollup.browser_core.input, input: `src/highlight.js`, plugins }, output));
+  const coreSrc = await rollupCode({ ...config.rollup.browser_core.input, input: `src/highlight.js`, plugins }, output);
   const coreSize = coreSrc.length;
 
   // strip off the original top comment
   librarySrc = librarySrc.replace(/\/\*.*?\*\//s, "");
 
-  const fullSrc = textEncoder.encode(`${header}\n${librarySrc}`);
+  const fullSrc = `${header}\n${librarySrc}`;
 
   const tasks = [];
   tasks.push(fs.writeFile(outFile, fullSrc, { encoding: "utf8" }));
@@ -236,7 +234,7 @@ async function buildBrowserHighlightJS(languages, { minify }) {
   if (minify) {
     const tersed = await Terser.minify(librarySrc, config.terser);
 
-    minifiedSrc = textEncoder.encode(`${header}\n${tersed.code}`);
+    minifiedSrc = `${header}\n${tersed.code}`;
 
     // get approximate core minified size
     core_min = minifiedSrc.length;
@@ -299,16 +297,16 @@ async function buildBrowserESMHighlightJS(name, languages, options) {
   const writePromises = []
   if (options.minify) {
     const { code } = await Terser.minify(index, {...config.terser, module: true})
-    const buf = textEncoder.encode(`${header}\n${code}`);
-    writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), buf));
-    sizeInfo.minified = buf.length;
-    sizeInfo.minifiedSrc = buf;
+    const src = `${header}\n${code}`;
+    writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), src));
+    sizeInfo.minified = src.length;
+    sizeInfo.minifiedSrc = src;
   }
   {
-    const buf = textEncoder.encode(`${header}\n${index}`);
-    writePromises.push(fs.writeFile(output.file, buf));
-    sizeInfo.fullSize = buf.length;
-    sizeInfo.fullSrc = buf;
+    const src = `${header}\n${index}`;
+    writePromises.push(fs.writeFile(output.file, src));
+    sizeInfo.fullSize = src.length;
+    sizeInfo.fullSrc = src;
   }
   await Promise.all(writePromises);
   return sizeInfo;

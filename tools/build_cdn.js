@@ -14,8 +14,6 @@ const { rollupCode } = require("./lib/bundling.js");
 const path = require("path");
 const bundling = require('./lib/bundling.js');
 
-const textEncoder = new TextEncoder();
-
 async function installPackageJSON(options) {
   const json = buildPackageJSON(options, {
     ".": {
@@ -51,9 +49,8 @@ async function buildESMCore(options) {
   const core = await rollupCode(input, output);
 
   const miniCore = options.minify ? await Terser.minify(core, {...config.terser, module: true}) : { code: core };
-  const code = textEncoder.encode(miniCore.code || core);
-  await fs.writeFile(output.file, code);
-  return code.length;
+  await fs.writeFile(output.file, miniCore.code);
+  return miniCore.code.length;
 }
 
 let shas = {};
