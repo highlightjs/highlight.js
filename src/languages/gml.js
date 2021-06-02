@@ -1872,20 +1872,23 @@ export default function(hljs) {
     "keyboard_virtual_height"
   ];
   const LITERALS = [
-    "other",
+    "true",
+    "false",
     "all",
     "noone",
-    "global",
-    "local",
     "undefined",
     "pointer_invalid",
-    "pointer_null",
+    "pointer_null"
+  ];
+  // many of these look like enumerables to me (see comments below)
+  const SYMBOLS = [
+    "other",
+    "global",
+    "local",
     "path_action_stop",
     "path_action_restart",
     "path_action_continue",
     "path_action_reverse",
-    "true",
-    "false",
     "pi",
     "GM_build_date",
     "GM_version",
@@ -1894,6 +1897,7 @@ export default function(hljs) {
     "timezone_utc",
     "gamespeed_fps",
     "gamespeed_microseconds",
+    // for example ev_ are types of events
     "ev_create",
     "ev_destroy",
     "ev_step",
@@ -2585,7 +2589,8 @@ export default function(hljs) {
     "kbv_autocapitalize_sentences",
     "kbv_autocapitalize_characters"
   ];
-  const SYMBOLS = [
+  const LANGUAGE_VARIABLES = [
+    "self",
     "argument_relative",
     "argument",
     "argument0",
@@ -2626,7 +2631,7 @@ export default function(hljs) {
     "path_orientation",
     "path_endaction",
     "object_index",
-    "id",
+    "id|0",
     "solid",
     "persistent",
     "mask_index",
@@ -2775,9 +2780,6 @@ export default function(hljs) {
     "phy_col_normal_y",
     "phy_position_xprevious",
     "phy_position_yprevious"
-  ];
-  const LANGUAGE_VARIABLES = [
-    "self"
   ];
 
   return {
