@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
-        build-how: ["node", "browser", "browser -n", "cdn -ne", "cdn -n -ne", "cdn :common"]
+        build-how: ["node", "browser", "browser -n", "cdn -ne :common", "cdn -n -ne :common", "cdn :common"]
 
     steps:
     - uses: actions/checkout@v2
