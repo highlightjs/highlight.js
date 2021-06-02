@@ -180,6 +180,31 @@ function installDemoStyles() {
   });
 }
 
+const safeImportName = (s) => {
+  s = s.replace(/-/g, "_");
+  if (/^\d/.test(s)) s = `L_${s}`;
+  return s;
+};
+const builtInLanguagesPlugin = (languages) => ({
+  name: "hljs-index",
+  resolveId(source) {
+    if (source === "builtInLanguages") {
+      return source; // this signals that rollup should not ask other plugins or check the file system to find this id
+    }
+    return null; // other ids should be handled as usually
+  },
+  load(id) {
+    if (id === "builtInLanguages") {
+      return languages.map((lang) => {
+        const importName = safeImportName(lang.name);
+        return `import ${importName} from ${JSON.stringify(lang.path)};\n` +
+          `hljs.registerLanguage(${JSON.stringify(lang.name)}, ${importName});`;
+      }).join("\n");
+    }
+    return null;
+  },
+})
+
 async function buildBrowserHighlightJS(languages, { minify }) {
   log("Building highlight.js.");
 
@@ -187,26 +212,7 @@ async function buildBrowserHighlightJS(languages, { minify }) {
 
   const outFile = `${process.env.BUILD_DIR}/highlight.js`;
   const minifiedFile = outFile.replace(/js$/, "min.js");
-
-  const built_in_langs = {
-    name: "dynamicLanguages",
-    resolveId: (source) => {
-      if (source == "builtInLanguages") { return "builtInLanguages"}
-      return null;
-    },
-    load: (id) => {
-      if (id == "builtInLanguages") {
-        const escape = (s) => "grmr_" + s.replace("-", "_");
-        let src = "";
-        src += languages.map((x) => `import ${escape(x.name)} from '${x.path}'`).join("\n");
-        src += `\nexport {${languages.map((x) => escape(x.name)).join(",")}}`;
-        return src;
-      }
-      return null;
-    }
-  }
-
-  const plugins = [...config.rollup.browser_core.input.plugins, built_in_langs];
+  const plugins = [...config.rollup.browser_core.input.plugins, builtInLanguagesPlugin(languages)];
 
   const input = { ...config.rollup.browser_core.input, input: `src/stub.js`, plugins };
   const output = { ...config.rollup.browser_core.output, file: outFile };
@@ -252,36 +258,12 @@ async function buildBrowserHighlightJS(languages, { minify }) {
   };
 }
 
-const safeImportName = (s) => {
-  s = s.replace(/-/g, "_");
-  if (/^\d/.test(s)) s = `L_${s}`;
-  return s;
-};
-
 async function buildBrowserESMHighlightJS(name, languages, options) {
   log("Building highlight.mjs.");
   const header = buildHeader();
   const input = { ...config.rollup.node.input, input: `src/stub.js`, plugins: [
     ...config.rollup.node.input.plugins,
-    {
-        name: "hljs-index",
-        resolveId(source) {
-          if (source === "builtInLanguages") {
-            return source; // this signals that rollup should not ask other plugins or check the file system to find this id
-          }
-          return null; // other ids should be handled as usually
-        },
-        load(id) {
-          if (id === "builtInLanguages") {
-            return languages.map((lang) => {
-              const importName = safeImportName(lang.name);
-              return `import ${importName} from './languages/${lang.name}.js';\n` +
-                `hljs.registerLanguage('${lang.name}', ${importName});`;
-            }).join("\n");
-          }
-          return null;
-        },
-      },
+    builtInLanguagesPlugin(languages),
   ] };
   const output = {
     ...config.rollup.node.output,
