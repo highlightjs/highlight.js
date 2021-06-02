@@ -1,56 +1,29 @@
 const fs = require("fs").promises;
 const fss = require("fs");
 const glob = require("glob");
-const Terser = require("terser");
 const zlib = require('zlib');
-const { getLanguages } = require("./lib/language");
-const { filter } = require("./lib/dependencies");
-const config = require("./build_config");
-const { install, installCleanCSS, mkdir } = require("./lib/makestuff");
+const { getLanguages } = require("./lib/language.js");
+const { filter } = require("./lib/dependencies.js");
+const config = require("./build_config.js");
+const { install, installCleanCSS, mkdir } = require("./lib/makestuff.js");
 const log = (...args) => console.log(...args);
-const { buildBrowserHighlightJS, buildBrowserESMHighlightJS } = require("./build_browser");
-const { buildPackageJSON, writePackageJSON } = require("./build_node");
-const { rollupCode } = require("./lib/bundling.js");
+const { buildCore } = require("./build_browser.js");
+const { buildPackageJSON, writePackageJSON } = require("./build_node.js");
 const path = require("path");
 const bundling = require('./lib/bundling.js');
 
 async function installPackageJSON(options) {
-  const json = buildPackageJSON(options, {
-    ".": {
-      import: options.minify ? "./es/index.min.js" : "./es/index.js",
-      browser: options.minify ? "./highlight.min.js" : "./highlight.js",
-    },
-    "./lib/languages/*": {
-      import: "./es/languages/*.js",
-      browser: "./languages/*.js"
-    },
-    get "./lib/common"(){ return this["."]; },
-    "./lib/core": { import: "./es/core.js" },
-    "./styles/*": "./styles/*",
-    "./package.json": "./package.json",
-  });
+  const json = buildPackageJSON(options);
   json.name = "@highlightjs/cdn-assets";
   json.description = json.description.concat(" (pre-compiled CDN assets)");
   // this is not a replacement for `highlightjs` package
+  // CDN assets do not need an export map, they are just a bunch of files.
+  // The NPM package mostly only exists to populate CDNs and provide raw files.
   delete json.exports;
   delete json.type;
   delete json.main;
   delete json.types;
   await writePackageJSON(json);
-}
-
-async function buildESMCore(options) {
-  const input = { ...config.rollup.node.input, input: `src/highlight.js` };
-  const output = {
-    ...config.rollup.node.output,
-    format: "es",
-    file: `${process.env.BUILD_DIR}/es/core.js`,
-  };
-  const core = await rollupCode(input, output);
-
-  const miniCore = options.minify ? await Terser.minify(core, {...config.terser, module: true}) : { code: core };
-  await fs.writeFile(output.file, miniCore.code);
-  return miniCore.code.length;
 }
 
 let shas = {};
@@ -64,13 +37,9 @@ async function buildCDN(options) {
 
   // all the languages are built for the CDN and placed into `/languages`
   const languages = await getLanguages();
-  
-  let esmCoreSize, esmIndexSize;
-  if (options.esm) {
-    mkdir("es");
-    await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
-    esmCoreSize = await buildESMCore(options);
-  }
+
+  let esmCoreSize = {};
+  let esmCommonSize = {};
 
   await installLanguages(languages, options);
 
@@ -84,34 +53,43 @@ async function buildCDN(options) {
     embedLanguages = [];
   }
 
-  const size = await buildBrowserHighlightJS(embedLanguages, { minify: options.minify });
-  if (options.esm) esmIndexSize = await buildBrowserESMHighlightJS("index", embedLanguages, { minify: options.minify });
-  shas = Object.assign({}, size.shas, shas);
+  const size = await buildCore("highlight", embedLanguages, { minify: options.minify, format: "cjs" });
+  if (options.esm) {
+    mkdir("es");
+    await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
+    esmCoreSize = await buildCore("core", [], {minify: options.minify, format: "es"});
+    esmCommonSize = await buildCore("highlight", embedLanguages, { minify: options.minify, format: "es" });
+  }
+  shas = {
+    ...size.shas, ...esmCommonSize.shas, ...esmCoreSize.shas, ...shas
+  };
 
   await buildSRIDigests(shas);
 
   log("-----");
-  log("Embedded Lang       :",
+  log("Embedded Lang           :",
     embedLanguages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  log("All Lang            :",
+  log("All Lang                :",
     languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  log("highlight.js        :",
-    size.full, "bytes");
+  log("highlight.js            :",
+    size.fullSize, "bytes");
 
   if (options.minify) {
-    log("highlight.min.js    :", size.minified, "bytes");
-    log("highlight.min.js.gz :", zlib.gzipSync(size.minifiedSrc).length, "bytes");
+    log("highlight.min.js        :", size.minified, "bytes");
+    log("highlight.min.js.gz     :", zlib.gzipSync(size.minifiedSrc).length, "bytes");
   } else {
-    log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length, "bytes");
+    log("highlight.js.gz         :", zlib.gzipSync(size.fullSrc).length, "bytes");
   }
-  if(options.esm) {
-    log("es/core.js          :", esmCoreSize, "bytes");
-    log("es/index.js         :", esmIndexSize.fullSize, "bytes");
+  if (options.esm) {
+    log("es/core.js              :", esmCoreSize.fullSize, "bytes");
+    log("es/highlight.js         :", esmCommonSize.fullSize, "bytes");
     if (options.minify) {
-      log("es/index.min.js     :", esmIndexSize.minified, "bytes");
-      log("es/index.min.js.gz  :", zlib.gzipSync(esmIndexSize.minifiedSrc).length, "bytes");
+      log("es/core.min.js          :", esmCoreSize.minified, "bytes");
+      log("es/core.min.js.gz       :", zlib.gzipSync(esmCoreSize.minifiedSrc).length, "bytes");
+      log("es/highlight.min.js     :", esmCommonSize.minified, "bytes");
+      log("es/highlight.min.js.gz  :", zlib.gzipSync(esmCommonSize.minifiedSrc).length, "bytes");
     } else {
-      log("es/index.js.gz      :", zlib.gzipSync(esmIndexSize.fullSrc).length, "bytes");
+      log("es/highlight.js.gz      :", zlib.gzipSync(esmCommonSize.fullSrc).length, "bytes");
     }
   }
   log("-----");
@@ -122,7 +100,7 @@ async function buildSRIDigests(shas) {
   const temp = await fs.readFile("./tools/templates/DIGESTS.md");
   const DIGEST_MD = temp.toString();
 
-  const version = require("../package").version;
+  const version = require("../package.json").version;
   const digestList = Object.entries(shas).map(([k, v]) => `${v} ${k}`).join("\n");
 
   const out = DIGEST_MD
@@ -136,7 +114,7 @@ async function buildSRIDigests(shas) {
 async function installLanguages(languages, options) {
   log("Building language files.");
   mkdir("languages");
-  if(options.esm) mkdir("es/languages");
+  if (options.esm) mkdir("es/languages");
 
   await Promise.all(
     languages.map(async(language) => {
@@ -186,8 +164,10 @@ async function buildCDNLanguage(language, options) {
   await language.compile({ terser: config.terser });
   shas[name] = bundling.sha384(language.minified);
   await fs.writeFile(`${process.env.BUILD_DIR}/${name}`, language.minified);
-  if (options.esm)
+  if (options.esm) {
+    shas[`es/${name}`] = bundling.sha384(language.minifiedESM);
     await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}`, language.minifiedESM);
+  }
 }
 
 module.exports.build = buildCDN;

@@ -73,14 +73,12 @@ async function buildBrowser(options) {
 
   detailedGrammarSizes(languages);
 
-  const size = await buildBrowserHighlightJS(languages, { minify: options.minify });
+  const size = await buildCore("highlight", languages, { minify: options.minify, format: "cjs" });
 
   log("-----");
-  log("Core                :", size.core, "bytes");
-  if (options.minify) { log("Core (min)          :", size.core_min, "bytes"); }
   log("Languages (raw)     :",
     languages.map((el) => el.data.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  log("highlight.js        :", size.full, "bytes");
+  log("highlight.js        :", size.fullSize, "bytes");
   if (options.minify) {
     log("highlight.min.js    :", size.minified, "bytes");
     log("highlight.min.js.gz :", zlib.gzipSync(size.minifiedSrc).length, "bytes");
@@ -191,105 +189,65 @@ const builtInLanguagesPlugin = (languages) => ({
   load(id) {
     const escape = (s) => "grmr_" + s.replace("-", "_");
     if (id === "builtInLanguages") {
-      return languages.map((lang) => 
+      return languages.map((lang) =>
         `export { default as ${escape(lang.name)} } from ${JSON.stringify(lang.path)};`
       ).join("\n");
     }
     return null;
-  },
-})
-
-async function buildBrowserHighlightJS(languages, { minify }) {
-  log("Building highlight.js.");
-
-  const header = buildHeader();
-
-  const outFile = `${process.env.BUILD_DIR}/highlight.js`;
-  const minifiedFile = outFile.replace(/js$/, "min.js");
-  const plugins = [...config.rollup.browser_core.input.plugins, builtInLanguagesPlugin(languages)];
-
-  const input = { ...config.rollup.browser_core.input, input: `src/stub.js`, plugins };
-  const output = { ...config.rollup.browser_core.output, file: outFile };
-  let librarySrc = await rollupCode(input, output);
-
-
-  // we don't use this, we just use it to get a size approximation for the build stats
-  const coreSrc = await rollupCode({ ...config.rollup.browser_core.input, input: `src/highlight.js`, plugins }, output);
-
-  // strip off the original top comment
-  librarySrc = librarySrc.replace(/\/\*.*?\*\//s, "");
-
-  const fullSrc = `${header}\n${librarySrc}`;
-
-  const tasks = [];
-  tasks.push(fs.writeFile(outFile, fullSrc, { encoding: "utf8" }));
-  const shas = {
-    "highlight.js": bundling.sha384(fullSrc)
-  };
-
-  let minifiedSrc, minified, core_min;
-
-  if (minify) {
-    const tersed = await Terser.minify(librarySrc, config.terser);
-
-    const coreTersed = await Terser.minify(coreSrc, config.terser);
-    core_min = header.length + 1 + coreTersed.code.length;
-
-    minifiedSrc = `${header}\n${tersed.code}`;
-
-    // get approximate core minified size
-    minified = minifiedSrc.length;
-
-    tasks.push(fs.writeFile(minifiedFile, minifiedSrc, { encoding: "utf8" }));
-    shas["highlight.min.js"] = bundling.sha384(minifiedSrc);
   }
+});
 
-  await Promise.all(tasks);
-  return {
-    core: coreSrc.length,
-    core_min,
-    fullSrc,
-    full: fullSrc.length,
-    minifiedSrc,
-    minified,
-    shas,
-  };
-}
-
-async function buildBrowserESMHighlightJS(name, languages, options) {
-  log("Building highlight.mjs.");
+async function buildCore(name, languages, options) {
   const header = buildHeader();
-  const input = { ...config.rollup.node.input, input: `src/stub.js`, plugins: [
-    ...config.rollup.node.input.plugins,
-    builtInLanguagesPlugin(languages),
-  ] };
+  let relativePath = "";
+  const input = {
+    ...(options.format === "es" ? config.rollup.node.input : config.rollup.browser_iife.input),
+    input: `src/stub.js`
+  };
+  input.plugins = [
+    ...input.plugins,
+    builtInLanguagesPlugin(languages)
+  ];
   const output = {
     ...config.rollup.node.output,
-    format: "es",
-    file: `${process.env.BUILD_DIR}/es/${name}.js`,
+    file: `${process.env.BUILD_DIR}/${name}.js`
   };
 
+  // optimize for no languages by not including the language loading stub
+  if (languages.length === 0) {
+    input.input = "src/highlight.js";
+  }
+
+  if (options.format === "es") {
+    output.format = "es";
+    output.file = `${process.env.BUILD_DIR}/es/${name}.js`;
+    relativePath = "es/";
+  }
+
+  log(`Building ${relativePath}${name}.js.`);
+
   const index = await rollupCode(input, output);
-  const sizeInfo = {}
-  const writePromises = []
+  const sizeInfo = { shas: [] };
+  const writePromises = [];
   if (options.minify) {
     const { code } = await Terser.minify(index, {...config.terser, module: true})
     const src = `${header}\n${code}`;
     writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), src));
     sizeInfo.minified = src.length;
     sizeInfo.minifiedSrc = src;
+    sizeInfo.shas[`${relativePath}${name}.min.js`] = bundling.sha384(src)
   }
   {
     const src = `${header}\n${index}`;
     writePromises.push(fs.writeFile(output.file, src));
     sizeInfo.fullSize = src.length;
     sizeInfo.fullSrc = src;
+    sizeInfo.shas[`${relativePath}${name}.js`] = bundling.sha384(src)
   }
   await Promise.all(writePromises);
   return sizeInfo;
 }
 
 // CDN build uses the exact same highlight.js distributable
-module.exports.buildBrowserHighlightJS = buildBrowserHighlightJS;
-module.exports.buildBrowserESMHighlightJS = buildBrowserESMHighlightJS;
+module.exports.buildCore = buildCore;
 module.exports.build = buildBrowser;

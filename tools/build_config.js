@@ -27,7 +27,7 @@ module.exports = {
         ]
       }
     },
-    browser_core: {
+    browser_iife: {
       input: {
         plugins: [
           jsonPlugin(),

@@ -105,10 +105,10 @@ const generatePackageExports = () => ({
   "./styles/*": "./styles/*",
   "./types/*": "./types/*",
 });
-function buildPackageJSON(options, exports = generatePackageExports()) {
-  const packageJson = require("../package");
+function buildPackageJSON(options) {
+  const packageJson = require("../package.json");
 
-  if (options.esm) packageJson.exports = exports;
+  if (options.esm) packageJson.exports = generatePackageExports();
 
   return packageJson;
 }
