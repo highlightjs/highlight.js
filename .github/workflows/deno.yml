@@ -8,7 +8,6 @@ on:
 
 jobs:
   test-deno:
-    needs: build
     runs-on: ubuntu-latest
 
     strategy:
