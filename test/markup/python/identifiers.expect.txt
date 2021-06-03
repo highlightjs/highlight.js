@@ -1,0 +1,15 @@
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">_private_func</span>():
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">IdentifiersTest</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">method</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">_PrivateClass</span>:
+    <span class="hljs-keyword">pass</span>
