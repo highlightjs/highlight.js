@@ -1,3 +1,9 @@
+## Version 10.7.3 (pending)
+
+- fix(parser) Resolves issue with missing TypeScript property [Jacob Swanner][]
+
+[Jacob Swanner]: https://github.com/jswanner
+
 ## Version 10.7.2
 
 This is a patch release.  The only change is that deprecation messages
