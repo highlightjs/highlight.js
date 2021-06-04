@@ -1,8 +1,9 @@
-## Version 10.7.3 (pending)
+## Version 10.7.3
 
 - fix(parser) Resolves issue with missing TypeScript property [Jacob Swanner][]
 
 [Jacob Swanner]: https://github.com/jswanner
+
 
 ## Version 10.7.2
 

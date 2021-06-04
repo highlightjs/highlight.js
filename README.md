@@ -271,28 +271,28 @@ see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md
 **cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
 
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/go.min.js"></script>
 ```
 
 **jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/default.min.css">
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.3/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.3/build/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.3/build/languages/go.min.js"></script>
 ```
 
 **unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/default.min.css">
-<script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.7.3/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.3/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/languages/go.min.js"></script>
+<script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.3/languages/go.min.js"></script>
 ```
 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
