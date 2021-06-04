@@ -1,3 +1,11 @@
+## Version 11.0.1
+
+- (fix) use console.log for .js.js deprecation warning (#3222) [Josh Goebel][]
+- (fix) do not restrict exports from cdn-assets (#3223) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 11.0.0
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
