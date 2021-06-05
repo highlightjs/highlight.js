@@ -41,6 +41,7 @@ export default function(hljs) {
     "unquote",
     "unquote_splicing",
     "use",
+    "when",
     "with|0"
   ];
   const LITERALS = [

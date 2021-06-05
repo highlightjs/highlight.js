@@ -1,6 +1,7 @@
 <span class="hljs-keyword">case</span> x <span class="hljs-keyword">do</span>
   <span class="hljs-number">1</span> -&gt; <span class="hljs-symbol">:one</span>
   <span class="hljs-number">2</span> -&gt; <span class="hljs-symbol">:two</span>
+  n <span class="hljs-keyword">when</span> is_integer(n) -&gt; <span class="hljs-symbol">:more</span>
   _ -&gt; <span class="hljs-symbol">:error</span>
 <span class="hljs-keyword">end</span>
 
