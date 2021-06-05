@@ -17,6 +17,11 @@ async function installPackageJSON(options) {
   const json = require(`${process.env.BUILD_DIR}/package`);
   json.name = "@highlightjs/cdn-assets";
   json.description = json.description.concat(" (pre-compiled CDN assets)");
+  // this is not a replacement for `highlightjs` package
+  delete json.exports;
+  delete json.type;
+  delete json.main;
+  delete json.types;
   fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(json, null, '   '));
 }
 
