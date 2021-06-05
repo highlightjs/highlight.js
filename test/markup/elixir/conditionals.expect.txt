@@ -8,7 +8,7 @@
   x &gt; <span class="hljs-number">30</span> -&gt; <span class="hljs-symbol">:ok</span>
   y &lt;= <span class="hljs-number">7</span> -&gt; <span class="hljs-symbol">:maybe</span>
   z == <span class="hljs-symbol">:skip</span> -&gt; <span class="hljs-symbol">:ok</span>
-  <span class="hljs-keyword">true</span> -&gt; <span class="hljs-symbol">:error</span>
+  <span class="hljs-literal">true</span> -&gt; <span class="hljs-symbol">:error</span>
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">4</span> <span class="hljs-keyword">do</span>

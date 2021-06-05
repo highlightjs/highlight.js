@@ -22,13 +22,11 @@ export default function(hljs) {
     "do",
     "else",
     "end",
-    "false",
     "fn",
     "for",
     "if",
     "import",
     "in",
-    "nil",
     "not",
     "or",
     "quote",
@@ -37,7 +35,6 @@ export default function(hljs) {
     "require",
     "reraise",
     "rescue",
-    "true",
     "try",
     "unless",
     "unquote",
@@ -45,9 +42,15 @@ export default function(hljs) {
     "use",
     "with|0"
   ];
+  const LITERALS = [
+    "false",
+    "nil",
+    "true"
+  ];
   const KWS = {
     $pattern: ELIXIR_IDENT_RE,
-    keyword: KEYWORDS
+    keyword: KEYWORDS,
+    literal: LITERALS
   };
   const SUBST = {
     className: 'subst',
