@@ -1,5 +1,5 @@
 <span class="hljs-class"><span class="hljs-keyword">defmodule</span> <span class="hljs-title">User</span></span> <span class="hljs-keyword">do</span>
-  <span class="hljs-class"><span class="hljs-keyword">defstruct</span></span> [<span class="hljs-symbol">:name</span>, <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">age:</span> <span class="hljs-number">18</span>]
+  <span class="hljs-keyword">defstruct</span> [<span class="hljs-symbol">:name</span>, <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">age:</span> <span class="hljs-number">18</span>]
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-class"><span class="hljs-keyword">defprotocol</span> <span class="hljs-title">Size</span></span> <span class="hljs-keyword">do</span>
