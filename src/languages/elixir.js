@@ -13,46 +13,45 @@ export default function(hljs) {
   const ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(!|\\?)?';
   const ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
   const KEYWORDS = [
-    "alias",
+    "after",
     "alias",
     "and",
-    "begin",
-    "break",
     "case",
+    "catch",
     "cond",
-    "defined",
+    "defstruct",
     "do",
+    "else",
     "end",
-    "ensure",
-    "false",
     "fn",
     "for",
+    "if",
     "import",
     "in",
-    "include",
-    "module",
-    "next",
-    "nil",
     "not",
     "or",
     "quote",
-    "redo",
+    "raise",
+    "receive",
     "require",
-    "retry",
-    "return",
-    "self",
-    "then",
-    "true",
+    "reraise",
+    "rescue",
+    "try",
     "unless",
-    "until",
+    "unquote",
+    "unquote_splicing",
     "use",
-    "when",
-    "while",
     "with|0"
+  ];
+  const LITERALS = [
+    "false",
+    "nil",
+    "true"
   ];
   const KWS = {
     $pattern: ELIXIR_IDENT_RE,
-    keyword: KEYWORDS
+    keyword: KEYWORDS,
+    literal: LITERALS
   };
   const SUBST = {
     className: 'subst',
@@ -62,7 +61,7 @@ export default function(hljs) {
   };
   const NUMBER = {
     className: 'number',
-    begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[1-9][0-9_]*(\\.[0-9_]+([eE][-+]?[0-9]+)?)?)',
+    begin: '(\\b0o[0-7_]+)|(\\b0b[01_]+)|(\\b0x[0-9a-fA-F_]+)|(-?\\b[0-9][0-9_]*(\\.[0-9_]+([eE][-+]?[0-9]+)?)?)',
     relevance: 0
   };
   // TODO: could be tightened
@@ -218,7 +217,7 @@ export default function(hljs) {
   };
   const FUNCTION = {
     className: 'function',
-    beginKeywords: 'def defp defmacro',
+    beginKeywords: 'def defp defmacro defmacrop',
     end: /\B\b/, // the mode is ended by the title
     contains: [
       hljs.inherit(hljs.TITLE_MODE, {
@@ -272,6 +271,7 @@ export default function(hljs) {
 
   return {
     name: 'Elixir',
+    aliases: ['ex', 'exs'],
     keywords: KWS,
     contains: ELIXIR_DEFAULT_CONTAINS
   };
