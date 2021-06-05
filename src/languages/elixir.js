@@ -278,6 +278,7 @@ export default function(hljs) {
 
   return {
     name: 'Elixir',
+    aliases: ['ex', 'exs'],
     keywords: KWS,
     contains: ELIXIR_DEFAULT_CONTAINS
   };
