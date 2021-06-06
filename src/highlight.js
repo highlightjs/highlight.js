@@ -121,7 +121,6 @@ const HLJS = function(hljs) {
    * @param {string} codeOrLanguageName - the language to use for highlighting
    * @param {string | HighlightOptions} optionsOrCode - the code to highlight
    * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
-   * @param {CompiledMode} [continuation] - current continuation mode, if any
    *
    * @returns {HighlightResult} Result - an object that represents the result
    * @property {string} language - the language name
@@ -131,16 +130,13 @@ const HLJS = function(hljs) {
    * @property {CompiledMode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
-  function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals, continuation) {
+  function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals) {
     let code = "";
     let languageName = "";
     if (typeof optionsOrCode === "object") {
       code = codeOrLanguageName;
       ignoreIllegals = optionsOrCode.ignoreIllegals;
       languageName = optionsOrCode.language;
-      // continuation not supported at all via the new API
-      // eslint-disable-next-line no-undefined
-      continuation = undefined;
     } else {
       // old API
       logger.deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
@@ -166,7 +162,7 @@ const HLJS = function(hljs) {
     // in which case we don't even need to call highlight
     const result = context.result
       ? context.result
-      : _highlight(context.language, context.code, ignoreIllegals, continuation);
+      : _highlight(context.language, context.code, ignoreIllegals);
 
     result.code = context.code;
     // the plugin can change anything in result to suite it
@@ -738,8 +734,6 @@ const HLJS = function(hljs) {
     const text = node.textContent;
     const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
 
-    fire("after:highlightElement", { el: element, result, text });
-
     element.innerHTML = result.value;
     updateClassName(element, language, result.language);
     element.result = {
@@ -754,6 +748,8 @@ const HLJS = function(hljs) {
         relevance: result.secondBest.relevance
       };
     }
+
+    fire("after:highlightElement", { el: element, result, text });
   }
 
   /**

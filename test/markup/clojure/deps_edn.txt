@@ -1,0 +1,14 @@
+{:aliases {:export {:exec-fn stelcodes.dev-blog.generator/export},
+           :repl {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.2"},
+                               nrepl/nrepl {:mvn/version "0.8.3"}},
+                  :extra-paths ["dev"],
+                  :main-opts ["-m"
+                              "nrepl.cmdline"
+                              "--middleware"
+                              "[cider.nrepl/cider-middleware]"
+                              "--interactive"]},
+           :webhook {:exec-fn stelcodes.dev-blog.webhook/listen}},
+ :deps {http-kit/http-kit {:mvn/version "2.5.3"},
+        org.clojure/clojure {:mvn/version "1.10.1"},
+        stasis/stasis {:mvn/version "2.5.1"}},
+ :paths ["src" "resources"]}

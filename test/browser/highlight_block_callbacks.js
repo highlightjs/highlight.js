@@ -113,20 +113,22 @@ describe('after:highlightElement', function() {
   it('can override language if not originally provided (in class)', async function() {
     var test = newTestCase({
       code: "anothingstring",
-      language: ""
+      language: "java"
     });
     await buildFakeDOM.bind(this)(test);
     this.hljs.addPlugin({
       'after:highlightElement': ({el, result}) => {
-        result.language="basic";
+        // scan class list and remove other languages
+        el.classList.remove("language-java");
+        el.classList.add("language-basic");
       }
     });
 
     this.hljs.highlightElement(this.block);
-    should(this.block.outerHTML.includes(`class="hljs language-basic"`)).equal(true);
+    should(this.block.className).equal(`hljs language-basic`);
 
   })
-  it('can modify result and affect the render output', async function() {
+  it('can modify element after render', async function() {
     var test = newTestCase({
       code: "var a = 4;",
       language: "javascript"
@@ -134,11 +136,11 @@ describe('after:highlightElement', function() {
     await buildFakeDOM.bind(this)(test);
     this.hljs.addPlugin({
       'after:highlightElement': ({el, result}) => {
-        result.value="redacted";
+        el.innerHTML = "redacted";
       }
     });
 
     this.hljs.highlightElement(this.block);
-    this.block.outerHTML.should.equal(`<code class="javascript hljs language-javascript">redacted</code>`);
+    this.block.outerHTML.should.equal(`<code class="language-javascript hljs">redacted</code>`);
   })
 })

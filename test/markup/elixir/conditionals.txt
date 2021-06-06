@@ -1,0 +1,41 @@
+case x do
+  1 -> :one
+  2 -> :two
+  n when is_integer(n) -> :more
+  _ -> :error
+end
+
+cond do
+  x > 30 -> :ok
+  y <= 7 -> :maybe
+  z == :skip -> :ok
+  true -> :error
+end
+
+if x > 4 do
+  :ok
+end
+
+if x > 4, do: :ok
+
+if x > 4 do
+  :ok
+else
+  :error
+end
+
+if x > 4, do: :ok, else: :error
+
+unless y < 50 do
+  :error
+end
+
+unless y < 50, do: :error
+
+unless y < 50 do
+  :error
+else
+  :ok
+end
+
+unless y < 50, do: :error, else: :ok
