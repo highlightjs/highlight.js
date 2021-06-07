@@ -22,3 +22,7 @@ sum_all <- function (...) {
 # Weird identifier in @param string
 
 #' @param `a\`b\\` test
+
+#' @examples
+#' test = '\code{1 + 2} @return'
+format = function (str) {}
