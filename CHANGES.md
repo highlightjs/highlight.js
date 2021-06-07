@@ -2,6 +2,7 @@
 
 Grammars:
 
+- fix(markdown) Images with empty alt or links with empty text (#3233) [Josh Goebel][]
 - fix(python) identifiers starting with underscore not highlighted (#3221) [Antoine Lambert][]
 - enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
 - enh(elixir) much improved regular expression sigil support (#3207) [Josh Goebel][]
