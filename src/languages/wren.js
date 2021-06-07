@@ -159,7 +159,7 @@ export default function(hljs) {
   // CamelCase
   const CLASS_REFERENCE = {
     relevance: 0,
-    match: /[A-Z]+[a-z]+([A-Z]+[a-z]+)*/,
+    match: /\b[A-Z]+[a-z]+([A-Z]+[a-z]+)*/,
     scope: "title.class",
     keywords: {
       _: CORE_CLASSES
