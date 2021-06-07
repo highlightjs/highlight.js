@@ -12,8 +12,8 @@ is_zero <span class="hljs-operator">=</span> <span class="hljs-keyword">function
 <span class="hljs-comment">#&#x27; <span class="hljs-doctag">@param <span class="hljs-variable">...</span></span> one or more numeric vectors</span>
 <span class="hljs-comment">#&#x27; <span class="hljs-doctag">@examples</span>
 #&#x27; sum_all(1 : 10) # 55 @this \link{should not be highlighted!}
-#&#x27; sum_all(1, NA, 2, 3) # 6
-#&#x27; <span class="hljs-doctag">@seealso</span> <span class="hljs-keyword">\link</span>[base]{sum} # this SHOULD be highlighted again.</span>
+#&#x27; sum_all(1, NA, 2, 3) # 6</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@seealso</span> <span class="hljs-keyword">\link</span>[base]{sum} # this SHOULD be highlighted again.</span>
 <span class="hljs-comment"># comment</span>
 sum_all <span class="hljs-operator">&lt;-</span> <span class="hljs-keyword">function</span> <span class="hljs-punctuation">(</span>...<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
   <span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>...<span class="hljs-punctuation">,</span> na.rm <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span>

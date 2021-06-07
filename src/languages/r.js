@@ -85,24 +85,15 @@ export default function(hljs) {
               // doctags shouldn’t be treated as such. See
               // `test/markup/r/roxygen.txt` for an example.
               scope: 'doctag',
-              match: '@examples',
+              match: /@examples/,
               starts: {
-                contains: [
-                  // Continue mode into the next doc comment line ...
-                  {
-                    match: /\n(?=#')/,
-                  },
-                  // ... but stop if that line starts with a new Roxygen tag ...
-                  {
-                    match: /^#'\s*(?=@[a-zA-Z]+)/,
-                    endsParent: true
-                  },
-                  // ... otherwise consume the line.
-                  {
-                    begin: /^/,
-                    end: /$/
-                  }
-                ]
+                end: regex.lookahead(regex.either(
+                  // end if another doc comment
+                  /\n^#'\s*(?=@[a-zA-Z]+)/,
+                  // or a line with no comment
+                  /\n^(?!#')/
+                )),
+                endsParent: true
               }
             },
             {
