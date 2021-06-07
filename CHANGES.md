@@ -2,6 +2,7 @@
 
 Grammars:
 
+- fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
 - fix(python) identifiers starting with underscore not highlighted (#3221) [Antoine Lambert][]
 - enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
 - enh(elixir) much improved regular expression sigil support (#3207) [Josh Goebel][]
@@ -12,6 +13,7 @@ Grammars:
 [Josh Goebel]: https://github.com/joshgoebel
 [Antoine Lambert]: https://github.com/anlambert
 [Angelika Tyborska]: https://github.com/angelikatyborska
+[Konrad Rudolph]: https://github.com/klmr
 
 ## Version 11.0.0
 
@@ -61,7 +63,6 @@ Language Grammars:
 
 Parser:
 
-- fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
 - enh(vala) improve language detection for Vala (#3195) [Konrad Rudolph][]
 - enh(r) add support for operators, fix number highlighting bug (#3194, #3195) [Konrad Rudolph][]
 - enh(parser) add `beginScope` and `endScope` to allow separate scoping begin and end (#3159) [Josh Goebel][]
