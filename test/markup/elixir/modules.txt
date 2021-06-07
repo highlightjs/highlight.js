@@ -1,0 +1,12 @@
+defmodule User do
+  defstruct [:name, :email, age: 18]
+end
+
+defprotocol Size do
+  @doc "Calculates the size (and not the length!) of a data structure"
+  def size(data)
+end
+
+defimpl Size, for: Map do
+  def size(map), do: map_size(map)
+end

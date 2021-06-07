@@ -143,7 +143,7 @@ export default function(hljs) {
 
   return {
     name: 'Clojure',
-    aliases: [ 'clj' ],
+    aliases: [ 'clj', 'edn' ],
     illegal: /\S/,
     contains: [
       LIST,

@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "11.0.0-beta0",
+  "version": "11.0.0",
   "author": {
     "name": "Ivan Sagalaev",
     "email": "maniac@softwaremaniacs.org"
@@ -72,11 +72,11 @@
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-promise": "^5.1.0",
     "glob": "^7.1.7",
     "glob-promise": "^4.0.1",
     "handlebars": "^4.7.6",
-    "jsdom": "^16.4.0",
+    "jsdom": "^16.6.0",
     "lodash": "^4.17.20",
     "mocha": "^8.4.0",
     "refa": "^0.4.1",

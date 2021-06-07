@@ -70,6 +70,8 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 
 ### Behavioral changes
 
+- `after:highlightElement` plugin callback is now fired *after* the DOM has been updated, not before.
+
 #### API changes
 
 - The option `ignoreIllegals` is now `true` by default (for `highlight()`). Previously it was `false`.
