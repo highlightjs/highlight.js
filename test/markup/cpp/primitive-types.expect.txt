@@ -47,11 +47,11 @@
 
 <span class="hljs-comment">// Type traits and helpers types:</span>
 <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;
-<span class="hljs-keyword">using</span> <span class="hljs-type">decay_t</span> = <span class="hljs-keyword">typename</span> decay&lt;T&gt;::type;
+<span class="hljs-keyword">using</span> decay_t = <span class="hljs-keyword">typename</span> decay&lt;T&gt;::type;
 
 <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">X</span> {
-  <span class="hljs-keyword">using</span> <span class="hljs-type">decayed_t</span> = <span class="hljs-keyword">typename</span> std::<span class="hljs-type">decay_t</span>&lt;X&lt;T&gt;&gt;;
+  <span class="hljs-keyword">using</span> decayed_t = <span class="hljs-keyword">typename</span> std::decay_t&lt;X&lt;T&gt;&gt;;
 };
 
-X&lt;<span class="hljs-type">int</span>&amp;&gt;::<span class="hljs-type">decayed_t</span> x;
+X&lt;<span class="hljs-type">int</span>&amp;&gt;::decayed_t x;
