@@ -345,6 +345,7 @@ export default function(hljs) {
   return {
     name: 'PowerShell',
     aliases: [
+      "pwsh",
       "ps",
       "ps1"
     ],
