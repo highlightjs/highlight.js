@@ -2,6 +2,7 @@
 
 Grammars:
 
+- enh(powershell) added `pwsh` alias (#3236) [tebeco][]
 - fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
 - fix(python) identifiers starting with underscore not highlighted (#3221) [Antoine Lambert][]
 - enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
@@ -14,6 +15,8 @@ Grammars:
 [Antoine Lambert]: https://github.com/anlambert
 [Angelika Tyborska]: https://github.com/angelikatyborska
 [Konrad Rudolph]: https://github.com/klmr
+[tebeco]: https://github.com/tebeco
+
 
 ## Version 11.0.0
 
