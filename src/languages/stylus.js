@@ -154,6 +154,9 @@ export default function(hljs) {
         ]
       },
 
+      // css variables
+      modes.CSS_VARIABLE,
+
       // attributes
       //  - only from beginning of line + whitespace
       //  - must have whitespace after it
