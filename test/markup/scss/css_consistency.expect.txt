@@ -57,3 +57,8 @@
   <span class="hljs-comment">/* src: url(&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;) format(&quot;woff2&quot;),
        url(&quot;/fonts/OpenSans-Regular-webfont.woff&quot;) format(&quot;woff&quot;); */</span>
 }
+
+<span class="hljs-selector-tag">main</span> {
+  <span class="hljs-attr">--color</span>: red;
+  <span class="hljs-attribute">color</span>: var(--color);
+}
