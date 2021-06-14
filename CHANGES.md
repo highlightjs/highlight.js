@@ -2,6 +2,7 @@
 
 Grammars:
 
+- fix(markdown) Images with empty alt or links with empty text (#3233) [Josh Goebel][]
 - enh(powershell) added `pwsh` alias (#3236) [tebeco][]
 - fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
 - fix(python) identifiers starting with underscore not highlighted (#3221) [Antoine Lambert][]
