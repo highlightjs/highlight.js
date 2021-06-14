@@ -3,13 +3,21 @@
 Grammars:
 
 - fix(markdown) Images with empty alt or links with empty text (#3233) [Josh Goebel][]
+- enh(powershell) added `pwsh` alias (#3236) [tebeco][]
+- fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
 - fix(python) identifiers starting with underscore not highlighted (#3221) [Antoine Lambert][]
 - enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
 - enh(elixir) much improved regular expression sigil support (#3207) [Josh Goebel][]
+- enh(elixir) updated list of keywords (#3212) [Angelika Tyborska][]
+- fix(elixir) fixed number detection when numbers start with a zero (#3212) [Angelika Tyborska][]
 
 [Stel Abrego]: https://github.com/stelcodes
 [Josh Goebel]: https://github.com/joshgoebel
 [Antoine Lambert]: https://github.com/anlambert
+[Angelika Tyborska]: https://github.com/angelikatyborska
+[Konrad Rudolph]: https://github.com/klmr
+[tebeco]: https://github.com/tebeco
+
 
 ## Version 11.0.0
 
