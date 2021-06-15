@@ -13,7 +13,7 @@
 
 import sys, os
 import sphinx_rtd_theme
-import myst_parser
+import recommonmark
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -29,7 +29,7 @@ import myst_parser
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
   "sphinx_rtd_theme",
-  "myst_parser"
+  "recommonmark"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
