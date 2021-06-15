@@ -29,7 +29,7 @@ Returns an object with the following properties:
 
 
 highlight (old API)
----------
+-------------------
 
 ::
 
@@ -52,7 +52,7 @@ highlightAuto
 
 ::
 
-highlightAuto(code, languageSubset)
+  highlightAuto(code, languageSubset)
 
 Highlighting with language detection.
 Accepts a string with the code to highlight and an optional array of language names and aliases restricting detection to only those languages. The subset can also be set with ``configure``, but the local parameter overrides the option if set.
@@ -122,7 +122,7 @@ initHighlighting
 
 *Deprecated as of 10.6:* Please use ``highlightAll()`` instead.
 
-Applies highlighting to all elements on a page matching ``cssSelector ``.
+Applies highlighting to all elements on a page matching ``cssSelector``.
 
 
 initHighlightingOnLoad

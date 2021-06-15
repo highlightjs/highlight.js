@@ -56,7 +56,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | DNS Zone file           | dns, zone, bind        |         |
 | DOS                     | dos, bat, cmd          |         |
 | Dart                    | dart                   |         |
-| Delphi                  | delphi, dpr, dfm, pas, pascal, freepascal, lazarus, lpr, lfm | |
+| Delphi                  | dpr, dfm, pas, pascal  |         |
 | Diff                    | diff, patch            |         |
 | Django                  | django, jinja          |         |
 | Dockerfile              | dockerfile, docker     |         |
@@ -138,7 +138,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Oracle Rules Language   | ruleslanguage          |         |
 | Oxygene                 | oxygene                |         |
 | PF                      | pf, pf.conf            |         |
-| PHP                     | php, php3, php4, php5, php6, php7, php8 |    |
+| PHP                     | php                    |         |
 | Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |

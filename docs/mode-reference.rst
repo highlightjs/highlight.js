@@ -96,7 +96,7 @@ Disables autodetection for this language.
 compilerExtensions (USE WITH CAUTION)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **type**: an array of compiler extensions ie: ``(mode, parentMode) -> {} ``
+- **type**: an array of compiler extensions ie: ``(mode, parentMode) -> {}``
 
 This allows grammars to extend the mode compiler to add their own syntactic
 sugar to make reading and writing grammars easier.  **Note: This is heavily
@@ -216,8 +216,8 @@ of the function as ``title``. The space(s) between would be matched, but not
 highlighted.
 
 Note: Internally, each regular expression in the array becomes a capture group
-inside a larger concatenated regex.  If your regular expressions use capture 
-groups (or references) they will be auto-magically renumerated so that they 
+inside a larger concatenated regex.  If your regular expressions use capture
+groups (or references) they will be auto-magically renumerated so that they
 continue to work without any changes.
 
 For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issues/3095>`_.
@@ -412,22 +412,6 @@ tell it to end the function definition after itself:
 (The ``end: /\B\b/`` regex tells function to never end by itself.)
 
 
-.. _lexemes:
-
-lexemes (now keywords.$pattern)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- **type**: regexp
-
-A regular expression that extracts individual "words" from the code to compare
-against :ref:`keywords <keywords>`. The default value is ``\w+`` which works for
-many languages.
-
-Note: It's now recommmended that you use ``keywords.$pattern`` instead of
-``lexemes``, as this makes it easier to keep your keyword pattern associated
-with your keywords themselves, particularly if your keyword configuration is a
-constant that you repeat multiple times within different modes of your grammar.
-
 .. _keywords:
 
 keywords
@@ -580,7 +564,9 @@ parsing.
 
 Consider parsing PHP inside HTML::
 
-  <p><? echo 'PHP'; /* ?> */ ?></p>
+.. code-block:: php
+
+  <p><? echo 'PHP'; /* ?> \*/ ?></p>
 
 The ``?>`` inside the comment should **not** end the PHP part, so we have to
 handle pairs of ``/* .. */`` to correctly find the ending ``?>``::

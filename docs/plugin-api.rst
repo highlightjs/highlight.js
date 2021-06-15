@@ -1,7 +1,7 @@
 .. highlight:: javascript
 
-Plugins
-=======
+Plugin API
+==========
 
 Highlight.js supports plugins.
 
@@ -63,7 +63,7 @@ Callbacks
 ---------
 
 ``before:highlight({code, language})``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This callback function is passed a context object with two keys:
 
