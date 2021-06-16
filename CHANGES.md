@@ -15,6 +15,7 @@ Grammars:
 [Stel Abrego]: https://github.com/stelcodes
 [Josh Goebel]: https://github.com/joshgoebel
 [Antoine Lambert]: https://github.com/anlambert
+[Elijah Conners]: https://github.com/elijahepepe
 [Angelika Tyborska]: https://github.com/angelikatyborska
 [Konrad Rudolph]: https://github.com/klmr
 [tebeco]: https://github.com/tebeco
