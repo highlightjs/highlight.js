@@ -4,6 +4,16 @@ The table below shows the full list of supported languages (and corresponding cl
 
 Languages that listed a **Package** below are 3rd party languages and are not bundled with the core library.  You can find their repositories by following the links.
 
+### Using 3rd Party Languages: 
+To use any languages not within the standard set, you have to register them within the hilight js code. This can be done with 
+```js
+path2lang = '<relative path to folder>/highlight.js/lib/languages/<your language name>.js';
+alias = '<your language name>';
+hljs.registerLanguage(alias, require(path2lang));
+```
+
+### Table of Supported Languages
+
 <!-- LANGLIST -->
 | Language                | Classes                | Package |
 | :-----------------------| :--------------------- | :------ |
