@@ -1,5 +1,5 @@
-Library API
-===========
+Core API
+========
 
 Highlight.js exports a few functions as methods of the ``hljs`` object.
 
@@ -28,17 +28,6 @@ Returns an object with the following properties:
 * ``illegal``: boolean representing whether any illegal matches were found
 * ``code``: the original raw code
 
-
-highlight (deprecated)
-^^^^^^^^^^^^^^^^^^^^^^
-
-::
-
-  highlight(languageName, code, ignoreIllegals)
-
-.. deprecated:: 10.7 This will be removed entirely in v12.
-
-Please see the :ref:`newer API<newerapi>` shown above.
 
 
 highlightAuto
@@ -76,6 +65,16 @@ in the ``class`` attribute of the DOM node. See the :doc:`scopes reference
 </css-classes-reference>` for all available language names and scopes.
 
 
+
+
+highlightAll
+------------
+
+Applies highlighting to all elements on a page matching the configured ``cssSelector``.
+The default ``cssSelector`` value is ``'pre code'``, which highlights all code blocks.
+This can be called before or after the page's ``onload`` event has fired.
+
+
 configure
 ---------
 
@@ -100,31 +99,6 @@ Accepts an object representing options with the values to updated. Other options
     classPrefix: ''     // don't append class prefix
                         // … other options aren't changed
   });
-  hljs.highlightAll();
-
-
-highlightAll
-------------
-
-Applies highlighting to all elements on a page matching the configured ``cssSelector``.
-The default ``cssSelector`` value is ``'pre code'``, which highlights all code blocks.
-This can be called before or after the page's ``onload`` event has fired.
-
-
-initHighlighting
-----------------
-
-.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
-
-Applies highlighting to all elements on a page matching ``cssSelector``.
-
-
-initHighlightingOnLoad
-----------------------
-
-.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
-
-Attaches highlighting to the page load event.
 
 
 registerLanguage
@@ -197,3 +171,33 @@ For example, if a new version suddenly had a serious bug (or breaking change) th
 
 * **In Safe Mode**: All other languages would continue to highlight just fine. The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
 * **In Debug Mode**: All highlighting would stop when an error was encountered and a JavaScript error would be thrown.
+
+
+Deprecated API
+--------------
+
+highlight
+^^^^^^^^^
+
+.. deprecated:: 10.7 This will be removed entirely in v12.
+
+::
+
+  highlight(languageName, code)
+
+
+Please see the :ref:`newer API<newerapi>` shown above.
+
+
+initHighlighting
+^^^^^^^^^^^^^^^^
+
+.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
+
+
+
+initHighlightingOnLoad
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
+

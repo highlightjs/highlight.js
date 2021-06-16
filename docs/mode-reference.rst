@@ -3,8 +3,7 @@
 Mode Reference
 ==============
 
-Types
------
+**Data Types**
 
 Types of attributes values in this reference:
 
@@ -14,8 +13,8 @@ Types of attributes values in this reference:
 +------------+-------------------------------------------------------------------------------------+
 | scope      | A valid grammar scope: ``title.function.call``                                      |
 +------------+-------------------------------------------------------------------------------------+
-| regexp     | String representing a JavaScript regexp.                                            |
-|            | Note that since it's not a literal regexp all back-slashes should be repeated twice |
+| regexp     | JavaScript Regexp literal (recommended) or string representing a regexp.            |
+|            | (note when using a string proper escaping is critical)                              |
 +------------+-------------------------------------------------------------------------------------+
 | boolean    | JavaScript boolean: ``true`` or ``false``                                           |
 +------------+-------------------------------------------------------------------------------------+
@@ -27,8 +26,8 @@ Types of attributes values in this reference:
 +------------+-------------------------------------------------------------------------------------+
 
 
-Language Only Attributes
-------------------------
+Language Attributes
+-------------------
 
 These attributes are only valid at the language level (ie, they many only exist on the top-most language object and have no meaning if specified in children modes).
 
@@ -93,15 +92,19 @@ disableAutodetect
 Disables autodetection for this language.
 
 
-compilerExtensions (USE WITH CAUTION)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+compilerExtensions
+^^^^^^^^^^^^^^^^^^
+
+.. warning::
+
+  **This is heavily dependent upon compiler internals and may NOT be
+  stable from minor release to minor release.** *It is currently recommended
+  only for 1st party grammars.*
 
 - **type**: an array of compiler extensions ie: ``(mode, parentMode) -> {}``
 
 This allows grammars to extend the mode compiler to add their own syntactic
-sugar to make reading and writing grammars easier.  **Note: This is heavily
-dependent upon compiler internals and may NOT be stable from minor release to
-minor release.** *It is currently recommended only for 1st party grammars.* The
+sugar to make reading and writing grammars easier.  The
 intention is that we use grammars to "test" out new compiler extensions and if
 they perform well promote them into the core library.
 
@@ -144,13 +147,15 @@ Mode Attributes
 className
 ^^^^^^^^^
 
-- **type**: scope
+.. deprecated:: 11.0
 
-Deprecated with version 11.  Use ``scope`` instead.
+  Use ``scope`` instead.
 
 
 scope
 ^^^^^
+
+.. versionadded:: 11.0
 
 - **type**: scope
 
@@ -177,10 +182,14 @@ begin
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
 
-This may also be an array.  See beginScope.
+This may also be an array.  See :ref:`beginScope`.
+
+.. _beginScope:
 
 beginScope
 ^^^^^^^^^^
+
+.. versionadded:: 11.0
 
 - **type**: scope
 - **type**: numeric index of scopes (when ``begin`` is an array)
@@ -226,6 +235,8 @@ For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issu
 endScope
 ^^^^^^^^
 
+.. versionadded:: 11.0
+
 - **type**: scope
 - **type**: numeric index of scopes (when ``end`` is an array)
 
@@ -243,6 +254,8 @@ This has the same behavior as ``beginScope`` but applies to the content of the
 
 match
 ^^^^^
+
+.. versionadded:: 11.0
 
 - **type**: regexp or array of regexp
 
@@ -335,10 +348,12 @@ Used instead of ``begin`` for modes starting with keywords to avoid needless rep
 Unlike the :ref:`keywords <keywords>` attribute, this one allows only a simple list of space separated keywords.
 If you do need additional features of ``keywords`` or you just need more keywords for this mode you may include ``keywords`` along with ``beginKeywords``.
 
-Note: ``beginKeywords`` also checks for a ``.`` before or after the keywords and will fail to match if one is found.
-This is to avoid false positives for method calls or property accesses.
+.. note::
 
-Ex. ``class A { ... }`` would match while ``A.class == B.class`` would not.
+  ``beginKeywords`` also checks for a ``.`` before or after the keywords and will fail to match if one is found.
+  This is to avoid false positives for method calls or property accesses.
+
+  Ex. ``class A { ... }`` would match while ``A.class == B.class`` would not.
 
 .. _endsWithParent:
 
@@ -462,7 +477,10 @@ returnBegin
 Returns just found beginning lexeme back into parser. This is used when beginning of a sub-mode is a complex expression
 that should not only be found within a parent mode but also parsed according to the rules of a sub-mode.
 
-Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+.. warning::
+
+  Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+  A look-ahead regex is almost always preferable.
 
 
 returnEnd
@@ -474,7 +492,10 @@ Returns just found ending lexeme back into parser. This is used for example to p
 A JavaScript block ends with the HTML closing tag ``</script>`` that cannot be parsed with JavaScript rules.
 So it is returned back into its parent HTML mode that knows what to do with it.
 
-Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+.. warning::
+
+  Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+  A look-ahead regex is almost always preferable.
 
 
 contains
@@ -514,12 +535,14 @@ each having all the attributes from the main definition augmented or overridden 
     ]
   }
 
-Note: ``variants`` has very specific behavior with regards to ``contains: ['self']``.
-Lets consider the example above. While you might think this would allow you to
-embed any type of string (double or single quoted) within any other string, it
-does not allow for this.
+.. note::
 
-The variants are compiled into to two *discrete* modes::
+  ``variants`` has very specific behavior with regards to ``contains: ['self']``.
+  Lets consider the example above. While you might think this would allow you to
+  embed any type of string (double or single quoted) within any other string, **it
+  does not**.
+
+The variants are instead compiled into to two *discrete* modes::
 
   { scope: 'string', begin: /"/, contains: ['self', ... ] }
   { scope: 'string', begin: /'/, contains: ['self', ... ] }
@@ -562,11 +585,11 @@ parent buffer along with the starting and the ending lexemes. This works in
 conjunction with the parent's :ref:`subLanguage` when it requires complex
 parsing.
 
-Consider parsing PHP inside HTML::
+Consider parsing PHP inside HTML:
 
 .. code-block:: php
 
-  <p><? echo 'PHP'; /* ?> \*/ ?></p>
+  <p><? echo 'PHP'; /* ?> */ ?></p>
 
 The ``?>`` inside the comment should **not** end the PHP part, so we have to
 handle pairs of ``/* .. */`` to correctly find the ending ``?>``::

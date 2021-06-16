@@ -13,7 +13,7 @@ Highlight.js Documentation
 
    README / How to Use <readme>
    building-testing
-
+   Upgrading to Version 11 <upgrade-11>
 
 .. toctree::
    :caption: Reference
@@ -31,13 +31,13 @@ Highlight.js Documentation
 
 .. toctree::
    :caption: FAQ
-   :maxdepth: 1
+   :titlesonly:
+   :maxdepth: 0
 
    Which languages are supported? <supported-languages>
    Why no line numbers? <line-numbers>
-   How do I request a new language? <language-requests>
-   How do I contribute a new language? <language-contribution>
-   Upgrading to Version 11 <upgrade-11>
+   How to request a new language? <language-requests>
+   How to contribute a new language? <language-contribution>
 
 
 

@@ -2,8 +2,7 @@ Line numbers
 ============
 
 Highlight.js' notable lack of line numbers support is not an oversight but a
-feature. Following is the explanation of this policy from the current project
-maintainer (hey guys!):
+feature. Following is an explanation from the original author:
 
     One of the defining design principles for Highlight.js from the start was
     simplicity. Not the simplicity of code (in fact, it's quite complex) but
@@ -35,5 +34,4 @@ maintainer (hey guys!):
     defend its design. And I don't want to do all this for the feature that I
     consider "evil" and probably will never use myself.
 
-This position is `subject to discuss <http://groups.google.com/group/highlightjs>`_.
-Also it doesn't stop anyone from forking the code and maintaining line-numbers implementation separately.
+This doesn't stop anyone from forking the library or maintaining a line-numbers plugin.
