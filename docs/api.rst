@@ -3,6 +3,7 @@ Library API
 
 Highlight.js exports a few functions as methods of the ``hljs`` object.
 
+.. _newerapi:
 
 highlight
 ---------
@@ -28,23 +29,16 @@ Returns an object with the following properties:
 * ``code``: the original raw code
 
 
-highlight (old API)
--------------------
+highlight (deprecated)
+^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-  highlight(languageName, code, ignoreIllegals, continuation)
+  highlight(languageName, code, ignoreIllegals)
 
-**This is the old API which we deprecated with 10.7, please see the new API above.**
+.. deprecated:: 10.7 This will be removed entirely in v12.
 
-``continuation`` is an optional mode stack representing unfinished parsing.
-When present, the function will restart parsing from this state instead of
-initializing a new one.  This is used internally for `sublanguage` support.
-
-Note: `continuation` is NOT intended to support line-by-line highlighting
-because there is no requirement that a grammar handle linebreaks in any special
-way. It's quite possible for a grammar to have a single mode/regex that matches
-MANY lines at once.  This is not discouraged and entirely up to the grammar.
+Please see the :ref:`newer API<newerapi>` shown above.
 
 
 highlightAuto
@@ -78,8 +72,8 @@ This function is the one to use to apply highlighting dynamically after page loa
 or within initialization code of third-party JavaScript frameworks.
 
 The function uses language detection by default but you can specify the language
-in the ``class`` attribute of the DOM node. See the :doc:`class reference
-</css-classes-reference>` for all available language names and aliases.
+in the ``class`` attribute of the DOM node. See the :doc:`scopes reference
+</css-classes-reference>` for all available language names and scopes.
 
 
 configure
@@ -120,7 +114,7 @@ This can be called before or after the page's ``onload`` event has fired.
 initHighlighting
 ----------------
 
-*Deprecated as of 10.6:* Please use ``highlightAll()`` instead.
+.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
 
 Applies highlighting to all elements on a page matching ``cssSelector``.
 
@@ -128,7 +122,7 @@ Applies highlighting to all elements on a page matching ``cssSelector``.
 initHighlightingOnLoad
 ----------------------
 
-*Deprecated as of 10.6:* Please use ``highlightAll()`` instead.
+.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
 
 Attaches highlighting to the page load event.
 

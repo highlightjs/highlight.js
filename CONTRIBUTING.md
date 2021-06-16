@@ -31,7 +31,7 @@ Contributions are what make the open source community such an amazing place to l
 - Submit pull requests to resolve issues
 - Write [plugins](https://highlightjs.readthedocs.io/en/latest/plugin-api.html) that extend our core functionality
 - Author [language definitions](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md) to improve our language support
-- Design [new themes](https://highlightjs.readthedocs.io/en/latest/style-guide.html) to make our highlighting extra beautiful
+- Design [new themes](https://highlightjs.readthedocs.io/en/latest/theme-guide.html) to make our highlighting extra beautiful
 - Improve our documentation to better explain all the things to all the peoples
 
 ### Our Philosophy
