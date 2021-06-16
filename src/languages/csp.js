@@ -19,13 +19,17 @@ export default function(hljs) {
     "frame-ancestors",
     "frame-src",
     "img-src",
+    "manifest-src",
     "media-src",
     "object-src",
     "plugin-types",
     "report-uri",
     "sandbox",
     "script-src",
-    "style-src"
+    "style-src",
+    "trusted-types",
+    "unsafe-hashes",
+    "worker-src"
   ];
   return {
     name: 'CSP',
