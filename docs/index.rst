@@ -37,6 +37,7 @@ Highlight.js Documentation
    Why no line numbers? <line-numbers>
    How do I request a new language? <language-requests>
    How do I contribute a new language? <language-contribution>
+   Upgrading to Version 11 <upgrade-11>
 
 
 
