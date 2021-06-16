@@ -2,6 +2,7 @@
 
 Grammars:
 
+- add additional keywords to csp.js (#3244) [Elijah Conners][]
 - fix(markdown) Images with empty alt or links with empty text (#3233) [Josh Goebel][]
 - enh(powershell) added `pwsh` alias (#3236) [tebeco][]
 - fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
@@ -14,6 +15,7 @@ Grammars:
 [Stel Abrego]: https://github.com/stelcodes
 [Josh Goebel]: https://github.com/joshgoebel
 [Antoine Lambert]: https://github.com/anlambert
+[Elijah Conners]: https://github.com/elijahepepe
 [Angelika Tyborska]: https://github.com/angelikatyborska
 [Konrad Rudolph]: https://github.com/klmr
 [tebeco]: https://github.com/tebeco
