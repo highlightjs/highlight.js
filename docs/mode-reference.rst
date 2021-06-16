@@ -7,23 +7,25 @@ Mode Reference
 
 Types of attributes values in this reference:
 
-+------------+-------------------------------------------------------------------------------------+
-| identifier | String suitable to be used as a JavaScript variable or CSS class name               |
-|            | (i.e. mostly ``/[A-Za-z0-9_]+/``)                                                   |
-+------------+-------------------------------------------------------------------------------------+
-| scope      | A valid grammar scope: ``title.function.call``                                      |
-+------------+-------------------------------------------------------------------------------------+
-| regexp     | JavaScript Regexp literal (recommended) or string representing a regexp.            |
-|            | (note when using a string proper escaping is critical)                              |
-+------------+-------------------------------------------------------------------------------------+
-| boolean    | JavaScript boolean: ``true`` or ``false``                                           |
-+------------+-------------------------------------------------------------------------------------+
-| number     | JavaScript number                                                                   |
-+------------+-------------------------------------------------------------------------------------+
-| object     | JavaScript object: ``{ ... }``                                                      |
-+------------+-------------------------------------------------------------------------------------+
-| array      | JavaScript array: ``[ ... ]``                                                       |
-+------------+-------------------------------------------------------------------------------------+
++------------+----------------------------------------------------------------------------+
+| mode       | A valid Highlight.js Mode (as defined by this very reference)              |
++------------+----------------------------------------------------------------------------+
+| scope      | A valid grammar scope: ``title.class.inherited``                           |
++------------+----------------------------------------------------------------------------+
+| regexp     | JavaScript regexp literal (recommended) or string representing a regexp.   |
+|            |                                                                            |
+|            | (note when using a string proper escaping is critical)                     |
++------------+----------------------------------------------------------------------------+
+| boolean    | JavaScript boolean: ``true`` or ``false``                                  |
++------------+----------------------------------------------------------------------------+
+| string     | JavaScript string                                                          |
++------------+----------------------------------------------------------------------------+
+| number     | JavaScript number                                                          |
++------------+----------------------------------------------------------------------------+
+| object     | JavaScript object: ``{ ... }``                                             |
++------------+----------------------------------------------------------------------------+
+| array      | JavaScript array: ``[ ... ]``                                              |
++------------+----------------------------------------------------------------------------+
 
 
 Language Attributes
@@ -51,7 +53,7 @@ Case insensitivity of language keywords and regexps. Used only on the top-level 
 aliases
 ^^^^^^^
 
-- **type**: array
+- **type**: array of strings
 
 A list of additional names (besides the canonical one given by the filename) that can be used to identify a language in HTML classes and in a call to :ref:`getLanguage <getLanguage>`.
 
@@ -362,18 +364,21 @@ endsWithParent
 
 - **type**: boolean
 
-A flag showing that a mode ends when its parent ends.
+A flag indicating that a mode ends when its parent ends.
 
 This is best demonstrated by example. In CSS syntax a selector has a set of rules contained within symbols "{" and "}".
-Individual rules separated by ";" but the last one in a set can omit the terminating semicolon:
+Individual rules are separated by ";" but the last rule may omit the terminating semicolon:
 
 ::
 
   p {
-    width: 100%; color: red
+    width: 100%;
+    color: red
   }
 
-This is when ``endsWithParent`` comes into play:
+A simple ``end: /;/`` rule is problematic - the parser could get "stuck" looking
+for a ``;`` that it will never find (or find much later) - skipping over valid content that should be
+highlighted. This is where ``endsWithParent`` proves useful:
 
 ::
 
@@ -383,6 +388,8 @@ This is when ``endsWithParent`` comes into play:
       {scope: 'rule', /* ... */ end: ';', endsWithParent: true}
     ]
   }
+
+The ``rule`` scope now will end when the parser sees *either* a ``;`` or a ``}`` (from the parent).
 
 .. _endsParent:
 
@@ -415,7 +422,7 @@ tell it to end the function definition after itself:
 
   {
     scope: 'function',
-    beginKeywords: 'def', end: /\B\b/,
+    beginKeywords: 'def', end: hljs.MATCH_NOTHING_RE,
     contains: [
       {
         scope: 'title',
@@ -424,7 +431,7 @@ tell it to end the function definition after itself:
     ]
   }
 
-(The ``end: /\B\b/`` regex tells function to never end by itself.)
+The ``end: hljs.MATCH_NOTHING_RE`` ensures that function will never end itself.
 
 
 .. _keywords:
@@ -434,13 +441,45 @@ keywords
 
 - **type**: object / string / array
 
-Keyword definition comes in three forms:
+*Keyword definition comes in three forms.*
 
-* ``'for while if|0 else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
-* ``{keyword: ' ... ', literal: ' ... ', $pattern: /\w+/ }`` -- an object that describes multiple sets of keywords and the pattern used to find them
-* ``["for", "while", "if|0", ...]`` -- an array of keywords (with optional relevance via ``|``)
+A string of space-separated keywords with an optional relevance following a pipe (``|``):
 
-For detailed explanation see :doc:`Language definition guide </language-guide>`.
+::
+
+  'for while if|0 else weird_voodoo|10 ...'
+
+An array of keywords (with optional relevance  following a ``|``):
+
+  ::
+
+    [
+      "for",
+      "while",
+      "if|0"
+    ]
+
+.. note::
+
+  It's recommended that the array form be used (one keyword per line) rather
+  than a string to simplify future maintenance. This is the style followed by
+  grammars part of the core library.
+
+
+An object that describing multiple sets of keywords and (optionally) the pattern
+used to locate them:
+
+::
+
+  {
+    keyword: [ 'for', 'while', 'if|0' ],
+    literal: [ 'true', 'false' ],
+    $pattern: /\w+/
+  }
+
+
+
+For a more detailed explanation see :doc:`Language definition guide </language-guide>`.
 
 
 illegal
@@ -448,8 +487,11 @@ illegal
 
 - **type**: regexp or array
 
-A regular expression or array that defines symbols illegal for the mode.
-When the parser finds a match for illegal expression it immediately drops parsing the whole language altogether.
+A regular expression or array that defines symbols illegal for the mode. When
+the parser finds an illegal match it may immediately stop parsing the whole
+language altogether (see ``ignoreIllegals``). Smart use of illegal can greatly
+improve auto-detection by quickly ruling out a language (when an illegal match
+is found).
 
 ::
 
@@ -465,8 +507,13 @@ excludeBegin, excludeEnd
 
 - **type**: boolean
 
-Exclude beginning or ending lexemes out of mode's generated markup. For example in CSS syntax a rule ends with a semicolon.
-However visually it's better not to color it as the rule contents. Having ``excludeEnd: true`` forces a ``<span>`` element for the rule to close before the semicolon.
+Excludes beginning or ending matches from a mode's content. For example in CSS
+syntax a rule ends with a semicolon. However visually it's better not to
+consider the semicolon as part of the rule's contents. Using ``excludeEnd:
+true`` forces a ``<span>`` element for the rule to close before the semicolon.
+
+The semicolon is still consumed by the rule though and cannot be matched by
+other subsequent rules. (it's effectively been skipped over)
 
 
 returnBegin
@@ -509,9 +556,9 @@ The list of sub-modes that can be found inside the mode. For detailed explanatio
 starts
 ^^^^^^
 
-- **type**: identifier
+- **type**: mode
 
-The name of the mode that will start right after the current mode ends. The new mode won't be contained within the current one.
+The the mode that will start right after the current mode ends. The new mode will not be contained within the current one.
 
 Currently this attribute is used to highlight JavaScript and CSS contained within HTML.
 Tags ``<script>`` and ``<style>`` start sub-modes that use another language definition to parse their contents (see :ref:`subLanguage`).

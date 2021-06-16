@@ -40,16 +40,16 @@ Highlight.js Documentation
    How to contribute a new language? <language-contribution>
 
 
-
 Links
 ^^^^^
 
-- Code: https://github.com/highlightjs/highlight.js
-- Discord: https://discord.gg/M24EbU7ja9
-- Issues: https://github.com/highlightjs/highlight.js/issues
-- NPM:
-  - https://www.npmjs.com/package/highlight.js
-  - https://www.npmjs.com/package/@highlightjs/cdn-assets
-- Website: https://highlightjs.org
+.. hlist::
+
+   - `Source <https://github.com/highlightjs/highlight.js>`_
+   - `Issues <https://github.com/highlightjs/highlight.js/issues>`_
+   - `Discord <https://discord.gg/M24EbU7ja9>`_
+   - `Website <https://highlightjs.org>`_
+   - `highlight.js npm <https://www.npmjs.com/package/highlight.js>`_
+   - `@highlightjs/cdn-assets npm <https://www.npmjs.com/package/@highlightjs/cdn-assets>`_
 
 
