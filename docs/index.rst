@@ -3,14 +3,20 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Developer Documentation
-=======================
-
-Contents
---------
+Highlight.js Documentation
+==========================
 
 .. toctree::
-   :caption: Documentation
+   :caption: Getting Started
+   :maxdepth: 1
+
+
+   README / How to Use <readme>
+   building-testing
+
+
+.. toctree::
+   :caption: Reference
    :maxdepth: 1
 
    api
@@ -21,21 +27,16 @@ Contents
    css-classes-reference
    style-guide
    plugin-recipes
-   language-contribution
-   building-testing
 ..   maintainers-guide
-
-FAQ
-^^^
 
 .. toctree::
    :caption: FAQ
    :maxdepth: 1
 
-   What languages are supported? <supported-languages>
-   What about line numbers? <line-numbers>
-   How do I request a language be added? <language-requests>
-   How do I contribute a language? <language-contribution>
+   Which languages are supported? <supported-languages>
+   Why no line numbers? <line-numbers>
+   How do I request a new language? <language-requests>
+   How do I contribute a new language? <language-contribution>
 
 
 
@@ -46,7 +47,6 @@ Links
 - Discord: https://discord.gg/M24EbU7ja9
 - Issues: https://github.com/highlightjs/highlight.js/issues
 - NPM:
-
   - https://www.npmjs.com/package/highlight.js
   - https://www.npmjs.com/package/@highlightjs/cdn-assets
 - Website: https://highlightjs.org
