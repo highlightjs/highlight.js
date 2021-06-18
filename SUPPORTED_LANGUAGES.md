@@ -1,11 +1,11 @@
 # Supported Languages
 
-The table below shows the full list of supported languages (and corresponding classes/aliases).  Note: Which languages are available may depend on how you've built or included the library in your app. See [Getting the Library][1] in the README.
+The table below shows the full list of languages (and corresponding classes/aliases) supported by Highlight.js.  Languages that list a **Package** below are 3rd party languages and are not bundled with the core library.  You can find their repositories by following the links.
 
-Languages that listed a **Package** below are 3rd party languages and are not bundled with the core library.  You can find their repositories by following the links.
+**Note:** The languages available will depend on how you've built or are included the library in your app. For example our default minified web build includes only ~40 popular languages.  See [Getting the Library][1] and [Importing the Library][2] in the README for examples of how to load additional/specific languages.
 
 <!-- LANGLIST -->
-| Language                | Classes                | Package |
+| Language                | Aliases                | Package |
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
 | 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
@@ -56,7 +56,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | DNS Zone file           | dns, zone, bind        |         |
 | DOS                     | dos, bat, cmd          |         |
 | Dart                    | dart                   |         |
-| Delphi                  | delphi, dpr, dfm, pas, pascal, freepascal, lazarus, lpr, lfm | |
+| Delphi                  | dpr, dfm, pas, pascal  |         |
 | Diff                    | diff, patch            |         |
 | Django                  | django, jinja          |         |
 | Dockerfile              | dockerfile, docker     |         |
@@ -138,7 +138,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Oracle Rules Language   | ruleslanguage          |         |
 | Oxygene                 | oxygene                |         |
 | PF                      | pf, pf.conf            |         |
-| PHP                     | php, php3, php4, php5, php6, php7, php8 |    |
+| PHP                     | php                    |         |
 | Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
@@ -231,3 +231,4 @@ use the full name and not the alias to avoid any ambiguity.
 
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
+[2]: https://github.com/highlightjs/highlight.js#importing-the-library

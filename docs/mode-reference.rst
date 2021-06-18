@@ -3,32 +3,33 @@
 Mode Reference
 ==============
 
-Types
------
+**Data Types**
 
 Types of attributes values in this reference:
 
-+------------+-------------------------------------------------------------------------------------+
-| identifier | String suitable to be used as a JavaScript variable or CSS class name               |
-|            | (i.e. mostly ``/[A-Za-z0-9_]+/``)                                                   |
-+------------+-------------------------------------------------------------------------------------+
-| scope      | A valid grammar scope: ``title.function.call``                                      |
-+------------+-------------------------------------------------------------------------------------+
-| regexp     | String representing a JavaScript regexp.                                            |
-|            | Note that since it's not a literal regexp all back-slashes should be repeated twice |
-+------------+-------------------------------------------------------------------------------------+
-| boolean    | JavaScript boolean: ``true`` or ``false``                                           |
-+------------+-------------------------------------------------------------------------------------+
-| number     | JavaScript number                                                                   |
-+------------+-------------------------------------------------------------------------------------+
-| object     | JavaScript object: ``{ ... }``                                                      |
-+------------+-------------------------------------------------------------------------------------+
-| array      | JavaScript array: ``[ ... ]``                                                       |
-+------------+-------------------------------------------------------------------------------------+
++------------+----------------------------------------------------------------------------+
+| mode       | A valid Highlight.js Mode (as defined by this very reference)              |
++------------+----------------------------------------------------------------------------+
+| scope      | A valid grammar scope: ``title.class.inherited``                           |
++------------+----------------------------------------------------------------------------+
+| regexp     | JavaScript regexp literal (recommended) or string representing a regexp.   |
+|            |                                                                            |
+|            | (note when using a string proper escaping is critical)                     |
++------------+----------------------------------------------------------------------------+
+| boolean    | JavaScript boolean: ``true`` or ``false``                                  |
++------------+----------------------------------------------------------------------------+
+| string     | JavaScript string                                                          |
++------------+----------------------------------------------------------------------------+
+| number     | JavaScript number                                                          |
++------------+----------------------------------------------------------------------------+
+| object     | JavaScript object: ``{ ... }``                                             |
++------------+----------------------------------------------------------------------------+
+| array      | JavaScript array: ``[ ... ]``                                              |
++------------+----------------------------------------------------------------------------+
 
 
-Language Only Attributes
-------------------------
+Language Attributes
+-------------------
 
 These attributes are only valid at the language level (ie, they many only exist on the top-most language object and have no meaning if specified in children modes).
 
@@ -52,7 +53,7 @@ Case insensitivity of language keywords and regexps. Used only on the top-level 
 aliases
 ^^^^^^^
 
-- **type**: array
+- **type**: array of strings
 
 A list of additional names (besides the canonical one given by the filename) that can be used to identify a language in HTML classes and in a call to :ref:`getLanguage <getLanguage>`.
 
@@ -93,15 +94,19 @@ disableAutodetect
 Disables autodetection for this language.
 
 
-compilerExtensions (USE WITH CAUTION)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+compilerExtensions
+^^^^^^^^^^^^^^^^^^
 
-- **type**: an array of compiler extensions ie: ``(mode, parentMode) -> {} ``
+.. warning::
+
+  **This is heavily dependent upon compiler internals and may NOT be
+  stable from minor release to minor release.** *It is currently recommended
+  only for 1st party grammars.*
+
+- **type**: an array of compiler extensions ie: ``(mode, parentMode) -> {}``
 
 This allows grammars to extend the mode compiler to add their own syntactic
-sugar to make reading and writing grammars easier.  **Note: This is heavily
-dependent upon compiler internals and may NOT be stable from minor release to
-minor release.** *It is currently recommended only for 1st party grammars.* The
+sugar to make reading and writing grammars easier.  The
 intention is that we use grammars to "test" out new compiler extensions and if
 they perform well promote them into the core library.
 
@@ -144,13 +149,15 @@ Mode Attributes
 className
 ^^^^^^^^^
 
-- **type**: scope
+.. deprecated:: 11.0
 
-Deprecated with version 11.  Use ``scope`` instead.
+  Use ``scope`` instead.
 
 
 scope
 ^^^^^
+
+.. versionadded:: 11.0
 
 - **type**: scope
 
@@ -177,10 +184,14 @@ begin
 Regular expression starting a mode. For example a single quote for strings or two forward slashes for C-style comments.
 If absent, ``begin`` defaults to a regexp that matches anything, so the mode starts immediately.
 
-This may also be an array.  See beginScope.
+This may also be an array.  See :ref:`beginScope`.
+
+.. _beginScope:
 
 beginScope
 ^^^^^^^^^^
+
+.. versionadded:: 11.0
 
 - **type**: scope
 - **type**: numeric index of scopes (when ``begin`` is an array)
@@ -216,8 +227,8 @@ of the function as ``title``. The space(s) between would be matched, but not
 highlighted.
 
 Note: Internally, each regular expression in the array becomes a capture group
-inside a larger concatenated regex.  If your regular expressions use capture 
-groups (or references) they will be auto-magically renumerated so that they 
+inside a larger concatenated regex.  If your regular expressions use capture
+groups (or references) they will be auto-magically renumerated so that they
 continue to work without any changes.
 
 For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issues/3095>`_.
@@ -225,6 +236,8 @@ For more info see issue `#3095 <https://github.com/highlightjs/highlight.js/issu
 
 endScope
 ^^^^^^^^
+
+.. versionadded:: 11.0
 
 - **type**: scope
 - **type**: numeric index of scopes (when ``end`` is an array)
@@ -243,6 +256,8 @@ This has the same behavior as ``beginScope`` but applies to the content of the
 
 match
 ^^^^^
+
+.. versionadded:: 11.0
 
 - **type**: regexp or array of regexp
 
@@ -335,10 +350,12 @@ Used instead of ``begin`` for modes starting with keywords to avoid needless rep
 Unlike the :ref:`keywords <keywords>` attribute, this one allows only a simple list of space separated keywords.
 If you do need additional features of ``keywords`` or you just need more keywords for this mode you may include ``keywords`` along with ``beginKeywords``.
 
-Note: ``beginKeywords`` also checks for a ``.`` before or after the keywords and will fail to match if one is found.
-This is to avoid false positives for method calls or property accesses.
+.. note::
 
-Ex. ``class A { ... }`` would match while ``A.class == B.class`` would not.
+  ``beginKeywords`` also checks for a ``.`` before or after the keywords and will fail to match if one is found.
+  This is to avoid false positives for method calls or property accesses.
+
+  Ex. ``class A { ... }`` would match while ``A.class == B.class`` would not.
 
 .. _endsWithParent:
 
@@ -347,18 +364,21 @@ endsWithParent
 
 - **type**: boolean
 
-A flag showing that a mode ends when its parent ends.
+A flag indicating that a mode ends when its parent ends.
 
 This is best demonstrated by example. In CSS syntax a selector has a set of rules contained within symbols "{" and "}".
-Individual rules separated by ";" but the last one in a set can omit the terminating semicolon:
+Individual rules are separated by ";" but the last rule may omit the terminating semicolon:
 
 ::
 
   p {
-    width: 100%; color: red
+    width: 100%;
+    color: red
   }
 
-This is when ``endsWithParent`` comes into play:
+A simple ``end: /;/`` rule is problematic - the parser could get "stuck" looking
+for a ``;`` that it will never find (or find much later) - skipping over valid content that should be
+highlighted. This is where ``endsWithParent`` proves useful:
 
 ::
 
@@ -368,6 +388,8 @@ This is when ``endsWithParent`` comes into play:
       {scope: 'rule', /* ... */ end: ';', endsWithParent: true}
     ]
   }
+
+The ``rule`` scope now will end when the parser sees *either* a ``;`` or a ``}`` (from the parent).
 
 .. _endsParent:
 
@@ -400,7 +422,7 @@ tell it to end the function definition after itself:
 
   {
     scope: 'function',
-    beginKeywords: 'def', end: /\B\b/,
+    beginKeywords: 'def', end: hljs.MATCH_NOTHING_RE,
     contains: [
       {
         scope: 'title',
@@ -409,24 +431,8 @@ tell it to end the function definition after itself:
     ]
   }
 
-(The ``end: /\B\b/`` regex tells function to never end by itself.)
+The ``end: hljs.MATCH_NOTHING_RE`` ensures that function will never end itself.
 
-
-.. _lexemes:
-
-lexemes (now keywords.$pattern)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- **type**: regexp
-
-A regular expression that extracts individual "words" from the code to compare
-against :ref:`keywords <keywords>`. The default value is ``\w+`` which works for
-many languages.
-
-Note: It's now recommmended that you use ``keywords.$pattern`` instead of
-``lexemes``, as this makes it easier to keep your keyword pattern associated
-with your keywords themselves, particularly if your keyword configuration is a
-constant that you repeat multiple times within different modes of your grammar.
 
 .. _keywords:
 
@@ -435,13 +441,45 @@ keywords
 
 - **type**: object / string / array
 
-Keyword definition comes in three forms:
+*Keyword definition comes in three forms.*
 
-* ``'for while if|0 else weird_voodoo|10 ... '`` -- a string of space-separated keywords with an optional relevance over a pipe
-* ``{keyword: ' ... ', literal: ' ... ', $pattern: /\w+/ }`` -- an object that describes multiple sets of keywords and the pattern used to find them
-* ``["for", "while", "if|0", ...]`` -- an array of keywords (with optional relevance via ``|``)
+A string of space-separated keywords with an optional relevance following a pipe (``|``):
 
-For detailed explanation see :doc:`Language definition guide </language-guide>`.
+::
+
+  'for while if|0 else weird_voodoo|10 ...'
+
+An array of keywords (with optional relevance  following a ``|``):
+
+  ::
+
+    [
+      "for",
+      "while",
+      "if|0"
+    ]
+
+.. note::
+
+  It's recommended that the array form be used (one keyword per line) rather
+  than a string to simplify future maintenance. This is the style followed by
+  grammars part of the core library.
+
+
+An object that describing multiple sets of keywords and (optionally) the pattern
+used to locate them:
+
+::
+
+  {
+    keyword: [ 'for', 'while', 'if|0' ],
+    literal: [ 'true', 'false' ],
+    $pattern: /\w+/
+  }
+
+
+
+For a more detailed explanation see :doc:`Language definition guide </language-guide>`.
 
 
 illegal
@@ -449,8 +487,11 @@ illegal
 
 - **type**: regexp or array
 
-A regular expression or array that defines symbols illegal for the mode.
-When the parser finds a match for illegal expression it immediately drops parsing the whole language altogether.
+A regular expression or array that defines symbols illegal for the mode. When
+the parser finds an illegal match it may immediately stop parsing the whole
+language altogether (see ``ignoreIllegals``). Smart use of illegal can greatly
+improve auto-detection by quickly ruling out a language (when an illegal match
+is found).
 
 ::
 
@@ -466,8 +507,13 @@ excludeBegin, excludeEnd
 
 - **type**: boolean
 
-Exclude beginning or ending lexemes out of mode's generated markup. For example in CSS syntax a rule ends with a semicolon.
-However visually it's better not to color it as the rule contents. Having ``excludeEnd: true`` forces a ``<span>`` element for the rule to close before the semicolon.
+Excludes beginning or ending matches from a mode's content. For example in CSS
+syntax a rule ends with a semicolon. However visually it's better not to
+consider the semicolon as part of the rule's contents. Using ``excludeEnd:
+true`` forces a ``<span>`` element for the rule to close before the semicolon.
+
+The semicolon is still consumed by the rule though and cannot be matched by
+other subsequent rules. (it's effectively been skipped over)
 
 
 returnBegin
@@ -478,7 +524,10 @@ returnBegin
 Returns just found beginning lexeme back into parser. This is used when beginning of a sub-mode is a complex expression
 that should not only be found within a parent mode but also parsed according to the rules of a sub-mode.
 
-Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+.. warning::
+
+  Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+  A look-ahead regex is almost always preferable.
 
 
 returnEnd
@@ -490,7 +539,10 @@ Returns just found ending lexeme back into parser. This is used for example to p
 A JavaScript block ends with the HTML closing tag ``</script>`` that cannot be parsed with JavaScript rules.
 So it is returned back into its parent HTML mode that knows what to do with it.
 
-Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+.. warning::
+
+  Since the parser is effectively goes back it's quite possible to create a infinite loop here so use with caution!
+  A look-ahead regex is almost always preferable.
 
 
 contains
@@ -504,9 +556,9 @@ The list of sub-modes that can be found inside the mode. For detailed explanatio
 starts
 ^^^^^^
 
-- **type**: identifier
+- **type**: mode
 
-The name of the mode that will start right after the current mode ends. The new mode won't be contained within the current one.
+The the mode that will start right after the current mode ends. The new mode will not be contained within the current one.
 
 Currently this attribute is used to highlight JavaScript and CSS contained within HTML.
 Tags ``<script>`` and ``<style>`` start sub-modes that use another language definition to parse their contents (see :ref:`subLanguage`).
@@ -530,12 +582,14 @@ each having all the attributes from the main definition augmented or overridden 
     ]
   }
 
-Note: ``variants`` has very specific behavior with regards to ``contains: ['self']``.
-Lets consider the example above. While you might think this would allow you to
-embed any type of string (double or single quoted) within any other string, it
-does not allow for this.
+.. note::
 
-The variants are compiled into to two *discrete* modes::
+  ``variants`` has very specific behavior with regards to ``contains: ['self']``.
+  Lets consider the example above. While you might think this would allow you to
+  embed any type of string (double or single quoted) within any other string, **it
+  does not**.
+
+The variants are instead compiled into to two *discrete* modes::
 
   { scope: 'string', begin: /"/, contains: ['self', ... ] }
   { scope: 'string', begin: /'/, contains: ['self', ... ] }
@@ -578,7 +632,9 @@ parent buffer along with the starting and the ending lexemes. This works in
 conjunction with the parent's :ref:`subLanguage` when it requires complex
 parsing.
 
-Consider parsing PHP inside HTML::
+Consider parsing PHP inside HTML:
+
+.. code-block:: php
 
   <p><? echo 'PHP'; /* ?> */ ?></p>
 

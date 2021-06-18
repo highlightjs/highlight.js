@@ -1,5 +1,5 @@
-Scopes Reference
-================
+Scope Reference
+===============
 
 
 Stylable Scopes

@@ -2,6 +2,10 @@
 
 Grammars:
 
+- add additional keywords to csp.js (#3244) [Elijah Conners][]
+- fix(markdown) Images with empty alt or links with empty text (#3233) [Josh Goebel][]
+- enh(powershell) added `pwsh` alias (#3236) [tebeco][]
+- fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
 - fix(python) identifiers starting with underscore not highlighted (#3221) [Antoine Lambert][]
 - enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
 - enh(elixir) much improved regular expression sigil support (#3207) [Josh Goebel][]
@@ -11,7 +15,11 @@ Grammars:
 [Stel Abrego]: https://github.com/stelcodes
 [Josh Goebel]: https://github.com/joshgoebel
 [Antoine Lambert]: https://github.com/anlambert
+[Elijah Conners]: https://github.com/elijahepepe
 [Angelika Tyborska]: https://github.com/angelikatyborska
+[Konrad Rudolph]: https://github.com/klmr
+[tebeco]: https://github.com/tebeco
+
 
 ## Version 11.0.0
 

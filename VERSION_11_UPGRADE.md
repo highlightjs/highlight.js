@@ -1,3 +1,5 @@
+# Upgrading to Highlight.js v11.0
+
 - [Overview of Breaking Changes](#overview-of-breaking-changes)
   - [Built-in set of "Common" Languages](#built-in-set-of-common-languages)
   - [Language Files](#language-files)

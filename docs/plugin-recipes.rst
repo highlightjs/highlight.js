@@ -1,6 +1,6 @@
 .. highlight:: javascript
 
-Recipes
+Plugin Recipes
 ==============
 
 Below is a collection of useful plugin "recipes" that you might find helpful.
