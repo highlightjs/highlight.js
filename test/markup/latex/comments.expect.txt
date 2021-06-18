@@ -2,3 +2,10 @@
 foo<span class="hljs-comment">%</span>
 <span class="hljs-meta">% !TeX program = pdflatex</span>
 <span class="hljs-comment">%% !TeX encoding = utf8</span>
+<span class="hljs-meta">%!TEX spellcheck = en-US</span>
+<span class="hljs-comment">%  !TeX foo</span>
+<span class="hljs-meta">% !tex foo</span>
+<span class="hljs-comment">% !tEx foo</span>
+<span class="hljs-meta">% !BIB foo</span>
+<span class="hljs-meta">%!bib foo</span>
+<span class="hljs-comment">% !Bib foo</span>
