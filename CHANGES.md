@@ -11,6 +11,7 @@ Grammars:
 - enh(elixir) much improved regular expression sigil support (#3207) [Josh Goebel][]
 - enh(elixir) updated list of keywords (#3212) [Angelika Tyborska][]
 - fix(elixir) fixed number detection when numbers start with a zero (#3212) [Angelika Tyborska][]
+- fix(ps1) Flag highlighted incorrectly (#3167) [Pankaj Patil][]
 
 [Stel Abrego]: https://github.com/stelcodes
 [Josh Goebel]: https://github.com/joshgoebel
@@ -19,6 +20,7 @@ Grammars:
 [Angelika Tyborska]: https://github.com/angelikatyborska
 [Konrad Rudolph]: https://github.com/klmr
 [tebeco]: https://github.com/tebeco
+[Pankaj Patil]: https://github.com/patil2099
 
 
 ## Version 11.0.0

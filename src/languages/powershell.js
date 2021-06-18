@@ -236,7 +236,7 @@ export default function(hljs) {
       },
       {
         className: 'literal',
-        begin: /(-)[\w\d]+/,
+        begin: /(-){1,2}[\w\d-]+/,
         relevance: 0
       }
     ]
