@@ -12,6 +12,7 @@ Grammars:
 - enh(elixir) updated list of keywords (#3212) [Angelika Tyborska][]
 - fix(elixir) fixed number detection when numbers start with a zero (#3212) [Angelika Tyborska][]
 - fix(ps1) Flag highlighted incorrectly (#3167) [Pankaj Patil][]
+- fix(latex) Allow wider syntax for magic comments (#3243) [Benedikt Wilde][]
 
 [Stel Abrego]: https://github.com/stelcodes
 [Josh Goebel]: https://github.com/joshgoebel
@@ -21,6 +22,7 @@ Grammars:
 [Konrad Rudolph]: https://github.com/klmr
 [tebeco]: https://github.com/tebeco
 [Pankaj Patil]: https://github.com/patil2099
+[Benedikt Wilde]: https://github.com/schtandard
 
 
 ## Version 11.0.0
