@@ -162,15 +162,43 @@ Looks up a language by name or alias.
 Returns the language object if found, ``undefined`` otherwise.
 
 
+versionString
+-------------
+
+::
+
+   versionString
+
+Returns the full Highlight.js version as a string, ie: ``"11.0.1"``.
+
+
+safeMode
+--------
+
+::
+
+   safeMode()
+
+Enables safe mode. This is the default mode, providing the most reliable experience for production usage.
+
+
 debugMode
 ---------
 
-Enables *debug/development* mode.  **This mode purposely makes Highlight.js more fragile!  It should only be used for testing and local development (of languages or the library itself).**  By default "Safe Mode" is used, providing the most reliable experience for production usage.
+::
+
+   debugMode()
+
+Enables *debug/development* mode.
+
+.. warning::
+
+   This mode purposely makes Highlight.js more fragile!  It should only be used for testing and local development (of languages or the library itself).
 
 For example, if a new version suddenly had a serious bug (or breaking change) that affected only a single language:
 
-* **In Safe Mode**: All other languages would continue to highlight just fine. The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
-* **In Debug Mode**: All highlighting would stop when an error was encountered and a JavaScript error would be thrown.
+* **In Safe Mode** all other languages would continue to highlight just fine. The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
+* **In Debug Mode** all highlighting would stop and a JavaScript error would be thrown.
 
 
 Deprecated API
@@ -187,6 +215,12 @@ highlight
 
 
 Please see the :ref:`newer API<newerapi>` shown above.
+
+
+highlightBlock
+^^^^^^^^^^^^^^
+
+.. deprecated:: 11.0 Please use ``highlightElement()`` instead.
 
 
 initHighlighting
