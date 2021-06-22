@@ -26,3 +26,7 @@ while(value) {}
 if(value) {}
 switch(value) {}
 try {} catch(err) {}
+
+// these should be matched as class references
+new Float32Array()
+
