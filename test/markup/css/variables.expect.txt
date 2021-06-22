@@ -1,0 +1,9 @@
+<span class="hljs-selector-tag">body</span> {
+ <span class="hljs-attr">--text-color</span>: red;
+ <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-color);
+}
+
+<span class="hljs-selector-tag">body</span> {
+ <span class="hljs-attr">--textBlue</span>: blue;
+ <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--textBlue);
+}

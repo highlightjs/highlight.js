@@ -30,6 +30,10 @@ export const MODES = (hljs) => {
         '|dpi|dpcm|dppx' +
         ')?',
       relevance: 0
+    },
+    CSS_VARIABLE: {
+      className: "attr",
+      begin: /--[A-Za-z][A-Za-z0-9_-]*/
     }
   };
 };
