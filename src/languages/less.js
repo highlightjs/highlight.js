@@ -109,6 +109,7 @@ export default function(hljs) {
       {
         begin: /-(webkit|moz|ms|o)-/
       },
+      modes.CSS_VARIABLE,
       {
         className: 'attribute',
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b',

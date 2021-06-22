@@ -57,3 +57,8 @@ a[href*="example"] {}
   /* src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
        url("/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
 }
+
+main {
+  --color: red;
+  color: var(--color);
+}

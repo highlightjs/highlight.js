@@ -59,6 +59,7 @@ export default function(hljs) {
     'base',
     'break',
     'case',
+    'catch',
     'class',
     'const',
     'continue',

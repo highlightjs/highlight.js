@@ -60,6 +60,7 @@ export default function(hljs) {
         end: /\)/,
         contains: [ modes.CSS_NUMBER_MODE ]
       },
+      modes.CSS_VARIABLE,
       {
         className: 'attribute',
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'

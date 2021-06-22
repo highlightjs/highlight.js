@@ -2,7 +2,9 @@
 
 Grammars:
 
+- fix(csharp) add missing `catch` keyword (#3251) [Konrad Rudolph][]
 - add additional keywords to csp.js (#3244) [Elijah Conners][]
+- feat(css) handle css variables syntax (#3239) [Thanos Karagiannis][]
 - fix(markdown) Images with empty alt or links with empty text (#3233) [Josh Goebel][]
 - enh(powershell) added `pwsh` alias (#3236) [tebeco][]
 - fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
@@ -23,6 +25,7 @@ Grammars:
 [tebeco]: https://github.com/tebeco
 [Pankaj Patil]: https://github.com/patil2099
 [Benedikt Wilde]: https://github.com/schtandard
+[Thanos Karagiannis]: https://github.com/thanoskrg
 
 
 ## Version 11.0.0
