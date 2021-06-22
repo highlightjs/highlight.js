@@ -73,7 +73,7 @@ class Language {
     return new Language(
       path.basename(filename).replace(".js",""),
       filename
-    )
+    );
   }
 }
 
