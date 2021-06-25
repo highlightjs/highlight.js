@@ -926,7 +926,7 @@ const HLJS = function(hljs) {
   }
 
   /**
-   *
+   * DEPRECATED
    * @param {HighlightedHTMLElement} el
    */
   function deprecateHighlightBlock(el) {
