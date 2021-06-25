@@ -1,1 +1,1 @@
-<categoría>producto</categoria>
+<categoría>producto</categoría>
