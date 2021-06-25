@@ -20,6 +20,13 @@ class Car extends Vehicle {
   onemore(a=(3+2, b=(5*9))) {}
 }
 
+class CRV extends Car {
+  constructor() {
+  }
+}
+
+const CRVObject = new CRV();
+
 // these should not be matched as class functions
 for(expr; expr; expr) {}
 while(value) {}
