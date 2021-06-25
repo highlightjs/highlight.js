@@ -252,7 +252,7 @@ export default function(hljs) {
 
   const CLASS_REFERENCE = {
     relevance: 0,
-    match: /\b[A-Z][A-Za-z0-9_]+)*/,
+    match: /\b[A-Z][A-Za-z0-9_]*/,
     className: "title.class",
     keywords: {
       _: [
