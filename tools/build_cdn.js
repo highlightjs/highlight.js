@@ -126,7 +126,7 @@ async function installLanguages(languages, options) {
 
   await Promise.all(
     languages.filter((l) => l.third_party)
-      .map(buildDistributable)
+      .map((lang) => buildDistributable(lang, options))
   );
 
   log("");
@@ -149,13 +149,16 @@ function installStyles() {
   });
 }
 
-async function buildDistributable(language) {
+async function buildDistributable(language, options) {
   const filename = `${language.name}.min.js`;
 
   const distDir = path.join(language.moduleDir, "dist");
   log(`Building ${distDir}/${filename}.`);
   await fs.mkdir(distDir, { recursive: true });
   await fs.writeFile(path.join(language.moduleDir, "dist", filename), language.minified);
+  if (options.esm) {
+    await fs.writeFile(path.join(language.moduleDir, "dist", filename.replace(".min.js",".es.min.js")), language.minifiedESM);
+  }
 }
 
 async function buildCDNLanguage(language, options) {

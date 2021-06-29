@@ -79,20 +79,22 @@ class Language {
 
 
 async function compileLanguage (language, options) {
-  const EXPORT_REGEX = /export default (.*);/;
+  const IIFE_HEADER_REGEX = /^(var hljsGrammar = )?\(function \(\)/;
 
   // TODO: cant we use the source we already have?
-  const input = { ...build_config.rollup.browser.input, input: language.path };
-  const output = { ...build_config.rollup.browser.output,  name: `dummyName`, file: "out.js" };
+  const input = { ...build_config.rollup.browser_iife.input, input: language.path };
+  const output = { ...build_config.rollup.browser_iife.output, name: `hljsGrammar`, file: "out.js" };
+  output.footer = null;
   
-  const esm = await rollupCode(input, output);
-  const iife = `hljs.registerLanguage('${language.name}', function (){"use strict";` + esm.replace(EXPORT_REGEX, 'return $1') + '})';
+  const data = await rollupCode(input, output);
+  const iife = data.replace(IIFE_HEADER_REGEX, `hljs.registerLanguage('${language.name}', function ()`);
+  const esm = `${data};\nexport default hljsGrammar;`;
 
   language.module = iife;
   const miniESM = await Terser.minify(esm, options.terser);
   const miniIIFE = await Terser.minify(iife, options.terser);
-  language.minified = miniIIFE.code || iife;
-  language.minifiedESM = miniESM.code || esm;
+  language.minified = miniIIFE.code;
+  language.minifiedESM = miniESM.code;
 }
 
 async function getLanguages() {
