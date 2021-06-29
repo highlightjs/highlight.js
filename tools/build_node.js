@@ -45,7 +45,7 @@ async function buildNodeLanguage(language, options) {
   const ES_STUB = `${EMIT}
     import lang from './%%%%.js';
     export default lang;`;
-  const input = { ...config.rollup.node.input, input: language.path };
+  const input = { ...config.rollup.core.input, input: language.path };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
   await rollupWrite(input, output);
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/languages/${language.name}.js.js`,
@@ -63,7 +63,7 @@ async function buildNodeLanguage(language, options) {
 const EXCLUDE = ["join"];
 
 async function buildESMUtils() {
-  const input = { ...config.rollup.node.input, input: `src/lib/regex.js` };
+  const input = { ...config.rollup.core.input, input: `src/lib/regex.js` };
   input.plugins = [...input.plugins, {
     transform: (code) => {
       EXCLUDE.forEach((fn) => {
@@ -80,7 +80,7 @@ async function buildESMUtils() {
 }
 
 async function buildNodeHighlightJS(options) {
-  const input = { ...config.rollup.node.input, input: `src/highlight.js` };
+  const input = { ...config.rollup.core.input, input: `src/highlight.js` };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
   await rollupWrite(input, output);
   if (options.esm) {

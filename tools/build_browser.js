@@ -201,7 +201,7 @@ async function buildCore(name, languages, options) {
   const header = buildHeader();
   let relativePath = "";
   const input = {
-    ...(options.format === "es" ? config.rollup.node.input : config.rollup.browser_iife.input),
+    ...config.rollup.core.input,
     input: `src/stub.js`
   };
   input.plugins = [

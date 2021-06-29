@@ -9,13 +9,13 @@ module.exports = {
     level: 2
   },
   rollup: {
-    node: {
-      output: { format: "cjs", strict: false, exports: "auto" },
+    core: {
       input: {
         plugins: [
           cjsPlugin(),
           jsonPlugin(),
           nodeResolve(),
+          // TODO: remove with version 12
           {
             transform: (x) => {
               if (/var module/.exec(x)) {
@@ -26,6 +26,9 @@ module.exports = {
           }
         ]
       }
+    },
+    node: {
+      output: { format: "cjs", strict: false, exports: "auto" }
     },
     browser_iife: {
       input: {
@@ -39,15 +42,6 @@ module.exports = {
         name: "hljs",
         format: "iife",
         footer: "if (typeof exports === 'object' && typeof module !== 'undefined') { module.exports = hljs; }",
-        interop: false
-      }
-    },
-    browser: {
-      input: {
-        plugins: []
-      },
-      output: {
-        format: "es",
         interop: false
       }
     }
