@@ -126,7 +126,7 @@ async function installLanguages(languages, options) {
 
   await Promise.all(
     languages.filter((l) => l.third_party)
-      .map((lang) => buildDistributable(lang, options))
+      .map(async(lang) => await buildDistributable(lang, options))
   );
 
   log("");
