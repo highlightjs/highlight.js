@@ -45,7 +45,7 @@ async function buildNodeLanguage(language, options) {
   const ES_STUB = `${EMIT}
     import lang from './%%%%.js';
     export default lang;`;
-  const input = { ...config.rollup.node.input, input: language.path };
+  const input = { ...config.rollup.core.input, input: language.path };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
   await rollupWrite(input, output);
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/languages/${language.name}.js.js`,
@@ -63,7 +63,7 @@ async function buildNodeLanguage(language, options) {
 const EXCLUDE = ["join"];
 
 async function buildESMUtils() {
-  const input = { ...config.rollup.node.input, input: `src/lib/regex.js` };
+  const input = { ...config.rollup.core.input, input: `src/lib/regex.js` };
   input.plugins = [...input.plugins, {
     transform: (code) => {
       EXCLUDE.forEach((fn) => {
@@ -80,7 +80,7 @@ async function buildESMUtils() {
 }
 
 async function buildNodeHighlightJS(options) {
-  const input = { ...config.rollup.node.input, input: `src/highlight.js` };
+  const input = { ...config.rollup.core.input, input: `src/highlight.js` };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
   await rollupWrite(input, output);
   if (options.esm) {
@@ -95,22 +95,25 @@ function dual(file) {
   };
 }
 
-async function buildPackageJSON(options) {
-  const packageJson = require("../package");
+const generatePackageExports = () => ({
+  ".": dual("./lib/index.js"),
+  "./package.json": "./package.json",
+  "./lib/common": dual("./lib/common.js"),
+  "./lib/core": dual("./lib/core.js"),
+  "./lib/languages/*": dual("./lib/languages/*.js"),
+  "./scss/*": "./scss/*",
+  "./styles/*": "./styles/*",
+  "./types/*": "./types/*",
+});
+function buildPackageJSON(options) {
+  const packageJson = require("../package.json");
 
-  const exports = {
-    ".": dual("./lib/index.js"),
-    "./package.json": "./package.json",
-    "./lib/common": dual("./lib/common.js"),
-    "./lib/core": dual("./lib/core.js"),
-    "./lib/languages/*": dual("./lib/languages/*.js"),
-    "./scss/*": "./scss/*",
-    "./styles/*": "./styles/*",
-    "./types/*": "./types/*",
-  };
-  if (options.esm) packageJson.exports = exports;
+  if (options.esm) packageJson.exports = generatePackageExports();
 
-  await fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
+  return packageJson;
+}
+function writePackageJSON(packageJson) {
+  return fs.writeFile(`${process.env.BUILD_DIR}/package.json`, JSON.stringify(packageJson, null, 2));
 }
 
 async function buildLanguages(languages, options) {
@@ -170,7 +173,7 @@ async function buildNode(options) {
   const common = languages.filter(l => l.categories.includes("common"));
 
   log("Writing package.json.");
-  await buildPackageJSON(options);
+  await writePackageJSON(buildPackageJSON(options));
 
   if (options.esm) {
     await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
@@ -188,3 +191,4 @@ async function buildNode(options) {
 
 module.exports.build = buildNode;
 module.exports.buildPackageJSON = buildPackageJSON;
+module.exports.writePackageJSON = writePackageJSON;
