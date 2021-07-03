@@ -35,7 +35,7 @@ jobs:
         node test/builds/browser_build_as_commonjs.js
     # CDN build should be easily importable
     - if: contains(matrix.build-how, 'cdn')
-      name: Test: Can import CDN esm build
+      name: Test that we can import CDN esm build
       run: |
         node test/builds/cdn_build_as_esm.mjs
 
