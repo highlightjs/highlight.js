@@ -6,8 +6,8 @@ Due to both time and resource constrains the Highlight.js core team fully suppor
 
 | Version    | Support | Status  |
 | :-----:    | :-: | :------ |
-| 11.0       | :white_check_mark: |  The 11.x series recieves regular updates, new features & security fixes. |
-| 10.7.2     | :white_check_mark: |  The 10.x series is now in maintence mode.  EOL TBD.<br>See [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_11_UPGRADE.md).|
+| 11.x       | :white_check_mark: |  The 11.x series recieves regular updates, new features & security fixes. |
+| 10.7.x     | :white_check_mark: |  The 10.x series is now in maintence mode.  EOL TBD.<br>See [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/master/VERSION_11_UPGRADE.md).|
 | <= 10.4.0  | :x: | Known vulnerabities. |
 | <= 9.18.5  | :x: | Known vulnerabities. [EOL](https://github.com/highlightjs/highlight.js/issues/2877) |
 | 7.x, 8.x   | :x: | Obsolete. Known vulnerabities. |

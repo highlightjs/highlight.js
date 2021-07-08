@@ -1,4 +1,4 @@
-## Version 11.1.0 (pending)
+## Version 11.1.0
 
 Grammars:
 
