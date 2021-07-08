@@ -15,6 +15,7 @@ Grammars:
 - fix(elixir) fixed number detection when numbers start with a zero (#3212) [Angelika Tyborska][]
 - fix(ps1) Flag highlighted incorrectly (#3167) [Pankaj Patil][]
 - fix(latex) Allow wider syntax for magic comments (#3243) [Benedikt Wilde][]
+- fix(js/ts) Constants may include numbers [Josh Goebel][]
 
 [Stel Abrego]: https://github.com/stelcodes
 [Josh Goebel]: https://github.com/joshgoebel

@@ -299,7 +299,7 @@ export default function(hljs) {
 
   const UPPER_CASE_CONSTANT = {
     relevance: 0,
-    match: /\b[A-Z][A-Z_]+\b/,
+    match: /\b[A-Z][A-Z_0-9]+\b/,
     className: "variable.constant"
   };
 
