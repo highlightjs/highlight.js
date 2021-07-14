@@ -213,7 +213,6 @@ declare module 'highlight.js' {
         match?: RegExp | string | (RegExp | string)[]
         end?: RegExp | string | (RegExp | string)[]
         className?: string
-        _emit?: Record<number, boolean>
         scope?: string | Record<number, string>
         beginScope?: string | Record<number, string>
         contains?: ("self" | Mode)[]
