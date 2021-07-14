@@ -209,9 +209,9 @@ declare module 'highlight.js' {
         }
 
     interface ModeDetails {
-        begin?: RegExp | string
-        match?: RegExp | string
-        end?: RegExp | string
+        begin?: RegExp | string | (RegExp | string)[]
+        match?: RegExp | string | (RegExp | string)[]
+        end?: RegExp | string | (RegExp | string)[]
         className?: string
         _emit?: Record<number, boolean>
         scope?: string | Record<number, string>
