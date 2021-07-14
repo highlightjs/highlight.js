@@ -201,7 +201,6 @@ declare module 'highlight.js' {
             illegalRe: RegExp
             matcher: any
             isCompiled: true
-            isMultiClass?: boolean
             starts?: CompiledMode
             parent?: CompiledMode
             beginScope?: Record<number, string> & {_emit?: Record<number,boolean>, _multi?: boolean, _wrap?: string}
