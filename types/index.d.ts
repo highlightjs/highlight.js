@@ -74,7 +74,7 @@ declare module 'highlight.js' {
         RE_STARTERS_RE: string
     }
 
-    export type LanguageFn = (hljs?: HLJSApi) => Language
+    export type LanguageFn = (hljs: HLJSApi) => Language
     export type CompilerExt = (mode: Mode, parent: Mode | Language | null) => void
 
     export interface HighlightResult {
