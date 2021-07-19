@@ -5,10 +5,11 @@ Website: https://www.python.org
 Category: common
 */
 
-import { UNDERSCORE_IDENT_RE } from '../lib/modes.js';
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
+  const PY_IDENT_RE = '[a-zA-ZÀ-ÖØ-öø-ÿ_][\\wÀ-ÖØ-öø-ÿ]*';
+
   const RESERVED_WORDS = [
     'and',
     'as',
@@ -145,7 +146,7 @@ export default function(hljs) {
   ];
 
   const KEYWORDS = {
-    $pattern: /[A-Za-z]\w+|__\w+__/,
+    $pattern: /[A-Za-zÀ-ÖØ-öø-ÿ][\wÀ-ÖØ-öø-ÿ]+|__[\wÀ-ÖØ-öø-ÿ]+__/,
     keyword: RESERVED_WORDS,
     built_in: BUILT_INS,
     literal: LITERALS,
@@ -379,7 +380,7 @@ export default function(hljs) {
       {
         match: [
           /def/, /\s+/,
-          UNDERSCORE_IDENT_RE
+          PY_IDENT_RE,
         ],
         scope: {
           1: "keyword",
@@ -392,14 +393,14 @@ export default function(hljs) {
           {
             match: [
               /class/, /\s+/,
-              UNDERSCORE_IDENT_RE, /\s*/,
-              /\(\s*/, UNDERSCORE_IDENT_RE,/\s*\)/
+              PY_IDENT_RE, /\s*/,
+              /\(\s*/, PY_IDENT_RE,/\s*\)/
             ],
           },
           {
             match: [
               /class/, /\s+/,
-              UNDERSCORE_IDENT_RE
+              PY_IDENT_RE
             ],
           }
         ],
