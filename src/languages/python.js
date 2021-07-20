@@ -5,10 +5,13 @@ Website: https://www.python.org
 Category: common
 */
 
+import { UNICODE_SUPPORTED, UNDERSCORE_IDENT_RE } from '../lib/modes.js';
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
-  const PY_IDENT_RE = '[a-zA-ZÀ-ÖØ-öø-ÿ_][\\wÀ-ÖØ-öø-ÿ]*';
+  const PY_IDENT_RE = UNICODE_SUPPORTED ?
+    (new RegExp("[\\p{XID_Start}_]\\p{XID_Continue}*", 'u')) :
+    UNDERSCORE_IDENT_RE;
 
   const RESERVED_WORDS = [
     'and',
@@ -146,7 +149,7 @@ export default function(hljs) {
   ];
 
   const KEYWORDS = {
-    $pattern: /[A-Za-zÀ-ÖØ-öø-ÿ][\wÀ-ÖØ-öø-ÿ]+|__[\wÀ-ÖØ-öø-ÿ]+__/,
+    $pattern: /[A-Za-z]\w+|__\w+__/,
     keyword: RESERVED_WORDS,
     built_in: BUILT_INS,
     literal: LITERALS,
@@ -359,6 +362,7 @@ export default function(hljs) {
       'gyp',
       'ipython'
     ],
+    unicode: UNICODE_SUPPORTED,
     keywords: KEYWORDS,
     illegal: /(<\/|->|\?)|=>/,
     contains: [
