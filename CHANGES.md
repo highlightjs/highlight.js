@@ -2,7 +2,7 @@
 
 Grammars:
 
-- fix(python) added support for identifiers with diacritics [Austin Schick][]
+- fix(python) added support for unicode identifiers [Austin Schick][]
 
 [Austin Schick]: https://github.com/austin-schick
 
