@@ -1,6 +1,6 @@
 ## Version 11.1.1 (pending)
 
-- Trusted Types compatibility [Jakub Vrána][]
+- Trusted Types compatibility (#3281) [Jakub Vrána][]
 
 [Jakub Vrána]: https://github.com/vrana
 
