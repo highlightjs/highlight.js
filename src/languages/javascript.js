@@ -31,6 +31,8 @@ export default function(hljs) {
   const XML_TAG = {
     begin: /<[A-Za-z0-9\\._:-]+/,
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
+    // to avoid special cases inside isTrulyOpeningTag
+    simpleSelfClosing: /<[A-Za-z0-9\\._:-]+\s*\/>/,
     /**
      * @param {RegExpMatchArray} match
      * @param {CallbackResponse} response
@@ -38,6 +40,7 @@ export default function(hljs) {
     isTrulyOpeningTag: (match, response) => {
       const afterMatchIndex = match[0].length + match.index;
       const nextChar = match.input[afterMatchIndex];
+      const afterMatch = match.input.substr(afterMatchIndex)
       // TODO: can this conditional be removed entirely?
       // in favor of the fallback below?
       if (
@@ -51,17 +54,30 @@ export default function(hljs) {
         response.ignoreMatch();
         return;
       }
-      // `<something>` or `<something ...`
+      // NOTE: handled by simpleSelfClosing rule
+      // if we are self closing then we definitely are an opening (and closing) tag
+      // if (nextChar === "/" || afterMatch.match(CLOSING_TAG_RE)) {
+        // return;
+      // }
+      // technically this could be HTML, but it smells like a type
+      let m;
+      if (m = afterMatch.match(/^\s+extends\s+/)) {
+        if (m.index === 0) {
+          response.ignoreMatch();
+          return;
+        }
+      }
+      // `<something>`
       // Quite possibly a tag, lets look for a matching closing tag...
-      if (nextChar === ">" || nextChar === " ") {
+      if (nextChar === ">") {
         // if we cannot find a matching closing tag, then we
         // will ignore it
         if (!hasClosingTag(match, { after: afterMatchIndex })) {
           response.ignoreMatch();
         }
-      } else {
-        // fallback, doesn't look like HTML
-        response.ignoreMatch();
+      // This is not conclusive because we still need to know if the tag might
+      // be self closing or not, so we therfore assume it's HTML
+      // if (nextChar === " ")
       }
     }
   };
@@ -463,6 +479,7 @@ export default function(hljs) {
           { // JSX
             variants: [
               { begin: FRAGMENT.begin, end: FRAGMENT.end },
+              { match: XML_TAG.simpleSelfClosing },
               {
                 begin: XML_TAG.begin,
                 // we carefully check the opening tag to see if it truly
@@ -471,7 +488,6 @@ export default function(hljs) {
                 end: XML_TAG.end
               }
             ],
-            scope: "booger",
             subLanguage: 'xml',
             contains: [
               {
