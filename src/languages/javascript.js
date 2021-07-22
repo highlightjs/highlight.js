@@ -40,8 +40,6 @@ export default function(hljs) {
     isTrulyOpeningTag: (match, response) => {
       const afterMatchIndex = match[0].length + match.index;
       const nextChar = match.input[afterMatchIndex];
-      // TODO: can this conditional be removed entirely?
-      // in favor of the fallback below?
       if (
         // HTML should not include another raw `<` inside a tag
         // nested type?
@@ -53,6 +51,7 @@ export default function(hljs) {
         response.ignoreMatch();
         return;
       }
+
       // `<something>`
       // Quite possibly a tag, lets look for a matching closing tag...
       if (nextChar === ">") {
@@ -62,14 +61,15 @@ export default function(hljs) {
           response.ignoreMatch();
         }
       }
-      // NOTE: handled by simpleSelfClosing rule
-      // if we are self closing then we definitely are an opening (and closing) tag
-      // if (nextChar === "/" || afterMatch.match(CLOSING_TAG_RE)) {
-        // return;
-      // }
+
+      // `<blah />` (self-closing)
+      // handled by simpleSelfClosing rule
+
+      // `<From extends string>`
       // technically this could be HTML, but it smells like a type
       let m;
       const afterMatch = match.input.substr(afterMatchIndex)
+      // NOTE: This is ugh, but added specifically for https://github.com/highlightjs/highlight.js/issues/3276
       if (m = afterMatch.match(/^\s+extends\s+/)) {
         if (m.index === 0) {
           response.ignoreMatch();
