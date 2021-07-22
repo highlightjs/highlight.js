@@ -25,3 +25,21 @@
 }
 
 <span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
+
+<span class="hljs-comment">// this is NOT JSX and should not trigger the rule</span>
+interface <span class="hljs-title class_">Prefixer</span>&lt;<span class="hljs-title class_">Something</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">string</span>&gt; {
+  (): <span class="hljs-string">`other__<span class="hljs-subst">${Something}</span>`</span>;
+
+  <span class="hljs-attr">parse</span>: &lt;<span class="hljs-title class_">From</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">string</span>&gt;<span class="hljs-function">(<span class="hljs-params">
+    value: From
+  </span>) =&gt;</span> number;
+}
+
+<span class="hljs-keyword">const</span> cloneWith = &lt;T, A <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">keyof</span> T, V&gt;(
+  <span class="hljs-attr">i</span>: T,
+  <span class="hljs-attr">a</span>: A,
+  <span class="hljs-attr">value</span>: V
+): <span class="hljs-title class_">Omit</span>&lt;T, A&gt; &amp; {[K <span class="hljs-keyword">in</span> A]: V} =&gt; ({
+  ...i,
+  [a]: value,
+});

@@ -40,7 +40,6 @@ export default function(hljs) {
     isTrulyOpeningTag: (match, response) => {
       const afterMatchIndex = match[0].length + match.index;
       const nextChar = match.input[afterMatchIndex];
-      const afterMatch = match.input.substr(afterMatchIndex)
       // TODO: can this conditional be removed entirely?
       // in favor of the fallback below?
       if (
@@ -54,19 +53,6 @@ export default function(hljs) {
         response.ignoreMatch();
         return;
       }
-      // NOTE: handled by simpleSelfClosing rule
-      // if we are self closing then we definitely are an opening (and closing) tag
-      // if (nextChar === "/" || afterMatch.match(CLOSING_TAG_RE)) {
-        // return;
-      // }
-      // technically this could be HTML, but it smells like a type
-      let m;
-      if (m = afterMatch.match(/^\s+extends\s+/)) {
-        if (m.index === 0) {
-          response.ignoreMatch();
-          return;
-        }
-      }
       // `<something>`
       // Quite possibly a tag, lets look for a matching closing tag...
       if (nextChar === ">") {
@@ -75,9 +61,20 @@ export default function(hljs) {
         if (!hasClosingTag(match, { after: afterMatchIndex })) {
           response.ignoreMatch();
         }
-      // This is not conclusive because we still need to know if the tag might
-      // be self closing or not, so we therfore assume it's HTML
-      // if (nextChar === " ")
+      }
+      // NOTE: handled by simpleSelfClosing rule
+      // if we are self closing then we definitely are an opening (and closing) tag
+      // if (nextChar === "/" || afterMatch.match(CLOSING_TAG_RE)) {
+        // return;
+      // }
+      // technically this could be HTML, but it smells like a type
+      let m;
+      const afterMatch = match.input.substr(afterMatchIndex)
+      if (m = afterMatch.match(/^\s+extends\s+/)) {
+        if (m.index === 0) {
+          response.ignoreMatch();
+          return;
+        }
       }
     }
   };
