@@ -1,3 +1,11 @@
+## Version 11.2.0 (pending)
+
+Parser:
+
+- fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
 ## Version 11.1.0
 
 Grammars:
