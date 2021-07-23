@@ -709,7 +709,7 @@ const HLJS = function(hljs) {
   }
 
   let ttPolicy = {createHTML: s => s};
-  if (typeof trustedTypes != 'undefined') {
+  if (typeof trustedTypes != 'undefined' && trustedTypes.createPolicy) {
     ttPolicy = trustedTypes.createPolicy('highlight.js', ttPolicy);
   }
 
