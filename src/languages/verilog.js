@@ -6,6 +6,8 @@ Description: Verilog is a hardware description language used in electronic desig
 Website: http://www.verilog.com
 */
 
+import * as regex from '../lib/regex.js';
+
 export default function(hljs) {
   const SV_KEYWORDS = {
     $pattern: /[\w\$]+/,
@@ -68,6 +70,30 @@ export default function(hljs) {
       '$sformatf $fgetc $ungetc $fgets $sscanf $rewind $ftell $ferror'
   };
 
+  const DIRECTIVES = [
+    "define",
+    "begin_keywords",
+    "celldefine",
+    "default_nettype",
+    "define",
+    "else",
+    "elsif",
+    "end_keywords",
+    "endcelldefine",
+    "endif",
+    "ifdef",
+    "ifndef",
+    "include",
+    "line",
+    "nounconnected_drive",
+    "pragma",
+    "resetall",
+    "timescale",
+    "unconnected_drive",
+    "undef",
+    "undefineall"
+  ];
+
   return {
     name: 'Verilog',
     aliases: [
@@ -112,15 +138,16 @@ export default function(hljs) {
       },
       {
         className: 'meta',
-        begin: '`',
-        end: '$',
+        begin: regex.concat(/`/, regex.either(...DIRECTIVES)),
+        end: /$|\/\/|\/\*/,
+        returnEnd: true,
         keywords: {
           keyword:
-            'define __FILE__ ' +
-            '__LINE__ begin_keywords celldefine default_nettype define ' +
-            'else elsif end_keywords endcelldefine endif ifdef ifndef ' +
-            'include line nounconnected_drive pragma resetall timescale ' +
-            'unconnected_drive undef undefineall'
+            [
+              "__FILE__",
+              "__LINE__",
+              ...DIRECTIVES
+            ]
         },
         relevance: 0
       }

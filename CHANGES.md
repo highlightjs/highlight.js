@@ -7,6 +7,7 @@ Build:
 Parser:
 
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
+- fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 
