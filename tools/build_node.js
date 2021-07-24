@@ -167,8 +167,8 @@ async function buildNode(options) {
       installCleanCSS(`./src/styles/${file}`, `styles/${file}`);
       installCleanCSS(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
     } else {
+      // images, etc.
       install(`./src/styles/${file}`, `styles/${file}`);
-      install(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
     }
   });
 
