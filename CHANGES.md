@@ -1,10 +1,15 @@
 ## Version 11.2.0 (pending)
 
+Build:
+
+- fix: run Node build CSS files thru CSS processor also (#3284) [Josh Goebel][]
+
 Parser:
 
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/joshgoebel
+
 
 ## Version 11.1.0
 
