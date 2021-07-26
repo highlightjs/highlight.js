@@ -121,8 +121,8 @@ export default function(hljs) {
           {
             begin: '\\B((\'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+)'
           },
-          {
-            begin: '\\b([0-9_])+',
+          { // decimal
+            begin: /\b[0-9][0-9_]*/,
             relevance: 0
           }
         ]
