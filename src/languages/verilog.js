@@ -10,7 +10,7 @@ import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
   const SV_KEYWORDS = {
-    $pattern: /[\w\$]+/,
+    $pattern: /\$?[\w]+(\$[\w]+)*/,
     keyword:
       'accept_on alias always always_comb always_ff always_latch and assert assign ' +
       'assume automatic before begin bind bins binsof bit break buf|0 bufif0 bufif1 ' +
