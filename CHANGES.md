@@ -6,6 +6,7 @@ Build:
 
 Parser:
 
+- fix(csharp) Fix assignments flagging as functions [Josh Goebel][]
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/joshgoebel
