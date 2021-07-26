@@ -70,6 +70,10 @@ export default function(hljs) {
       '$sformatf $fgetc $ungetc $fgets $sscanf $rewind $ftell $ferror'
   };
 
+  const BUILT_IN_CONSTANTS = [
+    "__FILE__",
+    "__LINE__"
+  ];
   const DIRECTIVES = [
     "define",
     "begin_keywords",
@@ -137,17 +141,16 @@ export default function(hljs) {
         ]
       },
       {
+        className: 'variable.constant',
+        match: regex.concat(/`/, regex.either(...BUILT_IN_CONSTANTS)),
+      },
+      {
         className: 'meta',
         begin: regex.concat(/`/, regex.either(...DIRECTIVES)),
         end: /$|\/\/|\/\*/,
         returnEnd: true,
         keywords: {
-          keyword:
-            [
-              "__FILE__",
-              "__LINE__",
-              ...DIRECTIVES
-            ]
+          keyword: DIRECTIVES
         },
         relevance: 0
       }
