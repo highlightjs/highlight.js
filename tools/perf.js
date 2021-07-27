@@ -4,7 +4,7 @@ const { performance } = require('perf_hooks');
 
 const timeTest = (name, func) => {
   process.stdout.write(`Starting ${name}, building hljs ... `);
-  // execSync('npm run build', {'cwd': '..'});
+  execSync('npm run build', {'cwd': '..'});
   process.stdout.write(` running ...`);
   let t0 = performance.now();
   func()
