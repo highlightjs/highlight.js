@@ -46,16 +46,23 @@ describe('highlight() markup', async() => {
     const markupPath = utility.buildPath('markup');
 
     if (!process.env.ONLY_EXTRA) {
-      const languages = await fs.readdir(markupPath);
+      let languages;
+      if (process.env.ONLY_LANGUAGES) {
+        languages = JSON.parse(process.env.ONLY_LANGUAGES);
+      } else {
+        languages = await fs.readdir(markupPath);
+      }
       languages.forEach(testLanguage);
     }
 
-    const thirdPartyPackages = await getThirdPartyPackages();
-    thirdPartyPackages.forEach(
-      (pkg) => pkg.names.forEach(
-        (name, idx) => testLanguage(name, { testDir: pkg.markupTestPaths[idx] })
-      )
-    );
+    if (!process.env.ONLY_LANGUAGES) {
+      const thirdPartyPackages = await getThirdPartyPackages();
+      thirdPartyPackages.forEach(
+        (pkg) => pkg.names.forEach(
+          (name, idx) => testLanguage(name, { testDir: pkg.markupTestPaths[idx] })
+        )
+      );
+    }
   });
 
   it("adding dynamic tests...", async function() {}); // this is required to work

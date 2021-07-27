@@ -58,8 +58,12 @@ function testAutoDetection(language, index, languages) {
     });
 }
 
-const languages = hljs.listLanguages()
-  .filter(hljs.autoDetection);
+let languages;
+if (process.env.ONLY_LANGUAGES) {
+  languages = JSON.parse(process.env.ONLY_LANGUAGES);
+} else {
+  languages = hljs.listLanguages().filter(hljs.autoDetection);
+}
 
 console.log('Checking auto-highlighting for ' + colors.grey(languages.length) + ' languages...');
 languages.forEach((lang, index) => {
