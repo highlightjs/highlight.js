@@ -1,0 +1,24 @@
+// MKB - Syntax Highlighting Example
+
+//Variable types
+#integer = 0
+&string = "test"
+boolean = 0
+@#globalinteger = 0
+@&globalstring = "test"
+@globalboolean = 0
+
+do(12);
+	GETIDREL(0,-1,0,&variant1)
+	&variant2 = GETIDREL(0,-1,0,,#data)
+
+	If(%&string% == "test")
+		Break
+	ElseIf(@#globalinteger < 10)
+		#boolean = true
+		SlotClick(31)
+	EndIf
+	inc(#integer)
+	wait(1t)
+	LOG(%#data%)
+loop
