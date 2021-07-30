@@ -160,17 +160,17 @@ export default function(hljs) {
       scope: 'operator',
       className: 'operator',
       relevance: 0,
-      begin: '==?|>=?|<=?|\\+|\\!|\\&\\&|\\|\\||\\+|\\-|\\*|\\/|\\:='
+      begin: '=|==?|>=?|<=?|\\+|\\!|\\&\\&|\\|\\||\\+|\\-|\\*|\\/|\\:='
     };
     const BOOLEANS = {
       // scope: 'literal',
       className: 'literal',
       begin: ['[a-z0-9_-]*?',
               '\\s*?=\\s*?',
-              'true|false'
+              'true|false|0|1'
             ],
       beginScope: {
-        1: 'literal',
+        1: 'variable',
         2: 'operator',
         3: 'literal'
       }
