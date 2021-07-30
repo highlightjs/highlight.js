@@ -5,7 +5,7 @@ Author: Mumfrey
 Website: https://beta.mkb.gorlem.ml/docs/actions/
 Category: scripting
 */
-
+// node tools/build.js -n mkb
 
 export default function(hljs) {
 
@@ -115,19 +115,70 @@ export default function(hljs) {
         built_in: MKB_ACTIONS,
         literal: 'true false null'
     };
+    const VARIABLE = {
+      scope: 'variable',
+      className: 'variable',
+      begin: '@?(?:&|#|)[a-zA-Z]{1,}',
+      endsParent: false,
+      relevance: 1,
+      keywords: MKB_VARIABLES
+    }
+    const LITTERAL_VARIABLE = {
+      scope: 'variable',
+      className: 'inserted',
+      begin: '%',
+      end: '%',
+      excludeBegin: false,
+      excludeEnd: false,
+      contains:[VARIABLE]
+    }
+    const STRING = {
+        scope: 'string',
+        className:'string',
+        begin: '"',
+        end: '"',
+        contains:[
+          LITTERAL_VARIABLE
+        ]
+    }
     const PARAMS = {
-        className: 'params',
+        scope: 'params',
+        className:'params',
         begin: '\\(',
         end: '\\)',
+        excludeBegin: false,
+        excludeEnd: false,
         endsParent: true,
-        keywords: MKB_KEYWORDS
-    };
+        relevance: 0,
+        contains: [
+          STRING,
+          VARIABLE
+        ]
+    }
+    const ACTION = {
+      scope: 'title.function',
+      className:'function',
+      keywords: MKB_ACTIONS,
+      begin: '^\s?',
+      end: '\\(',
+      excludeBegin: true,
+      excludeEnd: true,
+      returnBegin: true,
+      relevance: 0,
+      contains: [
+        PARAMS
+      ]
+    }
+
     return {
         name: 'MKB',
         case_insensitive: true,
         keywords: MKB_KEYWORDS,
         contains: [
-            hljs.COMMENT('//', '$')
+          hljs.COMMENT('//', '$'),
+          STRING,
+          ACTION,
+          VARIABLE,
         ]
     };
 }
