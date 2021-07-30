@@ -114,7 +114,7 @@ export default function(hljs) {
     const VARIABLE = {
       scope: 'variable',
       className: 'variable',
-      begin: '@?(?:&|#|)[a-zA-Z]{1,}',
+      begin: '@?(?:&|#|)[a-zA-Z0-9_-]+',
       endsParent: false,
       relevance: 1,
       keywords: MKB_VARIABLES
@@ -151,20 +151,6 @@ export default function(hljs) {
           VARIABLE
         ]
     }
-    const ACTION = {
-      scope: 'title.function',
-      className:'function',
-      keywords: MKB_ACTIONS,
-      begin: '^[a-zA-Z]',
-      end: '\\(',
-      excludeBegin: false,
-      excludeEnd: true,
-      returnBegin: true,
-      relevance: 0,
-      contains: [
-        PARAMS
-      ]
-    }
     const NUMBER = { 
       scope: 'number',
       className: 'number',
@@ -174,8 +160,51 @@ export default function(hljs) {
       scope: 'operator',
       className: 'operator',
       relevance: 0,
-      begin: '=|>|<|\\+'
+      begin: '==?|>=?|<=?|\\+|\\!|\\&\\&|\\|\\||\\+|\\-|\\*|\\/|\\:='
     };
+    const BOOLEANS1 = {
+      // scope: 'literal',
+      className: 'literal',
+      begin: ['[a-z0-9_-]*?',
+              '\\s*?=\\s*?',
+              'true'
+            ],
+      beginScope: {
+        1: 'literal.true',
+        2: 'operator',
+        3: 'literal.true'
+      }
+    }
+    const BOOLEANS2 = {
+      // scope: 'literal',
+      className: 'literal',
+      begin: ['[a-z0-9_-]*?',
+              '\\s*?=\\s*?',
+              'false'
+            ],
+      beginScope: {
+        1: 'literal.false',
+        2: 'operator',
+        3: 'literal.false'
+      }
+    }
+    const ACTION = {
+      scope: 'title.function',
+      className:'function',
+      keywords: MKB_ACTIONS,
+      begin: '^[\t ]*?[a-zA-Z]',
+      end: '\\(',
+      excludeBegin: false,
+      excludeEnd: true,
+      returnBegin: true,
+      relevance: 0,
+      contains: [
+        PARAMS,
+        NUMBER,
+        BOOLEANS1,
+        BOOLEANS2
+      ]
+    }
     return {
         name: 'MKB',
         case_insensitive: true,
@@ -190,6 +219,8 @@ export default function(hljs) {
           NUMBER,
           OPERATORS,
           VARIABLE,
+          BOOLEANS1,
+          BOOLEANS2
         ]
     };
 }
