@@ -155,8 +155,8 @@ export default function(hljs) {
       scope: 'title.function',
       className:'function',
       keywords: MKB_ACTIONS,
-      begin: '^[a-zA-Z]\\(',
-      // end: '\\(',
+      begin: '^[a-zA-Z]',
+      end: '\\(',
       excludeBegin: false,
       excludeEnd: true,
       returnBegin: true,
@@ -176,6 +176,12 @@ export default function(hljs) {
       relevance: 0,
       begin: '=|>|<|\\+'
     };
+    const PUNCTUATION = {
+      scope: 'punctuation',
+      className: 'punctuation',
+      relevance: 0,
+      begin: ';|:|\\(|\\+|\\)|\,'
+    };
     return {
         name: 'MKB',
         case_insensitive: true,
@@ -189,6 +195,7 @@ export default function(hljs) {
           ACTION,
           NUMBER,
           OPERATORS,
+          PUNCTUATION,
           VARIABLE,
         ]
     };
