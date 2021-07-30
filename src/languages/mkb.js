@@ -162,30 +162,17 @@ export default function(hljs) {
       relevance: 0,
       begin: '==?|>=?|<=?|\\+|\\!|\\&\\&|\\|\\||\\+|\\-|\\*|\\/|\\:='
     };
-    const BOOLEANS1 = {
+    const BOOLEANS = {
       // scope: 'literal',
       className: 'literal',
       begin: ['[a-z0-9_-]*?',
               '\\s*?=\\s*?',
-              'true'
+              'true|false'
             ],
       beginScope: {
-        1: 'literal.true',
+        1: 'literal',
         2: 'operator',
-        3: 'literal.true'
-      }
-    }
-    const BOOLEANS2 = {
-      // scope: 'literal',
-      className: 'literal',
-      begin: ['[a-z0-9_-]*?',
-              '\\s*?=\\s*?',
-              'false'
-            ],
-      beginScope: {
-        1: 'literal.false',
-        2: 'operator',
-        3: 'literal.false'
+        3: 'literal'
       }
     }
     const ACTION = {
@@ -201,8 +188,7 @@ export default function(hljs) {
       contains: [
         PARAMS,
         NUMBER,
-        BOOLEANS1,
-        BOOLEANS2
+        BOOLEANS
       ]
     }
     return {
@@ -219,8 +205,7 @@ export default function(hljs) {
           NUMBER,
           OPERATORS,
           VARIABLE,
-          BOOLEANS1,
-          BOOLEANS2
+          BOOLEANS
         ]
     };
 }
