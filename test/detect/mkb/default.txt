@@ -22,3 +22,16 @@ do(12);
 	wait(1t)
 	LOG(%#data%)
 loop
+
+LOG("hello %&var%")
+LOG("hello %#var%")
+LOG("hello %var%")
+LOG("hello %@&var%")
+LOG("hello %@var%")
+LOG("hello %@#var%")
+LOG("hello %XPOS%, %ZPOS%")
+#number = 12
+&string = "hello %&again% &7Colored &eText"
+ECHO("this is a test: %#number%")
+LOGTO("file.txt","text here %hi%")
+// test comment
