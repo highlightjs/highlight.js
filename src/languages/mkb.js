@@ -117,6 +117,11 @@ export default function(hljs) {
       className:'number',
       begin:'[0-9](_?[0-9])*'
     };
+    const DURATION = { 
+      scope:'number',
+      className:'number',
+      begin:'[0-9](_?[0-9])*t|s|ms'
+    };
     const OPERATORS = {
       scope:'operator',
       className:'operator',
@@ -154,7 +159,7 @@ export default function(hljs) {
       begin:'%?@?(?:&|#|)[a-zA-Z0-9_-]+\\[%?',
       end:'%?\\]%?',
       excludeBegin: false,
-      excludeEnd: false,
+      excludeEnd: true,
       endsParent: true,
       contains:[VARIABLE]
     }
@@ -188,6 +193,7 @@ export default function(hljs) {
         contains: [
           STRING,
           OPERATORS,
+          DURATION,
           NUMBER,
           VARIABLE,
           ARRAY
@@ -205,7 +211,7 @@ export default function(hljs) {
         1: 'variable',
         2: 'operator',
         3: 'literal.true',
-        3: 'literal.false'
+        4: 'literal.false'
       }
     }
     const ACTION = {
