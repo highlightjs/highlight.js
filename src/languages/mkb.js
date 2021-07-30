@@ -8,6 +8,7 @@ Category: scripting
 // node tools/build.js -n mkb
 
 import { KEYWORDS } from "./lib/ecmascript";
+import { keywords } from "./lib/kws_swift";
 
 export default function(hljs) {
 
@@ -128,13 +129,34 @@ export default function(hljs) {
       relevance: 0,
       begin:';|:|\\(|\\+|\\)|\,'
     };
+    const CONSTANT_RE = '%?'+MKB_VARIABLES.join(' ')
+                          .trim()
+                          .split(' ')
+                          .map(function(val) { return val.trim().split('|')[0]; })
+                          .join('|')+'%?';
+    const ACTIONS_RE ='[\\t]*?(?:'+MKB_ACTIONS.join(' ')
+                          .trim()
+                          .split(' ')
+                          .map(function(val) { return val.trim().split('|')[0]; })
+                          .join('|')+')\\s*';
     const VARIABLE = {
       scope:'variable',
       className:'variable',
       begin:'@?(?:&|#|)[a-zA-Z0-9_-]+',
       endsParent: false,
       relevance: 1,
+      contains:[NUMBER],
       keywords: MKB_VARIABLES
+    }
+    const ARRAY = {
+      scope:'variable',
+      className:'variable',
+      begin:'%?@?(?:&|#|)[a-zA-Z0-9_-]+\\[%?',
+      end:'%?\\]%?',
+      excludeBegin: false,
+      excludeEnd: false,
+      endsParent: true,
+      contains:[VARIABLE]
     }
     const LITTERAL_VARIABLE = {
       scope:'variable',
@@ -166,7 +188,9 @@ export default function(hljs) {
         contains: [
           STRING,
           OPERATORS,
-          VARIABLE
+          NUMBER,
+          VARIABLE,
+          ARRAY
         ]
     }
     const BOOLEANS = {
@@ -174,20 +198,16 @@ export default function(hljs) {
       className: 'literal',
       begin: ['[a-z0-9_-]*?',
               '\\s*?=\\s*?',
-              'true|false|0|1'
+              'true',
+              'false'
             ],
       beginScope: {
         1: 'variable',
         2: 'operator',
-        3: 'literal'
+        3: 'literal.true',
+        3: 'literal.false'
       }
     }
-    const ACTIONS_RE ='[\\t]*?(?:'+MKB_ACTIONS.join(' ')
-                          .trim()
-                          .split(' ')
-                          .map(function(val) { return val.trim().split('|')[0]; })
-                          .join('|')+')\\s*';
-    console.log(ACTIONS_RE);
     const ACTION = {
       scope:'title.function',
       className:'function',
@@ -219,8 +239,10 @@ export default function(hljs) {
           ACTION,
           OPERATORS,
           PUNCTUATION,
+          BOOLEANS,
+          LITTERAL_VARIABLE,
+          ARRAY,
           VARIABLE,
-          BOOLEANS
         ]
     };
 }
