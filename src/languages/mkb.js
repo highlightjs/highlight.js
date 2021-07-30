@@ -169,30 +169,17 @@ export default function(hljs) {
           VARIABLE
         ]
     }
-    const BOOLEANS1 = {
-      // scope:'literal',
-      className:'literal',
+    const BOOLEANS = {
+      // scope: 'literal',
+      className: 'literal',
       begin: ['[a-z0-9_-]*?',
-             '\\s*?=\\s*?',
-             'true'
+              '\\s*?=\\s*?',
+              'true|false|0|1'
             ],
       beginScope: {
-        1:'literal.true',
-        2:'operator',
-        3:'literal.true'
-      }
-    }
-    const BOOLEANS2 = {
-      // scope:'literal',
-      className:'literal',
-      begin: ['[a-z0-9_-]*?',
-             '\\s*?=\\s*?',
-             'false'
-            ],
-      beginScope: {
-        1:'literal.false',
-        2:'operator',
-        3:'literal.false'
+        1: 'variable',
+        2: 'operator',
+        3: 'literal'
       }
     }
     const ACTIONS_RE ='[\\t]*?(?:'+MKB_ACTIONS.join(' ')
@@ -215,8 +202,7 @@ export default function(hljs) {
       contains: [
         PARAMS,
         NUMBER,
-        BOOLEANS1,
-        BOOLEANS2
+        BOOLEANS
       ]
     }
     return {
@@ -234,8 +220,7 @@ export default function(hljs) {
           OPERATORS,
           PUNCTUATION,
           VARIABLE,
-          BOOLEANS1,
-          BOOLEANS2
+          BOOLEANS
         ]
     };
 }
