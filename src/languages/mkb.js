@@ -7,6 +7,8 @@ Category: scripting
 */
 // node tools/build.js -n mkb
 
+import { KEYWORDS } from "./lib/ecmascript";
+
 export default function(hljs) {
 
     const MKB_ACTIONS = [
@@ -125,7 +127,7 @@ export default function(hljs) {
     }
     const LITTERAL_VARIABLE = {
       scope: 'variable',
-      className: 'inserted',
+      className: 'variable',
       begin: '%',
       end: '%',
       excludeBegin: false,
@@ -159,9 +161,9 @@ export default function(hljs) {
       scope: 'title.function',
       className:'function',
       keywords: MKB_ACTIONS,
-      begin: '^\s?',
+      begin: '^[a-zA-Z]',
       end: '\\(',
-      excludeBegin: true,
+      excludeBegin: false,
       excludeEnd: true,
       returnBegin: true,
       relevance: 0,
@@ -169,15 +171,28 @@ export default function(hljs) {
         PARAMS
       ]
     }
-
+    const NUMBER = { 
+      className: 'number',
+      begin: '[0-9](_?[0-9])*'
+    };
+    const OPERATORS = {
+      className: 'operator',
+      relevance: 0,
+      begin: /=><+/
+    };
     return {
         name: 'MKB',
         case_insensitive: true,
-        keywords: MKB_KEYWORDS,
+        keywords: {
+          keyword: MKB_VARIABLES,
+          built_in: MKB_ACTIONS
+        },
         contains: [
           hljs.COMMENT('//', '$'),
           STRING,
           ACTION,
+          NUMBER,
+          OPERATORS,
           VARIABLE,
         ]
     };
