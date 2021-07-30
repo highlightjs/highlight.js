@@ -111,12 +111,6 @@ export default function(hljs) {
         'TRACEX', 'TRACEY', 'TRACEZ', 'UNIQUEID', 'UUID', 'VARNAME', 'VEHICLE', 'VEHICLEHEALTH', 'WEATHERVOLUME', 'XP', 'XPOS', 'XPOSF',
         'YAW', 'YPOS', 'YPOSF', 'ZPOS', 'ZPOSF'
     ]
-
-    const MKB_KEYWORDS = {
-        keyword: MKB_VARIABLES,
-        built_in: MKB_ACTIONS,
-        literal: 'true false null'
-    };
     const VARIABLE = {
       scope: 'variable',
       className: 'variable',
@@ -172,13 +166,15 @@ export default function(hljs) {
       ]
     }
     const NUMBER = { 
+      scope: 'number',
       className: 'number',
       begin: '[0-9](_?[0-9])*'
     };
     const OPERATORS = {
+      scope: 'operator',
       className: 'operator',
       relevance: 0,
-      begin: /=><+/
+      begin: '=|>|<|\\+'
     };
     return {
         name: 'MKB',
