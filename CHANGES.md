@@ -10,7 +10,7 @@ Parser:
 
 Grammars:
 
-- enh(swift) Add `isolated`/`nonisolated` keywords (#?) [Bradley Mackey][]
+- enh(swift) Add `isolated`/`nonisolated` keywords (#3296) [Bradley Mackey][]
 
 New Languages:
 
