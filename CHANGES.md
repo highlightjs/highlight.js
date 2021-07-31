@@ -8,12 +8,17 @@ Parser:
 
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 
+Grammars:
+
+- enh(swift) Add `isolated`/`nonisolated` keywords (#3296) [Bradley Mackey][]
+
 New Languages:
 
 - Added 3rd party X# grammar to SUPPORTED_LANGUAGES [Patrick Kruselburger][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Patrick Kruselburger]: https://github.com/PatrickKru
+[Bradley Mackey]: https://github.com/bradleymackey
 
 
 ## Version 11.1.0
