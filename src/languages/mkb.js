@@ -37,7 +37,7 @@ export default function(hljs) {
     ];
     // \$\$(?:\!|\?|\d|\w*(?::\d*)?)|(?:\[\[(?:\w|\d|\s)*\]\])|(?:\[\w*|\d*\])|(?:\<\w*\.txt\>)
     const MKB_PARAMETERS = [
-       '$$!','$$?','$$[[array of things]]','$$[name]','$$<file.txt>','$$0-9','$$d','$$f','$$h','$$i','$$i:d','$$k','$$m','$$p','$$pn','$$px','$$py','$$pz','$$s','$$t','$$u','$$w'
+       '$$!','$$?','$$[[arrayofthings]]','$$[name]','$$<file.txt>','$$0-9','$$d','$$f','$$h','$$i','$$i:d','$$k','$$m','$$p','$$pn','$$px','$$py','$$pz','$$s','$$t','$$u','$$w'
     ];
     /* REPL Reserved.
     const MKB_REPL = [
@@ -122,7 +122,24 @@ export default function(hljs) {
                           .split(' ')
                           .map(function(val) { return val.trim().split('|')[0]; })
                           .join(' ');
-    
+    const PARAMS_RE =MKB_PARAMETERS.join('--')
+                          .trim()
+                          .split('--')
+                          .map(function(val) {
+                            let word ="";
+                            val=val.trim().split('|')[0];
+                            val.split('').forEach((letter)=>{
+                              letter="\\"+letter;
+                              word += letter;
+                            });
+                            return word })
+                          .join('|')+'|Mumfrey|Dereavy|Lezappen';
+    const SUBST = { 
+      scope:'subst',
+      className:'subst',
+      begin:PARAMS_RE,
+      keywords: MKB_PARAMETERS
+    }           
     const MKB_KEYWORDS = MKB_VARIABLES.concat(MKB_ACTIONS);
     // KEYWORD REGEX
     const KEYWORDS_RE = MKB_KEYWORDS.join(' ')
@@ -197,6 +214,7 @@ export default function(hljs) {
         begin:'"',
         end:'"',
         contains:[
+          SUBST,
           ARRAY,
           LITTERAL_VARIABLE
         ]
