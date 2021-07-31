@@ -12,17 +12,17 @@ import { KEYWORDS } from "./lib/ecmascript";
 export default function(hljs) {
 
     const MKB_ACTIONS = [
-       'ACHIEVEMENTGET','ARRAYSIZE','ASSIGN','BIND','BINDGUI','BREAK','CALCYAWTO','CAMERA','CHATFILTER',
-       'CHATHEIGHT','CHATHEIGHTFOCUSED','CHATOPACITY','CHATSCALE','CHATVISIBLE','CHATWIDTH',
-       'CLEARCHAT','CLEARCRAFTING','CONFIG','CRAFT','CRAFTANDWAIT','DEC','DECODE','DISCONNECT',
+       'ACHIEVEMENTGET|10','ARRAYSIZE','ASSIGN','BIND','BINDGUI','BREAK','CALCYAWTO','CAMERA','CHATFILTER',
+       'CHATHEIGHT|10','CHATHEIGHTFOCUSED|10','CHATOPACITY','CHATSCALE','CHATVISIBLE','CHATWIDTH',
+       'CLEARCHAT|10','CLEARCRAFTING|10','CONFIG','CRAFT','CRAFTANDWAIT|10','DEC','DECODE','DISCONNECT',
        'DO','ECHO','ELSE','ELSEIF','ENCODE','ENDIF','ENDUNSAFE','EXEC','FILTER','FOG','FOR','FOREACH','FOV',
-       'GAMMA','GETID','GETIDREL','GETITEMINFO','GETPROPERTY','GETSLOT','GETSLOTITEM','GUI','IF','IFBEGINSWITH',
-       'IFCONTAINS','IFENDSWITH','IFMATCHES','IIF','IMPORT','INC','INDEXOF','INVENTORYDOWN','INVENTORYUP',
+       'GAMMA|10','GETID|10','GETIDREL|10','GETITEMINFO|10','GETPROPERTY','GETSLOT','GETSLOTITEM|10','GUI','IF','IFBEGINSWITH',
+       'IFCONTAINS','IFENDSWITH','IFMATCHES','IIF','IMPORT','INC','INDEXOF','INVENTORYDOWN|10','INVENTORYUP|10',
        'ISRUNNING','ITEMID','ITEMNAME','JOIN','KEY','KEYDOWN','KEYUP','LCASE','LOG','LOGRAW','LOGTO','LOOK','LOOKS',
        'LOOP','MATCH','MODIFY','MUSIC','NEXT','PASS','PICK','PLACESIGN','PLAYSOUND','POP','POPUPMESSAGE','PRESS','PROMPT',
-       'PUSH','PUT','RANDOM','REGEXREPLACE','RELOADRESOURCES','REPL','REPLACE','RESOURCEPACK','RESOURCEPACKS',
-       'RESPAWN','SELECTCHANNEL','SENDMESSAGE','SENSITIVITY','SET','SETLABEL','SETPROPERTY','SETRES','SETSLOTITEM',
-       'SHADERGROUP','SHOWGUI','SLOT','SLOTCLICK','SPLIT','SPRINT','SQRT','STOP','STORE','STOREOVER','STRIP','TEXTUREPACK',
+       'PUSH','PUT','RANDOM','REGEXREPLACE','RELOADRESOURCES|10','REPL','REPLACE','RESOURCEPACK|10','RESOURCEPACKS|10',
+       'RESPAWN|10','SELECTCHANNEL','SENDMESSAGE','SENSITIVITY','SET','SETLABEL','SETPROPERTY','SETRES','SETSLOTITEM|10',
+       'SHADERGROUP|10','SHOWGUI','SLOT','SLOTCLICK','SPLIT','SPRINT','SQRT','STOP','STORE','STOREOVER','STRIP','TEXTUREPACK|10',
        'TILEID','TILENAME','TIME','TITLE','TOAST','TOGGLE','TOGGLEKEY','TRACE','TYPE','UCASE','UNIMPORT','UNSAFE','UNSET',
        'UNSPRINT','UNTIL','VOLUME','WAIT','WALKTO','WHILE'
     ];
@@ -129,7 +129,9 @@ export default function(hljs) {
                             let word ="";
                             val=val.trim().split('|')[0];
                             val.split('').forEach((letter)=>{
-                              letter="\\"+letter;
+                              if(isNaN(letter)){
+                                letter="\\"+letter;
+                              }
                               word += letter;
                             });
                             return word })
@@ -151,11 +153,13 @@ export default function(hljs) {
     const NUMBER = { 
       scope:'number',
       className:'number',
+      relevance: 0,
       begin:'-?[0-9](_?[0-9])*'
     };
     const DURATION = { 
       scope:'number',
       className:'number',
+      relevance: 1,
       begin:'[0-9](_?[0-9])*t|s|ms'
     };
     const OPERATORS = {
@@ -180,9 +184,9 @@ export default function(hljs) {
     const VARIABLE = {
       scope:'variable',
       className:'variable',
-      begin:'@?(?:\&|#|)[a-zA-Z0-9_-]+',
+      begin:'(?!\\$)@?(?:\&|#|)[a-zA-Z0-9_-]+',
       endsParent: false,
-      relevance: 1,
+      relevance:0,
       contains:[NUMBER,CUSTOM_ACTION],
       keywords: MKB_KEYWORDS
     }
@@ -191,7 +195,6 @@ export default function(hljs) {
       className:'variable',
       begin:'%',
       end:'%',
-      relevance: 10,
       excludeBegin: false,
       excludeEnd: false,
       contains:[]
@@ -201,10 +204,10 @@ export default function(hljs) {
       className:'variable',
       begin:'@?(?:\&|#|)[a-zA-Z0-9_-]+\\[',
       end:'\\]',
-      relevance: 10,
       excludeBegin: false,
       excludeEnd: false,
       endsParent: false,
+      relevance:0,
       contains:[LITTERAL_VARIABLE]
     }
     ARRAY.contains.push(ARRAY);
@@ -230,7 +233,7 @@ export default function(hljs) {
         excludeBegin: false,
         excludeEnd: false,
         endsParent: false,
-        relevance: 0,
+        relevance:10,
         contains: [
           SUBST,
           STRING,
@@ -248,6 +251,7 @@ export default function(hljs) {
       className:'params',
       begin:'\\(',
       end:'\\)',
+      relevance:0,
       endsParent: false,
       contains:[
         STRING,
@@ -309,11 +313,15 @@ export default function(hljs) {
     }
 
     return {
-        name:'MKB',
+        name:'mkb',
         case_insensitive: true,
-        keywords: KEYWORDS,
+        keywords: MKB_KEYWORDS,
+        illegal: '`|(?:%%)|(?:#{|})',
         contains: [
-          hljs.COMMENT('//','$'),
+          hljs.COMMENT('//','$',
+          {
+            relevance: 0
+          }),
           SUBST,
           STRING,
           NUMBER,

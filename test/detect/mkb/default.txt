@@ -3,12 +3,9 @@
 //Variable types
 
 #integer = 0
-&string = "test"
-boolean = 0
+&thing = "test"
 @#globalinteger = 0
 @&globalstring = "text and input %&array[%#index%]%"
-@globalboolean = false
-@globalboolean2 = true
 &constant = %XPOS%
 &str = %&str[%#val[%#i%]%]%
 if((#thisid > #upid) || ((#thisid == #upid) && (#thisdata > #updata)))
@@ -18,31 +15,14 @@ lograw(["",{"text":"highlight.js entry > ","color":"red"},{"text":"[CLICK HERE] 
 do(12);
 	GETIDREL(0,-1,0,&variant1)
 	&variant2 = GETIDREL(0,-1,0,,#data)
-
-	If(%&string% == "test")
 		Break;
-	ElseIf(@#globalinteger <= 10)
-		boolean = true
-		SlotClick(31)
-	EndIf
-	inc(#integer)
 	wait(1t)
 	LOG(%#data%)
 loop
-
 unloop
-
 sumfing("good");
-
 LOG("hello %&var%")
-LOG("hello %#var%")
-LOG("hello %var%")
-LOG("hello %@&var%")
-LOG("hello %@var%")
-LOG("hello %@#var%")
-LOG("hello %XPOS%, %ZPOS%")
-#number = 12
-&string = "hello %&again% &7Colored &eText"
+&thing = "hello %&again% &7Colored &eText"
 ECHO("this is a test: %#number%")
 LOGTO("file.txt","text here %hi%")
 // test comment
