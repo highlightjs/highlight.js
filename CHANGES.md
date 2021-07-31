@@ -10,6 +10,10 @@ Parser:
 
 [Josh Goebel]: https://github.com/joshgoebel
 
+New Languages:
+- Added 3rd party MKB grammar to SUPPORTED_LANGUAGES  [Dereavy][]
+
+[Dereavy]: https://github.com/dereavy
 
 ## Version 11.1.0
 
