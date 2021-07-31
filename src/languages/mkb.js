@@ -111,6 +111,26 @@ export default function(hljs) {
        'TRACEX','TRACEY','TRACEZ','UNIQUEID','UUID','VARNAME','VEHICLE','VEHICLEHEALTH','WEATHERVOLUME','XP','XPOS','XPOSF',
        'YAW','YPOS','YPOSF','ZPOS','ZPOSF'
     ]
+    // If needed.
+    const CONSTANT_STRING = '%?'+MKB_VARIABLES.join(' ')
+                          .trim()
+                          .split(' ')
+                          .map(function(val) { return val.trim().split('|')[0]; })
+                          .join('|')+'%?';
+    const ACTIONS_STRING =MKB_ACTIONS.join(' ')
+                          .trim()
+                          .split(' ')
+                          .map(function(val) { return val.trim().split('|')[0]; })
+                          .join(' ');
+    
+    const MKB_KEYWORDS = MKB_VARIABLES.concat(MKB_ACTIONS);
+    // KEYWORD REGEX
+    const KEYWORDS_RE = MKB_KEYWORDS.join(' ')
+          .trim()
+          .split(' ')
+          .map(function(val) { return val.trim().split('|')[0]; })
+          .join('|');
+    
     const NUMBER = { 
       scope:'number',
       className:'number',
@@ -125,7 +145,7 @@ export default function(hljs) {
       scope:'operator',
       className:'operator',
       relevance: 0,
-      begin:'==?|>=?|<=?|\\+|\\!|\\&\\&|\\|\\||\\+|\\-|\\*|\\/|\\:='
+      begin:'==?|>=?|<=?|\\+|\\!=?|\\&\\&|\\|\\||\\+|\\-|\\*|\\/|\\:='
     };
     const PUNCTUATION = {
       scope:'punctuation',
@@ -133,24 +153,21 @@ export default function(hljs) {
       relevance: 0,
       begin:';|:|\\(|\\+|\\)|\,'
     };
-    const CONSTANT_RE = '%?'+MKB_VARIABLES.join(' ')
-                          .trim()
-                          .split(' ')
-                          .map(function(val) { return val.trim().split('|')[0]; })
-                          .join('|')+'%?';
-    const ACTIONS_RE ='[\\t]*?(?:'+MKB_ACTIONS.join(' ')
-                          .trim()
-                          .split(' ')
-                          .map(function(val) { return val.trim().split('|')[0]; })
-                          .join('|')+')\\s*';
+    const CUSTOM_ACTION = {
+      scope:'title.function',
+      className:'function',
+      begin:'^[a-zA-Z0-9_-]+\\n',
+      endsParent: false,
+      keywords: MKB_KEYWORDS
+    }
     const VARIABLE = {
       scope:'variable',
       className:'variable',
       begin:'@?(?:&|#|)[a-zA-Z0-9_-]+',
       endsParent: false,
       relevance: 1,
-      contains:[NUMBER],
-      keywords: MKB_VARIABLES
+      contains:[NUMBER,CUSTOM_ACTION],
+      keywords: MKB_KEYWORDS
     }
     const LITTERAL_VARIABLE = {
       scope:'variable',
@@ -159,18 +176,21 @@ export default function(hljs) {
       end:'%',
       excludeBegin: false,
       excludeEnd: false,
-      contains:[VARIABLE]
+      contains:[]
     }
     const ARRAY = {
       scope:'variable',
       className:'variable',
-      begin:'%?@?(?:&|#|)[a-zA-Z0-9_-]+\\[',
-      end:'\\]%?',
+      begin:'@?(?:&|#|)[a-zA-Z0-9_-]+\\[',
+      end:'\\]',
       excludeBegin: false,
       excludeEnd: false,
       endsParent: false,
       contains:[LITTERAL_VARIABLE]
     }
+    ARRAY.contains.push(ARRAY);
+    LITTERAL_VARIABLE.contains.push(ARRAY,VARIABLE);
+
     const STRING = {
         scope:'string',
         className:'string',
@@ -184,8 +204,9 @@ export default function(hljs) {
     const PARAMS = {
         scope:'params',
         className:'params',
-        begin:'\\(',
-        end:'\\)',
+        // begin:'\\(',
+        // end:'\\)',
+        begin:'^',
         excludeBegin: false,
         excludeEnd: false,
         endsParent: true,
@@ -219,25 +240,29 @@ export default function(hljs) {
       className:'function',
       keywords: MKB_ACTIONS,
       // begin:'^[\t ]*?[a-zA-Z]',
-      begin:''+ACTIONS_RE,
-      end:'\\(',
+      // begin:''+ACTIONS_RE,
+      begin: '[a-zA-Z]*\\(',
+      end:'\\)',
       excludeBegin: false,
-      excludeEnd: true,
-      returnBegin: true,
+      excludeEnd: false,
+      returnBegin: false,
       relevance: 0,
       contains: [
+        STRING,
         PARAMS,
         NUMBER,
-        BOOLEANS
+        BOOLEANS,
+        OPERATORS,
+        DURATION,
+        ARRAY,
+        LITTERAL_VARIABLE,
+        VARIABLE,
       ]
     }
     return {
         name:'MKB',
         case_insensitive: true,
-        keywords: {
-          keyword: MKB_VARIABLES,
-          built_in: MKB_ACTIONS
-        },
+        keywords: KEYWORDS,
         contains: [
           hljs.COMMENT('//','$'),
           STRING,
@@ -248,6 +273,7 @@ export default function(hljs) {
           BOOLEANS,
           LITTERAL_VARIABLE,
           ARRAY,
+          CUSTOM_ACTION,
           VARIABLE,
         ]
     };
