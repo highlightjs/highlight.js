@@ -134,7 +134,7 @@ export default function(hljs) {
     const NUMBER = { 
       scope:'number',
       className:'number',
-      begin:'[0-9](_?[0-9])*'
+      begin:'-?[0-9](_?[0-9])*'
     };
     const DURATION = { 
       scope:'number',
@@ -145,7 +145,7 @@ export default function(hljs) {
       scope:'operator',
       className:'operator',
       relevance: 0,
-      begin:'==?|>=?|<=?|\\+|\\!=?|\\&\\&|\\|\\||\\+|\\-|\\*|\\/|\\:='
+      begin:'==?|>=?|<=?|\\+|\\!=?|&&?|\\|\\|?|\\+|\\-|\\*|\\/|\\:='
     };
     const PUNCTUATION = {
       scope:'punctuation',
@@ -156,14 +156,14 @@ export default function(hljs) {
     const CUSTOM_ACTION = {
       scope:'title.function',
       className:'function',
-      begin:'^[a-zA-Z0-9_-]+\\n',
+      begin:'^[a-zA-Z0-9_-]+(?:\\n|;|\s)',
       endsParent: false,
       keywords: MKB_KEYWORDS
     }
     const VARIABLE = {
       scope:'variable',
       className:'variable',
-      begin:'@?(?:&|#|)[a-zA-Z0-9_-]+',
+      begin:'@?(?:\&|#|)[a-zA-Z0-9_-]+',
       endsParent: false,
       relevance: 1,
       contains:[NUMBER,CUSTOM_ACTION],
@@ -181,7 +181,7 @@ export default function(hljs) {
     const ARRAY = {
       scope:'variable',
       className:'variable',
-      begin:'@?(?:&|#|)[a-zA-Z0-9_-]+\\[',
+      begin:'@?(?:\&|#|)[a-zA-Z0-9_-]+\\[',
       end:'\\]',
       excludeBegin: false,
       excludeEnd: false,
@@ -209,7 +209,7 @@ export default function(hljs) {
         begin:'^',
         excludeBegin: false,
         excludeEnd: false,
-        endsParent: true,
+        endsParent: false,
         relevance: 0,
         contains: [
           STRING,
@@ -218,8 +218,34 @@ export default function(hljs) {
           NUMBER,
           ARRAY,
           VARIABLE,
+          LITTERAL_VARIABLE
         ]
     }
+    //
+    const CONDITION = {
+      scope:'title.function',
+      className:'params',
+      begin:'\\(',
+      end:'\\)',
+      endsParent: false,
+      contains:[
+        STRING,
+        OPERATORS,
+        DURATION,
+        NUMBER,
+        ARRAY,
+        VARIABLE,
+        LITTERAL_VARIABLE]
+  }
+  const PARAMS_WRAPPER = {
+      scope:'params',
+      className:'params',
+      begin:'\\(',
+      end:'\\)',
+      endsParent: true,
+      contains:[PARAMS]
+  };
+  CONDITION.contains.push(CONDITION,PARAMS_WRAPPER);
     const BOOLEANS = {
       // scope: 'literal',
       className: 'literal',
@@ -241,7 +267,7 @@ export default function(hljs) {
       keywords: MKB_ACTIONS,
       // begin:'^[\t ]*?[a-zA-Z]',
       // begin:''+ACTIONS_RE,
-      begin: '[a-zA-Z]*\\(',
+      begin: '[a-zA-Z0-9_-]{1,}\\(',
       end:'\\)',
       excludeBegin: false,
       excludeEnd: false,
@@ -249,16 +275,18 @@ export default function(hljs) {
       relevance: 0,
       contains: [
         STRING,
-        PARAMS,
+        CONDITION,
+        PARAMS_WRAPPER,
+        DURATION,
         NUMBER,
         BOOLEANS,
-        OPERATORS,
-        DURATION,
         ARRAY,
         LITTERAL_VARIABLE,
         VARIABLE,
+        OPERATORS,
       ]
     }
+
     return {
         name:'MKB',
         case_insensitive: true,
@@ -267,14 +295,15 @@ export default function(hljs) {
           hljs.COMMENT('//','$'),
           STRING,
           NUMBER,
+          CONDITION,
           ACTION,
-          OPERATORS,
           PUNCTUATION,
           BOOLEANS,
           LITTERAL_VARIABLE,
           ARRAY,
           CUSTOM_ACTION,
           VARIABLE,
+          OPERATORS
         ]
     };
 }
