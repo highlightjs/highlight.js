@@ -73,6 +73,8 @@ export const keywords = [
   'internal',
   'in',
   'is', // operator
+  'isolated', // contextual
+  'nonisolated', // contextual
   'lazy', // contextual
   'let',
   'mutating', // contextual
