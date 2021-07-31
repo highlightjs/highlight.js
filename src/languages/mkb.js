@@ -193,7 +193,7 @@ export default function(hljs) {
       end:'%',
       excludeBegin: false,
       excludeEnd: false,
-      contains:[SUBST]
+      contains:[]
     }
     const ARRAY = {
       scope:'variable',
