@@ -191,6 +191,7 @@ export default function(hljs) {
       className:'variable',
       begin:'%',
       end:'%',
+      relevance: 10,
       excludeBegin: false,
       excludeEnd: false,
       contains:[]
@@ -200,6 +201,7 @@ export default function(hljs) {
       className:'variable',
       begin:'@?(?:\&|#|)[a-zA-Z0-9_-]+\\[',
       end:'\\]',
+      relevance: 10,
       excludeBegin: false,
       excludeEnd: false,
       endsParent: false,
