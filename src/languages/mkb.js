@@ -8,7 +8,6 @@ Category: scripting
 // node tools/build.js -n mkb
 
 import { KEYWORDS } from "./lib/ecmascript";
-import { keywords } from "./lib/kws_swift";
 
 export default function(hljs) {
 
@@ -153,16 +152,6 @@ export default function(hljs) {
       contains:[NUMBER],
       keywords: MKB_VARIABLES
     }
-    const ARRAY = {
-      scope:'variable',
-      className:'variable',
-      begin:'%?@?(?:&|#|)[a-zA-Z0-9_-]+\\[%?',
-      end:'%?\\]%?',
-      excludeBegin: false,
-      excludeEnd: true,
-      endsParent: true,
-      contains:[VARIABLE]
-    }
     const LITTERAL_VARIABLE = {
       scope:'variable',
       className:'variable',
@@ -172,12 +161,23 @@ export default function(hljs) {
       excludeEnd: false,
       contains:[VARIABLE]
     }
+    const ARRAY = {
+      scope:'variable',
+      className:'variable',
+      begin:'%?@?(?:&|#|)[a-zA-Z0-9_-]+\\[',
+      end:'\\]%?',
+      excludeBegin: false,
+      excludeEnd: false,
+      endsParent: false,
+      contains:[LITTERAL_VARIABLE]
+    }
     const STRING = {
         scope:'string',
         className:'string',
         begin:'"',
         end:'"',
         contains:[
+          ARRAY,
           LITTERAL_VARIABLE
         ]
     }
@@ -195,8 +195,8 @@ export default function(hljs) {
           OPERATORS,
           DURATION,
           NUMBER,
+          ARRAY,
           VARIABLE,
-          ARRAY
         ]
     }
     const BOOLEANS = {
