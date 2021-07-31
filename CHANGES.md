@@ -15,14 +15,11 @@ Grammars:
 New Languages:
 
 - Added 3rd party X# grammar to SUPPORTED_LANGUAGES [Patrick Kruselburger][]
+- Added 3rd party MKB grammar to SUPPORTED_LANGUAGES (#3297) [Dereavy][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Patrick Kruselburger]: https://github.com/PatrickKru
 [Bradley Mackey]: https://github.com/bradleymackey
-
-New Languages:
-- Added 3rd party MKB grammar to SUPPORTED_LANGUAGES  [Dereavy][]
-
 [Dereavy]: https://github.com/dereavy
 
 ## Version 11.1.0
