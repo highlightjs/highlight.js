@@ -193,7 +193,7 @@ export default function(hljs) {
       end:'%',
       excludeBegin: false,
       excludeEnd: false,
-      contains:[]
+      contains:[SUBST]
     }
     const ARRAY = {
       scope:'variable',
@@ -230,6 +230,7 @@ export default function(hljs) {
         endsParent: false,
         relevance: 0,
         contains: [
+          SUBST,
           STRING,
           OPERATORS,
           DURATION,
@@ -311,6 +312,7 @@ export default function(hljs) {
         keywords: KEYWORDS,
         contains: [
           hljs.COMMENT('//','$'),
+          SUBST,
           STRING,
           NUMBER,
           CONDITION,
