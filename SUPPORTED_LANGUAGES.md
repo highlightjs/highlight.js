@@ -121,6 +121,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Mercury                 | mercury                |         |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
+| MKB                     | mkb                    | [highlightjs-MKB](https://github.com/Dereavy/highlight.js-MKB) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
