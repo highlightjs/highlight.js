@@ -1,0 +1,28 @@
+// MKB - Syntax Highlighting Example
+
+//Variable types
+
+#integer = 0
+&thing = "test"
+@#globalinteger = 0
+@&globalstring = "text and input %&array[%#index%]%"
+&constant = %XPOS%
+&str = %&str[%#val[%#i%]%]%
+if((#thisid > #upid) || ((#thisid == #upid) && (#thisdata > #updata)))
+  bool = ((%#thisid% > %#upid%) || ((%#thisid% == %#upid%) && (%#thisdata% > %#updata%)))
+endif
+lograw(["",{"text":"highlight.js entry > ","color":"red"},{"text":"[CLICK HERE] ","color":"green","clickEvent":{"action":"run_command","value":"/fill %#fillx1% %#filly1% %#fillz1% %#fillx2% %#filly2% %#fillz2% air"},"hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"[GREETINGS] This was fun to make -Lezappen","color":"green"}]}}}]);
+do(12);
+	GETIDREL(0,-1,0,&variant1)
+	&variant2 = GETIDREL(0,-1,0,,#data)
+		Break;
+	wait(1t)
+	LOG(%#data%)
+loop
+unloop
+sumfing("good");
+LOG("hello %&var%")
+&thing = "hello %&again% &7Colored &eText"
+ECHO("this is a test: %#number%")
+LOGTO("file.txt","text here %hi%")
+// test comment
