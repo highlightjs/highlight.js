@@ -16,6 +16,7 @@ true false nil
 fileprivate(set) internal(set) open(set) private(set) public(set)
 unowned(safe) unowned(unsafe)
 async await
+isolated nonisolated
 
 #if
 #error("Error")
