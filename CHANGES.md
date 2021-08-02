@@ -1,4 +1,4 @@
-## Version 11.2.0 (pending)
+## Version 11.2.0
 
 Build:
 
