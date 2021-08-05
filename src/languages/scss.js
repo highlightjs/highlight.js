@@ -72,6 +72,7 @@ export default function(hljs) {
         begin: ':',
         end: ';',
         contains: [
+          modes.BLOCK_COMMENT,
           VARIABLE,
           modes.HEXCOLOR,
           modes.CSS_NUMBER_MODE,

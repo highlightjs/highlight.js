@@ -4,6 +4,7 @@ export const MODES = (hljs) => {
       scope: 'meta',
       begin: '!important'
     },
+    BLOCK_COMMENT: hljs.C_BLOCK_COMMENT_MODE,
     HEXCOLOR: {
       scope: 'number',
       begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'

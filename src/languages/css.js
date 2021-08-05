@@ -35,7 +35,7 @@ export default function(hljs) {
       keyframePosition: "selector-tag"
     },
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,
+      modes.BLOCK_COMMENT,
       VENDOR_PREFIX,
       // to recognize keyframe 40% etc which are outside the scope of our
       // attribute value mode
@@ -78,6 +78,7 @@ export default function(hljs) {
         begin: ':',
         end: '[;}]',
         contains: [
+          modes.BLOCK_COMMENT,
           modes.HEXCOLOR,
           modes.IMPORTANT,
           modes.CSS_NUMBER_MODE,

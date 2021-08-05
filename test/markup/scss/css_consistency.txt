@@ -68,3 +68,8 @@ main {
   --color: red;
   color: var(--color);
 }
+
+main {
+  /* normal comment */
+  width: /* inline comment */ 50px;
+}
