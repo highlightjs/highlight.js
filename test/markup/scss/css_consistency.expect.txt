@@ -60,7 +60,7 @@
 
 <span class="hljs-keyword">@keyframes</span> important1 {
   from { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">50px</span>; }
-  50%  { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">60px</span> <span class="hljs-meta">!important</span>; }
+  <span class="hljs-number">50%</span>  { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">60px</span> <span class="hljs-meta">!important</span>; }
   to   { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">100px</span>; }
 }
 

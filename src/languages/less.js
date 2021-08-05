@@ -187,7 +187,8 @@ export default function(hljs) {
         begin: '\\b(' + css.TAGS.join('|') + ')\\b',
         className: 'selector-tag'
       },
-      IDENT_MODE('selector-tag', INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
+      modes.CSS_NUMBER_MODE,
+      IDENT_MODE('selector-tag', INTERP_IDENT_RE, 0),
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
       IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
       IDENT_MODE('selector-tag', '&', 0),
