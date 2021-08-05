@@ -208,7 +208,8 @@ export default function(hljs) {
       }, // argument list of parametric mixins
       {
         begin: '!important'
-      } // eat !important after mixin call or it will be colored as tag
+      }, // eat !important after mixin call or it will be colored as tag
+      modes.FUNCTION_DISPATCH
     ]
   };
 

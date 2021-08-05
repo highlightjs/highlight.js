@@ -114,7 +114,8 @@ export default function(hljs) {
           modes.HEXCOLOR,
           modes.CSS_NUMBER_MODE
         ]
-      }
+      },
+      modes.FUNCTION_DISPATCH
     ]
   };
 }

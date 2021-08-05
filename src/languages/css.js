@@ -11,10 +11,6 @@ import * as regex from '../lib/regex.js';
 /** @type LanguageFn */
 export default function(hljs) {
   const modes = css.MODES(hljs);
-  const FUNCTION_DISPATCH = {
-    className: "built_in",
-    begin: /[\w-]+(?=\()/
-  };
   const VENDOR_PREFIX = {
     begin: /-(webkit|moz|ms|o)-(?=[a-z])/
   };
@@ -107,7 +103,7 @@ export default function(hljs) {
               }
             ]
           },
-          FUNCTION_DISPATCH
+          modes.FUNCTION_DISPATCH
         ]
       },
       {

@@ -8,6 +8,10 @@ export const MODES = (hljs) => {
       scope: 'number',
       begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
     },
+    FUNCTION_DISPATCH: {
+      className: "built_in",
+      begin: /[\w-]+(?=\()/
+    },
     ATTRIBUTE_SELECTOR_MODE: {
       scope: 'selector-attr',
       begin: /\[/,

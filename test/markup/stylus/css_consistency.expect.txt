@@ -58,6 +58,12 @@
        url(&quot;/fonts/OpenSans-Regular-webfont.woff&quot;) format(&quot;woff&quot;); */</span>
 }
 
+<span class="hljs-keyword">@keyframes</span> important1 {
+  from { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">50px</span>; }
+  <span class="hljs-number">50%</span>  { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">60px</span> <span class="hljs-meta">!important</span>; }
+  to   { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">100px</span>; }
+}
+
 <span class="hljs-selector-tag">main</span> {
   <span class="hljs-attr">--color</span>: red;
   <span class="hljs-attribute">color</span>: var(--color);
