@@ -13,6 +13,7 @@ async function buildESMStub(name) {
   const code =
     `// https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards\n` +
     `import hljs from '../lib/${name}.js';\n` +
+    `export { hljs };\n` +
     `export default hljs;\n`;
   await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, code);
 }
