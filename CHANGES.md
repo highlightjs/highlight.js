@@ -12,6 +12,8 @@ Parser:
 
 Grammars:
 
+- enh(css): add properties from several W3C (Candidate) Recommendations (#3308)
+- fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
@@ -44,6 +46,7 @@ Grammars:
 [Bahnschrift]: https://github.com/Bahnschrift
 [Melvyn Laïly]: https://github.com/mlaily
 [katzeprior]: https://github.com/katzeprior
+[Syb Wartna]:https://github.com/waarissyb
 
 
 ## Version 11.2.0
