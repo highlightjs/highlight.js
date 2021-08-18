@@ -1,4 +1,4 @@
-## Version 11.2.0 (pending)
+## Version 11.2.0
 
 Build:
 
@@ -13,8 +13,19 @@ Parser:
 - enh(verilog) tighten keyword regex (#3283) [Josh Goebel][]
 
 
-[Josh Goebel]: https://github.com/joshgoebel
+Grammars:
 
+- enh(swift) Add `isolated`/`nonisolated` keywords (#3296) [Bradley Mackey][]
+
+New Languages:
+
+- Added 3rd party X# grammar to SUPPORTED_LANGUAGES [Patrick Kruselburger][]
+- Added 3rd party MKB grammar to SUPPORTED_LANGUAGES (#3297) [Dereavy][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Patrick Kruselburger]: https://github.com/PatrickKru
+[Bradley Mackey]: https://github.com/bradleymackey
+[Dereavy]: https://github.com/dereavy
 
 ## Version 11.1.0
 

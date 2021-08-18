@@ -121,6 +121,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Mercury                 | mercury                |         |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
+| MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
@@ -207,6 +208,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Vala                    | vala                   |         |
 | Verilog                 | verilog, v             |         |
 | Vim Script              | vim                    |         |
+| X#                      | xsharp, xs, prg        | [highlightjs-xsharp](https://github.com/InfomindsAg/highlightjs-xsharp) |
 | X++                     | axapta, x++            |         |
 | x86 Assembly            | x86asm                 |         |
 | XL                      | xl, tao                |         |
