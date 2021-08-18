@@ -1,4 +1,12 @@
-## Version 11.2.0 (pending)
+## Version 11.3.0 (most likely)
+
+enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
+enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version 11.2.0
 
 Build:
 
@@ -8,9 +16,25 @@ Parser:
 
 - fix(csharp) Fix assignments flagging as functions [Josh Goebel][]
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
+- fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
+- fix(verilog) Fix binary number false positives on `_` (#3283) [Josh Goebel][]
+- enh(verilog) `__FILE__` and __`LINE__` constants (#3283) [Josh Goebel][]
+- enh(verilog) tighten keyword regex (#3283) [Josh Goebel][]
+
+
+Grammars:
+
+- enh(swift) Add `isolated`/`nonisolated` keywords (#3296) [Bradley Mackey][]
+
+New Languages:
+
+- Added 3rd party X# grammar to SUPPORTED_LANGUAGES [Patrick Kruselburger][]
+- Added 3rd party MKB grammar to SUPPORTED_LANGUAGES (#3297) [Dereavy][]
 
 [Josh Goebel]: https://github.com/joshgoebel
-
+[Patrick Kruselburger]: https://github.com/PatrickKru
+[Bradley Mackey]: https://github.com/bradleymackey
+[Dereavy]: https://github.com/dereavy
 
 ## Version 11.1.0
 

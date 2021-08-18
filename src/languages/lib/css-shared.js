@@ -4,9 +4,14 @@ export const MODES = (hljs) => {
       scope: 'meta',
       begin: '!important'
     },
+    BLOCK_COMMENT: hljs.C_BLOCK_COMMENT_MODE,
     HEXCOLOR: {
       scope: 'number',
       begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
+    },
+    FUNCTION_DISPATCH: {
+      className: "built_in",
+      begin: /[\w-]+(?=\()/
     },
     ATTRIBUTE_SELECTOR_MODE: {
       scope: 'selector-attr',
