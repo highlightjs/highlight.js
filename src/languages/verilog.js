@@ -468,11 +468,16 @@ export default function(hljs) {
     "__LINE__"
   ];
   const DIRECTIVES = [
-    "define",
     "begin_keywords",
     "celldefine",
     "default_nettype",
+    "default_decay_time",
+    "default_trireg_strength",
     "define",
+    "delay_mode_distributed",
+    "delay_mode_path",
+    "delay_mode_unit",
+    "delay_mode_zero",
     "else",
     "elsif",
     "end_keywords",
