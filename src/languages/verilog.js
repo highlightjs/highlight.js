@@ -509,7 +509,7 @@ export default function(hljs) {
         contains: [ hljs.BACKSLASH_ESCAPE ],
         variants: [
           {
-            begin: /\b((\d+'(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+)/
+            begin: /\b((\d+'([bhodBHOD]))[0-9xzXZa-fA-F_]+)/
           },
           {
             begin: /\B(('(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+)/
