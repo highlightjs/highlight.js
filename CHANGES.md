@@ -14,6 +14,7 @@ Build:
 
 Parser:
 
+- fix(csharp) Fix assignments flagging as functions [Josh Goebel][]
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 - fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
 - fix(verilog) Fix binary number false positives on `_` (#3283) [Josh Goebel][]

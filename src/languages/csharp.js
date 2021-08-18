@@ -396,7 +396,7 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<.+>\\s*)?\\(',
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<[^=]+>\\s*)?\\(',
         returnBegin: true,
         end: /\s*[{;=]/,
         excludeEnd: true,
@@ -408,13 +408,16 @@ export default function(hljs) {
             relevance: 0
           },
           {
-            begin: hljs.IDENT_RE + '\\s*(<.+>\\s*)?\\(',
+            begin: hljs.IDENT_RE + '\\s*(<[^=]+>\\s*)?\\(',
             returnBegin: true,
             contains: [
               hljs.TITLE_MODE,
               GENERIC_MODIFIER
             ],
             relevance: 0
+          },
+          {
+            match: /\(\)/
           },
           {
             className: 'params',
