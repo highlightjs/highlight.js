@@ -512,7 +512,7 @@ export default function(hljs) {
             begin: /\b((\d+'([bhodBHOD]))[0-9xzXZa-fA-F_]+)/
           },
           {
-            begin: /\B(('(b|h|o|d|B|H|O|D))[0-9xzXZa-fA-F_]+)/
+            begin: /\B(('([bhodBHOD]))[0-9xzXZa-fA-F_]+)/
           },
           { // decimal
             begin: /\b[0-9][0-9_]*/,
