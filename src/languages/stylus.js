@@ -178,7 +178,8 @@ export default function(hljs) {
           illegal: /\./,
           relevance: 0
         }
-      }
+      },
+      modes.FUNCTION_DISPATCH
     ]
   };
 }

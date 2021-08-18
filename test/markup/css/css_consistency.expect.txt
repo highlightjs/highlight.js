@@ -68,3 +68,8 @@
   <span class="hljs-attr">--color</span>: red;
   <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--color);
 }
+
+<span class="hljs-selector-tag">main</span> {
+  <span class="hljs-comment">/* normal comment */</span>
+  <span class="hljs-attribute">width</span>: <span class="hljs-comment">/* inline comment */</span> <span class="hljs-number">50px</span>;
+}

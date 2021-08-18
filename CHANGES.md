@@ -1,3 +1,11 @@
+## Version 11.3.0 (most likely)
+
+enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
+enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 11.2.0
 
 Build:
