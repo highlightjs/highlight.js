@@ -1,0 +1,2 @@
+`define CONSTANT value // this is a comment
+wire result = `CONSTANT + variable; // comment
