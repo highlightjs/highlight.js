@@ -20,7 +20,8 @@ async function buildESMStub(name) {
 
 async function buildCJSIndex(name, languages) {
   const header = "var hljs = require('./core');";
-  const footer = "module.exports = hljs;";
+  const footer = `hljs.hljs = hljs\n` +
+    `module.exports = hljs;`;
 
   const registration = languages.map((lang) => {
     const require = `require('./languages/${lang.name}')`;
