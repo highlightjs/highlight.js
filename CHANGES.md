@@ -2,6 +2,7 @@
 
 enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
+fix(cpp) switch is a keyword (#3312) [Josh Goebel][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 
