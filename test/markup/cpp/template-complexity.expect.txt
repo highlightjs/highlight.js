@@ -15,7 +15,7 @@ std::wostream &amp;<span class="hljs-keyword">operator</span> &lt;&lt;(std::wost
 
 <span class="hljs-keyword">enum struct</span> <span class="hljs-title class_">DataHolder</span> { };
 <span class="hljs-keyword">enum class</span> <span class="hljs-title class_">DataThingy</span> { };
-<span class="hljs-keyword">enum class</span> <span class="hljs-title class_">Boolean</span> : <span class="hljs-type">char</span> {
+<span class="hljs-keyword">enum class</span> <span class="hljs-title class_">Boolean</span> : <span class="hljs-keyword">char</span> {
     True, False, FileNotFound
 };
 

@@ -1,9 +1,9 @@
 <span class="hljs-comment">/* digit separators */</span>
-<span class="hljs-type">int</span> number = <span class="hljs-number">2&#x27;555&#x27;555&#x27;555</span>; <span class="hljs-comment">// digit separators</span>
-<span class="hljs-type">float</span> exponentFloat = <span class="hljs-number">.123&#x27;456e3&#x27;000</span>; <span class="hljs-comment">// digit separators in floats</span>
-<span class="hljs-type">float</span> suffixed = <span class="hljs-number">3.000&#x27;001&#x27;234f</span> <span class="hljs-comment">// digit separators in suffixed numbers</span>
-<span class="hljs-type">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> }; <span class="hljs-comment">// make sure digit separators don&#x27;t mess up chars</span>
-<span class="hljs-type">float</span> negative = <span class="hljs-number">-123.0f</span>; <span class="hljs-comment">// negative floating point numbers</span>
+<span class="hljs-keyword">int</span> number = <span class="hljs-number">2&#x27;555&#x27;555&#x27;555</span>; <span class="hljs-comment">// digit separators</span>
+<span class="hljs-keyword">float</span> exponentFloat = <span class="hljs-number">.123&#x27;456e3&#x27;000</span>; <span class="hljs-comment">// digit separators in floats</span>
+<span class="hljs-keyword">float</span> suffixed = <span class="hljs-number">3.000&#x27;001&#x27;234f</span> <span class="hljs-comment">// digit separators in suffixed numbers</span>
+<span class="hljs-keyword">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> }; <span class="hljs-comment">// make sure digit separators don&#x27;t mess up chars</span>
+<span class="hljs-keyword">float</span> negative = <span class="hljs-number">-123.0f</span>; <span class="hljs-comment">// negative floating point numbers</span>
 
 <span class="hljs-comment">/* literal suffixes: these are to be highlighted as numbers */</span>
 <span class="hljs-number">90ll</span> <span class="hljs-number">90LL</span> <span class="hljs-number">90u</span> <span class="hljs-number">90U</span> <span class="hljs-number">90l</span> <span class="hljs-number">90L</span>

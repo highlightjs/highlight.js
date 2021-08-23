@@ -119,9 +119,14 @@ export default function(hljs) {
     'auto',
     'bitand',
     'bitor',
+    'bool',
     'break',
     'case',
     'catch',
+    'char',
+    'char16_t',
+    'char32_t',
+    'char8_t',
     'class',
     'co_await',
     'co_return',
@@ -138,6 +143,7 @@ export default function(hljs) {
     'default',
     'delete',
     'do',
+    'double',
     'dynamic_cast|10',
     'else',
     'enum',
@@ -146,12 +152,15 @@ export default function(hljs) {
     'extern',
     'false',
     'final',
+    'float',
     'for',
     'friend',
     'goto',
     'if',
     'import',
     'inline',
+    'int',
+    'long',
     'module',
     'mutable',
     'namespace',
@@ -172,6 +181,7 @@ export default function(hljs) {
     'reinterpret_cast|10',
     'requires',
     'return',
+    'short',
     'signed',
     'sizeof',
     'static',
@@ -195,26 +205,12 @@ export default function(hljs) {
     'unsigned',
     'using',
     'virtual',
+    'void',
     'volatile',
+    'wchar_t',
     'while',
     'xor',
     'xor_eq,'
-  ];
-
-  // https://en.cppreference.com/w/cpp/keyword
-  const RESERVED_TYPES = [
-    'bool',
-    'char',
-    'char16_t',
-    'char32_t',
-    'char8_t',
-    'double',
-    'float',
-    'int',
-    'long',
-    'short',
-    'void',
-    'wchar_t'
   ];
 
   const TYPE_HINTS = [
@@ -392,7 +388,6 @@ export default function(hljs) {
   ];
 
   const CPP_KEYWORDS = {
-    type: RESERVED_TYPES,
     keyword: RESERVED_KEYWORDS,
     literal: LITERALS,
     built_in: BUILT_IN,
