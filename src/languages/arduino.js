@@ -10,7 +10,7 @@ import cPlusPlus from './cpp.js';
 /** @type LanguageFn */
 export default function(hljs) {
   const ARDUINO_KW = {
-    type: [
+    keyword: [
       "boolean",
       "byte",
       "word",
@@ -380,7 +380,7 @@ export default function(hljs) {
 
   const kws = /** @type {Record<string,any>} */ (ARDUINO.keywords);
 
-  kws.type = [ ...kws.type, ...ARDUINO_KW.type ];
+  kws.keyword = [ ...kws.keyword, ...ARDUINO_KW.keyword ];
   kws.literal = [ ...kws.literal, ...ARDUINO_KW.literal ];
   kws.built_in = [ ...kws.built_in, ...ARDUINO_KW.built_in ];
   kws._hints = ARDUINO_KW._hints;

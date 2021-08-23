@@ -3,6 +3,7 @@
 enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
 - enh(cpp) recognize primitive types (`int`, `char`, etc.) as keywords [Denis Kovalchuk][]
+- enh(arduino) recognize primitive types (`int`, `char`, etc.) as keywords [Denis Kovalchuk][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Denis Kovalchuk]: https://github.com/deniskovalchuk
