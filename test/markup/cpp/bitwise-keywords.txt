@@ -1,0 +1,14 @@
+unsigned char a = 0xFA;
+unsigned char b = 0x4C;
+
+a = compl b;
+a = not b;
+a and b;
+a bitor b;
+a or b;
+a xor b;
+a bitand b;
+a and_eq b;
+a or_eq b;
+a xor_eq b;
+a not_eq b;
