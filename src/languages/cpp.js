@@ -198,7 +198,7 @@ export default function(hljs) {
     'volatile',
     'while',
     'xor',
-    'xor_eq,'
+    'xor_eq'
   ];
 
   // https://en.cppreference.com/w/cpp/keyword
