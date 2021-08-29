@@ -2,9 +2,10 @@
 
 enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
+enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
 
 [Josh Goebel]: https://github.com/joshgoebel
-
+[monochromer]: https://github.com/monochromer
 
 ## Version 11.2.0
 
