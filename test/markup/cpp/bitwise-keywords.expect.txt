@@ -1,0 +1,14 @@
+<span class="hljs-keyword">unsigned</span> <span class="hljs-type">char</span> a = <span class="hljs-number">0xFA</span>;
+<span class="hljs-keyword">unsigned</span> <span class="hljs-type">char</span> b = <span class="hljs-number">0x4C</span>;
+
+a = <span class="hljs-keyword">compl</span> b;
+a = <span class="hljs-keyword">not</span> b;
+a <span class="hljs-keyword">and</span> b;
+a <span class="hljs-keyword">bitor</span> b;
+a <span class="hljs-keyword">or</span> b;
+a <span class="hljs-keyword">xor</span> b;
+a <span class="hljs-keyword">bitand</span> b;
+a <span class="hljs-keyword">and_eq</span> b;
+a <span class="hljs-keyword">or_eq</span> b;
+a <span class="hljs-keyword">xor_eq</span> b;
+a <span class="hljs-keyword">not_eq</span> b;
