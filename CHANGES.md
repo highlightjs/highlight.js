@@ -1,7 +1,8 @@
 ## Version 11.3.0 (most likely)
 
-enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
-enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
+- enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
+- enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
+- fix(cpp) switch is a keyword (#3312) [Josh Goebel][]
 - fix(cpp) fix `xor_eq` keyword highlighting. [Denis Kovalchuk][]
 - enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
 
