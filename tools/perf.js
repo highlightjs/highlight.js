@@ -26,7 +26,7 @@ const oneLanguageMarkupTests = (lang) => {
       'cwd': '.',
       'env': Object.assign(
         process.env,
-        {'ONLY_LANGUAGES': JSON.stringify([lang])}
+        {'ONLY_LANGUAGES': lang}
       )
     });
   }
@@ -37,7 +37,7 @@ const oneLanguageCheckAutoDetect = (lang) => {
     execSync('node ./tools/checkAutoDetect.js', {
       'env': Object.assign(
         process.env,
-        {'ONLY_LANGUAGES': JSON.stringify([lang])}
+        {'ONLY_LANGUAGES': lang}
       )
     });
   }

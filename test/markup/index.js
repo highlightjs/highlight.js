@@ -46,9 +46,9 @@ describe('highlight() markup', async() => {
     const markupPath = utility.buildPath('markup');
 
     if (!process.env.ONLY_EXTRA) {
-      let languages;
+      let languages = null;
       if (process.env.ONLY_LANGUAGES) {
-        languages = JSON.parse(process.env.ONLY_LANGUAGES);
+        languages = process.env.ONLY_LANGUAGES.split(" ");
       } else {
         languages = await fs.readdir(markupPath);
       }
