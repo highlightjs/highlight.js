@@ -128,7 +128,6 @@ export default function(hljs) {
     'co_yield',
     'compl',
     'concept',
-    'const',
     'const_cast|10',
     'consteval',
     'constexpr',
@@ -172,9 +171,7 @@ export default function(hljs) {
     'reinterpret_cast|10',
     'requires',
     'return',
-    'signed',
     'sizeof',
-    'static',
     'static_assert',
     'static_cast|10',
     'struct',
@@ -192,7 +189,6 @@ export default function(hljs) {
     'typeid',
     'typename',
     'union',
-    'unsigned',
     'using',
     'virtual',
     'volatile',
@@ -214,7 +210,11 @@ export default function(hljs) {
     'long',
     'short',
     'void',
-    'wchar_t'
+    'wchar_t',
+    'unsigned',
+    'signed',
+    'const',
+    'static'
   ];
 
   const TYPE_HINTS = [

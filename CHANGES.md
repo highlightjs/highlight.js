@@ -4,6 +4,7 @@
 - enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
 - fix(cpp) switch is a keyword (#3312) [Josh Goebel][]
 - fix(cpp) fix `xor_eq` keyword highlighting. [Denis Kovalchuk][]
+- enh(c,cpp) highlight type modifiers as type (#3316) [Josh Goebel][]
 - enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
 
 [Josh Goebel]: https://github.com/joshgoebel

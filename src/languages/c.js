@@ -116,7 +116,6 @@ export default function(hljs) {
     "auto",
     "break",
     "case",
-    "const",
     "continue",
     "default",
     "do",
@@ -132,7 +131,6 @@ export default function(hljs) {
     "restrict",
     "return",
     "sizeof",
-    "static",
     "struct",
     "switch",
     "typedef",
@@ -172,6 +170,9 @@ export default function(hljs) {
     "_Decimal32",
     "_Decimal64",
     "_Decimal128",
+    // modifiers
+    "const",
+    "static",
     // aliases
     "complex",
     "bool",
