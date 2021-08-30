@@ -39,31 +39,33 @@
     }
 
     .visible-structure pre code span {
-      display: inline flow-root list-item;
-      list-style: none;
-      padding: 0.2rem 0.25rem;
-      padding-bottom: 0.25rem;
-      margin: 0.5rem 0.25rem 0.25rem 0.25rem;
       border: 1px dashed #777;
       border-radius: 3px;
-      white-space: pre;
+      display: inline-block;
+      margin-top: 1.4rem;
+      line-height: 1rem;
+      padding: 0 0.25rem;
       position: relative;
-      vertical-align: super;
+      white-space: pre;
+    }
+
+    .visible-structure pre code span span {
+      margin-bottom: 5px;
     }
 
     .visible-structure pre code span:before {
-      display: inline-block;
-      content: attr(data-klass);
-      font-size: 70%;
       background: #693;
-      padding:1px 4px;
       border-radius: 2px;
       color:white;
-      margin-right:0.25rem;
-      font-weight: normal;
+      content: attr(data-klass);
+      font-size: 70%;
+      left: 0;
+      line-height: 1;
+      padding: 0.2rem 0.25rem;
       position: absolute;
-      top: -0.5rem;
-      left: -0.25rem;
+      top: 0;
+      transform: translate(0, -1.15rem);
+      white-space: nowrap;
     }
 
     .visible-structure pre code span:after {

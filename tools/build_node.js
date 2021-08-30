@@ -3,7 +3,7 @@ const fss = require("fs");
 const config = require("./build_config");
 const glob = require("glob-promise");
 const { getLanguages } = require("./lib/language");
-const { install, mkdir } = require("./lib/makestuff");
+const { install, mkdir, installCleanCSS } = require("./lib/makestuff");
 const { filter } = require("./lib/dependencies");
 const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
@@ -163,8 +163,13 @@ async function buildNode(options) {
     const stat = fss.statSync(`./src/styles/${file}`);
     if (stat.isDirectory()) return;
 
-    install(`./src/styles/${file}`, `styles/${file}`);
-    install(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
+    if (file.endsWith(".css")) {
+      installCleanCSS(`./src/styles/${file}`, `styles/${file}`);
+      installCleanCSS(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
+    } else {
+      // images, etc.
+      install(`./src/styles/${file}`, `styles/${file}`);
+    }
   });
 
   let languages = await getLanguages();

@@ -1,0 +1,2 @@
+<span class="hljs-meta">`<span class="hljs-keyword">define</span> CONSTANT value </span><span class="hljs-comment">// this is a comment</span>
+<span class="hljs-keyword">wire</span> result = `CONSTANT + variable; <span class="hljs-comment">// comment</span>
