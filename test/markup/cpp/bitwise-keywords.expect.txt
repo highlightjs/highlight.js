@@ -1,5 +1,5 @@
-<span class="hljs-keyword">unsigned</span> <span class="hljs-type">char</span> a = <span class="hljs-number">0xFA</span>;
-<span class="hljs-keyword">unsigned</span> <span class="hljs-type">char</span> b = <span class="hljs-number">0x4C</span>;
+<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> a = <span class="hljs-number">0xFA</span>;
+<span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> b = <span class="hljs-number">0x4C</span>;
 
 a = <span class="hljs-keyword">compl</span> b;
 a = <span class="hljs-keyword">not</span> b;

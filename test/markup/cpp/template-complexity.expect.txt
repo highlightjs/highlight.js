@@ -7,8 +7,8 @@
 }
 
 <span class="hljs-comment">// Disable overload for already valid operands.</span>
-<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>, <span class="hljs-keyword">class</span> = std::<span class="hljs-type">enable_if_t</span>&lt;!impl::is_streamable_v&lt;<span class="hljs-keyword">const</span> T &amp;&gt; &amp;&amp; std::is_convertible_v&lt;<span class="hljs-keyword">const</span> T &amp;, std::wstring_view&gt;&gt;&gt;
-std::wostream &amp;<span class="hljs-keyword">operator</span> &lt;&lt;(std::wostream &amp;stream, <span class="hljs-keyword">const</span> T &amp;thing)
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>, <span class="hljs-keyword">class</span> = std::<span class="hljs-type">enable_if_t</span>&lt;!impl::is_streamable_v&lt;<span class="hljs-type">const</span> T &amp;&gt; &amp;&amp; std::is_convertible_v&lt;<span class="hljs-type">const</span> T &amp;, std::wstring_view&gt;&gt;&gt;
+std::wostream &amp;<span class="hljs-keyword">operator</span> &lt;&lt;(std::wostream &amp;stream, <span class="hljs-type">const</span> T &amp;thing)
 {
     <span class="hljs-keyword">return</span> stream &lt;&lt; <span class="hljs-built_in">static_cast</span>&lt;std::wstring_view&gt;(thing);
 }
