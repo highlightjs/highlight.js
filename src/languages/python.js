@@ -5,14 +5,10 @@ Website: https://www.python.org
 Category: common
 */
 
-import { UNICODE_SUPPORTED, UNDERSCORE_IDENT_RE } from '../lib/modes.js';
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
-  const PY_IDENT_RE = UNICODE_SUPPORTED ?
-    (new RegExp("[\\p{XID_Start}_]\\p{XID_Continue}*", 'u')) :
-    UNDERSCORE_IDENT_RE;
-
+  const IDENT_RE = /[\p{XID_Start}_]\p{XID_Continue}*/u;
   const RESERVED_WORDS = [
     'and',
     'as',
@@ -362,7 +358,7 @@ export default function(hljs) {
       'gyp',
       'ipython'
     ],
-    unicode: UNICODE_SUPPORTED,
+    unicodeRegex: true,
     keywords: KEYWORDS,
     illegal: /(<\/|->|\?)|=>/,
     contains: [
@@ -384,7 +380,7 @@ export default function(hljs) {
       {
         match: [
           /def/, /\s+/,
-          PY_IDENT_RE,
+          IDENT_RE,
         ],
         scope: {
           1: "keyword",
@@ -397,14 +393,14 @@ export default function(hljs) {
           {
             match: [
               /class/, /\s+/,
-              PY_IDENT_RE, /\s*/,
-              /\(\s*/, PY_IDENT_RE,/\s*\)/
+              IDENT_RE, /\s*/,
+              /\(\s*/, IDENT_RE,/\s*\)/
             ],
           },
           {
             match: [
               /class/, /\s+/,
-              PY_IDENT_RE
+              IDENT_RE
             ],
           }
         ],
