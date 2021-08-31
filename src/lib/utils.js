@@ -8,7 +8,9 @@ export function escapeHTML(value) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#x27;');
+    .replace(/'/g, '&#x27;')
+    .replace(/{/g, '&#123;')
+    .replace(/}/g, '&#125;');
 }
 
 /**
