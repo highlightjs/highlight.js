@@ -1,6 +1,12 @@
 ## Version 11.3.0 (most likely)
 
-- fix(python) added support for unicode identifiers [Austin Schick][]
+Parser:
+
+- add first rough performance testing script (#3280) [Austin Schick][]
+
+Grammars:
+
+- fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
 - enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 - enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
 - fix(cpp) switch is a keyword (#3312) [Josh Goebel][]
