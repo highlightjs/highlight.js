@@ -148,6 +148,7 @@ declare module 'highlight.js' {
 
     export interface LanguageDetail {
         name?: string
+        unicodeRegex?: boolean
         rawDefinition?: () => Language
         aliases?: string[]
         disableAutodetect?: boolean

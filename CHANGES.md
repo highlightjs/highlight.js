@@ -1,5 +1,12 @@
 ## Version 11.3.0 (most likely)
 
+Parser:
+
+- add first rough performance testing script (#3280) [Austin Schick][]
+
+Grammars:
+
+- fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
 - enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 - enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
 - fix(cpp) switch is a keyword (#3312) [Josh Goebel][]
@@ -7,9 +14,11 @@
 - enh(c,cpp) highlight type modifiers as type (#3316) [Josh Goebel][]
 - enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
 
+[Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
 [Denis Kovalchuk]: https://github.com/deniskovalchuk
 [monochromer]: https://github.com/monochromer
+
 
 ## Version 11.2.0
 
@@ -40,6 +49,7 @@ New Languages:
 [Patrick Kruselburger]: https://github.com/PatrickKru
 [Bradley Mackey]: https://github.com/bradleymackey
 [Dereavy]: https://github.com/dereavy
+
 
 ## Version 11.1.0
 

@@ -42,12 +42,22 @@ name
 The canonical name of this language, ie "JavaScript", etc.
 
 
+unicodeRegex
+^^^^^^^^^^^^
+
+- **type**: boolean
+
+Expresses whether the grammar in question uses Unicode (``u`` flag) regular expressions.
+(defaults to false)
+
+
 case_insensitive
 ^^^^^^^^^^^^^^^^
 
 - **type**: boolean
 
 Case insensitivity of language keywords and regexps. Used only on the top-level mode.
+(defaults to false)
 
 
 aliases
@@ -92,6 +102,7 @@ disableAutodetect
 - **type**: boolean
 
 Disables autodetection for this language.
+(defaults to false, meaning auto-detect is enabled)
 
 
 compilerExtensions
