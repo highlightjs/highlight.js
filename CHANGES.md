@@ -6,6 +6,8 @@ Parser:
 
 Grammars:
 
+- fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
+- fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
 - enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 - enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]

@@ -1,0 +1,11 @@
+.test:before,
+.test:after {
+  color: pink;
+  color: red;
+}
+
+.test::before,
+.test::after {
+  color: pink;
+  color: red;
+}
