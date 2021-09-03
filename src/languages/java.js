@@ -160,6 +160,12 @@ export default function(hljs) {
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      {
+        begin: /"""/,
+        end: /"""/,
+        className: "string",
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
