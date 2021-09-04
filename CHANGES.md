@@ -6,6 +6,7 @@ Parser:
 
 Grammars:
 
+- fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
 - enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 - enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
@@ -14,13 +15,14 @@ Grammars:
 - enh(c,cpp) highlight type modifiers as type (#3316) [Josh Goebel][]
 - enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
 - enh(java) add support for Java Text Block (#3322) [Teletha][]
+- enh(scala) add missing `do` and `then` keyword (#3323) [Nicolas Stucki][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
 [Denis Kovalchuk]: https://github.com/deniskovalchuk
 [monochromer]: https://github.com/monochromer
 [Teletha]: https://github.com/teletha
-
+[Nicolas Stucki]: https://github.com/nicolasstucki
 
 
 ## Version 11.2.0
