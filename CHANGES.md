@@ -1,3 +1,11 @@
+## Version 11.3.1 (most likely)
+
+New Languages:
+
+- Added 3rd party YARA Rule grammar to SUPPORTED_LANGUAGES [Deniz Demirci][]
+
+[Deniz Demirci]: https://github.com/d-demirci
+
 ## Version 11.3.0 (most likely)
 
 Parser:
