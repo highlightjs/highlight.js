@@ -1,5 +1,5 @@
-<span class="hljs-type">String</span> <span class="hljs-variable">json</span> <span class="hljs-operator">=</span> <span class="hljs-string">"""
+<span class="hljs-type">String</span> <span class="hljs-variable">json</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;&quot;
     {
-        "key": "value"
+        &quot;key&quot;: &quot;value&quot;
     }
-    """</span>;
+    &quot;&quot;&quot;</span>;
