@@ -14,12 +14,14 @@ Grammars:
 - fix(cpp) fix `xor_eq` keyword highlighting. [Denis Kovalchuk][]
 - enh(c,cpp) highlight type modifiers as type (#3316) [Josh Goebel][]
 - enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
+- enh(java) add support for Java Text Block (#3322) [Teletha][]
 - enh(scala) add missing `do` and `then` keyword (#3323) [Nicolas Stucki][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
 [Denis Kovalchuk]: https://github.com/deniskovalchuk
 [monochromer]: https://github.com/monochromer
+[Teletha]: https://github.com/teletha
 [Nicolas Stucki]: https://github.com/nicolasstucki
 
 
