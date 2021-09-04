@@ -1,0 +1,1 @@
+def f(using Quotes) = '{ val x = 1; ${g('x)} }
