@@ -112,6 +112,17 @@ export default function(hljs) {
     contains: [ NAME ]
   };
 
+  const EXTENSION = {
+    begin: [
+      /^\s*/, // Is first token on the line
+      'extension',
+      /\s+(?=[[(])/, // followed by at least one space and `[` or `(`
+    ],
+    beginScope: {
+      2: "keyword",
+    }
+  };
+
   return {
     name: 'Scala',
     keywords: {
@@ -126,6 +137,7 @@ export default function(hljs) {
       METHOD,
       CLASS,
       hljs.C_NUMBER_MODE,
+      EXTENSION,
       ANNOTATION
     ]
   };

@@ -1,0 +1,19 @@
+extension (x: Int) def plus(y: Int) = x + y
+
+extension [T](x: T) def f = ()
+
+extension (x: Int)
+  def f = 1
+  def f = 2
+
+object Foo {
+  extension (x: Int)
+    def f = 1
+    def f = 2
+}
+
+def extension(file: File) =
+  file.extension
+
+  file
+    .extension
