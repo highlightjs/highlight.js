@@ -121,7 +121,7 @@ export default function(hljs) {
     name: 'Scala',
     keywords: {
       literal: 'true false null',
-      keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit'
+      keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit export enum given'
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,

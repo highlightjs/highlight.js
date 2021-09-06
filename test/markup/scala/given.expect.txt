@@ -1,0 +1,2 @@
+<span class="hljs-keyword">given</span> <span class="hljs-type">T</span> = ???
+<span class="hljs-keyword">given</span> x: <span class="hljs-type">T</span> = ???
