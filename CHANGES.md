@@ -16,6 +16,7 @@ Grammars:
 - enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
 - enh(java) add support for Java Text Block (#3322) [Teletha][]
 - enh(scala) add missing `do` and `then` keyword (#3323) [Nicolas Stucki][]
+- enh(scala) add missing `enum`, `export` and `given` keywords (#3328) [Nicolas Stucki][]
 - enh(scala) remove symbol syntax and fix quoted code syntax (#3324) [Nicolas Stucki][]
 
 [Austin Schick]: https://github.com/austin-schick
