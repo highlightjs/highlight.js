@@ -1,0 +1,11 @@
+def f(using x: Int) = 1
+def g(using Int) = 1
+given (using ev: Ev): Foo = ???
+
+def expressions =
+  f(using 2)
+
+  // not `using` keyword
+  (using)
+  (using )
+  ( using )
