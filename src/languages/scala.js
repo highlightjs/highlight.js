@@ -123,6 +123,19 @@ export default function(hljs) {
     }
   };
 
+  const END = [{
+    begin: [
+      /^\s*/, // Is first token on the line
+      /end/,
+      /\s+/,
+      /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
+    ],
+    beginScope: {
+      2: "keyword",
+      4: "keyword",
+    }
+  }];
+
   return {
     name: 'Scala',
     keywords: {
@@ -138,6 +151,7 @@ export default function(hljs) {
       CLASS,
       hljs.C_NUMBER_MODE,
       EXTENSION,
+      END,
       ANNOTATION
     ]
   };
