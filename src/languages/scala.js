@@ -59,11 +59,6 @@ export default function(hljs) {
 
   };
 
-  const SYMBOL = {
-    className: 'symbol',
-    begin: '\'\\w[\\w\\d_]*(?!\')'
-  };
-
   const TYPE = {
     className: 'type',
     begin: '\\b[A-Z][A-Za-z0-9_]*',
@@ -127,7 +122,6 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       STRING,
-      SYMBOL,
       TYPE,
       METHOD,
       CLASS,
