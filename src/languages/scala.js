@@ -112,6 +112,30 @@ export default function(hljs) {
     contains: [ NAME ]
   };
 
+  const EXTENSION = {
+    begin: [
+      /^\s*/, // Is first token on the line
+      'extension',
+      /\s+(?=[[(])/, // followed by at least one space and `[` or `(`
+    ],
+    beginScope: {
+      2: "keyword",
+    }
+  };
+
+  const END = [{
+    begin: [
+      /^\s*/, // Is first token on the line
+      /end/,
+      /\s+/,
+      /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
+    ],
+    beginScope: {
+      2: "keyword",
+      4: "keyword",
+    }
+  }];
+
   // TODO: use negative look-behind in future
   //       /(?<!\.)\binline(?=\s)/
   const INLINE_MODES = [{
@@ -136,6 +160,8 @@ export default function(hljs) {
       METHOD,
       CLASS,
       hljs.C_NUMBER_MODE,
+      EXTENSION,
+      END,
       ...INLINE_MODES,
       ANNOTATION
     ]
