@@ -136,6 +136,16 @@ export default function(hljs) {
     }
   }];
 
+  // TODO: use negative look-behind in future
+  //       /(?<!\.)\binline(?=\s)/
+  const INLINE_MODES = [{
+    match: /\.inline\b/
+  },
+  {
+    begin: /\binline(?=\s)/,
+    keywords: 'inline'
+  }];
+
   return {
     name: 'Scala',
     keywords: {
@@ -152,6 +162,7 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       EXTENSION,
       END,
+      ...INLINE_MODES,
       ANNOTATION
     ]
   };

@@ -20,6 +20,7 @@ Grammars:
 - enh(scala) remove symbol syntax and fix quoted code syntax (#3324) [Nicolas Stucki][]
 - enh(scala) add Scala 3 `extension` soft keyword (#3326) [Nicolas Stucki][]
 - enh(scala) add Scala 3 `end` soft keyword (#3327) [Nicolas Stucki][]
+- enh(scala) add `inline` soft keyword (#3329) [Nicolas Stucki][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
