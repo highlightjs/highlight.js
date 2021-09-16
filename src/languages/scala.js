@@ -6,8 +6,6 @@ Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 Website: https://www.scala-lang.org
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
   const ANNOTATION = {
     className: 'meta',
@@ -109,7 +107,8 @@ export default function(hljs) {
   const METHOD = {
     className: 'function',
     beginKeywords: 'def',
-    end: regex.lookahead(/[:={\[(\n;]/),
+    end: /[:={\[(\n;]/,
+    excludeEnd: true,
     contains: [ NAME ]
   };
 
@@ -147,17 +146,6 @@ export default function(hljs) {
     keywords: 'inline'
   }];
 
-  const USING_PARAM_CLAUSE = {
-    begin: [
-      /\(\s*/, // Opening `(` of a parameter or argument list
-      /using/,
-      /\s+(?!\))/, // Spaces not followed by `)`
-    ],
-    beginScope: {
-      2: "keyword",
-    }
-  };
-
   return {
     name: 'Scala',
     keywords: {
@@ -175,7 +163,6 @@ export default function(hljs) {
       EXTENSION,
       END,
       ...INLINE_MODES,
-      USING_PARAM_CLAUSE,
       ANNOTATION
     ]
   };
