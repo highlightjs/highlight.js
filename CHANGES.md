@@ -22,6 +22,7 @@ Grammars:
 - enh(scala) add Scala 3 `end` soft keyword (#3327) [Nicolas Stucki][]
 - enh(scala) add `inline` soft keyword (#3329) [Nicolas Stucki][]
 - enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
+- enh(fsharp) added `f#` alias [Bahnschrift][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
