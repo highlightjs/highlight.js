@@ -53,6 +53,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Crystal                 | crystal, cr            |         |
 | Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
 | D                       | d                      |         |
+| Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
 | DNS Zone file           | dns, zone, bind        |         |
 | DOS                     | dos, bat, cmd          |         |
 | Dart                    | dart                   |         |
