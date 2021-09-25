@@ -54,13 +54,13 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
 | D                       | d                      |         |
 | Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
-| DNS Zone file           | dns, zone, bind        |         |
-| DOS                     | dos, bat, cmd          |         |
 | Dart                    | dart                   |         |
 | Delphi                  | dpr, dfm, pas, pascal  |         |
 | Diff                    | diff, patch            |         |
 | Django                  | django, jinja          |         |
+| DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
+| DOS                     | dos, bat, cmd          |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
 | Dust                    | dust, dst              |         |
