@@ -31,36 +31,12 @@ export default function(hljs) {
     "recover",
     "delete"
   ];
-  const KWS = [
-    "break",
-    "default",
-    "func",
-    "interface",
-    "select",
-    "case",
-    "map",
-    "struct",
-    "chan",
-    "else",
-    "goto",
-    "package",
-    "switch",
-    "const",
-    "fallthrough",
-    "if",
-    "range",
-    "type",
-    "continue",
-    "for",
-    "import",
-    "return",
-    "var",
-    "go",
-    "defer",
+  const TYPES = [
     "bool",
     "byte",
     "complex64",
     "complex128",
+    "error",
     "float32",
     "float64",
     "int8",
@@ -77,8 +53,36 @@ export default function(hljs) {
     "uintptr",
     "rune"
   ];
+  const KWS = [
+    "break",
+    "case",
+    "chan",
+    "const",
+    "continue",
+    "default",
+    "defer",
+    "else",
+    "fallthrough",
+    "for",
+    "func",
+    "go",
+    "goto",
+    "if",
+    "import",
+    "interface",
+    "map",
+    "package",
+    "range",
+    "return",
+    "select",
+    "struct",
+    "switch",
+    "type",
+    "var",
+  ];
   const KEYWORDS = {
     keyword: KWS,
+    type: TYPES,
     literal: LITERALS,
     built_in: BUILT_INS
   };
@@ -125,6 +129,7 @@ export default function(hljs) {
             className: 'params',
             begin: /\(/,
             end: /\)/,
+            endsParent: true,
             keywords: KEYWORDS,
             illegal: /["']/
           }

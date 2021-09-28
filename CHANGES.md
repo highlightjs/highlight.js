@@ -6,6 +6,7 @@ Parser:
 
 Grammars:
 
+- enh(go) better type highlighting, add `error` type [Josh Goebel][]
 - fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
 - enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
