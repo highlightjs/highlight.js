@@ -1,0 +1,1 @@
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">2</span>

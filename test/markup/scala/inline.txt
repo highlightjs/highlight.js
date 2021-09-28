@@ -1,0 +1,15 @@
+inline def pow(inline x: Int, inline n: Int) = ???
+transparent inline def f: Int = ???
+inline val a: Int = 9
+inline given Int = 9
+
+notinline given Int = 9
+
+def expressions =
+  inline if true then () else ()
+  inline x match ...
+
+  x.inline
+  x.inline(y)
+  x.inline[T]
+  `inline` + 1

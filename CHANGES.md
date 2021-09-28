@@ -1,4 +1,102 @@
-## Version 11.0.0-beta0
+## Version 11.3.0 (most likely)
+
+Parser:
+
+- add first rough performance testing script (#3280) [Austin Schick][]
+
+Grammars:
+
+- enh(go) better type highlighting, add `error` type [Josh Goebel][]
+- fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
+- fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
+- enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
+- enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
+- fix(cpp) switch is a keyword (#3312) [Josh Goebel][]
+- fix(cpp) fix `xor_eq` keyword highlighting. [Denis Kovalchuk][]
+- enh(c,cpp) highlight type modifiers as type (#3316) [Josh Goebel][]
+- enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
+- enh(java) add support for Java Text Block (#3322) [Teletha][]
+- enh(scala) add missing `do` and `then` keyword (#3323) [Nicolas Stucki][]
+- enh(scala) add missing `enum`, `export` and `given` keywords (#3328) [Nicolas Stucki][]
+- enh(scala) remove symbol syntax and fix quoted code syntax (#3324) [Nicolas Stucki][]
+- enh(scala) add Scala 3 `extension` soft keyword (#3326) [Nicolas Stucki][]
+- enh(scala) add Scala 3 `end` soft keyword (#3327) [Nicolas Stucki][]
+- enh(scala) add `inline` soft keyword (#3329) [Nicolas Stucki][]
+- enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
+- enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
+
+[Austin Schick]: https://github.com/austin-schick
+[Josh Goebel]: https://github.com/joshgoebel
+[Denis Kovalchuk]: https://github.com/deniskovalchuk
+[monochromer]: https://github.com/monochromer
+[Teletha]: https://github.com/teletha
+[Nicolas Stucki]: https://github.com/nicolasstucki
+[Bahnschrift]: https://github.com/Bahnschrift
+
+
+## Version 11.2.0
+
+Build:
+
+- fix: run Node build CSS files thru CSS processor also (#3284) [Josh Goebel][]
+
+Parser:
+
+- fix(csharp) Fix assignments flagging as functions [Josh Goebel][]
+- fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
+- fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
+- fix(verilog) Fix binary number false positives on `_` (#3283) [Josh Goebel][]
+- enh(verilog) `__FILE__` and __`LINE__` constants (#3283) [Josh Goebel][]
+- enh(verilog) tighten keyword regex (#3283) [Josh Goebel][]
+
+
+Grammars:
+
+- enh(swift) Add `isolated`/`nonisolated` keywords (#3296) [Bradley Mackey][]
+
+New Languages:
+
+- Added 3rd party X# grammar to SUPPORTED_LANGUAGES [Patrick Kruselburger][]
+- Added 3rd party MKB grammar to SUPPORTED_LANGUAGES (#3297) [Dereavy][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Patrick Kruselburger]: https://github.com/PatrickKru
+[Bradley Mackey]: https://github.com/bradleymackey
+[Dereavy]: https://github.com/dereavy
+
+
+## Version 11.1.0
+
+Grammars:
+
+- fix(csharp) add missing `catch` keyword (#3251) [Konrad Rudolph][]
+- add additional keywords to csp.js (#3244) [Elijah Conners][]
+- feat(css) handle css variables syntax (#3239) [Thanos Karagiannis][]
+- fix(markdown) Images with empty alt or links with empty text (#3233) [Josh Goebel][]
+- enh(powershell) added `pwsh` alias (#3236) [tebeco][]
+- fix(r) fix bug highlighting examples in doc comments [Konrad Rudolph][]
+- fix(python) identifiers starting with underscore not highlighted (#3221) [Antoine Lambert][]
+- enh(clojure) added `edn` alias (#3213) [Stel Abrego][]
+- enh(elixir) much improved regular expression sigil support (#3207) [Josh Goebel][]
+- enh(elixir) updated list of keywords (#3212) [Angelika Tyborska][]
+- fix(elixir) fixed number detection when numbers start with a zero (#3212) [Angelika Tyborska][]
+- fix(ps1) Flag highlighted incorrectly (#3167) [Pankaj Patil][]
+- fix(latex) Allow wider syntax for magic comments (#3243) [Benedikt Wilde][]
+- fix(js/ts) Constants may include numbers [Josh Goebel][]
+
+[Stel Abrego]: https://github.com/stelcodes
+[Josh Goebel]: https://github.com/joshgoebel
+[Antoine Lambert]: https://github.com/anlambert
+[Elijah Conners]: https://github.com/elijahepepe
+[Angelika Tyborska]: https://github.com/angelikatyborska
+[Konrad Rudolph]: https://github.com/klmr
+[tebeco]: https://github.com/tebeco
+[Pankaj Patil]: https://github.com/patil2099
+[Benedikt Wilde]: https://github.com/schtandard
+[Thanos Karagiannis]: https://github.com/thanoskrg
+
+
+## Version 11.0.0
 
 **This is a major release.**  As such it contains breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of all breaking changes.
 
@@ -46,6 +144,8 @@ Language Grammars:
 
 Parser:
 
+- enh(vala) improve language detection for Vala (#3195) [Konrad Rudolph][]
+- enh(r) add support for operators, fix number highlighting bug (#3194, #3195) [Konrad Rudolph][]
 - enh(parser) add `beginScope` and `endScope` to allow separate scoping begin and end (#3159) [Josh Goebel][]
 - enh(parsed) `endScope` now supports multi-class matchers as well (#3159) [Josh Goebel][]
 - enh(parser) `highlightElement` now always tags blocks with a consistent `language-[name]` class [Josh Goebel][]

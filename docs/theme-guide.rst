@@ -1,29 +1,28 @@
-Style guide
+Theme Guide
 ===========
 
 
 Key principle
 -------------
 
-Highlight.js themes are language agnostic.
-
-Instead of trying to make a *rich* set of highlightable classes look good in a
-handful of languages we have a *limited* set of classes that work for all
-languages.
+**Highlight.js themes are language agnostic.** Instead of trying to make a
+*rich* set of highlightable classes look great in a handful of languages we have
+a *limited* set of classes that work well for many languages.
 
 Hence, there are two important implications:
 
-* Highlight.js styles tend to be minimalistic.
-* It's not possible to exactly emulate themes from other highlighting engines.
+* Highlight.js themes can tend to be minimalistic (this has improved over time).
+* It's not always possible to exactly emulate themes from other highlighting engines.
 
 
 Defining a theme
 ----------------
 
-A theme is a single CSS defining styles for class names listed in the
-:doc:`class reference </css-classes-reference>`. The general guideline is to
-style all available classes, however an author may deliberately choose to
-exclude some (for example, ``.attr`` is usually left unstyled).
+A theme is a single CSS file defining styles for the scopes listed in the
+:doc:`scopes reference </css-classes-reference>`. The general guideline is to
+style the core/common set of classes, however an author may deliberately choose
+to exclude some (for example, ``.attr`` is usually left unstyled).  Use our
+:ref:`auto-check<autocheck>` tool to provide additional guidance on this.
 
 You are not required to invent a separate styling for every group of class
 names, it's perfectly okay to group them:
@@ -41,7 +40,20 @@ names, it's perfectly okay to group them:
 Use as few or as many unique style combinations as you want.
 
 
-Typography and layout dos and don'ts
+.. _autocheck:
+
+Auto-checking your theme
+------------------------
+
+We provide a tool to auto-checking your theme to see that it provides good scope coverage.
+
+::
+
+  ./tools/checkTheme.js src/styles/your_theme.css
+
+Follow the simple guidance provided to fix any issues.
+
+Theming dos and don'ts
 ------------------------------------
 
 Don't use:
@@ -71,8 +83,8 @@ container verbatim:
     padding: 0.5em;
   }
 
-If your theme exists within the core project you do not need to add these rules
-by hand as they are added to all themes by default during the build process.
+If your theme lives within the core project you do not need to add these rules
+by hand as they are added by default during the build process.
 
 
 ``.subst``

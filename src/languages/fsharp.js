@@ -86,7 +86,10 @@ export default function(hljs) {
 
   return {
     name: 'F#',
-    aliases: ['fs'],
+    aliases: [
+      'fs',
+      'f#'
+    ],
     keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: [

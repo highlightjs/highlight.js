@@ -1,6 +1,6 @@
 .. highlight:: javascript
 
-Language definition guide
+Language Definition Guide
 =========================
 
 Highlighting overview

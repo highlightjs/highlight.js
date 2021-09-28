@@ -1,3 +1,5 @@
+# Upgrading to Highlight.js v11.0
+
 - [Overview of Breaking Changes](#overview-of-breaking-changes)
   - [Built-in set of "Common" Languages](#built-in-set-of-common-languages)
   - [Language Files](#language-files)
@@ -61,6 +63,7 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 - `github` includes significant changes to more properly match modern GitHub syntax highlighting. If you desire the old theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
 - `github-gist` has been removed in favor of `github` as GitHub and GitHub Gist have converged. If you desire the theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
 - The `.hljs` CSS selector is now further scoped.  It now targets `code.hljs` (inline code) and `pre code.hljs` (code blocks). If you are using a different element you may need to update your CSS to reapply some styling.
+- All [Base16 themes](https://github.com/highlightjs/base16-highlightjs) now live in the `styles/base16` directory - this means some CSS files have moved.  Please confirm themes you use reference the new locations. 
 
 
 #### Grammar Scopes
@@ -69,6 +72,8 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 - `.meta-keyword` removed/deprecated.  Use `.meta .keyword` (a nested scope) instead. See [meta-keyword][].
 
 ### Behavioral changes
+
+- `after:highlightElement` plugin callback is now fired *after* the DOM has been updated, not before.
 
 #### API changes
 

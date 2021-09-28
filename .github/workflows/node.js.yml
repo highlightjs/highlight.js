@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 15.x]
+        node-version: [12.x, 14.x, 16.x]
         build-how: ["node", "browser", "browser -n", "cdn :common"]
 
     steps:
@@ -33,6 +33,11 @@ jobs:
       run: |
         npm run test-browser
         node test/builds/browser_build_as_commonjs.js
+    # CDN build should be easily importable
+    - if: contains(matrix.build-how, 'cdn')
+      name: Test that we can import CDN esm build
+      run: |
+        node test/builds/cdn_build_as_esm.mjs
 
     - if: contains(matrix.build-how, 'node')
       name: Test Node.js build

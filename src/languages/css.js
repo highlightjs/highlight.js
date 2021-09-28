@@ -11,10 +11,6 @@ import * as regex from '../lib/regex.js';
 /** @type LanguageFn */
 export default function(hljs) {
   const modes = css.MODES(hljs);
-  const FUNCTION_DISPATCH = {
-    className: "built_in",
-    begin: /[\w-]+(?=\()/
-  };
   const VENDOR_PREFIX = {
     begin: /-(webkit|moz|ms|o)-(?=[a-z])/
   };
@@ -39,7 +35,7 @@ export default function(hljs) {
       keyframePosition: "selector-tag"
     },
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,
+      modes.BLOCK_COMMENT,
       VENDOR_PREFIX,
       // to recognize keyframe 40% etc which are outside the scope of our
       // attribute value mode
@@ -72,6 +68,7 @@ export default function(hljs) {
       //   end: /\)/,
       //   contains: [ hljs.CSS_NUMBER_MODE ]
       // },
+      modes.CSS_VARIABLE,
       {
         className: 'attribute',
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'
@@ -81,6 +78,7 @@ export default function(hljs) {
         begin: ':',
         end: '[;}]',
         contains: [
+          modes.BLOCK_COMMENT,
           modes.HEXCOLOR,
           modes.IMPORTANT,
           modes.CSS_NUMBER_MODE,
@@ -106,7 +104,7 @@ export default function(hljs) {
               }
             ]
           },
-          FUNCTION_DISPATCH
+          modes.FUNCTION_DISPATCH
         ]
       },
       {

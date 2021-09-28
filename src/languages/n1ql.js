@@ -327,7 +327,7 @@ export default function(hljs) {
       {
         beginKeywords:
           'build create index delete drop explain infer|10 insert merge prepare select update upsert|10',
-        end: /;/, endsWithParent: true,
+        end: /;/,
         keywords: {
           keyword: KEYWORDS,
           literal: LITERALS,
@@ -336,19 +336,21 @@ export default function(hljs) {
         contains: [
           {
             className: 'string',
-            begin: '\'', end: '\'',
-            contains: [hljs.BACKSLASH_ESCAPE]
+            begin: '\'',
+            end: '\'',
+            contains: [ hljs.BACKSLASH_ESCAPE ]
           },
           {
             className: 'string',
-            begin: '"', end: '"',
-            contains: [hljs.BACKSLASH_ESCAPE]
+            begin: '"',
+            end: '"',
+            contains: [ hljs.BACKSLASH_ESCAPE ]
           },
           {
             className: 'symbol',
-            begin: '`', end: '`',
-            contains: [hljs.BACKSLASH_ESCAPE],
-            relevance: 2
+            begin: '`',
+            end: '`',
+            contains: [ hljs.BACKSLASH_ESCAPE ]
           },
           hljs.C_NUMBER_MODE,
           hljs.C_BLOCK_COMMENT_MODE

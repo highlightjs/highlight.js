@@ -5,10 +5,10 @@ Website: https://www.python.org
 Category: common
 */
 
-import { IDENT_RE } from '../lib/modes.js';
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
+  const IDENT_RE = /[\p{XID_Start}_]\p{XID_Continue}*/u;
   const RESERVED_WORDS = [
     'and',
     'as',
@@ -358,6 +358,7 @@ export default function(hljs) {
       'gyp',
       'ipython'
     ],
+    unicodeRegex: true,
     keywords: KEYWORDS,
     illegal: /(<\/|->|\?)|=>/,
     contains: [
@@ -379,7 +380,7 @@ export default function(hljs) {
       {
         match: [
           /def/, /\s+/,
-          IDENT_RE
+          IDENT_RE,
         ],
         scope: {
           1: "keyword",

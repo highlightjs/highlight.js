@@ -1,3 +1,5 @@
+1 # Regression caused numbers at beginning not to be highlighted.
+
 # Numbers
 
 0, 01, 08, 123456, 1256.701, 123e3, 123E+3, 1.23e-3, 1.23E3, .25, 2.

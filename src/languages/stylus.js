@@ -154,6 +154,9 @@ export default function(hljs) {
         ]
       },
 
+      // css variables
+      modes.CSS_VARIABLE,
+
       // attributes
       //  - only from beginning of line + whitespace
       //  - must have whitespace after it
@@ -175,7 +178,8 @@ export default function(hljs) {
           illegal: /\./,
           relevance: 0
         }
-      }
+      },
+      modes.FUNCTION_DISPATCH
     ]
   };
 }

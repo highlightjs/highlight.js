@@ -189,7 +189,9 @@ export default function(hljs) {
     CSS_TEMPLATE,
     TEMPLATE_STRING,
     NUMBER,
-    hljs.REGEXP_MODE
+    // This is intentional:
+    // See https://github.com/highlightjs/highlight.js/issues/3288
+    // hljs.REGEXP_MODE
   ];
   SUBST.contains = SUBST_INTERNALS
     .concat({
@@ -299,7 +301,7 @@ export default function(hljs) {
 
   const UPPER_CASE_CONSTANT = {
     relevance: 0,
-    match: /\b[A-Z][A-Z_]+\b/,
+    match: /\b[A-Z][A-Z_0-9]+\b/,
     className: "variable.constant"
   };
 

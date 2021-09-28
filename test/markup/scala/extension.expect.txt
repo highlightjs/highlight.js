@@ -1,0 +1,19 @@
+<span class="hljs-keyword">extension</span> (x: <span class="hljs-type">Int</span>) <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">plus</span></span>(y: <span class="hljs-type">Int</span>) = x + y
+
+<span class="hljs-keyword">extension</span> [<span class="hljs-type">T</span>](x: <span class="hljs-type">T</span>) <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= ()
+
+<span class="hljs-keyword">extension</span> (x: <span class="hljs-type">Int</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= <span class="hljs-number">1</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= <span class="hljs-number">2</span>
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Foo</span> </span>{
+  <span class="hljs-keyword">extension</span> (x: <span class="hljs-type">Int</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= <span class="hljs-number">1</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span> </span>= <span class="hljs-number">2</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extension</span></span>(file: <span class="hljs-type">File</span>) =
+  file.extension
+
+  file
+    .extension

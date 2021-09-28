@@ -1,0 +1,5 @@
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>(s: <span class="hljs-type">Symbol</span>) = {
+  s <span class="hljs-keyword">match</span> {
+    <span class="hljs-keyword">case</span> &#x27;foo =&gt;
+  }
+}

@@ -1,5 +1,5 @@
-Scopes Reference
-================
+Scope Reference
+===============
 
 
 Stylable Scopes
@@ -59,6 +59,8 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | variable.language        | variable with special meaning in a language, e.g.:          |
 |                          | ``this``, ``window``, ``super``, ``self``, etc.             |
++--------------------------+-------------------------------------------------------------+
+| variable.constant        | variable that is a constant value, ie ``MAX_FILES``         |
 +--------------------------+-------------------------------------------------------------+
 | title                    | name of a class or a function                               |
 +--------------------------+-------------------------------------------------------------+

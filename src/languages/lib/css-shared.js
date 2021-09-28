@@ -4,9 +4,14 @@ export const MODES = (hljs) => {
       scope: 'meta',
       begin: '!important'
     },
+    BLOCK_COMMENT: hljs.C_BLOCK_COMMENT_MODE,
     HEXCOLOR: {
       scope: 'number',
       begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
+    },
+    FUNCTION_DISPATCH: {
+      className: "built_in",
+      begin: /[\w-]+(?=\()/
     },
     ATTRIBUTE_SELECTOR_MODE: {
       scope: 'selector-attr',
@@ -30,6 +35,10 @@ export const MODES = (hljs) => {
         '|dpi|dpcm|dppx' +
         ')?',
       relevance: 0
+    },
+    CSS_VARIABLE: {
+      className: "attr",
+      begin: /--[A-Za-z][A-Za-z0-9_-]*/
     }
   };
 };
@@ -337,6 +346,23 @@ export const ATTRIBUTES = [
   'font-variant-ligatures',
   'font-variation-settings',
   'font-weight',
+  'gap',
+  'grid',
+  'grid-area',
+  'grid-auto-columns',
+  'grid-auto-flow',
+  'grid-auto-rows',
+  'grid-column',
+  'grid-column-end',
+  'grid-column-start',
+  'grid-gap',
+  'grid-row',
+  'grid-row-end',
+  'grid-row-start',
+  'grid-template',
+  'grid-template-areas',
+  'grid-template-columns',
+  'grid-template-rows',
   'height',
   'hyphens',
   'icon',
@@ -401,6 +427,7 @@ export const ATTRIBUTES = [
   'quotes',
   'resize',
   'right',
+  'row-gap',
   'src', // @font-face
   'tab-size',
   'table-layout',

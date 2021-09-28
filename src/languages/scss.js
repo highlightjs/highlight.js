@@ -29,6 +29,9 @@ export default function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      // to recognize keyframe 40% etc which are outside the scope of our
+      // attribute value mode
+      modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
         begin: '#[A-Za-z0-9_-]+',
@@ -60,6 +63,7 @@ export default function(hljs) {
         end: /\)/,
         contains: [ modes.CSS_NUMBER_MODE ]
       },
+      modes.CSS_VARIABLE,
       {
         className: 'attribute',
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'
@@ -71,6 +75,7 @@ export default function(hljs) {
         begin: ':',
         end: ';',
         contains: [
+          modes.BLOCK_COMMENT,
           VARIABLE,
           modes.HEXCOLOR,
           modes.CSS_NUMBER_MODE,
@@ -113,7 +118,8 @@ export default function(hljs) {
           modes.HEXCOLOR,
           modes.CSS_NUMBER_MODE
         ]
-      }
+      },
+      modes.FUNCTION_DISPATCH
     ]
   };
 }

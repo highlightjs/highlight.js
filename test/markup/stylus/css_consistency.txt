@@ -57,3 +57,19 @@ a[href*="example"] {}
   /* src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
        url("/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
 }
+
+@keyframes important1 {
+  from { margin-top: 50px; }
+  50%  { margin-top: 60px !important; }
+  to   { margin-top: 100px; }
+}
+
+main {
+  --color: red;
+  color: var(--color);
+}
+
+main {
+  /* normal comment */
+  width: /* inline comment */ 50px;
+}
