@@ -145,7 +145,15 @@ export default function(hljs) {
         'fc fg float functions getcap getln history integer jobs kill limit log noglob popd print ' +
         'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
         'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
-        'zpty zregexparse zsocket zstyle ztcp'
+        'zpty zregexparse zsocket zstyle ztcp ' +
+        // GNU core utilities
+        'chcon chgrp chown chmod cp dd df dir dircolors install ln ls mkdir mkfifo mknod mktemp mv realpath ' +
+        'rm rmdir shred sync touch truncate vdir b2sum base32 base64 cat cksum comm csplit cut expand ' +
+        'fmt fold head join md5sum nl numfmt od paste ptx pr sha1sum sha224sum sha256sum sha384sum sha512sum ' +
+        'shuf sort split sum tac tail tr tsort unexpand uniq wc arch basename chroot date dirname du echo ' +
+        'env expr factor false groups hostid id link logname nice nohup nproc pathchk pinky printenv printf ' +
+        'pwd readlink runcon seq sleep stat stdbuf stty tee test timeout true tty uname unlink uptime users ' +
+        'who whoami yes'
     },
     contains: [
       KNOWN_SHEBANG, // to catch known shells and boost relevancy
