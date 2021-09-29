@@ -7,10 +7,9 @@ Maintainer: @joshgoebel
 Website: https://wren.io/
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT_RE = /[a-zA-Z]\w*/;
   const KEYWORDS = [
     "as",

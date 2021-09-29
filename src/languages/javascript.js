@@ -6,10 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 import * as ECMAScript from './lib/ecmascript.js';
-import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   /**
    * Takes a string like "<Booger" and checks to see
    * if we can find a matching "</Booger" later in the

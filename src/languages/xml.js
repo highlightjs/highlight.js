@@ -5,10 +5,9 @@ Category: common, web
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   // Element names can contain letters, digits, hyphens, underscores, and periods
   const TAG_NAME_RE = regex.concat(/[A-Z_]/, regex.optional(/[A-Z0-9_.-]*:/), /[A-Z0-9_.-]*/);
   const XML_IDENT_RE = /[A-Za-z0-9._:-]+/;

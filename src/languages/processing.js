@@ -6,9 +6,8 @@ Website: https://processing.org
 Category: graphics
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const BUILT_INS = [
     "displayHeight",
     "displayWidth",

@@ -5,9 +5,8 @@ Author: Radek Liska <radekliska@gmail.com>
 Website: https://www.tcl.tk/about/language.html
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const TCL_IDENT = /[a-zA-Z_][a-zA-Z0-9_]*/;
 
   const NUMBER = {

@@ -6,10 +6,9 @@ Website: https://www.gnu.org/software/bash/
 Category: common
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const VAR = {};
   const BRACED_VAR = {
     begin: /\$\{/,

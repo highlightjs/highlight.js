@@ -3,6 +3,12 @@
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
+- expose `regex` helper functions via `hljs` injection [Josh Goebel][]
+  - concat
+  - lookahead
+  - either
+  - optional
+  - anyNumberOfTimes
 
 Grammars:
 
