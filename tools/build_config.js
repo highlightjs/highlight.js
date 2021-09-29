@@ -32,7 +32,7 @@ module.exports = {
         format: "cjs",
         strict: false,
         exports: "auto",
-        footer: "highlight.hljs = highlight;\nhighlight.default = highlight;"
+        footer: ""
       }
     },
     browser_iife: {

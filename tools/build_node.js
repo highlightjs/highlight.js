@@ -86,6 +86,7 @@ async function buildESMUtils() {
 async function buildNodeHighlightJS(options) {
   const input = { ...config.rollup.core.input, input: `src/highlight.js` };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
+  output.footer = "highlight.hljs = highlight;\nhighlight.default = highlight;";
   await rollupWrite(input, output);
   if (options.esm) {
     buildESMStub("core");
