@@ -1,0 +1,30 @@
+// To simplify parsing and avoid a christmas tree effect,
+// only non-arithmetic operators that we can confidently match are currently highlighted.
+
+ >=   <=   <>   >   <   =   +   -   *   /   %
+ >=?  <=?  <>?  >?  <?  =?  +?  -?  *?  /?  %?
+?>=? ?<=? ?<>? ?>? ?<? ?=? ?+? ?-? ?*? ?/? ?%?
+?>=  ?<=  ?<>  ?>  ?<  ?=  ?+  ?-  ?*  ?/  ?%
+
+**
+
+<- ->
+..
+::
+:> :? :?>
+<< >>
+<<< >>> ~~~ ^^^ &&& |||
+| ||
+<| <|| <|||
+|> ||> |||>
+~~ ~- ~+
+
+? ^ !
+!= ==
+& &&
+
+open Microsoft.FSharp.Quotations
+// A typed code quotation.
+let expr : Expr<int> = <@ 1 + 1 @>
+// An untyped code quotation.
+let expr2 : Expr = <@@ 1 + 1 @@>

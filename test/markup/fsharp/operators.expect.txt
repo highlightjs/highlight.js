@@ -1,0 +1,30 @@
+<span class="hljs-comment">// To simplify parsing and avoid a christmas tree effect,</span>
+<span class="hljs-comment">// only non-arithmetic operators that we can confidently match are currently highlighted.</span>
+
+ &gt;=   &lt;=   &lt;&gt;   &gt;   &lt;   =   +   -   *   /   %
+ &gt;=?  &lt;=?  &lt;&gt;?  &gt;?  &lt;?  =?  +?  -?  *?  /?  %?
+?&gt;=? ?&lt;=? ?&lt;&gt;? ?&gt;? ?&lt;? ?=? ?+? ?-? ?*? ?/? ?%?
+?&gt;=  ?&lt;=  ?&lt;&gt;  ?&gt;  ?&lt;  ?=  ?+  ?-  ?*  ?/  ?%
+
+**
+
+<span class="hljs-operator">&lt;-</span> <span class="hljs-operator">-&gt;</span>
+<span class="hljs-operator">..</span>
+<span class="hljs-operator">::</span>
+<span class="hljs-operator">:&gt;</span> <span class="hljs-operator">:?</span> <span class="hljs-operator">:?&gt;</span>
+<span class="hljs-operator">&lt;&lt;</span> <span class="hljs-operator">&gt;&gt;</span>
+&lt;&lt;&lt; &gt;&gt;&gt; ~~~ ^^^ &amp;&amp;&amp; |||
+<span class="hljs-operator">|</span> ||
+<span class="hljs-operator">&lt;|</span> <span class="hljs-operator">&lt;||</span> <span class="hljs-operator">&lt;|||</span>
+<span class="hljs-operator">|&gt;</span> <span class="hljs-operator">||&gt;</span> <span class="hljs-operator">|||&gt;</span>
+~~ ~- ~+
+
+? ^ !
+!= ==
+&amp; &amp;&amp;
+
+<span class="hljs-keyword">open</span> Microsoft.FSharp.Quotations
+<span class="hljs-comment">// A typed code quotation.</span>
+<span class="hljs-keyword">let</span> expr : Expr&lt;int&gt; = &lt;@ <span class="hljs-number">1</span> + <span class="hljs-number">1</span> @&gt;
+<span class="hljs-comment">// An untyped code quotation.</span>
+<span class="hljs-keyword">let</span> expr2 : Expr = &lt;@@ <span class="hljs-number">1</span> + <span class="hljs-number">1</span> @@&gt;

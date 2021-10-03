@@ -1,0 +1,7 @@
+<span class="hljs-meta">#<span class="hljs-keyword">if</span> foo</span>
+<span class="hljs-meta">#<span class="hljs-keyword">else</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">light</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">line</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">nowarn</span></span>

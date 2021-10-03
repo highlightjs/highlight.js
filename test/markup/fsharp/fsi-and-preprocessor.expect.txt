@@ -1,0 +1,10 @@
+
+<span class="hljs-meta">#<span class="hljs-keyword">r</span> &quot;file.dll&quot;;;                               // Reference (dynamically <span class="hljs-keyword">load</span>) the given DLL</span>
+<span class="hljs-meta">#<span class="hljs-keyword">i</span> &quot;package source uri&quot;;;                     // Include package source uri when searching for packages</span>
+<span class="hljs-meta">#<span class="hljs-keyword">I</span> &quot;path&quot;;;                                   // Add the given search path for referenced DLLs</span>
+<span class="hljs-meta">#<span class="hljs-keyword">load</span> &quot;file.fs&quot; ...;;                         // Load the given file(s) as <span class="hljs-keyword">if</span> compiled and referenced</span>
+<span class="hljs-meta">#<span class="hljs-keyword">time</span> [&quot;on&quot;|&quot;off&quot;];;                          // Toggle timing on/off</span>
+<span class="hljs-meta">#<span class="hljs-keyword">help</span>;;                                       // Display <span class="hljs-keyword">help</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">r</span> &quot;nuget:FSharp.Data, 3.1.2&quot;;;               // Load Nuget Package &#x27;FSharp.Data&#x27; version &#x27;3.1.2&#x27;</span>
+<span class="hljs-meta">#<span class="hljs-keyword">r</span> &quot;nuget:FSharp.Data&quot;;;                      // Load Nuget Package &#x27;FSharp.Data&#x27; with the highest version</span>
+<span class="hljs-meta">#<span class="hljs-keyword">quit</span>;;</span>

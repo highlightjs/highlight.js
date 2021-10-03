@@ -1,0 +1,56 @@
+<span class="hljs-comment">// Different definitions of strings and character literals,</span>
+<span class="hljs-comment">// some with prefixes and suffixes (not all are currently highlighted)</span>
+
+<span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-string">&quot;fo\&quot;o&quot;</span>
+<span class="hljs-string">&quot;foo\
+bar&quot;</span>
+<span class="hljs-string">&quot;foo&quot;</span>B
+
+<span class="hljs-string">@&quot;&quot;</span>
+<span class="hljs-string">@&quot;foo&quot;</span>
+<span class="hljs-string">@&quot;fo&quot;&quot;o&quot;</span>
+<span class="hljs-string">@&quot;foo&quot;</span>B
+
+<span class="hljs-string">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="hljs-string">&quot;&quot;&quot;fo&quot;&quot;o&quot;
+bar&quot;&quot;&quot;</span>
+<span class="hljs-string">&quot;&quot;&quot;foo&quot;&quot;&quot;</span>B
+
+<span class="hljs-string">&#x27;a&#x27;</span>
+<span class="hljs-string">&#x27;a&#x27;</span>B
+<span class="hljs-string">&#x27;\&#x27;&#x27;</span>
+<span class="hljs-string">&#x27;\\&#x27;</span>
+<span class="hljs-string">&#x27;\231&#x27;</span>
+<span class="hljs-string">&#x27;\x41&#x27;</span>
+<span class="hljs-string">&#x27;\u0041&#x27;</span>
+<span class="hljs-string">&#x27;\U0001F47D&#x27;</span>
+
+$<span class="hljs-string">&quot;{1+1}&quot;</span>
+
+<span class="hljs-string">&quot;&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&quot;fo\&quot;o&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&quot;foo\ // part of the string
+bar&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&quot;foo&quot;</span>B <span class="hljs-comment">// end</span>
+
+<span class="hljs-string">@&quot;&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">@&quot;foo&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">@&quot;fo&quot;&quot;o&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">@&quot;foo&quot;</span>B <span class="hljs-comment">// end</span>
+
+<span class="hljs-string">&quot;&quot;&quot;&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&quot;&quot;&quot;fo&quot;&quot;o&quot; // part of the string
+bar&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&quot;&quot;&quot;foo&quot;&quot;&quot;</span>B <span class="hljs-comment">// end</span>
+
+<span class="hljs-string">&#x27;a&#x27;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&#x27;a&#x27;</span>B <span class="hljs-comment">// end</span>
+<span class="hljs-string">&#x27;\&#x27;&#x27;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&#x27;\\&#x27;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&#x27;\231&#x27;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&#x27;\x41&#x27;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&#x27;\u0041&#x27;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">&#x27;\U0001F47D&#x27;</span> <span class="hljs-comment">// end</span>
+
+$<span class="hljs-string">&quot;{1+1}&quot;</span> <span class="hljs-comment">// end</span>

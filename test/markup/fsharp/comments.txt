@@ -3,6 +3,15 @@
 (*
     here is a multi-line comment on
     multiple lines
+
+trying to break it:
+(**)
+/*
+asdf
+*/
+
+(* *)
+
 *)
 
 let index =
@@ -11,4 +20,25 @@ let index =
     |> Operators.(*) 0.1      // (*) here is not comment
     |> Operators.(+) 1        // (+) here is not comment
     |> Operators.(-) len      // (-) here is not comment
-;;
+
+
+// foobar
+//bar
+(**)
+(*nospace*)
+(* space *)
+/// <summary>
+/// Class level summary documentation goes here.
+/// </summary>
+/// <remarks>
+/// Longer comments can be associated with a type or member through
+/// the remarks tag.
+/// </remarks>
+let x = ()
+
+// the next one is not a comment
+(*) (*)
+
+/*
+this one is not a valid comment either
+*/

@@ -1,20 +1,24 @@
 /*
 Language: F#
 Author: Jonas Follesø <jonas@follesoe.no>
-Contributors: Troy Kershaw <hello@troykershaw.com>, Henrik Feldt <henrik@haf.se>
+Contributors: Troy Kershaw <hello@troykershaw.com>, Henrik Feldt <henrik@haf.se>, Melvyn Laïly <melvyn.laily@gmail.com>
 Website: https://docs.microsoft.com/en-us/dotnet/fsharp/
 Category: functional
 */
 
 /** @type LanguageFn */
 export default function(hljs) {
+
+  const GENERICTYPESYMBOL = {
+    begin: /('|\^)[a-zA-Z0-9_]+/,
+    scope: 'symbol'
+  };
+  
   const TYPEPARAM = {
     begin: '<',
     end: '>',
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {
-        begin: /'[a-zA-Z0-9_]+/
-      })
+      GENERICTYPESYMBOL
     ]
   };
 
@@ -39,6 +43,7 @@ export default function(hljs) {
     "extern",
     "false",
     "finally",
+    "fixed",
     "for",
     "fun",
     "function",
@@ -57,6 +62,7 @@ export default function(hljs) {
     "mutable",
     "namespace",
     "new",
+    "not",
     "null",
     "of",
     "open",
@@ -66,7 +72,6 @@ export default function(hljs) {
     "public",
     "rec",
     "return",
-    "sig",
     "static",
     "struct",
     "then",
@@ -94,30 +99,21 @@ export default function(hljs) {
     illegal: /\/\*/,
     contains: [
       {
-        // monad builder keywords (matches before non-bang kws)
-        className: 'keyword',
-        begin: /\b(yield|return|let|do)!/
+        // monad builder keywords (matches before non-bang keywords)
+        scope: 'keyword',
+        match: /\b(yield|return|let|do|match|use)!/
       },
       {
-        className: 'string',
-        begin: '@"',
-        end: '"',
-        contains: [
-          {
-            begin: '""'
-          }
-        ]
+        scope: 'string',
+        // matches triple quote strings, verbatim strings (@""), character literals...
+        match: /(?:"""[\s\S]*?"""|@"(?:""|[^"])*"|"(?:\\[\s\S]|[^\\"])*")|'(?:[^\\']|\\(?:.|\d{3}|x[a-fA-F\d]{2}|u[a-fA-F\d]{4}|U[a-fA-F\d]{8}))'/
       },
-      {
-        className: 'string',
-        begin: '"""',
-        end: '"""'
-      },
-      hljs.COMMENT('\\(\\*(\\s)', '\\*\\)', {
+      hljs.COMMENT(/\(\*(?!\))/, /\*\)/, {
         contains: ["self"]
       }),
       {
-        className: 'class',
+        // type definitions:
+        scope: 'title.class',
         beginKeywords: 'type',
         end: '\\(|=|$',
         excludeEnd: true,
@@ -127,20 +123,47 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'meta',
-        begin: '\\[<',
-        end: '>\\]',
-        relevance: 10
+        // computation expressions:
+        beginScope: "emphasis",
+        match: /\b[_a-z]\w*(?=\s*\{)/i
       },
       {
-        className: 'symbol',
-        begin: '\\B(\'[A-Za-z])\\b',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        // preprocessor directives and fsi commands:
+        scope: 'meta',
+        begin: '#',
+        end: '$',
+        keywords: {
+          keyword: 'if else endif line nowarn light r i I load time help quit'
+        }
       },
+      {
+        // [<Attributes("")>]
+        scope: 'meta',
+        begin: /^\s*\[<(?=[<\w])/,
+        excludeBegin: true,
+        end: />\]/,
+        excludeEnd: true,
+        relevance: 10,
+        contains: [
+          {
+            scope: 'string',
+            begin: /"/,
+            end: /"/
+          },
+          hljs.C_NUMBER_MODE
+        ]
+      },
+      {
+        scope: 'operator',
+        // only non arithmetic operators that we can confidently match:
+        match: /\|{1,3}>|<\|{1,3}|->|<-|(?<!<)<<(?!<)|(?<!>)>>(?!>)|:>|:\?>?|\.\.|::|(?<!\|)\|(?!\|)/
+      },
+      GENERICTYPESYMBOL,
       hljs.C_LINE_COMMENT_MODE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, {
         illegal: null
       }),
+      hljs.BINARY_NUMBER_MODE,
       hljs.C_NUMBER_MODE
     ]
   };

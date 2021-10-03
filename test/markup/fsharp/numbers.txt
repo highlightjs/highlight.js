@@ -1,0 +1,40 @@
+// There are multiple ways to write numbers.
+// Suffixes are currently not highlighted...
+
+0xbabe
+0xBABEun
+0xflf
+0xfLF
+
+0b1001
+0b1001y
+0b1001uy
+
+42
+1.5
+2.3E+32
+2.3e-32
+4.14F
+4.14f
+0.7833M
+0.7833m
+
+86y
+86uy
+86s
+86us
+86l
+86u
+86ul
+86L
+86UL
+9999999999999999999999999999I
+
+// Distance, meters.
+[<Measure>] type m
+// Time, seconds.
+[<Measure>] type s
+
+let v1 = 3.1<m/s>
+let x1 = 1.2<m>
+let t1 = 1.0<s>

@@ -1,0 +1,40 @@
+<span class="hljs-comment">// There are multiple ways to write numbers.</span>
+<span class="hljs-comment">// Suffixes are currently not highlighted...</span>
+
+<span class="hljs-number">0xbabe</span>
+<span class="hljs-number">0xBABE</span>un
+<span class="hljs-number">0xf</span>lf
+<span class="hljs-number">0xf</span>LF
+
+<span class="hljs-number">0b1001</span>
+<span class="hljs-number">0b1001</span>y
+<span class="hljs-number">0b1001</span>uy
+
+<span class="hljs-number">42</span>
+<span class="hljs-number">1.5</span>
+<span class="hljs-number">2.3E+32</span>
+<span class="hljs-number">2.3e-32</span>
+<span class="hljs-number">4.14</span>F
+<span class="hljs-number">4.14</span>f
+<span class="hljs-number">0.7833</span>M
+<span class="hljs-number">0.7833</span>m
+
+<span class="hljs-number">86</span>y
+<span class="hljs-number">86</span>uy
+<span class="hljs-number">86</span>s
+<span class="hljs-number">86</span>us
+<span class="hljs-number">86</span>l
+<span class="hljs-number">86</span>u
+<span class="hljs-number">86</span>ul
+<span class="hljs-number">86</span>L
+<span class="hljs-number">86</span>UL
+<span class="hljs-number">9999999999999999999999999999</span>I
+
+<span class="hljs-comment">// Distance, meters.</span>
+[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-title class_"><span class="hljs-keyword">type</span> <span class="hljs-title">m</span></span>
+<span class="hljs-comment">// Time, seconds.</span>
+[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-title class_"><span class="hljs-keyword">type</span> <span class="hljs-title">s</span></span>
+
+<span class="hljs-keyword">let</span> v1 = <span class="hljs-number">3.1</span>&lt;m/s&gt;
+<span class="hljs-keyword">let</span> x1 = <span class="hljs-number">1.2</span>&lt;m&gt;
+<span class="hljs-keyword">let</span> t1 = <span class="hljs-number">1.0</span>&lt;s&gt;

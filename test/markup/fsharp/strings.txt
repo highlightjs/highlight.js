@@ -1,0 +1,56 @@
+// Different definitions of strings and character literals,
+// some with prefixes and suffixes (not all are currently highlighted)
+
+""
+"fo\"o"
+"foo\
+bar"
+"foo"B
+
+@""
+@"foo"
+@"fo""o"
+@"foo"B
+
+""""""
+"""fo""o"
+bar"""
+"""foo"""B
+
+'a'
+'a'B
+'\''
+'\\'
+'\231'
+'\x41'
+'\u0041'
+'\U0001F47D'
+
+$"{1+1}"
+
+"" // end
+"fo\"o" // end
+"foo\ // part of the string
+bar" // end
+"foo"B // end
+
+@"" // end
+@"foo" // end
+@"fo""o" // end
+@"foo"B // end
+
+"""""" // end
+"""fo""o" // part of the string
+bar""" // end
+"""foo"""B // end
+
+'a' // end
+'a'B // end
+'\'' // end
+'\\' // end
+'\231' // end
+'\x41' // end
+'\u0041' // end
+'\U0001F47D' // end
+
+$"{1+1}" // end
