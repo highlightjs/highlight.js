@@ -3,7 +3,7 @@
   Author: Carlo Abelli
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Version: 2021.05.0
+  Version: 2021.09.0
 */
 
 /*
@@ -49,8 +49,10 @@ code.hljs {
   background: #f5f0e7;
 }
 
+.hljs::selection,
 .hljs ::selection {
-  color: #d8d4cb;
+  background-color: #d8d4cb;
+  color: #43474e;
 }
 
 

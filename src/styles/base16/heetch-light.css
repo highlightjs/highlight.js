@@ -3,7 +3,7 @@
   Author: Geoffrey Teale (tealeg@gmail.com)
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Version: 2021.05.0
+  Version: 2021.09.0
 */
 
 /*
@@ -49,8 +49,10 @@ code.hljs {
   background: #feffff;
 }
 
+.hljs::selection,
 .hljs ::selection {
-  color: #7b6d8b;
+  background-color: #7b6d8b;
+  color: #5a496e;
 }
 
 
