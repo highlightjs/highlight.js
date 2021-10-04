@@ -1,3 +1,16 @@
+#if foo
+#else
+#endif
+
+#light
+#line
+#nowarn
+
+  #if DEBUG // whitespace is allowed before
+let x = 0 #if DEBUG // but the preprocessor directive must be the first non-whitespace
+
+#IF asdf // should not match wrongly cased keywords
+#iftest // should not match
 
 #r "file.dll";;                               // Reference (dynamically load) the given DLL
 #i "package source uri";;                     // Include package source uri when searching for packages

@@ -1,24 +1,31 @@
 <span class="hljs-comment">// Primarily testing for generic parameters highlighting...</span>
 
-<span class="hljs-title class_"><span class="hljs-keyword">type</span> <span class="hljs-title">Ref</span>&lt;<span class="hljs-symbol">&#x27;a</span>&gt; </span>=
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Ref</span>&lt;<span class="hljs-symbol">&#x27;a</span>&gt; =
 { <span class="hljs-keyword">mutable</span> contents: <span class="hljs-symbol">&#x27;a</span> }
 
-<span class="hljs-title class_"><span class="hljs-keyword">type</span> <span class="hljs-title">Bla</span>&lt;<span class="hljs-symbol">&#x27;a</span>&gt; </span>= {X: string}
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Bla</span>&lt;<span class="hljs-symbol">&#x27;a</span>&gt; = {X: <span class="hljs-type">string</span>}
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Blah</span>&lt;
+         <span class="hljs-symbol">&#x27;a</span>
+         &gt; = { x: <span class="hljs-symbol">&#x27;a</span> }
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Blah</span> &lt;
+          <span class="hljs-symbol">&#x27;a</span>
+          &gt; = { x: <span class="hljs-symbol">&#x27;a</span> }
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Bla</span>  &lt;<span class="hljs-symbol">&#x27;a</span>&gt; = {X: <span class="hljs-type">string</span>}
 <span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> asdf x: Bla&lt;<span class="hljs-symbol">&#x27;a</span>&gt; = {X = <span class="hljs-string">&quot;&quot;</span>}
 
 <span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> asdf x: Bla&lt;<span class="hljs-symbol">^a</span>&gt; = {X = <span class="hljs-string">&quot;&quot;</span>}
 <span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> asdf x: Bla&lt; <span class="hljs-symbol">^a</span> &gt; = {X = <span class="hljs-string">&quot;&quot;</span>}
 
-<span class="hljs-keyword">let</span> genericSumUnits ( x : float&lt;<span class="hljs-symbol">&#x27;u</span>&gt;) (y: float&lt;<span class="hljs-symbol">&#x27;u</span>&gt;) = x + y
+<span class="hljs-keyword">let</span> genericSumUnits ( x : <span class="hljs-type">float</span>&lt;<span class="hljs-symbol">&#x27;u</span>&gt;) (y: <span class="hljs-type">float</span>&lt;<span class="hljs-symbol">&#x27;u</span>&gt;) = x + y
 
 <span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> konst x _ = x
 
-<span class="hljs-title class_"><span class="hljs-keyword">type</span> <span class="hljs-title">CFunctor</span></span>() =
-    <span class="hljs-keyword">static</span> <span class="hljs-keyword">member</span> <span class="hljs-keyword">inline</span> fmap (f: <span class="hljs-symbol">^a</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">^b</span>, a: <span class="hljs-symbol">^a</span> list) = List.map f a
-    <span class="hljs-keyword">static</span> <span class="hljs-keyword">member</span> <span class="hljs-keyword">inline</span> fmap (f: <span class="hljs-symbol">^a</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">^b</span>, a: <span class="hljs-symbol">^a</span> option) =
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">CFunctor</span>() =
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">member</span> <span class="hljs-keyword">inline</span> fmap (f: <span class="hljs-symbol">^a</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">^b</span>, a: <span class="hljs-symbol">^a</span> <span class="hljs-type">list</span>) = List.map f a
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">member</span> <span class="hljs-keyword">inline</span> fmap (f: <span class="hljs-symbol">^a</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">^b</span>, a: <span class="hljs-symbol">^a</span> <span class="hljs-type">option</span>) =
         <span class="hljs-keyword">match</span> a <span class="hljs-keyword">with</span>
-        <span class="hljs-operator">|</span> None <span class="hljs-operator">-&gt;</span> None
-        <span class="hljs-operator">|</span> Some x <span class="hljs-operator">-&gt;</span> Some (f x)
+        <span class="hljs-operator">|</span> <span class="hljs-literal">None</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-literal">None</span>
+        <span class="hljs-operator">|</span> <span class="hljs-literal">Some</span> x <span class="hljs-operator">-&gt;</span> <span class="hljs-literal">Some</span> (f x)
 
     <span class="hljs-comment">// default implementation of replace</span>
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">member</span> <span class="hljs-keyword">inline</span> replace&lt; <span class="hljs-symbol">^a</span>, <span class="hljs-symbol">^b</span>, <span class="hljs-symbol">^c</span>, <span class="hljs-symbol">^d</span>, <span class="hljs-symbol">^e</span> <span class="hljs-keyword">when</span> <span class="hljs-symbol">^a</span> <span class="hljs-operator">:&gt;</span> CFunctor <span class="hljs-keyword">and</span> (<span class="hljs-symbol">^a</span> <span class="hljs-keyword">or</span> <span class="hljs-symbol">^d</span>): (<span class="hljs-keyword">static</span> <span class="hljs-keyword">member</span> fmap: (<span class="hljs-symbol">^b</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">^c</span>) * <span class="hljs-symbol">^d</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">^e</span>) &gt; (a, f) =

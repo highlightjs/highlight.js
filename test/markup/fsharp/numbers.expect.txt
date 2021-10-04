@@ -31,9 +31,9 @@
 <span class="hljs-number">9999999999999999999999999999</span>I
 
 <span class="hljs-comment">// Distance, meters.</span>
-[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-title class_"><span class="hljs-keyword">type</span> <span class="hljs-title">m</span></span>
+[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-keyword">type</span> <span class="hljs-title class_">m</span>
 <span class="hljs-comment">// Time, seconds.</span>
-[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-title class_"><span class="hljs-keyword">type</span> <span class="hljs-title">s</span></span>
+[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-keyword">type</span> <span class="hljs-title class_">s</span>
 
 <span class="hljs-keyword">let</span> v1 = <span class="hljs-number">3.1</span>&lt;m/s&gt;
 <span class="hljs-keyword">let</span> x1 = <span class="hljs-number">1.2</span>&lt;m&gt;

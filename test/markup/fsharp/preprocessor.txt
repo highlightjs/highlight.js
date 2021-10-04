@@ -1,7 +1,0 @@
-#if foo
-#else
-#endif
-
-#light
-#line
-#nowarn

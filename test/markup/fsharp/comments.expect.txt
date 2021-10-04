@@ -16,7 +16,7 @@ asdf
 
 <span class="hljs-keyword">let</span> index =
     len
-    <span class="hljs-operator">|&gt;</span> float
+    <span class="hljs-operator">|&gt;</span> <span class="hljs-type">float</span>
     <span class="hljs-operator">|&gt;</span> Operators.(*) <span class="hljs-number">0.1</span>      <span class="hljs-comment">// (*) here is not comment</span>
     <span class="hljs-operator">|&gt;</span> Operators.(+) <span class="hljs-number">1</span>        <span class="hljs-comment">// (+) here is not comment</span>
     <span class="hljs-operator">|&gt;</span> Operators.(-) len      <span class="hljs-comment">// (-) here is not comment</span>
@@ -40,5 +40,5 @@ asdf
 (*) (*)
 
 /*
-this one is <span class="hljs-keyword">not</span> a valid comment either
+this one is <span class="hljs-built_in">not</span> a valid comment either
 */

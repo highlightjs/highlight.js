@@ -4,6 +4,13 @@ type Ref<'a> =
 { mutable contents: 'a }
 
 type Bla<'a> = {X: string}
+type Blah<
+         'a
+         > = { x: 'a }
+type Blah <
+          'a
+          > = { x: 'a }
+type Bla  <'a> = {X: string}
 let inline asdf x: Bla<'a> = {X = ""}
 
 let inline asdf x: Bla<^a> = {X = ""}
