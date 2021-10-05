@@ -152,7 +152,7 @@ export default function(hljs) {
         'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
         'zpty zregexparse zsocket zstyle ztcp ' +
         // GNU core utilities
-        'chcon chgrp chown chmod cp dd df dir dircolors install ln ls mkdir mkfifo mknod mktemp mv realpath ' +
+        'chcon chgrp chown chmod cp dd df dir dircolors ln ls mkdir mkfifo mknod mktemp mv realpath ' +
         'rm rmdir shred sync touch truncate vdir b2sum base32 base64 cat cksum comm csplit cut expand ' +
         'fmt fold head join md5sum nl numfmt od paste ptx pr sha1sum sha224sum sha256sum sha384sum sha512sum ' +
         'shuf sort split sum tac tail tr tsort unexpand uniq wc arch basename chroot date dirname du echo ' +
