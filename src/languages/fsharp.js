@@ -151,7 +151,7 @@ export default function(hljs) {
     "outref",
     "voidptr"
   ];
-  
+
   const BUILTINS = [
     // Somewhat arbitrary list of builtin functions and values.
     // Most of them are declared in Microsoft.FSharp.Core
@@ -209,21 +209,20 @@ export default function(hljs) {
   // "..."
   const QUOTED_STRING = {
     scope: 'string',
-    begin: '"',
-    end: '"',
+    begin: /"/,
+    end: /"/,
     contains: [
       hljs.BACKSLASH_ESCAPE
-    ],
-    relevance: 0
+    ]
   };
   // @"..."
   const VERBATIM_STRING = {
     scope: 'string',
-    begin: '@"',
-    end: '"',
+    begin: /@"/,
+    end: /"/,
     contains: [
       {
-        match: '""'
+        match: /""/
       },
       hljs.BACKSLASH_ESCAPE
     ]
@@ -231,8 +230,8 @@ export default function(hljs) {
   //"""..."""
   const TRIPLE_QUOTED_STRING = {
     scope: 'string',
-    begin: '"""',
-    end: '"""',
+    begin: /"""/,
+    end: /"""/,
     relevance: 2
   };
   const SUBST = {
@@ -244,7 +243,7 @@ export default function(hljs) {
   const INTERPOLATED_STRING = {
     scope: 'string',
     begin: /\$"/,
-    end: '"',
+    end: /"/,
     contains: [
       {
         match: /\{\{/
@@ -260,7 +259,7 @@ export default function(hljs) {
   const INTERPOLATED_VERBATIM_STRING = {
     scope: 'string',
     begin: /(\$@|@\$)"/,
-    end: '"',
+    end: /"/,
     contains: [
       {
         match: /\{\{/
@@ -269,7 +268,7 @@ export default function(hljs) {
         match: /\}\}/
       },
       {
-        match: '""'
+        match: /""/
       },
       hljs.BACKSLASH_ESCAPE,
       SUBST
@@ -278,8 +277,8 @@ export default function(hljs) {
   // $"""...{1+1}..."""
   const INTERPOLATED_TRIPLE_QUOTED_STRING = {
     scope: 'string',
-    begin: '$"""',
-    end: '"""',
+    begin: /$"""/,
+    end: /"""/,
     contains: [
       {
         match: /\{\{/
@@ -301,8 +300,7 @@ export default function(hljs) {
           /\\(?:.|\d{3}|x[a-fA-F\d]{2}|u[a-fA-F\d]{4}|U[a-fA-F\d]{8})/ // ...or an escape sequence
         ),
       /'/
-    ),
-    relevance: 0
+    )
   };
   SUBST.contains = [
     INTERPOLATED_VERBATIM_STRING,
@@ -364,8 +362,7 @@ export default function(hljs) {
           1: 'keyword',
           3: 'title.class'
         },
-        end: /\(|=|$/,
-        excludeEnd: true,
+        end: regex.lookahead(/\(|=|$/),
         contains: [
           GENERIC_TYPE_SYMBOL
         ]
@@ -386,17 +383,14 @@ export default function(hljs) {
           /\b/
         ],
         beginScope: { 2: 'meta' },
-        end: /\s|$/,
-        excludeEnd: true,
-        relevance: 0
+        end: regex.lookahead(/\s|$/)
       },
       {
         // [<Attributes("")>]
         scope: 'meta',
         begin: /^\s*\[<(?=[<\w])/,
         excludeBegin: true,
-        end: />\]/,
-        excludeEnd: true,
+        end: regex.lookahead(/>\]/),
         relevance: 2,
         contains: [
           {
@@ -410,33 +404,20 @@ export default function(hljs) {
       {
         // only non arithmetic operators that we can confidently match:
         scope: 'operator',
-        // split in two because we don't want the same relevance for all operators.
-        // warning: the order of the two modes is important, because |> collides with |
-        variants: [
-          {
-            // fsharp specific operators:
-            match: regex.either(
-              /\|{1,3}>/, // |> ||> |||>
-              /<\|{1,3}/, // <| <|| <|||
-              /(?<!<)<<(?!<)/, // << (but not < or <<<)
-              /(?<!>)>>(?!>)/, // >> (but not > or >>>)
-              /:>/,
-              /:\?>?/, // :?> :?
-            ),
-            relevance: 2
-          },
-          {
-            // operators common to many languages:
-            match: regex.either(
-              /->/,
-              /<-/,
-              /\.\./,
-              /::/,
-              /(?<!\|)\|(?!\|)/ // | (but not || or |||)
-              ),
-              relevance: 0
-          }
-        ]
+        match: regex.either(
+          /\|{1,3}>/, // |> ||> |||>
+          /<\|{1,3}/, // <| <|| <|||
+          /(?<!<)<<(?!<)/, // << (but not < or <<<)
+          /(?<!>)>>(?!>)/, // >> (but not > or >>>)
+          /:>/,
+          /:\?>?/, // :?> :?
+          /->/,
+          /<-/,
+          /\.\./,
+          /::/,
+          /(?<!\|)\|(?!\|)/ // | (but not || or |||)
+        ),
+        relevance: 0
       },
       GENERIC_TYPE_SYMBOL,
       hljs.BINARY_NUMBER_MODE,
