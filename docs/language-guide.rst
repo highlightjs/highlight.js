@@ -293,7 +293,7 @@ Things we fully support now that we did not always:
 * look-ahead regex matching for `illegal` (#2135)
 * back-references within your regex matches (#1897)
 
-Things that technically would work, but we do not allow (because Safari does not support negative look-behind):
+Things that technically would work, but we do not allow (because Safari does not support look-behind):
 
 * look-behind matching for `begin` (#2135)
 
