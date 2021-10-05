@@ -122,6 +122,11 @@ export default function(hljs) {
     "false"
   ];
 
+  // to consume paths to prevent keyword matches inside them
+  const PATH_MODE = {
+    match: /(\/[a-z._-]+)+/
+  };
+
   return {
     name: 'Bash',
     aliases: ['sh'],
@@ -162,6 +167,7 @@ export default function(hljs) {
       ARITHMETIC,
       hljs.HASH_COMMENT_MODE,
       HERE_DOC,
+      PATH_MODE,
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,

@@ -8,7 +8,7 @@
       --group-add=<span class="hljs-variable">$groups</span> \
       neo4j:3.4</span>
 <span class="hljs-meta">&gt; </span><span class="language-bash">/bin/cat \.travis.yml\
- -b | head -n1</span>
+ -b | <span class="hljs-built_in">head</span> -n1</span>
      1	language: node_js
 <span class="hljs-meta">&gt; </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;hello&#x27;</span></span>
 hello
