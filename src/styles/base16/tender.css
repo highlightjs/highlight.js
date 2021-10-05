@@ -3,7 +3,7 @@
   Author: Jacobo Tabernero (https://github/com/jacoborus/tender.vim)
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Version: 2021.05.0
+  Version: 2021.09.0
 */
 
 /*
@@ -19,11 +19,11 @@
 base00  #282828  Default Background
 base01  #383838  Lighter Background (Used for status bars, line number and folding marks)
 base02  #484848  Selection Background
-base03  #1d1d1d  Comments, Invisibles, Line Highlighting
+base03  #4c4c4c  Comments, Invisibles, Line Highlighting
 base04  #b8b8b8  Dark Foreground (Used for status bars)
 base05  #eeeeee  Default Foreground, Caret, Delimiters, Operators
 base06  #e8e8e8  Light Foreground (Not often used)
-base07  #ffffff  Light Background (Not often used)
+base07  #feffff  Light Background (Not often used)
 base08  #f43753  Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 base09  #dc9656  Integers, Boolean, Constants, XML Attributes, Markup Link Url
 base0A  #ffc24b  Classes, Markup Bold, Search Text Background
@@ -49,8 +49,10 @@ code.hljs {
   background: #282828;
 }
 
+.hljs::selection,
 .hljs ::selection {
-  color: #484848;
+  background-color: #484848;
+  color: #eeeeee;
 }
 
 
@@ -60,9 +62,9 @@ code.hljs {
 .hljs-property
 {}
 
-/* base03 - #1d1d1d -  Comments, Invisibles, Line Highlighting */
+/* base03 - #4c4c4c -  Comments, Invisibles, Line Highlighting */
 .hljs-comment {
-  color: #1d1d1d;
+  color: #4c4c4c;
 }
 
 /* base04 - #b8b8b8 -  Dark Foreground (Used for status bars) */

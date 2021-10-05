@@ -9,6 +9,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
 | 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
+| ABAP                    | sap-abap, abap         |[highlight-sap-abap](https://github.com/highlightjs/highlightjs-sap-abap) |
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
