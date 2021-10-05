@@ -105,7 +105,10 @@ export default function(hljs) {
     "infinity",
     "infinityf",
     "nan",
-    "nanf",
+    "nanf"
+  ];
+
+  const SPECIAL_IDENTIFIERS = [
     "__LINE__",
     "__SOURCE_DIRECTORY__",
     "__SOURCE_FILE__"
@@ -192,12 +195,12 @@ export default function(hljs) {
     "failwithf"
   ];
 
-  // (* potentially multi-line ML style comment *)
+  // (* potentially multi-line Meta Language style comment *)
   const ML_COMMENT =
     hljs.COMMENT(/\(\*(?!\))/, /\*\)/, {
       contains: ["self"]
     });
-  // Either a multi-line (* ML style comment *) or a single line // C style comment.
+  // Either a multi-line (* Meta Language style comment *) or a single line // C style comment.
   const FSHARP_COMMENT = {
     variants: [
       ML_COMMENT,
@@ -340,9 +343,13 @@ export default function(hljs) {
       type: TYPES,
       keyword: KEYWORDS,
       literal: LITERALS,
-      built_in: BUILTINS
+      built_in: BUILTINS,
+      'variable.constant': SPECIAL_IDENTIFIERS
     },
     illegal: /\/\*/,
+    classNameAliases: {
+      'computation-expression': 'keyword'
+    },
     contains: [
       {
         // monad builder keywords (matches before non-bang keywords)
@@ -369,11 +376,8 @@ export default function(hljs) {
       },
       {
         // computation expressions:
-        begin: [
-            /\b[_a-z]\w*/,
-            /(?=\s*\{)/
-          ],
-        beginScope: { 1: 'keyword' }
+        beginScope: 'computation-expression',
+        match: /\b[_a-z]\w*(?=\s*\{)/
       },
       {
         // preprocessor directives and fsi commands:
@@ -388,7 +392,7 @@ export default function(hljs) {
       {
         // [<Attributes("")>]
         scope: 'meta',
-        begin: /^\s*\[<(?=[<\w])/,
+        begin: /^\s*\[</,
         excludeBegin: true,
         end: regex.lookahead(/>\]/),
         relevance: 2,
