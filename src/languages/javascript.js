@@ -28,11 +28,11 @@ export default function(hljs) {
     begin: '<>',
     end: '</>'
   };
+  // to avoid some special cases inside isTrulyOpeningTag
+  const XML_SELF_CLOSING = /<[A-Za-z0-9\\._:-]+\s*\/>/;
   const XML_TAG = {
     begin: /<[A-Za-z0-9\\._:-]+/,
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
-    // to avoid special cases inside isTrulyOpeningTag
-    simpleSelfClosing: /<[A-Za-z0-9\\._:-]+\s*\/>/,
     /**
      * @param {RegExpMatchArray} match
      * @param {CallbackResponse} response
@@ -68,11 +68,12 @@ export default function(hljs) {
       // `<From extends string>`
       // technically this could be HTML, but it smells like a type
       let m;
-      const afterMatch = match.input.substr(afterMatchIndex)
+      const afterMatch = match.input.substr(afterMatchIndex);
       // NOTE: This is ugh, but added specifically for https://github.com/highlightjs/highlight.js/issues/3276
-      if (m = afterMatch.match(/^\s+extends\s+/)) {
+      if ((m = afterMatch.match(/^\s+extends\s+/))) {
         if (m.index === 0) {
           response.ignoreMatch();
+          // eslint-disable-next-line no-useless-return
           return;
         }
       }
@@ -249,6 +250,25 @@ export default function(hljs) {
   // ES6 classes
   const CLASS_OR_EXTENDS = {
     variants: [
+      // class Car extends vehicle
+      {
+        match: [
+          /class/,
+          /\s+/,
+          IDENT_RE,
+          /\s+/,
+          /extends/,
+          /\s+/,
+          regex.concat(IDENT_RE, "(", regex.concat(/\./, IDENT_RE), ")*")
+        ],
+        scope: {
+          1: "keyword",
+          3: "title.class",
+          5: "keyword",
+          7: "title.class.inherited"
+        }
+      },
+      // class Car
       {
         match: [
           /class/,
@@ -260,20 +280,7 @@ export default function(hljs) {
           3: "title.class"
         }
       },
-      {
-        match: [
-          /class/,
-          /\s+/,
-          /extends/,
-          /\s+/,
-          regex.concat(IDENT_RE, "(", regex.concat(/\./, IDENT_RE), ")*")
-        ],
-        scope: {
-          1: "keyword",
-          3: "keyword",
-          5: "title.class.inherited"
-        }
-      }
+
     ]
   };
 
@@ -479,7 +486,7 @@ export default function(hljs) {
           { // JSX
             variants: [
               { begin: FRAGMENT.begin, end: FRAGMENT.end },
-              { match: XML_TAG.simpleSelfClosing },
+              { match: XML_SELF_CLOSING },
               {
                 begin: XML_TAG.begin,
                 // we carefully check the opening tag to see if it truly
