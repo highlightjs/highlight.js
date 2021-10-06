@@ -25,6 +25,8 @@ Grammars:
 - enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
 - enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
 - enh(bash) added gnu core utilities (#3342) [katzeprior][]
+- enh(nsis) add new NSIS commands (#3351) [idleberg][]
+- fix(nsis) set `case_insensitive` to `true` (#3351) [idleberg][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
