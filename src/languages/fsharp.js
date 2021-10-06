@@ -78,6 +78,12 @@ export default function(hljs) {
     "yield"
   ];
 
+  const BANG_KEYWORD_MODE = {
+    // monad builder keywords (matches before non-bang keywords)
+    scope: 'keyword',
+    match: /\b(yield|return|let|do|match|use)!/
+  };
+
   const PREPROCESSOR_KEYWORDS = [
     "if",
     "else",
@@ -195,6 +201,14 @@ export default function(hljs) {
     "failwithf"
   ];
 
+  const ALL_KEYWORDS = {
+    type: TYPES,
+    keyword: KEYWORDS,
+    literal: LITERALS,
+    built_in: BUILTINS,
+    'variable.constant': SPECIAL_IDENTIFIERS
+  };
+
   // (* potentially multi-line Meta Language style comment *)
   const ML_COMMENT =
     hljs.COMMENT(/\(\*(?!\))/, /\*\)/, {
@@ -208,7 +222,42 @@ export default function(hljs) {
     ]
   };
 
-  // All the following string definitions are potentially multi-line:
+  // 'a or ^a
+  const GENERIC_TYPE_SYMBOL = {
+    match: regex.concat(/('|\^)/, hljs.UNDERSCORE_IDENT_RE),
+    scope: 'symbol',
+    relevance: 0
+  };
+
+  const COMPUTATION_EXPRESSION = {
+    // computation expressions:
+    scope: 'computation-expression',
+    match: /\b[_a-z]\w*(?=\s*\{)/
+  };
+
+  const PREPROCESSOR = {
+    // preprocessor directives and fsi commands:
+    begin: [
+      /^\s*/,
+      regex.concat(/#/, regex.either(...PREPROCESSOR_KEYWORDS)),
+      /\b/
+    ],
+    beginScope: { 2: 'meta' },
+    end: regex.lookahead(/\s|$/)
+  };
+
+  // Note: this definition is missing support for type suffixes and octal notation.
+  // Known bug: range operator without any space is wrongly interpreted as a single number (e.g. 1..10 )
+  const FSHARP_NUMBER = {
+    variants: [
+      hljs.BINARY_NUMBER_MODE,
+      hljs.C_NUMBER_MODE
+    ]
+  };
+
+  // All the following string definitions are potentially multi-line.
+  // Note: these definitions are missing support for byte strings (suffixed with B)
+
   // "..."
   const QUOTED_STRING = {
     scope: 'string',
@@ -225,7 +274,7 @@ export default function(hljs) {
     end: /"/,
     contains: [
       {
-        match: /""/
+        match: /""/ // escaped "
       },
       hljs.BACKSLASH_ESCAPE
     ]
@@ -240,7 +289,8 @@ export default function(hljs) {
   const SUBST = {
     scope: 'subst',
     begin: /\{/,
-    end: /\}/
+    end: /\}/,
+    keywords: ALL_KEYWORDS
   };
   // $"...{1+1}..."
   const INTERPOLATED_STRING = {
@@ -249,10 +299,10 @@ export default function(hljs) {
     end: /"/,
     contains: [
       {
-        match: /\{\{/
+        match: /\{\{/ // escaped {
       },
       {
-        match: /\}\}/
+        match: /\}\}/ // escaped }
       },
       hljs.BACKSLASH_ESCAPE,
       SUBST
@@ -265,10 +315,10 @@ export default function(hljs) {
     end: /"/,
     contains: [
       {
-        match: /\{\{/
+        match: /\{\{/ // escaped {
       },
       {
-        match: /\}\}/
+        match: /\}\}/ // escaped }
       },
       {
         match: /""/
@@ -280,14 +330,14 @@ export default function(hljs) {
   // $"""...{1+1}..."""
   const INTERPOLATED_TRIPLE_QUOTED_STRING = {
     scope: 'string',
-    begin: /$"""/,
+    begin: /\$"""/,
     end: /"""/,
     contains: [
       {
-        match: /\{\{/
+        match: /\{\{/ // escaped {
       },
       {
-        match: /\}\}/
+        match: /\}\}/ // escaped }
       },
       SUBST
     ],
@@ -305,32 +355,33 @@ export default function(hljs) {
       /'/
     )
   };
+  // F# allows a lot of things inside string placeholders.
+  // Things that don't currently seem allowed by the compiler: types definition, attributes usage.
+  // (Strictly speaking, some of the followings are only allowed inside triple quoted interpolated strings...)
   SUBST.contains = [
     INTERPOLATED_VERBATIM_STRING,
     INTERPOLATED_STRING,
     VERBATIM_STRING,
-    FSHARP_CHAR_LITERAL,
     QUOTED_STRING,
-    hljs.C_NUMBER_MODE,
-    FSHARP_COMMENT
+    FSHARP_CHAR_LITERAL,
+    BANG_KEYWORD_MODE,
+    FSHARP_COMMENT,
+    COMPUTATION_EXPRESSION,
+    PREPROCESSOR,
+    FSHARP_NUMBER,
+    GENERIC_TYPE_SYMBOL
+    
   ];
   const FSHARP_STRING = {
     variants: [
       INTERPOLATED_TRIPLE_QUOTED_STRING,
       INTERPOLATED_VERBATIM_STRING,
       INTERPOLATED_STRING,
-      VERBATIM_STRING,
       TRIPLE_QUOTED_STRING,
+      VERBATIM_STRING,
       QUOTED_STRING,
       FSHARP_CHAR_LITERAL
     ]
-  };
-
-  // 'a or ^a
-  const GENERIC_TYPE_SYMBOL = {
-    match: regex.concat(/('|\^)/, hljs.UNDERSCORE_IDENT_RE),
-    scope: 'symbol',
-    relevance: 0
   };
 
   return {
@@ -339,23 +390,13 @@ export default function(hljs) {
       'fs',
       'f#'
     ],
-    keywords: {
-      type: TYPES,
-      keyword: KEYWORDS,
-      literal: LITERALS,
-      built_in: BUILTINS,
-      'variable.constant': SPECIAL_IDENTIFIERS
-    },
+    keywords: ALL_KEYWORDS,
     illegal: /\/\*/,
     classNameAliases: {
       'computation-expression': 'keyword'
     },
     contains: [
-      {
-        // monad builder keywords (matches before non-bang keywords)
-        scope: 'keyword',
-        match: /\b(yield|return|let|do|match|use)!/
-      },
+      BANG_KEYWORD_MODE,
       FSHARP_STRING,
       FSHARP_COMMENT,
       {
@@ -375,21 +416,6 @@ export default function(hljs) {
         ]
       },
       {
-        // computation expressions:
-        scope: 'computation-expression',
-        match: /\b[_a-z]\w*(?=\s*\{)/
-      },
-      {
-        // preprocessor directives and fsi commands:
-        begin: [
-          /^\s*/,
-          regex.concat(/#/, regex.either(...PREPROCESSOR_KEYWORDS)),
-          /\b/
-        ],
-        beginScope: { 2: 'meta' },
-        end: regex.lookahead(/\s|$/)
-      },
-      {
         // [<Attributes("")>]
         scope: 'meta',
         begin: /^\s*\[</,
@@ -402,12 +428,13 @@ export default function(hljs) {
             begin: /"/,
             end: /"/
           },
-          hljs.C_NUMBER_MODE
+          FSHARP_NUMBER
         ]
       },
-      GENERIC_TYPE_SYMBOL,
-      hljs.BINARY_NUMBER_MODE,
-      hljs.C_NUMBER_MODE
+      COMPUTATION_EXPRESSION,
+      PREPROCESSOR,
+      FSHARP_NUMBER,
+      GENERIC_TYPE_SYMBOL
     ]
   };
 }

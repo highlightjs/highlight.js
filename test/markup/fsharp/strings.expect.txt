@@ -71,45 +71,66 @@ string&quot;</span> <span class="hljs-comment">// end</span>
 string&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
 <span class="hljs-number">5</span>
 <span class="hljs-string">$&quot;interpola\ {{
-ted \&#x27; <span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
+ted \&#x27; <span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">6</span>
 <span class="hljs-string">$@&quot;interpolated &quot;&quot; \&#x27; {{
-verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
+verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">7</span>
 <span class="hljs-string">@$&quot;interpolated &quot;&quot; \&#x27; {{
-verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
+verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
-
-<span class="hljs-comment">// The following examples currently break the parsing,</span>
-<span class="hljs-comment">// because a quote in the string is wrongly interpreted</span>
-<span class="hljs-comment">// as the end of the (triple quoted) string.</span>
-
 <span class="hljs-number">8</span>
-<span class="hljs-string">$&quot;&quot;</span><span class="hljs-string">&quot;interpolated triple quoted &quot;</span> \&#x27; {{ { (<span class="hljs-built_in">sprintf</span> <span class="hljs-string">&quot;%d%s&quot;</span> <span class="hljs-number">42</span>)
+<span class="hljs-string">$&quot;&quot;&quot;interpolated triple quoted &quot; \&#x27; {{ <span class="hljs-subst">{ (<span class="hljs-built_in">sprintf</span> <span class="hljs-string">&quot;%d%s&quot;</span> <span class="hljs-number">42</span>)
+<span class="hljs-comment">// and &quot; and comments...</span>
+}</span>string&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">9</span>
+<span class="hljs-string">$&quot;&quot;&quot;test <span class="hljs-subst">{ <span class="hljs-string">@&quot;{it&#x27;s not a placeholder!}&quot;</span> }</span> asdf&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-number">10</span>
+<span class="hljs-string">$&quot;&quot;&quot;test <span class="hljs-subst">{ <span class="hljs-string">$&quot;but this is:<span class="hljs-subst">{<span class="hljs-number">1</span>+<span class="hljs-number">1</span>}</span>&quot;</span> }</span> asdf&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-number">11</span>
+<span class="hljs-string">$&quot;interpola\ {{
+ted \&#x27; <span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
+<span class="hljs-comment">// placeholders cannot contain &quot;</span>
+}</span>string&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">12</span>
+<span class="hljs-string">$@&quot;interpolated &quot;&quot; \&#x27; {{
+verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
+<span class="hljs-comment">// placeholders cannot contain &quot;</span>
+}</span>string&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">13</span>
+<span class="hljs-string">$&quot;&quot;&quot;interpolated triple quoted &quot; \&#x27; {{ <span class="hljs-subst">{ (<span class="hljs-built_in">sprintf</span> <span class="hljs-string">&quot;%d%s&quot;</span> <span class="hljs-number">42</span>) <span class="hljs-comment">// can contain &quot;</span>
 <span class="hljs-comment">// and comments...</span>
-}<span class="hljs-type">string</span><span class="hljs-string">&quot;&quot;&quot;  // end
-9
-$&quot;&quot;&quot;</span><span class="hljs-keyword">test</span> { <span class="hljs-string">@&quot;{it&#x27;s not a placeholder!}&quot;</span> } asdf<span class="hljs-string">&quot;&quot;&quot;  // end
-10
-$&quot;&quot;&quot;</span><span class="hljs-keyword">test</span> { <span class="hljs-string">$&quot;but this is:<span class="hljs-subst">{<span class="hljs-number">1</span>+<span class="hljs-number">1</span>}</span>&quot;</span> } asdf<span class="hljs-string">&quot;&quot;&quot;  // end
+}</span>string&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">14</span>
+<span class="hljs-keyword">let</span> <span class="hljs-type">list</span> = [<span class="hljs-number">1</span>]
+<span class="hljs-string">$&quot;&quot;&quot;test<span class="hljs-subst">{ <span class="hljs-type">list</span> |&gt; List.map (<span class="hljs-keyword">fun</span> x -&gt; x + <span class="hljs-number">1</span>) }</span>test&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">15</span>
+<span class="hljs-string">$&quot;test<span class="hljs-subst">{<span class="hljs-number">1</span> <span class="hljs-comment">(* &quot; Does it break the string? &quot; *)</span> }</span>test&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">16</span>
+<span class="hljs-string">$&quot;test\
+<span class="hljs-subst">{
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">42</span>  <span class="hljs-comment">// valid comment contains &quot; quote &quot; ...</span>
+    x <span class="hljs-comment">(* &quot; Does it break the string? &quot; *)</span> 
+}</span>test&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">17</span>
+<span class="hljs-string">$&quot;&quot;&quot;test
+<span class="hljs-subst">{
+    <span class="hljs-meta">#if</span> DEBUG
+    <span class="hljs-meta">#endif</span>
+    <span class="hljs-keyword">let</span> asdf = <span class="hljs-string">&quot;}&quot;</span> <span class="hljs-comment">// &quot;&quot;&quot; does it break?</span>
+    <span class="hljs-keyword">let</span> x = <span class="hljs-string">$@&quot;test<span class="hljs-subst">{<span class="hljs-number">2</span>+<span class="hljs-number">2</span> <span class="hljs-comment">(* &quot; what about double nesting? &quot; *)</span> }</span>test&quot;</span>
+    <span class="hljs-keyword">let</span> lit = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">let</span> x = <span class="hljs-keyword">unitTask</span> { <span class="hljs-keyword">return</span> () }</span>
+    asdf
+}test&quot;&quot;&quot;</span>
+<span class="hljs-number">18</span>
+<span class="hljs-keyword">let</span> <span class="hljs-type">list</span> = [<span class="hljs-number">1</span>]
+<span class="hljs-string">$&quot;&quot;&quot;test
+<span class="hljs-subst">{
+    <span class="hljs-keyword">let</span> asdf = <span class="hljs-string">&quot;}&quot;</span>
+    <span class="hljs-type">list</span> |&gt; List.map (<span class="hljs-keyword">fun</span> x -&gt; x + <span class="hljs-number">1</span>)
 
-// The following examples currently break the parsing,
-// because of the quote in the placeholder...
-
-11
-$&quot;interpola\ {{
-ted \&#x27; {1 + 1 // can contain comments in placeholders
-// placeholders cannot contain &quot;
-}string&quot;
-12
-$@&quot;interpolated &quot;&quot; \&#x27; {{
-verbatim{1 + 1 // can contain comments in placeholders
-// placeholders cannot contain &quot;
-}string&quot;
-13
-$&quot;&quot;&quot;</span>interpolated triple quoted <span class="hljs-string">&quot; \&#x27; {{ { (sprintf &quot;</span>%d%s<span class="hljs-string">&quot; 42) // can contain &quot;</span>
-<span class="hljs-comment">// and comments...</span>
-}<span class="hljs-type">string</span><span class="hljs-string">&quot;&quot;&quot;
-14</span>
+}</span>test&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-number">19</span>

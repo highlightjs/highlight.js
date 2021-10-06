@@ -71,45 +71,66 @@ string" // end
 string""" // end
 5
 $"interpola\ {{
-ted \' {1 + 1 // can contain comments in placeholders
+ted \' {1 + 1 // can contain comments and " in placeholders
 }string"  // end
 6
 $@"interpolated "" \' {{
-verbatim{1 + 1 // can contain comments in placeholders
+verbatim{1 + 1 // can contain comments and " in placeholders
 }string"  // end
 7
 @$"interpolated "" \' {{
-verbatim{1 + 1 // can contain comments in placeholders
+verbatim{1 + 1 // can contain comments and " in placeholders
 }string"  // end
-
-// The following examples currently break the parsing,
-// because a quote in the string is wrongly interpreted
-// as the end of the (triple quoted) string.
-
 8
 $"""interpolated triple quoted " \' {{ { (sprintf "%d%s" 42)
-// and comments...
+// and " and comments...
 }string"""  // end
 9
-$"""test { @"{it's not a placeholder!}" } asdf"""  // end
+$"""test { @"{it's not a placeholder!}" } asdf""" // end
 10
-$"""test { $"but this is:{1+1}" } asdf"""  // end
-
-// The following examples currently break the parsing,
-// because of the quote in the placeholder...
-
+$"""test { $"but this is:{1+1}" } asdf""" // end
 11
 $"interpola\ {{
 ted \' {1 + 1 // can contain comments in placeholders
 // placeholders cannot contain "
-}string"
+}string"  // end
 12
 $@"interpolated "" \' {{
 verbatim{1 + 1 // can contain comments in placeholders
 // placeholders cannot contain "
-}string"
+}string"  // end
 13
 $"""interpolated triple quoted " \' {{ { (sprintf "%d%s" 42) // can contain "
 // and comments...
-}string"""
+}string"""  // end
 14
+let list = [1]
+$"""test{ list |> List.map (fun x -> x + 1) }test"""  // end
+15
+$"test{1 (* " Does it break the string? " *) }test"  // end
+16
+$"test\
+{
+    let x = 42  // valid comment contains " quote " ...
+    x (* " Does it break the string? " *) 
+}test"  // end
+17
+$"""test
+{
+    #if DEBUG
+    #endif
+    let asdf = "}" // """ does it break?
+    let x = $@"test{2+2 (* " what about double nesting? " *) }test"
+    let lit = 0
+    let x = unitTask { return () }
+    asdf
+}test"""
+18
+let list = [1]
+$"""test
+{
+    let asdf = "}"
+    list |> List.map (fun x -> x + 1)
+
+}test"""  // end
+19

@@ -1,5 +1,3 @@
-// To simplify parsing and avoid a christmas tree effect,
-// only non-arithmetic operators that we can confidently match are currently highlighted.
 
  >=   <=   <>   >   <   =   +   -   *   /   %
  >=?  <=?  <>?  >?  <?  =?  +?  -?  *?  /?  %?
