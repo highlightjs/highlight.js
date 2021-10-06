@@ -262,13 +262,16 @@ export default function(hljs) {
       },
       {
         match: [
+          /class/,
+          /\s+/,
           /extends/,
           /\s+/,
           regex.concat(IDENT_RE, "(", regex.concat(/\./, IDENT_RE), ")*")
         ],
         scope: {
           1: "keyword",
-          3: "title.class.inherited"
+          3: "keyword",
+          5: "title.class.inherited"
         }
       }
     ]

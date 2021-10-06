@@ -39,7 +39,7 @@ export default function(hljs) {
     excludeEnd: true,
     keywords: {
       keyword: 'interface extends',
-      type: TYPES
+      built_in: TYPES
     },
     contains: [
       tsLanguage.exports.CLASS_REFERENCE
