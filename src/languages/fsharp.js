@@ -376,7 +376,7 @@ export default function(hljs) {
       },
       {
         // computation expressions:
-        beginScope: 'computation-expression',
+        scope: 'computation-expression',
         match: /\b[_a-z]\w*(?=\s*\{)/
       },
       {
@@ -404,24 +404,6 @@ export default function(hljs) {
           },
           hljs.C_NUMBER_MODE
         ]
-      },
-      {
-        // only non arithmetic operators that we can confidently match:
-        scope: 'operator',
-        match: regex.either(
-          /\|{1,3}>/, // |> ||> |||>
-          /<\|{1,3}/, // <| <|| <|||
-          /(?<!<)<<(?!<)/, // << (but not < or <<<)
-          /(?<!>)>>(?!>)/, // >> (but not > or >>>)
-          /:>/,
-          /:\?>?/, // :?> :?
-          /->/,
-          /<-/,
-          /\.\./,
-          /::/,
-          /(?<!\|)\|(?!\|)/ // | (but not || or |||)
-        ),
-        relevance: 0
       },
       GENERIC_TYPE_SYMBOL,
       hljs.BINARY_NUMBER_MODE,
