@@ -39,45 +39,24 @@
     }
 
     .visible-structure pre code span {
-      border: 1px dashed #777;
-      border-radius: 3px;
       display: inline-block;
-      margin-top: 1.4rem;
-      line-height: 1rem;
-      padding: 0 0.25rem;
-      position: relative;
+      padding:2px;
+      margin: 3px 0;
+      border: 1px dashed #777;
+      border-radius: 5px;
       white-space: pre;
     }
 
-    .visible-structure pre code span span {
-      margin-bottom: 5px;
-    }
-
     .visible-structure pre code span:before {
+      display: inline-block;
+      content: attr(data-klass);
+      font-size: 70%;
       background: #693;
-      border-radius: 2px;
+      padding:1px 5px;
+      border-radius: 3px;
       color:white;
-      content: attr(data-klass);
-      font-size: 70%;
-      left: 0;
-      line-height: 1;
-      padding: 0.2rem 0.25rem;
-      position: absolute;
-      top: 0;
-      transform: translate(0, -1.15rem);
-      white-space: nowrap;
-    }
-
-    .visible-structure pre code span:after {
-      /* this hidden element is for stretching the span
-         to be at least the width of the before pseudo element */
-      opacity: 0;
-      font-size: 70%;
-      content: attr(data-klass);
-      margin-top: -1rem;
-      position: relative;
-      left: -100%;
-      display: flex;
+      margin-right:0.5em;
+      font-weight: normal;
     }
   </style>
 </head>
