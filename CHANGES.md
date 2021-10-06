@@ -6,6 +6,8 @@ Parser:
 
 Grammars:
 
+- fix(ts) some complex types would classify as JSX (#3278) [Josh Goebel][]
+- fix(js/ts) less false positives for `class X extends Y` (#3278) [Josh Goebel][]
 - enh(go) better type highlighting, add `error` type [Josh Goebel][]
 - fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
