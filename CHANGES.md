@@ -25,6 +25,7 @@ Grammars:
 - enh(scala) add `inline` soft keyword (#3329) [Nicolas Stucki][]
 - enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
 - enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
+- enh(bash) added gnu core utilities (#3342) [katzeprior][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
@@ -34,6 +35,7 @@ Grammars:
 [Nicolas Stucki]: https://github.com/nicolasstucki
 [Bahnschrift]: https://github.com/Bahnschrift
 [Melvyn Laïly]: https://github.com/mlaily
+[katzeprior]: https://github.com/katzeprior
 
 
 ## Version 11.2.0
