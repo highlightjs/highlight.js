@@ -511,9 +511,7 @@ export default function(hljs) {
         }
       ),
       {
-        className: 'function',
-        beginKeywords: 'Function PageEx Section SectionGroup',
-        end: '$'
+        beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd',
       },
       STRING,
       COMPILER,
