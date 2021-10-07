@@ -40,7 +40,7 @@
 <span class="hljs-selector-tag">ul</span> {
     <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
     <span class="hljs-attribute">padding</span>: {
-        left: <span class="hljs-number">5px</span>; <span class="hljs-attribute">right</span>: <span class="hljs-number">5px</span>;
+        <span class="hljs-attribute">left</span>: <span class="hljs-number">5px</span>; <span class="hljs-attribute">right</span>: <span class="hljs-number">5px</span>;
     }
   <span class="hljs-selector-tag">li</span> {
       <span class="hljs-attribute">float</span>: left; <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">10px</span>;

@@ -976,6 +976,14 @@ const HLJS = function(hljs) {
   hljs.safeMode = function() { SAFE_MODE = true; };
   hljs.versionString = packageJSON.version;
 
+  hljs.regex = {
+    concat: regex.concat,
+    lookahead: regex.lookahead,
+    either: regex.either,
+    optional: regex.optional,
+    anyNumberOfTimes: regex.anyNumberOfTimes
+  };
+
   for (const key in MODES) {
     // @ts-ignore
     if (typeof MODES[key] === "object") {

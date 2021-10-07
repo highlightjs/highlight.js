@@ -6,10 +6,9 @@ Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started
 Category: common
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   /**
    * Character Literal
    * Either a single character ("a"C) or an escaped double quote (""""C).

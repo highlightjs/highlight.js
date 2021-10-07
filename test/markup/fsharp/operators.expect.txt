@@ -1,0 +1,28 @@
+
+ &gt;=   &lt;=   &lt;&gt;   &gt;   &lt;   =   +   -   *   /   %
+ &gt;=?  &lt;=?  &lt;&gt;?  &gt;?  &lt;?  =?  +?  -?  *?  /?  %?
+?&gt;=? ?&lt;=? ?&lt;&gt;? ?&gt;? ?&lt;? ?=? ?+? ?-? ?*? ?/? ?%?
+?&gt;=  ?&lt;=  ?&lt;&gt;  ?&gt;  ?&lt;  ?=  ?+  ?-  ?*  ?/  ?%
+
+**
+
+&lt;- -&gt;
+..
+::
+:&gt; :? :?&gt;
+&lt;&lt; &gt;&gt;
+&lt;&lt;&lt; &gt;&gt;&gt; ~~~ ^^^ &amp;&amp;&amp; |||
+| ||
+&lt;| &lt;|| &lt;|||
+|&gt; ||&gt; |||&gt;
+~~ ~- ~+
+
+? ^ !
+!= ==
+&amp; &amp;&amp;
+
+<span class="hljs-keyword">open</span> Microsoft.FSharp.Quotations
+<span class="hljs-comment">// A typed code quotation.</span>
+<span class="hljs-keyword">let</span> expr : Expr&lt;<span class="hljs-type">int</span>&gt; = &lt;@ <span class="hljs-number">1</span> + <span class="hljs-number">1</span> @&gt;
+<span class="hljs-comment">// An untyped code quotation.</span>
+<span class="hljs-keyword">let</span> expr2 : Expr = &lt;@@ <span class="hljs-number">1</span> + <span class="hljs-number">1</span> @@&gt;

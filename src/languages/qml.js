@@ -8,9 +8,8 @@ Website: https://doc.qt.io/qt-5/qmlapplications.html
 Category: scripting
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const KEYWORDS = {
     keyword:
       'in of on if for while finally var new function do return void else break catch ' +

@@ -7,10 +7,9 @@ Website: https://www.r-project.org
 Category: common,scientific
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   // Identifiers in R cannot start with `_`, but they can start with `.` if it
   // is not immediately followed by a digit.
   // R also supports quoted identifiers, which are near-arbitrary sequences

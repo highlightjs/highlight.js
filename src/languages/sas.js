@@ -4,10 +4,9 @@ Author: Mauricio Caceres <mauricio.caceres.bravo@gmail.com>
 Description: Syntax Highlighting for SAS
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   // Data step and PROC SQL statements
   const SAS_KEYWORDS = [
     "do",

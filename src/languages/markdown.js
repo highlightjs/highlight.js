@@ -6,9 +6,8 @@ Website: https://daringfireball.net/projects/markdown/
 Category: common, markup
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const INLINE_HTML = {
     begin: /<\/?[A-Za-z_]/,
     end: '>',
