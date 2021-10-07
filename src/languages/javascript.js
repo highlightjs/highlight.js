@@ -254,7 +254,15 @@ export default function(hljs) {
 
   const CLASS_REFERENCE = {
     relevance: 0,
-    match: /\b[A-Z][a-z]+([A-Z][a-z]+)*/,
+    match:
+    regex.either(
+      // Float32Array
+      /\b[A-Z][a-z]+([A-Z][a-z]+|\d+)*/,
+      // CSSFactory
+      /\b[A-Z]{2,}([A-Z][a-z]+|\d+)+/,
+      // BLAH
+      // this will be flagged as a UPPER_CASE_CONSTANT instead
+    ),
     className: "title.class",
     keywords: {
       _: [
