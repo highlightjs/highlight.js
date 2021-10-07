@@ -257,9 +257,9 @@ export default function(hljs) {
     match:
     regex.either(
       // Float32Array
-      /\b[A-Z][a-z]+([A-Z][a-z]+|\d+)*/,
+      /\b[A-Z][a-z]+([A-Z][a-z]+|\d)*/,
       // CSSFactory
-      /\b[A-Z]{2,}([A-Z][a-z]+|\d+)+/,
+      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+/,
       // BLAH
       // this will be flagged as a UPPER_CASE_CONSTANT instead
     ),
