@@ -75,8 +75,8 @@ export default function(hljs) {
       },
       // attribute values
       {
-        begin: ':',
-        end: '[;}]',
+        begin: /:/,
+        end: /[;}{]/,
         contains: [
           modes.BLOCK_COMMENT,
           modes.HEXCOLOR,

@@ -12,6 +12,8 @@ Parser:
 
 Grammars:
 
+- fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
+- fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
 - enh(go) better type highlighting, add `error` type [Josh Goebel][]
 - fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
