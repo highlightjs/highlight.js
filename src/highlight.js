@@ -13,6 +13,7 @@ import * as MODES from './lib/modes.js';
 import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
 import * as logger from "./lib/logger.js";
+import HTMLInjectionError from "./lib/html_injection_error.js";
 
 /**
 @typedef {import('highlight.js').Mode} Mode
@@ -65,6 +66,7 @@ const HLJS = function(hljs) {
   /** @type HLJSOptions */
   let options = {
     ignoreUnescapedHTML: false,
+    throwUnescapedHTML: false,
     noHighlightRe: /^(no-?highlight)$/i,
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
@@ -728,6 +730,13 @@ const HLJS = function(hljs) {
       console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
       console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
       console.warn(element);
+    }
+    if (options.throwUnescapedHTML) {
+      const err = new HTMLInjectionError(
+        "One of your code blocks includes unescaped HTML.",
+        element.innerHTML
+      );
+      throw err;
     }
 
     node = element;
