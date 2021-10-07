@@ -3,11 +3,20 @@
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
+- expose `regex` helper functions via `hljs` injection [Josh Goebel][]
+  - concat
+  - lookahead
+  - either
+  - optional
+  - anyNumberOfTimes
 
 Grammars:
 
 - fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
+- enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
+- enh(go) better type highlighting, add `error` type [Josh Goebel][]
+- fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
 - enh(css/less/stylus/scss) improve consistency of function dispatch (#3301) [Josh Goebel][]
 - enh(css/less/stylus/scss) detect block comments more fully (#3301) [Josh Goebel][]
@@ -15,11 +24,26 @@ Grammars:
 - fix(cpp) fix `xor_eq` keyword highlighting. [Denis Kovalchuk][]
 - enh(c,cpp) highlight type modifiers as type (#3316) [Josh Goebel][]
 - enh(css/less/stylus/scss) add support for CSS Grid properties [monochromer][]
+- enh(java) add support for Java Text Block (#3322) [Teletha][]
+- enh(scala) add missing `do` and `then` keyword (#3323) [Nicolas Stucki][]
+- enh(scala) add missing `enum`, `export` and `given` keywords (#3328) [Nicolas Stucki][]
+- enh(scala) remove symbol syntax and fix quoted code syntax (#3324) [Nicolas Stucki][]
+- enh(scala) add Scala 3 `extension` soft keyword (#3326) [Nicolas Stucki][]
+- enh(scala) add Scala 3 `end` soft keyword (#3327) [Nicolas Stucki][]
+- enh(scala) add `inline` soft keyword (#3329) [Nicolas Stucki][]
+- enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
+- enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
+- enh(bash) added gnu core utilities (#3342) [katzeprior][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
 [Denis Kovalchuk]: https://github.com/deniskovalchuk
 [monochromer]: https://github.com/monochromer
+[Teletha]: https://github.com/teletha
+[Nicolas Stucki]: https://github.com/nicolasstucki
+[Bahnschrift]: https://github.com/Bahnschrift
+[Melvyn Laïly]: https://github.com/mlaily
+[katzeprior]: https://github.com/katzeprior
 
 
 ## Version 11.2.0
@@ -34,7 +58,7 @@ Parser:
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 - fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
 - fix(verilog) Fix binary number false positives on `_` (#3283) [Josh Goebel][]
-- enh(verilog) `__FILE__` and __`LINE__` constants (#3283) [Josh Goebel][]
+- enh(verilog) `__FILE__` and `__LINE__` constants (#3283) [Josh Goebel][]
 - enh(verilog) tighten keyword regex (#3283) [Josh Goebel][]
 
 

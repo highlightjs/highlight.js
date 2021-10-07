@@ -1,0 +1,6 @@
+<span class="hljs-keyword">enum</span> <span class="hljs-type">Color</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Red</span>, <span class="hljs-type">Green</span>, <span class="hljs-type">Blue</span>
+
+<span class="hljs-keyword">enum</span> <span class="hljs-type">State</span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-type">On</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Off</span>

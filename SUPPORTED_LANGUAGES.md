@@ -9,6 +9,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
 | 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
+| ABAP                    | sap-abap, abap         |[highlight-sap-abap](https://github.com/highlightjs/highlightjs-sap-abap) |
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
@@ -53,13 +54,14 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Crystal                 | crystal, cr            |         |
 | Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
 | D                       | d                      |         |
-| DNS Zone file           | dns, zone, bind        |         |
-| DOS                     | dos, bat, cmd          |         |
+| Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
 | Dart                    | dart                   |         |
 | Delphi                  | dpr, dfm, pas, pascal  |         |
 | Diff                    | diff, patch            |         |
 | Django                  | django, jinja          |         |
+| DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
+| DOS                     | dos, bat, cmd          |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
 | Dust                    | dust, dst              |         |

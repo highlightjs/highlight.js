@@ -1,0 +1,41 @@
+def foo =
+  if (true)
+    ()
+  else
+    ()
+  end if
+
+  while true do
+    ()
+  end while
+
+  for x <- xs do
+    ()
+  end for
+
+  x match
+    case _ =>
+  end match
+end foo
+
+def bar =
+  new Foo:
+    def f = ()
+  end new
+end
+
+val baz =
+  ()
+end val
+
+var baz2 =
+  ()
+end var
+
+extension (x: Int)
+  def f = 1
+  def f = 2
+end extension
+
+class Foo:
+end Foo

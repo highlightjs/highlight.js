@@ -6,10 +6,9 @@ Website: https://developer.apple.com/library/archive/documentation/AppleScript/C
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const STRING = hljs.inherit(
     hljs.QUOTE_STRING_MODE, {
       illegal: null

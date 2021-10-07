@@ -8,7 +8,7 @@ EOF</span>
 
 jshell -s - &lt;&lt;&lt;<span class="hljs-string">&#x27;System.out.printf(&quot;Procs: %s%n&quot;, getdata())&#x27;</span>
 
-cat &lt;&lt;&lt; <span class="hljs-string">&#x27;$VARIABLE&#x27;</span>
-cat &lt;&lt;&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$VARIABLE</span>&quot;</span>
-cat &lt;&lt;&lt; <span class="hljs-variable">$VARIABLE</span>
-cat &lt;&lt;&lt; `<span class="hljs-variable">$VARIABLE</span>`
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-string">&#x27;$VARIABLE&#x27;</span>
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$VARIABLE</span>&quot;</span>
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-variable">$VARIABLE</span>
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; `<span class="hljs-variable">$VARIABLE</span>`

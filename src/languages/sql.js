@@ -20,9 +20,8 @@ SQL is intended to highlight basic/common SQL keywords and expressions
 
  */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const COMMENT_MODE = hljs.COMMENT('--', '$');
   const STRING = {
     className: 'string',

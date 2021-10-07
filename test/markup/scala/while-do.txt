@@ -1,0 +1,1 @@
+def f = while true do println("hello")

@@ -3,7 +3,7 @@
   Author: Gabriel Fontes (https://github.com/Misterio77)
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Version: 2021.05.0
+  Version: 2021.09.0
 */
 
 /*
@@ -49,8 +49,10 @@ code.hljs {
   background: #E9F1EF;
 }
 
+.hljs::selection,
 .hljs ::selection {
-  color: #90B7B6;
+  background-color: #90B7B6;
+  color: #385156;
 }
 
 

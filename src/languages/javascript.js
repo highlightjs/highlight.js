@@ -6,10 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 import * as ECMAScript from './lib/ecmascript.js';
-import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   /**
    * Takes a string like "<Booger" and checks to see
    * if we can find a matching "</Booger" later in the
@@ -189,7 +189,9 @@ export default function(hljs) {
     CSS_TEMPLATE,
     TEMPLATE_STRING,
     NUMBER,
-    hljs.REGEXP_MODE
+    // This is intentional:
+    // See https://github.com/highlightjs/highlight.js/issues/3288
+    // hljs.REGEXP_MODE
   ];
   SUBST.contains = SUBST_INTERNALS
     .concat({

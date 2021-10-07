@@ -5,10 +5,9 @@ Website: https://www.latex-project.org
 Category: markup
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const KNOWN_CONTROL_WORDS = regex.either(...[
       '(?:NeedsTeXFormat|RequirePackage|GetIdInfo)',
       'Provides(?:Expl)?(?:Package|Class|File)',

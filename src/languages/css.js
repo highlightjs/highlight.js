@@ -6,10 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 
 // @ts-ignore
 import * as css from "./lib/css-shared.js";
-import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const modes = css.MODES(hljs);
   const VENDOR_PREFIX = {
     begin: /-(webkit|moz|ms|o)-(?=[a-z])/

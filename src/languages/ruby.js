@@ -7,9 +7,8 @@ Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.
 Category: common
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
   const RUBY_KEYWORDS = {
     keyword:
