@@ -725,18 +725,24 @@ const HLJS = function(hljs) {
     fire("before:highlightElement",
       { el: element, language: language });
 
-    // we should be all text, no child nodes
-    if (!options.ignoreUnescapedHTML && element.children.length > 0) {
-      console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
-      console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
-      console.warn(element);
-    }
-    if (options.throwUnescapedHTML) {
-      const err = new HTMLInjectionError(
-        "One of your code blocks includes unescaped HTML.",
-        element.innerHTML
-      );
-      throw err;
+    // we should be all text, no child nodes (unescaped HTML) - this is possibly
+    // and HTML injection attack - it's likely too late if this is already in
+    // production (the code has likely already done it's damage by the time
+    // we're seeing it)... but we yell loudly about this so that hopefully it's
+    // more likely to be caught in development before making it to production
+    if (element.children.length > 0) {
+      if (!options.ignoreUnescapedHTML) {
+        console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
+        console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
+        console.warn(element);
+      }
+      if (options.throwUnescapedHTML) {
+        const err = new HTMLInjectionError(
+          "One of your code blocks includes unescaped HTML.",
+          element.innerHTML
+        );
+        throw err;
+      }
     }
 
     node = element;
