@@ -10,7 +10,6 @@ import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
-
   const KEYWORDS = [
     "abstract",
     "and",
@@ -30,7 +29,7 @@ export default function(hljs) {
     "end",
     "exception",
     "extern",
-    //"false", // literal
+    // "false", // literal
     "finally",
     "fixed",
     "for",
@@ -51,8 +50,8 @@ export default function(hljs) {
     "mutable",
     "namespace",
     "new",
-    //"not", // built_in
-    //"null", // literal
+    // "not", // built_in
+    // "null", // literal
     "of",
     "open",
     "or",
@@ -65,7 +64,7 @@ export default function(hljs) {
     "struct",
     "then",
     "to",
-    //"true", // literal
+    // "true", // literal
     "try",
     "type",
     "upcast",
@@ -215,7 +214,7 @@ export default function(hljs) {
       contains: ["self"]
     });
   // Either a multi-line (* Meta Language style comment *) or a single line // C style comment.
-  const FSHARP_COMMENT = {
+  const COMMENT = {
     variants: [
       ML_COMMENT,
       hljs.C_LINE_COMMENT_MODE,
@@ -246,9 +245,9 @@ export default function(hljs) {
     end: regex.lookahead(/\s|$/)
   };
 
-  // Note: this definition is missing support for type suffixes and octal notation.
-  // Known bug: range operator without any space is wrongly interpreted as a single number (e.g. 1..10 )
-  const FSHARP_NUMBER = {
+  // TODO: this definition is missing support for type suffixes and octal notation.
+  // BUG: range operator without any space is wrongly interpreted as a single number (e.g. 1..10 )
+  const NUMBER = {
     variants: [
       hljs.BINARY_NUMBER_MODE,
       hljs.C_NUMBER_MODE
@@ -256,7 +255,7 @@ export default function(hljs) {
   };
 
   // All the following string definitions are potentially multi-line.
-  // Note: these definitions are missing support for byte strings (suffixed with B)
+  // BUG: these definitions are missing support for byte strings (suffixed with B)
 
   // "..."
   const QUOTED_STRING = {
@@ -279,7 +278,7 @@ export default function(hljs) {
       hljs.BACKSLASH_ESCAPE
     ]
   };
-  //"""..."""
+  // """..."""
   const TRIPLE_QUOTED_STRING = {
     scope: 'string',
     begin: /"""/,
@@ -344,14 +343,14 @@ export default function(hljs) {
     relevance: 2
   };
   // '.'
-  const FSHARP_CHAR_LITERAL = {
+  const CHAR_LITERAL = {
     scope: 'string',
     match: regex.concat(
       /'/,
       regex.either(
-          /[^\\']/, // either a single non escaped char...
-          /\\(?:.|\d{3}|x[a-fA-F\d]{2}|u[a-fA-F\d]{4}|U[a-fA-F\d]{8})/ // ...or an escape sequence
-        ),
+        /[^\\']/, // either a single non escaped char...
+        /\\(?:.|\d{3}|x[a-fA-F\d]{2}|u[a-fA-F\d]{4}|U[a-fA-F\d]{8})/ // ...or an escape sequence
+      ),
       /'/
     )
   };
@@ -363,16 +362,15 @@ export default function(hljs) {
     INTERPOLATED_STRING,
     VERBATIM_STRING,
     QUOTED_STRING,
-    FSHARP_CHAR_LITERAL,
+    CHAR_LITERAL,
     BANG_KEYWORD_MODE,
-    FSHARP_COMMENT,
+    COMMENT,
     COMPUTATION_EXPRESSION,
     PREPROCESSOR,
-    FSHARP_NUMBER,
+    NUMBER,
     GENERIC_TYPE_SYMBOL
-    
   ];
-  const FSHARP_STRING = {
+  const STRING = {
     variants: [
       INTERPOLATED_TRIPLE_QUOTED_STRING,
       INTERPOLATED_VERBATIM_STRING,
@@ -380,7 +378,7 @@ export default function(hljs) {
       TRIPLE_QUOTED_STRING,
       VERBATIM_STRING,
       QUOTED_STRING,
-      FSHARP_CHAR_LITERAL
+      CHAR_LITERAL
     ]
   };
 
@@ -397,8 +395,8 @@ export default function(hljs) {
     },
     contains: [
       BANG_KEYWORD_MODE,
-      FSHARP_STRING,
-      FSHARP_COMMENT,
+      STRING,
+      COMMENT,
       {
         // type MyType<'a> = ...
         begin: [
@@ -428,12 +426,12 @@ export default function(hljs) {
             begin: /"/,
             end: /"/
           },
-          FSHARP_NUMBER
+          NUMBER
         ]
       },
       COMPUTATION_EXPRESSION,
       PREPROCESSOR,
-      FSHARP_NUMBER,
+      NUMBER,
       GENERIC_TYPE_SYMBOL
     ]
   };
