@@ -726,8 +726,8 @@ const HLJS = function(hljs) {
       { el: element, language: language });
 
     // we should be all text, no child nodes (unescaped HTML) - this is possibly
-    // and HTML injection attack - it's likely too late if this is already in
-    // production (the code has likely already done it's damage by the time
+    // an HTML injection attack - it's likely too late if this is already in
+    // production (the code has likely already done its damage by the time
     // we're seeing it)... but we yell loudly about this so that hopefully it's
     // more likely to be caught in development before making it to production
     if (element.children.length > 0) {
