@@ -6,6 +6,7 @@ Parser:
 
 Grammars:
 
+- enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
 - enh(go) better type highlighting, add `error` type [Josh Goebel][]
 - fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
@@ -33,6 +34,7 @@ Grammars:
 [Teletha]: https://github.com/teletha
 [Nicolas Stucki]: https://github.com/nicolasstucki
 [Bahnschrift]: https://github.com/Bahnschrift
+[Melvyn Laïly]: https://github.com/mlaily
 [katzeprior]: https://github.com/katzeprior
 
 
@@ -48,7 +50,7 @@ Parser:
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 - fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
 - fix(verilog) Fix binary number false positives on `_` (#3283) [Josh Goebel][]
-- enh(verilog) `__FILE__` and __`LINE__` constants (#3283) [Josh Goebel][]
+- enh(verilog) `__FILE__` and `__LINE__` constants (#3283) [Josh Goebel][]
 - enh(verilog) tighten keyword regex (#3283) [Josh Goebel][]
 
 
