@@ -6,10 +6,9 @@ Category: config, web
 Website: https://www.nginx.com
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const VAR = {
     className: 'variable',
     variants: [

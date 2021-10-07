@@ -7,10 +7,9 @@ Website: https://en.wikipedia.org/wiki/VBScript
 Category: scripting
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const BUILT_IN_FUNCTIONS = [
     "lcase",
     "month",

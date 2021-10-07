@@ -5,10 +5,9 @@ Website: https://en.wikipedia.org/wiki/Fortran
 Category: scientific
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const PARAMS = {
     className: 'params',
     begin: '\\(',

@@ -6,9 +6,8 @@ Description: Verilog is a hardware description language used in electronic desig
 Website: http://www.verilog.com
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const KEYWORDS = {
     $pattern: /\$?[\w]+(\$[\w]+)*/,
     keyword: [
