@@ -1,0 +1,136 @@
+// Different definitions of strings and character literals,
+// some with prefixes and suffixes (not all are currently highlighted)
+
+""
+"fo\"o"
+"foo\
+bar"
+"foo"B
+
+@""
+@"foo"
+@"fo""o"
+@"foo"B
+
+""""""
+"""fo""o"
+bar"""
+"""foo"""B
+
+'a'
+'a'B
+'\''
+'\\'
+'\231'
+'\x41'
+'\u0041'
+'\U0001F47D'
+
+$"{1+1}"
+
+"" // end
+"fo\"o" // end
+"foo\ // part of the string
+bar" // end
+"foo"B // end
+
+@"" // end
+@"foo" // end
+@"fo""o" // end
+@"foo"B // end
+
+"""""" // end
+"""fo""o" // part of the string
+bar""" // end
+"""foo"""B // end
+
+'a' // end
+'a'B // end
+'\'' // end
+'\\' // end
+'\231' // end
+'\x41' // end
+'\u0041' // end
+'\U0001F47D' // end
+
+$"{1+1}" // end
+
+0
+"string \'" // end
+1
+"this string contains a
+new line"  // end
+2
+"this string jumps a line\
+but the result has no new line" // end
+3
+@"verbatim "" \' {
+string" // end
+4
+"""triple quoted " \' {
+string""" // end
+5
+$"interpola\ {{
+ted \' {1 + 1 // can contain comments and " in placeholders
+}string"  // end
+6
+$@"interpolated "" \' {{
+verbatim{1 + 1 // can contain comments and " in placeholders
+}string"  // end
+7
+@$"interpolated "" \' {{
+verbatim{1 + 1 // can contain comments and " in placeholders
+}string"  // end
+8
+$"""interpolated triple quoted " \' {{ { (sprintf "%d%s" 42)
+// and " and comments...
+}string"""  // end
+9
+$"""test { @"{it's not a placeholder!}" } asdf""" // end
+10
+$"""test { $"but this is:{1+1}" } asdf""" // end
+11
+$"interpola\ {{
+ted \' {1 + 1 // can contain comments in placeholders
+// placeholders cannot contain "
+}string"  // end
+12
+$@"interpolated "" \' {{
+verbatim{1 + 1 // can contain comments in placeholders
+// placeholders cannot contain "
+}string"  // end
+13
+$"""interpolated triple quoted " \' {{ { (sprintf "%d%s" 42) // can contain "
+// and comments...
+}string"""  // end
+14
+let list = [1]
+$"""test{ list |> List.map (fun x -> x + 1) }test"""  // end
+15
+$"test{1 (* " Does it break the string? " *) }test"  // end
+16
+$"test\
+{
+    let x = 42  // valid comment contains " quote " ...
+    x (* " Does it break the string? " *) 
+}test"  // end
+17
+$"""test
+{
+    #if DEBUG
+    #endif
+    let asdf = "}" // """ does it break?
+    let x = $@"test{2+2 (* " what about double nesting? " *) }test"
+    let lit = 0
+    let x = unitTask { return () }
+    asdf
+}test"""
+18
+let list = [1]
+$"""test
+{
+    let asdf = "}"
+    list |> List.map (fun x -> x + 1)
+
+}test"""  // end
+19

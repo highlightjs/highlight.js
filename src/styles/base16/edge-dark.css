@@ -3,7 +3,7 @@
   Author: cjayross (https://github.com/cjayross)
   License: ~ MIT (or more permissive) [via base16-schemes-source]
   Maintainer: @highlightjs/core-team
-  Version: 2021.05.0
+  Version: 2021.09.0
 */
 
 /*
@@ -49,7 +49,9 @@ code.hljs {
   background: #262729;
 }
 
+.hljs::selection,
 .hljs ::selection {
+  background-color: #b7bec9;
   color: #b7bec9;
 }
 
