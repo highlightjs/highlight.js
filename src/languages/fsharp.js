@@ -179,7 +179,6 @@ export default function(hljs) {
     ]
   };
 
-  // 'a or ^a
   // Most identifiers can contain apostrophes
   const IDENTIFIER_RE = /[a-zA-Z_](\w|')*/;
 
@@ -189,9 +188,21 @@ export default function(hljs) {
     end: /``/
   };
 
+  // 'a or ^a or ('|^)``quoted identifier``
   const GENERIC_TYPE_SYMBOL = {
-    match: regex.concat(/('|\^)/, hljs.UNDERSCORE_IDENT_RE),
+    begin: /\B('|\^)(?=``|\w)/,
     scope: 'symbol',
+    contains: [
+      hljs.inherit(QUOTED_IDENTIFIER, {
+        scope: null // Use parent scope
+      }),
+      // Cannot contain another apostrophe
+      hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {
+        scope: null // Use parent scope
+      })
+    ],
+    relevance: 0
+  };
 
   const OPERATOR = {
     scope: 'operator',
@@ -389,7 +400,7 @@ export default function(hljs) {
         begin: [
           /type/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          IDENTIFIER_RE
         ],
         beginScope: {
           1: 'keyword',
