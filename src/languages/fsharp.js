@@ -183,6 +183,23 @@ export default function(hljs) {
   const GENERIC_TYPE_SYMBOL = {
     match: regex.concat(/('|\^)/, hljs.UNDERSCORE_IDENT_RE),
     scope: 'symbol',
+
+  const OPERATOR = {
+    scope: 'operator',
+    // Try to match all valid combinations
+    match: regex.either(
+      /<?@@?>?/,
+      /([<>~&^])\1\1/,
+      /([*.:<>&])\2/,
+      /<-/,
+      /->/,
+      /[!=:]=/,
+      /<?\|{1,3}>?/,
+      /\??(?:<=|>=|<>|[-+*/%=<>])\??/,
+      /[!?^&]/,
+      /~[+~-]/,
+      /:>/,
+      /:\?>?/),
     relevance: 0
   };
 
@@ -326,7 +343,8 @@ export default function(hljs) {
     COMPUTATION_EXPRESSION,
     PREPROCESSOR,
     NUMBER,
-    GENERIC_TYPE_SYMBOL
+    GENERIC_TYPE_SYMBOL,
+    OPERATOR
   ];
   const STRING = {
     variants: [
@@ -368,15 +386,19 @@ export default function(hljs) {
         },
         end: regex.lookahead(/\(|=|$/),
         contains: [
-          GENERIC_TYPE_SYMBOL
+          GENERIC_TYPE_SYMBOL,
+          {
+             // For visual consistency, highlight type brackets as operators.
+             scope: 'operator',
+             match: /<|>/
+          }
         ]
       },
       {
         // [<Attributes("")>]
         scope: 'meta',
         begin: /^\s*\[</,
-        excludeBegin: true,
-        end: regex.lookahead(/>\]/),
+        end: />\]/,
         relevance: 2,
         contains: [
           {
@@ -390,7 +412,8 @@ export default function(hljs) {
       COMPUTATION_EXPRESSION,
       PREPROCESSOR,
       NUMBER,
-      GENERIC_TYPE_SYMBOL
+      GENERIC_TYPE_SYMBOL,
+      OPERATOR
     ]
   };
 }
