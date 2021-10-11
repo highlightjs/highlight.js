@@ -119,47 +119,6 @@ export default function(hljs) {
     "__SOURCE_FILE__"
   ];
 
-  const TYPES = [
-    // basic types
-    "bool",
-    "byte",
-    "sbyte",
-    "int8",
-    "int16",
-    "int32",
-    "uint8",
-    "uint16",
-    "uint32",
-    "int",
-    "uint",
-    "int64",
-    "uint64",
-    "nativeint",
-    "unativeint",
-    "decimal",
-    "float",
-    "double",
-    "float32",
-    "single",
-    "char",
-    "string",
-    "unit",
-    "bigint",
-    // other native types or lowercase aliases
-    "option",
-    "voption",
-    "list",
-    "array",
-    "seq",
-    "byref",
-    "exn",
-    "inref",
-    "nativeptr",
-    "obj",
-    "outref",
-    "voidptr"
-  ];
-
   const BUILTINS = [
     // Somewhat arbitrary list of builtin functions and values.
     // Most of them are declared in Microsoft.FSharp.Core
@@ -201,7 +160,6 @@ export default function(hljs) {
   ];
 
   const ALL_KEYWORDS = {
-    type: TYPES,
     keyword: KEYWORDS,
     literal: LITERALS,
     built_in: BUILTINS,
