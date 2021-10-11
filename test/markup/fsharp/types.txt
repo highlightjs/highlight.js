@@ -1,4 +1,21 @@
-// Primarily testing for generic parameters highlighting...
+// Testing type definition and type annotation highlighting:
+
+let test'test = 15 // compiles
+let bla = test'test // compiles
+type test'test<'a> = Test<'a> // compiles
+
+let ``type`` = "hello" // compiles
+let ``type` is a keyword but I can use it in my 'd funky \ \\ \n " ^d binding`` = "hello" // compiles
+
+// Type names (here with char) can be used to redefine bindings:
+let char : char =
+    let char = box (char "a")
+    let result = unbox<char> char
+    try ()
+    with | :? ArgumentException -> failwith "..."
+    result
+
+// Testing for generic parameters highlighting:
 
 type Ref<'a> =
 { mutable contents: 'a }
