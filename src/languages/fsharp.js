@@ -410,9 +410,9 @@ export default function(hljs) {
         contains: [
           GENERIC_TYPE_SYMBOL,
           {
-             // For visual consistency, highlight type brackets as operators.
-             scope: 'operator',
-             match: /<|>/
+            // For visual consistency, highlight type brackets as operators.
+            scope: 'operator',
+            match: /<|>/
           }
         ]
       },
