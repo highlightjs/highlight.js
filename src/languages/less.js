@@ -199,7 +199,7 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
+        begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'
       },
       {
         begin: /\(/,
