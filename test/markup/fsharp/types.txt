@@ -15,6 +15,33 @@ let char : char =
     with | :? ArgumentException -> failwith "..."
     result
 
+// All the following type annotation examples are valid F#
+type ``my = type`` = {a:string}
+let x : char array = [|'a'|]
+let f f' = f' () : 'returnType // the type annotation should end now
+and not color this (but this is currently not supported. see comment in the grammar)
+let's end this with an end pattern: =
+let anonymousRecordAnnotation : {| X: string; Y: int array * string |} = ...
+let nested : {| X: string; Y: {| Nested: bool |} |} = ()
+let test (a: {| X: string; (* this is a comment *) Y: {| Nested: bool |} |}) = ()
+let f (a: (string[])) = a
+let f (a: int -> (unit -> string) -> string) (b: ('a -> 'b -> _ -> ``my = type`` -> {| Prop: '``quoted``|}) -> 'a list -> 'b list) = a
+let f (a: ('a -> 'b) -> 'a list -> 'b list -> (unit -> string) -> {| X: string |}) : _ * (int -> unit) = a, (fun x -> ())
+let f (a: ('a -> 'b) // multiline!
+          -> {| X: (int -> {| Y: (string -> (unit (*this is getting*))(*really nested...*)); A: ``my = type`` |}) |}
+          -> 'b list -> (unit -> string) -> {| X: string |}) = a
+let test : string (* this is a comment *) = ...
+let iterate2 (f : unit -> #seq<int>) =
+    for e in f() do printfn "%d" e
+type record =
+    { X: int -> ('a -> 'b) -> (unit -> string) -> 'a list -> 'b list // comment
+      Y: {| Bla: string (*comment*) array -> unit |} }
+type record =
+    { X: string // comment
+      Y: {|
+            Bla: string (*comment*) array
+                 -> unit |} }
+
 // Testing for generic parameters highlighting:
 
 type Ref<'a> =

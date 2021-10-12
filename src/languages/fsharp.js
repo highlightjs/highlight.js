@@ -217,6 +217,64 @@ export default function(hljs) {
     relevance: 0
   };
 
+  // Only some operators are valid in a type annotation:
+  const TYPE_ANNOTATION_OPERATOR = {
+    scope: 'operator',
+    match: regex.either(
+      /->/,
+      /[<>:;\*#]/,
+    ),
+    relevance: 0
+  };
+  const PARENS_TYPE_ANNOTATION = {
+    begin: /\(/,
+    end: /\)/,
+    relevance: 0
+  };
+  const ANONYMOUS_RECORD_TYPE_ANNOTATION = {
+    begin: /{\|/,
+    end: /\|}/
+  };
+  const TYPE_ANNOTATION = {
+    scope: 'type',
+    begin: regex.concat( // a type annotation is a
+      /:/,               // colon
+      regex.lookahead(   // that has to be followed by
+        regex.concat(
+          /\s*/,         // optional space
+          regex.either(  // then either of:
+            /\w/,        // word
+            /'/,         // generic type name
+            /``/,        // quoted type name
+            /\(/,        // parens type expression
+            /{\|/,       // anonymous type annotation
+    )))),
+    beginScope: 'operator',
+    // BUG: the following is valid F#: let f f' = f' () : returnTypeAnnotation
+    // This pattern is currently not supported,
+    // as matching the end of a line as a type annotation ending would break multi-line type annotations...
+    // I think multi-line annotations are more common,
+    // and the previous failure will end at the first end pattern below, which should not take long...
+    end: regex.lookahead(
+      regex.either(
+        /\)/,
+        /}/, // when the type annotation is inside a record the end can be a simple }
+        /=/))
+  };
+  const TYPE_ANNOTATIONS_CONTAINS = [
+    COMMENT,
+    GENERIC_TYPE_SYMBOL,
+    hljs.inherit(QUOTED_IDENTIFIER, {
+      scope: null // Use parent scope
+    }),
+    PARENS_TYPE_ANNOTATION,
+    ANONYMOUS_RECORD_TYPE_ANNOTATION,
+    TYPE_ANNOTATION_OPERATOR
+  ];
+  PARENS_TYPE_ANNOTATION.contains = TYPE_ANNOTATIONS_CONTAINS;
+  ANONYMOUS_RECORD_TYPE_ANNOTATION.contains = TYPE_ANNOTATIONS_CONTAINS;
+  TYPE_ANNOTATION.contains = TYPE_ANNOTATIONS_CONTAINS;
+
   const COMPUTATION_EXPRESSION = {
     // computation expressions:
     scope: 'computation-expression',
@@ -355,6 +413,7 @@ export default function(hljs) {
     BANG_KEYWORD_MODE,
     COMMENT,
     QUOTED_IDENTIFIER,
+    TYPE_ANNOTATION,
     COMPUTATION_EXPRESSION,
     PREPROCESSOR,
     NUMBER,
@@ -426,6 +485,7 @@ export default function(hljs) {
           NUMBER
         ]
       },
+      TYPE_ANNOTATION,
       COMPUTATION_EXPRESSION,
       PREPROCESSOR,
       NUMBER,

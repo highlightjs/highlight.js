@@ -36,7 +36,7 @@ let inline (<<|) (f: 'T->'U) (x: '``Functor<'T>``) : '``Functor<'U>`` = Map.Invo
 
 let inline (|>>) (x: '``Functor<'T>``) (f: 'T->'U) : '``Functor<'U>`` = Map.Invoke f x
 
-let inline (<*>) (f: '``Applicative<'T -> 'U>``) (x: '``Applicative<'T>``) : '``Applicative<'U>`` = Apply.Invoke f x : '``Applicative<'U>``
+let inline (<*>) (f: '``Applicative<'T -> 'U>``) (x: '``Applicative<'T>``) : '``Applicative<'U>`` = Apply.Invoke f x
 
 let inline ( *>) (x: '``Applicative<'T>``) (y: '``Applicative<'U>``) : '``Applicative<'U>`` = ((fun (_: 'T) (k: 'U) -> k) <!>  x : '``Applicative<'U->'U>``) <*> y
 
@@ -74,3 +74,4 @@ let (|Integer|_|) (str: string) =
    else None
 
 let (|Even|Odd|) input = if input % 2 = 0 then Even else Odd
+//
