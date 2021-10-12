@@ -256,6 +256,8 @@ export default function(hljs) {
     relevance: 0,
     match:
     regex.either(
+      // Hard coded exceptions
+      /\bJSON/,
       // Float32Array
       /\b[A-Z][a-z]+([A-Z][a-z]+|\d)*/,
       // CSSFactory
