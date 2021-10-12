@@ -33,7 +33,10 @@ export function compileLanguage(language) {
   function langRe(value, global) {
     return new RegExp(
       regex.source(value),
-      'm' + (language.case_insensitive ? 'i' : '') + (language.unicodeRegex ? 'u' : '') + (global ? 'g' : '')
+      'm'
+      + (language.case_insensitive ? 'i' : '')
+      + (language.unicodeRegex ? 'u' : '')
+      + (global ? 'g' : '')
     );
   }
 
@@ -334,10 +337,10 @@ export function compileLanguage(language) {
 
     if (parent) {
       if (!mode.begin) mode.begin = /\B|\b/;
-      cmode.beginRe = langRe(mode.begin);
+      cmode.beginRe = langRe(cmode.begin);
       if (!mode.end && !mode.endsWithParent) mode.end = /\B|\b/;
-      if (mode.end) cmode.endRe = langRe(mode.end);
-      cmode.terminatorEnd = regex.source(mode.end) || '';
+      if (mode.end) cmode.endRe = langRe(cmode.end);
+      cmode.terminatorEnd = regex.source(cmode.end) || '';
       if (mode.endsWithParent && parent.terminatorEnd) {
         cmode.terminatorEnd += (mode.end ? '|' : '') + parent.terminatorEnd;
       }

@@ -50,6 +50,10 @@ export function concat(...args) {
   return joined;
 }
 
+/**
+ * @param { Array<string | RegExp | Object> } args
+ * @returns {object}
+ */
 function stripOptionsFromArgs(args) {
   const opts = args[args.length - 1];
 
@@ -69,15 +73,16 @@ function stripOptionsFromArgs(args) {
  * @returns {string}
  */
 export function either(...args) {
+  /** @type { object & {capture?: boolean} }  */
   const opts = stripOptionsFromArgs(args);
-  const joined = '(' +
-    (opts.capture ? "" : "?:") +
-    args.map((x) => source(x)).join("|") + ")";
+  const joined = '('
+    + (opts.capture ? "" : "?:")
+    + args.map((x) => source(x)).join("|") + ")";
   return joined;
 }
 
 /**
- * @param {RegExp} re
+ * @param {RegExp | string} re
  * @returns {number}
  */
 export function countMatchGroups(re) {

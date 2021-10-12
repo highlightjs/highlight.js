@@ -18,6 +18,7 @@ import HTMLInjectionError from "./lib/html_injection_error.js";
 /**
 @typedef {import('highlight.js').Mode} Mode
 @typedef {import('highlight.js').CompiledMode} CompiledMode
+@typedef {import('highlight.js').CompiledScope} CompiledScope
 @typedef {import('highlight.js').Language} Language
 @typedef {import('highlight.js').HLJSApi} HLJSApi
 @typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
@@ -271,7 +272,7 @@ const HLJS = function(hljs) {
     }
 
     /**
-     * @param {CompiledMode} mode
+     * @param {CompiledScope} scope
      * @param {RegExpMatchArray} match
      */
     function emitMultiClass(scope, match) {

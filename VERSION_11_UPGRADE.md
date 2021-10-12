@@ -11,6 +11,7 @@
       - [Changes to Result Data](#changes-to-result-data)
     - [Feature Removal](#feature-removal)
   - [Small Things](#small-things)
+  - [Upgrading from Version 9.x](#upgrading-from-version-9x)
 
 
 ## Overview of Breaking Changes
@@ -63,7 +64,7 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 - `github` includes significant changes to more properly match modern GitHub syntax highlighting. If you desire the old theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
 - `github-gist` has been removed in favor of `github` as GitHub and GitHub Gist have converged. If you desire the theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
 - The `.hljs` CSS selector is now further scoped.  It now targets `code.hljs` (inline code) and `pre code.hljs` (code blocks). If you are using a different element you may need to update your CSS to reapply some styling.
-- All [Base16 themes](https://github.com/highlightjs/base16-highlightjs) now live in the `styles/base16` directory - this means some CSS files have moved.  Please confirm themes you use reference the new locations. 
+- All [Base16 themes](https://github.com/highlightjs/base16-highlightjs) now live in the `styles/base16` directory - this means some CSS files have moved.  Please confirm themes you use reference the new locations.
 
 
 #### Grammar Scopes
@@ -190,5 +191,13 @@ This configuration option was deprecated in v10.5. Use a plugin or pre-render co
 ### Small Things
 
 - The `regex` utility `join` has been renamed to `_eitherRewriteBackreferences` (this has always been intended for internal use only)
+
+### Upgrading from Version 9.x
+
+If you're upgrading all the way from version 9 it may still be helpful to review all the breaking changes in version 10 as well:
+
+- [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_UPGRADE.md)
+- [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_BREAKING_CHANGES.md)
+
 
 [meta-keyword]: https://github.com/highlightjs/highlight.js/pull/3167

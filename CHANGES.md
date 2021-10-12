@@ -13,6 +13,7 @@ Parser:
 
 Grammars:
 
+- fix(js/ts) `Float32Array` highlighted incorrectly (#3353) [Josh Goebel][]
 - fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
