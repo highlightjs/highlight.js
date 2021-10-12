@@ -33,7 +33,7 @@ const MultiClassError = new Error();
  * are 1, 2, and 5.  This function handles this behavior.
  *
  * @param {CompiledMode} mode
- * @param {Array<RegExp>} regexes
+ * @param {Array<RegExp | string>} regexes
  * @param {{key: "beginScope"|"endScope"}} opts
  */
 function remapScopeNames(mode, regexes, { key }) {
@@ -72,7 +72,7 @@ function beginMultiClass(mode) {
     throw MultiClassError;
   }
 
-  remapScopeNames(mode, mode.begin, {key: "beginScope"});
+  remapScopeNames(mode, mode.begin, { key: "beginScope" });
   mode.begin = regex._rewriteBackreferences(mode.begin, { joinWith: "" });
 }
 
@@ -92,7 +92,7 @@ function endMultiClass(mode) {
     throw MultiClassError;
   }
 
-  remapScopeNames(mode, mode.end, {key: "endScope"});
+  remapScopeNames(mode, mode.end, { key: "endScope" });
   mode.end = regex._rewriteBackreferences(mode.end, { joinWith: "" });
 }
 
