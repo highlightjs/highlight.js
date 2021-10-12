@@ -3,6 +3,7 @@
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
+- add `throwUnescapedHTML` to warn against potential HTML injection [Josh Goebel][]
 - expose `regex` helper functions via `hljs` injection [Josh Goebel][]
   - concat
   - lookahead

@@ -89,6 +89,9 @@ Configures global options:
 * ``languageDetectRe``: a regex to configure how CSS class names map to language (allows class names like say `color-as-php` vs the default of `language-php`, etc.)
 * ``noHighlightRe``: a regex to configure which CSS classes are to be skipped completely.
 * ``cssSelector``: a CSS selector to configure which elements are affected by ``hljs.highlightAll``. Defaults to ``'pre code'``.
+* ``ignoreUnescapedHTML``: do not log warnings to console about unescaped HTML in code blocks
+* ``throwUnescapedHTML``: throw a ``HTMLInjectionError`` when ``highlightElement`` is asked to highlight content that includes unescaped HTML
+
 
 Accepts an object representing options with the values to updated. Other options don't change
 ::
