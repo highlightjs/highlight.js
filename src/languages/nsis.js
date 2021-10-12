@@ -192,7 +192,7 @@ export default function(hljs) {
 
   const PLUGINS = {
     // plug::ins
-    className: 'class',
+    className: 'title.function',
     begin: /\w+::\w+/
   };
 
