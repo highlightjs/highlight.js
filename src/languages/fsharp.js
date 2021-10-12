@@ -190,7 +190,7 @@ export default function(hljs) {
 
   // 'a or ^a or ('|^)``quoted identifier``
   const GENERIC_TYPE_SYMBOL = {
-    begin: /\B('|\^)(?=``|\w)/,
+    match: /\B('|\^)(?=``|\w)/,
     scope: 'symbol',
     contains: [
       hljs.inherit(QUOTED_IDENTIFIER, {
@@ -204,22 +204,16 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const CHAINED_DOT_GUARD = {
+    // Prevent the dot in Name.Name patterns from being matched as an operator.
+    match: /(\w|')\.(\w)/,
+    relevance: 0
+  };
+
   const OPERATOR = {
     scope: 'operator',
-    // Try to match all valid combinations
-    match: regex.either(
-      /<?@@?>?/,
-      /([<>~&^])\1\1/,
-      /([*.:<>&])\2/,
-      /<-/,
-      /->/,
-      /[!=:]=/,
-      /<?\|{1,3}>?/,
-      /\??(?:<=|>=|<>|[-+*/%=<>])\??/,
-      /[!?^&]/,
-      /~[+~-]/,
-      /:>/,
-      /:\?>?/),
+    // Try to match all valid combinations, maybe a bit more (but not that much since custom operators are possible)...
+    match: /[<>@~&^+=:%*!$\/\?\|\-\.]+/,
     relevance: 0
   };
 
@@ -365,6 +359,7 @@ export default function(hljs) {
     PREPROCESSOR,
     NUMBER,
     GENERIC_TYPE_SYMBOL,
+    CHAINED_DOT_GUARD,
     OPERATOR
   ];
   const STRING = {
@@ -435,6 +430,7 @@ export default function(hljs) {
       PREPROCESSOR,
       NUMBER,
       GENERIC_TYPE_SYMBOL,
+      CHAINED_DOT_GUARD,
       OPERATOR
     ]
   };
