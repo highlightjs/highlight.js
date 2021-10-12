@@ -493,6 +493,18 @@ export default function(hljs) {
     "zlib"
   ];
 
+  const FUNCTION_DEF = {
+    match: [
+      /Function/,
+      /\s+/,
+      regex.concat(/(\.)?/, hljs.IDENT_RE)
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    }
+  };
+
   return {
     name: 'NSIS',
     case_insensitive: true,
@@ -510,6 +522,7 @@ export default function(hljs) {
           relevance: 0
         }
       ),
+      FUNCTION_DEF,
       {
         beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd',
       },
