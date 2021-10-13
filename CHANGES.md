@@ -13,6 +13,7 @@ Parser:
 
 Grammars:
 
+- enh(css): add properties from several W3C (Candidate) Recommendations (#3308)
 - fix(js/ts) `Float32Array` highlighted incorrectly (#3353) [Josh Goebel][]
 - fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
@@ -46,6 +47,7 @@ Grammars:
 [Bahnschrift]: https://github.com/Bahnschrift
 [Melvyn Laïly]: https://github.com/mlaily
 [katzeprior]: https://github.com/katzeprior
+[Syb Wartna]:https://github.com/waarissyb
 
 
 ## Version 11.2.0
