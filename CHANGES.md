@@ -37,6 +37,8 @@ Grammars:
 - enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
 - enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
 - enh(bash) added gnu core utilities (#3342) [katzeprior][]
+- enh(nsis) add new NSIS commands (#3351) [idleberg][]
+- fix(nsis) set `case_insensitive` to `true` (#3351) [idleberg][]
 - fix(css/less/stylus/scss) highlight single-colon psuedo-elements properly (#3240) [zsoltlengyelit][]
 
 [Austin Schick]: https://github.com/austin-schick
@@ -50,6 +52,7 @@ Grammars:
 [katzeprior]: https://github.com/katzeprior
 [zsoltlengyelit]: github.com/zsoltlengyelit
 [Syb Wartna]:https://github.com/waarissyb
+[idleberg]: https://github.com/idleberg
 
 
 ## Version 11.2.0
