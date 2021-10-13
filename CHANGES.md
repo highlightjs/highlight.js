@@ -37,6 +37,7 @@ Grammars:
 - enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
 - enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
 - enh(bash) added gnu core utilities (#3342) [katzeprior][]
+- fix(css/less/stylus/scss) highlight single-colon psuedo-elements properly (#3240) [zsoltlengyelit][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
@@ -47,6 +48,7 @@ Grammars:
 [Bahnschrift]: https://github.com/Bahnschrift
 [Melvyn Laïly]: https://github.com/mlaily
 [katzeprior]: https://github.com/katzeprior
+[zsoltlengyelit]: github.com/zsoltlengyelit
 [Syb Wartna]:https://github.com/waarissyb
 
 

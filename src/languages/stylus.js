@@ -96,7 +96,7 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: '&?::(' + css.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
+        begin: '&?:(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
       modes.ATTRIBUTE_SELECTOR_MODE,
