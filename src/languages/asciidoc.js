@@ -7,10 +7,9 @@ Description: A semantic, text-based document format that can be exported to HTML
 Category: markup
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const HORIZONTAL_RULE = {
     begin: '^\'{3,}[ \\t]*$',
     relevance: 10

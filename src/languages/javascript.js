@@ -6,10 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
 import * as ECMAScript from './lib/ecmascript.js';
-import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   /**
    * Takes a string like "<Booger" and checks to see
    * if we can find a matching "</Booger" later in the
@@ -254,7 +254,17 @@ export default function(hljs) {
 
   const CLASS_REFERENCE = {
     relevance: 0,
-    match: /\b[A-Z][a-z]+([A-Z][a-z]+)*/,
+    match:
+    regex.either(
+      // Hard coded exceptions
+      /\bJSON/,
+      // Float32Array
+      /\b[A-Z][a-z]+([A-Z][a-z]+|\d)*/,
+      // CSSFactory
+      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+/,
+      // BLAH
+      // this will be flagged as a UPPER_CASE_CONSTANT instead
+    ),
     className: "title.class",
     keywords: {
       _: [

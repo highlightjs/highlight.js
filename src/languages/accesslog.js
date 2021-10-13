@@ -7,10 +7,9 @@
  Audit: 2020
  */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
-export default function(_hljs) {
+export default function(hljs) {
+  const regex = hljs.regex;
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   const HTTP_VERBS = [
     "GET",

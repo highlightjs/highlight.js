@@ -6,10 +6,10 @@ Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 
 // @ts-ignore
 import * as css from "./lib/css-shared.js";
-import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const modes = css.MODES(hljs);
   const VENDOR_PREFIX = {
     begin: /-(webkit|moz|ms|o)-(?=[a-z])/
@@ -58,7 +58,7 @@ export default function(hljs) {
             begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')'
           },
           {
-            begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
+            begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'
           }
         ]
       },
@@ -75,8 +75,8 @@ export default function(hljs) {
       },
       // attribute values
       {
-        begin: ':',
-        end: '[;}]',
+        begin: /:/,
+        end: /[;}{]/,
         contains: [
           modes.BLOCK_COMMENT,
           modes.HEXCOLOR,

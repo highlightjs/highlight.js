@@ -5,10 +5,9 @@ Website: https://tools.ietf.org/html/rfc5234
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT = /^[a-zA-Z][a-zA-Z0-9-]*/;
 
   const KEYWORDS = [

@@ -7,9 +7,8 @@ Website: https://handlebarsjs.com
 Category: template
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const BUILT_INS = {
     $pattern: /[\w.\/]+/,
     built_in: [

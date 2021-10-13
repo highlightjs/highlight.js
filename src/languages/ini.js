@@ -6,9 +6,8 @@ Category: common, config
 Website: https://github.com/toml-lang/toml
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const NUMBERS = {
     className: 'number',
     relevance: 0,

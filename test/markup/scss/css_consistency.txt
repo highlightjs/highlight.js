@@ -22,7 +22,9 @@ h1, h2, figcaption, aside, main, form, footer {}
 
 a:visited { color: blue; }
 div::after { content: "test"; }
+div:after { content: "test"; }
 div::before { content: open-quote; }
+div:before { content: open-quote; }
 span:nth-child(33) { color:red; }
 
 p:lang(en) {}

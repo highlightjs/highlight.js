@@ -3,9 +3,21 @@
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
+- add `throwUnescapedHTML` to warn against potential HTML injection [Josh Goebel][]
+- expose `regex` helper functions via `hljs` injection [Josh Goebel][]
+  - concat
+  - lookahead
+  - either
+  - optional
+  - anyNumberOfTimes
 
 Grammars:
 
+- enh(css): add properties from several W3C (Candidate) Recommendations (#3308)
+- fix(js/ts) `Float32Array` highlighted incorrectly (#3353) [Josh Goebel][]
+- fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
+- fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
+- enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
 - enh(go) better type highlighting, add `error` type [Josh Goebel][]
 - fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
@@ -27,6 +39,7 @@ Grammars:
 - enh(bash) added gnu core utilities (#3342) [katzeprior][]
 - enh(nsis) add new NSIS commands (#3351) [idleberg][]
 - fix(nsis) set `case_insensitive` to `true` (#3351) [idleberg][]
+- fix(css/less/stylus/scss) highlight single-colon psuedo-elements properly (#3240) [zsoltlengyelit][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
@@ -35,7 +48,11 @@ Grammars:
 [Teletha]: https://github.com/teletha
 [Nicolas Stucki]: https://github.com/nicolasstucki
 [Bahnschrift]: https://github.com/Bahnschrift
+[Melvyn Laïly]: https://github.com/mlaily
 [katzeprior]: https://github.com/katzeprior
+[zsoltlengyelit]: github.com/zsoltlengyelit
+[Syb Wartna]:https://github.com/waarissyb
+[idleberg]: https://github.com/idleberg
 
 
 ## Version 11.2.0
@@ -50,7 +67,7 @@ Parser:
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 - fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
 - fix(verilog) Fix binary number false positives on `_` (#3283) [Josh Goebel][]
-- enh(verilog) `__FILE__` and __`LINE__` constants (#3283) [Josh Goebel][]
+- enh(verilog) `__FILE__` and `__LINE__` constants (#3283) [Josh Goebel][]
 - enh(verilog) tighten keyword regex (#3283) [Josh Goebel][]
 
 
