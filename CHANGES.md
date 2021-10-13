@@ -3,6 +3,7 @@
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
+- add `throwUnescapedHTML` to warn against potential HTML injection [Josh Goebel][]
 - expose `regex` helper functions via `hljs` injection [Josh Goebel][]
   - concat
   - lookahead
@@ -13,6 +14,7 @@ Parser:
 Grammars:
 
 - enh(css): add properties from several W3C (Candidate) Recommendations (#3308)
+- fix(js/ts) `Float32Array` highlighted incorrectly (#3353) [Josh Goebel][]
 - fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
