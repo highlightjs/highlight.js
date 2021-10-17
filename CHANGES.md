@@ -1,5 +1,10 @@
 ## Version 11.3.0 (most likely)
 
+Build:
+
+- add `HighlightJS` named export (#3295) [Josh Goebel][]
+- add `.default` named export to CJS builds (#3333) [Josh Goebel][]
+
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
