@@ -79,15 +79,18 @@ class Language {
 
 
 async function compileLanguage (language, options) {
-  const IIFE_HEADER_REGEX = /^(var hljsGrammar = )?\(function \(\)/;
-
   // TODO: cant we use the source we already have?
   const input = { ...build_config.rollup.browser_iife.input, input: language.path };
   const output = { ...build_config.rollup.browser_iife.output, name: `hljsGrammar`, file: "out.js" };
   output.footer = null;
-  
+
   const data = await rollupCode(input, output);
-  const iife = data.replace(IIFE_HEADER_REGEX, `hljs.registerLanguage('${language.name}', function ()`);
+  const iife = `
+  (function(){
+    ${data}
+    hljs.registerLanguage('${language.name}', hljsGrammar);
+  })();
+  `.trim();
   const esm = `${data};\nexport default hljsGrammar;`;
 
   language.module = iife;
