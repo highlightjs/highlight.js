@@ -1,4 +1,4 @@
-## Version 11.3.0 (most likely)
+## Version 11.3.0
 
 Build:
 
