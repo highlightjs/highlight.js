@@ -18,6 +18,8 @@ Parser:
 
 Grammars:
 
+- fix(ts) some complex types would classify as JSX (#3278) [Josh Goebel][]
+- fix(js/ts) less false positives for `class X extends Y` (#3278) [Josh Goebel][]
 - enh(css): add properties from several W3C (Candidate) Recommendations (#3308)
 - fix(js/ts) `Float32Array` highlighted incorrectly (#3353) [Josh Goebel][]
 - fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
