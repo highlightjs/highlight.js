@@ -5,6 +5,7 @@ const glob = require("glob")
 const path = require("path")
 const build_config = require("../build_config")
 
+const packageJSON = require("../../package.json")
 const REQUIRES_REGEX = /\/\*.*?Requires: (.*?)\r?\n/s
 const CATEGORY_REGEX = /\/\*.*?Category: (.*?)\r?\n/s
 const LANGUAGE_REGEX = /\/\*.*?Language: (.*?)\r?\n/s
@@ -79,6 +80,8 @@ class Language {
 
 
 async function compileLanguage (language, options) {
+  const HEADER = `/*! \`${language.name}\` grammar compiled for Highlight.js ${packageJSON.version} */`;
+
   // TODO: cant we use the source we already have?
   const input = { ...build_config.rollup.browser_iife.input, input: language.path };
   const output = { ...build_config.rollup.browser_iife.output, name: `hljsGrammar`, file: "out.js" };
@@ -86,12 +89,13 @@ async function compileLanguage (language, options) {
 
   const data = await rollupCode(input, output);
   const iife = `
+  ${HEADER}
   (function(){
     ${data}
     hljs.registerLanguage('${language.name}', hljsGrammar);
   })();
   `.trim();
-  const esm = `${data};\nexport default hljsGrammar;`;
+  const esm = `${HEADER}\n${data};\nexport default hljsGrammar;`;
 
   language.module = iife;
   const miniESM = await Terser.minify(esm, options.terser);
