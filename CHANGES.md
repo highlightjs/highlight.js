@@ -1,3 +1,13 @@
+
+## Version 11.3.1
+
+Build:
+
+- (fix) Grammar CDN modules not generated correctly. (#3363) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 11.3.0
 
 Build:
