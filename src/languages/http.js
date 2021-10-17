@@ -6,9 +6,8 @@ Category: protocols, web
 Website: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const VERSION = 'HTTP/(2|1\\.[01])';
   const HEADER_NAME = /[A-Za-z][A-Za-z0-9-]*/;
   const HEADER = {

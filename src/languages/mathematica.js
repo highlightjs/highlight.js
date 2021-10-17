@@ -28,10 +28,10 @@ Category: scientific
     ],"String"]
 */
 import * as Mathematica from './lib/mathematica.js';
-import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   /*
   This rather scary looking matching of Mathematica numbers is carefully explained by Robert Jacobson here:
   https://wltools.github.io/LanguageSpec/Specification/Syntax/Number-representations/

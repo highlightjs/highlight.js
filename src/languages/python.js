@@ -5,9 +5,8 @@ Website: https://www.python.org
 Category: common
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT_RE = /[\p{XID_Start}_]\p{XID_Continue}*/u;
   const RESERVED_WORDS = [
     'and',

@@ -5,14 +5,13 @@
  Website: https://groovy-lang.org
  */
 
-import * as regex from '../lib/regex.js';
-
 function variants(variants, obj = {}) {
   obj.variants = variants;
   return obj;
 }
 
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT_RE = '[A-Za-z0-9_$]+';
   const COMMENT = variants([
     hljs.C_LINE_COMMENT_MODE,

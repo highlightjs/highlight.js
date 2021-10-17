@@ -26,3 +26,10 @@
 <span class="hljs-keyword">if</span>(value) {}
 <span class="hljs-keyword">switch</span>(value) {}
 <span class="hljs-keyword">try</span> {} <span class="hljs-keyword">catch</span>(err) {}
+
+<span class="hljs-title class_">Car</span>
+<span class="hljs-title class_">Vehicle</span>
+<span class="hljs-title class_">SelfDrivingTruck</span>
+<span class="hljs-title class_">CSSParser</span>
+<span class="hljs-title class_">Float32Array</span>
+<span class="hljs-title class_">BigInt64Array</span>

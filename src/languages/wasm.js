@@ -6,10 +6,9 @@ Category: web
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const BLOCK_COMMENT = hljs.COMMENT(/\(;/, /;\)/);
   BLOCK_COMMENT.contains.push("self");
   const LINE_COMMENT = hljs.COMMENT(/;;/, /$/);

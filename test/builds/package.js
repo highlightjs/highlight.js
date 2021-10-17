@@ -6,6 +6,9 @@ See .travis.yml
 */
 
 import hljs from '../../build/lib/index.js';
+import { HighlightJS } from '../../build/lib/index.js'
 
-hljs.highlight("cpp","/* test */")
-console.log("Rollup built package works.")
+const language = "cpp";
+hljs.highlight("/* test */", {language});
+HighlightJS.highlight("/* test */", {language});
+console.log("Rollup built package works.");

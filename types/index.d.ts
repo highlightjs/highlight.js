@@ -15,7 +15,7 @@ declare module 'highlight.js/private' {
 }
 declare module 'highlight.js' {
 
-    import { KeywordDict} from "highlight.js/private";
+    import { KeywordDict } from "highlight.js/private";
 
     export type HLJSApi = PublicApi & ModesAPI
 
@@ -134,6 +134,7 @@ declare module 'highlight.js' {
         languages?: string[]
         __emitter: EmitterConstructor
         ignoreUnescapedHTML?: boolean
+        throwUnescapedHTML?: boolean
     }
 
     export interface CallbackResponse {
@@ -190,8 +191,13 @@ declare module 'highlight.js' {
         keywords: Record<string, any>
     }
 
+    export type CompiledScope = Record<number, string> & {_emit?: Record<number, boolean>, _multi?: boolean, _wrap?: string};
+
     export type CompiledMode = Omit<Mode, 'contains'> &
         {
+            begin?: RegExp | string
+            end?: RegExp | string
+            scope?: string
             contains: CompiledMode[]
             keywords: KeywordDict
             data: Record<string, any>
@@ -204,8 +210,8 @@ declare module 'highlight.js' {
             isCompiled: true
             starts?: CompiledMode
             parent?: CompiledMode
-            beginScope?: Record<number, string> & {_emit?: Record<number,boolean>, _multi?: boolean, _wrap?: string}
-            endScope?: Record<number, string> & {_emit?: Record<number,boolean>, _multi?: boolean, _wrap?: string}
+            beginScope?: CompiledScope
+            endScope?: CompiledScope
         }
 
     interface ModeDetails {

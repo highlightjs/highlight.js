@@ -6,10 +6,9 @@ Website: https://www.rust-lang.org
 Category: common, system
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const FUNCTION_INVOKE = {
     className: "title.function.invoke",
     relevance: 0,

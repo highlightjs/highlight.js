@@ -6,9 +6,8 @@ Contributors: Erik Osheim <d_m@plastic-idolatry.com>
 Website: https://www.scala-lang.org
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const ANNOTATION = {
     className: 'meta',
     begin: '@[A-Za-z]+'

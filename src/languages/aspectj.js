@@ -6,10 +6,9 @@ Description: Syntax Highlighting for the AspectJ Language which is a general-pur
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const KEYWORDS = [
     "false",
     "synchronized",

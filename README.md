@@ -63,10 +63,6 @@ detection.
 As always, major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
 
 
-**Upgrading to v10**:  You really should probably be upgrading to version 11... but if you're coming from version 9 then these documents may still prove helpful.
-
-- [VERSION_10_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_UPGRADE.md)  and  [VERSION_10_BREAKING_CHANGES.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_10_BREAKING_CHANGES.md)
-
 #### Support for older versions <!-- omit in toc -->
 
 Please see [SECURITY.md](https://github.com/highlightjs/highlight.js/blob/main/SECURITY.md) for long-term support information.

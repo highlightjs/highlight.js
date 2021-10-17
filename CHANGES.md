@@ -1,13 +1,30 @@
 ## Version 11.3.0 (most likely)
 
+Build:
+
+- add `HighlightJS` named export (#3295) [Josh Goebel][]
+- add `.default` named export to CJS builds (#3333) [Josh Goebel][]
+
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
+- add `throwUnescapedHTML` to warn against potential HTML injection [Josh Goebel][]
+- expose `regex` helper functions via `hljs` injection [Josh Goebel][]
+  - concat
+  - lookahead
+  - either
+  - optional
+  - anyNumberOfTimes
 
 Grammars:
 
 - fix(ts) some complex types would classify as JSX (#3278) [Josh Goebel][]
 - fix(js/ts) less false positives for `class X extends Y` (#3278) [Josh Goebel][]
+- enh(css): add properties from several W3C (Candidate) Recommendations (#3308)
+- fix(js/ts) `Float32Array` highlighted incorrectly (#3353) [Josh Goebel][]
+- fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
+- fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
+- enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
 - enh(go) better type highlighting, add `error` type [Josh Goebel][]
 - fix(js/ts) regex inside `SUBST` is no longer highlighted [Josh Goebel][]
 - fix(python) added support for unicode identifiers (#3280) [Austin Schick][]
@@ -27,6 +44,10 @@ Grammars:
 - enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
 - enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
 - enh(bash) added gnu core utilities (#3342) [katzeprior][]
+- enh(nsis) add new NSIS commands (#3351) [idleberg][]
+- fix(nsis) set `case_insensitive` to `true` (#3351) [idleberg][]
+- fix(css/less/stylus/scss) highlight single-colon psuedo-elements properly (#3240) [zsoltlengyelit][]
+- fix(css) add css hex color alpha support (#3360) [ierehon1905][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
@@ -35,7 +56,12 @@ Grammars:
 [Teletha]: https://github.com/teletha
 [Nicolas Stucki]: https://github.com/nicolasstucki
 [Bahnschrift]: https://github.com/Bahnschrift
+[Melvyn Laïly]: https://github.com/mlaily
 [katzeprior]: https://github.com/katzeprior
+[zsoltlengyelit]: github.com/zsoltlengyelit
+[Syb Wartna]:https://github.com/waarissyb
+[idleberg]: https://github.com/idleberg
+[ierehon1905]: https://github.com/ierehon1905
 
 
 ## Version 11.2.0
@@ -50,7 +76,7 @@ Parser:
 - fix(types) Fix some type definition issues (#3274) [Josh Goebel][]
 - fix(verilog) Fix directive handling (#3283) [Josh Goebel][]
 - fix(verilog) Fix binary number false positives on `_` (#3283) [Josh Goebel][]
-- enh(verilog) `__FILE__` and __`LINE__` constants (#3283) [Josh Goebel][]
+- enh(verilog) `__FILE__` and `__LINE__` constants (#3283) [Josh Goebel][]
 - enh(verilog) tighten keyword regex (#3283) [Josh Goebel][]
 
 

@@ -29,8 +29,7 @@ module.exports = {
     quotes: "off",
     // this is the style we are already using
     "operator-linebreak": ["error", "before", { overrides: {
-      "=": "after",
-      "+": "after"
+      "=": "after"
     }
     }],
     // sometimes we declare variables with extra spacing
