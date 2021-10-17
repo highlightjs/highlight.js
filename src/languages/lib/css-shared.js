@@ -7,7 +7,7 @@ export const MODES = (hljs) => {
     BLOCK_COMMENT: hljs.C_BLOCK_COMMENT_MODE,
     HEXCOLOR: {
       scope: 'number',
-      begin: '#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})'
+      begin: /#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b/
     },
     FUNCTION_DISPATCH: {
       className: "built_in",

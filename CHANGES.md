@@ -40,6 +40,7 @@ Grammars:
 - enh(nsis) add new NSIS commands (#3351) [idleberg][]
 - fix(nsis) set `case_insensitive` to `true` (#3351) [idleberg][]
 - fix(css/less/stylus/scss) highlight single-colon psuedo-elements properly (#3240) [zsoltlengyelit][]
+- fix(css) add css hex color alpha support (#3360) [ierehon1905][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
@@ -53,6 +54,7 @@ Grammars:
 [zsoltlengyelit]: github.com/zsoltlengyelit
 [Syb Wartna]:https://github.com/waarissyb
 [idleberg]: https://github.com/idleberg
+[ierehon1905]: https://github.com/ierehon1905
 
 
 ## Version 11.2.0
