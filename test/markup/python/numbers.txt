@@ -30,6 +30,24 @@
 
 # expressions containing numeric literals
 0..__str__, 1e1.__str__, fn(.5)
+0is 0, 0lis 0
+0_0_0is 0, 0_0_0lis 0
+0b0is 0, 0b0lis 0
+0b_0_0is 0, 0b_0_0lis 0
+0o0is 0, 0o0lis 0
+0o_0_0is 0, 0o_0_0lis 0
+0x0ais 0, 0x0elis 0
+0x_0_0is 0, 0x_0_0lis 0
+.0is 0, 0.is 0
+.0_0_0is 0, 0_0_0.is 0
+.0e+0is 0, 0.e-0is 0
+.0_0_0e-0_0_0is 0, 0_0_0.e+0_0_0is 0
+.0jis 0, 0.jis 0
+.0_0_0jis 0, 0_0_0.jis 0
+.0e+0jis 0, 0.e-0jis 0
+.0_0_0e-0_0_0jis 0, 0_0_0.e+0_0_0jis 0
+0jis 0, 009jis 0
+0_0_0jis 0, 0_0_9jis 0
 
 # expressions not containing numeric literals
 x0.j
