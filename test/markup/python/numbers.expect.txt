@@ -30,6 +30,24 @@
 
 <span class="hljs-comment"># expressions containing numeric literals</span>
 <span class="hljs-number">0.</span>.__str__, <span class="hljs-number">1e1</span>.__str__, fn(<span class="hljs-number">.5</span>)
+<span class="hljs-number">0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0b0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0b0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0b_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0b_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0o0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0o0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0o_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0o_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0x0a</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0x0el</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0x_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0x_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0e+0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.e-0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0e-0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.e+0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0e+0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.e-0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0e-0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.e+0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">009j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_9j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
 
 <span class="hljs-comment"># expressions not containing numeric literals</span>
 x0.j
