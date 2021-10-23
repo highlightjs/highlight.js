@@ -219,7 +219,7 @@ declare module 'highlight.js' {
         match?: RegExp | string | (RegExp | string)[]
         end?: RegExp | string | (RegExp | string)[]
         // deprecated in favor of `scope`
-        className?: string
+        className?: string | Record<number, string>
         scope?: string | Record<number, string>
         beginScope?: string | Record<number, string>
         endScope?: string | Record<number, string>
