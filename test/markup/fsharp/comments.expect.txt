@@ -17,9 +17,9 @@ asdf
 <span class="hljs-keyword">let</span> index <span class="hljs-operator">=</span>
     len
     <span class="hljs-operator">|&gt;</span> float
-    <span class="hljs-operator">|&gt;</span> Operators<span class="hljs-operator">.</span>(<span class="hljs-operator">*</span>) <span class="hljs-number">0.1</span>      <span class="hljs-comment">// (*) here is not comment</span>
-    <span class="hljs-operator">|&gt;</span> Operators<span class="hljs-operator">.</span>(<span class="hljs-operator">+</span>) <span class="hljs-number">1</span>        <span class="hljs-comment">// (+) here is not comment</span>
-    <span class="hljs-operator">|&gt;</span> Operators<span class="hljs-operator">.</span>(<span class="hljs-operator">-</span>) len      <span class="hljs-comment">// (-) here is not comment</span>
+    <span class="hljs-operator">|&gt;</span> Operators.(<span class="hljs-operator">*</span>) <span class="hljs-number">0.1</span>      <span class="hljs-comment">// (*) here is not comment</span>
+    <span class="hljs-operator">|&gt;</span> Operators.(<span class="hljs-operator">+</span>) <span class="hljs-number">1</span>        <span class="hljs-comment">// (+) here is not comment</span>
+    <span class="hljs-operator">|&gt;</span> Operators.(<span class="hljs-operator">-</span>) len      <span class="hljs-comment">// (-) here is not comment</span>
 
 
 <span class="hljs-comment">// foobar</span>

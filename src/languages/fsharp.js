@@ -204,16 +204,33 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const CHAINED_DOT_GUARD = {
-    // Prevent the dot in Name.Name patterns from being matched as an operator.
-    match: /(\w|')\.(\w)/,
-    relevance: 0
-  };
-
+  // List or symbolic operator characters from the FSharp Spec 4.1, minus the dot, and with `?` added, used for nullable operators.
+  const OPERATOR_CHARS = Array.from("!%&*+\-/<=>@^|~?");
+  const OPERATOR_CHAR_RE = regex.concat('[', ...OPERATOR_CHARS.map(regex.escape), ']');
+  // TODO: choose one of the alternative definitions:
+  // const OPERATOR_CHAR_RE = regex.either(...OPERATOR_CHARS.map(regex.escape));
+  // const OPERATOR_CHAR_RE = /[!%&*+\-\/<=>@^|~?]/;
+  // The lone dot operator is special. It cannot be redefined, and we don't want to highlight it. It can be used as part of a multi-chars operator though.
+  const OPERATOR_CHAR_OR_DOT_RE = regex.either(OPERATOR_CHAR_RE, /\./);
+  // When a dot is present, it must be followed by another operator char:
+  const OPERATOR_FIRST_CHAR_OF_MULTIPLE_RE = regex.concat(OPERATOR_CHAR_OR_DOT_RE, regex.lookahead(OPERATOR_CHAR_OR_DOT_RE));
+  const SYMBOLIC_OPERATOR_RE = regex.either(
+    regex.concat(OPERATOR_FIRST_CHAR_OF_MULTIPLE_RE, OPERATOR_CHAR_OR_DOT_RE, '*'), // Matches at least 2 chars operators
+    regex.concat(OPERATOR_CHAR_RE, '+'), // Matches at least one char operators
+  );
   const OPERATOR = {
     scope: 'operator',
-    // Try to match all valid combinations, maybe a bit more (but not that much since custom operators are possible)...
-    match: /[<>@~&^+=:%*!$\/\?\|\-\.]+/,
+    match: regex.either(
+      // symbolic operators:
+      SYMBOLIC_OPERATOR_RE,
+      // other symbolic keywords:
+      // Type casting and conversion operators:
+      /:\?>/,
+      /:\?/,
+      /:>/,
+      /:=/, // Reference cell assignment
+      /::?/, // : or ::
+      /\$/), // A single $ can be used as an operator
     relevance: 0
   };
 
@@ -418,7 +435,6 @@ export default function(hljs) {
     PREPROCESSOR,
     NUMBER,
     GENERIC_TYPE_SYMBOL,
-    CHAINED_DOT_GUARD,
     OPERATOR
   ];
   const STRING = {
@@ -490,7 +506,6 @@ export default function(hljs) {
       PREPROCESSOR,
       NUMBER,
       GENERIC_TYPE_SYMBOL,
-      CHAINED_DOT_GUARD,
       OPERATOR
     ]
   };
