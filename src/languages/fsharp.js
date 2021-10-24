@@ -206,7 +206,7 @@ export default function(hljs) {
   };
 
   // List or symbolic operator characters from the FSharp Spec 4.1, minus the dot, and with `?` added, used for nullable operators.
-  const OPERATOR_CHARS = Array.from("!%&*+\-/<=>@^|~?");
+  const OPERATOR_CHARS = Array.from("!%&*+-/<=>@^|~?");
   const OPERATOR_CHAR_RE = regex.concat('[', ...OPERATOR_CHARS.map(regex.escape), ']');
   // TODO: choose one of the alternative definitions:
   // const OPERATOR_CHAR_RE = regex.either(...OPERATOR_CHARS.map(regex.escape));
