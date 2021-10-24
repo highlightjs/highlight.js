@@ -131,6 +131,7 @@ export default function(hljs) {
     "dict",
     "readOnlyDict",
     "set",
+    "get",
     "enum",
     "sizeof",
     "typeof",
@@ -275,9 +276,11 @@ export default function(hljs) {
     end: regex.lookahead(
       regex.either(
         /\n/,
+        /,/, // tupled arguments (a: int, b: string)
         /\)/,
         /}/, // when the type annotation is inside a record the end can be a simple }
-        /=/))
+        /=/)),
+    relevance: 0
   };
   const TYPE_ANNOTATIONS_CONTAINS = [
     COMMENT,
@@ -469,13 +472,14 @@ export default function(hljs) {
       {
         // type MyType<'a> = ...
         begin: [
+          /(^|\s+)/, // prevents matching the following: `match s.stype with`
           /type/,
           /\s+/,
           IDENTIFIER_RE
         ],
         beginScope: {
-          1: 'keyword',
-          3: 'title.class'
+          2: 'keyword',
+          4: 'title.class'
         },
         end: regex.lookahead(/\(|=|$/),
         contains: [
@@ -488,17 +492,18 @@ export default function(hljs) {
         ]
       },
       {
-        // [<Attributes("")>]
+        // e.g. [<Attributes("")>] or [<``module``: MyCustomAttributeThatWorksOnModules>]
         scope: 'meta',
-        begin: /^\s*\[</,
+        begin: /\[</,
         end: />\]/,
         relevance: 2,
         contains: [
-          {
-            scope: 'string',
-            begin: /"/,
-            end: /"/
-          },
+          QUOTED_IDENTIFIER,
+          // can contain any constant value
+          TRIPLE_QUOTED_STRING,
+          VERBATIM_STRING,
+          QUOTED_STRING,
+          CHAR_LITERAL,
           NUMBER
         ]
       },
