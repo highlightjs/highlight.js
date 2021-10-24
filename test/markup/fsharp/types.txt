@@ -19,7 +19,7 @@ let char : char =
 type ``my = type`` = {a:string}
 let x : char array = [|'a'|]
 let f f' = f' () : 'returnType // the type annotation should end now
-and not color this (but this is currently not supported. see comment in the grammar)
+and not color this...
 let's end this with an end pattern: =
 let anonymousRecordAnnotation : {| X: string; Y: int array * string |} = ...
 let nested : {| X: string; Y: {| Nested: bool |} |} = ()
@@ -27,7 +27,7 @@ let test (a: {| X: string; (* this is a comment *) Y: {| Nested: bool |} |}) = (
 let f (a: (string[])) = a
 let f (a: int -> (unit -> string) -> string) (b: ('a -> 'b -> _ -> ``my = type`` -> {| Prop: '``quoted``|}) -> 'a list -> 'b list) = a
 let f (a: ('a -> 'b) -> 'a list -> 'b list -> (unit -> string) -> {| X: string |}) : _ * (int -> unit) = a, (fun x -> ())
-let f (a: ('a -> 'b) // multiline!
+let f (a: ('a -> 'b) // multiline! (currently not supported)
           -> {| X: (int -> {| Y: (string -> (unit (*this is getting*))(*really nested...*)); A: ``my = type`` |}) |}
           -> 'b list -> (unit -> string) -> {| X: string |}) = a
 let test : string (* this is a comment *) = ...
@@ -41,6 +41,35 @@ type record =
       Y: {|
             Bla: string (*comment*) array
                  -> unit |} }
+
+type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extra) as xxx =
+
+    let pf() = xxx.Test()
+    let mutable myInternalValue = null
+
+    member xxx.Test() = "F#"
+
+    // A read-only property.
+    member __.MyReadOnlyProperty = myInternalValue
+    // A write-only property.
+    member __.MyWriteOnlyProperty with set (value) = myInternalValue <- value
+    // A read-write property.
+    member __.MyReadWriteProperty
+        with get () = myInternalValue
+        and set (value) = myInternalValue <- value
+
+    member __.ReadAndWriteWithSignature
+        with get (count : int) : string = string count
+        and set (value : int) : unit = failwith ""
+
+    member __.MyReadWriteProperty with get () = myInternalValue
+    member __.MyReadWriteProperty with set (value) = myInternalValue <- value
+
+    abstract Update : int * string * string option * obj -> FancyClass
+    default this.Update (thing:int, var2 : string, ``name with spaces``: string option, extra) = this
+
+    member val Property1 = thing
+    member val Property2 = "" with get, set
 
 // Testing for generic parameters highlighting:
 

@@ -267,13 +267,14 @@ export default function(hljs) {
             /{\|/,       // anonymous type annotation
     )))),
     beginScope: 'operator',
-    // BUG: the following is valid F#: let f f' = f' () : returnTypeAnnotation
-    // This pattern is currently not supported,
-    // as matching the end of a line as a type annotation ending would break multi-line type annotations...
-    // I think multi-line annotations are more common,
-    // and the previous failure will end at the first end pattern below, which should not take long...
+    // BUG: because ending with \n is necessary for some cases, multi-line type annotations are not properly supported.
+    // Examples where \n is required:
+    // - abstract member definitions in classes: abstract Property : int * string
+    // - return type annotations: let f f' = f' () : returnTypeAnnotation
+    // - record fields definitions: { A : int \n B : string }
     end: regex.lookahead(
       regex.either(
+        /\n/,
         /\)/,
         /}/, // when the type annotation is inside a record the end can be a simple }
         /=/))
