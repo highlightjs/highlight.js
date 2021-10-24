@@ -3,8 +3,10 @@
 Grammars:
 
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
+- fix(fsharp) Highlight operators and type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
 
 [Richard Gibson]: https://github.com/gibson042
+[Melvyn Laïly]: https://github.com/mlaily
 
 ## Version 11.3.1
 
