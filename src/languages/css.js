@@ -58,7 +58,7 @@ export default function(hljs) {
             begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')'
           },
           {
-            begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
+            begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'
           }
         ]
       },

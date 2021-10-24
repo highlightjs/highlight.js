@@ -51,44 +51,61 @@ const LITERALS = [
   "Infinity"
 ];
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 export const TYPES = [
-  "Intl",
-  "DataView",
-  "Number",
-  "Math",
-  "Date",
-  "String",
-  "RegExp",
+  // Fundamental objects
   "Object",
   "Function",
   "Boolean",
-  "Error",
   "Symbol",
+  // numbers and dates
+  "Math",
+  "Date",
+  "Number",
+  "BigInt",
+  // text
+  "String",
+  "RegExp",
+  // Indexed collections
+  "Array",
+  "Float32Array",
+  "Float64Array",
+  "Int8Array",
+  "Uint8Array",
+  "Uint8ClampedArray",
+  "Int16Array",
+  "Int32Array",
+  "Uint16Array",
+  "Uint32Array",
+  "BigInt64Array",
+  "BigUint64Array",
+  // Keyed collections
   "Set",
   "Map",
   "WeakSet",
   "WeakMap",
-  "Proxy",
-  "Reflect",
-  "JSON",
-  "Promise",
-  "Float64Array",
-  "Int16Array",
-  "Int32Array",
-  "Int8Array",
-  "Uint16Array",
-  "Uint32Array",
-  "Float32Array",
-  "Array",
-  "Uint8Array",
-  "Uint8ClampedArray",
+  // Structured data
   "ArrayBuffer",
-  "BigInt64Array",
-  "BigUint64Array",
-  "BigInt"
+  "SharedArrayBuffer",
+  "Atomics",
+  "DataView",
+  "JSON",
+  // Control abstraction objects
+  "Promise",
+  "Generator",
+  "GeneratorFunction",
+  "AsyncFunction",
+  // Reflection
+  "Reflect",
+  "Proxy",
+  // Internationalization
+  "Intl",
+  // WebAssembly
+  "WebAssembly"
 ];
 
 export const ERROR_TYPES = [
+  "Error",
   "EvalError",
   "InternalError",
   "RangeError",
