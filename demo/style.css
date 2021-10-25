@@ -107,8 +107,10 @@ aside li {
   cursor: pointer;
 }
 
+aside li:focus,
 aside li:hover {
   background: #500;
+  outline: none;
 }
 
 aside li.current:before {
