@@ -69,7 +69,7 @@ function stripOptionsFromArgs(args) {
  * Any of the passed expresssions may match
  *
  * Creates a huge this | this | that | that match
- * @param {(RegExp | string)[] } args
+ * @param {(RegExp | string | { capture?: boolean })[]} args
  * @returns {string}
  */
 export function either(...args) {
