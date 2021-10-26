@@ -47,7 +47,7 @@ declare module 'highlight.js' {
         regex: {
             concat: (...args: (RegExp | string)[]) => string,
             lookahead: (re: RegExp | string) => string,
-            either: (...args: (RegExp | string)[]) => string,
+            either: (...args: (RegExp | string | { capture?: boolean })[]) => string,
             optional: (re: RegExp | string) => string,
             anyNumberOfTimes: (re: RegExp | string) => string
         }
