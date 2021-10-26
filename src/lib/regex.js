@@ -65,11 +65,14 @@ function stripOptionsFromArgs(args) {
   }
 }
 
+/** @typedef { {capture?: boolean} } RegexOptions */
+/** @typedef { (RegExp | string)[] | [RegexOptions] | [...(RegExp | string)[], RegexOptions] } RegexEitherArgs */
+
 /**
  * Any of the passed expresssions may match
  *
  * Creates a huge this | this | that | that match
- * @param {(RegExp | string | { capture?: boolean })[]} args
+ * @param {RegexEitherArgs} args
  * @returns {string}
  */
 export function either(...args) {
