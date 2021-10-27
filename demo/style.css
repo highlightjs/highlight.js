@@ -1,27 +1,26 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
 
-/* Base styles */
 body {
-  color: #f0f0f0;
   background: #500;
   font-family: PT Sans, DejaVu Sans, Arial, sans;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
 
-a {
+a,
+body {
   color: #f0f0f0;
 }
 
 h1 {
   font-size: 150%;
-  margin: 0;
-  padding: 1em 0 0.5em;
+  margin: 1em 0;
 }
 
 h2 {
   font-size: 120%;
-  margin: 1.5em 0 0.5em 0;
+  margin: 0 0 0.5em;
 }
 
 pre {
@@ -31,17 +30,12 @@ pre {
 code {
   display: block;
   font-family: Consolas, Monaco, monospace;
-  font-size: 10pt;
+  font-size: 14px;
   overflow-x: auto;
-  padding: 0.5em;
+  padding: 1em;
   scrollbar-width: thin;
   -moz-tab-size: 4;
   tab-size: 4;
-}
-
-pre code.hljs {
-  /* compatible with school-book */
-  padding: 16px 30px 20px;
 }
 
 aside {
@@ -51,7 +45,7 @@ aside {
   display: flex;
   flex-direction: column;
   left: 0;
-  padding: 0 1.5em 1em;
+  padding: 0 1.5em;
   position: fixed;
   top: 0;
   width: 16em;
@@ -65,16 +59,15 @@ aside {
   flex: 1 1 50%;
 }
 
-aside ul,
-aside li {
+aside ul {
   list-style: none;
-  margin: 0;
   padding: 0;
 }
 
 aside ul {
-  position: relative;
+  margin: 0 0 1.5em;
   overflow-y: auto;
+  position: relative;
   scrollbar-width: thin;
 }
 
@@ -103,7 +96,7 @@ aside ul::-webkit-scrollbar-thumb:active {
 }
 
 aside li {
-  padding: 1px 1em;
+  padding: 1px 0.5em 1px 1em;
   cursor: pointer;
 }
 
@@ -119,13 +112,13 @@ aside li.current:before {
 }
 
 main {
-  margin-left: 18em;
+  margin-left: 19em;
   min-width: 36em;
-  padding: 1px 4em;
+  padding: 1.5em 3em 0;
 }
 
 main > div {
-  margin: 2.5em 0 3em;
+  margin-bottom: 3em;
 }
 
 .hidden {
