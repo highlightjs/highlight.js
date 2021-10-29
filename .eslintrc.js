@@ -89,7 +89,7 @@ module.exports = {
       }
     },
     {
-      files: ["demo/**/*.js"],
+      files: ["demo/**/*.js", "playground/**/*.js"],
       globals: {
         hljs: "readonly"
       }

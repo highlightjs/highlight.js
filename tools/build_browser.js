@@ -6,10 +6,10 @@ const path = require("path");
 const zlib = require('zlib');
 const Terser = require("terser");
 const child_process = require('child_process');
-const { getLanguages } = require("./lib/language");
-const { filter } = require("./lib/dependencies");
-const config = require("./build_config");
-const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makestuff");
+const { getLanguages } = require("./lib/language.js");
+const { filter } = require("./lib/dependencies.js");
+const config = require("./build_config.js");
+const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makestuff.js");
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
@@ -17,16 +17,16 @@ const Table = require('cli-table');
 
 const getDefaultHeader = () => ({
   ...require('../package.json'),
-  git_sha : child_process
+  git_sha: child_process
     .execSync("git rev-parse --short=10 HEAD")
-    .toString().trim(),
+    .toString().trim()
 });
 function buildHeader(args = getDefaultHeader()) {
-  return "/*!\n" +
-  `  Highlight.js v${args.version} (git: ${args.git_sha})\n` +
-  `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n` +
-  `  License: ${args.license}\n` +
-  ` */`;
+  return "/*!\n"
+  + `  Highlight.js v${args.version} (git: ${args.git_sha})\n`
+  + `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n`
+  + `  License: ${args.license}\n`
+  + ` */`;
 }
 
 function sortByKey(array, key) {
@@ -41,9 +41,9 @@ function detailedGrammarSizes(languages) {
   if (languages.length > 180) return;
 
   const resultTable = new Table({
-    head: ['lang','minified'],
+    head: ['lang', 'minified'],
     // colWidths: [20,20,10,20,10,20],
-    chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
+    chars: { mid: '', 'left-mid': '', 'mid-mid': '', 'right-mid': '' },
     style: {
       head: ['grey']
     }
@@ -61,6 +61,7 @@ async function buildBrowser(options) {
 
   await installDocs();
   await installDemo(languages, { minify: options.minify });
+  await installPlayground(languages, { minify: options.minify });
 
   log("Preparing languages.");
   await Promise.all(
@@ -91,15 +92,23 @@ async function buildBrowser(options) {
 async function installDemo(languages, { minify }) {
   log("Writing demo files.");
   mkdir("demo");
-  installDemoStyles();
+  installStyles("demo");
 
   const assets = await glob("./demo/*.{js,css}");
   assets.forEach((file) => install(file));
 
-  renderIndex(languages, minify);
+  renderDemoIndex(languages, minify);
 }
 
-async function renderIndex(languages, minify) {
+function nameForStyle(file) {
+  let name = _.startCase(path.basename(file, ".css"));
+  if (file.includes("base16/")) {
+    name = `Base16 / ${name}`;
+  }
+  return name;
+}
+
+async function renderDemoIndex(languages, minify) {
   languages = languages.filter((lang) =>
     // hide a few languages
     lang.name !== "plaintext"
@@ -132,14 +141,6 @@ async function renderIndex(languages, minify) {
       count: categoryCounter.get(category)
     }));
 
-  function nameForStyle(file) {
-    let name = _.startCase(path.basename(file, ".css"));
-    if (file.includes("base16/")) {
-      name = `Base16 / ${name}`;
-    }
-    return name;
-  }
-
   const css = await glob("styles/**/*.css", { cwd: "./src" });
   let styles = css
     .map((el) => ({ name: nameForStyle(el), path: el }))
@@ -154,6 +155,36 @@ async function renderIndex(languages, minify) {
   });
 }
 
+async function installPlayground(languages, { minify }) {
+  log("Writing playground files.");
+  mkdir("playground");
+  installStyles("playground");
+
+  const assets = await glob("./playground/*.{js,css}");
+  assets.forEach((file) => install(file));
+
+  renderPlaygroundIndex(languages, minify);
+}
+
+async function renderPlaygroundIndex(languages, minify) {
+  languages = languages.filter((lang) =>
+    // hide a few languages
+    lang.name !== "plaintext"
+    && lang.name !== "c-like"
+  );
+
+  const css = await glob("styles/**/*.css", { cwd: "./src" });
+  const styles = css
+    .map((el) => ({ name: nameForStyle(el), path: el }))
+    .filter((style) => style.name !== "Default");
+
+  renderTemplate("./playground/index.html", "./playground/index.html", {
+    languages,
+    minify,
+    styles
+  });
+}
+
 async function installDocs() {
   log("Writing docs files.");
   mkdir("docs");
@@ -162,18 +193,18 @@ async function installDocs() {
   docs.forEach((file) => install(file));
 }
 
-function installDemoStyles() {
-  log("Writing style files.");
-  mkdir("demo/styles");
-  mkdir("demo/styles/base16");
+function installStyles(dest) {
+  log(`Writing ${dest} style files.`);
+  mkdir(`${dest}/styles`);
+  mkdir(`${dest}/styles/base16`);
 
   glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
     const stat = fss.statSync(`./src/styles/${file}`);
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
+      installCleanCSS(`./src/styles/${file}`, `${dest}/styles/${file}`);
     } else if (!stat.isDirectory) {
       // images, backgrounds, etc
-      install(`./src/styles/${file}`, `demo/styles/${file}`);
+      install(`./src/styles/${file}`, `${dest}/styles/${file}`);
     }
   });
 }
@@ -230,19 +261,19 @@ async function buildCore(name, languages, options) {
   const sizeInfo = { shas: [] };
   const writePromises = [];
   if (options.minify) {
-    const { code } = await Terser.minify(index, {...config.terser, module: (options.format === "es") });
+    const { code } = await Terser.minify(index, { ...config.terser, module: (options.format === "es") });
     const src = `${header}\n${code}`;
     writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), src));
     sizeInfo.minified = src.length;
     sizeInfo.minifiedSrc = src;
-    sizeInfo.shas[`${relativePath}${name}.min.js`] = bundling.sha384(src)
+    sizeInfo.shas[`${relativePath}${name}.min.js`] = bundling.sha384(src);
   }
   {
     const src = `${header}\n${index}`;
     writePromises.push(fs.writeFile(output.file, src));
     sizeInfo.fullSize = src.length;
     sizeInfo.fullSrc = src;
-    sizeInfo.shas[`${relativePath}${name}.js`] = bundling.sha384(src)
+    sizeInfo.shas[`${relativePath}${name}.js`] = bundling.sha384(src);
   }
   await Promise.all(writePromises);
   return sizeInfo;

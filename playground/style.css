@@ -1,0 +1,114 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+
+body {
+  background-color: #660000;
+  font-size: 16px;
+  margin: 0 auto;
+  max-width: 75rem;
+  padding: 0 1rem;
+}
+
+body,
+button,
+option,
+select {
+  font-family: PT Sans, DejaVu Sans, Arial, sans;
+}
+
+a,
+body {
+  color: #f0f0f0;
+}
+
+textarea,
+code {
+  background-color: #f0f0f0;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, Monaco, monospace;
+  font-size: 14px;
+  padding: 1em;
+  scrollbar-width: thin;
+}
+
+header {
+  margin: 5rem 0 3rem;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 250%;
+  margin: 0;
+}
+
+h2 {
+  font-size: 150%;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+}
+
+.editor {
+  padding: 1rem;
+  background: #550000;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #440000 #770000 #770000 #440000;
+}
+
+#code {
+  border: none;
+  box-sizing: border-box;
+  color: #444444;
+  height: 15rem;
+  min-height: 10rem;
+  resize: vertical;
+  white-space: pre;
+  width: 100%;
+}
+
+.toolbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+#update-highlighting {
+  color: #f0f0f0;
+  padding: 4px 8px;
+  background: linear-gradient(to bottom, #444444, #333333);
+  border-color: #555555 #222222 #222222 #555555;
+  border-radius: 4px;
+  border-width: 1px;
+  text-shadow: #000000 1px 1px 2px;
+}
+
+.hljs {
+  display: block;
+  min-height: 5rem;
+  overflow-x: auto;
+}
+
+.hljs,
+.hljs span {
+  transition: all 0.2s;
+}
+
+.visible-structure span {
+  border-radius: 3px;
+  border: 1px dashed #777;
+  display: inline-block;
+  margin: 3px 0;
+  padding: 2px;
+  white-space: pre;
+}
+
+.visible-structure span:before {
+  background: #669933;
+  border-radius: 2px;
+  color: #ffffff;
+  content: attr(data-class-name);
+  display: inline-block;
+  font-size: 70%;
+  font-weight: normal;
+  margin-right: 2px;
+  padding: 1px 3px;
+}

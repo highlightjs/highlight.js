@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This file is intended to be built using the instructions here: http://highlightjs.readthedocs.io/en/latest/building-testing.html#building -->
+<head>
+  <meta charset="utf-8" />
+  <title>highlight.js Playground</title>
+  <link rel="shortcut icon" type="image/png" href="https://highlightjs.org/static/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" title="Default" href="styles/default.css" />
+  <% styles.forEach(({ name, path }) => {%>
+  <link rel="alternate stylesheet" title="<%= name %>" href="<%= path %>" disabled="disabled" />
+  <% }); %>
+
+  <script defer src="../highlight<%= minify ? '.min' : '' %>.js"></script>
+  <script defer src="playground.js"></script>
+</head>
+<body>
+  <header>
+    <h1><a href="https://highlightjs.org">highlight.js</a> Playground</h1>
+  </header>
+  <div>
+    <div class="editor">
+      <textarea id="code" placeholder="Put code here…" spellcheck="false"></textarea>
+      <div class="toolbar">
+        <button id="update-highlighting" type="button">Update highlighting</button>
+        <label><input id="show-structure" type="checkbox" autocomplete="off" /> Show structure</label>
+        <label
+          >Language:
+          <select id="select-language" autocomplete="off">
+            <option value="">(Auto)</option>
+            <% languages.forEach(({ name, prettyName }) => {%>
+            <option value="<%= name %>"><%= prettyName %></option>
+            <% }); %>
+          </select>
+        </label>
+        <label
+          >Theme:
+          <select id="select-theme" autocomplete="off">
+            <option>Default</option>
+            <% styles.forEach(({ name }) => {%>
+            <option value="<%= name %>"><%= name %></option>
+            <% }); %>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div>
+      <h2>Highlighted<span id="highlight-details"></span></h2>
+      <pre><code id="result" class="hljs"></code></pre>
+    </div>
+    <div>
+      <h2>Markup</h2>
+      <pre><code id="markup" class="hljs"></code></pre>
+    </div>
+  </div>
+</body>
+</html>
