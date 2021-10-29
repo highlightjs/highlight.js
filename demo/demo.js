@@ -4,7 +4,7 @@ hljs.highlightAll();
 const addEventListeners = (element, listener) => {
   element.addEventListener("click", listener);
   element.addEventListener("keydown", (event) => {
-    if (event.key === " " || event.key === "Enter") {
+    if (event.key === "Enter") {
       listener(event);
     }
   });
