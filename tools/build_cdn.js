@@ -57,7 +57,7 @@ async function buildCDN(options) {
   if (options.esm) {
     mkdir("es");
     await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
-    esmCoreSize = await buildCore("core", [], {minify: options.minify, format: "es"});
+    esmCoreSize = await buildCore("core", [], { minify: options.minify, format: "es" });
     esmCommonSize = await buildCore("highlight", embedLanguages, { minify: options.minify, format: "es" });
   }
   shas = {
@@ -157,7 +157,7 @@ async function buildDistributable(language, options) {
   await fs.mkdir(distDir, { recursive: true });
   await fs.writeFile(path.join(language.moduleDir, "dist", filename), language.minified);
   if (options.esm) {
-    await fs.writeFile(path.join(language.moduleDir, "dist", filename.replace(".min.js",".es.min.js")), language.minifiedESM);
+    await fs.writeFile(path.join(language.moduleDir, "dist", filename.replace(".min.js", ".es.min.js")), language.minifiedESM);
   }
 }
 

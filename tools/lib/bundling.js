@@ -1,8 +1,8 @@
-const rollup = require('rollup')
+const rollup = require('rollup');
 const crypto = require("crypto");
 
 async function rollupCode(inputOptions, outputOptions) {
-  const output = await generate(inputOptions, outputOptions)
+  const output = await generate(inputOptions, outputOptions);
   return output[0].code;
 }
 
