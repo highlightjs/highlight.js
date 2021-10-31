@@ -1,20 +1,13 @@
 hljs.debugMode();
 hljs.highlightAll();
 
-const addEventListeners = (element, listener) => {
-  element.addEventListener("click", listener);
-  element.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      listener(event);
-    }
-  });
-};
+document.querySelectorAll(".categories a").forEach((category) => {
+  category.addEventListener("click", (event) => {
+    event.preventDefault();
 
-document.querySelectorAll(".categories > li").forEach((category) => {
-  addEventListeners(category, (event) => {
     const current = document.querySelector(".categories .current");
-    const currentCategory = current.dataset.category;
-    const nextCategory = event.target.dataset.category;
+    const currentCategory = current.name;
+    const nextCategory = event.target.name;
 
     if (currentCategory !== nextCategory) {
       current.classList.remove("current");
@@ -32,8 +25,10 @@ document.querySelectorAll(".categories > li").forEach((category) => {
   });
 });
 
-document.querySelectorAll(".styles > li").forEach((style) => {
-  addEventListeners(style, (event) => {
+document.querySelectorAll(".styles a").forEach((style) => {
+  style.addEventListener("click", (event) => {
+    event.preventDefault();
+
     const current = document.querySelector(".styles .current");
     const currentStyle = current.textContent;
     const nextStyle = event.target.textContent;
