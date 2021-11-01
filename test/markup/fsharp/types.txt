@@ -19,8 +19,9 @@ let char : char =
 type ``my = type`` = {a:string}
 let x : char array = [|'a'|]
 let f f' = f' () : 'returnType // the type annotation should end now
-and not color this...
-let's end this with an end pattern: =
+and not color this as a type. let's end this with an end pattern: =
+let f (a: int, (b: string)) = ()
+let f (a: int, b: string) = ()
 let anonymousRecordAnnotation : {| X: string; Y: int array * string |} = ...
 let nested : {| X: string; Y: {| Nested: bool |} |} = ()
 let test (a: {| X: string; (* this is a comment *) Y: {| Nested: bool |} |}) = ()
@@ -31,6 +32,7 @@ let f (a: ('a -> 'b) // multiline! (currently not supported)
           -> {| X: (int -> {| Y: (string -> (unit (*this is getting*))(*really nested...*)); A: ``my = type`` |}) |}
           -> 'b list -> (unit -> string) -> {| X: string |}) = a
 let test : string (* this is a comment *) = ...
+let f (a: 'a when 'a : null, b: string) = ()
 let iterate2 (f : unit -> #seq<int>) =
     for e in f() do printfn "%d" e
 type record =
@@ -89,6 +91,11 @@ let inline asdf x: Bla<'a> = {X = ""}
 let inline asdf x: Bla<^a> = {X = ""}
 let inline asdf x: Bla< ^a > = {X = ""}
 
+type MyType<'T when 'T : null> = ...
+type MyType<'T when 'T : unmanaged> = ...
+type MyType<'T when 'T : (member Method1 : 'T -> int)> = ...
+type MyType<'T when 'T : delegate<obj * System.EventArgs, unit>> = ...
+
 let genericSumUnits ( x : float<'u>) (y: float<'u>) = x + y
 
 let inline konst x _ = x
@@ -114,3 +121,21 @@ let inline replace_instance< ^a, ^b, ^c, ^d when (^a or ^c): (static member repl
 // Note the concrete type 'CFunctor' specified in the signature
 let inline replace (a: ^a) (f: ^b): ^a0 when (CFunctor or  ^b): (static member replace: ^a *  ^b ->  ^a0) =
     replace_instance<CFunctor, _, _, _> (a, f)
+
+type DUType =
+    | CaseA
+    | CaseB of int
+    | CaseC of (int * (string * string) list)
+    | CaseD of name :string * age:int
+    | CaseE of client: Client
+    | CaseF of client: Client (*comment tests*) * (*comment tests*) string * port : int
+    | CaseG of (obj -> unit)
+    | CaseH of string * (obj -> unit)
+    // Check multiple declaration on one line
+    | CaseI of int | CaseJ of int
+    | CaseF2 of client: Client // * string * port : int
+    | FetchDomainsSuccess of Result<int list * ``type with spaces`` * int, ``type * with * spaces``>
+    | CaseK of ``var with spaces``: string
+    | CaseL of ``var with spaces``: ``type with spaces``
+    | CaseM of v1 : ``type with spaces``
+    | CaseN of ``type with spaces``
