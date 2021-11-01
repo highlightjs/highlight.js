@@ -234,7 +234,7 @@ export default function(hljs) {
     end: /``/
   };
 
-  // 'a or ^a or ('|^)``quoted identifier``
+  // 'a or ^a where a can be a ``quoted identifier``
   const GENERIC_TYPE_SYMBOL = {
     match: /\B('|\^)(?=``|\w)/,
     scope: 'symbol',
@@ -352,6 +352,7 @@ export default function(hljs) {
   const COMPUTATION_EXPRESSION = {
     // computation expressions:
     scope: 'computation-expression',
+    // BUG: might conflict with record deconstruction. e.g. let f { Name = name } = name // will highlight f
     match: /\b[_a-z]\w*(?=\s*\{)/
   };
 
@@ -525,6 +526,7 @@ export default function(hljs) {
       TYPE_DECLARATION,
       {
         // e.g. [<Attributes("")>] or [<``module``: MyCustomAttributeThatWorksOnModules>]
+        // or [<Sealed; NoEquality; NoComparison; CompiledName("FSharpAsync`1")>]
         scope: 'meta',
         begin: /\[</,
         end: />\]/,
