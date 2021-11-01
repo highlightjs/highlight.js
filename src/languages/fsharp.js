@@ -119,6 +119,51 @@ export default function(hljs) {
     "__SOURCE_FILE__"
   ];
 
+  // Since it's possible to re-bind/shadow names (e.g. let char = 'c'),
+  // these builtin types should only be matched when a type name is expected.
+  const KNOWN_TYPES = [
+    // basic types
+    "bool",
+    "byte",
+    "sbyte",
+    "int8",
+    "int16",
+    "int32",
+    "uint8",
+    "uint16",
+    "uint32",
+    "int",
+    "uint",
+    "int64",
+    "uint64",
+    "nativeint",
+    "unativeint",
+    "decimal",
+    "float",
+    "double",
+    "float32",
+    "single",
+    "char",
+    "string",
+    "unit",
+    "bigint",
+    // other native types or lowercase aliases
+    "option",
+    "voption",
+    "list",
+    "array",
+    "seq",
+    "byref",
+    "exn",
+    "inref",
+    "nativeptr",
+    "obj",
+    "outref",
+    "voidptr",
+    // other important FSharp types
+    "Result"
+  ];
+
   const BUILTINS = [
     // Somewhat arbitrary list of builtin functions and values.
     // Most of them are declared in Microsoft.FSharp.Core
@@ -235,66 +280,47 @@ export default function(hljs) {
     relevance: 0
   };
 
-  // Only some operators are valid in a type annotation:
-  const TYPE_ANNOTATION_OPERATOR = {
-    scope: 'operator',
-    match: regex.either(
-      /->/,
-      /[<>:;\*#]/,
-    ),
-    relevance: 0
-  };
-  const PARENS_TYPE_ANNOTATION = {
-    begin: /\(/,
-    end: /\)/,
-    relevance: 0
-  };
-  const ANONYMOUS_RECORD_TYPE_ANNOTATION = {
-    begin: /{\|/,
-    end: /\|}/
-  };
-  const TYPE_ANNOTATION = {
-    scope: 'type',
-    begin: regex.concat( // a type annotation is a
-      /:/,               // colon
-      regex.lookahead(   // that has to be followed by
-        regex.concat(
-          /\s*/,         // optional space
-          regex.either(  // then either of:
-            /\w/,        // word
-            /'/,         // generic type name
-            /``/,        // quoted type name
-            /\(/,        // parens type expression
-            /{\|/,       // anonymous type annotation
-    )))),
-    beginScope: 'operator',
-    // BUG: because ending with \n is necessary for some cases, multi-line type annotations are not properly supported.
-    // Examples where \n is required:
-    // - abstract member definitions in classes: abstract Property : int * string
-    // - return type annotations: let f f' = f' () : returnTypeAnnotation
-    // - record fields definitions: { A : int \n B : string }
-    end: regex.lookahead(
-      regex.either(
-        /\n/,
-        /,/, // tupled arguments (a: int, b: string)
-        /\)/,
-        /}/, // when the type annotation is inside a record the end can be a simple }
-        /=/)),
-    relevance: 0
-  };
-  const TYPE_ANNOTATIONS_CONTAINS = [
-    COMMENT,
-    GENERIC_TYPE_SYMBOL,
-    hljs.inherit(QUOTED_IDENTIFIER, {
-      scope: null // Use parent scope
-    }),
-    PARENS_TYPE_ANNOTATION,
-    ANONYMOUS_RECORD_TYPE_ANNOTATION,
-    TYPE_ANNOTATION_OPERATOR
-  ];
-  PARENS_TYPE_ANNOTATION.contains = TYPE_ANNOTATIONS_CONTAINS;
-  ANONYMOUS_RECORD_TYPE_ANNOTATION.contains = TYPE_ANNOTATIONS_CONTAINS;
-  TYPE_ANNOTATION.contains = TYPE_ANNOTATIONS_CONTAINS;
+  const makeTypeAnnotationMode = function(prefix, prefixScope) {
+    return {
+      begin: regex.concat( // a type annotation is a
+        prefix,            // should be a colon or the 'of' keyword
+        regex.lookahead(   // that has to be followed by
+          regex.concat(
+            /\s*/,         // optional space
+            regex.either(  // then either of:
+              /\w/,        // word
+              /'/,         // generic type name
+              /\^/,        // generic type name
+              /#/,         // flexible type name
+              /``/,        // quoted type name
+              /\(/,        // parens type expression
+              /{\|/,       // anonymous type annotation
+      )))),
+      beginScope: prefixScope,
+      // BUG: because ending with \n is necessary for some cases, multi-line type annotations are not properly supported.
+      // Examples where \n is required at the end:
+      // - abstract member definitions in classes: abstract Property : int * string
+      // - return type annotations: let f f' = f' () : returnTypeAnnotation
+      // - record fields definitions: { A : int \n B : string }
+      end: regex.lookahead(
+        regex.either(
+          /\n/,
+          /=/)),
+      relevance: 0,
+      // we need the known types, and we need the type constraint keywords and literals. e.g.: when 'a : null
+      keywords: hljs.inherit(ALL_KEYWORDS, { type: KNOWN_TYPES }),
+      contains: [
+        COMMENT,
+        GENERIC_TYPE_SYMBOL,
+        hljs.inherit(QUOTED_IDENTIFIER, { scope: null }), // match to avoid strange patterns inside that may break the parsing
+        OPERATOR
+      ]
+    };
+  }
+
+  const TYPE_ANNOTATION = makeTypeAnnotationMode(/:/, 'operator');
+  // DU stands for Discriminated Union
+  const DU_TYPE_ANNOTATION = makeTypeAnnotationMode(/\bof\b/, 'keyword');
 
   const COMPUTATION_EXPRESSION = {
     // computation expressions:
@@ -507,6 +533,7 @@ export default function(hljs) {
           NUMBER
         ]
       },
+      DU_TYPE_ANNOTATION,
       TYPE_ANNOTATION,
       COMPUTATION_EXPRESSION,
       PREPROCESSOR,
