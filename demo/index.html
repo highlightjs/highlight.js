@@ -23,7 +23,7 @@
     <h2>Language Categories</h2>
     <ul class="categories">
       <% categories.forEach(({category, count}, i) => {%>
-      <li><a <%= i ? '' : 'class="current"'%> name="<%= category %>" href="#<%= category %>"><%= `${category} (${count})` %></a></li>
+      <li><a <%= i ? '' : 'class="current"'%> data-category="<%= category %>" href="#<%= category %>"><%= `${category} (${count})` %></a></li>
       <% }); %>
     </ul>
     <h2>Themes</h2>

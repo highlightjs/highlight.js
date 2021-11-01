@@ -6,8 +6,8 @@ document.querySelectorAll(".categories a").forEach((category) => {
     event.preventDefault();
 
     const current = document.querySelector(".categories .current");
-    const currentCategory = current.name;
-    const nextCategory = event.target.name;
+    const currentCategory = current.dataset.category;
+    const nextCategory = event.target.dataset.category;
 
     if (currentCategory !== nextCategory) {
       current.classList.remove("current");
