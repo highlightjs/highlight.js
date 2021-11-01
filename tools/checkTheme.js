@@ -2,7 +2,6 @@
 
 const fs = require("fs");
 const css = require("css");
-const { match } = require("assert");
 require("colors");
 
 const CODE = {
@@ -166,19 +165,19 @@ function check_group(group, rules) {
   });
 
 
-  let doesNotSupport = has_rules.map(x => x[1]).includes(false);
-  let skipped = has_rules.find(x => x[2]);
+  const doesNotSupport = has_rules.map(x => x[1]).includes(false);
+  const skipped = has_rules.find(x => x[2]);
   if (doesNotSupport || skipped) {
     console.log(group.name.yellow);
     if (doesNotSupport) {
       console.log(`- Theme does not fully support.`.brightMagenta);
     }
 
-    has_rules.filter(x => !x[1]).forEach(([scope,_]) => {
+    has_rules.filter(x => !x[1]).forEach(([scope, _]) => {
       const selector = scopeToSelector(scope);
       console.log(`- scope ${scope.cyan} is not highlighted\n  (css: ${selector.green})`);
     });
-    has_rules.filter(x => x[2]).forEach(([scope,_]) => {
+    has_rules.filter(x => x[2]).forEach(([scope, _]) => {
       console.log(` - scope ${scope.cyan} [purposely] un-highlighted.`.cyan);
     });
     console.log();

@@ -2,8 +2,8 @@ const fs = require("fs");
 const CleanCSS = require('clean-css');
 const path = require('path');
 const _ = require('lodash');
-const config = require("../build_config");
 const del = require('del');
+const config = require("../build_config.js");
 
 async function clean(directory) {
   del.sync([directory]);
