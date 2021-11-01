@@ -44,6 +44,13 @@ declare module 'highlight.js' {
         safeMode: () => void
         versionString: string
         vuePlugin: () => VuePlugin
+        regex: {
+            concat: (...args: (RegExp | string)[]) => string,
+            lookahead: (re: RegExp | string) => string,
+            either: (...args: (RegExp | string | { capture?: boolean })[]) => string,
+            optional: (re: RegExp | string) => string,
+            anyNumberOfTimes: (re: RegExp | string) => string
+        }
     }
 
     interface ModesAPI {

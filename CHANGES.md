@@ -1,3 +1,11 @@
+## Version 11.3.2 (most likely)
+
+Grammars:
+
+- fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
+
+[Richard Gibson]: https://github.com/gibson042
+
 ## Version 11.3.1
 
 Build:
