@@ -322,6 +322,29 @@ export default function(hljs) {
   // DU stands for Discriminated Union
   const DU_TYPE_ANNOTATION = makeTypeAnnotationMode(/\bof\b/, 'keyword');
 
+  // type MyType<'a> = ...
+  const TYPE_DECLARATION = {
+    begin: [
+      /(^|\s+)/, // prevents matching the following: `match s.stype with`
+      /type/,
+      /\s+/,
+      IDENTIFIER_RE
+    ],
+    beginScope: {
+      2: 'keyword',
+      4: 'title.class'
+    },
+    end: regex.lookahead(/\(|=|$/),
+    contains: [
+      GENERIC_TYPE_SYMBOL,
+      {
+        // For visual consistency, highlight type brackets as operators.
+        scope: 'operator',
+        match: /<|>/
+      }
+    ]
+  };
+
   const COMPUTATION_EXPRESSION = {
     // computation expressions:
     scope: 'computation-expression',
@@ -495,28 +518,7 @@ export default function(hljs) {
       STRING,
       COMMENT,
       QUOTED_IDENTIFIER,
-      {
-        // type MyType<'a> = ...
-        begin: [
-          /(^|\s+)/, // prevents matching the following: `match s.stype with`
-          /type/,
-          /\s+/,
-          IDENTIFIER_RE
-        ],
-        beginScope: {
-          2: 'keyword',
-          4: 'title.class'
-        },
-        end: regex.lookahead(/\(|=|$/),
-        contains: [
-          GENERIC_TYPE_SYMBOL,
-          {
-            // For visual consistency, highlight type brackets as operators.
-            scope: 'operator',
-            match: /<|>/
-          }
-        ]
-      },
+      TYPE_DECLARATION,
       {
         // e.g. [<Attributes("")>] or [<``module``: MyCustomAttributeThatWorksOnModules>]
         scope: 'meta',
