@@ -1,7 +1,7 @@
 hljs.debugMode();
 hljs.highlightAll();
 
-document.querySelectorAll(".categories a").forEach((category) => {
+document.querySelectorAll(".categories li a").forEach((category) => {
   category.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -25,7 +25,7 @@ document.querySelectorAll(".categories a").forEach((category) => {
   });
 });
 
-document.querySelectorAll(".styles a").forEach((style) => {
+document.querySelectorAll(".styles li a").forEach((style) => {
   style.addEventListener("click", (event) => {
     event.preventDefault();
 
