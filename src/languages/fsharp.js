@@ -335,13 +335,17 @@ export default function(hljs) {
       4: 'title.class'
     },
     end: regex.lookahead(/\(|=|$/),
+    keywords: ALL_KEYWORDS, // match keywords in type constraints. e.g.: when 'a : null
     contains: [
+      COMMENT,
+      hljs.inherit(QUOTED_IDENTIFIER, { scope: null }), // match to avoid strange patterns inside that may break the parsing
       GENERIC_TYPE_SYMBOL,
       {
         // For visual consistency, highlight type brackets as operators.
         scope: 'operator',
         match: /<|>/
-      }
+      },
+      TYPE_ANNOTATION // generic types can have constraints, which are type annotations. e.g. type MyType<'T when 'T : delegate<obj * string>> =
     ]
   };
 
