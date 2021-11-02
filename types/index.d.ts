@@ -23,6 +23,11 @@ declare module 'highlight.js' {
         install: (vue: any) => void
     }
 
+    // perhaps make this an interface?
+    type RegexEitherOptions = {
+        capture?: boolean
+    }
+
     interface PublicApi {
         highlight: (codeOrLanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean) => HighlightResult
         highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
@@ -47,7 +52,7 @@ declare module 'highlight.js' {
         regex: {
             concat: (...args: (RegExp | string)[]) => string,
             lookahead: (re: RegExp | string) => string,
-            either: (...args: (RegExp | string | { capture?: boolean })[]) => string,
+            either: (...args: (RegExp | string)[] | [...(RegExp | string)[], RegexEitherOptions]) => string,
             optional: (re: RegExp | string) => string,
             anyNumberOfTimes: (re: RegExp | string) => string
         }
