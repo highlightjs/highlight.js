@@ -24,13 +24,9 @@ declare module 'highlight.js' {
     }
 
     // perhaps make this an interface?
-    type RegexOptions = {
+    type RegexEitherOptions = {
         capture?: boolean
     }
-
-    type RegexEitherArgs =
-        (RegExp | string)[] | [RegexOptions] |
-        [...(RegExp | string)[], RegexOptions]
 
     interface PublicApi {
         highlight: (codeOrLanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean) => HighlightResult
@@ -56,7 +52,7 @@ declare module 'highlight.js' {
         regex: {
             concat: (...args: (RegExp | string)[]) => string,
             lookahead: (re: RegExp | string) => string,
-            either: (...args: RegexEitherArgs) => string,
+            either: (...args: (RegExp | string)[] | [...(RegExp | string)[], RegexEitherOptions]) => string,
             optional: (re: RegExp | string) => string,
             anyNumberOfTimes: (re: RegExp | string) => string
         }
