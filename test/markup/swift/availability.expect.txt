@@ -1,0 +1,11 @@
+<span class="hljs-keyword">#available</span>()
+<span class="hljs-keyword">#available</span>(<span class="hljs-keyword">iOS</span> <span class="hljs-number">15.0</span>, <span class="hljs-operator">*</span>)
+<span class="hljs-keyword">@available</span>()
+<span class="hljs-keyword">@available</span>(<span class="hljs-keyword">iOS</span> <span class="hljs-number">15.0</span>, <span class="hljs-operator">*</span>)
+<span class="hljs-keyword">@available</span>(<span class="hljs-keyword">iOS</span> <span class="hljs-number">14</span>, deprecated: <span class="hljs-string">&quot;reason&quot;</span>, <span class="hljs-operator">*</span>)
+
+<span class="hljs-keyword">#unavailable</span>()
+<span class="hljs-keyword">#unavailable</span>(<span class="hljs-keyword">iOS</span> <span class="hljs-number">15.0</span>, <span class="hljs-operator">*</span>)
+<span class="hljs-comment">// not a keyword</span>
+<span class="hljs-meta">@unavailable</span>()
+<span class="hljs-meta">@unavailable</span>(iOS <span class="hljs-number">15.0</span>, <span class="hljs-operator">*</span>)
