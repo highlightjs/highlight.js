@@ -6,10 +6,10 @@ const path = require("path");
 const zlib = require('zlib');
 const Terser = require("terser");
 const child_process = require('child_process');
-const { getLanguages } = require("./lib/language");
-const { filter } = require("./lib/dependencies");
-const config = require("./build_config");
-const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makestuff");
+const { getLanguages } = require("./lib/language.js");
+const { filter } = require("./lib/dependencies.js");
+const config = require("./build_config.js");
+const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makestuff.js");
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
@@ -17,16 +17,16 @@ const Table = require('cli-table');
 
 const getDefaultHeader = () => ({
   ...require('../package.json'),
-  git_sha : child_process
+  git_sha: child_process
     .execSync("git rev-parse --short=10 HEAD")
-    .toString().trim(),
+    .toString().trim()
 });
 function buildHeader(args = getDefaultHeader()) {
-  return "/*!\n" +
-  `  Highlight.js v${args.version} (git: ${args.git_sha})\n` +
-  `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n` +
-  `  License: ${args.license}\n` +
-  ` */`;
+  return "/*!\n"
+  + `  Highlight.js v${args.version} (git: ${args.git_sha})\n`
+  + `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n`
+  + `  License: ${args.license}\n`
+  + ` */`;
 }
 
 function sortByKey(array, key) {
@@ -41,9 +41,9 @@ function detailedGrammarSizes(languages) {
   if (languages.length > 180) return;
 
   const resultTable = new Table({
-    head: ['lang','minified'],
+    head: ['lang', 'minified'],
     // colWidths: [20,20,10,20,10,20],
-    chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
+    chars: { mid: '', 'left-mid': '', 'mid-mid': '', 'right-mid': '' },
     style: {
       head: ['grey']
     }
@@ -230,19 +230,19 @@ async function buildCore(name, languages, options) {
   const sizeInfo = { shas: [] };
   const writePromises = [];
   if (options.minify) {
-    const { code } = await Terser.minify(index, {...config.terser, module: (options.format === "es") });
+    const { code } = await Terser.minify(index, { ...config.terser, module: (options.format === "es") });
     const src = `${header}\n${code}`;
     writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), src));
     sizeInfo.minified = src.length;
     sizeInfo.minifiedSrc = src;
-    sizeInfo.shas[`${relativePath}${name}.min.js`] = bundling.sha384(src)
+    sizeInfo.shas[`${relativePath}${name}.min.js`] = bundling.sha384(src);
   }
   {
     const src = `${header}\n${index}`;
     writePromises.push(fs.writeFile(output.file, src));
     sizeInfo.fullSize = src.length;
     sizeInfo.fullSrc = src;
-    sizeInfo.shas[`${relativePath}${name}.js`] = bundling.sha384(src)
+    sizeInfo.shas[`${relativePath}${name}.js`] = bundling.sha384(src);
   }
   await Promise.all(writePromises);
   return sizeInfo;
