@@ -181,7 +181,7 @@ export default function(hljs) {
         }
       },
       {
-        // Hypenated keywords
+        // Exceptions for hyphenated keywords
         match: [
           /non-sealed/
         ],
