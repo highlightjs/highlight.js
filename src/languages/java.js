@@ -73,7 +73,8 @@ export default function(hljs) {
     'module',
     'requires',
     'exports',
-    'do'
+    'do',
+    'sealed'
   ];
 
   const BUILT_INS = [
@@ -177,6 +178,15 @@ export default function(hljs) {
         className: {
           1: "keyword",
           3: "title.class"
+        }
+      },
+      {
+        // Hypenated keywords
+        match: [
+          /non-sealed/
+        ],
+        className: {
+          1: "keyword"
         }
       },
       {
