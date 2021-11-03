@@ -182,12 +182,8 @@ export default function(hljs) {
       },
       {
         // Exceptions for hyphenated keywords
-        match: [
-          /non-sealed/
-        ],
-        className: {
-          1: "keyword"
-        }
+        match: /non-sealed/,
+        scope: "keyword"
       },
       {
         begin: [
