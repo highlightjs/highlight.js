@@ -66,7 +66,7 @@ If you wish we supported a language we don't, first read [On requesting new lang
 ## Reporting Issues
 
 If you find a bug or think of an improvement, feel free to [open an issue](https://github.com/highlightjs/highlight.js/issues/new/choose).
-- If you've found a language highlighting issue, you can use [this JSFiddle](https://jsfiddle.net/ajoshguy/2bmdswn6/) to create a test case.
+- If you've found a language highlighting issue, you can use [this JSFiddle](https://jsfiddle.net/ajoshguy/cjhvre2k/) to create a test case.
 
 
 ## Fixing Issues (PRs)
