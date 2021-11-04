@@ -3,6 +3,11 @@
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
 /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
 
+.hljs {
+  background: #002451;
+  color: #fff;
+}
+
 /* Tomorrow Comment */
 .hljs-comment,
 .hljs-quote {
@@ -55,11 +60,6 @@
 .hljs-keyword,
 .hljs-selector-tag {
   color: #ebbbff;
-}
-
-.hljs {
-  background: #002451;
-  color: #fff;
 }
 
 .hljs-emphasis {
