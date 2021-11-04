@@ -29,3 +29,6 @@ require('./regex');
 // isn't actually used to test inside a browser but `jsdom` acts as a virtual
 // browser inside of node.js and runs together with all the other tests.
 require('./special');
+
+// Test constrast of styles.
+require('./contrast/test_contrasts');
