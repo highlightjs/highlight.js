@@ -77,11 +77,11 @@ Aurora
 }
 
 .hljs-addition {
-  background-color: rgba(163, 190, 140, 0.5);
+  background-color: #697966; /* same as #a3be8c80 on top of #2E3440 */
 }
 
 .hljs-deletion {
-  background-color: rgba(191, 97, 106, 0.5);
+  background-color: #774a55; /* same as #bf616a80 on top of #2E3440 */
 }
 
 .hljs-built_in,

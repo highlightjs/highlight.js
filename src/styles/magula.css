@@ -9,11 +9,11 @@ Music: Aphex Twin / Xtal
 
 .hljs {
   background-color: #f4f4f4;
-  color: black;
+  color: #000;
 }
 
 .hljs-subst {
-  color: black;
+  color: #000;
 }
 
 .hljs-string,
@@ -55,7 +55,7 @@ Music: Aphex Twin / Xtal
 .hljs-tag,
 .hljs-name {
   font-weight: bold;
-  color: navy;
+  color: #080;
 }
 
 .hljs-emphasis {

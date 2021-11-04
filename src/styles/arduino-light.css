@@ -5,7 +5,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 */
 
 .hljs {
-  background: white;
+  background: #fff;
   color: #434f54;
 }
 
@@ -50,7 +50,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 }
 
 .hljs-comment {
-  color: rgba(149,165,166,.8);
+  color: #abb7b8;
 }
 
 .hljs-meta .hljs-keyword {

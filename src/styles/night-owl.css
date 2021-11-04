@@ -169,11 +169,11 @@ SOFTWARE.
 
 /* diff */
 .hljs-addition {
-  color: #addb67ff;
+  color: #addb67;
   font-style: italic;
 }
 
 .hljs-deletion {
-  color: #EF535090;
+  color: #87383e;
   font-style: italic;
 }

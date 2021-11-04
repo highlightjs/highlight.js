@@ -6,8 +6,8 @@ Gradient Dark (c) Samia Ali <samiaab1990@gmail.com>
 
 .hljs
 {
-background: rgb(80,31,122);
-background: linear-gradient(166deg, rgba(80,31,122,1) 0%, rgba(40,32,179,1) 80%);
+background: #501f7a;
+background: linear-gradient(166deg, #501f7a 0%, #2820b3 80%);
 color:#e7e4eb;
 }
 

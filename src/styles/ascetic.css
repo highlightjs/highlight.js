@@ -5,8 +5,8 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 */
 
 .hljs {
-  background: white;
-  color: black;
+  background: #fff;
+  color: #000;
 }
 
 .hljs-string,
