@@ -103,10 +103,26 @@ aside ul::-webkit-scrollbar-thumb:active {
 }
 
 aside ul a {
-  display: block;
+  /* display: block; */
   padding: 1px 0.5em 1px 1em;
   text-decoration: none;
 }
+
+ul li .badge {
+  display: inline;
+  font-weight:bold;
+  color: white;
+  background:brown;
+  font-size:10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+/* badge colors */
+ul li .badge.aa {
+  background: green;
+}
+
 
 aside ul a:focus,
 aside ul a:hover {
@@ -120,6 +136,7 @@ aside ul a.current:before {
   position: absolute;
   left: 0;
 }
+
 
 main {
   margin-left: 18em;

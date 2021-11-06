@@ -14,6 +14,7 @@ const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
 const Table = require('cli-table');
+const ThemeAnalysis = require('./lib/theme_analysis.js');
 
 const getDefaultHeader = () => ({
   ...require('../package.json'),
@@ -143,8 +144,10 @@ async function renderIndex(languages, minify) {
   const css = await glob("styles/**/*.css", { cwd: "./src" });
   let styles = css
     .map((el) => ({ name: nameForStyle(el), path: el }))
-    .filter((style) => style.name !== "Default");
-  styles = sortByKey(styles, "name");
+    // .filter((style) => style.name !== "Default");
+  styles = sortByKey(styles, "name")
+    .map(x => new ThemeAnalysis(x));
+  styles.unshift(new ThemeAnalysis(styles.find(x => x.name=="Default")));
 
   renderTemplate("./demo/index.html", "./demo/index.html", {
     categories,
