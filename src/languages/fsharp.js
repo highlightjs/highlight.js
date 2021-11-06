@@ -319,8 +319,7 @@ export default function(hljs) {
   }
 
   const TYPE_ANNOTATION = makeTypeAnnotationMode(/:/, 'operator');
-  // DU stands for Discriminated Union
-  const DU_TYPE_ANNOTATION = makeTypeAnnotationMode(/\bof\b/, 'keyword');
+  const DISCRIMINATED_UNION_TYPE_ANNOTATION = makeTypeAnnotationMode(/\bof\b/, 'keyword');
 
   // type MyType<'a> = ...
   const TYPE_DECLARATION = {
@@ -541,7 +540,7 @@ export default function(hljs) {
           NUMBER
         ]
       },
-      DU_TYPE_ANNOTATION,
+      DISCRIMINATED_UNION_TYPE_ANNOTATION,
       TYPE_ANNOTATION,
       COMPUTATION_EXPRESSION,
       PREPROCESSOR,
