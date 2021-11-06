@@ -235,17 +235,14 @@ export default function(hljs) {
   };
 
   // 'a or ^a where a can be a ``quoted identifier``
+  const BEGIN_GENERIC_TYPE_SYMBOL_RE = /\B('|\^)/
   const GENERIC_TYPE_SYMBOL = {
-    match: /\B('|\^)(?=``|\w)/,
     scope: 'symbol',
-    contains: [
-      hljs.inherit(QUOTED_IDENTIFIER, {
-        scope: null // Use parent scope
-      }),
-      // Cannot contain another apostrophe
-      hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {
-        scope: null // Use parent scope
-      })
+    variants: [
+      // the type name is a quoted identifier:
+      { match: regex.concat(BEGIN_GENERIC_TYPE_SYMBOL_RE, /``.*?``/) },
+      // the type name is a normal identifier (we don't use IDENTIFIER_RE because there cannot be another apostrophe here):
+      { match: regex.concat(BEGIN_GENERIC_TYPE_SYMBOL_RE, hljs.UNDERSCORE_IDENT_RE) }
     ],
     relevance: 0
   };
