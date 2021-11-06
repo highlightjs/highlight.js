@@ -113,15 +113,15 @@ ul li .badge {
   font-weight:bold;
   color: white;
   background:brown;
-  font-size:10px;
+  font-size:11px;
   padding: 2px 5px;
   border-radius: 5px;
 }
 
 /* badge colors */
-ul li .badge.aa {
-  background: green;
-}
+ul li .badge.aa { background: green; }
+ul li .badge.light { background: #ddd; color: #222 }
+ul li .badge.dark { background: #333; color: #eee }
 
 
 aside ul a:focus,
