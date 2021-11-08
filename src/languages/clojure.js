@@ -132,7 +132,6 @@ export default function(hljs) {
   };
 
   LIST.contains = [
-    hljs.COMMENT('comment', ''),
     GLOBAL,
     NAME,
     BODY
