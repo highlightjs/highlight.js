@@ -221,7 +221,7 @@ export default function(hljs) {
 
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE_ATTRIBUTE = {
-    match: /(@|#)available/,
+    match: /(@|#(un)?)available/,
     className: "keyword",
     starts: {
       contains: [

@@ -20,7 +20,7 @@ const timeTest = (name, func) => {
   func();
   const t1 = performance.now();
   console.log(` done! [${((t1 - t0) / 1000).toFixed(2)}s elapsed]`);
-}
+};
 
 const oneLanguageMarkupTests = (lang) => {
   for (let i = 0; i < 50; i++) {
@@ -52,10 +52,10 @@ const globalCheckAutoDetect = () => {
 };
 
 const highlightFile = (lang) => {
-  const source = fs.readFileSync(`./tools/sample_files/${lang}.txt`, { encoding:'utf8' });
-  const hljs = require('../build');
+  const source = fs.readFileSync(`./tools/sample_files/${lang}.txt`, { encoding: 'utf8' });
+  const hljs = require('../build.js');
   for (let i = 0; i < 2000; i++) {
-    hljs.highlight(source, {language: lang});
+    hljs.highlight(source, { language: lang });
   }
 };
 

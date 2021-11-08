@@ -3,8 +3,11 @@
 Grammars:
 
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
+- enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
+- enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
 
 [Richard Gibson]: https://github.com/gibson042
+[Bradley Mackey]: https://github.com/bradleymackey
 
 ## Version 11.3.1
 

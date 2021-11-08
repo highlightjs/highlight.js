@@ -1,4 +1,3 @@
-@available(iOS 14, deprecated: "reason", *)
 @convention(swift)
 @objc
 @objc(name)

@@ -24,7 +24,7 @@ Please specify exactly *which* language grammar you are using to highlight (`pyt
 Please include plain text examples of the code that fails to highlight properly or can reproduce the bug you are seeing.  If you attach a screenshot PLEASE also provide the actually code that we can copy/paste if necessary to help resolve the issue.
 
 A jsfiddle can sometimes be even better.  You can fork an example test case:
-https://jsfiddle.net/ajoshguy/gfzujpyt/
+https://jsfiddle.net/ajoshguy/cjhvre2k/
 -->
 
 
