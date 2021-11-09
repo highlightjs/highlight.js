@@ -46,6 +46,7 @@ export default function(hljs) {
   };
 
   const NUMBER_RE = /[-+]?(((0[xX][0-9a-fA-F]+|0[0-7]+|[1-9][0-9]?[rR][0-9a-zA-Z]+)N?)|[0-9]+(\/[0-9]+|N|((\.[0-9]*)?([eE][+-]?[0-9]+)?M?)))/
+  const CHAR_RE = /\\(o[0-3]?[0-7]{1,2}|u[0-9a-fA-F]{4}|newline|space|tab|formfeed|backspace|return|\S)/
 
   const SYMBOL = {
     begin: SYMBOL_RE,
@@ -56,6 +57,10 @@ export default function(hljs) {
     match: NUMBER_RE,
     relevance: 0
   };
+  const CHARACTER = {
+    scope: 'character',
+    match: CHAR_RE
+  }
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     illegal: null
   });
@@ -101,6 +106,7 @@ export default function(hljs) {
   };
   const DEFAULT_CONTAINS = [
     LIST,
+    CHARACTER,
     STRING,
     HINT,
     HINT_COL,
@@ -146,6 +152,7 @@ export default function(hljs) {
     illegal: /\S/,
     contains: [
       LIST,
+      CHARACTER,
       STRING,
       HINT,
       HINT_COL,
