@@ -69,6 +69,11 @@ export default function(hljs) {
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     illegal: null
   });
+  const COMMA = {
+    scope: 'punctuation',
+    match: /,/,
+    relevance: 0
+  }
   const COMMENT = hljs.COMMENT(
     ';',
     '$',
@@ -105,6 +110,7 @@ export default function(hljs) {
     starts: BODY
   };
   const DEFAULT_CONTAINS = [
+    COMMA,
     LIST,
     CHARACTER,
     REGEX,
@@ -149,6 +155,7 @@ export default function(hljs) {
     aliases: [ 'clj', 'edn' ],
     illegal: /\S/,
     contains: [
+      COMMA,
       LIST,
       CHARACTER,
       REGEX,
