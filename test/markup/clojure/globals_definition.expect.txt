@@ -14,6 +14,11 @@
       (<span class="hljs-name"><span class="hljs-built_in">-&gt;&gt;</span></span>
         (<span class="hljs-name"><span class="hljs-built_in">list</span></span> [vector] {<span class="hljs-symbol">:map</span> map} #{&#x27;set})))))
 
+#:person{<span class="hljs-symbol">:first</span> <span class="hljs-string">&quot;Han&quot;</span>
+         <span class="hljs-symbol">:last</span> <span class="hljs-string">&quot;Solo&quot;</span>
+         <span class="hljs-symbol">:ship</span> #:ship{<span class="hljs-symbol">:name</span> <span class="hljs-string">&quot;Millenium Falcon&quot;</span>}}
+#::{<span class="hljs-symbol">:a</span> <span class="hljs-number">1</span>, <span class="hljs-symbol">:b</span> <span class="hljs-number">2</span>}
+
 <span class="hljs-comment">; global</span>
 (<span class="hljs-keyword">def</span> <span class="hljs-title">some-var</span>)
 <span class="hljs-comment">; another one</span>

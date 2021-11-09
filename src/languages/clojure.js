@@ -9,7 +9,7 @@ Category: lisp
 /** @type LanguageFn */
 export default function(hljs) {
   const SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&\'';
-  const SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:$]*';
+  const SYMBOL_RE = '[#]?[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:$#]*';
   const globals = 'def defonce defprotocol defstruct defmulti defmethod defn- defn defmacro deftype defrecord';
   const keywords = {
     $pattern: SYMBOL_RE,
@@ -76,7 +76,7 @@ export default function(hljs) {
     begin: /\b(true|false|nil)\b/
   };
   const COLLECTION = {
-    begin: '[\\[\\{]',
+    begin: "\\[|(#::?" + SYMBOL_RE + ")?\\{",
     end: '[\\]\\}]',
     relevance: 0
   };

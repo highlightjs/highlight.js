@@ -14,6 +14,11 @@
       (->>
         (list [vector] {:map map} #{'set})))))
 
+#:person{:first "Han"
+         :last "Solo"
+         :ship #:ship{:name "Millenium Falcon"}}
+#::{:a 1, :b 2}
+
 ; global
 (def some-var)
 ; another one
