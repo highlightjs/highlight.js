@@ -1,1 +1,4 @@
 (def +x [(a 1) +2 -3.0 y-5])
+(System/getProperty "java.vm.version")
+(.getEnclosingClass java.util.Map$Entry)
+(java.util.Map$Entry. .getEnclosingClass)
