@@ -61,6 +61,11 @@ export default function(hljs) {
     scope: 'character',
     match: CHAR_RE
   }
+  const REGEX = {
+    scope: 'regex',
+    begin: /#"/,
+    end: /"/
+  }
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     illegal: null
   });
@@ -107,6 +112,7 @@ export default function(hljs) {
   const DEFAULT_CONTAINS = [
     LIST,
     CHARACTER,
+    REGEX,
     STRING,
     HINT,
     HINT_COL,
@@ -153,6 +159,7 @@ export default function(hljs) {
     contains: [
       LIST,
       CHARACTER,
+      REGEX,
       STRING,
       HINT,
       HINT_COL,
