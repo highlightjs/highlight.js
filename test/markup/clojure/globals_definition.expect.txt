@@ -6,7 +6,7 @@
 (<span class="hljs-keyword">defn</span> <span class="hljs-title">clojure-function</span> [args]
   (<span class="hljs-name"><span class="hljs-built_in">let</span></span> [string   <span class="hljs-string">&quot;multiline\nstring&quot;</span>
         regexp   <span class="hljs-regex">#&quot;regexp&quot;</span>
-        number   <span class="hljs-number">100</span>,<span class="hljs-number">000</span>
+        number   <span class="hljs-number">100000</span>
         booleans [<span class="hljs-literal">false</span> <span class="hljs-literal">true</span>]
         keyword  <span class="hljs-symbol">::the-keyword</span>]
     <span class="hljs-comment">;; this is comment</span>

@@ -6,7 +6,7 @@
 (defn clojure-function [args]
   (let [string   "multiline\nstring"
         regexp   #"regexp"
-        number   100,000
+        number   100000
         booleans [false true]
         keyword  ::the-keyword]
     ;; this is comment
