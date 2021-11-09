@@ -1,0 +1,50 @@
+; integer
+00
+42
+
+; BigInt
+42N
+0N
+
+; octal
+052
+00N
+
+; hex
+0x2a
+0x0N
+
+; radix
+2r101010
+8r52
+16r2a
+36r16
+
+; radix BigInt
+2r101010N
+8r52N
+16r2aN
+36r16N
+
+;; ratios
+1/2
+-1/2
+
+;; floats
+42.0
+-42.0
+42.
+
+; BigDecimal
+42.0M
+-42M
+42.M
+42M
+
+; with Exponent
+42.0E2
+-42.0E+9
+42E-0
+
+42.0E2M
+42E+9M

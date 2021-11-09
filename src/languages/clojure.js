@@ -45,15 +45,15 @@ export default function(hljs) {
       'lazy-seq spread list* str find-keyword keyword symbol gensym force rationalize'
   };
 
-  const SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
+  const NUMBER_RE = /[-+]?(((0[xX][0-9a-fA-F]+|0[0-7]+|[1-9][0-9]?[rR][0-9a-zA-Z]+)N?)|[0-9]+(\/[0-9]+|N|((\.[0-9]*)?([eE][+-]?[0-9]+)?M?)))/
 
   const SYMBOL = {
     begin: SYMBOL_RE,
     relevance: 0
   };
   const NUMBER = {
-    className: 'number',
-    begin: SIMPLE_NUMBER_RE,
+    scope: 'number',
+    match: NUMBER_RE,
     relevance: 0
   };
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {

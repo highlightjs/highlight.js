@@ -1,0 +1,50 @@
+<span class="hljs-comment">; integer</span>
+<span class="hljs-number">00</span>
+<span class="hljs-number">42</span>
+
+<span class="hljs-comment">; BigInt</span>
+<span class="hljs-number">42N</span>
+<span class="hljs-number">0N</span>
+
+<span class="hljs-comment">; octal</span>
+<span class="hljs-number">052</span>
+<span class="hljs-number">00N</span>
+
+<span class="hljs-comment">; hex</span>
+<span class="hljs-number">0x2a</span>
+<span class="hljs-number">0x0N</span>
+
+<span class="hljs-comment">; radix</span>
+<span class="hljs-number">2r101010</span>
+<span class="hljs-number">8r52</span>
+<span class="hljs-number">16r2a</span>
+<span class="hljs-number">36r16</span>
+
+<span class="hljs-comment">; radix BigInt</span>
+<span class="hljs-number">2r101010N</span>
+<span class="hljs-number">8r52N</span>
+<span class="hljs-number">16r2aN</span>
+<span class="hljs-number">36r16N</span>
+
+<span class="hljs-comment">;; ratios</span>
+<span class="hljs-number">1/2</span>
+<span class="hljs-number">-1/2</span>
+
+<span class="hljs-comment">;; floats</span>
+<span class="hljs-number">42.0</span>
+<span class="hljs-number">-42.0</span>
+<span class="hljs-number">42.</span>
+
+<span class="hljs-comment">; BigDecimal</span>
+<span class="hljs-number">42.0M</span>
+<span class="hljs-number">-42M</span>
+<span class="hljs-number">42.M</span>
+<span class="hljs-number">42M</span>
+
+<span class="hljs-comment">; with Exponent</span>
+<span class="hljs-number">42.0E2</span>
+<span class="hljs-number">-42.0E+9</span>
+<span class="hljs-number">42E-0</span>
+
+<span class="hljs-number">42.0E2M</span>
+<span class="hljs-number">42E+9M</span>
