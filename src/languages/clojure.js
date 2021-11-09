@@ -85,11 +85,6 @@ export default function(hljs) {
     end: '[\\]\\}]',
     relevance: 0
   };
-  const HINT = {
-    className: 'comment',
-    begin: '\\^' + SYMBOL_RE
-  };
-  const HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
   const KEY = {
     className: 'symbol',
     begin: '[:]{1,2}' + SYMBOL_RE
@@ -114,8 +109,6 @@ export default function(hljs) {
     CHARACTER,
     REGEX,
     STRING,
-    HINT,
-    HINT_COL,
     COMMENT,
     KEY,
     COLLECTION,
@@ -150,7 +143,6 @@ export default function(hljs) {
   ];
   BODY.contains = DEFAULT_CONTAINS;
   COLLECTION.contains = DEFAULT_CONTAINS;
-  HINT_COL.contains = [ COLLECTION ];
 
   return {
     name: 'Clojure',
@@ -161,8 +153,6 @@ export default function(hljs) {
       CHARACTER,
       REGEX,
       STRING,
-      HINT,
-      HINT_COL,
       COMMENT,
       KEY,
       COLLECTION,
