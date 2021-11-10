@@ -45,8 +45,6 @@ export default function(hljs) {
       'lazy-seq spread list* str find-keyword keyword symbol gensym force rationalize'
   };
 
-  const CHAR_RE = /\\(o[0-3]?[0-7]{1,2}|u[0-9a-fA-F]{4}|newline|space|tab|formfeed|backspace|return|\S)/
-
   const SYMBOL = {
     begin: SYMBOL_RE,
     relevance: 0
@@ -65,7 +63,12 @@ export default function(hljs) {
   };
   const CHARACTER = {
     scope: 'character',
-    match: CHAR_RE
+    variants: [
+      {match: /\\o[0-3]?[0-7]{1,2}/},                             // Unicode Octal 0 - 377
+      {match: /\\u[0-9a-fA-F]{4}/},                               // Unicode Hex 0000 - FFFF
+      {match: /\\(newline|space|tab|formfeed|backspace|return)/}, // special characters
+      {match: /\\\S/}                                             // any non-whitespace char
+    ]
   }
   const REGEX = {
     scope: 'regex',
