@@ -67,7 +67,7 @@ export default function(hljs) {
       {match: /\\o[0-3]?[0-7]{1,2}/},                             // Unicode Octal 0 - 377
       {match: /\\u[0-9a-fA-F]{4}/},                               // Unicode Hex 0000 - FFFF
       {match: /\\(newline|space|tab|formfeed|backspace|return)/}, // special characters
-      {match: /\\\S/}                                             // any non-whitespace char
+      {match: /\\\S/, relevance: 0}                               // any non-whitespace char
     ]
   }
   const REGEX = {
