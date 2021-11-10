@@ -8,8 +8,8 @@ Category: lisp
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
-  const SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
+  const SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&\'';
+  const SYMBOL_RE = '[#]?[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:$#]*';
   const globals = 'def defonce defprotocol defstruct defmulti defmethod defn- defn defmacro deftype defrecord';
   const keywords = {
     $pattern: SYMBOL_RE,
@@ -45,20 +45,44 @@ export default function(hljs) {
       'lazy-seq spread list* str find-keyword keyword symbol gensym force rationalize'
   };
 
-  const SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
-
   const SYMBOL = {
     begin: SYMBOL_RE,
     relevance: 0
   };
   const NUMBER = {
-    className: 'number',
-    begin: SIMPLE_NUMBER_RE,
-    relevance: 0
+    scope: 'number',
+    relevance: 0,
+    variants: [
+      {match: /[-+]?0[xX][0-9a-fA-F]+N?/},                           // hexadecimal                 // 0x2a
+      {match: /[-+]?0[0-7]+N?/},                                     // octal                       // 052
+      {match: /[-+]?[1-9][0-9]?[rR][0-9a-zA-Z]+N?/},                 // variable radix from 2 to 36 // 2r101010, 8r52, 36r16
+      {match: /[-+]?[0-9]+\/[0-9]+N?/},                              // ratio                       // 1/2
+      {match: /[-+]?[0-9]+((\.[0-9]*([eE][+-]?[0-9]+)?M?)|([eE][+-]?[0-9]+M?|M))/}, // float        // 0.42 4.2E-1M 42E1 42M
+      {match: /[-+]?([1-9][0-9]*|0)N?/},                             // int (don't match leading 0) // 42 42N
+    ]
   };
+  const CHARACTER = {
+    scope: 'character',
+    variants: [
+      {match: /\\o[0-3]?[0-7]{1,2}/},                             // Unicode Octal 0 - 377
+      {match: /\\u[0-9a-fA-F]{4}/},                               // Unicode Hex 0000 - FFFF
+      {match: /\\(newline|space|tab|formfeed|backspace|return)/}, // special characters
+      {match: /\\\S/, relevance: 0}                               // any non-whitespace char
+    ]
+  }
+  const REGEX = {
+    scope: 'regex',
+    begin: /#"/,
+    end: /"/
+  }
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     illegal: null
   });
+  const COMMA = {
+    scope: 'punctuation',
+    match: /,/,
+    relevance: 0
+  }
   const COMMENT = hljs.COMMENT(
     ';',
     '$',
@@ -71,15 +95,10 @@ export default function(hljs) {
     begin: /\b(true|false|nil)\b/
   };
   const COLLECTION = {
-    begin: '[\\[\\{]',
+    begin: "\\[|(#::?" + SYMBOL_RE + ")?\\{",
     end: '[\\]\\}]',
     relevance: 0
   };
-  const HINT = {
-    className: 'comment',
-    begin: '\\^' + SYMBOL_RE
-  };
-  const HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
   const KEY = {
     className: 'symbol',
     begin: '[:]{1,2}' + SYMBOL_RE
@@ -100,10 +119,11 @@ export default function(hljs) {
     starts: BODY
   };
   const DEFAULT_CONTAINS = [
+    COMMA,
     LIST,
+    CHARACTER,
+    REGEX,
     STRING,
-    HINT,
-    HINT_COL,
     COMMENT,
     KEY,
     COLLECTION,
@@ -138,17 +158,17 @@ export default function(hljs) {
   ];
   BODY.contains = DEFAULT_CONTAINS;
   COLLECTION.contains = DEFAULT_CONTAINS;
-  HINT_COL.contains = [ COLLECTION ];
 
   return {
     name: 'Clojure',
     aliases: [ 'clj', 'edn' ],
     illegal: /\S/,
     contains: [
+      COMMA,
       LIST,
+      CHARACTER,
+      REGEX,
       STRING,
-      HINT,
-      HINT_COL,
       COMMENT,
       KEY,
       COLLECTION,

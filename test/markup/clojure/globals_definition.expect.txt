@@ -5,8 +5,8 @@
 <span class="hljs-comment">; function</span>
 (<span class="hljs-keyword">defn</span> <span class="hljs-title">clojure-function</span> [args]
   (<span class="hljs-name"><span class="hljs-built_in">let</span></span> [string   <span class="hljs-string">&quot;multiline\nstring&quot;</span>
-        regexp   #<span class="hljs-string">&quot;regexp&quot;</span>
-        number   <span class="hljs-number">100</span>,<span class="hljs-number">000</span>
+        regexp   <span class="hljs-regex">#&quot;regexp&quot;</span>
+        number   <span class="hljs-number">100000</span>
         booleans [<span class="hljs-literal">false</span> <span class="hljs-literal">true</span>]
         keyword  <span class="hljs-symbol">::the-keyword</span>]
     <span class="hljs-comment">;; this is comment</span>
@@ -14,12 +14,17 @@
       (<span class="hljs-name"><span class="hljs-built_in">-&gt;&gt;</span></span>
         (<span class="hljs-name"><span class="hljs-built_in">list</span></span> [vector] {<span class="hljs-symbol">:map</span> map} #{&#x27;set})))))
 
+#:person{<span class="hljs-symbol">:first</span> <span class="hljs-string">&quot;Han&quot;</span>
+         <span class="hljs-symbol">:last</span> <span class="hljs-string">&quot;Solo&quot;</span>
+         <span class="hljs-symbol">:ship</span> #:ship{<span class="hljs-symbol">:name</span> <span class="hljs-string">&quot;Millenium Falcon&quot;</span>}}
+#::{<span class="hljs-symbol">:a</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-symbol">:b</span> <span class="hljs-number">2</span>}
+
 <span class="hljs-comment">; global</span>
 (<span class="hljs-keyword">def</span> <span class="hljs-title">some-var</span>)
 <span class="hljs-comment">; another one</span>
 (<span class="hljs-keyword">def</span> <span class="hljs-title">alternative-var</span> <span class="hljs-string">&quot;132&quot;</span>)
 <span class="hljs-comment">; defonce</span>
-(<span class="hljs-keyword">defonce</span> ^<span class="hljs-symbol">:private</span> <span class="hljs-title">another-var</span> #<span class="hljs-string">&quot;foo&quot;</span>)
+(<span class="hljs-keyword">defonce</span> ^<span class="hljs-symbol">:private</span> <span class="hljs-title">another-var</span> <span class="hljs-regex">#&quot;foo&quot;</span>)
 
 <span class="hljs-comment">; private function</span>
 (<span class="hljs-keyword">defn-</span> <span class="hljs-title">add</span> [x y] (<span class="hljs-name"><span class="hljs-built_in">+</span></span> x y))
