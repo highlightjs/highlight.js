@@ -14,6 +14,12 @@
       (->>
         (list [vector] {:map map} #{'set})))))
 
+#"\"abc\\"
+
+"real
+multiline
+string"
+
 #:person{:first "Han"
          :last "Solo"
          :ship #:ship{:name "Millenium Falcon"}}

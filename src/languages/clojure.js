@@ -73,7 +73,8 @@ export default function(hljs) {
   const REGEX = {
     scope: 'regex',
     begin: /#"/,
-    end: /"/
+    end: /"/,
+    contains: [hljs.BACKSLASH_ESCAPE]
   }
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     illegal: null
