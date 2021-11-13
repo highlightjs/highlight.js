@@ -17,7 +17,7 @@ Grammars:
 
 Developer Tools:
 
-- (chore) add gzip compression action (#3400) [Bradley Mackey][]
+- (chore) add gzip size compression report (#3400) [Bradley Mackey][]
 
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
