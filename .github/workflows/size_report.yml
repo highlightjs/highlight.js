@@ -2,7 +2,7 @@
 # Reported file sizes are after the result of gzip compression.
 # Compression action used: https://github.com/preactjs/compressed-size-action
 
-name: CDN Size (gzip)
+name: Size Report (gzip)
 
 on: [pull_request]
 
