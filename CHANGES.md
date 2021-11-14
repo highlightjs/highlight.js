@@ -15,6 +15,10 @@ Grammars:
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
 
+Developer Tools:
+
+- (chore) add gzip size compression report (#3400) [Bradley Mackey][]
+
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
