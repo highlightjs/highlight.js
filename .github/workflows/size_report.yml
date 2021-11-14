@@ -18,4 +18,4 @@ jobs:
         with:
           build-script: "build-cdn"
           compression: "gzip"
-          pattern: "./build/**/*.js"
+          pattern: "./build/{*.min.js,es/*.min.js,languages/*.min.js,es/languages/*.min.js}"
