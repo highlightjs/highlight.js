@@ -18,4 +18,5 @@ jobs:
         with:
           build-script: "build-cdn"
           compression: "gzip"
+          minimum-change-threshold: 5 # bytes
           pattern: "./build/{*.min.js,es/*.min.js,languages/*.min.js,es/languages/*.min.js}"
