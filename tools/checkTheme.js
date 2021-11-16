@@ -4,6 +4,7 @@ const fs = require("fs");
 const css = require("css");
 const wcagContrast = require("wcag-contrast");
 const Table = require('cli-table');
+const csscolors = require('css-color-names');
 // const colors = require('colors/safe.js');
 
 
@@ -198,6 +199,13 @@ class CSSRule {
     if (rule.declarations) {
       this.bg = rule.declarations.find(x => x.property =="background")?.value;
       this.fg = rule.declarations.find(x => x.property =="color")?.value;
+
+      if (this.bg) {
+        this.bg = csscolors[this.bg] || this.bg;
+      }
+      if (this.fg) {
+        this.fg = csscolors[this.fg] || this.fg;
+      }
 
       // inherit from body if we're missing fg or bg
       if (this.hasColor) {
