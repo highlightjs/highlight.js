@@ -6,7 +6,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 
 .hljs {
   color: #ddd;
-  background: #444;
+  background: #303030;
 }
 
 .hljs-keyword,
@@ -41,7 +41,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-quote,
 .hljs-deletion,
 .hljs-meta {
-  color: #777;
+  color: #979797;
 }
 
 .hljs-keyword,
