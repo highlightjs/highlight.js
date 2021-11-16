@@ -8,3 +8,11 @@ public class Greet {
         }
     }
 }
+
+sealed interface Command permits LoginCommand {
+    void run();
+}
+
+non-sealed abstract class UserPluginCommand extends Command {
+    void runAsUser();
+}

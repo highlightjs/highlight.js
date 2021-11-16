@@ -3,8 +3,25 @@
 Grammars:
 
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
+- enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
+- enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
+  - fix(clojure) `comment` macro catches more than it should (#3395)
+  - fix(clojure) `$` in symbol breaks highlighting
+  - fix(clojure) Add complete regex for number detection
+  - enh(clojure) Add character mode for character literals
+  - fix(clojure) Inconsistent namespaced map highlighting
+  - enh(clojure) Add `regex` mode to regex literal
+  - fix(clojure) Remove inconsistent/broken highlighting for metadata
+  - enh(clojure) Add `punctuation` mode for commas.
+
+Developer Tools:
+
+- (chore) add gzip size compression report (#3400) [Bradley Mackey][]
 
 [Richard Gibson]: https://github.com/gibson042
+[Bradley Mackey]: https://github.com/bradleymackey
+[Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 
 ## Version 11.3.1
 

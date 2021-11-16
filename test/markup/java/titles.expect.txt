@@ -8,3 +8,11 @@
         }
     }
 }
+
+<span class="hljs-keyword">sealed</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Command</span> permits LoginCommand {
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span>;
+}
+
+<span class="hljs-keyword">non-sealed</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserPluginCommand</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Command</span> {
+    <span class="hljs-keyword">void</span> <span class="hljs-title function_">runAsUser</span><span class="hljs-params">()</span>;
+}

@@ -102,16 +102,19 @@ aside ul::-webkit-scrollbar-thumb:active {
   background: #5d3333;
 }
 
-aside li {
-  padding: 1px 1em;
-  cursor: pointer;
+aside ul a {
+  display: block;
+  padding: 1px 0.5em 1px 1em;
+  text-decoration: none;
 }
 
-aside li:hover {
+aside ul a:focus,
+aside ul a:hover {
   background: #500;
+  outline: none;
 }
 
-aside li.current:before {
+aside ul a.current:before {
   content: "▶";
   font-size: smaller;
   position: absolute;
