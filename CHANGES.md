@@ -2,6 +2,7 @@
 
 Grammars:
 
+- fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
@@ -22,6 +23,7 @@ Developer Tools:
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
+[Josh Goebel]: https://github.com/joshgoebel
 
 ## Version 11.3.1
 
