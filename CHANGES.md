@@ -1,4 +1,11 @@
-## Version 11.3.2 (most likely)
+## Version 11.4 (most likely)
+
+Themes:
+
+- `Default` is now much closer WCAG AA (contrast) (#3402) [Josh Goebel]
+- `Dark` now meets WCAG AA (contrast) (#3402) [Josh Goebel]
+
+These changes should be for the better and should not be super noticeable but if you're super picky about your colors you may want to intervene here or copy over the older themes from 11.3 or prior.
 
 Grammars:
 
