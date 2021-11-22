@@ -62,7 +62,7 @@
 
 const commander = require('commander');
 const path = require('path');
-const { clean } = require("./lib/makestuff");
+const { clean } = require("./lib/makestuff.js");
 const log = (...args) => console.log(...args);
 
 const TARGETS = ["cdn", "browser", "node"];
@@ -73,8 +73,8 @@ commander
   .option('-n, --no-minify', 'Disable minification')
   .option('-ne, --no-esm', 'Disable building ESM')
   .option('-t, --target <name>',
-    'Build for target ' +
-    '[all, browser, cdn, node]',
+    'Build for target '
+    + '[all, browser, cdn, node]',
     'browser')
   .parse(process.argv);
 
