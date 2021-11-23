@@ -5,6 +5,7 @@ Themes:
 
 Grammars:
 
+- enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
 - enh(php) named arguments [Wojciech Kania][]
 - fix(php) PHP constants [Wojciech Kania][]
