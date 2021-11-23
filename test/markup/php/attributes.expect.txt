@@ -1,0 +1,57 @@
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Entity</span>;
+
+<span class="hljs-meta">#[MyAttribute</span><span class="hljs-meta">]</span>
+<span class="hljs-meta">#[\MyExample\MyAttribute</span><span class="hljs-meta">]</span>
+<span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-number">1234</span>)<span class="hljs-meta">]</span>
+<span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-attr">value</span>: <span class="hljs-number">1234</span>)<span class="hljs-meta">]</span>
+<span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-title class_">MyAttribute</span>::<span class="hljs-variable constant_">VALUE</span>)<span class="hljs-meta">]</span>
+<span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;key&quot;</span> =&gt; <span class="hljs-string">&quot;value&quot;</span>))<span class="hljs-meta">]</span>
+<span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-number">100</span> + <span class="hljs-number">200</span>)<span class="hljs-meta">]</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> </span>{}
+
+<span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-number">1234</span>), <span class="hljs-meta">MyAttribute</span>(<span class="hljs-number">5678</span>)<span class="hljs-meta">]</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bar</span>
+</span>{
+    <span class="hljs-meta">#[Assert\IsTrue</span>(<span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;The password cannot match your given name&#x27;</span>)<span class="hljs-meta">]</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isPasswordSafe</span>(<span class="hljs-params"></span>)
+    </span>{
+    }
+
+    <span class="hljs-meta">#[Assert\AtLeastOneOf</span>([
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\Count</span>(<span class="hljs-attr">min</span>: <span class="hljs-number">2</span>),
+        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\All</span>(
+           <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\GreaterThanOrEqual</span>(<span class="hljs-number">7</span>)
+        ),
+    ])<span class="hljs-meta">]</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-variable">$stuff</span>;
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span>
+</span>{
+    <span class="hljs-meta">#[Assert\Choice</span>(
+        <span class="hljs-attr">choices</span>: [<span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>],
+        <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;Choose a valid color.&#x27;</span>,
+    )<span class="hljs-meta">]</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$color</span>;
+
+    <span class="hljs-meta">#[Assert\Choice</span>([<span class="hljs-string">&#x27;Hardcover&#x27;</span>, <span class="hljs-string">&#x27;Paperback&#x27;</span>])<span class="hljs-meta">]</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$format</span>;
+
+    <span class="hljs-meta">#[
+         Assert\Collection</span>(
+             <span class="hljs-attr">fields</span>: [
+                 <span class="hljs-string">&#x27;authorEmail&#x27;</span> =&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\Email</span>,
+                 <span class="hljs-string">&#x27;shortDesc&#x27;</span> =&gt; [
+                     <span class="hljs-comment">/*something*/</span>
+                     <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\NotBlank</span>,
+                     <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\Length</span>(
+                         <span class="hljs-attr">max</span>: <span class="hljs-number">200</span>,
+                         <span class="hljs-attr">maxMessage</span>: <span class="hljs-string">&#x27;Your short desc is too long&#x27;</span>
+                     )
+                 ],
+             ],
+             <span class="hljs-attr">allowMissingFields</span>: <span class="hljs-literal">true</span>,
+        )
+    <span class="hljs-meta">]</span>
+    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$additionalData</span>;
+}

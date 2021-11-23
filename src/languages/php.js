@@ -12,13 +12,15 @@ Category: common
  * */
 export default function(hljs) {
   const regex = hljs.regex;
-  const IDENT_RE_CORE = '[a-zA-Z0-9_\x7f-\xff]*' +
+  const IDENT_RE = '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
     // negative look-ahead tries to avoid matching patterns that are not
     // Perl at all like $ident$, @ident@, etc.
-    '(?![A-Za-z0-9])(?![$]))';
-  const IDENT_RE = regex.concat("([a-zA-Z_\\x7f-\\xff]", IDENT_RE_CORE);
+    '(?![A-Za-z0-9])(?![$])';
   // Will not detect camelCase classes
-  const PASCAL_CASE_CLASS_NAME_RE = regex.concat("([A-Z]", IDENT_RE_CORE);
+  const PASCAL_CASE_CLASS_NAME_RE = '([\\\\?A-Z][a-zA-Z0-9_\x7f-\xff]*' +
+  // negative look-ahead tries to avoid matching patterns that are not
+  // Perl at all like $ident$, @ident@, etc.
+  '(?![A-Za-z0-9])(?![$])){1,}';
   const VARIABLE = {
     scope: 'variable',
     match: '\\$+' + IDENT_RE,
@@ -317,8 +319,7 @@ export default function(hljs) {
           regex.concat(WHITESPACE, "+"),
           // to prevent built ins from being confused as the class constructor call
           regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-          regex.concat(/\\?/, IDENT_RE),
-          regex.concat(WHITESPACE, "*", /\(/),
+          PASCAL_CASE_CLASS_NAME_RE,
         ],
         scope: {
           1: "keyword",
@@ -431,10 +432,57 @@ export default function(hljs) {
   };
   PARAMS_MODE.contains.push(FUNCTION_INVOKE);
 
+  const ATTRIBUTES = {
+    begin: regex.concat(/#\[\s*/, PASCAL_CASE_CLASS_NAME_RE),
+    beginScope: "meta",
+    end: /]/,
+    endScope: "meta",
+    keywords: {
+      literal: LITERALS,
+      keyword: [
+        'new',
+        'array',
+      ]
+    },
+    contains: [
+      {
+        begin: /\[/,
+        end: /]/,
+        keywords: {
+          literal: LITERALS,
+          keyword: [
+            'new',
+            'array',
+          ]
+        },
+        contains: [
+          'self',
+          NAMED_ARGUMENT,
+          LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+          hljs.C_BLOCK_COMMENT_MODE,
+          STRING,
+          NUMBER,
+          CONSTRUCTOR_CALL,
+        ]
+      },
+      NAMED_ARGUMENT,
+      LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+      hljs.C_BLOCK_COMMENT_MODE,
+      STRING,
+      NUMBER,
+      CONSTRUCTOR_CALL,
+      {
+        scope: 'meta',
+        match: PASCAL_CASE_CLASS_NAME_RE
+      }
+    ]
+  };
+
   return {
     case_insensitive: false,
     keywords: KEYWORDS,
     contains: [
+      ATTRIBUTES,
       hljs.HASH_COMMENT_MODE,
       hljs.COMMENT('//', '$'),
       hljs.COMMENT(
