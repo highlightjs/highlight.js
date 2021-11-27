@@ -3,20 +3,31 @@
  Description: Zephir, an open source, high-level language designed to ease the creation and maintainability of extensions for PHP with a focus on type and memory safety.
  Author: Oleg Efimov <efimovov@gmail.com>
  Website: https://zephir-lang.com/en
+ Audit: 2020
  */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var STRING = {
+  const STRING = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE],
+    contains: [ hljs.BACKSLASH_ESCAPE ],
     variants: [
-      hljs.inherit(hljs.APOS_STRING_MODE, {illegal: null}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null})
+      hljs.inherit(hljs.APOS_STRING_MODE, {
+        illegal: null
+      }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        illegal: null
+      })
     ]
   };
-  var TITLE_MODE = hljs.UNDERSCORE_TITLE_MODE;
-  var NUMBER = {variants: [hljs.BINARY_NUMBER_MODE, hljs.C_NUMBER_MODE]};
-  var KEYWORDS =
+  const TITLE_MODE = hljs.UNDERSCORE_TITLE_MODE;
+  const NUMBER = {
+    variants: [
+      hljs.BINARY_NUMBER_MODE,
+      hljs.C_NUMBER_MODE
+    ]
+  };
+  const KEYWORDS =
     // classes and objects
     'namespace class interface use extends ' +
     'function return ' +
@@ -45,26 +56,27 @@ export default function(hljs) {
 
   return {
     name: 'Zephir',
-    aliases: ['zep'],
+    aliases: [ 'zep' ],
     keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(
-        '/\\*',
-        '\\*/',
+        /\/\*/,
+        /\*\//,
         {
           contains: [
             {
               className: 'doctag',
-              begin: '@[A-Za-z]+'
+              begin: /@[A-Za-z]+/
             }
           ]
         }
       ),
       {
         className: 'string',
-        begin: '<<<[\'"]?\\w+[\'"]?$', end: '^\\w+;',
-        contains: [hljs.BACKSLASH_ESCAPE]
+        begin: /<<<['"]?\w+['"]?$/,
+        end: /^\w+;/,
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       {
         // swallow composed identifiers to avoid parsing them as keywords
@@ -72,13 +84,16 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'function fn', end: /[;{]/, excludeEnd: true,
-        illegal: '\\$|\\[|%',
+        beginKeywords: 'function fn',
+        end: /[;{]/,
+        excludeEnd: true,
+        illegal: /\$|\[|%/,
         contains: [
           TITLE_MODE,
           {
             className: 'params',
-            begin: '\\(', end: '\\)',
+            begin: /\(/,
+            end: /\)/,
             keywords: KEYWORDS,
             contains: [
               'self',
@@ -91,24 +106,30 @@ export default function(hljs) {
       },
       {
         className: 'class',
-        beginKeywords: 'class interface', end: '{', excludeEnd: true,
-        illegal: /[:\(\$"]/,
+        beginKeywords: 'class interface',
+        end: /\{/,
+        excludeEnd: true,
+        illegal: /[:($"]/,
         contains: [
-          {beginKeywords: 'extends implements'},
+          {
+            beginKeywords: 'extends implements'
+          },
           TITLE_MODE
         ]
       },
       {
-        beginKeywords: 'namespace', end: ';',
-        illegal: /[\.']/,
-        contains: [TITLE_MODE]
+        beginKeywords: 'namespace',
+        end: /;/,
+        illegal: /[.']/,
+        contains: [ TITLE_MODE ]
       },
       {
-        beginKeywords: 'use', end: ';',
-        contains: [TITLE_MODE]
+        beginKeywords: 'use',
+        end: /;/,
+        contains: [ TITLE_MODE ]
       },
       {
-        begin: '=>' // No markup, just a relevance booster
+        begin: /=>/ // No markup, just a relevance booster
       },
       STRING,
       NUMBER

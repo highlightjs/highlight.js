@@ -1,0 +1,44 @@
+<span class="hljs-comment">(* here is a multi-line comment on one line *)</span>
+
+<span class="hljs-comment">(*
+    here is a multi-line comment on
+    multiple lines
+
+trying to break it:
+<span class="hljs-comment">(**)</span>
+/*
+asdf
+*/
+
+<span class="hljs-comment">(* *)</span>
+
+*)</span>
+
+<span class="hljs-keyword">let</span> index =
+    len
+    |&gt; <span class="hljs-type">float</span>
+    |&gt; Operators.(*) <span class="hljs-number">0.1</span>      <span class="hljs-comment">// (*) here is not comment</span>
+    |&gt; Operators.(+) <span class="hljs-number">1</span>        <span class="hljs-comment">// (+) here is not comment</span>
+    |&gt; Operators.(-) len      <span class="hljs-comment">// (-) here is not comment</span>
+
+
+<span class="hljs-comment">// foobar</span>
+<span class="hljs-comment">//bar</span>
+<span class="hljs-comment">(**)</span>
+<span class="hljs-comment">(*nospace*)</span>
+<span class="hljs-comment">(* space *)</span>
+<span class="hljs-comment">/// &lt;summary&gt;</span>
+<span class="hljs-comment">/// Class level summary documentation goes here.</span>
+<span class="hljs-comment">/// &lt;/summary&gt;</span>
+<span class="hljs-comment">/// &lt;remarks&gt;</span>
+<span class="hljs-comment">/// Longer comments can be associated with a type or member through</span>
+<span class="hljs-comment">/// the remarks tag.</span>
+<span class="hljs-comment">/// &lt;/remarks&gt;</span>
+<span class="hljs-keyword">let</span> x = ()
+
+<span class="hljs-comment">// the next one is not a comment</span>
+(*) (*)
+
+/*
+this one is <span class="hljs-built_in">not</span> a valid comment either
+*/

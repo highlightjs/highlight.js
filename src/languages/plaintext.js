@@ -6,9 +6,12 @@ Category: common
 */
 
 export default function(hljs) {
-    return {
-        name: 'Plain text',
-        aliases: ['text', 'txt'],
-        disableAutodetect: true
-    };
+  return {
+    name: 'Plain text',
+    aliases: [
+      'text',
+      'txt'
+    ],
+    disableAutodetect: true
+  };
 }

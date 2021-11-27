@@ -1,0 +1,24 @@
+<span class="hljs-variable">$name</span>
+<span class="hljs-variable">${name}</span>
+<span class="hljs-variable">${::name}</span>
+<span class="hljs-variable">${::namespace::name}</span>
+<span class="hljs-variable">${::namespace::another::name}</span>
+
+<span class="hljs-variable">$name</span>()
+<span class="hljs-variable">$name</span>(<span class="hljs-number">32</span>)
+<span class="hljs-variable">$name</span>(index)
+
+<span class="hljs-variable">$with_underscore::oth_er::and_finally</span>(<span class="hljs-number">32</span>)
+
+<span class="hljs-variable">${name()}</span>
+<span class="hljs-variable">${name(<span class="hljs-number">32</span>)}</span>
+<span class="hljs-variable">${name(index)}</span>
+
+<span class="hljs-variable">${ns::other::name()}</span>
+<span class="hljs-variable">${ns::other::name(<span class="hljs-number">32</span>)}</span>
+<span class="hljs-variable">${ns::other::name(index)}</span>
+
+
+<span class="hljs-variable">$ns::other::name</span>()
+<span class="hljs-variable">$ns::other::name</span>(<span class="hljs-number">32</span>)
+<span class="hljs-variable">$ns::other::name</span>(index)

@@ -27,7 +27,7 @@ function testLanguage(language, {testDir}) {
         const expectedFile = fs.readFile(filename, 'utf-8');
 
         Promise.all([sourceFile, expectedFile]).then(function([source, expected]) {
-          const actual = hljs.highlight(language, source).value;
+          const actual = hljs.highlight(source, { language }).value;
 
           // Uncomment this for major changes that rewrite the test expectations
           // which will then need to be manually compared by hand of course
@@ -46,16 +46,23 @@ describe('highlight() markup', async() => {
     const markupPath = utility.buildPath('markup');
 
     if (!process.env.ONLY_EXTRA) {
-      const languages = await fs.readdir(markupPath);
+      let languages = null;
+      if (process.env.ONLY_LANGUAGES) {
+        languages = process.env.ONLY_LANGUAGES.split(" ");
+      } else {
+        languages = await fs.readdir(markupPath);
+      }
       languages.forEach(testLanguage);
     }
 
-    const thirdPartyPackages = await getThirdPartyPackages();
-    thirdPartyPackages.forEach(
-      (pkg) => pkg.names.forEach(
-        (name, idx) => testLanguage(name, { testDir: pkg.markupTestPaths[idx] })
-      )
-    );
+    if (!process.env.ONLY_LANGUAGES) {
+      const thirdPartyPackages = await getThirdPartyPackages();
+      thirdPartyPackages.forEach(
+        (pkg) => pkg.names.forEach(
+          (name, idx) => testLanguage(name, { testDir: pkg.markupTestPaths[idx] })
+        )
+      );
+    }
   });
 
   it("adding dynamic tests...", async function() {}); // this is required to work

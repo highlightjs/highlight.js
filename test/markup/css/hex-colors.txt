@@ -1,0 +1,19 @@
+.test-short {
+    color: #abc;
+}
+
+.test-short-alpha {
+    color: #abcd;
+}
+
+.test-long {
+    color: #aabbcc;
+}
+
+.test-long-alpha {
+    color: #aabbccdd;
+}
+
+.test-invalid {
+    color: #aabbccd;
+}

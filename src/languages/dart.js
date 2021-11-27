@@ -7,26 +7,28 @@ Website: https://dart.dev
 Category: scripting
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   const SUBST = {
     className: 'subst',
     variants: [{
       begin: '\\$[A-Za-z0-9_]+'
-    }],
+    }]
   };
 
   const BRACED_SUBST = {
     className: 'subst',
     variants: [{
-      begin: '\\${',
-      end: '}'
+      begin: /\$\{/,
+      end: /\}/
     }],
-    keywords: 'true false null this is new super',
+    keywords: 'true false null this is new super'
   };
 
   const STRING = {
     className: 'string',
-    variants: [{
+    variants: [
+      {
         begin: 'r\'\'\'',
         end: '\'\'\''
       },
@@ -47,29 +49,46 @@ export default function(hljs) {
       {
         begin: '\'\'\'',
         end: '\'\'\'',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       },
       {
         begin: '"""',
         end: '"""',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       },
       {
         begin: '\'',
         end: '\'',
         illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       },
       {
         begin: '"',
         end: '"',
         illegal: '\\n',
-        contains: [hljs.BACKSLASH_ESCAPE, SUBST, BRACED_SUBST]
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST,
+          BRACED_SUBST
+        ]
       }
     ]
   };
   BRACED_SUBST.contains = [
-    hljs.C_NUMBER_MODE, STRING
+    hljs.C_NUMBER_MODE,
+    STRING
   ];
 
   const BUILT_IN_TYPES = [
@@ -100,15 +119,78 @@ export default function(hljs) {
     'num',
     // dart:html
     'Element',
-    'ElementList',
+    'ElementList'
   ];
   const NULLABLE_BUILT_IN_TYPES = BUILT_IN_TYPES.map((e) => `${e}?`);
 
+  const BASIC_KEYWORDS = [
+    "abstract",
+    "as",
+    "assert",
+    "async",
+    "await",
+    "break",
+    "case",
+    "catch",
+    "class",
+    "const",
+    "continue",
+    "covariant",
+    "default",
+    "deferred",
+    "do",
+    "dynamic",
+    "else",
+    "enum",
+    "export",
+    "extends",
+    "extension",
+    "external",
+    "factory",
+    "false",
+    "final",
+    "finally",
+    "for",
+    "Function",
+    "get",
+    "hide",
+    "if",
+    "implements",
+    "import",
+    "in",
+    "inferface",
+    "is",
+    "late",
+    "library",
+    "mixin",
+    "new",
+    "null",
+    "on",
+    "operator",
+    "part",
+    "required",
+    "rethrow",
+    "return",
+    "set",
+    "show",
+    "static",
+    "super",
+    "switch",
+    "sync",
+    "this",
+    "throw",
+    "true",
+    "try",
+    "typedef",
+    "var",
+    "void",
+    "while",
+    "with",
+    "yield"
+  ];
+
   const KEYWORDS = {
-    keyword: 'abstract as assert async await break case catch class const continue covariant default deferred do ' +
-      'dynamic else enum export extends extension external factory false final finally for Function get hide if ' +
-      'implements import in inferface is late library mixin new null on operator part required rethrow return set ' +
-      'show static super switch sync this throw true try typedef var void while with yield',
+    keyword: BASIC_KEYWORDS,
     built_in:
       BUILT_IN_TYPES
         .concat(NULLABLE_BUILT_IN_TYPES)
@@ -122,8 +204,8 @@ export default function(hljs) {
           'document',
           'querySelector',
           'querySelectorAll',
-          'window',
-      ]).join(' '),
+          'window'
+        ]),
     $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
   };
 
@@ -133,20 +215,21 @@ export default function(hljs) {
     contains: [
       STRING,
       hljs.COMMENT(
-        '/\\*\\*',
-        '\\*/', {
+        /\/\*\*(?!\/)/,
+        /\*\//,
+        {
           subLanguage: 'markdown',
-          relevance:0
+          relevance: 0
         }
       ),
       hljs.COMMENT(
-        '///+\\s*',
-        '$', {
+        /\/{3,} ?/,
+        /$/, {
           contains: [{
             subLanguage: 'markdown',
             begin: '.',
             end: '$',
-            relevance:0
+            relevance: 0
           }]
         }
       ),
@@ -155,9 +238,10 @@ export default function(hljs) {
       {
         className: 'class',
         beginKeywords: 'class interface',
-        end: '{',
+        end: /\{/,
         excludeEnd: true,
-        contains: [{
+        contains: [
+          {
             beginKeywords: 'extends implements'
           },
           hljs.UNDERSCORE_TITLE_MODE

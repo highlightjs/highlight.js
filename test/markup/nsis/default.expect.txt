@@ -1,0 +1,37 @@
+<span class="hljs-comment">/*
+  NSIS Scheme
+  for highlight.js
+*/</span>
+
+<span class="hljs-comment">; Includes</span>
+<span class="hljs-keyword">!include</span> MUI2.nsh
+
+<span class="hljs-comment">; Defines</span>
+<span class="hljs-keyword">!define</span> x64 <span class="hljs-string">&quot;true&quot;</span>
+
+<span class="hljs-comment">; Settings</span>
+<span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;installer_name&quot;</span>
+<span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;installer_name.exe&quot;</span>
+<span class="hljs-keyword">RequestExecutionLevel</span> <span class="hljs-literal">user</span>
+<span class="hljs-keyword">CRCCheck</span> <span class="hljs-literal">on</span>
+
+<span class="hljs-keyword">!if</span>def <span class="hljs-variable">${x64}</span>
+  <span class="hljs-keyword">InstallDir</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$PROGRAMFILES64</span>\installer_name&quot;</span>
+<span class="hljs-keyword">!else</span>
+  <span class="hljs-keyword">InstallDir</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$PROGRAMFILES</span>\installer_name&quot;</span>
+<span class="hljs-keyword">!endif</span>
+
+<span class="hljs-comment">; Pages</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_PAGE_INSTFILES
+
+<span class="hljs-comment">; Sections</span>
+<span class="hljs-keyword">Section</span> <span class="hljs-string">&quot;section_name&quot;</span> section_index
+  <span class="hljs-title function_">nsExec::ExecToLog</span> <span class="hljs-string">&quot;calc.exe&quot;</span>
+<span class="hljs-keyword">SectionEnd</span>
+
+<span class="hljs-comment">; Functions</span>
+<span class="hljs-keyword">Function</span> <span class="hljs-title function_">.onInit</span>
+  <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">&quot;The install button reads <span class="hljs-variable">$(^InstallBtn)</span>&quot;</span>
+  <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">&#x27;Here comes a<span class="hljs-meta">$\n</span><span class="hljs-meta">$\r</span>line-break!&#x27;</span>
+  <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">`Escape the dollar-sign: <span class="hljs-meta">$$</span>`</span>
+<span class="hljs-keyword">FunctionEnd</span>

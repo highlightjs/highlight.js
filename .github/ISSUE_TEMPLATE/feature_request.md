@@ -1,8 +1,8 @@
 ---
-name: Feature request
-about: Suggest a new idea or feature...
-title: "[Request] ..."
-labels: enhancement
+name: Request a new feature (other than a new language)
+about: You'd like to suggest a potentially helpful new feature... for requesting languages look below.
+title: "[Request] Short description of the new feature..."
+labels: enhancement, parser
 assignees: ''
 
 ---

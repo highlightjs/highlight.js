@@ -1,0 +1,62 @@
+<span class="hljs-keyword">interface</span> <span class="hljs-symbol">IInterface</span>
+{
+    <span class="hljs-built_in">void</span> DoSomething();
+}
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-symbol">MyApplication</span>
+{
+    <span class="hljs-comment">/*
+     * This ia a test class.
+     */</span>
+    <span class="hljs-keyword">class</span> <span class="hljs-symbol">SomeClass</span> : <span class="hljs-symbol">IInterface</span>
+    {
+        <span class="hljs-built_in">array<span class="hljs-keyword">&lt;<span class="hljs-built_in">float</span>&gt;</span></span> m_arr;
+
+        <span class="hljs-built_in">array<span class="hljs-keyword">&lt;<span class="hljs-symbol">SomeClass@</span>&gt;</span></span> m_children;
+        <span class="hljs-built_in">array<span class="hljs-keyword">&lt;<span class="hljs-built_in">array<span class="hljs-keyword">&lt;<span class="hljs-symbol">SomeClass@</span>&gt;</span></span>&gt;</span></span> m_subChildren; <span class="hljs-comment">// Nested templates</span>
+
+        <span class="hljs-built_in">int</span> m_thing;
+
+        SomeClass()
+        {
+            <span class="hljs-comment">// Add some integers</span>
+            m_arr.insertLast(<span class="hljs-number">1.0f</span>);
+            m_arr.insertLast(<span class="hljs-number">1.75f</span>);
+            m_arr.insertLast(<span class="hljs-number">3.14159f</span>);
+            <span class="hljs-built_in">uint</span> x = <span class="hljs-number">0x7fff0000</span>;
+            <span class="hljs-built_in">int</span> y = <span class="hljs-number">9001</span>;
+            <span class="hljs-built_in">uint</span> z = <span class="hljs-number">0b10101010</span>;
+        }
+
+        <span class="hljs-built_in">int</span> get_Thing() <span class="hljs-keyword">property</span> { <span class="hljs-keyword">return</span> m_thing; }
+        <span class="hljs-built_in">void</span> set_Thing(<span class="hljs-built_in">int</span> x) <span class="hljs-keyword">property</span> { m_thing = x; }
+<span class="hljs-string">
+        [Hook x=1 y=2]</span>
+        <span class="hljs-built_in">void</span> DoSomething()
+        {
+            print(<span class="hljs-string">&quot;Something! &quot;</span> + <span class="hljs-string">&#x27;stuff.&#x27;</span>);
+            <span class="hljs-keyword">for</span> (<span class="hljs-built_in">uint</span> i = <span class="hljs-number">0</span>; i &lt; m_arr.length(); i++) {
+                print(<span class="hljs-string">&quot;  &quot;</span> + i + <span class="hljs-string">&quot;: &quot;</span> + m_arr[i]);
+            }
+        }
+
+        <span class="hljs-keyword">protected</span> <span class="hljs-built_in">void</span> SomeProtectedFunction()
+        {
+            <span class="hljs-keyword">try</span> {
+                DoSomething();
+            } <span class="hljs-keyword">catch</span> {
+                print(<span class="hljs-string">&quot;Exception while doing something!&quot;</span>);
+            }
+        }
+    }
+}
+
+<span class="hljs-built_in">void</span> Main()
+{
+    <span class="hljs-symbol">SomeClass@</span> c = SomeClass();
+    c.DoSomething();
+}
+
+<span class="hljs-built_in">string</span> multilineString = <span class="hljs-string">&quot;&quot;&quot;
+Hello world, &quot;this is a test&quot;!
+&quot;&quot;&quot;</span>;

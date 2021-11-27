@@ -1,0 +1,73 @@
+<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;compass/reset&quot;</span>;
+
+<span class="hljs-comment">// variables</span>
+<span class="hljs-variable">$colorGreen</span>: <span class="hljs-number">#008000</span>;
+<span class="hljs-variable">$colorGreenDark</span>: darken(<span class="hljs-variable">$colorGreen</span>, <span class="hljs-number">10</span>);
+
+<span class="hljs-keyword">@mixin</span> container {
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">980px</span>;
+}
+
+<span class="hljs-comment">// mixins with parameters</span>
+<span class="hljs-keyword">@mixin</span> button(<span class="hljs-variable">$color</span>:green) {
+    <span class="hljs-keyword">@if</span> (<span class="hljs-variable">$color</span> == green) {
+        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#008000</span>;
+    }
+    <span class="hljs-keyword">@else</span> if (<span class="hljs-variable">$color</span> == red) {
+        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B22222</span>;
+    }
+}
+
+<span class="hljs-selector-tag">button</span> {
+    <span class="hljs-keyword">@include</span> button(red);
+}
+
+<span class="hljs-selector-tag">div</span>,
+<span class="hljs-selector-class">.navbar</span>,
+<span class="hljs-selector-id">#header</span>,
+<span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=<span class="hljs-string">&quot;input&quot;</span>]</span> {
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&quot;Helvetica Neue&quot;</span>, Arial, sans-serif;
+    <span class="hljs-attribute">width</span>: auto;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+    <span class="hljs-attribute">display</span>: block;
+}
+
+<span class="hljs-selector-class">.row-12</span> &gt; <span class="hljs-selector-attr">[class*=<span class="hljs-string">&quot;spans&quot;</span>]</span> {
+    <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#B5C583</span>;
+}
+
+<span class="hljs-comment">// nested definitions</span>
+<span class="hljs-selector-tag">ul</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">padding</span>: {
+        <span class="hljs-attribute">left</span>: <span class="hljs-number">5px</span>; <span class="hljs-attribute">right</span>: <span class="hljs-number">5px</span>;
+    }
+  <span class="hljs-selector-tag">li</span> {
+      <span class="hljs-attribute">float</span>: left; <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">10px</span>;
+      <span class="hljs-selector-class">.home</span> {
+          <span class="hljs-attribute">background</span>: url(<span class="hljs-string">&#x27;http://placehold.it/20&#x27;</span>) scroll no-repeat <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
+    }
+  }
+}
+
+<span class="hljs-selector-class">.banner</span> {
+    <span class="hljs-keyword">@extend</span> .container;
+}
+
+<span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$colorGreen</span>;
+  &amp;<span class="hljs-selector-pseudo">:hover</span> { <span class="hljs-attribute">color</span>: <span class="hljs-variable">$colorGreenDark</span>; }
+  &amp;<span class="hljs-selector-pseudo">:visited</span> { <span class="hljs-attribute">color</span>: <span class="hljs-number">#c458cb</span>; }
+}
+
+<span class="hljs-keyword">@for</span> <span class="hljs-variable">$i</span> from <span class="hljs-number">1</span> through <span class="hljs-number">5</span> {
+    <span class="hljs-selector-class">.span</span>#{<span class="hljs-variable">$i</span>} {
+        <span class="hljs-attribute">width</span>: <span class="hljs-number">20px</span>*<span class="hljs-variable">$i</span>;
+    }
+}
+
+<span class="hljs-keyword">@mixin</span> mobile {
+  <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span> : <span class="hljs-number">600px</span>) {
+    <span class="hljs-keyword">@content</span>;
+  }
+}

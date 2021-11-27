@@ -5,9 +5,6 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #000;
   color: #f8f8f8;
 }
@@ -44,6 +41,7 @@ Sunburst-like style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #89bdff;
 }
 
+.hljs-title.class_,
 .hljs-class .hljs-title,
 .hljs-doctag {
   text-decoration: underline;

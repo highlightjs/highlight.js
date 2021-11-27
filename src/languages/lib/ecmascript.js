@@ -51,41 +51,61 @@ const LITERALS = [
   "Infinity"
 ];
 
-const TYPES = [
-  "Intl",
-  "DataView",
-  "Number",
-  "Math",
-  "Date",
-  "String",
-  "RegExp",
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+export const TYPES = [
+  // Fundamental objects
   "Object",
   "Function",
   "Boolean",
-  "Error",
   "Symbol",
+  // numbers and dates
+  "Math",
+  "Date",
+  "Number",
+  "BigInt",
+  // text
+  "String",
+  "RegExp",
+  // Indexed collections
+  "Array",
+  "Float32Array",
+  "Float64Array",
+  "Int8Array",
+  "Uint8Array",
+  "Uint8ClampedArray",
+  "Int16Array",
+  "Int32Array",
+  "Uint16Array",
+  "Uint32Array",
+  "BigInt64Array",
+  "BigUint64Array",
+  // Keyed collections
   "Set",
   "Map",
   "WeakSet",
   "WeakMap",
-  "Proxy",
-  "Reflect",
+  // Structured data
+  "ArrayBuffer",
+  "SharedArrayBuffer",
+  "Atomics",
+  "DataView",
   "JSON",
+  // Control abstraction objects
   "Promise",
-  "Float64Array",
-  "Int16Array",
-  "Int32Array",
-  "Int8Array",
-  "Uint16Array",
-  "Uint32Array",
-  "Float32Array",
-  "Array",
-  "Uint8Array",
-  "Uint8ClampedArray",
-  "ArrayBuffer"
+  "Generator",
+  "GeneratorFunction",
+  "AsyncFunction",
+  // Reflection
+  "Reflect",
+  "Proxy",
+  // Internationalization
+  "Intl",
+  // WebAssembly
+  "WebAssembly"
 ];
 
-const ERROR_TYPES = [
+export const ERROR_TYPES = [
+  "Error",
   "EvalError",
   "InternalError",
   "RangeError",
@@ -95,7 +115,7 @@ const ERROR_TYPES = [
   "URIError"
 ];
 
-const BUILT_IN_GLOBALS = [
+export const BUILT_IN_GLOBALS = [
   "setInterval",
   "setTimeout",
   "clearInterval",
@@ -117,7 +137,7 @@ const BUILT_IN_GLOBALS = [
   "unescape"
 ];
 
-const BUILT_IN_VARIABLES = [
+export const BUILT_IN_VARIABLES = [
   "arguments",
   "this",
   "super",
@@ -131,7 +151,6 @@ const BUILT_IN_VARIABLES = [
 
 const BUILT_INS = [].concat(
   BUILT_IN_GLOBALS,
-  BUILT_IN_VARIABLES,
   TYPES,
   ERROR_TYPES
 );

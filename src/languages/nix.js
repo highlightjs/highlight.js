@@ -5,25 +5,49 @@ Description: Nix functional language
 Website: http://nixos.org/nix
 */
 
-
 export default function(hljs) {
-  var NIX_KEYWORDS = {
-    keyword:
-      'rec with let in inherit assert if else then',
-    literal:
-      'true false or and null',
-    built_in:
-      'import abort baseNameOf dirOf isNull builtins map removeAttrs throw ' +
-      'toString derivation'
+  const KEYWORDS = {
+    keyword: [
+      "rec",
+      "with",
+      "let",
+      "in",
+      "inherit",
+      "assert",
+      "if",
+      "else",
+      "then"
+    ],
+    literal: [
+      "true",
+      "false",
+      "or",
+      "and",
+      "null"
+    ],
+    built_in: [
+      "import",
+      "abort",
+      "baseNameOf",
+      "dirOf",
+      "isNull",
+      "builtins",
+      "map",
+      "removeAttrs",
+      "throw",
+      "toString",
+      "derivation"
+    ]
   };
-  var ANTIQUOTE = {
+  const ANTIQUOTE = {
     className: 'subst',
     begin: /\$\{/,
-    end: /}/,
-    keywords: NIX_KEYWORDS
+    end: /\}/,
+    keywords: KEYWORDS
   };
-  var ATTRS = {
-    begin: /[a-zA-Z0-9-_]+(\s*=)/, returnBegin: true,
+  const ATTRS = {
+    begin: /[a-zA-Z0-9-_]+(\s*=)/,
+    returnBegin: true,
     relevance: 0,
     contains: [
       {
@@ -32,15 +56,21 @@ export default function(hljs) {
       }
     ]
   };
-  var STRING = {
+  const STRING = {
     className: 'string',
-    contains: [ANTIQUOTE],
+    contains: [ ANTIQUOTE ],
     variants: [
-      {begin: "''", end: "''"},
-      {begin: '"', end: '"'}
+      {
+        begin: "''",
+        end: "''"
+      },
+      {
+        begin: '"',
+        end: '"'
+      }
     ]
   };
-  var EXPRESSIONS = [
+  const EXPRESSIONS = [
     hljs.NUMBER_MODE,
     hljs.HASH_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
@@ -50,8 +80,8 @@ export default function(hljs) {
   ANTIQUOTE.contains = EXPRESSIONS;
   return {
     name: 'Nix',
-    aliases: ["nixos"],
-    keywords: NIX_KEYWORDS,
+    aliases: [ "nixos" ],
+    keywords: KEYWORDS,
     contains: EXPRESSIONS
   };
 }

@@ -1,32 +1,66 @@
-/*
-
-Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
-
+/*!
+  Theme: Default
+  Description: Original highlight.js style
+  Author: (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
+  Maintainer: @highlightjs/core-team
+  Website: https://highlightjs.org/
+  License: see project LICENSE
+  Touched: 2021
 */
 
-.hljs {
+/*
+This is left on purpose making default.css the single file that can be lifted
+as-is from the repository directly without the need for a build step
+
+Typically this "required" baseline CSS is added by `makestuff.js` during build.
+*/
+pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
-  background: #F0F0F0;
+  padding: 1em;
 }
 
+code.hljs {
+  padding: 3px 5px;
+}
+/* end baseline CSS */
+
+.hljs {
+  background: #F0F0F0;
+  color: #444;
+}
 
 /* Base color: saturation 0; */
 
-.hljs,
 .hljs-subst {
-  color: #444;
+  /* default */
 }
+
+/* purposely ignored */
+.hljs-formula,
+.hljs-attr,
+.hljs-property,
+.hljs-params {}
 
 .hljs-comment {
   color: #888888;
 }
+.hljs-tag,
+.hljs-punctuation {
+  color: #444a;
+}
+
+.hljs-tag .hljs-name,
+.hljs-tag .hljs-attr {
+  color: #444;
+}
+
 
 .hljs-keyword,
 .hljs-attribute,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-doctag,
 .hljs-name {
   font-weight: bold;
@@ -58,10 +92,10 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
+.hljs-operator,
 .hljs-selector-pseudo {
   color: #BC6060;
 }
-
 
 /* Language color: hue: 90; */
 
@@ -83,7 +117,7 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   color: #1f7199;
 }
 
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #4d99bf;
 }
 

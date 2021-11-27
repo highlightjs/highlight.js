@@ -2,7 +2,7 @@ On requesting new languages
 ===========================
 
 This is a general answer to requests for adding new languages that appear from
-time to time in the highlight.js issue tracker and discussion group.
+time to time in the Highlight.js issue tracker and discussion group.
 
     Highlight.js does not have a fundamental plan for implementing new languages
     - i.e., the core team doesn't usually develop new languages. The core team
@@ -13,7 +13,7 @@ time to time in the highlight.js issue tracker and discussion group.
     Instead, the project works by encouraging 3rd party language grammars from
     contributors willing to help develop and maintain them. We're also happy to
     host those 3rd party language grammars at the ``highlightjs`` GitHub
-    organization - no matter how obscure or weird. Or you're wlecome to host it
+    organization - no matter how obscure or weird. Or you're welcome to host it
     yourself - we're still happy to link to it.
 
     This means that *there's no point in requesting a new language without also

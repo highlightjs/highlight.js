@@ -8,6 +8,7 @@ Website: https://ruby-doc.org/stdlib-2.6.5/libdoc/erb/rdoc/ERB.html
 Category: template
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
     name: 'ERB',
@@ -15,7 +16,8 @@ export default function(hljs) {
     contains: [
       hljs.COMMENT('<%#', '%>'),
       {
-        begin: '<%[%=-]?', end: '[%-]?%>',
+        begin: '<%[%=-]?',
+        end: '[%-]?%>',
         subLanguage: 'ruby',
         excludeBegin: true,
         excludeEnd: true

@@ -5,7 +5,7 @@
  Website: https://cucumber.io/docs/gherkin/
  */
 
-export default function (hljs) {
+export default function(hljs) {
   return {
     name: 'Gherkin',
     aliases: ['feature'],
@@ -21,7 +21,8 @@ export default function (hljs) {
         begin: '@[^@\\s]+'
       },
       {
-        begin: '\\|', end: '\\|\\w*$',
+        begin: '\\|',
+        end: '\\|\\w*$',
         contains: [
           {
             className: 'string',
@@ -31,12 +32,14 @@ export default function (hljs) {
       },
       {
         className: 'variable',
-        begin: '<', end: '>'
+        begin: '<',
+        end: '>'
       },
       hljs.HASH_COMMENT_MODE,
       {
         className: 'string',
-        begin: '"""', end: '"""'
+        begin: '"""',
+        end: '"""'
       },
       hljs.QUOTE_STRING_MODE
     ]

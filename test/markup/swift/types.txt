@@ -1,0 +1,47 @@
+// Simple identifier
+Int
+
+// Types from Apple frameworks
+CALayer
+CGRect
+MKMapView
+NSView
+UIView
+XCTest
+
+// ?, !, ..., and & should not be highlighted as operators
+Int?
+Int!
+Int?!
+String...
+SomeClass & SomeProtocol
+
+// Arrays, dictionaries, and nested types
+[String]
+Array<String>
+[[Int?]]
+Array<Array<Int?>>
+[String: Int]
+Dictionary<String, Int>
+Swift.Array<Int>.Element
+
+// Tuples
+()
+(Double, Double)
+(x: Double, y: Double)
+
+// Functions
+(@escaping (String) -> Void, @autoclosure () -> String) -> String
+(Int, String...) -> some Collection
+() throws -> Self
+
+// Generic arguments
+Array<String.Type>
+Array<Sequence.Protocol>
+Dictionary<String, Any>
+Dictionary<String, Array<Int>>
+Array<(@autoclosure () -> String) throws -> String?>
+Array<
+  // documentation
+  Int
+>

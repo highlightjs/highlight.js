@@ -1,3 +1,7 @@
+/** @typedef {import('highlight.js').CallbackResponse} CallbackResponse */
+/** @typedef {import('highlight.js').CompiledMode} CompiledMode */
+/** @implements CallbackResponse */
+
 export default class Response {
   /**
    * @param {CompiledMode} mode
@@ -7,9 +11,10 @@ export default class Response {
     if (mode.data === undefined) mode.data = {};
 
     this.data = mode.data;
+    this.isMatchIgnored = false;
   }
 
   ignoreMatch() {
-    this.ignore = true;
+    this.isMatchIgnored = true;
   }
 }

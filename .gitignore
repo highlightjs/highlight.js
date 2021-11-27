@@ -8,10 +8,17 @@ node_modules
 yarn.lock
 extra/
 
+# play stuff
+quick*
+test*.*
+extra*
+
 # editors
 .idea/
+.nova/
 .vscode/
 .Rproj.user
 
 # misc
 /work
+/website

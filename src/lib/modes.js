@@ -1,7 +1,11 @@
 import { inherit } from './utils.js';
 import * as regex from './regex.js';
 
+/** @typedef {import('highlight.js').Mode} Mode */
+/** @typedef {import('highlight.js').ModeCallback} ModeCallback */
+
 // Common regexps
+export const MATCH_NOTHING_RE = /\b\B/;
 export const IDENT_RE = '[a-zA-Z]\\w*';
 export const UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
 export const NUMBER_RE = '\\b\\d+(\\.\\d+)?';
@@ -22,7 +26,7 @@ export const SHEBANG = (opts = {}) => {
       /\b.*/);
   }
   return inherit({
-    className: 'meta',
+    scope: 'meta',
     begin: beginShebang,
     end: /$/,
     relevance: 0,
@@ -38,14 +42,14 @@ export const BACKSLASH_ESCAPE = {
   begin: '\\\\[\\s\\S]', relevance: 0
 };
 export const APOS_STRING_MODE = {
-  className: 'string',
+  scope: 'string',
   begin: '\'',
   end: '\'',
   illegal: '\\n',
   contains: [BACKSLASH_ESCAPE]
 };
 export const QUOTE_STRING_MODE = {
-  className: 'string',
+  scope: 'string',
   begin: '"',
   end: '"',
   illegal: '\\n',
@@ -63,52 +67,86 @@ export const PHRASAL_WORDS_MODE = {
  * @returns {Partial<Mode>}
  */
 export const COMMENT = function(begin, end, modeOptions = {}) {
-  var mode = inherit(
+  const mode = inherit(
     {
-      className: 'comment',
+      scope: 'comment',
       begin,
       end,
       contains: []
     },
     modeOptions
   );
-  mode.contains.push(PHRASAL_WORDS_MODE);
   mode.contains.push({
-    className: 'doctag',
-    begin: '(?:TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):',
+    scope: 'doctag',
+    // hack to avoid the space from being included. the space is necessary to
+    // match here to prevent the plain text rule below from gobbling up doctags
+    begin: '[ ]*(?=(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):)',
+    end: /(TODO|FIXME|NOTE|BUG|OPTIMIZE|HACK|XXX):/,
+    excludeBegin: true,
     relevance: 0
   });
+  const ENGLISH_WORD = regex.either(
+    // list of common 1 and 2 letter words in English
+    "I",
+    "a",
+    "is",
+    "so",
+    "us",
+    "to",
+    "at",
+    "if",
+    "in",
+    "it",
+    "on",
+    // note: this is not an exhaustive list of contractions, just popular ones
+    /[A-Za-z]+['](d|ve|re|ll|t|s|n)/, // contractions - can't we'd they're let's, etc
+    /[A-Za-z]+[-][a-z]+/, // `no-way`, etc.
+    /[A-Za-z][a-z]{2,}/ // allow capitalized words at beginning of sentences
+  );
+  // looking like plain text, more likely to be a comment
+  mode.contains.push(
+    {
+      // TODO: how to include ", (, ) without breaking grammars that use these for
+      // comment delimiters?
+      // begin: /[ ]+([()"]?([A-Za-z'-]{3,}|is|a|I|so|us|[tT][oO]|at|if|in|it|on)[.]?[()":]?([.][ ]|[ ]|\))){3}/
+      // ---
+
+      // this tries to find sequences of 3 english words in a row (without any
+      // "programming" type syntax) this gives us a strong signal that we've
+      // TRULY found a comment - vs perhaps scanning with the wrong language.
+      // It's possible to find something that LOOKS like the start of the
+      // comment - but then if there is no readable text - good chance it is a
+      // false match and not a comment.
+      //
+      // for a visual example please see:
+      // https://github.com/highlightjs/highlight.js/issues/2827
+
+      begin: regex.concat(
+        /[ ]+/, // necessary to prevent us gobbling up doctags like /* @author Bob Mcgill */
+        '(',
+        ENGLISH_WORD,
+        /[.]?[:]?([.][ ]|[ ])/,
+        '){3}') // look for 3 words in a row
+    }
+  );
   return mode;
 };
 export const C_LINE_COMMENT_MODE = COMMENT('//', '$');
 export const C_BLOCK_COMMENT_MODE = COMMENT('/\\*', '\\*/');
 export const HASH_COMMENT_MODE = COMMENT('#', '$');
 export const NUMBER_MODE = {
-  className: 'number',
+  scope: 'number',
   begin: NUMBER_RE,
   relevance: 0
 };
 export const C_NUMBER_MODE = {
-  className: 'number',
+  scope: 'number',
   begin: C_NUMBER_RE,
   relevance: 0
 };
 export const BINARY_NUMBER_MODE = {
-  className: 'number',
+  scope: 'number',
   begin: BINARY_NUMBER_RE,
-  relevance: 0
-};
-export const CSS_NUMBER_MODE = {
-  className: 'number',
-  begin: NUMBER_RE + '(' +
-    '%|em|ex|ch|rem' +
-    '|vw|vh|vmin|vmax' +
-    '|cm|mm|in|pt|pc|px' +
-    '|deg|grad|rad|turn' +
-    '|s|ms' +
-    '|Hz|kHz' +
-    '|dpi|dpcm|dppx' +
-    ')?',
   relevance: 0
 };
 export const REGEXP_MODE = {
@@ -120,7 +158,7 @@ export const REGEXP_MODE = {
   // (which will then blow up when regex's `illegal` sees the newline)
   begin: /(?=\/[^/\n]*\/)/,
   contains: [{
-    className: 'regexp',
+    scope: 'regexp',
     begin: /\//,
     end: /\/[gimuy]*/,
     illegal: /\n/,
@@ -136,12 +174,12 @@ export const REGEXP_MODE = {
   }]
 };
 export const TITLE_MODE = {
-  className: 'title',
+  scope: 'title',
   begin: IDENT_RE,
   relevance: 0
 };
 export const UNDERSCORE_TITLE_MODE = {
-  className: 'title',
+  scope: 'title',
   begin: UNDERSCORE_IDENT_RE,
   relevance: 0
 };

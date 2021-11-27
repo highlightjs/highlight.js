@@ -1,0 +1,24 @@
+template <class T> // comment
+auto foo(T x) { ... };
+
+namespace impl {
+    template<typename T>
+    struct is_streamable<T, std::void_t<decltype(std::declval<std::wostream &>() << std::declval<T>())>> : std::true_type { };
+}
+
+// Disable overload for already valid operands.
+template<class T, class = std::enable_if_t<!impl::is_streamable_v<const T &> && std::is_convertible_v<const T &, std::wstring_view>>>
+std::wostream &operator <<(std::wostream &stream, const T &thing)
+{
+    return stream << static_cast<std::wstring_view>(thing);
+}
+
+enum struct DataHolder { };
+enum class DataThingy { };
+enum class Boolean : char {
+    True, False, FileNotFound
+};
+
+union Soy
+{
+};

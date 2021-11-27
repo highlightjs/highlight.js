@@ -1,0 +1,24 @@
+<span class="hljs-comment">; hotkeys and hotstrings</span>
+<span class="hljs-title">#a::</span>WinSet, AlwaysOnTop, Toggle, A
+<span class="hljs-title">#Space::</span>
+<span class="hljs-built_in">  MsgBox,</span> Percent sign (`%) need to be escaped.
+  Run <span class="hljs-string">&quot;C:\Program Files\some\program.exe&quot;</span>
+<span class="hljs-built_in">  Gosub,</span> label1
+<span class="hljs-keyword">return</span>
+<span class="hljs-title">::btw::</span>by the way
+<span class="hljs-comment">; volume</span>
+<span class="hljs-title">#Numpad8::</span>Send {Volume_Up}
+<span class="hljs-title">#Numpad5::</span>Send {Volume_Mute}
+<span class="hljs-title">#Numpad2::</span>Send {Volume_Down}
+
+<span class="hljs-title">label1:</span>
+  if (<span class="hljs-built_in">Clipboard</span> = <span class="hljs-string">&quot;&quot;</span>)
+  {
+<span class="hljs-built_in">    MsgBox,</span> , <span class="hljs-built_in">Clipboard</span>, Empty!
+  }
+  else
+  {
+<span class="hljs-built_in">    StringReplace,</span> temp, <span class="hljs-built_in">Clipboard</span>, old, <span class="hljs-keyword">new</span>, All
+<span class="hljs-built_in">    MsgBox,</span> , <span class="hljs-built_in">Clipboard</span>, <span class="hljs-variable">%temp%</span>
+  }
+<span class="hljs-keyword">return</span>

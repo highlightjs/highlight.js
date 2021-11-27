@@ -1,0 +1,6 @@
+public record MyRecord
+{
+    public string SomeMember { get; init; }
+}
+
+public record Person(string FirstName, string? MiddleName, string LastName);

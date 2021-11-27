@@ -5,7 +5,9 @@ Website: https://www.erlang.org
 Category: functional
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   return {
     name: 'Erlang REPL',
     keywords: {
@@ -17,7 +19,8 @@ export default function(hljs) {
     },
     contains: [
       {
-        className: 'meta', begin: '^[0-9]+> ',
+        className: 'meta',
+        begin: '^[0-9]+> ',
         relevance: 10
       },
       hljs.COMMENT('%', '$'),
@@ -29,7 +32,11 @@ export default function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        begin: '\\?(::)?([A-Z]\\w*(::)?)+'
+        begin: regex.concat(
+          /\?(::)?/,
+          /([A-Z]\w*)/, // at least one identifier
+          /((::)[A-Z]\w*)*/ // perhaps more
+        )
       },
       {
         begin: '->'

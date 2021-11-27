@@ -1,0 +1,13 @@
+<span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">match</span> (<span class="hljs-variable">$key</span>) {
+    <span class="hljs-number">1</span> =&gt; <span class="hljs-string">&#x27;Integer 1&#x27;</span>,
+    <span class="hljs-string">&#x27;1&#x27;</span> =&gt; <span class="hljs-string">&#x27;String 1&#x27;</span>,
+    <span class="hljs-literal">true</span> =&gt; <span class="hljs-string">&#x27;Bool true&#x27;</span>,
+    [] =&gt; <span class="hljs-string">&#x27;Empty array&#x27;</span>,
+    [<span class="hljs-number">1</span>] =&gt; <span class="hljs-string">&#x27;Array [1]&#x27;</span>,
+};
+
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Foo</span>: <span class="hljs-title">string</span> </span>{
+    <span class="hljs-keyword">case</span> Test = <span class="hljs-string">&#x27;test&#x27;</span>;
+}

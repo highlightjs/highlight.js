@@ -1,0 +1,17 @@
+<span class="hljs-keyword">import</span> java.<span class="hljs-property">util</span>.<span class="hljs-property">LinkedList</span>;
+<span class="hljs-keyword">import</span> java.<span class="hljs-property">awt</span>.<span class="hljs-property">Point</span>;
+
+<span class="hljs-built_in">PGraphics</span> pg;
+<span class="hljs-built_in">String</span> load;
+
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">setup</span>() {
+  <span class="hljs-built_in">size</span>(<span class="hljs-built_in">displayWidth</span>, <span class="hljs-built_in">displayHeight</span>, <span class="hljs-literal">P3D</span>);
+  pg = <span class="hljs-built_in">createGraphics</span>(<span class="hljs-built_in">displayWidth</span>*<span class="hljs-number">2</span>,<span class="hljs-built_in">displayHeight</span>,<span class="hljs-literal">P2D</span>);
+  pg.<span class="hljs-property">beginDraw</span>();
+  pg.<span class="hljs-property">background</span>(<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>);
+  <span class="hljs-comment">//pg.smooth(8);</span>
+  pg.<span class="hljs-property">endDraw</span>();
+}
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">draw</span>(){
+  <span class="hljs-built_in">background</span>(<span class="hljs-number">255</span>);
+}

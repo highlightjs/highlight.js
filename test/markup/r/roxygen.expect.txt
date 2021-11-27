@@ -1,0 +1,28 @@
+<span class="hljs-comment">#&#x27; A description</span>
+<span class="hljs-comment">#&#x27;</span>
+<span class="hljs-comment">#&#x27; Long description</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@param <span class="hljs-variable">x</span></span> the object of type <span class="hljs-keyword">\code</span>{numeric}</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@return</span> A logical indicating whether <span class="hljs-keyword">\code</span>{x == 0}</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@export</span></span>
+is_zero <span class="hljs-operator">=</span> <span class="hljs-keyword">function</span> <span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span> x <span class="hljs-operator">==</span> <span class="hljs-number">0</span>
+
+<span class="hljs-comment">#&#x27; Sum of numbers</span>
+<span class="hljs-comment">#&#x27;</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-keyword">\code</span>{sum_all} is a wrapper for <span class="hljs-keyword">\code</span>{<span class="hljs-keyword">\link</span>{sum}(..., na.rm = TRUE)}.</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@param <span class="hljs-variable">...</span></span> one or more numeric vectors</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@examples</span>
+#&#x27; sum_all(1 : 10) # 55 @this \link{should not be highlighted!}
+#&#x27; sum_all(1, NA, 2, 3) # 6</span>
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@seealso</span> <span class="hljs-keyword">\link</span>[base]{sum} # this SHOULD be highlighted again.</span>
+<span class="hljs-comment"># comment</span>
+sum_all <span class="hljs-operator">&lt;-</span> <span class="hljs-keyword">function</span> <span class="hljs-punctuation">(</span>...<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>...<span class="hljs-punctuation">,</span> na.rm <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment"># Weird identifier in @param string</span>
+
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@param <span class="hljs-variable">`a\`b\\`</span></span> test</span>
+
+<span class="hljs-comment">#&#x27; <span class="hljs-doctag">@examples</span>
+#&#x27; test = &#x27;\code{1 + 2} @return&#x27;</span>
+format <span class="hljs-operator">=</span> <span class="hljs-keyword">function</span> <span class="hljs-punctuation">(</span>str<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>

@@ -42,12 +42,13 @@ color:#e7e4eb;
 
 {
   color:#F19FFF;
-  
+
 }
 
 .hljs-keyword,
 .hljs-section,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-symbol,
 .hljs-type
 
@@ -83,7 +84,6 @@ color:#e7e4eb;
   color:#E447FF;
 }
 
-.hljs-builtin-name,
 .hljs-built_in,
 .hljs-formula,
 .hljs-name,

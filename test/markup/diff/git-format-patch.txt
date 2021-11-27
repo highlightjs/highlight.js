@@ -1,0 +1,14 @@
+diff --git a/file.py b/file.py
+index 123456..789abc 100644
+--- a/file.py
++++ b/file.py
+@@ -28,2 +28,2 @@ import logging
++ import shutil
+- import os
+diff --git a/file.txt b/file.txt
+index 123456..789abc 100644
+--- a/file.txt
+--- b/file.txt
+@@ -28,2 +28,2 @@
+- removal
++ addition

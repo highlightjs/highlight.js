@@ -1,0 +1,12 @@
+<span class="hljs-comment">&#x27; Comment1</span>
+<span class="hljs-comment">&#x27;Comment2</span>
+<span class="hljs-comment">REM Comment3</span>
+
+<span class="hljs-keyword">Dim</span> somREM = <span class="hljs-string">&quot;no comment&quot;</span>
+<span class="hljs-keyword">Dim</span> REM2 = <span class="hljs-string">&quot;no comment&quot;</span>
+<span class="hljs-keyword">Dim</span> a = <span class="hljs-number">1</span> <span class="hljs-comment">&#x27; inline comment</span>
+<span class="hljs-keyword">Dim</span> b = <span class="hljs-number">2</span><span class="hljs-comment"> REM inline comment</span>
+
+<span class="hljs-comment">&#x27;&#x27;&#x27; <span class="hljs-doctag">&lt;summary&gt;</span>Doc-comments<span class="hljs-doctag">&lt;/summary&gt;</span></span>
+
+<span class="hljs-comment">&#x27; Not a doc-comment, but html: &lt;a&gt;</span>

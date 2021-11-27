@@ -1,0 +1,66 @@
+<span class="hljs-comment"># take the first n objects from a list</span>
+<span class="hljs-function"><span class="hljs-title">take</span> = <span class="hljs-params">(n, [x, ...xs]:<span class="hljs-keyword">list</span>)</span> --&gt;</span>
+  | n &lt;= <span class="hljs-number">0</span>     =&gt; []
+  | empty <span class="hljs-keyword">list</span> =&gt; []
+  | <span class="hljs-keyword">otherwise</span>  =&gt; [x] ++ take n - <span class="hljs-number">1</span>, xs
+
+take <span class="hljs-number">2</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+
+<span class="hljs-comment"># Curried functions</span>
+take-three = take <span class="hljs-number">3</span>
+take-three [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>]
+
+<span class="hljs-comment"># Function composition</span>
+last-three = reverse &gt;&gt; take-three &gt;&gt; reverse
+last-three [<span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">8</span>]
+
+<span class="hljs-comment"># List comprehensions and piping</span>
+<span class="hljs-keyword">const</span> t1 =
+  * id: <span class="hljs-number">1</span>
+    name: <span class="hljs-string">&#x27;george&#x27;</span>
+  * id: <span class="hljs-number">2</span>
+    name: <span class="hljs-string">&#x27;mike&#x27;</span>
+  * id: <span class="hljs-number">3</span>
+    name: <span class="hljs-string">&#x27;donald&#x27;</span>
+
+<span class="hljs-keyword">const</span> t2 =
+  * id: <span class="hljs-number">2</span>
+    age: <span class="hljs-number">21</span>
+  * id: <span class="hljs-number">1</span>
+    age: <span class="hljs-number">20</span>
+  * id: <span class="hljs-number">3</span>
+    age: <span class="hljs-number">26</span>
+[{id:id1, name, age}
+  <span class="hljs-keyword">for</span> {id:id1, name} <span class="hljs-keyword">in</span> t1
+  <span class="hljs-keyword">for</span> {id:id2, age} <span class="hljs-keyword">in</span> t2
+  where id1 <span class="hljs-keyword">is</span> id2]
+  |&gt; sort-<span class="hljs-keyword">by</span> <span class="hljs-string">\id</span>
+  |&gt; <span class="hljs-built_in">JSON</span>.stringify
+
+~<span class="hljs-keyword">function</span> add x, y
+  @result = x + y
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>
+  <span class="hljs-function"><span class="hljs-params">(num)</span> -&gt;</span>
+    @x = num
+  property: <span class="hljs-number">1</span>
+  method: <span class="hljs-function"><span class="hljs-params">(y)</span> -&gt;</span>
+    @x + @property + y
+
+a = <span class="hljs-keyword">new</span> A <span class="hljs-number">3</span>
+a.x        <span class="hljs-comment">#=&gt; 3</span>
+a.property <span class="hljs-comment">#=&gt; 1</span>
+a.method <span class="hljs-number">6</span> <span class="hljs-comment">#=&gt; 10</span>
+
+<span class="hljs-function"><span class="hljs-title">f</span> = !-&gt;</span> <span class="hljs-number">2</span>
+<span class="hljs-function"><span class="hljs-title">g</span> = <span class="hljs-params">(x)</span> !-&gt;</span> x + <span class="hljs-number">2</span>
+
+result = <span class="hljs-keyword">switch</span> <span class="hljs-string">&#x27;test&#x27;</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;blatant&#x27;</span>
+  <span class="hljs-string">&#x27;effort&#x27;</span>
+  <span class="hljs-keyword">fallthrough</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;at&#x27;</span>
+  <span class="hljs-string">&#x27;increasing&#x27;</span>
+  <span class="hljs-keyword">fallthrough</span>
+<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;relevance&#x27;</span>
+  <span class="hljs-literal">void</span>

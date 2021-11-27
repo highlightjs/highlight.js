@@ -1,0 +1,28 @@
+<span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;nib&quot;</span>
+
+<span class="hljs-comment">// variables</span>
+<span class="hljs-variable">$green</span> = <span class="hljs-number">#008000</span>
+<span class="hljs-variable">$green_dark</span> = <span class="hljs-built_in">darken</span>(<span class="hljs-variable">$green</span>, <span class="hljs-number">10</span>)
+
+<span class="hljs-comment">// mixin/function</span>
+<span class="hljs-function"><span class="hljs-title">container</span><span class="hljs-params">()</span></span>
+  <span class="hljs-attribute">max-width</span> <span class="hljs-number">980px</span>
+
+<span class="hljs-comment">// mixin/function with parameters</span>
+<span class="hljs-function"><span class="hljs-title">buttonBG</span><span class="hljs-params">(<span class="hljs-variable">$color</span> = green)</span></span>
+  <span class="hljs-keyword">if</span> <span class="hljs-variable">$color</span> == green
+    <span class="hljs-attribute">background-color</span> <span class="hljs-number">#008000</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$color</span> == red
+    <span class="hljs-attribute">background-color</span> <span class="hljs-number">#B22222</span>
+
+<span class="hljs-selector-tag">button</span>
+  <span class="hljs-built_in">buttonBG</span>(red)
+
+<span class="hljs-selector-class">.blue-button</span>
+  <span class="hljs-built_in">buttonBG</span>(blue)
+
+<span class="hljs-selector-id">#content</span>, <span class="hljs-selector-class">.content</span>
+  <span class="hljs-attribute">font</span> Tahoma, Chunkfive, sans-serif
+  <span class="hljs-attribute">background</span> url(<span class="hljs-string">&#x27;hatch.png&#x27;</span>)
+  <span class="hljs-attribute">color</span> <span class="hljs-number">#F0F0F0</span> <span class="hljs-meta">!important</span>
+  <span class="hljs-attribute">width</span> <span class="hljs-number">100%</span>

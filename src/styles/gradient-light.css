@@ -6,6 +6,7 @@ Gradient Light (c) Samia Ali <samiaab1990@gmail.com>
 
 .hljs
 {
+
 display: block;
 overflow-x: auto;
 padding: 0.5em;
@@ -42,12 +43,21 @@ color:#01958B;
 
 {
   color:#43449F;
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 10b322dc436333b04df8295c9bdf4bad324849e0
 }
 
 .hljs-keyword,
 .hljs-section,
+<<<<<<< HEAD
 .hljs-meta-keyword,
+=======
+.hljs-meta .hljs-keyword,
+
+>>>>>>> 10b322dc436333b04df8295c9bdf4bad324849e0
 .hljs-symbol,
 .hljs-type
 
@@ -83,7 +93,10 @@ color:#01958B;
   color:#025C8F;
 }
 
+<<<<<<< HEAD
 .hljs-builtin-name,
+=======
+>>>>>>> 10b322dc436333b04df8295c9bdf4bad324849e0
 .hljs-built_in,
 .hljs-formula,
 .hljs-name,

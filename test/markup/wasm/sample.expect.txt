@@ -1,0 +1,303 @@
+<span class="hljs-comment">;; content with thanks to</span>
+<span class="hljs-comment">;; https://learnxinyminutes.com/docs/wasm/</span>
+
+<span class="hljs-punctuation">(</span><span class="hljs-keyword">module</span>
+  <span class="hljs-comment">;; In WebAssembly, everything is included in a module. Moreover, everything</span>
+  <span class="hljs-comment">;; can be expressed as an s-expression. Alternatively, there is the</span>
+  <span class="hljs-comment">;; &quot;stack machine&quot; syntax, but that is not compatible with Binaryen</span>
+  <span class="hljs-comment">;; intermediate representation (IR) syntax.</span>
+
+  <span class="hljs-comment">;; The Binaryen IR format is *mostly* compatible with WebAssembly text format.</span>
+  <span class="hljs-comment">;; There are some small differences:</span>
+  <span class="hljs-comment">;; local_set -&gt; local.set</span>
+  <span class="hljs-comment">;; local_get -&gt; local.get</span>
+
+  <span class="hljs-comment">;; We have to enclose code in functions</span>
+
+  <span class="hljs-comment">;; Data Types</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$data_types</span>
+    <span class="hljs-comment">;; WebAssembly has only four types:</span>
+    <span class="hljs-comment">;; i32 - 32 bit integer</span>
+    <span class="hljs-comment">;; i64 - 64 bit integer (not supported in JavaScript)</span>
+    <span class="hljs-comment">;; f32 - 32 bit floating point</span>
+    <span class="hljs-comment">;; f64 - 64 bit floating point</span>
+
+    <span class="hljs-comment">;; We can declare local variables with the &quot;local&quot; keyword</span>
+    <span class="hljs-comment">;; We have to declare all variables before we start doing anything</span>
+    <span class="hljs-comment">;; inside the function</span>
+
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$int_32</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$int_64</span> <span class="hljs-type">i64</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$float_32</span> <span class="hljs-type">f32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$float_64</span> <span class="hljs-type">f64</span><span class="hljs-punctuation">)</span>
+
+    <span class="hljs-comment">;; These values remain uninitialized.</span>
+    <span class="hljs-comment">;; To set them to a value, we can use &lt;type&gt;.const:</span>
+
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$int_32</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">16</span><span class="hljs-punctuation">))</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$int_32</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i64.const</span> <span class="hljs-number">128</span><span class="hljs-punctuation">))</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$float_32</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">f32.const</span> <span class="hljs-number">3.14</span><span class="hljs-punctuation">))</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$float_64</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.const</span> <span class="hljs-number">1.28</span><span class="hljs-punctuation">))</span>
+  <span class="hljs-punctuation">)</span>
+
+  <span class="hljs-comment">;; Basic operations</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$basic_operations</span>
+
+    <span class="hljs-comment">;; In WebAssembly, everything is an s-expression, including</span>
+    <span class="hljs-comment">;; doing math, or getting the value of some variable</span>
+
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$add_result</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$mult_result</span> <span class="hljs-type">f64</span><span class="hljs-punctuation">)</span>
+
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$add_result</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.add</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)))</span>
+    <span class="hljs-comment">;; the value of add_result is now 6!</span>
+
+    <span class="hljs-comment">;; We have to use the right data type for each operation:</span>
+    <span class="hljs-comment">;; (local.set $mult_result (f32.mul (f32.const 2.0) (f32.const 4.0))) ;; WRONG! mult_result is f64!</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$mult_result</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.mul</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.const</span> <span class="hljs-number">2.0</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.const</span> <span class="hljs-number">4.0</span><span class="hljs-punctuation">)))</span>
+
+    <span class="hljs-comment">;; WebAssembly has some builtin operations, like basic math and bitshifting.</span>
+    <span class="hljs-comment">;; Notably, it does not have built in trigonometric functions.</span>
+    <span class="hljs-comment">;; In order to get access to these functions, we have to either</span>
+    <span class="hljs-comment">;; - implement them ourselves (not recommended)</span>
+    <span class="hljs-comment">;; - import them from elsewhere (later on)</span>
+  <span class="hljs-punctuation">)</span>
+
+  <span class="hljs-comment">;; Functions</span>
+  <span class="hljs-comment">;; We specify arguments with the `param` keyword, and specify return values</span>
+  <span class="hljs-comment">;; with the `result` keyword</span>
+  <span class="hljs-comment">;; The current value on the stack is the return value of a function</span>
+
+  <span class="hljs-comment">;; We can call other functions we&#x27;ve defined with the `call` keyword</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$get_16</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">result</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">16</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">)</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$add</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$param0</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$param1</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">result</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.add</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$param0</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$param1</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">)</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$double_16</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">result</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.mul</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">call</span> <span class="hljs-title function_">$get_16</span><span class="hljs-punctuation">))</span>
+  <span class="hljs-punctuation">)</span>
+
+  <span class="hljs-comment">;; Up until now, we haven&#x27;t be able to print anything out, nor do we have</span>
+  <span class="hljs-comment">;; access to higher level math functions (pow, exp, or trig functions).</span>
+  <span class="hljs-comment">;; Moreover, we haven&#x27;t been able to use any of the WASM functions in Javascript!</span>
+  <span class="hljs-comment">;; The way we get those functions into WebAssembly</span>
+  <span class="hljs-comment">;; looks different whether we&#x27;re in a Node.js or browser environment.</span>
+
+  <span class="hljs-comment">;; If we&#x27;re in Node.js we have to do two steps. First we have to convert the</span>
+  <span class="hljs-comment">;; WASM text representation into actual webassembly. If we&#x27;re using Binyaren,</span>
+  <span class="hljs-comment">;; we can do that with a command like the following:</span>
+
+  <span class="hljs-comment">;; wasm-as learn-wasm.wast -o learn-wasm.wasm</span>
+
+  <span class="hljs-comment">;; We can apply Binaryen optimizations to that file with a command like the</span>
+  <span class="hljs-comment">;; following:</span>
+
+  <span class="hljs-comment">;; wasm-opt learn-wasm.wasm -o learn-wasm.opt.wasm -O3 --rse</span>
+
+  <span class="hljs-comment">;; With our compiled WebAssembly, we can now load it into Node.js:</span>
+  <span class="hljs-comment">;; const fs = require(&#x27;fs&#x27;)</span>
+  <span class="hljs-comment">;; const instantiate = async function (inFilePath, _importObject) {</span>
+  <span class="hljs-comment">;;  var importObject = {</span>
+  <span class="hljs-comment">;;     console: {</span>
+  <span class="hljs-comment">;;       log: (x) =&gt; console.log(x),</span>
+  <span class="hljs-comment">;;     },</span>
+  <span class="hljs-comment">;;     math: {</span>
+  <span class="hljs-comment">;;       cos: (x) =&gt; Math.cos(x),</span>
+  <span class="hljs-comment">;;     }</span>
+  <span class="hljs-comment">;;   }</span>
+  <span class="hljs-comment">;;  importObject = Object.assign(importObject, _importObject)</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;;  var buffer = fs.readFileSync(inFilePath)</span>
+  <span class="hljs-comment">;;  var module = await WebAssembly.compile(buffer)</span>
+  <span class="hljs-comment">;;  var instance = await WebAssembly.instantiate(module, importObject)</span>
+  <span class="hljs-comment">;;  return instance.exports</span>
+  <span class="hljs-comment">;; }</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;; const main = function () {</span>
+  <span class="hljs-comment">;;   var wasmExports = await instantiate(&#x27;learn-wasm.wasm&#x27;)</span>
+  <span class="hljs-comment">;;   wasmExports.print_args(1, 0)</span>
+  <span class="hljs-comment">;; }</span>
+
+  <span class="hljs-comment">;; The following snippet gets the functions from the importObject we defined</span>
+  <span class="hljs-comment">;; in the JavaScript instantiate async function, and then exports a function</span>
+  <span class="hljs-comment">;; &quot;print_args&quot; that we can call from Node.js</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;console&quot;</span> <span class="hljs-string">&quot;log&quot;</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$print_i32</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)))</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;math&quot;</span> <span class="hljs-string">&quot;cos&quot;</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$cos</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-type">f64</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">result</span> <span class="hljs-type">f64</span><span class="hljs-punctuation">)))</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$print_args</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$arg0</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$arg1</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">call</span> <span class="hljs-title function_">$print_i32</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$arg0</span><span class="hljs-punctuation">))</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">call</span> <span class="hljs-title function_">$print_i32</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$arg1</span><span class="hljs-punctuation">))</span>
+  <span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">export</span> <span class="hljs-string">&quot;print_args&quot;</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$print_args</span><span class="hljs-punctuation">))</span>
+
+  <span class="hljs-comment">;; Loading in data from WebAssembly memory.</span>
+  <span class="hljs-comment">;; Say that we want to apply the cosine function to a Javascript array.</span>
+  <span class="hljs-comment">;; We need to be able to access the allocated array, and iterate through it.</span>
+  <span class="hljs-comment">;; This example will modify the input array inplace.</span>
+  <span class="hljs-comment">;; f64.load and f64.store expect the location of a number in memory *in bytes*.</span>
+  <span class="hljs-comment">;; If we want to access the 3rd element of an array, we have to pass something</span>
+  <span class="hljs-comment">;; like (i32.mul (i32.const 8) (i32.const 2)) to the f64.store function.</span>
+
+  <span class="hljs-comment">;; In JavaScript, we would call `apply_cos64` as follows</span>
+  <span class="hljs-comment">;; (using the instantiate function from earlier):</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;; const main = function () {</span>
+  <span class="hljs-comment">;;   var wasm = await instantiate(&#x27;learn-wasm.wasm&#x27;)</span>
+  <span class="hljs-comment">;;   var n = 100</span>
+  <span class="hljs-comment">;;   const memory = new Float64Array(wasm.memory.buffer, 0, n)</span>
+  <span class="hljs-comment">;;   for (var i=0; i&lt;n; i++) {</span>
+  <span class="hljs-comment">;;     memory[i] = i;</span>
+  <span class="hljs-comment">;;   }</span>
+  <span class="hljs-comment">;;   wasm.apply_cos64(n)</span>
+  <span class="hljs-comment">;; }</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;; This function will not work if we allocate a Float32Array on the JavaScript</span>
+  <span class="hljs-comment">;; side.</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">memory</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">export</span> <span class="hljs-string">&quot;memory&quot;</span><span class="hljs-punctuation">)</span> <span class="hljs-number">100</span><span class="hljs-punctuation">)</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$apply_cos64</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$array_length</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-comment">;; declare the loop counter</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$idx</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-comment">;; declare the counter that will allow us to access memory</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$idx_bytes</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-comment">;; constant expressing the number of bytes in a f64 number.</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$bytes_per_double</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+
+    <span class="hljs-comment">;; declare a variable for storing the value loaded from memory</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$temp_f64</span> <span class="hljs-type">f64</span><span class="hljs-punctuation">)</span>
+
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$idx</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">0</span><span class="hljs-punctuation">))</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$idx_bytes</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">0</span><span class="hljs-punctuation">))</span> <span class="hljs-comment">;; not entirely necessary</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$bytes_per_double</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">8</span><span class="hljs-punctuation">))</span>
+
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">block</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">loop</span>
+        <span class="hljs-comment">;; this sets idx_bytes to bytes offset of the value we&#x27;re interested in.</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$idx_bytes</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.mul</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$idx</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$bytes_per_double</span><span class="hljs-punctuation">)))</span>
+
+        <span class="hljs-comment">;; get the value of the array from memory:</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$temp_f64</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.load</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$idx_bytes</span><span class="hljs-punctuation">)))</span>
+
+        <span class="hljs-comment">;; now apply the cosine function:</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$temp_64</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">call</span> <span class="hljs-title function_">$cos</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$temp_64</span><span class="hljs-punctuation">)))</span>
+
+        <span class="hljs-comment">;; now store the result at the same location in memory:</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.store</span>
+          <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$idx_bytes</span><span class="hljs-punctuation">)</span>
+          <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$temp_64</span><span class="hljs-punctuation">))</span>
+
+        <span class="hljs-comment">;; do it all in one step instead</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.store</span>
+          <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$idx_bytes</span><span class="hljs-punctuation">)</span>
+          <span class="hljs-punctuation">(</span><span class="hljs-keyword">call</span> <span class="hljs-title function_">$cos</span>
+            <span class="hljs-punctuation">(</span><span class="hljs-keyword">f64.load</span>
+              <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$idx_bytes</span><span class="hljs-punctuation">))))</span>
+
+        <span class="hljs-comment">;; increment the loop counter</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.set</span> <span class="hljs-variable">$idx</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.add</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$idx</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)))</span>
+
+        <span class="hljs-comment">;; stop the loop if the loop counter is equal the array length</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">br_if</span> <span class="hljs-number">1</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.eq</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$idx</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">local.get</span> <span class="hljs-variable">$array_length</span><span class="hljs-punctuation">)))</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">br</span> <span class="hljs-number">0</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">export</span> <span class="hljs-string">&quot;apply_cos64&quot;</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$apply_cos64</span><span class="hljs-punctuation">))</span>
+
+  <span class="hljs-comment">;; Wasm is a stack-based language, but for returning values more complicated</span>
+  <span class="hljs-comment">;; than an int/float, a separate memory stack has to be manually managed. One</span>
+  <span class="hljs-comment">;; approach is to use a mutable global to store the stack_ptr. We give</span>
+  <span class="hljs-comment">;; ourselves 1MiB of memstack and grow it downwards.</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;; Below is a demonstration of how this C code **might** be written by hand</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;;   typedef struct {</span>
+  <span class="hljs-comment">;;       int a;</span>
+  <span class="hljs-comment">;;       int b;</span>
+  <span class="hljs-comment">;;   } sum_struct_t;</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;;   sum_struct_t sum_struct_create(int a, int b) {</span>
+  <span class="hljs-comment">;;     return (sum_struct_t){a, b};</span>
+  <span class="hljs-comment">;;   }</span>
+  <span class="hljs-comment">;;</span>
+  <span class="hljs-comment">;;   int sum_local() {</span>
+  <span class="hljs-comment">;;     sum_struct_t s = sum_struct_create(40, 2);</span>
+  <span class="hljs-comment">;;     return s.a + s.b;</span>
+  <span class="hljs-comment">;;   }</span>
+
+  <span class="hljs-comment">;; Unlike C, we must manage our own memory stack. We reserve 1MiB</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">global</span> <span class="hljs-variable">$memstack_ptr</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">mut</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">65536</span><span class="hljs-punctuation">))</span>
+
+  <span class="hljs-comment">;; Structs can only be returned by reference</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$sum_struct_create</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$sum_struct_ptr</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$a</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">param</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$b</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-comment">;; c// sum_struct_ptr-&gt;a = a;</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.store</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$sum_struct_ptr</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$a</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+
+    <span class="hljs-comment">;; c// sum_struct_ptr-&gt;b = b;</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.store</span> <span class="hljs-keyword">offset</span><span class="hljs-operator">=</span><span class="hljs-number">4</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$sum_struct_ptr</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$b</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">)</span>
+
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$sum_local</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">result</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$sum_struct</span><span class="hljs-variable">$a</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$sum_struct</span><span class="hljs-variable">$b</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">local</span> <span class="hljs-variable">$local_memstack_ptr</span> <span class="hljs-type">i32</span><span class="hljs-punctuation">)</span>
+
+    <span class="hljs-comment">;; reserve memstack space</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.sub</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_global</span> <span class="hljs-variable">$memstack_ptr</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">8</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+    <span class="hljs-keyword">tee_local</span> <span class="hljs-variable">$local_memstack_ptr</span> <span class="hljs-comment">;; tee both stores and returns given value</span>
+    <span class="hljs-keyword">set_global</span> <span class="hljs-variable">$memstack_ptr</span>
+
+    <span class="hljs-comment">;; call the function, storing the result in the memstack</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">call</span> <span class="hljs-title function_">$sum_struct_create</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-comment">(;$sum_struct_ptr=;)</span> <span class="hljs-keyword">get_local</span> <span class="hljs-variable">$local_memstack_ptr</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-comment">(;$var$a=;)</span> <span class="hljs-keyword">i32.const</span> <span class="hljs-number">40</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-comment">(;$var$b=;)</span> <span class="hljs-keyword">i32.const</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+
+    <span class="hljs-comment">;; retrieve values from struct</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">set_local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$sum_struct</span><span class="hljs-variable">$a</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.load</span> <span class="hljs-keyword">offset</span><span class="hljs-operator">=</span><span class="hljs-number">0</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$local_memstack_ptr</span><span class="hljs-punctuation">))</span>
+    <span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">set_local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$sum_struct</span><span class="hljs-variable">$b</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.load</span> <span class="hljs-keyword">offset</span><span class="hljs-operator">=</span><span class="hljs-number">4</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$local_memstack_ptr</span><span class="hljs-punctuation">))</span>
+    <span class="hljs-punctuation">)</span>
+
+    <span class="hljs-comment">;; unreserve memstack space</span>
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">set_global</span> <span class="hljs-variable">$memstack_ptr</span>
+        <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.add</span>
+          <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$local_memstack_ptr</span><span class="hljs-punctuation">)</span>
+          <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.const</span> <span class="hljs-number">8</span><span class="hljs-punctuation">)</span>
+        <span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+
+    <span class="hljs-punctuation">(</span><span class="hljs-keyword">i32.add</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$sum_struct</span><span class="hljs-variable">$a</span><span class="hljs-punctuation">)</span>
+      <span class="hljs-punctuation">(</span><span class="hljs-keyword">get_local</span> <span class="hljs-variable">$var</span><span class="hljs-variable">$sum_struct</span><span class="hljs-variable">$b</span><span class="hljs-punctuation">)</span>
+    <span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">)</span>
+  <span class="hljs-punctuation">(</span><span class="hljs-keyword">export</span> <span class="hljs-string">&quot;sum_local&quot;</span> <span class="hljs-punctuation">(</span><span class="hljs-keyword">func</span> <span class="hljs-title function_">$sum_local</span><span class="hljs-punctuation">))</span>
+<span class="hljs-punctuation">)</span>

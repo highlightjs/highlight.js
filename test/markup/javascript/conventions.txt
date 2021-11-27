@@ -1,0 +1,7 @@
+    const KEY_KPASTERISK = 55;
+    const KEY_KP7        = 71;
+    const KEY_KP8        = 72;
+
+if (key == KEY_KP8) {
+  // do stuff
+}

@@ -1,0 +1,2 @@
+(comment "comment is a macro that emits no code. It can contain clojure code in itself.")
+(comment-and-something "This is a valid function name")

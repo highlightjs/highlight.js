@@ -1,0 +1,5 @@
+<span class="hljs-character">\A</span>
+<span class="hljs-character">\a</span>
+<span class="hljs-character">\formfeed</span>
+<span class="hljs-character">\u00DF</span>
+<span class="hljs-character">\o303</span>

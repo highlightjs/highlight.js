@@ -1,0 +1,22 @@
+<span class="hljs-meta">.text</span>
+<span class="hljs-meta">.global</span> AckermannFunc
+
+<span class="hljs-comment"># Preconditions:</span>
+<span class="hljs-comment">#   1st parameter ($a0) m</span>
+<span class="hljs-comment">#   2nd parameter ($a1) n</span>
+<span class="hljs-comment"># Postconditions:</span>
+<span class="hljs-comment">#   result in ($v0) = value of A(m,n)</span>
+<span class="hljs-symbol">
+AckermannFunc:</span>
+            <span class="hljs-keyword">addi </span>   $<span class="hljs-built_in">sp</span>,   $<span class="hljs-built_in">sp</span>, -<span class="hljs-number">8</span>
+            <span class="hljs-keyword">sw </span>     $<span class="hljs-built_in">s0</span>, <span class="hljs-number">4</span>($<span class="hljs-built_in">sp</span>)
+            <span class="hljs-keyword">sw </span>     $<span class="hljs-built_in">ra</span>, <span class="hljs-number">0</span>($<span class="hljs-built_in">sp</span>)
+
+            <span class="hljs-comment"># move the parameter registers to temporary  - no, only when nec.</span>
+<span class="hljs-symbol">
+LABEL_IF:</span>   <span class="hljs-keyword">bne </span>    $<span class="hljs-built_in">a0</span>, $<span class="hljs-built_in">zero</span>, LABEL_ELSE_IF
+
+            <span class="hljs-keyword">addi </span>   $<span class="hljs-built_in">v0</span>, $<span class="hljs-built_in">a1</span>, <span class="hljs-number">1</span>
+
+            <span class="hljs-comment"># jump to LABEL_DONE</span>
+            <span class="hljs-keyword">j </span>LABEL_DONE

@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# tool to help with css refactoring, can perhaps be removed
+# once CSS is consistent? or moved to tools?
+#
+cp test/markup/css/css_consistency.txt test/markup/less
+cp test/markup/css/css_consistency.expect.txt test/markup/less
+cp test/markup/css/css_consistency.txt test/markup/scss
+cp test/markup/css/css_consistency.expect.txt test/markup/scss
+cp test/markup/css/css_consistency.txt test/markup/stylus
+cp test/markup/css/css_consistency.expect.txt test/markup/stylus
+
+echo Overall size:
+ls -l src/languages/{less,css,scss,stylus}.js src/languages/lib/css-shared.js
+ls -l src/languages/{less,css,scss,stylus}.js src/languages/lib/css-shared.js | cut -d' ' -f8 | awk '{s+=$1} END {print s}'

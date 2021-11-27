@@ -2,26 +2,58 @@
 Language: Nginx config
 Author: Peter Leonov <gojpeg@yandex.ru>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
-Category: common, config
+Category: config, web
 Website: https://www.nginx.com
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var VAR = {
+  const regex = hljs.regex;
+  const VAR = {
     className: 'variable',
     variants: [
-      {begin: /\$\d+/},
-      {begin: /\$\{/, end: /}/},
-      {begin: '[\\$\\@]' + hljs.UNDERSCORE_IDENT_RE}
+      {
+        begin: /\$\d+/
+      },
+      {
+        begin: /\$\{\w+\}/
+      },
+      {
+        begin: regex.concat(/[$@]/, hljs.UNDERSCORE_IDENT_RE)
+      }
     ]
   };
-  var DEFAULT = {
+  const LITERALS = [
+    "on",
+    "off",
+    "yes",
+    "no",
+    "true",
+    "false",
+    "none",
+    "blocked",
+    "debug",
+    "info",
+    "notice",
+    "warn",
+    "error",
+    "crit",
+    "select",
+    "break",
+    "last",
+    "permanent",
+    "redirect",
+    "kqueue",
+    "rtsig",
+    "epoll",
+    "poll",
+    "/dev/poll"
+  ];
+  const DEFAULT = {
     endsWithParent: true,
     keywords: {
-      $pattern: '[a-z/_]+',
-      literal:
-        'on off yes no true false none blocked debug info notice warn error crit ' +
-        'select break last permanent redirect kqueue rtsig epoll poll /dev/poll'
+      $pattern: /[a-z_]{2,}|\/dev\/poll/,
+      literal: LITERALS
     },
     relevance: 0,
     illegal: '=>',
@@ -29,28 +61,55 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'string',
-        contains: [hljs.BACKSLASH_ESCAPE, VAR],
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          VAR
+        ],
         variants: [
-          {begin: /"/, end: /"/},
-          {begin: /'/, end: /'/}
+          {
+            begin: /"/,
+            end: /"/
+          },
+          {
+            begin: /'/,
+            end: /'/
+          }
         ]
       },
       // this swallows entire URLs to avoid detecting numbers within
       {
-        begin: '([a-z]+):/', end: '\\s', endsWithParent: true, excludeEnd: true,
-        contains: [VAR]
+        begin: '([a-z]+):/',
+        end: '\\s',
+        endsWithParent: true,
+        excludeEnd: true,
+        contains: [ VAR ]
       },
       {
         className: 'regexp',
-        contains: [hljs.BACKSLASH_ESCAPE, VAR],
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          VAR
+        ],
         variants: [
-          {begin: "\\s\\^", end: "\\s|{|;", returnEnd: true},
+          {
+            begin: "\\s\\^",
+            end: "\\s|\\{|;",
+            returnEnd: true
+          },
           // regexp locations (~, ~*)
-          {begin: "~\\*?\\s+", end: "\\s|{|;", returnEnd: true},
+          {
+            begin: "~\\*?\\s+",
+            end: "\\s|\\{|;",
+            returnEnd: true
+          },
           // *.example.com
-          {begin: "\\*(\\.[a-z\\-]+)+"},
+          {
+            begin: "\\*(\\.[a-z\\-]+)+"
+          },
           // sub.example.*
-          {begin: "([a-z\\-]+\\.)+\\*"}
+          {
+            begin: "([a-z\\-]+\\.)+\\*"
+          }
         ]
       },
       // IP
@@ -61,7 +120,7 @@ export default function(hljs) {
       // units
       {
         className: 'number',
-        begin: '\\b\\d+[kKmMgGdshdwy]*\\b',
+        begin: '\\b\\d+[kKmMgGdshdwy]?\\b',
         relevance: 0
       },
       VAR
@@ -70,22 +129,25 @@ export default function(hljs) {
 
   return {
     name: 'Nginx config',
-    aliases: ['nginxconf'],
+    aliases: [ 'nginxconf' ],
     contains: [
       hljs.HASH_COMMENT_MODE,
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s+{', returnBegin: true,
-        end: '{',
-        contains: [
-          {
-            className: 'section',
-            begin: hljs.UNDERSCORE_IDENT_RE
-          }
-        ],
+        beginKeywords: "upstream location",
+        end: /;|\{/,
+        contains: DEFAULT.contains,
+        keywords: {
+          section: "upstream location"
+        }
+      },
+      {
+        className: 'section',
+        begin: regex.concat(hljs.UNDERSCORE_IDENT_RE + regex.lookahead(/\s+\{/)),
         relevance: 0
       },
       {
-        begin: hljs.UNDERSCORE_IDENT_RE + '\\s', end: ';|{', returnBegin: true,
+        begin: regex.lookahead(hljs.UNDERSCORE_IDENT_RE + '\\s'),
+        end: ';|\\{',
         contains: [
           {
             className: 'attribute',
@@ -96,6 +158,6 @@ export default function(hljs) {
         relevance: 0
       }
     ],
-    illegal: '[^\\s\\}]'
+    illegal: '[^\\s\\}\\{]'
   };
 }

@@ -6,9 +6,9 @@ Website: https://esolangs.org/wiki/Brainfuck
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var LITERAL = {
+  const LITERAL = {
     className: 'literal',
-    begin: '[\\+\\-]',
+    begin: /[+-]/,
     relevance: 0
   };
   return {
@@ -35,7 +35,7 @@ export default function(hljs) {
       },
       {
         // this mode works as the only relevance counter
-        begin: /(?:\+\+|\-\-)/,
+        begin: /(?:\+\+|--)/,
         contains: [LITERAL]
       },
       LITERAL

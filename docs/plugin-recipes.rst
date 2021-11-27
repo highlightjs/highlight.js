@@ -1,6 +1,6 @@
 .. highlight:: javascript
 
-Recipes
+Plugin Recipes
 ==============
 
 Below is a collection of useful plugin "recipes" that you might find helpful.
@@ -17,9 +17,9 @@ via CSS with ``:before``, etc.
 ::
 
     hljs.addPlugin( {
-      afterHighlightBlock: ({block, result}) => {
+      'after:highlightElement': ({el, result}) => {
         // move the language from the result into the dataset
-        block.dataset.language = result.language }
+        el.dataset.language = result.language }
     })
 
 

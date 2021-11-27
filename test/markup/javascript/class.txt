@@ -1,3 +1,4 @@
+class Vehicle {}
 class Car extends Vehicle {
   constructor(speed, cost) {
     super(speed);
@@ -8,4 +9,27 @@ class Car extends Vehicle {
     this.intro = `This is a car runs at
       ${speed}.`;
   }
+  join() {
+  }
+  other(a = ( ( 3 + 2 ) ) ) {
+    console.log(a)
+  }
+  something(a = ( ( 3 + 2 ) ), b = 1 ) {
+    console.log(a)
+  }
+  onemore(a=(3+2, b=(5*9))) {}
 }
+
+// these should not be matched as class functions
+for(expr; expr; expr) {}
+while(value) {}
+if(value) {}
+switch(value) {}
+try {} catch(err) {}
+
+Car
+Vehicle
+SelfDrivingTruck
+CSSParser
+Float32Array
+BigInt64Array

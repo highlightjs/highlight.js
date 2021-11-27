@@ -5,9 +5,6 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #fff;
   color: black;
 }
@@ -38,7 +35,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 
 .hljs-code,
 .hljs-string,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #c41a16;
 }
 
@@ -60,10 +57,10 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 
+.hljs-title.class_,
 .hljs-class .hljs-title,
 .hljs-type,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-params {
   color: #5c2699;
 }

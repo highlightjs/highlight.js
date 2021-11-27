@@ -1,0 +1,12 @@
+<span class="hljs-keyword">@main</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">MyApp</span>: <span class="hljs-title class_">App</span> {
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">Scene</span> {
+        <span class="hljs-type">WindowGroup</span> {
+            <span class="hljs-keyword">#if</span> os(iOS)
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello, world from iOS!&quot;</span>)
+            <span class="hljs-keyword">#else</span>
+            <span class="hljs-type">Text</span>(<span class="hljs-string">&quot;Hello, world!&quot;</span>)
+            <span class="hljs-keyword">#endif</span>
+        }
+    }
+}

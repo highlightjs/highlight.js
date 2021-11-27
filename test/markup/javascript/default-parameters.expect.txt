@@ -1,1 +1,1 @@
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">visibleTodoFilter</span>(<span class="hljs-params">state = <span class="hljs-string">&#x27;watch&#x27;</span>, action</span>) </span>{}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">visibleTodoFilter</span>(<span class="hljs-params">state = <span class="hljs-string">&#x27;watch&#x27;</span>, action</span>) {}

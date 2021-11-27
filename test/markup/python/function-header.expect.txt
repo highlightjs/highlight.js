@@ -1,2 +1,2 @@
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span>(<span class="hljs-params">x: int</span>) -&gt; <span class="hljs-keyword">None</span>:</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">x: <span class="hljs-built_in">int</span>, *, y: <span class="hljs-built_in">bool</span> = <span class="hljs-literal">True</span></span>) -&gt; <span class="hljs-literal">None</span>:
     <span class="hljs-keyword">pass</span>

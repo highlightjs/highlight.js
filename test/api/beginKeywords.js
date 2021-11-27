@@ -27,25 +27,25 @@ describe('beginKeywords', () => {
 
   it("should allow subsequence matches to still succeed", () => {
     let content = "A.class = self";
-    let res = hljs.highlight("has-followup", content);
+    let res = hljs.highlight(content, {language: "has-followup"});
     res.value.should.equal('A.<span class="hljs-found">class</span> = self');
   });
 
   it("should ignore a preceeding .", () => {
     let content = "A.class = self";
-    let res = hljs.highlight("test", content);
+    let res = hljs.highlight(content, { language: "test" });
     res.value.should.equal('A.class = self');
   });
 
   it("should ignore a trailing .", () => {
     let content = "class.config = true";
-    let res = hljs.highlight("test", content);
+    let res = hljs.highlight(content, { language: "test" });
     res.value.should.equal('class.config = true');
   });
 
   it('should detect keywords', () => {
     let content = "I have a class yes I do.";
-    let res = hljs.highlight("test", content);
+    let res = hljs.highlight(content, { language: "test" });
     res.value.should.equal('I have a <span class="hljs-keyword">class</span> yes I do.');
   });
 });

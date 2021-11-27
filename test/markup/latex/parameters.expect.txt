@@ -1,0 +1,5 @@
+<span class="hljs-params">#7</span>
+<span class="hljs-params">#7</span>89
+<span class="hljs-params">##1</span>
+<span class="hljs-params">#######2</span>
+<span class="hljs-params">#</span>{foo}

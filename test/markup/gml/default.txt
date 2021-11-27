@@ -1,0 +1,22 @@
+/// @description Collision code
+// standard collision handling
+
+// Horizontal collisions
+if(place_meeting(x+hspd, y, obj_wall)) {
+	while(!place_meeting(x+sign(hspd), y, obj_wall)) {
+		x += sign(hspd);
+	}
+	hspd = 0;
+}
+x += hspd;
+
+// Vertical collisions
+if(place_meeting(x, y+vspd, collide_obj)) {
+	while(!place_meeting(x, y+sign(vspd), collide_obj)) {
+		y += sign(vspd);
+	}
+	vspd = 0;
+}
+y += vspd;
+
+show_debug_message("This is a test");

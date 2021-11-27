@@ -1,0 +1,16 @@
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Shorty</span>(<span class="hljs-title class_ inherited__">dict</span>):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">len</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span>
+
+x = Shorty()
+<span class="hljs-built_in">len</span>(x)
+
+<span class="hljs-keyword">if</span> <span class="hljs-literal">__debug__</span>:
+    sys = <span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;sys&#x27;</span>)
+
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> sys.path:
+    <span class="hljs-built_in">print</span>(_)
+
+<span class="hljs-built_in">exec</span>(<span class="hljs-number">123</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-number">1</span><span class="hljs-keyword">if</span> <span class="hljs-number">0</span>==<span class="hljs-number">0</span><span class="hljs-keyword">else</span><span class="hljs-string">&quot;b&quot;</span>)

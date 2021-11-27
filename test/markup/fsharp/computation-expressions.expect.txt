@@ -1,0 +1,23 @@
+<span class="hljs-meta">#r</span> <span class="hljs-string">&quot;nuget: Ply&quot;</span>
+<span class="hljs-keyword">open</span> FSharp.Control.Tasks
+<span class="hljs-keyword">open</span> System.Threading.Tasks
+
+<span class="hljs-comment">// Single line, and contains a capital letter</span>
+<span class="hljs-keyword">let</span> unitTask = <span class="hljs-keyword">unitTask</span> { <span class="hljs-keyword">return</span> () }
+
+<span class="hljs-keyword">let</span> work =
+    <span class="hljs-keyword">async</span> {
+        <span class="hljs-keyword">let</span> delayTask () =
+            <span class="hljs-comment">// Nested computation</span>
+            <span class="hljs-keyword">task</span> {
+                <span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;Delay...&quot;</span>
+                <span class="hljs-keyword">do!</span> Task.Delay <span class="hljs-number">1000</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>
+            }
+        <span class="hljs-keyword">let!</span> result = delayTask () |&gt; Async.AwaitTask
+        <span class="hljs-built_in">printfn</span> <span class="hljs-string">&quot;Async F# sleep...&quot;</span>
+        <span class="hljs-keyword">do!</span> Async.Sleep <span class="hljs-number">1000</span>
+        <span class="hljs-keyword">return</span> result
+    }
+
+<span class="hljs-keyword">let</span> result = work |&gt; Async.RunSynchronously

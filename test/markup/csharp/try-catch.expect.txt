@@ -1,0 +1,8 @@
+<span class="hljs-keyword">try</span>
+{
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InvalidCastException();
+}
+<span class="hljs-keyword">catch</span> (InvalidCastException e) <span class="hljs-keyword">when</span> (e.Data != <span class="hljs-literal">null</span>)
+{
+    <span class="hljs-keyword">throw</span>;
+}

@@ -1,0 +1,37 @@
+<span class="hljs-meta">#!/usr/bin/env hy</span>
+
+(<span class="hljs-name"><span class="hljs-built_in">import</span></span> os.path)
+
+(<span class="hljs-name"><span class="hljs-built_in">import</span></span> hy.compiler)
+(<span class="hljs-name"><span class="hljs-built_in">import</span></span> hy.core)
+
+
+<span class="hljs-comment">;; absolute path for Hy core</span>
+(<span class="hljs-name"><span class="hljs-built_in">setv</span></span> *core-path* (<span class="hljs-name">os.path.dirname</span> hy.core.--file--))
+
+
+(<span class="hljs-name"><span class="hljs-built_in">defn</span></span> collect-macros [collected-names opened-file]
+  (<span class="hljs-name"><span class="hljs-built_in">while</span></span> <span class="hljs-literal">True</span>
+    (<span class="hljs-name"><span class="hljs-built_in">try</span></span>
+     (<span class="hljs-name"><span class="hljs-built_in">let</span></span> [data (<span class="hljs-name"><span class="hljs-built_in">read</span></span> opened-file)]
+       (<span class="hljs-name"><span class="hljs-built_in">if</span></span> (<span class="hljs-name"><span class="hljs-built_in">and</span></span> (<span class="hljs-name"><span class="hljs-built_in">in</span></span> (<span class="hljs-name"><span class="hljs-built_in">first</span></span> data)
+                    &#x27;(<span class="hljs-name"><span class="hljs-built_in">defmacro</span></span> defmacro/g! defn))
+                (<span class="hljs-name"><span class="hljs-built_in">not</span></span> (<span class="hljs-name">.startswith</span> (<span class="hljs-name"><span class="hljs-built_in">second</span></span> data) <span class="hljs-string">&quot;_&quot;</span>)))
+         (<span class="hljs-name">.add</span> collected-names (<span class="hljs-name"><span class="hljs-built_in">second</span></span> data))))
+     (<span class="hljs-name"><span class="hljs-built_in">except</span></span> [e EOFError] (<span class="hljs-name"><span class="hljs-built_in">break</span></span>)))))
+
+
+(<span class="hljs-name"><span class="hljs-built_in">defmacro</span></span> core-file [filename]
+  `(<span class="hljs-name"><span class="hljs-built_in">open</span></span> (<span class="hljs-name">os.path.join</span> *core-path* ~filename)))
+
+
+(<span class="hljs-name"><span class="hljs-built_in">defmacro</span></span> contrib-file [filename]
+  `(<span class="hljs-name"><span class="hljs-built_in">open</span></span> (<span class="hljs-name">os.path.join</span> *core-path* <span class="hljs-string">&quot;..&quot;</span> <span class="hljs-string">&quot;contrib&quot;</span> ~filename)))
+
+
+(<span class="hljs-name"><span class="hljs-built_in">defn</span></span> collect-core-names []
+  (<span class="hljs-name"><span class="hljs-built_in">doto</span></span> (<span class="hljs-name">set</span>)
+        (<span class="hljs-name">.update</span> hy.core.language.*exports*)
+        (<span class="hljs-name">.update</span> hy.core.shadow.*exports*)
+        (<span class="hljs-name">collect-macros</span> (<span class="hljs-name">core-file</span> <span class="hljs-string">&quot;macros.hy&quot;</span>))
+        (<span class="hljs-name">collect-macros</span> (<span class="hljs-name">core-file</span> <span class="hljs-string">&quot;bootstrap.hy&quot;</span>))))

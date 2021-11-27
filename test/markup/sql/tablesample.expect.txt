@@ -1,5 +1,0 @@
-<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> orders <span class="hljs-keyword">TABLESAMPLE</span> (<span class="hljs-number">500</span> <span class="hljs-keyword">ROWS</span>);
-
-<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> customers <span class="hljs-keyword">TABLESAMPLE</span> (<span class="hljs-number">25</span> <span class="hljs-keyword">PERCENT</span>);
-
-<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">TABLESAMPLE</span> (<span class="hljs-keyword">BUCKET</span> <span class="hljs-number">2</span> <span class="hljs-keyword">OUT</span> <span class="hljs-keyword">OF</span> <span class="hljs-number">10</span>);

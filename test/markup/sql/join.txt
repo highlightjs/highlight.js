@@ -1,17 +1,17 @@
-SELECT 
-    left_table.col1 AS l_col1, 
-    left_table.col2 AS l_col2 
-FROM 
-    VALUES (0, 10), (1, 11), (2, 12), (3,13), (4, 14), (5, 14) AS left_table 
-    ANTI JOIN 
-    VALUES (0, 10), (2, 12), (4, 14), (6, 16) AS right_table 
+SELECT
+    left_table.col1 AS l_col1,
+    left_table.col2 AS l_col2
+FROM
+    VALUES (0, 10), (1, 11), (2, 12), (3,13), (4, 14), (5, 14) AS left_table
+    JOIN
+    VALUES (0, 10), (2, 12), (4, 14), (6, 16) AS right_table
     ON left_table.col1 = right_table.col1;
 
-SELECT 
-    left_table.col1 AS l_col1, 
-    left_table.col2 AS l_col2 
-FROM 
-    VALUES (0, 10), (1, 11), (2, 12), (3,13), (4, 14), (5, 14) AS left_table 
-    LEFT SEMI JOIN 
-    VALUES (0, 10), (2, 12), (4, 14), (6, 16) AS right_table 
+SELECT
+    left_table.col1 AS l_col1,
+    left_table.col2 AS l_col2
+FROM
+    VALUES (0, 10), (1, 11), (2, 12), (3,13), (4, 14), (5, 14) AS left_table
+    LEFT JOIN
+    VALUES (0, 10), (2, 12), (4, 14), (6, 16) AS right_table
     ON left_table.col1 = right_table.col1;

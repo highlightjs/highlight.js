@@ -1,5 +1,5 @@
 // rollup.config.js
-import commonjs from 'rollup-plugin-commonjs';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
   input: 'test/builds/package.js',

@@ -6,47 +6,66 @@ Website: https://elinux.org/Device_Tree_Reference
 Category: config
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var STRINGS = {
+  const STRINGS = {
     className: 'string',
     variants: [
-      hljs.inherit(hljs.QUOTE_STRING_MODE, { begin: '((u8?|U)|L)?"' }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        begin: '((u8?|U)|L)?"'
+      }),
       {
-        begin: '(u8?|U)?R"', end: '"',
+        begin: '(u8?|U)?R"',
+        end: '"',
         contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
-        begin: '\'\\\\?.', end: '\'',
+        begin: '\'\\\\?.',
+        end: '\'',
         illegal: '.'
       }
     ]
   };
 
-  var NUMBERS = {
+  const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
-      { begin: hljs.C_NUMBER_RE }
+      {
+        begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)'
+      },
+      {
+        begin: hljs.C_NUMBER_RE
+      }
     ],
     relevance: 0
   };
 
-  var PREPROCESSOR = {
+  const PREPROCESSOR = {
     className: 'meta',
-    begin: '#', end: '$',
-    keywords: {'meta-keyword': 'if else elif endif define undef ifdef ifndef'},
+    begin: '#',
+    end: '$',
+    keywords: {
+      keyword: 'if else elif endif define undef ifdef ifndef'
+    },
     contains: [
       {
-        begin: /\\\n/, relevance: 0
+        begin: /\\\n/,
+        relevance: 0
       },
       {
-        beginKeywords: 'include', end: '$',
-        keywords: {'meta-keyword': 'include'},
+        beginKeywords: 'include',
+        end: '$',
+        keywords: {
+          keyword: 'include'
+        },
         contains: [
-          hljs.inherit(STRINGS, {className: 'meta-string'}),
+          hljs.inherit(STRINGS, {
+            className: 'string'
+          }),
           {
-            className: 'meta-string',
-            begin: '<', end: '>',
+            className: 'string',
+            begin: '<',
+            end: '>',
             illegal: '\\n'
           }
         ]
@@ -57,72 +76,87 @@ export default function(hljs) {
     ]
   };
 
-  var DTS_REFERENCE = {
+  const REFERENCE = {
     className: 'variable',
-    begin: '\\&[a-z\\d_]*\\b'
+    begin: /&[a-z\d_]*\b/
   };
 
-  var DTS_KEYWORD = {
-    className: 'meta-keyword',
+  const KEYWORD = {
+    className: 'keyword',
     begin: '/[a-z][a-z\\d-]*/'
   };
 
-  var DTS_LABEL = {
+  const LABEL = {
     className: 'symbol',
     begin: '^\\s*[a-zA-Z_][a-zA-Z\\d_]*:'
   };
 
-  var DTS_CELL_PROPERTY = {
+  const CELL_PROPERTY = {
     className: 'params',
+    relevance: 0,
     begin: '<',
     end: '>',
     contains: [
       NUMBERS,
-      DTS_REFERENCE
+      REFERENCE
     ]
   };
 
-  var DTS_NODE = {
-    className: 'class',
-    begin: /[a-zA-Z_][a-zA-Z\d_@]*\s{/,
-    end: /[{;=]/,
-    returnBegin: true,
-    excludeEnd: true
+  const NODE = {
+    className: 'title.class',
+    begin: /[a-zA-Z_][a-zA-Z\d_@-]*(?=\s\{)/
   };
 
-  var DTS_ROOT_NODE = {
-    className: 'class',
-    begin: '/\\s*{',
-    end: '};',
-    relevance: 10,
-    contains: [
-      DTS_REFERENCE,
-      DTS_KEYWORD,
-      DTS_LABEL,
-      DTS_NODE,
-      DTS_CELL_PROPERTY,
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      NUMBERS,
-      STRINGS
-    ]
+  const ROOT_NODE = {
+    className: 'title.class',
+    begin: /^\/(?=\s*\{)/,
+    relevance: 10
+  };
+
+  // TODO: `attribute` might be the right scope here, unsure
+  // I'm not sure if all these key names have semantic meaning or not
+  const ATTR_NO_VALUE = {
+    match: /[a-z][a-z-,]+(?=;)/,
+    relevance: 0,
+    scope: "attr"
+  };
+  const ATTR = {
+    relevance: 0,
+    match: [
+      /[a-z][a-z-,]+/,
+      /\s*/,
+      /=/
+    ],
+    scope: {
+      1: "attr",
+      3: "operator"
+    }
+  };
+
+  const PUNC = {
+    scope: "punctuation",
+    relevance: 0,
+    // `};` combined is just to avoid tons of useless punctuation nodes
+    match: /\};|[;{}]/
   };
 
   return {
     name: 'Device Tree',
-    keywords: "",
     contains: [
-      DTS_ROOT_NODE,
-      DTS_REFERENCE,
-      DTS_KEYWORD,
-      DTS_LABEL,
-      DTS_NODE,
-      DTS_CELL_PROPERTY,
+      ROOT_NODE,
+      REFERENCE,
+      KEYWORD,
+      LABEL,
+      NODE,
+      ATTR,
+      ATTR_NO_VALUE,
+      CELL_PROPERTY,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       NUMBERS,
       STRINGS,
       PREPROCESSOR,
+      PUNC,
       {
         begin: hljs.IDENT_RE + '::',
         keywords: ""
@@ -130,4 +164,3 @@ export default function(hljs) {
     ]
   };
 }
-

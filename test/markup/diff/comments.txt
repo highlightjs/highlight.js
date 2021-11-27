@@ -1,5 +1,6 @@
 Index: languages/demo.js
 ===================================================================
+diff --git a/file.txt b/file.txt
 --- languages/demo.js    (revision 199)
 +++ languages/demo.js    (revision 200)
 @@ -1,8 +1,7 @@

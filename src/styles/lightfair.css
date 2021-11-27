@@ -5,10 +5,8 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  /* TODO: background? */
+  color: #444;
+  background: #fff;
 }
 
 .hljs-name {
@@ -19,9 +17,8 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
     color:#778899;
 }
 
-.hljs,
 .hljs-subst {
-    color: #444
+  /* default */
 }
 
 .hljs-comment {
@@ -31,7 +28,8 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
 .hljs-keyword,
 .hljs-attribute,
 .hljs-selector-tag,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-doctag,
 .hljs-name {
     font-weight: bold
@@ -75,7 +73,7 @@ Lightfair style (c) Tristian Kelly <tristian.kelly560@gmail.com>
     color: #25c6c6
 }
 
-.hljs-meta-string {
+.hljs-meta .hljs-string {
     color: #4d99bf
 }
 

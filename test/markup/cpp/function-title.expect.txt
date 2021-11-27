@@ -1,9 +1,10 @@
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
-  A a = <span class="hljs-keyword">new</span> A();
-  <span class="hljs-keyword">int</span> b = b * sum(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
-  <span class="hljs-keyword">if</span> (a-&gt;check1())
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span>** argv)</span> </span>{
+  <span class="hljs-keyword">auto</span> a = std::<span class="hljs-built_in">make_unique</span>&lt;A&gt;();
+  B *b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">B</span>();
+  <span class="hljs-type">int</span> c = c * <span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+  <span class="hljs-keyword">if</span> (a-&gt;<span class="hljs-built_in">check1</span>())
     <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;
-  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a-&gt;check2())
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a-&gt;<span class="hljs-built_in">check2</span>())
     <span class="hljs-keyword">return</span> <span class="hljs-number">4</span>;
-  <span class="hljs-keyword">return</span> a-&gt;result();
+  <span class="hljs-keyword">return</span> a-&gt;<span class="hljs-built_in">result</span>();
 }

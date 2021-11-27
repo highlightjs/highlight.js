@@ -1,0 +1,28 @@
+<span class="hljs-keyword">import</span> <span class="hljs-built_in">Animate</span>
+<span class="hljs-keyword">import</span> SeasonsGreetingsTheme
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;myhelper.xl&quot;</span>
+<span class="hljs-built_in">theme</span> <span class="hljs-string">&quot;SeasonsGreetings&quot;</span>
+<span class="hljs-function"><span class="hljs-title">function</span> X:<span class="hljs-keyword">real</span> -&gt;</span> <span class="hljs-built_in">sin</span>(X*<span class="hljs-number">0.5</span>) + <span class="hljs-number">16#0.002</span>
+<span class="hljs-built_in">page</span> <span class="hljs-string">&quot;A nice car&quot;</span>,
+<span class="hljs-comment">// --------------------------------------</span>
+<span class="hljs-comment">//    Display car model on a pedestal</span>
+<span class="hljs-comment">// --------------------------------------</span>
+    <span class="hljs-built_in">clear_color</span> <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>
+    <span class="hljs-function"><span class="hljs-title">hand_scale</span> -&gt;</span> <span class="hljs-number">0.3</span>
+
+    <span class="hljs-comment">// Display the background image</span>
+    <span class="hljs-built_in">background</span> -<span class="hljs-number">4000</span>,
+        <span class="hljs-built_in">locally</span>
+            disable_depth_test
+            <span class="hljs-function"><span class="hljs-title">corridor</span> N:<span class="hljs-keyword">integer</span> -&gt;</span>
+                <span class="hljs-built_in">locally</span>
+                    rotatez <span class="hljs-number">60</span> * N
+                    translatex <span class="hljs-number">1000</span>
+                    rotatey <span class="hljs-number">90</span>
+                    <span class="hljs-built_in">color</span> <span class="hljs-string">&quot;white&quot;</span>
+                    <span class="hljs-built_in">texture</span> <span class="hljs-string">&quot;stars.png&quot;</span>
+                    <span class="hljs-built_in">texture_wrap</span> <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>
+                    <span class="hljs-built_in">texture_transform</span>
+                        translate (<span class="hljs-built_in">time</span> + N) * <span class="hljs-number">0.02</span> <span class="hljs-built_in">mod</span> <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>
+                        scale <span class="hljs-number">0.2</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">0.3</span>
+                    <span class="hljs-built_in">rectangle</span> <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100000</span>, <span class="hljs-number">1154</span>

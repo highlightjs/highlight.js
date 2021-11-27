@@ -1,0 +1,12 @@
+' Comment1
+'Comment2
+REM Comment3
+
+Dim somREM = "no comment"
+Dim REM2 = "no comment"
+Dim a = 1 ' inline comment
+Dim b = 2 REM inline comment
+
+''' <summary>Doc-comments</summary>
+
+' Not a doc-comment, but html: <a>

@@ -1,0 +1,16 @@
+class Shorty(dict):
+    def len(self):
+        return NotImplemented
+
+x = Shorty()
+len(x)
+
+if __debug__:
+    sys = __import__('sys')
+
+for _ in sys.path:
+    print(_)
+
+exec(123)
+
+print(1if 0==0else"b")

@@ -1,0 +1,56 @@
+<span class="hljs-number">1</span>;  <span class="hljs-number">10</span>;  <span class="hljs-number">999</span>;    <span class="hljs-number">0</span>; <span class="hljs-number">00</span>;  <span class="hljs-number">000</span>;     <span class="hljs-number">08</span>;   <span class="hljs-number">019</span>
+<span class="hljs-number">1_</span>; <span class="hljs-number">1_0</span>; <span class="hljs-number">9_9__9</span>; <span class="hljs-number">0</span>; <span class="hljs-number">0_0</span>; <span class="hljs-number">0_0_0__</span>; <span class="hljs-number">0__8</span>; <span class="hljs-number">01_9</span>
+
+<span class="hljs-number">0b0</span>;  <span class="hljs-number">0b11</span>;  <span class="hljs-number">0b000</span>;  <span class="hljs-number">0b010</span>;  <span class="hljs-number">0b01011</span>
+<span class="hljs-number">0b0_</span>; <span class="hljs-number">0b1_1</span>; <span class="hljs-number">0b0_00</span>; <span class="hljs-number">0b01_0</span>; <span class="hljs-number">0b01__0_1__1_</span>
+
+<span class="hljs-number">0o77</span>;   <span class="hljs-number">0o0</span>; <span class="hljs-number">0o01</span>;  <span class="hljs-number">0o777</span>;   <span class="hljs-number">0o644</span>
+<span class="hljs-number">0o7_7_</span>; <span class="hljs-number">0o0</span>; <span class="hljs-number">0o0_1</span>; <span class="hljs-number">0o77__7</span>; <span class="hljs-number">0o6_44__</span>
+
+<span class="hljs-number">0x0</span>;  <span class="hljs-number">0xa0</span>;   <span class="hljs-number">0x7FFF</span>;  <span class="hljs-number">0xd3aD</span>
+<span class="hljs-number">0x0_</span>; <span class="hljs-number">0xa__0</span>; <span class="hljs-number">0x7F_FF</span>; <span class="hljs-number">0xd3_aD__</span>
+
+
+<span class="hljs-number">4.2</span>;  <span class="hljs-number">4.20</span>;   <span class="hljs-number">88.0</span>;  <span class="hljs-number">13.37</span>
+<span class="hljs-number">4.2_</span>; <span class="hljs-number">4.2__0</span>; <span class="hljs-number">8_8.0</span>; <span class="hljs-number">13_.3_7__</span>
+
+<span class="hljs-number">0e10</span>;  <span class="hljs-number">0.00e+10</span>;    <span class="hljs-number">9e-10</span>;     <span class="hljs-number">4.2E10</span>;   <span class="hljs-number">40.0E+10</span>;    <span class="hljs-number">0e100</span>;   <span class="hljs-number">1010e+10</span>
+<span class="hljs-number">0e1_0</span>; <span class="hljs-number">0.0__0e+1_0</span>; <span class="hljs-number">9_e-1__0_</span>; <span class="hljs-number">4.2_E1_0</span>; <span class="hljs-number">4_0_.0E+1_0</span>; <span class="hljs-number">0e1_0_0</span>; <span class="hljs-number">10_10e+10_</span>
+
+<span class="hljs-number">0x0p0</span>;   <span class="hljs-number">0x1.ep6</span>;   <span class="hljs-number">0xa0p+01</span>;    <span class="hljs-number">0x0.7FFp-18</span>;        <span class="hljs-number">0xd3aD.B00p9</span>
+<span class="hljs-number">0x0_P0_</span>; <span class="hljs-number">0x1__.Ep6</span>; <span class="hljs-number">0xa_0p+0__1</span>; <span class="hljs-number">0x0.7__F_F_P-1__8_</span>; <span class="hljs-number">0xd__3_aD.b00__p9</span>
+
+
+<span class="hljs-comment">// expressions containing numeric literals</span>
+<span class="hljs-operator">+</span><span class="hljs-number">0</span>
+<span class="hljs-operator">+-</span><span class="hljs-number">1</span>
+<span class="hljs-number">2</span><span class="hljs-operator">-</span><span class="hljs-number">3</span>
+<span class="hljs-operator">-</span><span class="hljs-number">10</span>.magnitude
+fn(<span class="hljs-operator">-</span><span class="hljs-number">5</span>)
+<span class="hljs-number">0x2</span>.p2
+
+<span class="hljs-comment">// expressions not containing numeric literals</span>
+fn(x0.d);
+
+<span class="hljs-comment">// pseudo-expressions containing numeric literals</span>
+.<span class="hljs-number">0</span>
+<span class="hljs-number">0</span>.
+
+<span class="hljs-comment">// invalid pseudo-numeric expressions</span>
+_0
+0b_0
+0b02
+0B0
+0o_0
+0o08
+0O7
+0x_0
+0x0G
+0X0
+1e_1
+
+0b1e1
+0o1e1
+
+0x0pA
+0x.1p1

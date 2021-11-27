@@ -1,16 +1,16 @@
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunction1</span>(<span class="hljs-params"></span>)</span> {
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunction1</span>()</span> {
 }
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunction2</span>(<span class="hljs-params"></span>)</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunction2</span>()</span>
 {
 }
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunctionDeclaration1</span>(<span class="hljs-params"></span>)</span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunctionDeclaration1</span>()</span>;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunctionDeclaration2</span>(<span class="hljs-params"></span>)</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ExampleFunctionDeclaration2</span>()</span>
 ;
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">ExampleExpressionBodiedFunction1</span>(<span class="hljs-params"></span>)</span> =&gt; <span class="hljs-string">&quot;dummy&quot;</span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> <span class="hljs-title">ExampleExpressionBodiedFunction1</span>()</span> =&gt; <span class="hljs-string">&quot;dummy&quot;</span>;
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">ExampleExpressionBodiedFunction2</span>(<span class="hljs-params"></span>)</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> <span class="hljs-title">ExampleExpressionBodiedFunction2</span>()</span>
     =&gt; <span class="hljs-string">&quot;dummy&quot;</span>;

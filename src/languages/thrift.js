@@ -7,16 +7,38 @@ Category: protocols
 */
 
 export default function(hljs) {
-  var BUILT_IN_TYPES = 'bool byte i16 i32 i64 double string binary';
+  const TYPES = [
+    "bool",
+    "byte",
+    "i16",
+    "i32",
+    "i64",
+    "double",
+    "string",
+    "binary"
+  ];
+  const KEYWORDS = [
+    "namespace",
+    "const",
+    "typedef",
+    "struct",
+    "enum",
+    "service",
+    "exception",
+    "void",
+    "oneway",
+    "set",
+    "list",
+    "map",
+    "required",
+    "optional"
+  ];
   return {
     name: 'Thrift',
     keywords: {
-      keyword:
-        'namespace const typedef struct enum service exception void oneway set list map required optional',
-      built_in:
-        BUILT_IN_TYPES,
-      literal:
-        'true false'
+      keyword: KEYWORDS,
+      type: TYPES,
+      literal: 'true false'
     },
     contains: [
       hljs.QUOTE_STRING_MODE,
@@ -25,18 +47,26 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'class',
-        beginKeywords: 'struct enum service exception', end: /\{/,
+        beginKeywords: 'struct enum service exception',
+        end: /\{/,
         illegal: /\n/,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, {
-            starts: {endsWithParent: true, excludeEnd: true} // hack: eating everything after the first title
+            // hack: eating everything after the first title
+            starts: {
+              endsWithParent: true,
+              excludeEnd: true
+            }
           })
         ]
       },
       {
-        begin: '\\b(set|list|map)\\s*<', end: '>',
-        keywords: BUILT_IN_TYPES,
-        contains: ['self']
+        begin: '\\b(set|list|map)\\s*<',
+        keywords: {
+          type: [...TYPES, "set", "list", "map"]
+        },
+        end: '>',
+        contains: [ 'self' ]
       }
     ]
   };
