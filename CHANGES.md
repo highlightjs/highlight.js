@@ -739,15 +739,12 @@ Deprecations:
 Parser Engine:
 
 - (fix) When ignoring a potential match highlighting can terminate early (#2649) [Josh Goebel][]
->>>>>>> 10b322dc436333b04df8295c9bdf4bad324849e0
+
 
 New themes:
 
 - *Gradient Light* by [Samia Ali]()
 
-<<<<<<< HEAD
-[Samia Ali]: https://github.com/samiaab1990
-=======
 Deprecations:
 
 - `fixMarkup` is now deprecated and will be removed in v11.0. (#2534) [Josh Goebel][]
