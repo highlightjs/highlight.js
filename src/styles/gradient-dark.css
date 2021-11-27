@@ -9,8 +9,8 @@ Gradient Dark (c) Samia Ali <samiaab1990@gmail.com>
 display: block;
 overflow-x: auto;
 padding: 0.5em;
-background: rgb(80,31,122);
-background: linear-gradient(166deg, rgba(80,31,122,1) 0%, rgba(40,32,179,1) 80%);
+background-color: #280760;
+background-image: linear-gradient(225deg, #280760 47%, #03135e 92%);
 color:#e7e4eb;
 }
 
