@@ -776,8 +776,6 @@ Language Improvements:
 [eytienne]: https://github.com/eytienne
 [sirosen]: https://github.com/sirosen
 
->>>>>>> 10b322dc436333b04df8295c9bdf4bad324849e0
-
 ## Version 10.1.1
 
 Fixes:
