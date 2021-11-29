@@ -54,6 +54,7 @@ export default function(hljs) {
     'integrate_ode_bdf'
   ];
   const VAR_TYPES = [
+    `array`,
     'complex',
     'int',
     'real',
