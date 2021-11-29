@@ -48,6 +48,15 @@ detection.
   - [ES6 Modules / `import`](#es6-modules--import)
 - [Getting the Library](#getting-the-library)
   - [Fetch via CDN](#fetch-via-cdn)
+    - [**cdnjs** (link)](#cdnjs-link)
+      - [Common JS](#common-js)
+      - [ES6 Modules](#es6-modules)
+    - [**jsdelivr** (link)](#jsdelivr-link)
+      - [Common JS](#common-js-1)
+      - [ES6 Modules](#es6-modules-1)
+    - [**unpkg** (link)](#unpkg-link)
+      - [Common JS](#common-js-2)
+      - [ES6 Modules](#es6-modules-2)
     - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
   - [Download from our website](#download-from-our-website)
   - [Install via NPM package](#install-via-npm-package)
@@ -317,7 +326,9 @@ A prebuilt version of Highlight.js bundled with many common languages is hosted 
 When using Highlight.js via CDN you can use Subresource Integrity for additional security.  For details
 see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md).
 
-**cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
+#### **cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
+
+##### Common JS
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
@@ -326,7 +337,23 @@ see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/go.min.js"></script>
 ```
 
-**jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
+##### ES6 Modules
+
+````html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/dark.min.css">
+<script type="module">
+import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/es/highlight.min.js';
+//  and it's easy to individually load additional languages
+import go from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/es/languages/go.min.js';
+hljs.registerLanguage('go', go);
+</script>
+
+````
+
+
+#### **jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
+
+##### Common JS
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
@@ -335,7 +362,21 @@ see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/go.min.js"></script>
 ```
 
-**unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
+##### ES6 Modules
+
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/dark.min.css">
+<script type="module">
+import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/es/highlight.min.js';
+//  and it's easy to individually load additional languages
+import go from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/es/languages/go.min.js';
+hljs.registerLanguage('go', go);
+</script>
+```
+
+#### **unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
+
+##### Common JS
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/styles/default.min.css">
@@ -343,6 +384,19 @@ see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md
 <!-- and it's easy to individually load additional languages -->
 <script src="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
 ```
+
+##### ES6 Modules
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/styles/default.min.css">
+<script type="module">
+import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.3.1/es/highlight.min.js';
+//  and it's easy to individually load & register additional languages
+import go from 'https://unpkg.com/@highlightjs/cdn-assets@11.3.1/es/languages/go.min.js';
+hljs.registerLanguage('go', go);
+</script>
+```
+
 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
 very large. You can find our list of "common" languages that we bundle by default on our [download page][5].
