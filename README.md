@@ -365,7 +365,7 @@ hljs.registerLanguage('go', go);
 ##### ES6 Modules
 
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/dark.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
 <script type="module">
 import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/es/highlight.min.js';
 //  and it's easy to individually load additional languages
