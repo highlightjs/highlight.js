@@ -48,15 +48,9 @@ detection.
   - [ES6 Modules / `import`](#es6-modules--import)
 - [Getting the Library](#getting-the-library)
   - [Fetch via CDN](#fetch-via-cdn)
-    - [**cdnjs** (link)](#cdnjs-link)
-      - [Common JS](#common-js)
-      - [ES6 Modules](#es6-modules)
-    - [**jsdelivr** (link)](#jsdelivr-link)
-      - [Common JS](#common-js-1)
-      - [ES6 Modules](#es6-modules-1)
-    - [**unpkg** (link)](#unpkg-link)
-      - [Common JS](#common-js-2)
-      - [ES6 Modules](#es6-modules-2)
+    - [cdnjs (link)](#cdnjs-link)
+    - [jsdelivr (link)](#jsdelivr-link)
+    - [unpkg (link)](#unpkg-link)
     - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
   - [Download from our website](#download-from-our-website)
   - [Install via NPM package](#install-via-npm-package)
@@ -277,13 +271,16 @@ const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: '
 
 ### ES6 Modules / `import`
 
+*Note: You can also import directly from fully static URLs, such as our every own pre-built
+ES6 Module CDN resources. See [Fetch via CDN](#fetch-via-cdn) for specific examples.*
+
 The default import will register all languages:
 
 ```js
 import hljs from 'highlight.js';
 ```
 
- It is more efficient to import only the library and register the languages you need:
+It is more efficient to import only the library and register the languages you need:
 
 ```js
 import hljs from 'highlight.js/lib/core';
@@ -326,9 +323,9 @@ A prebuilt version of Highlight.js bundled with many common languages is hosted 
 When using Highlight.js via CDN you can use Subresource Integrity for additional security.  For details
 see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md).
 
-#### **cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
+#### cdnjs ([link](https://cdnjs.com/libraries/highlight.js))
 
-##### Common JS
+##### Common JS <!-- omit in toc -->
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
@@ -337,7 +334,7 @@ see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/go.min.js"></script>
 ```
 
-##### ES6 Modules
+##### ES6 Modules <!-- omit in toc -->
 
 ````html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/dark.min.css">
@@ -351,9 +348,9 @@ hljs.registerLanguage('go', go);
 ````
 
 
-#### **jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
+#### jsdelivr ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
 
-##### Common JS
+##### Common JS <!-- omit in toc -->
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
@@ -362,7 +359,7 @@ hljs.registerLanguage('go', go);
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/go.min.js"></script>
 ```
 
-##### ES6 Modules
+##### ES6 Modules <!-- omit in toc -->
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
@@ -374,9 +371,9 @@ hljs.registerLanguage('go', go);
 </script>
 ```
 
-#### **unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
+#### unpkg ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
 
-##### Common JS
+##### Common JS <!-- omit in toc -->
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/styles/default.min.css">
@@ -385,7 +382,7 @@ hljs.registerLanguage('go', go);
 <script src="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
 ```
 
-##### ES6 Modules
+##### ES6 Modules <!-- omit in toc -->
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/styles/default.min.css">
