@@ -290,10 +290,14 @@ export default function(hljs) {
     regex.either(
       // Hard coded exceptions
       /\bJSON/,
-      // Float32Array
-      /\b[A-Z][a-z]+([A-Z][a-z]+|\d)*/,
+      // Float32Array, OutT
+      /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
       // CSSFactory
       /\b[A-Z]{2,}([A-Z][a-z]+|\d)+/,
+      // FPs
+      /\b[A-Z]{2,}[a-z]+([A-Z][a-z]+|\d)*/,
+      // P
+      // single letters are not highlighted
       // BLAH
       // this will be flagged as a UPPER_CASE_CONSTANT instead
     ),

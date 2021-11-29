@@ -23,7 +23,8 @@ export default function(hljs) {
     "string",
     "object",
     "never",
-    "enum"
+    "enum",
+    "unknown"
   ];
   const NAMESPACE = {
     beginKeywords: 'namespace',
@@ -61,7 +62,9 @@ export default function(hljs) {
     "implements",
     "declare",
     "abstract",
-    "readonly"
+    "readonly",
+    "infer",
+    "keyof"
   ];
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
