@@ -247,7 +247,7 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const makeOperatorMode = function(includeEqual) {
+  const makeOperatorMode = function({ includeEqual }) {
     // List or symbolic operator characters from the FSharp Spec 4.1, minus the dot, and with `?` added, used for nullable operators.
     let allOperatorChars;
     if (includeEqual)
@@ -281,9 +281,9 @@ export default function(hljs) {
     };
   }
 
-  const OPERATOR = makeOperatorMode(true);
+  const OPERATOR = makeOperatorMode({ includeEqual: true });
   // This variant is used when matching '=' should end a parent mode:
-  const OPERATOR_WITHOUT_EQUAL = makeOperatorMode(false);
+  const OPERATOR_WITHOUT_EQUAL = makeOperatorMode({ includeEqual: false });
 
   const makeTypeAnnotationMode = function(prefix, prefixScope) {
     return {
