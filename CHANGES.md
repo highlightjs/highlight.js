@@ -5,6 +5,7 @@ Grammars:
 - fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
+- fix(fsharp) Highlight operators, match type names only in type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
   - fix(clojure) `comment` macro catches more than it should (#3395)
@@ -22,6 +23,7 @@ Developer Tools:
 
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
+[Melvyn Laïly]: https://github.com/mlaily
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 [Josh Goebel]: https://github.com/joshgoebel
 

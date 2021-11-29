@@ -26,7 +26,7 @@ bar&quot;&quot;&quot;</span>
 <span class="hljs-string">&#x27;\u0041&#x27;</span>
 <span class="hljs-string">&#x27;\U0001F47D&#x27;</span>
 
-<span class="hljs-string">$&quot;<span class="hljs-subst">{<span class="hljs-number">1</span>+<span class="hljs-number">1</span>}</span>&quot;</span>
+<span class="hljs-string">$&quot;<span class="hljs-subst">{<span class="hljs-number">1</span><span class="hljs-operator">+</span><span class="hljs-number">1</span>}</span>&quot;</span>
 
 <span class="hljs-string">&quot;&quot;</span> <span class="hljs-comment">// end</span>
 <span class="hljs-string">&quot;fo\&quot;o&quot;</span> <span class="hljs-comment">// end</span>
@@ -53,7 +53,7 @@ bar&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
 <span class="hljs-string">&#x27;\u0041&#x27;</span> <span class="hljs-comment">// end</span>
 <span class="hljs-string">&#x27;\U0001F47D&#x27;</span> <span class="hljs-comment">// end</span>
 
-<span class="hljs-string">$&quot;<span class="hljs-subst">{<span class="hljs-number">1</span>+<span class="hljs-number">1</span>}</span>&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">$&quot;<span class="hljs-subst">{<span class="hljs-number">1</span><span class="hljs-operator">+</span><span class="hljs-number">1</span>}</span>&quot;</span> <span class="hljs-comment">// end</span>
 
 <span class="hljs-number">0</span>
 <span class="hljs-string">&quot;string \&#x27;&quot;</span> <span class="hljs-comment">// end</span>
@@ -71,15 +71,15 @@ string&quot;</span> <span class="hljs-comment">// end</span>
 string&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
 <span class="hljs-number">5</span>
 <span class="hljs-string">$&quot;interpola\ {{
-ted \&#x27; <span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
+ted \&#x27; <span class="hljs-subst">{<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">6</span>
 <span class="hljs-string">$@&quot;interpolated &quot;&quot; \&#x27; {{
-verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
+verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">7</span>
 <span class="hljs-string">@$&quot;interpolated &quot;&quot; \&#x27; {{
-verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
+verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments and &quot; in placeholders</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">8</span>
 <span class="hljs-string">$&quot;&quot;&quot;interpolated triple quoted &quot; \&#x27; {{ <span class="hljs-subst">{ (<span class="hljs-built_in">sprintf</span> <span class="hljs-string">&quot;%d%s&quot;</span> <span class="hljs-number">42</span>)
@@ -88,15 +88,15 @@ verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span cla
 <span class="hljs-number">9</span>
 <span class="hljs-string">$&quot;&quot;&quot;test <span class="hljs-subst">{ <span class="hljs-string">@&quot;{it&#x27;s not a placeholder!}&quot;</span> }</span> asdf&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
 <span class="hljs-number">10</span>
-<span class="hljs-string">$&quot;&quot;&quot;test <span class="hljs-subst">{ <span class="hljs-string">$&quot;but this is:<span class="hljs-subst">{<span class="hljs-number">1</span>+<span class="hljs-number">1</span>}</span>&quot;</span> }</span> asdf&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
+<span class="hljs-string">$&quot;&quot;&quot;test <span class="hljs-subst">{ <span class="hljs-string">$&quot;but this is:<span class="hljs-subst">{<span class="hljs-number">1</span><span class="hljs-operator">+</span><span class="hljs-number">1</span>}</span>&quot;</span> }</span> asdf&quot;&quot;&quot;</span> <span class="hljs-comment">// end</span>
 <span class="hljs-number">11</span>
 <span class="hljs-string">$&quot;interpola\ {{
-ted \&#x27; <span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
+ted \&#x27; <span class="hljs-subst">{<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
 <span class="hljs-comment">// placeholders cannot contain &quot;</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">12</span>
 <span class="hljs-string">$@&quot;interpolated &quot;&quot; \&#x27; {{
-verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
+verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-comment">// can contain comments in placeholders</span>
 <span class="hljs-comment">// placeholders cannot contain &quot;</span>
 }</span>string&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">13</span>
@@ -104,14 +104,14 @@ verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span cla
 <span class="hljs-comment">// and comments...</span>
 }</span>string&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">14</span>
-<span class="hljs-keyword">let</span> <span class="hljs-type">list</span> = [<span class="hljs-number">1</span>]
-<span class="hljs-string">$&quot;&quot;&quot;test<span class="hljs-subst">{ <span class="hljs-type">list</span> |&gt; List.map (<span class="hljs-keyword">fun</span> x -&gt; x + <span class="hljs-number">1</span>) }</span>test&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
+<span class="hljs-keyword">let</span> list <span class="hljs-operator">=</span> [<span class="hljs-number">1</span>]
+<span class="hljs-string">$&quot;&quot;&quot;test<span class="hljs-subst">{ list <span class="hljs-operator">|&gt;</span> List.map (<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> x <span class="hljs-operator">+</span> <span class="hljs-number">1</span>) }</span>test&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">15</span>
 <span class="hljs-string">$&quot;test<span class="hljs-subst">{<span class="hljs-number">1</span> <span class="hljs-comment">(* &quot; Does it break the string? &quot; *)</span> }</span>test&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">16</span>
 <span class="hljs-string">$&quot;test\
 <span class="hljs-subst">{
-    <span class="hljs-keyword">let</span> x = <span class="hljs-number">42</span>  <span class="hljs-comment">// valid comment contains &quot; quote &quot; ...</span>
+    <span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> <span class="hljs-number">42</span>  <span class="hljs-comment">// valid comment contains &quot; quote &quot; ...</span>
     x <span class="hljs-comment">(* &quot; Does it break the string? &quot; *)</span> 
 }</span>test&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">17</span>
@@ -119,18 +119,18 @@ verbatim<span class="hljs-subst">{<span class="hljs-number">1</span> + <span cla
 <span class="hljs-subst">{
     <span class="hljs-meta">#if</span> DEBUG
     <span class="hljs-meta">#endif</span>
-    <span class="hljs-keyword">let</span> asdf = <span class="hljs-string">&quot;}&quot;</span> <span class="hljs-comment">// &quot;&quot;&quot; does it break?</span>
-    <span class="hljs-keyword">let</span> x = <span class="hljs-string">$@&quot;test<span class="hljs-subst">{<span class="hljs-number">2</span>+<span class="hljs-number">2</span> <span class="hljs-comment">(* &quot; what about double nesting? &quot; *)</span> }</span>test&quot;</span>
-    <span class="hljs-keyword">let</span> lit = <span class="hljs-number">0</span>
-    <span class="hljs-keyword">let</span> x = <span class="hljs-keyword">unitTask</span> { <span class="hljs-keyword">return</span> () }</span>
+    <span class="hljs-keyword">let</span> asdf <span class="hljs-operator">=</span> <span class="hljs-string">&quot;}&quot;</span> <span class="hljs-comment">// &quot;&quot;&quot; does it break?</span>
+    <span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> <span class="hljs-string">$@&quot;test<span class="hljs-subst">{<span class="hljs-number">2</span><span class="hljs-operator">+</span><span class="hljs-number">2</span> <span class="hljs-comment">(* &quot; what about double nesting? &quot; *)</span> }</span>test&quot;</span>
+    <span class="hljs-keyword">let</span> lit <span class="hljs-operator">=</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> <span class="hljs-keyword">unitTask</span> { <span class="hljs-keyword">return</span> () }</span>
     asdf
 }test&quot;&quot;&quot;</span>
 <span class="hljs-number">18</span>
-<span class="hljs-keyword">let</span> <span class="hljs-type">list</span> = [<span class="hljs-number">1</span>]
+<span class="hljs-keyword">let</span> list <span class="hljs-operator">=</span> [<span class="hljs-number">1</span>]
 <span class="hljs-string">$&quot;&quot;&quot;test
 <span class="hljs-subst">{
-    <span class="hljs-keyword">let</span> asdf = <span class="hljs-string">&quot;}&quot;</span>
-    <span class="hljs-type">list</span> |&gt; List.map (<span class="hljs-keyword">fun</span> x -&gt; x + <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">let</span> asdf <span class="hljs-operator">=</span> <span class="hljs-string">&quot;}&quot;</span>
+    list <span class="hljs-operator">|&gt;</span> List.map (<span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> x <span class="hljs-operator">+</span> <span class="hljs-number">1</span>)
 
 }</span>test&quot;&quot;&quot;</span>  <span class="hljs-comment">// end</span>
 <span class="hljs-number">19</span>

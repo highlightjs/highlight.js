@@ -31,10 +31,10 @@
 <span class="hljs-number">9999999999999999999999999999</span>I
 
 <span class="hljs-comment">// Distance, meters.</span>
-[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-keyword">type</span> <span class="hljs-title class_">m</span>
+<span class="hljs-meta">[&lt;Measure&gt;]</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">m</span>
 <span class="hljs-comment">// Time, seconds.</span>
-[&lt;<span class="hljs-meta">Measure</span>&gt;] <span class="hljs-keyword">type</span> <span class="hljs-title class_">s</span>
+<span class="hljs-meta">[&lt;Measure&gt;]</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">s</span>
 
-<span class="hljs-keyword">let</span> v1 = <span class="hljs-number">3.1</span>&lt;m/s&gt;
-<span class="hljs-keyword">let</span> x1 = <span class="hljs-number">1.2</span>&lt;m&gt;
-<span class="hljs-keyword">let</span> t1 = <span class="hljs-number">1.0</span>&lt;s&gt;
+<span class="hljs-keyword">let</span> v1 <span class="hljs-operator">=</span> <span class="hljs-number">3.1</span><span class="hljs-operator">&lt;</span>m<span class="hljs-operator">/</span>s<span class="hljs-operator">&gt;</span>
+<span class="hljs-keyword">let</span> x1 <span class="hljs-operator">=</span> <span class="hljs-number">1.2</span><span class="hljs-operator">&lt;</span>m<span class="hljs-operator">&gt;</span>
+<span class="hljs-keyword">let</span> t1 <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span><span class="hljs-operator">&lt;</span>s<span class="hljs-operator">&gt;</span>
