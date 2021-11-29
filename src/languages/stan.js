@@ -30,13 +30,31 @@ export default function(hljs) {
   const SPECIAL_FUNCTIONS = [
     'print',
     'reject',
-    'increment_log_prob|10',
-    'integrate_ode|10',
-    'integrate_ode_rk45|10',
-    'integrate_ode_bdf|10',
-    'algebra_solver'
+    'hmm_marginal',
+    'hmm_latent_rng',
+    'hmm_hidden_state_prob',
+    'algebra_solver',
+    'algebra_solver_newton',
+    'map_rect',
+    'reduce_sum',
+    'reduce_sum_static',
+    'ode_rk45', 
+    'ode_rk45_tol', 
+    'ode_ckrk', 
+    'ode_ckrk_tol', 
+    'ode_adams',
+    'ode_adams_tol', 
+    'ode_bdf', 
+    'ode_bdf_tol', 
+    'ode_adjoint_tol_ctl',
+    'integrate_1d',
+    'integrate_ode_rk45', 
+    'integrate_ode', 
+    'integrate_ode_adams',
+    'integrate_ode_bdf'
   ];
   const VAR_TYPES = [
+    'complex',
     'int',
     'real',
     'vector',
@@ -53,419 +71,219 @@ export default function(hljs) {
     'void'
   ];
   const FUNCTIONS = [
-    'Phi',
-    'Phi_approx',
-    'abs',
-    'acos',
-    'acosh',
-    'algebra_solver',
-    'append_array',
-    'append_col',
-    'append_row',
-    'asin',
-    'asinh',
-    'atan',
-    'atan2',
-    'atanh',
-    'bernoulli_cdf',
-    'bernoulli_lccdf',
-    'bernoulli_lcdf',
-    'bernoulli_logit_lpmf',
-    'bernoulli_logit_rng',
-    'bernoulli_lpmf',
-    'bernoulli_rng',
-    'bessel_first_kind',
-    'bessel_second_kind',
-    'beta_binomial_cdf',
-    'beta_binomial_lccdf',
-    'beta_binomial_lcdf',
-    'beta_binomial_lpmf',
-    'beta_binomial_rng',
-    'beta_cdf',
-    'beta_lccdf',
-    'beta_lcdf',
-    'beta_lpdf',
-    'beta_rng',
-    'binary_log_loss',
-    'binomial_cdf',
-    'binomial_coefficient_log',
-    'binomial_lccdf',
-    'binomial_lcdf',
-    'binomial_logit_lpmf',
-    'binomial_lpmf',
-    'binomial_rng',
-    'block',
-    'categorical_logit_lpmf',
-    'categorical_logit_rng',
-    'categorical_lpmf',
-    'categorical_rng',
-    'cauchy_cdf',
-    'cauchy_lccdf',
-    'cauchy_lcdf',
-    'cauchy_lpdf',
-    'cauchy_rng',
-    'cbrt',
-    'ceil',
-    'chi_square_cdf',
-    'chi_square_lccdf',
-    'chi_square_lcdf',
-    'chi_square_lpdf',
-    'chi_square_rng',
-    'cholesky_decompose',
-    'choose',
-    'col',
-    'cols',
-    'columns_dot_product',
-    'columns_dot_self',
-    'cos',
-    'cosh',
-    'cov_exp_quad',
-    'crossprod',
-    'csr_extract_u',
-    'csr_extract_v',
-    'csr_extract_w',
-    'csr_matrix_times_vector',
-    'csr_to_dense_matrix',
-    'cumulative_sum',
-    'determinant',
-    'diag_matrix',
-    'diag_post_multiply',
-    'diag_pre_multiply',
-    'diagonal',
-    'digamma',
-    'dims',
-    'dirichlet_lpdf',
-    'dirichlet_rng',
-    'distance',
-    'dot_product',
-    'dot_self',
-    'double_exponential_cdf',
-    'double_exponential_lccdf',
-    'double_exponential_lcdf',
-    'double_exponential_lpdf',
-    'double_exponential_rng',
-    'e',
-    'eigenvalues_sym',
-    'eigenvectors_sym',
-    'erf',
-    'erfc',
-    'exp',
-    'exp2',
-    'exp_mod_normal_cdf',
-    'exp_mod_normal_lccdf',
-    'exp_mod_normal_lcdf',
-    'exp_mod_normal_lpdf',
-    'exp_mod_normal_rng',
-    'expm1',
-    'exponential_cdf',
-    'exponential_lccdf',
-    'exponential_lcdf',
-    'exponential_lpdf',
-    'exponential_rng',
-    'fabs',
-    'falling_factorial',
-    'fdim',
-    'floor',
-    'fma',
-    'fmax',
-    'fmin',
-    'fmod',
-    'frechet_cdf',
-    'frechet_lccdf',
-    'frechet_lcdf',
-    'frechet_lpdf',
-    'frechet_rng',
-    'gamma_cdf',
-    'gamma_lccdf',
-    'gamma_lcdf',
-    'gamma_lpdf',
-    'gamma_p',
-    'gamma_q',
-    'gamma_rng',
-    'gaussian_dlm_obs_lpdf',
-    'get_lp',
-    'gumbel_cdf',
-    'gumbel_lccdf',
-    'gumbel_lcdf',
-    'gumbel_lpdf',
-    'gumbel_rng',
-    'head',
-    'hypergeometric_lpmf',
-    'hypergeometric_rng',
-    'hypot',
-    'inc_beta',
-    'int_step',
-    'integrate_ode',
-    'integrate_ode_bdf',
-    'integrate_ode_rk45',
-    'inv',
-    'inv_Phi',
-    'inv_chi_square_cdf',
-    'inv_chi_square_lccdf',
-    'inv_chi_square_lcdf',
-    'inv_chi_square_lpdf',
-    'inv_chi_square_rng',
-    'inv_cloglog',
-    'inv_gamma_cdf',
-    'inv_gamma_lccdf',
-    'inv_gamma_lcdf',
-    'inv_gamma_lpdf',
-    'inv_gamma_rng',
-    'inv_logit',
-    'inv_sqrt',
-    'inv_square',
-    'inv_wishart_lpdf',
-    'inv_wishart_rng',
-    'inverse',
-    'inverse_spd',
-    'is_inf',
-    'is_nan',
-    'lbeta',
-    'lchoose',
-    'lgamma',
-    'lkj_corr_cholesky_lpdf',
-    'lkj_corr_cholesky_rng',
-    'lkj_corr_lpdf',
-    'lkj_corr_rng',
-    'lmgamma',
-    'lmultiply',
-    'log',
-    'log10',
-    'log1m',
-    'log1m_exp',
-    'log1m_inv_logit',
-    'log1p',
-    'log1p_exp',
-    'log2',
-    'log_determinant',
-    'log_diff_exp',
-    'log_falling_factorial',
-    'log_inv_logit',
-    'log_mix',
-    'log_rising_factorial',
-    'log_softmax',
-    'log_sum_exp',
-    'logistic_cdf',
-    'logistic_lccdf',
-    'logistic_lcdf',
-    'logistic_lpdf',
-    'logistic_rng',
-    'logit',
-    'lognormal_cdf',
-    'lognormal_lccdf',
-    'lognormal_lcdf',
-    'lognormal_lpdf',
-    'lognormal_rng',
-    'machine_precision',
-    'matrix_exp',
-    'max',
-    'mdivide_left_spd',
-    'mdivide_left_tri_low',
-    'mdivide_right_spd',
-    'mdivide_right_tri_low',
-    'mean',
-    'min',
-    'modified_bessel_first_kind',
-    'modified_bessel_second_kind',
-    'multi_gp_cholesky_lpdf',
-    'multi_gp_lpdf',
-    'multi_normal_cholesky_lpdf',
-    'multi_normal_cholesky_rng',
-    'multi_normal_lpdf',
-    'multi_normal_prec_lpdf',
-    'multi_normal_rng',
-    'multi_student_t_lpdf',
-    'multi_student_t_rng',
-    'multinomial_lpmf',
-    'multinomial_rng',
-    'multiply_log',
-    'multiply_lower_tri_self_transpose',
-    'neg_binomial_2_cdf',
-    'neg_binomial_2_lccdf',
-    'neg_binomial_2_lcdf',
-    'neg_binomial_2_log_lpmf',
-    'neg_binomial_2_log_rng',
-    'neg_binomial_2_lpmf',
-    'neg_binomial_2_rng',
-    'neg_binomial_cdf',
-    'neg_binomial_lccdf',
-    'neg_binomial_lcdf',
-    'neg_binomial_lpmf',
-    'neg_binomial_rng',
-    'negative_infinity',
-    'normal_cdf',
-    'normal_lccdf',
-    'normal_lcdf',
-    'normal_lpdf',
-    'normal_rng',
-    'not_a_number',
-    'num_elements',
-    'ordered_logistic_lpmf',
-    'ordered_logistic_rng',
-    'owens_t',
-    'pareto_cdf',
-    'pareto_lccdf',
-    'pareto_lcdf',
-    'pareto_lpdf',
-    'pareto_rng',
-    'pareto_type_2_cdf',
-    'pareto_type_2_lccdf',
-    'pareto_type_2_lcdf',
-    'pareto_type_2_lpdf',
-    'pareto_type_2_rng',
-    'pi',
-    'poisson_cdf',
-    'poisson_lccdf',
-    'poisson_lcdf',
-    'poisson_log_lpmf',
-    'poisson_log_rng',
-    'poisson_lpmf',
-    'poisson_rng',
-    'positive_infinity',
-    'pow',
-    'print',
-    'prod',
-    'qr_Q',
-    'qr_R',
-    'quad_form',
-    'quad_form_diag',
-    'quad_form_sym',
-    'rank',
-    'rayleigh_cdf',
-    'rayleigh_lccdf',
-    'rayleigh_lcdf',
-    'rayleigh_lpdf',
-    'rayleigh_rng',
-    'reject',
-    'rep_array',
-    'rep_matrix',
-    'rep_row_vector',
-    'rep_vector',
-    'rising_factorial',
-    'round',
-    'row',
-    'rows',
-    'rows_dot_product',
-    'rows_dot_self',
-    'scaled_inv_chi_square_cdf',
-    'scaled_inv_chi_square_lccdf',
-    'scaled_inv_chi_square_lcdf',
-    'scaled_inv_chi_square_lpdf',
-    'scaled_inv_chi_square_rng',
-    'sd',
-    'segment',
-    'sin',
-    'singular_values',
-    'sinh',
+    // Integer-Valued Basic Functions
+
+    // Absolute functions
+    'abs', 'int_step',
+
+    // Bound functions
+    'min', 'max',
+
+    // Size functions
     'size',
-    'skew_normal_cdf',
-    'skew_normal_lccdf',
-    'skew_normal_lcdf',
-    'skew_normal_lpdf',
-    'skew_normal_rng',
-    'softmax',
-    'sort_asc',
-    'sort_desc',
-    'sort_indices_asc',
-    'sort_indices_desc',
-    'sqrt',
-    'sqrt2',
-    'square',
-    'squared_distance',
-    'step',
-    'student_t_cdf',
-    'student_t_lccdf',
-    'student_t_lcdf',
-    'student_t_lpdf',
-    'student_t_rng',
-    'sub_col',
-    'sub_row',
-    'sum',
-    'tail',
-    'tan',
-    'tanh',
-    'target',
-    'tcrossprod',
-    'tgamma',
-    'to_array_1d',
-    'to_array_2d',
-    'to_matrix',
-    'to_row_vector',
-    'to_vector',
-    'trace',
-    'trace_gen_quad_form',
-    'trace_quad_form',
-    'trigamma',
+
+    // Real-Valued Basic Functions
+
+    // Log probability function
+    'target', 'get_lp',
+
+    // Logical functions
+    'step', 'is_inf', 'is_nan',
+
+    // Step-like functions
+    'fabs', 'fdim', 'fmin', 'fmax', 'fmod', 'floor', 'ceil', 'round',
     'trunc',
-    'uniform_cdf',
-    'uniform_lccdf',
-    'uniform_lcdf',
-    'uniform_lpdf',
-    'uniform_rng',
-    'variance',
-    'von_mises_lpdf',
-    'von_mises_rng',
-    'weibull_cdf',
-    'weibull_lccdf',
-    'weibull_lcdf',
-    'weibull_lpdf',
-    'weibull_rng',
-    'wiener_lpdf',
-    'wishart_lpdf',
-    'wishart_rng'
+
+    // Power and logarithm functions
+    'sqrt', 'cbrt', 'square', 'exp', 'exp2', 'log', 'log2', 'log10',
+    'pow', 'inv', 'inv_sqrt', 'inv_square',
+
+    // Trigonometric functions
+    'hypot', 'cos', 'sin', 'tan', 'acos', 'asin', 'atan', 'atan2',
+
+    // Hyperbolic trigonometric functions
+    'cosh', 'sinh', 'tanh', 'acosh', 'asinh', 'atanh',
+
+    // Link functions
+    'logit', 'inv_logit', 'inv_cloglog',
+
+    // Probability-related functions
+    'erf', 'erfc', 'Phi', 'inv_Phi', 'Phi_approx', 'binary_log_loss',
+    'owens_t',
+
+    // Combinatorial functions
+    'beta', 'inc_beta', 'lbeta', 'tgamma', 'lgamma', 'digamma',
+    'trigamma', 'lmgamma', 'gamma_p', 'gamma_q',
+    'binomial_coefficient_log', 'choose', 'bessel_first_kind',
+    'bessel_second_kind', 'modified_bessel_first_kind',
+    'log_modified_bessel_first_kind', 'modified_bessel_second_kind',
+    'falling_factorial', 'lchoose', 'log_falling_factorial',
+    'rising_factorial', 'log_rising_factorial',
+
+    // Composed functions
+    'expm1', 'fma', 'multiply_log', 'ldexp', 'lmultiply', 'log1p',
+    'log1m', 'log1p_exp', 'log1m_exp', 'log_diff_exp', 'log_mix',
+    'log_sum_exp', 'log_inv_logit', 'log_inv_logit_diff',
+    'log1m_inv_logit',
+
+    // Special functions
+    'lambert_w0', 'lambert_wm1',
+
+    // Complex Conversion Functions
+    'get_real', 'get_imag',
+
+    // Complex-Valued Basic Functions
+
+    // Complex Construction Functions
+    'to_complex',
+
+    // Array Operations
+
+    // Reductions
+    'sum', 'prod', 'log_sum_exp', 'mean', 'variance', 'sd', 'distance',
+    'squared_distance', 'quantile',
+
+    // Array size and dimension function
+    'dims', 'num_elements',
+
+    // Array broadcasting
+    'rep_array',
+
+    // Array concatenation
+    'append_array',
+
+    // Sorting functions
+    'sort_asc', 'sort_desc', 'sort_indices_asc', 'sort_indices_desc',
+    'rank',
+
+    // Reversing functions
+    'reverse',
+
+    // Matrix Operations
+
+    // Integer-valued matrix size functions
+    'num_elements', 'rows', 'cols',
+
+    // Dot products and specialized products
+    'dot_product', 'columns_dot_product', 'rows_dot_product', 'dot_self',
+    'columns_dot_self', 'rows_dot_self', 'tcrossprod', 'crossprod',
+    'quad_form', 'quad_form_diag', 'quad_form_sym', 'trace_quad_form',
+    'trace_gen_quad_form', 'multply_lower_tri_self_transpose',
+    'diag_pre_multiply', 'diag_post_multiply',
+
+    // Broadcast functions
+    'rep_vector', 'rep_row_vector', 'rep_matrix',
+    'symmetrize_from_lower_tri',
+
+    // Diagonal matrix functions
+    'add_diag', 'diagonal', 'diag_matrix', 'identity_matrix',
+
+    // Container construction functions
+    'linspaced_array', 'linspaced_int_array', 'linspaced_vector',
+    'linspaced_row_vector', 'one_hot_int_array', 'one_hot_array',
+    'one_hot_vector', 'one_hot_row_vector', 'ones_int_array',
+    'ones_array', 'ones_vector', 'ones_row_vector', 'zeros_int_array',
+    'zeros_array', 'zeros_vector', 'zeros_row_vector', 'uniform_simplex',
+
+    // Slicing and blocking functions
+    'col', 'row', 'block', 'sub_col', 'sub_row', 'head', 'tail',
+    'segment',
+
+    // Matrix concatenation
+    'append_col', 'append_row',
+
+    // Special matrix functions
+    'softmax', 'log_softmax', 'cumulative_sum',
+
+    // Covariance functions
+    'cov_exp_quad',
+
+    // Linear algebra functions and solvers
+    'mdivide_left_tri_low', 'mdivide_right_tri_low', 'mdivide_left_spd',
+    'mdivide_right_spd', 'matrix_exp', 'matrix_exp_multiply',
+    'scale_matrix_exp_multiply', 'matrix_power', 'trace', 'determinant',
+    'log_determinant', 'inverse', 'inverse_spd', 'chol2inv',
+    'generalized_inverse', 'eigenvalues_sym', 'eigenvectors_sym',
+    'qr_thin_Q', 'qr_thin_R', 'qr_Q', 'qr_R', 'cholseky_decompose',
+    'singular_values', 'svd_U', 'svd_V',
+
+    // Sparse Matrix Operations
+
+    // Conversion functions
+    'csr_extract_w', 'csr_extract_v', 'csr_extract_u',
+    'csr_to_dense_matrix',
+
+    // Sparse matrix arithmetic
+    'csr_matrix_times_vector',
+
+    // Mixed Operations
+    'to_matrix', 'to_vector', 'to_row_vector', 'to_array_2d',
+    'to_array_1d',
+
+    // Mathematical constants
+    'pi', 'e', 'sqrt2', 'log2', 'log10',
+
+    // Special values
+    'not_a_number', 'positive_infinity', 'negative_infinity',
+    'machine_precision'
+
   ];
   const DISTRIBUTIONS = [
-    'bernoulli',
-    'bernoulli_logit',
-    'beta',
-    'beta_binomial',
-    'binomial',
-    'binomial_logit',
-    'categorical',
-    'categorical_logit',
-    'cauchy',
-    'chi_square',
-    'dirichlet',
-    'double_exponential',
-    'exp_mod_normal',
-    'exponential',
-    'frechet',
-    'gamma',
-    'gaussian_dlm_obs',
-    'gumbel',
-    'hypergeometric',
-    'inv_chi_square',
-    'inv_gamma',
-    'inv_wishart',
-    'lkj_corr',
-    'lkj_corr_cholesky',
-    'logistic',
-    'lognormal',
-    'multi_gp',
-    'multi_gp_cholesky',
-    'multi_normal',
-    'multi_normal_cholesky',
-    'multi_normal_prec',
-    'multi_student_t',
-    'multinomial',
-    'neg_binomial',
-    'neg_binomial_2',
-    'neg_binomial_2_log',
-    'normal',
-    'ordered_logistic',
-    'pareto',
-    'pareto_type_2',
-    'poisson',
-    'poisson_log',
-    'rayleigh',
-    'scaled_inv_chi_square',
-    'skew_normal',
-    'student_t',
-    'uniform',
+    // Discrete Distributions
+
+    // Binary Distributions
+    'bernoulli', 'bernoulli_logit', 'bernoulli_logit_glm',
+
+    // Bounded Discrete Distributions
+    'binomial', 'binomial_logit', 'beta_binomial', 'hypergeometric',
+    'categorical', 'categorical_logit_glm', 'discrete_range',
+    'ordered_logistic', 'ordered_logistic_glm', 'ordered_probit',
+
+    // Unbounded Discrete Distributions
+    'neg_binomial', 'neg_binomial_2', 'neg_binomial_2_log',
+    'neg_binomial_2_log_glm', 'poisson', 'poisson_log',
+    'poisson_log_glm',
+
+    // Multivariate Discrete Distributions
+    'multinomial', 'multinomial_logit',
+
+    // Continuous Distributions
+
+    // Unbounded Continuous Distributions
+    'normal', 'std_normal', 'normal_id_glm', 'exp_mod_normal',
+    'skew_normal', 'student_t', 'cauchy', 'double_exponential',
+    'logistic', 'gumbel', 'skew_double_exponential',
+
+    // Positive Continuous Distributions
+    'lognormal', 'chi_square', 'inv_chi_square',
+    'scaled_inv_chi_square', 'exponential', 'gamma', 'inv_gamma',
+    'weibull', 'frechet', 'rayleigh',
+
+    // Positive Lower-Bounded Distributions
+    'pareto', 'pareto_type_2', 'wiener',
+
+    // Continuous Distributions on [0, 1]
+    'beta', 'beta_proportion',
+
+    // Circular Distributions
     'von_mises',
-    'weibull',
-    'wiener',
-    'wishart'
+
+    // Bounded Continuous Distributions
+    'uniform',
+
+    // Distributions over Unbounded Vectors
+    'multi_normal', 'multi_normal_prec', 'multi_normal_cholesky',
+    'multi_gp', 'multi_gp_cholesky', 'multi_student_t',
+    'gaussian_dlm_obs',
+
+    // Simplex Distributions
+    'dirichlet',
+
+    // Correlation Matrix Distributions
+    'lkj_corr', 'lkj_corr_cholesky',
+
+    // Covariance Matrix Distributions
+    'wishart', 'inv_wishart'
   ];
 
   const BLOCK_COMMENT = hljs.COMMENT(
@@ -487,11 +305,11 @@ export default function(hljs) {
     begin: /^#include\b/,
     end: /$/,
     relevance: 0, // relevance comes from keywords
-    keywords: "include",
+    keywords: 'include',
     contains: [
       {
         match: /[a-z][a-z-.]+/,
-        className: "string"
+        className: 'string'
       },
       hljs.C_LINE_COMMENT_MODE
     ]
@@ -512,8 +330,9 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       BLOCK_COMMENT,
       {
-        // hack: in range constraints, lower must follow "<"
-        begin: /<\s*lower\s*=/,
+        // hack: in range constraints, lower must follow either , or <
+        // <upper = ..., lower = ...> or <lower = ...>
+        begin: /[<,]\s*lower\s*=/,
         keywords: 'lower'
       },
       {
@@ -521,6 +340,18 @@ export default function(hljs) {
         // <lower = ..., upper = ...> or <upper = ...>
         begin: /[<,]\s*upper\s*=/,
         keywords: 'upper'
+      },
+      {
+        // hack: in range constraints, upper must follow either , or <
+        // <multiplier = ..., offest = ...> or <offset = ...>
+        begin: /[<,]\s*multiplier\s*=/,
+        keywords: 'offset'
+      },
+      {
+        // hack: in range constraints, upper must follow either , or <
+        // <offset = ..., multiplier = ...> or <multiplier = ...>
+        begin: /[<,]\s*offset\s*=/,
+        keywords: 'multiplier'
       },
       {
         className: 'keyword',
@@ -534,7 +365,7 @@ export default function(hljs) {
         className: 'number',
         variants: [
           {
-            begin: /\b\d+(?:\.\d*)?(?:[eE][+-]?\d+)?/
+            begin: /(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)(?:E[+-]?\d+(?:_\d+)*)?i?(?!\w)/i
           },
           {
             begin: /\.\d+(?:[eE][+-]?\d+)?\b/
