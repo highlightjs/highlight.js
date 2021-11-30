@@ -50,10 +50,10 @@ export default function(hljs) {
     'ode_bdf_tol', 
     'ode_adjoint_tol_ctl',
     'integrate_1d',
-    'integrate_ode_rk45', 
-    'integrate_ode', 
-    'integrate_ode_adams',
-    'integrate_ode_bdf'
+    'integrate_ode_rk45|10', 
+    'integrate_ode|10', 
+    'integrate_ode_adams|10',
+    'integrate_ode_bdf|10'
   ];
   const VAR_TYPES = [
     `array`,
@@ -328,7 +328,6 @@ export default function(hljs) {
     begin: /#\s*[a-z]+\b/,
     end: /$/,
     relevance: 0, // relevance comes from keywords
-    keywords: '#include',
     contains: [
       {
         match: /[a-z][a-z-.]+/,
@@ -345,7 +344,7 @@ export default function(hljs) {
       $pattern: hljs.IDENT_RE,
       title: BLOCKS,
       keyword: STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS),
-      built_in: FUNCTIONS.concat(DISTRIBUTIONS).concat(DISTRIBUTIONS_EXPANDED),
+      built_in: FUNCTIONS,
      // punctuation: DELIMIT
     },
     contains: [
@@ -358,13 +357,17 @@ export default function(hljs) {
        className: 'built_in',
        variants: [
          {
-          begin: /(?<=~)\s+(\w+)/
+          begin: /(?<=~)\s+(\w+(?=\())/
          },
          {
           begin: /(?<=\+=)\s+(\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf))/
          }
         ] 
      },
+     {
+      begin: '~\s*(' + hljs.IDENT_RE + ')\\s*\\(',
+      keywords: DISTRIBUTIONS.concat(DISTRIBUTIONS_EXPANDED)
+    },
      {
       className: 'symbol',
       begin: /(pi|e|sqrt2|log2|log10)(?=\()/,
