@@ -17,16 +17,16 @@ export default function(hljs) {
     'transformed',
     'generated'
   ];
-  const STATEMENTS = [
-    'for',
-    'in',
-    'if',
-    'else',
-    'while',
-    'break',
-    'continue',
-    'return'
-  ];
+  // const STATEMENTS = [
+  //   'for',
+  //   'in',
+  //   'if',
+  //   'else',
+  //   'while',
+  //   'break',
+  //   'continue',
+  //   'return'
+  // ];
   const SPECIAL_FUNCTIONS = [
     'print',
     'reject',
@@ -169,7 +169,7 @@ export default function(hljs) {
     'dot_product', 'columns_dot_product', 'rows_dot_product', 'dot_self',
     'columns_dot_self', 'rows_dot_self', 'tcrossprod', 'crossprod',
     'quad_form', 'quad_form_diag', 'quad_form_sym', 'trace_quad_form',
-    'trace_gen_quad_form', 'multply_lower_tri_self_transpose',
+    'trace_gen_quad_form', 'multiply_lower_tri_self_transpose',
     'diag_pre_multiply', 'diag_post_multiply',
 
     // Broadcast functions
@@ -202,7 +202,7 @@ export default function(hljs) {
     // Linear algebra functions and solvers
     'mdivide_left_tri_low', 'mdivide_right_tri_low', 'mdivide_left_spd',
     'mdivide_right_spd', 'matrix_exp', 'matrix_exp_multiply',
-    'scale_matrix_exp_multiply', 'matrix_power', 'trace', 'determinant',
+    'scale_matrix_exp_multiply', 'matrix_power','trace', 'determinant',
     'log_determinant', 'inverse', 'inverse_spd', 'chol2inv',
     'generalized_inverse', 'eigenvalues_sym', 'eigenvectors_sym',
     'qr_thin_Q', 'qr_thin_R', 'qr_Q', 'qr_R', 'cholseky_decompose',
@@ -220,9 +220,6 @@ export default function(hljs) {
     // Mixed Operations
     'to_matrix', 'to_vector', 'to_row_vector', 'to_array_2d',
     'to_array_1d',
-
-    // Mathematical constants
-    'pi', 'e', 'sqrt2', 'log2', 'log10',
 
     // Special values
     'not_a_number', 'positive_infinity', 'negative_infinity',
@@ -287,6 +284,27 @@ export default function(hljs) {
     'wishart', 'inv_wishart'
   ];
 
+  const expanded = DISTRIBUTIONS.flatMap(name => [
+    `${name}_lpdf`,
+    `${name}_lpmf`,
+    `${name}_lccdf`,
+    `${name}_lupdf`,
+    `${name}_lcdf`,
+    `${name}_cdf`,
+    `${name}_lupdf`,
+    `${name}_qf`
+  ]
+  ) 
+
+      // Mathematical constants
+  const LITERALS  = [
+         'pi', 
+         'e', 
+         'sqrt2', 
+         'log2', 
+         'log10'
+  ];
+
   const BLOCK_COMMENT = hljs.COMMENT(
     /\/\*/,
     /\*\//,
@@ -303,10 +321,10 @@ export default function(hljs) {
 
   const INCLUDE = {
     className: 'meta',
-    begin: /^#include\b/,
+    begin: /#\s*[a-z]+\b/,
     end: /$/,
     relevance: 0, // relevance comes from keywords
-    keywords: 'include',
+    keywords: '#include',
     contains: [
       {
         match: /[a-z][a-z-.]+/,
@@ -322,14 +340,22 @@ export default function(hljs) {
     keywords: {
       $pattern: hljs.IDENT_RE,
       title: BLOCKS,
-      keyword: STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS),
-      built_in: FUNCTIONS
+      keyword: VAR_TYPES.concat(SPECIAL_FUNCTIONS),
+      built_in: FUNCTIONS.concat(DISTRIBUTIONS).concat(expanded).concat(LITERALS)
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       INCLUDE,
       hljs.HASH_COMMENT_MODE,
       BLOCK_COMMENT,
+    {
+        // Distinct highlighting for:  [for, in, if, else, while,
+        //    break, continue, return]
+        className: 'flow',
+        begin: /\s(for|in|if|else|while|break|continue|return)\s/,
+        //keywords: 'for in if else while break continue return',
+        relevance: 0
+      },
       {
         // hack: in range constraints, lower must follow either , or <
         // <upper = ..., lower = ...> or <lower = ...>
@@ -356,17 +382,13 @@ export default function(hljs) {
       },
       {
         className: 'keyword',
-        begin: /\btarget\s*\+=/
-      },
-      {
-        begin: '~\\s*(' + hljs.IDENT_RE + ')\\s*\\(',
-        keywords: DISTRIBUTIONS
+        begin: /\btarget\s*/,
       },
       {
         className: 'number',
         variants: [
           {
-            begin: /(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)(?:E[+-]?\d+(?:_\d+)*)?i?(?!\w)/i
+            begin: /(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)(?:[eE][+-]?\d+(?:_\d+)*)?i?(?!\w)/i
           },
           {
             begin: /\.\d+(?:[eE][+-]?\d+)?\b/
