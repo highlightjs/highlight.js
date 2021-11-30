@@ -286,7 +286,7 @@ export default function(hljs) {
     'wishart', 'inv_wishart'
   ];
 
-  const expanded = DISTRIBUTIONS.flatMap(name => [
+  const DISTRIBUTIONS_EXPANDED = DISTRIBUTIONS.flatMap(name => [
     `${name}_lpdf`,
     `${name}_lpmf`,
     `${name}_lccdf`,
@@ -297,17 +297,17 @@ export default function(hljs) {
     `${name}_qf`
   ]
   ) 
-  const DELIMIT = [
-    '{',
-    '}',
-    '(',
-    ')',
-    '[',
-    ']',
-    ',',
-    ':',
-    '|'
-  ]
+  // const DELIMIT = [
+  //   '{',
+  //   '}',
+  //   '(',
+  //   ')',
+  //   '[',
+  //   ']',
+  //   ',',
+  //   ':',
+  //   '|'
+  // ]
 
   const BLOCK_COMMENT = hljs.COMMENT(
     /\/\*/,
@@ -345,8 +345,8 @@ export default function(hljs) {
       $pattern: hljs.IDENT_RE,
       title: BLOCKS,
       keyword: STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS),
-      built_in: FUNCTIONS.concat(DISTRIBUTIONS).concat(expanded),
-      punctuation: DELIMIT
+      built_in: FUNCTIONS.concat(DISTRIBUTIONS).concat(DISTRIBUTIONS_EXPANDED),
+     // punctuation: DELIMIT
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -354,6 +354,7 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       BLOCK_COMMENT,
      {
+       // handle user defined distributions 
        className: 'built_in',
        variants: [
          {
@@ -366,13 +367,17 @@ export default function(hljs) {
      },
      {
       className: 'symbol',
-      begin: /\s+(pi|e|sqrt2|log2|log10)(?=\()/,
+      begin: /(pi|e|sqrt2|log2|log10)(?=\()/,
       relevance: 0
      },
-     {
-       begin: /(?<=\))\s*T(?=\s*\[)/,
-       keywords: 'T'
-     },
+    // cannot use regex look-behind yet because of Safari
+    // once that is enabled can uncomment this to get
+    // correct highlighting for truncation while
+    // allowing an array named T to not be highlighted 
+    // {
+    //    begin: /\bT(?=\s*\[)/,
+    //    keywords: 'T'
+    //  },
       {
         // hack: in range constraints, lower must follow either , or <
         // <upper = ..., lower = ...> or <lower = ...>
@@ -405,6 +410,8 @@ export default function(hljs) {
         className: 'number',
         variants: [
           {
+            // Comes from @RunDevelopment accessed 11/29/2021 at
+            // https://github.com/PrismJS/prism/blob/c53ad2e65b7193ab4f03a1797506a54bbb33d5a2/components/prism-stan.js#L56
             begin: /(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)(?:[eE][+-]?\d+(?:_\d+)*)?i?(?!\w)/i
           },
           {
