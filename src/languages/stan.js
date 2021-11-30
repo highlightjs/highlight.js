@@ -360,7 +360,7 @@ export default function(hljs) {
           begin: /(?<=~)\s+(\w+(?=\())/
          },
          {
-          begin: /(?<=\+=)\s+(\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf))/
+          begin: /(?<=\+=)\s+(\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf))(?=\()/
          }
         ] 
      },
