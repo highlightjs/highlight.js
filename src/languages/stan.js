@@ -325,7 +325,7 @@ export default function(hljs) {
 
   const INCLUDE = {
     className: 'meta',
-    begin: /#\s*[a-z]+\b/,
+    begin: /#include\b/,
     end: /$/,
     relevance: 0, // relevance comes from keywords
     contains: [
