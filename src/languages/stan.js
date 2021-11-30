@@ -17,16 +17,18 @@ export default function(hljs) {
     'transformed',
     'generated'
   ];
-  // const STATEMENTS = [
-  //   'for',
-  //   'in',
-  //   'if',
-  //   'else',
-  //   'while',
-  //   'break',
-  //   'continue',
-  //   'return'
-  // ];
+
+  const STATEMENTS = [
+    'for',
+    'in',
+    'if',
+    'else',
+    'while',
+    'break',
+    'continue',
+    'return'
+  ];
+
   const SPECIAL_FUNCTIONS = [
     'print',
     'reject',
@@ -60,7 +62,7 @@ export default function(hljs) {
     'real',
     'vector',
     'ordered',
-    'positive_ordered',
+    'positive_ordered|10',
     'simplex',
     'unit_vector',
     'row_vector',
@@ -295,15 +297,17 @@ export default function(hljs) {
     `${name}_qf`
   ]
   ) 
-
-      // Mathematical constants
-  const LITERALS  = [
-         'pi', 
-         'e', 
-         'sqrt2', 
-         'log2', 
-         'log10'
-  ];
+  const DELIMIT = [
+    '{',
+    '}',
+    '(',
+    ')',
+    '[',
+    ']',
+    ',',
+    ':',
+    '|'
+  ]
 
   const BLOCK_COMMENT = hljs.COMMENT(
     /\/\*/,
@@ -340,22 +344,31 @@ export default function(hljs) {
     keywords: {
       $pattern: hljs.IDENT_RE,
       title: BLOCKS,
-      keyword: VAR_TYPES.concat(SPECIAL_FUNCTIONS),
-      built_in: FUNCTIONS.concat(DISTRIBUTIONS).concat(expanded).concat(LITERALS)
+      keyword: STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS),
+      built_in: FUNCTIONS.concat(DISTRIBUTIONS).concat(expanded),
+      punctuation: DELIMIT
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       INCLUDE,
       hljs.HASH_COMMENT_MODE,
       BLOCK_COMMENT,
-    {
-        // Distinct highlighting for:  [for, in, if, else, while,
-        //    break, continue, return]
-        className: 'flow',
-        begin: /\s(for|in|if|else|while|break|continue|return)\s/,
-        //keywords: 'for in if else while break continue return',
-        relevance: 0
-      },
+     {
+       className: 'built_in',
+       variants: [
+         {
+          begin: /(?<=~)\s+(\w+)/
+         },
+         {
+          begin: /(?<=\+=)\s+(\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf))/
+         }
+        ] 
+     },
+     {
+      className: 'symbol',
+      begin: /\s+(pi|e|sqrt2|log2|log10)(?=\()/,
+      relevance: 0
+     },
       {
         // hack: in range constraints, lower must follow either , or <
         // <upper = ..., lower = ...> or <lower = ...>
@@ -371,13 +384,13 @@ export default function(hljs) {
       {
         // hack: in range constraints, upper must follow either , or <
         // <multiplier = ..., offest = ...> or <offset = ...>
-        begin: /[<,]\s*multiplier\s*=/,
+        begin: /[<,]\s*offset\s*=/,
         keywords: 'offset'
       },
       {
         // hack: in range constraints, upper must follow either , or <
         // <offset = ..., multiplier = ...> or <multiplier = ...>
-        begin: /[<,]\s*offset\s*=/,
+        begin: /[<,]\s*multiplier\s*=/,
         keywords: 'multiplier'
       },
       {
