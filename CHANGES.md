@@ -21,11 +21,17 @@ Developer Tools:
 
 - (chore) add gzip size compression report (#3400) [Bradley Mackey][]
 
+Themes:
+
+- Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
+
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
 [Melvyn Laïly]: https://github.com/mlaily
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 [Josh Goebel]: https://github.com/joshgoebel
+[Samia Ali]: https://github.com/samiaab1990
+
 
 ## Version 11.3.1
 
@@ -736,6 +742,7 @@ Parser Engine:
 
 - (fix) When ignoring a potential match highlighting can terminate early (#2649) [Josh Goebel][]
 
+
 New themes:
 
 - *Gradient Light* by [Samia Ali]()
@@ -770,7 +777,6 @@ Language Improvements:
 [idleberg]: https://github.com/idleberg
 [eytienne]: https://github.com/eytienne
 [sirosen]: https://github.com/sirosen
-
 
 ## Version 10.1.1
 
