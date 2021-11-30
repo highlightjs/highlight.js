@@ -1,7 +1,7 @@
 /*
 Language: Stan
 Description: The Stan probabilistic programming language
-Author: Jeffrey B. Arnold <jeffrey.arnold@gmail.com>
+Author: Sean Pinkney <sean.pinkney@gmail.com>
 Website: http://mc-stan.org/
 Category: scientific
 */
