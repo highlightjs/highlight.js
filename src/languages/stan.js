@@ -62,7 +62,7 @@ export default function(hljs) {
     'real',
     'vector',
     'ordered',
-    'positive_ordered|10',
+    'positive_ordered',
     'simplex',
     'unit_vector',
     'row_vector',
