@@ -22,13 +22,13 @@ Developer Tools:
 
 Themes:
 
-- Modified background color in css for Gradient Light and Gradient Dark themes[Samia Ali][]
+- Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 [Josh Goebel]: https://github.com/joshgoebel
-[Samia Ali] https://github.com/samiaab1990
+[Samia Ali]: https://github.com/samiaab1990
 
 
 ## Version 11.3.1
