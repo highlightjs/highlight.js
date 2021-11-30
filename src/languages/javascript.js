@@ -406,8 +406,10 @@ export default function(hljs) {
       /const|var|let/, /\s+/,
       IDENT_RE, /\s*/,
       /=\s*/,
+      /(async\s*)?/, // async is optional
       regex.lookahead(FUNC_LEAD_IN_RE)
     ],
+    keywords: "async",
     className: {
       1: "keyword",
       3: "title.function"
