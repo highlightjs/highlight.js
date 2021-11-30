@@ -369,6 +369,10 @@ export default function(hljs) {
       begin: /\s+(pi|e|sqrt2|log2|log10)(?=\()/,
       relevance: 0
      },
+     {
+       begin: /(?<=\))\s*T(?=\s*\[)/,
+       keywords: 'T'
+     },
       {
         // hack: in range constraints, lower must follow either , or <
         // <upper = ..., lower = ...> or <lower = ...>

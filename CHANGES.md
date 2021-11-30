@@ -16,7 +16,7 @@ Grammars:
   - enh(clojure) Add `regex` mode to regex literal
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
-  - fix(stan) Updated for Stan 2.28 (#3410)
+  - fix(stan) Updated for Stan 2.28 and other misc. improvements (#3410)
 
 Developer Tools:
 
