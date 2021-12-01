@@ -6,8 +6,8 @@ Gradient Light (c) Samia Ali <samiaab1990@gmail.com>
 
 .hljs
 {
-background: rgb(255,253,141);
-background: linear-gradient(142deg, rgba(255,253,141,1) 0%, rgba(252,183,255,1) 35%, rgba(144,236,255,1) 100%);
+background-color: #f9ccff;
+background-image: linear-gradient(295deg, #f9ccff 0%, #e6bbf9 11%, #9ec6f9 32%, #55e6ee 60%, #91f5d1 74%, #f9ffbf 98%);
 color:#250482;
 }
 
@@ -46,6 +46,7 @@ color:#01958B;
 .hljs-section,
 .hljs-meta .hljs-keyword,
 
+
 .hljs-symbol,
 .hljs-type
 
@@ -64,7 +65,7 @@ color:#01958B;
 
 .hljs-string
 {
-  color: #38c0ff;
+  color: #2681ab;
 }
 
 
