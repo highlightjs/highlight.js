@@ -508,7 +508,9 @@ export default function(hljs) {
     'zeros_int_array'    
   ];
   
-  // handle 
+  // handle symbols separately or else
+  // e and other symbols will be highlighted
+  // when used as variables 
   const symbols = ['pi', 'e', 'sqrt2', 'log2', 'log10']
   var FUNCTIONS_NO_SYMBOLS = FUNCTIONS;
 
