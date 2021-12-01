@@ -508,6 +508,13 @@ export default function(hljs) {
     'zeros_int_array'    
   ];
   
+  // handle 
+  const symbols = ['pi', 'e', 'sqrt2', 'log2', 'log10']
+  var FUNCTIONS_NO_SYMBOLS = FUNCTIONS;
+
+  FUNCTIONS_NO_SYMBOLS = FUNCTIONS_NO_SYMBOLS.filter(function(val){
+    return (symbols.indexOf(val) == -1 ? true : false)
+  })
 
   const BLOCK_COMMENT = hljs.COMMENT(
     /\/\*/,
@@ -558,7 +565,7 @@ export default function(hljs) {
       $pattern: hljs.IDENT_RE,
       title: BLOCKS,
       keyword: STATEMENTS.concat(VAR_TYPES),
-      built_in: FUNCTIONS
+      built_in: FUNCTIONS_NO_SYMBOLS
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
