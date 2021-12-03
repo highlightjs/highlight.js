@@ -159,7 +159,7 @@ export default function(hljs) {
   const VARIABLES = {
     // $variables
     className: 'variable',
-    begin: /\$+\w+/,
+    begin: /\$+\w[\w\.]*/,
     illegal: /\(\)\{\}/
   };
 
