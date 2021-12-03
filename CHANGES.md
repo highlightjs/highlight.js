@@ -16,6 +16,7 @@ Grammars:
   - enh(clojure) Add `regex` mode to regex literal
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
+  - enh(nsis) Update defines pattern (#3417) [idleberg][]
 
 Developer Tools:
 
