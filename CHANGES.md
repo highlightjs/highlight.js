@@ -7,6 +7,7 @@ Grammars:
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
 - fix(fsharp) Highlight operators, match type names only in type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- enh(nsis) Update defines pattern to allow `!` (#3417) [idleberg][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
   - fix(clojure) `comment` macro catches more than it should (#3395)
   - fix(clojure) `$` in symbol breaks highlighting
@@ -31,7 +32,7 @@ Themes:
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 [Josh Goebel]: https://github.com/joshgoebel
 [Samia Ali]: https://github.com/samiaab1990
-
+[idleberg]: https://github.com/idleberg
 
 ## Version 11.3.1
 
