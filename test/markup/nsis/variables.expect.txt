@@ -1,0 +1,7 @@
+<span class="hljs-keyword">Var</span> CustomVariable
+<span class="hljs-keyword">StrCpy</span> <span class="hljs-variable">$CustomVariable</span> <span class="hljs-string">&quot;Hello World&quot;</span>
+<span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_OK</span> <span class="hljs-string">&quot;<span class="hljs-meta">$$</span>CustomVariable is: <span class="hljs-variable">$CustomVariable</span>&quot;</span>
+
+<span class="hljs-keyword">Var</span> Variable.With.Dots
+<span class="hljs-keyword">StrCpy</span> <span class="hljs-variable">$Variable.With.Dots</span> <span class="hljs-string">&quot;Hello World&quot;</span>
+<span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_OK</span> <span class="hljs-string">&quot;<span class="hljs-meta">$$</span>Variable.With.Dots is: <span class="hljs-variable">$Variable.With.Dots</span>&quot;</span>
