@@ -506,7 +506,9 @@ export default function(hljs) {
     }
   };
 
-  const VARIABLE_NAME_RE = regex.concat(hljs.IDENT_RE, "(\.", hljs.IDENT_RE, ")*");
+  // Var Custom.Variable.Name.Item
+  // Var /GLOBAL Custom.Variable.Name.Item
+  const VARIABLE_NAME_RE = /[A-Za-z][\w.]*/;
   const VARIABLE_DEFINITION = {
     match: [
       /Var/,
