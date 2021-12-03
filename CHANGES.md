@@ -32,7 +32,7 @@ Themes:
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 [Josh Goebel]: https://github.com/joshgoebel
 [Samia Ali]: https://github.com/samiaab1990
-
+[idleberg]: https://github.com/idleberg
 
 ## Version 11.3.1
 
