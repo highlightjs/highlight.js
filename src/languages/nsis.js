@@ -184,9 +184,9 @@ export default function(hljs) {
     )
   };
 
-  const METACHARS = {
+  const ESCAPE_CHARS = {
     // $\n, $\r, $\t, $$
-    className: 'meta',
+    className: 'char.escape',
     begin: /\$(\\[nrt]|\$)/
   };
 
@@ -214,7 +214,7 @@ export default function(hljs) {
     ],
     illegal: /\n/,
     contains: [
-      METACHARS,
+      ESCAPE_CHARS,
       CONSTANTS,
       DEFINES,
       VARIABLES,
