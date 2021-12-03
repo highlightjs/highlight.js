@@ -5,9 +5,9 @@
  *  (c) Copyright 1999-2003 Okan Arikan. All rights reserved.
  */</span>
 
-<span class="hljs-class"><span class="hljs-keyword">surface</span> plastic (</span><span class="hljs-keyword">float</span> Ka = <span class="hljs-number">1</span>, Kd = <span class="hljs-number">0.5</span>, Ks = <span class="hljs-number">0.5</span>, roughness = <span class="hljs-number">0.1</span>;
-                 <span class="hljs-keyword">color</span> specularcolor = <span class="hljs-number">1</span>;) {
-  <span class="hljs-keyword">normal</span> Nf = <span class="hljs-built_in">faceforward</span> (<span class="hljs-built_in">normalize</span>(N),I);
+<span class="hljs-keyword">surface</span> <span class="hljs-title class_">plastic</span> (<span class="hljs-type">float</span> Ka = <span class="hljs-number">1</span>, Kd = <span class="hljs-number">0.5</span>, Ks = <span class="hljs-number">0.5</span>, roughness = <span class="hljs-number">0.1</span>;
+                 <span class="hljs-type">color</span> specularcolor = <span class="hljs-number">1</span>;) {
+  <span class="hljs-type">normal</span> Nf = <span class="hljs-built_in">faceforward</span> (<span class="hljs-built_in">normalize</span>(N),I);
   Ci = Cs * (Ka*<span class="hljs-built_in">ambient</span>() + Kd*<span class="hljs-built_in">diffuse</span>(Nf)) + specularcolor * Ks *
        <span class="hljs-built_in">specular</span>(Nf,-<span class="hljs-built_in">normalize</span>(I),roughness);
   Oi = Os;
