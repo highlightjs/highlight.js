@@ -153,7 +153,7 @@ export default function(hljs) {
   const DEFINES = {
     // ${defines}
     className: 'variable',
-    begin: /\$+\{[\w.:-]+\}/
+    begin: /\$+\{[\!\w.:-]+\}/
   };
 
   const VARIABLES = {
