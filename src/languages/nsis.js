@@ -8,6 +8,7 @@ Website: https://nsis.sourceforge.io/Main_Page
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
+  const regex = hljs.regex;
   const LANGUAGE_CONSTANTS = [
     "ADMINTOOLS",
     "APPDATA",
@@ -493,7 +494,7 @@ export default function(hljs) {
     "zlib"
   ];
 
-  const FUNCTION_DEF = {
+  const FUNCTION_DEFINITION = {
     match: [
       /Function/,
       /\s+/,
@@ -502,6 +503,21 @@ export default function(hljs) {
     scope: {
       1: "keyword",
       3: "title.function"
+    }
+  };
+
+  const VARIABLE_NAME_RE = regex.concat(hljs.IDENT_RE, "(\.", hljs.IDENT_RE, ")*");
+  const VARIABLE_DEFINITION = {
+    match: [
+      /Var/,
+      /\s+/,
+      /(?:\/GLOBAL\s+)?/,
+      VARIABLE_NAME_RE
+    ],
+    scope: {
+      1: "keyword",
+      3: "params",
+      4: "variable"
     }
   };
 
@@ -522,7 +538,8 @@ export default function(hljs) {
           relevance: 0
         }
       ),
-      FUNCTION_DEF,
+      VARIABLE_DEFINITION,
+      FUNCTION_DEFINITION,
       {
         beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd',
       },
