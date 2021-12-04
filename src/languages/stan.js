@@ -358,19 +358,7 @@ export default function(hljs) {
   'wiener',
   'wishart'  
  ];
-
- const DISTRIBUTIONS_EXPANDED = DISTRIBUTIONS.flatMap(name => [
-  `${name}_lpdf`,
-  `${name}_lpmf`,
-  `${name}_lccdf`,
-  `${name}_lupdf`,
-  `${name}_lcdf`,
-  `${name}_cdf`,
-  `${name}_lupdf`,
-  `${name}_qf`
-]
-) 
-
+ 
  const BLOCK_COMMENT = hljs.COMMENT(
     /\/\*/,
     /\*\//,
@@ -432,17 +420,6 @@ export default function(hljs) {
       begin: /\s(pi|e|sqrt2|log2|log10)(?=\()/,
       relevance: 0
      },
-     {
-       // highlights truncation T
-       // there must be a word with parenthesis ending prior to T[ 
-        begin: [
-          /\w+\(.*\)\s*/,
-          /T(?=\s*\[)/
-      ],
-        beginScope: {
-          2: "keyword"
-        },
-      },
       {
         // hack: in range constraints, lower must follow either , or <
         // <upper = ..., lower = ...> or <lower = ...>
@@ -472,13 +449,36 @@ export default function(hljs) {
         begin: /\btarget\s*/,
       },
       {
-        begin: '~\\s*(' + hljs.IDENT_RE + ')\\s*\\(',
-        keywords: DISTRIBUTIONS
-      },
+        // highlights the 'T' in T[,] for only Stan language distributrions
+         begin: [
+           /~\s*/,
+           hljs.regex.either(...DISTRIBUTIONS),
+           // /[a-z_A-Z0-9]*/,
+           /(?:\(\))/,
+           /\s*T(?=\s*\[)/
+       ],
+         beginScope: {
+           2: "built_in",
+           4: "keyword"
+         },
+         keywords: DISTRIBUTIONS
+       },
+       {
+        // highlights distributrions that end with special endings
+         className: 'built_in',
+         begin: /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+       },
       {
-        begin: '\\s*(' + hljs.IDENT_RE + ')((_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf))\\s*\\(',
-        keywords: DISTRIBUTIONS_EXPANDED
-      },
+        // highlights user defined distributions
+         begin: [
+           /~/,
+           /\s+/,
+           /\w+(?=\s*[\(.*\)])/
+       ],
+         beginScope: {
+           3: "built_in"
+         },
+       },
       {
         className: 'number',
         variants: [
