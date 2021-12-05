@@ -453,15 +453,13 @@ export default function(hljs) {
          begin: [
            /~\s*/,
            hljs.regex.either(...DISTRIBUTIONS),
-           // /[a-z_A-Z0-9]*/,
            /(?:\(\))/,
            /\s*T(?=\s*\[)/
        ],
          beginScope: {
            2: "built_in",
            4: "keyword"
-         },
-         keywords: DISTRIBUTIONS
+         }
        },
        {
         // highlights distributrions that end with special endings
