@@ -469,10 +469,20 @@ export default function(hljs) {
          begin: /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
        },
       {
+        // cannot ever have these endings with the ~
+        begin: [
+          /~\s*/,
+          /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+        ],
+        beginScope: {
+          2: "illegal"
+        }
+      },
+      {
         // highlights user defined distributions
          begin: [
            /~/,
-           /\s+/,
+           /\s*/,
            /\w+(?=\s*[\(.*\)])/
        ],
          beginScope: {
