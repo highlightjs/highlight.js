@@ -23,8 +23,7 @@ export default function(hljs) {
     "string",
     "object",
     "never",
-    "enum",
-    "unknown"
+    "enum"
   ];
   const NAMESPACE = {
     beginKeywords: 'namespace',
