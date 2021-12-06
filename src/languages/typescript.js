@@ -61,9 +61,7 @@ export default function(hljs) {
     "implements",
     "declare",
     "abstract",
-    "readonly",
-    "infer",
-    "keyof"
+    "readonly"
   ];
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
