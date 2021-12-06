@@ -167,7 +167,7 @@ export default function(hljs) {
   const LANGUAGES = {
     // $(language_strings)
     className: 'variable',
-    begin: /\$+\([\w^.:-]+\)/
+    begin: /\$+\([\w^.:!-]+\)/
   };
 
   const PARAMETERS = {
