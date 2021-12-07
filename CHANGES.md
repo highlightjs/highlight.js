@@ -2,6 +2,7 @@
 
 Grammars:
 
+- enh(twig) update keywords list (#3415) [Matthieu Lempereur][]
 - fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
@@ -34,6 +35,7 @@ Themes:
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 [Josh Goebel]: https://github.com/joshgoebel
 [Samia Ali]: https://github.com/samiaab1990
+[Matthieu Lempereur]: https://github.com/MrYamous
 [idleberg]: https://github.com/idleberg
 
 ## Version 11.3.1
