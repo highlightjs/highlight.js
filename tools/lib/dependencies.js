@@ -6,20 +6,19 @@ const DependencyResolver = require('dependency-resolver');
  *
  * @param {array<Language>} languages list of languages to be reordered
  * @returns {array<Language>} ordered list of languages
-*/
-
+ */
 const reorderDependencies = (languages) => {
-  let resolver = new DependencyResolver();
-  for (let lang of languages) {
+  const resolver = new DependencyResolver();
+  for (const lang of languages) {
     resolver.add(lang.name);
-    for (let required of lang.requires) {
+    for (const required of lang.requires) {
       resolver.setDependency(lang.name, required);
     }
   }
   return resolver.sort().map((name) =>
-    languages.find((l) => l.name == name)
+    languages.find((l) => l.name === name)
   );
-}
+};
 
 /**
  * Filters languages by group (common, etc)
@@ -28,14 +27,13 @@ const reorderDependencies = (languages) => {
  *
  * @param {array<Language>} languages full list of languages
  * @returns {array<Language>} filtered list
-*/
-
+ */
 const languagesByGroup = (languages, groupIdentifier) => {
-  let groupName = groupIdentifier.replace(":","");
+  const groupName = groupIdentifier.replace(":", "");
   return languages.filter((el) => el.categories.includes(groupName));
-}
+};
 // :common is a group identifier, "common" is the group name
-const isGroup = (id) => id[0] == ":"
+const isGroup = (id) => id[0] === ":";
 
 
 /**
@@ -48,39 +46,36 @@ const isGroup = (id) => id[0] == ":"
  * @param {array<name|group_name>} includes - which languages or groups to include
  *   example: ":common elixir ruby"
  * @returns {array<Language>} filtered list if languages
-*/
+ */
 const filter = (allLanguages, includes) => {
-  if (includes==undefined || includes.length==0)
-    return reorderDependencies(allLanguages);
+  if (!includes || includes.length === 0) { return reorderDependencies(allLanguages); }
 
   let languages = [];
-  for (let item of includes) {
+  for (const item of includes) {
     if (isGroup(item)) {
-      languages = languages.concat(languagesByGroup(allLanguages, item))
+      languages = languages.concat(languagesByGroup(allLanguages, item));
     } else {
-      let languageName = item;
-      let found = allLanguages.find((el) => el.name == languageName )
-      if (found)
-        languages.push(found)
-      else {
-        console.error(`[ERROR] Language '${languageName}' could not be found.`)
-        process.exit(1)
+      const languageName = item;
+      const found = allLanguages.find((el) => el.name === languageName);
+      if (found) { languages.push(found); } else {
+        console.error(`[ERROR] Language '${languageName}' could not be found.`);
+        process.exit(1);
       }
     }
   }
 
   // resolve requires
-  for (let lang of languages) {
+  for (const lang of languages) {
     lang.requires.forEach(needed => {
-      if (!languages.find((el) => el.name == needed)) {
-        console.info(`[INFO] Adding ${needed}... ${lang.name} requires ${needed}.`)
-        languages.push(allLanguages.find((el) => el.name == needed))
+      if (!languages.find((el) => el.name === needed)) {
+        console.info(`[INFO] Adding ${needed}... ${lang.name} requires ${needed}.`);
+        languages.push(allLanguages.find((el) => el.name === needed));
       }
     });
   }
 
   // make sure our dependencies are in the correct order
   return reorderDependencies(languages);
-}
+};
 
-module.exports = { reorderDependencies, filter }
+module.exports = { reorderDependencies, filter };

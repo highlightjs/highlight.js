@@ -1,5 +1,5 @@
-<span class="hljs-selector-class">.test</span>:before,
-.test:after {
+<span class="hljs-selector-class">.test</span><span class="hljs-selector-pseudo">:before</span>,
+<span class="hljs-selector-class">.test</span><span class="hljs-selector-pseudo">:after</span> {
   <span class="hljs-attribute">color</span>: pink;
   <span class="hljs-attribute">color</span>: red;
 }

@@ -73,7 +73,8 @@ export default function(hljs) {
     'module',
     'requires',
     'exports',
-    'do'
+    'do',
+    'sealed'
   ];
 
   const BUILT_INS = [
@@ -178,6 +179,11 @@ export default function(hljs) {
           1: "keyword",
           3: "title.class"
         }
+      },
+      {
+        // Exceptions for hyphenated keywords
+        match: /non-sealed/,
+        scope: "keyword"
       },
       {
         begin: [

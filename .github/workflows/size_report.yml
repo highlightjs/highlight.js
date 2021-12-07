@@ -1,0 +1,21 @@
+# This workflow computes the size of a CDN build's output on all Javascript files.
+# Reported file sizes are after the result of gzip compression.
+# Compression action used: https://github.com/preactjs/compressed-size-action
+
+name: Size Report (gzip)
+
+on: [pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compute Compressed Size
+        uses: preactjs/compressed-size-action@v2
+        with:
+          build-script: "build-cdn"
+          compression: "gzip"
+          pattern: "./build/{*.min.js,es/*.min.js,languages/*.min.js,es/languages/*.min.js}"

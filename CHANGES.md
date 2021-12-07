@@ -1,8 +1,61 @@
-## Version 11.3.0 (most likely)
+## Version 11.3.2 (most likely)
+
+Grammars:
+
+- fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]
+- fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
+- enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
+- fix(fsharp) Highlight operators, match type names only in type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
+- enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- enh(nsis) Update defines pattern to allow `!` (#3417) [idleberg][]
+- enh(nsis) Update language strings pattern to allow `!` (#3420) [idleberg][]
+- fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
+  - fix(clojure) `comment` macro catches more than it should (#3395)
+  - fix(clojure) `$` in symbol breaks highlighting
+  - fix(clojure) Add complete regex for number detection
+  - enh(clojure) Add character mode for character literals
+  - fix(clojure) Inconsistent namespaced map highlighting
+  - enh(clojure) Add `regex` mode to regex literal
+  - fix(clojure) Remove inconsistent/broken highlighting for metadata
+  - enh(clojure) Add `punctuation` mode for commas.
+  - enh(nsis) Update variables pattern (#3416) [idleberg][]
+
+Developer Tools:
+
+- (chore) add gzip size compression report (#3400) [Bradley Mackey][]
+
+Themes:
+
+- Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
+
+[Richard Gibson]: https://github.com/gibson042
+[Bradley Mackey]: https://github.com/bradleymackey
+[Melvyn Laïly]: https://github.com/mlaily
+[Björn Ebbinghaus]: https://github.com/MrEbbinghaus
+[Josh Goebel]: https://github.com/joshgoebel
+[Samia Ali]: https://github.com/samiaab1990
+[idleberg]: https://github.com/idleberg
+
+## Version 11.3.1
+
+Build:
+
+- (fix) Grammar CDN modules not generated correctly. (#3363) [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
+## Version 11.3.0
+
+Build:
+
+- add `HighlightJS` named export (#3295) [Josh Goebel][]
+- add `.default` named export to CJS builds (#3333) [Josh Goebel][]
 
 Parser:
 
 - add first rough performance testing script (#3280) [Austin Schick][]
+- add `throwUnescapedHTML` to warn against potential HTML injection [Josh Goebel][]
 - expose `regex` helper functions via `hljs` injection [Josh Goebel][]
   - concat
   - lookahead
@@ -12,6 +65,10 @@ Parser:
 
 Grammars:
 
+- fix(ts) some complex types would classify as JSX (#3278) [Josh Goebel][]
+- fix(js/ts) less false positives for `class X extends Y` (#3278) [Josh Goebel][]
+- enh(css): add properties from several W3C (Candidate) Recommendations (#3308)
+- fix(js/ts) `Float32Array` highlighted incorrectly (#3353) [Josh Goebel][]
 - fix(css) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - fix(scss) single-colon psuedo-elements no longer break highlighting (#3240) [Josh Goebel][]
 - enh(fsharp) rewrite most of the grammar, with many improvements [Melvyn Laïly][]
@@ -34,6 +91,10 @@ Grammars:
 - enh(scala) add `using` soft keyword (#3330) [Nicolas Stucki][]
 - enh(fsharp) added `f#` alias (#3337) [Bahnschrift][]
 - enh(bash) added gnu core utilities (#3342) [katzeprior][]
+- enh(nsis) add new NSIS commands (#3351) [idleberg][]
+- fix(nsis) set `case_insensitive` to `true` (#3351) [idleberg][]
+- fix(css/less/stylus/scss) highlight single-colon psuedo-elements properly (#3240) [zsoltlengyelit][]
+- fix(css) add css hex color alpha support (#3360) [ierehon1905][]
 
 [Austin Schick]: https://github.com/austin-schick
 [Josh Goebel]: https://github.com/joshgoebel
@@ -44,6 +105,10 @@ Grammars:
 [Bahnschrift]: https://github.com/Bahnschrift
 [Melvyn Laïly]: https://github.com/mlaily
 [katzeprior]: https://github.com/katzeprior
+[zsoltlengyelit]: github.com/zsoltlengyelit
+[Syb Wartna]:https://github.com/waarissyb
+[idleberg]: https://github.com/idleberg
+[ierehon1905]: https://github.com/ierehon1905
 
 
 ## Version 11.2.0
@@ -680,6 +745,7 @@ Parser Engine:
 
 - (fix) When ignoring a potential match highlighting can terminate early (#2649) [Josh Goebel][]
 
+
 New themes:
 
 - *Gradient Light* by [Samia Ali]()
@@ -714,7 +780,6 @@ Language Improvements:
 [idleberg]: https://github.com/idleberg
 [eytienne]: https://github.com/eytienne
 [sirosen]: https://github.com/sirosen
-
 
 ## Version 10.1.1
 

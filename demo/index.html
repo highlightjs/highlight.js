@@ -23,14 +23,14 @@
     <h2>Language Categories</h2>
     <ul class="categories">
       <% categories.forEach(({category, count}, i) => {%>
-      <li <%= i ? '' : 'class="current"'%> data-category="<%= category %>"><%= `${category} (${count})` %></li>
+      <li><a <%= i ? '' : 'class="current"'%> data-category="<%= category %>" href="#<%= category %>"><%= `${category} (${count})` %></a></li>
       <% }); %>
     </ul>
     <h2>Themes</h2>
     <ul class="styles">
-      <li class="current">Default</li>
+      <li><a class="current" href="#default">Default</a></li>
       <% styles.forEach(({name}) => {%>
-      <li><%= name %></li>
+      <li><a href="#<%= name %>"><%= name %></a></li>
       <% }); %>
     </ul>
   </aside>

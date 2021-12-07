@@ -1,0 +1,11 @@
+#available()
+#available(iOS 15.0, *)
+@available()
+@available(iOS 15.0, *)
+@available(iOS 14, deprecated: "reason", *)
+
+#unavailable()
+#unavailable(iOS 15.0, *)
+// not a keyword
+@unavailable()
+@unavailable(iOS 15.0, *)

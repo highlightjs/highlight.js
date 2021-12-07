@@ -7,7 +7,7 @@
 <span class="hljs-meta">#nowarn</span>
 
   <span class="hljs-meta">#if</span> DEBUG <span class="hljs-comment">// whitespace is allowed before</span>
-<span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span> #<span class="hljs-keyword">if</span> DEBUG <span class="hljs-comment">// but the preprocessor directive must be the first non-whitespace</span>
+<span class="hljs-keyword">let</span> x <span class="hljs-operator">=</span> <span class="hljs-number">0</span> #<span class="hljs-keyword">if</span> DEBUG <span class="hljs-comment">// but the preprocessor directive must be the first non-whitespace</span>
 
 #IF asdf <span class="hljs-comment">// should not match wrongly cased keywords</span>
 #iftest <span class="hljs-comment">// should not match</span>
@@ -15,8 +15,8 @@
 <span class="hljs-meta">#r</span> <span class="hljs-string">&quot;file.dll&quot;</span>;;                               <span class="hljs-comment">// Reference (dynamically load) the given DLL</span>
 <span class="hljs-meta">#i</span> <span class="hljs-string">&quot;package source uri&quot;</span>;;                     <span class="hljs-comment">// Include package source uri when searching for packages</span>
 <span class="hljs-meta">#I</span> <span class="hljs-string">&quot;path&quot;</span>;;                                   <span class="hljs-comment">// Add the given search path for referenced DLLs</span>
-<span class="hljs-meta">#load</span> <span class="hljs-string">&quot;file.fs&quot;</span> ...;;                         <span class="hljs-comment">// Load the given file(s) as if compiled and referenced</span>
-<span class="hljs-meta">#time</span> [<span class="hljs-string">&quot;on&quot;</span>|<span class="hljs-string">&quot;off&quot;</span>];;                          <span class="hljs-comment">// Toggle timing on/off</span>
+<span class="hljs-meta">#load</span> <span class="hljs-string">&quot;file.fs&quot;</span> <span class="hljs-operator">...</span>;;                         <span class="hljs-comment">// Load the given file(s) as if compiled and referenced</span>
+<span class="hljs-meta">#time</span> [<span class="hljs-string">&quot;on&quot;</span><span class="hljs-operator">|</span><span class="hljs-string">&quot;off&quot;</span>];;                          <span class="hljs-comment">// Toggle timing on/off</span>
 <span class="hljs-meta">#help</span>;;                                       <span class="hljs-comment">// Display help</span>
 <span class="hljs-meta">#r</span> <span class="hljs-string">&quot;nuget:FSharp.Data, 3.1.2&quot;</span>;;               <span class="hljs-comment">// Load Nuget Package &#x27;FSharp.Data&#x27; version &#x27;3.1.2&#x27;</span>
 <span class="hljs-meta">#r</span> <span class="hljs-string">&quot;nuget:FSharp.Data&quot;</span>;;                      <span class="hljs-comment">// Load Nuget Package &#x27;FSharp.Data&#x27; with the highest version</span>

@@ -55,7 +55,7 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: '::(' + PSEUDO_ELEMENTS.join('|') + ')'
+        begin: ':(:)?(' + PSEUDO_ELEMENTS.join('|') + ')'
       },
       VARIABLE,
       { // pseudo-selector params

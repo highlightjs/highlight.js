@@ -1,25 +1,29 @@
 const fs = require("fs").promises;
 const fss = require("fs");
-const config = require("./build_config");
+const config = require("./build_config.js");
 const glob = require("glob-promise");
-const { getLanguages } = require("./lib/language");
-const { install, mkdir, installCleanCSS } = require("./lib/makestuff");
-const { filter } = require("./lib/dependencies");
+const { getLanguages } = require("./lib/language.js");
+const { install, mkdir, installCleanCSS } = require("./lib/makestuff.js");
+const { filter } = require("./lib/dependencies.js");
 const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
 
 // https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards
 async function buildESMStub(name) {
   const code =
-    `// https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards\n` +
-    `import hljs from '../lib/${name}.js';\n` +
-    `export default hljs;\n`;
+    `// https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards\n`
+    + `import HighlightJS from '../lib/${name}.js';\n`
+    + `export { HighlightJS };\n`
+    + `export default HighlightJS;\n`;
   await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, code);
 }
 
 async function buildCJSIndex(name, languages) {
   const header = "var hljs = require('./core');";
-  const footer = "module.exports = hljs;";
+  const footer =
+    `hljs.HighlightJS = hljs\n`
+    + `hljs.default = hljs\n`
+    + `module.exports = hljs;`;
 
   const registration = languages.map((lang) => {
     const require = `require('./languages/${lang.name}')`;
@@ -53,7 +57,8 @@ async function buildNodeLanguage(language, options) {
   if (options.esm) {
     await fs.writeFile(`${process.env.BUILD_DIR}/es/languages/${language.name}.js.js`,
       ES_STUB.replace(/%%%%/g, language.name));
-    await rollupWrite(input, {...output,
+    await rollupWrite(input, {
+      ...output,
       format: "es",
       file: output.file.replace("/lib/", "/es/")
     });
@@ -82,6 +87,7 @@ async function buildESMUtils() {
 async function buildNodeHighlightJS(options) {
   const input = { ...config.rollup.core.input, input: `src/highlight.js` };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
+  output.footer = "highlight.HighlightJS = highlight;\nhighlight.default = highlight;";
   await rollupWrite(input, output);
   if (options.esm) {
     buildESMStub("core");
@@ -103,7 +109,7 @@ const generatePackageExports = () => ({
   "./lib/languages/*": dual("./lib/languages/*.js"),
   "./scss/*": "./scss/*",
   "./styles/*": "./styles/*",
-  "./types/*": "./types/*",
+  "./types/*": "./types/*"
 });
 function buildPackageJSON(options) {
   const packageJson = require("../package.json");

@@ -28,7 +28,12 @@ module.exports = {
       }
     },
     node: {
-      output: { format: "cjs", strict: false, exports: "auto" }
+      output: {
+        format: "cjs",
+        strict: false,
+        exports: "auto",
+        footer: ""
+      }
     },
     browser_iife: {
       input: {
