@@ -80,8 +80,8 @@ export default function(hljs) {
     "striptags",
     "timezone_name",
     "title",
-    "u|0",
     "trim",
+    "u|0",
     "upper",
     "url_encode"
   ];
