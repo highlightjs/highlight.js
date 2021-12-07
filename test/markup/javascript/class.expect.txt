@@ -33,3 +33,6 @@
 <span class="hljs-title class_">CSSParser</span>
 <span class="hljs-title class_">Float32Array</span>
 <span class="hljs-title class_">BigInt64Array</span>
+<span class="hljs-title class_">FPs</span>
+<span class="hljs-title class_">OutT</span>
+<span class="hljs-title class_">InT</span>

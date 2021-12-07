@@ -6,6 +6,7 @@ Grammars:
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- enh(js/ts) improve `CLASS_REFERENCE` (#3411) [Josh Goebel][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
   - fix(clojure) `comment` macro catches more than it should (#3395)
   - fix(clojure) `$` in symbol breaks highlighting
