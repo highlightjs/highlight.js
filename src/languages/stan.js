@@ -7,7 +7,7 @@ Category: scientific
 */
 
 export default function(hljs) {
-  const regex = hljs.regex;
+  const regex = regex;
   // variable names cannot conflict with block identifiers
   const BLOCKS = [
     'functions',
@@ -51,7 +51,7 @@ export default function(hljs) {
 
   // to get the functions list
   // clone the [stan-docs repo](https://github.com/stan-dev/docs)
-  // then cd into it and run this bash script https://gist.github.com/spinkney/b876a13ca63370364749622120fa71d6
+  // then cd into it and run this bash script https://gist.github.com/joshgoebel/dcd33f82d4059a907c986049893843cf
   //
   // the output files are
   // distributions_quoted.txt
@@ -367,7 +367,7 @@ export default function(hljs) {
       relevance: 0,
       contains: [
         {
-          className: 'doctag',
+          scope: 'doctag',
           match: /@(return|param)/
         }
       ]
@@ -375,13 +375,13 @@ export default function(hljs) {
   );
 
   const INCLUDE = {
-    className: 'meta',
+    scope: 'meta',
     begin: /#include\b/,
     end: /$/,
     contains: [
       {
-        match: /[a-z][a-z-.]+/,
-        className: 'string'
+        match: /[a-z][a-z-._]+/,
+        scope: 'string'
       },
       hljs.C_LINE_COMMENT_MODE
     ]
@@ -410,56 +410,56 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       BLOCK_COMMENT,
       {
-        className: 'symbol',
-        begin: /\s(pi|e|sqrt2|log2|log10)(?=\()/,
+        scope: 'symbol',
+        match: /\s(pi|e|sqrt2|log2|log10)(?=\()/,
         relevance: 0
       },
       {
-        begin: regex.concat(/[<,]\s*/, regex.either(...RANGE_CONSTRAINTS), /\s*=/),
+        match: regex.concat(/[<,]\s*/, regex.either(...RANGE_CONSTRAINTS), /\s*=/),
         keywords: RANGE_CONSTRAINTS
       },
       {
-        className: 'keyword',
-        begin: /\btarget\s*/,
+        scope: 'keyword',
+        match: /\btarget\s*/,
       },
       {
         // highlights the 'T' in T[,] for only Stan language distributrions
-        begin: [
+        match: [
           /~\s*/,
-          hljs.regex.either(...DISTRIBUTIONS),
+          regex.either(...DISTRIBUTIONS),
           /(?:\(\))/,
           /\s*T(?=\s*\[)/
         ],
-        beginScope: {
+        scope: {
           2: "built_in",
           4: "keyword"
         }
       },
       {
         // highlights distributrions that end with special endings
-        className: 'built_in',
-        begin: /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+        scope: 'built_in',
+        match: /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
       },
       {
         // cannot ever have these endings with the ~
-        begin: [
+        match: [
           /~\s*/,
           /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
         ],
-        beginScope: { 2: "illegal" }
+        scope: { 2: "illegal" }
       },
       {
         // highlights user defined distributions
-        begin: [
+        match: [
           /~/,
           /\s*/,
           /\w+(?=\s*[\(.*\)])/
         ],
-        beginScope: { 3: "built_in" },
+        scope: { 3: "built_in" },
       },
       {
-        className: 'number',
-        begin: regex.concat(
+        scope: 'number',
+        match: regex.concat(
           // Comes from @RunDevelopment accessed 11/29/2021 at
           // https://github.com/PrismJS/prism/blob/c53ad2e65b7193ab4f03a1797506a54bbb33d5a2/components/prism-stan.js#L56
 
@@ -475,9 +475,9 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'string',
-        begin: '"',
-        end: '"'
+        scope: 'string',
+        begin: /"/,
+        end: /"/
       }
     ]
   };
