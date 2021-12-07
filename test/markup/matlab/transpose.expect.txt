@@ -31,9 +31,9 @@ c2 = {<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&
 s = [<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;bc&#x27;</span>]&#x27;;  <span class="hljs-comment">% you can transpose vectors of strings (they are really &#x27;char&#x27; arrays)</span>
 s = s&#x27;;           <span class="hljs-comment">% and transpose back</span>
 <span class="hljs-comment">% (s&#x27;)&#x27; is a double transpose of a string</span>
-x = [(s&#x27;)&#x27;, <span class="hljs-string">&#x27; xyz &#x27;</span>, <span class="hljs-string">&#x27;a single quote in a string&#x27;&#x27;, escape \&#x27;, two quotes in a string&#x27;&#x27;&#x27;&#x27;&#x27;</span>];  
+x = [(s&#x27;)&#x27;, <span class="hljs-string">&#x27; xyz &#x27;</span>, <span class="hljs-string">&#x27;a single quote in a string&#x27;&#x27;, two quotes in a string&#x27;&#x27;&#x27;&#x27;&#x27;</span>];
 
-s2 = <span class="hljs-string">&quot;abc\&quot;def&quot;&quot;ghi&quot;</span>;      <span class="hljs-comment">% newer versions of MATLAB support double quoted strings</span>
+s2 = <span class="hljs-string">&quot;abcdef&quot;&quot;ghi&quot;</span>;      <span class="hljs-comment">% newer versions of MATLAB support double quoted strings</span>
 s3 = ([<span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-string">&quot;defg&quot;</span>]&#x27;)&#x27;;  <span class="hljs-comment">% transpose a vectors of quoted string twice</span>
 s4 = <span class="hljs-string">&quot;abc&quot;</span>!;               <span class="hljs-comment">% transpose a quoted string</span>
 

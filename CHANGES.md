@@ -8,6 +8,8 @@ Grammars:
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
 - fix(fsharp) Highlight operators, match type names only in type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- enh(nsis) Update defines pattern to allow `!` (#3417) [idleberg][]
+- enh(nsis) Update language strings pattern to allow `!` (#3420) [idleberg][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
   - fix(clojure) `comment` macro catches more than it should (#3395)
   - fix(clojure) `$` in symbol breaks highlighting
@@ -17,6 +19,7 @@ Grammars:
   - enh(clojure) Add `regex` mode to regex literal
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
+  - enh(nsis) Update variables pattern (#3416) [idleberg][]
 
 Developer Tools:
 
@@ -33,7 +36,7 @@ Themes:
 [Josh Goebel]: https://github.com/joshgoebel
 [Samia Ali]: https://github.com/samiaab1990
 [Matthieu Lempereur]: https://github.com/MrYamous
-
+[idleberg]: https://github.com/idleberg
 
 ## Version 11.3.1
 
