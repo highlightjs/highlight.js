@@ -1,5 +1,5 @@
 <span class="hljs-title">functions</span> {
-  <span class="hljs-comment">#include normal_copula.stanfunctions</span>
+  <span class="hljs-meta">#include <span class="hljs-string">normal</span>_<span class="hljs-string">copula.stanfunctions</span></span>
 }
 <span class="hljs-title">data</span> {
   <span class="hljs-keyword">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; N;
@@ -9,8 +9,8 @@
 <span class="hljs-title">transformed</span> <span class="hljs-title">data</span> {
     <span class="hljs-keyword">complex</span> zi = <span class="hljs-number">1</span>+<span class="hljs-number">3.14i</span>;
     zi = zi * <span class="hljs-number">0i</span>;
-    <span class="hljs-keyword">complex</span> yi = to_complex(<span class="hljs-number">0</span>, <span class="hljs-number">1.1</span>) + to_complex(<span class="hljs-number">0.0</span>, <span class="hljs-number">2.2</span>) + to_complex();
-    <span class="hljs-keyword">real</span> x = get_real(<span class="hljs-number">3i</span> - <span class="hljs-number">40e-3i</span> + <span class="hljs-number">1e10i</span>);
+    <span class="hljs-keyword">complex</span> yi = <span class="hljs-built_in">to_complex</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1.1</span>) + <span class="hljs-built_in">to_complex</span>(<span class="hljs-number">0.0</span>, <span class="hljs-number">2.2</span>) + <span class="hljs-built_in">to_complex</span>();
+    <span class="hljs-keyword">real</span> x = <span class="hljs-built_in">get_real</span>(<span class="hljs-number">3i</span> - <span class="hljs-number">40e-3i</span> + <span class="hljs-number">1e10i</span>);
 }›
 <span class="hljs-title">parameters</span> {
   <span class="hljs-keyword">array</span>[K - <span class="hljs-number">1</span>] <span class="hljs-keyword">real</span> mu;
@@ -18,23 +18,23 @@
   <span class="hljs-keyword">cholesky_factor_corr</span>[K] L;
 }
 <span class="hljs-title">model</span> {
-  <span class="hljs-keyword">target +=</span> <span class="hljs-keyword">normal_lpdf</span>(x[ : , <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]);
-  <span class="hljs-keyword">target +=</span> <span class="hljs-keyword">gumbel_lpdf</span>(x[ : , <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]);
-  <span class="hljs-keyword">target +=</span> <span class="hljs-keyword">lognormal_lpdf</span>(x[ : , <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]);
-  <span class="hljs-keyword">target +=</span> <span class="hljs-keyword">weibull_lpdf</span>(x[ : , <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]);
+  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">normal_lpdf</span>(x[ : , <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]);
+  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">gumbel_lpdf</span>(x[ : , <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]);
+  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">lognormal_lpdf</span>(x[ : , <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]);
+  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">weibull_lpdf</span>(x[ : , <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]);
   
   {
     <span class="hljs-keyword">matrix</span>[K, N] y;
-    for (n <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> : N) {
-      y[<span class="hljs-number">1</span>, n] = inv_Phi(<span class="hljs-keyword">normal_cdf</span>(x[n, <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]));
-      y[<span class="hljs-number">2</span>, n] = inv_Phi(<span class="hljs-keyword">gumbel_cdf</span>(x[n, <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]));
-      y[<span class="hljs-number">3</span>, n] = inv_Phi(<span class="hljs-keyword">lognormal_cdf</span>(x[n, <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]));
-      y[<span class="hljs-number">4</span>, n] = inv_Phi(<span class="hljs-keyword">weibull_cdf</span>(x[n, <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]));
+    <span class="hljs-keyword">for</span> (n <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> : N) {
+      y[<span class="hljs-number">1</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">normal_cdf</span>(x[n, <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]));
+      y[<span class="hljs-number">2</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">gumbel_cdf</span>(x[n, <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]));
+      y[<span class="hljs-number">3</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">lognormal_cdf</span>(x[n, <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]));
+      y[<span class="hljs-number">4</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">weibull_cdf</span>(x[n, <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]));
     }
-    y ~ <span class="hljs-keyword">multi_normal</span>(L);
+    y ~ <span class="hljs-built_in">multi_normal</span>(L);
 
   }
 }
 <span class="hljs-title">generated</span> <span class="hljs-title">quantities</span> {
-  <span class="hljs-keyword">matrix</span>[K, K] Sigma = multiply_lower_tri_self_transpose(L);
+  <span class="hljs-keyword">matrix</span>[K, K] Sigma = <span class="hljs-built_in">multiply_lower_tri_self_transpose</span>(L);
 }
