@@ -7,6 +7,7 @@ Category: scientific
 */
 
 export default function(hljs) {
+  const regex = hljs.regex;
   // variable names cannot conflict with block identifiers
   const BLOCKS = [
     'functions',
@@ -29,7 +30,7 @@ export default function(hljs) {
     'return'
   ];
 
-  const VAR_TYPES = [
+  const TYPES = [
     'array',
     'complex',
     'int',
@@ -377,7 +378,6 @@ export default function(hljs) {
     className: 'meta',
     begin: /#include\b/,
     end: /$/,
-    relevance: 0, // relevance comes from keywords
     contains: [
       {
         match: /[a-z][a-z-.]+/,
@@ -387,19 +387,12 @@ export default function(hljs) {
     ]
   };
 
-  const numberRegex = new RegExp([
-    // Comes from @RunDevelopment accessed 11/29/2021 at
-    // https://github.com/PrismJS/prism/blob/c53ad2e65b7193ab4f03a1797506a54bbb33d5a2/components/prism-stan.js#L56
-
-    // start of big noncapture group which
-    // 1. gets numbers that are by themselves
-    // 2. numbers that are separated by _
-    // 3. numbers that are separted by .
-    /(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)/,
-    // grabs scientific notation
-    // grabs complex numbers with i
-    /(?:[eE][+-]?\d+(?:_\d+)*)?i?(?!\w)/
-  ].map(function(r) { return r.source; }).join(''), 'i');
+  const RANGE_CONSTRAINTS = [
+    "lower",
+    "upper",
+    "offset",
+    "multiplier"
+  ];
 
   return {
     name: 'Stan',
@@ -407,7 +400,8 @@ export default function(hljs) {
     keywords: {
       $pattern: hljs.IDENT_RE,
       title: BLOCKS,
-      keyword: STATEMENTS.concat(VAR_TYPES),
+      type: TYPES,
+      keyword: STATEMENTS,
       built_in: FUNCTIONS
     },
     contains: [
@@ -421,28 +415,8 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        // hack: in range constraints, lower must follow either , or <
-        // <upper = ..., lower = ...> or <lower = ...>
-        begin: /[<,]\s*lower\s*=/,
-        keywords: 'lower'
-      },
-      {
-        // hack: in range constraints, upper must follow either , or <
-        // <lower = ..., upper = ...> or <upper = ...>
-        begin: /[<,]\s*upper\s*=/,
-        keywords: 'upper'
-      },
-      {
-        // hack: in range constraints, upper must follow either , or <
-        // <multiplier = ..., offest = ...> or <offset = ...>
-        begin: /[<,]\s*offset\s*=/,
-        keywords: 'offset'
-      },
-      {
-        // hack: in range constraints, upper must follow either , or <
-        // <offset = ..., multiplier = ...> or <multiplier = ...>
-        begin: /[<,]\s*multiplier\s*=/,
-        keywords: 'multiplier'
+        begin: regex.concat(/[<,]\s*/, regex.either(...RANGE_CONSTRAINTS), /\s*=/),
+        keywords: RANGE_CONSTRAINTS
       },
       {
         className: 'keyword',
@@ -485,17 +459,25 @@ export default function(hljs) {
       },
       {
         className: 'number',
-        variants: [
-          { begin: numberRegex },
-          { begin: /\.\d+(?:[eE][+-]?\d+)?\b/ }
-        ],
+        begin: regex.concat(
+          // Comes from @RunDevelopment accessed 11/29/2021 at
+          // https://github.com/PrismJS/prism/blob/c53ad2e65b7193ab4f03a1797506a54bbb33d5a2/components/prism-stan.js#L56
+
+          // start of big noncapture group which
+          // 1. gets numbers that are by themselves
+          // 2. numbers that are separated by _
+          // 3. numbers that are separted by .
+          /(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)/,
+          // grabs scientific notation
+          // grabs complex numbers with i
+          /(?:[eE][+-]?\d+(?:_\d+)*)?i?(?!\w)/
+        ),
         relevance: 0
       },
       {
         className: 'string',
         begin: '"',
-        end: '"',
-        relevance: 0
+        end: '"'
       }
     ]
   };
