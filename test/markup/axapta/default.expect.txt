@@ -1,4 +1,4 @@
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExchRateLoadBatch</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RunBaseBatch</span> </span>{
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ExchRateLoadBatch</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">RunBaseBatch</span> {
   ExchRateLoad rbc;
   <span class="hljs-built_in">container</span> currencies;
   <span class="hljs-built_in">boolean</span> actual;
