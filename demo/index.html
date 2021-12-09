@@ -28,9 +28,13 @@
     </ul>
     <h2>Themes</h2>
     <ul class="styles">
-      <li><a class="current" href="#default">Default</a></li>
-      <% styles.forEach(({name}) => {%>
-      <li><a href="#<%= name %>"><%= name %></a></li>
+      <% styles.forEach(({name, badges}) => {%>
+      <li>
+        <a <%= name == "Default" ? "class='current'" : "" %> href="#<%= name %>"><%= name %></a>
+        <% badges.forEach((badge) => { %>
+            <span class="badge <%= badge.name.toLowerCase() %>"><%= badge.name %></span>
+        <% }); %>
+      </li>
       <% }); %>
     </ul>
   </aside>
