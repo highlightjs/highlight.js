@@ -1,0 +1,8 @@
+namespace Location\Web;
+namespace foo;
+use My\Full\Classname as Another;
+use My\Full\NSname;
+use ArrayObject;
+use function My\Full\functionName;
+use function My\Full\functionName as func;
+use const My\Full\CONSTANT;
