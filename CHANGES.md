@@ -16,6 +16,7 @@ Grammars:
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
 - fix(fsharp) Highlight operators, match type names only in type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- enh(js/ts) improve `CLASS_REFERENCE` (#3411) [Josh Goebel][]
 - enh(nsis) Update defines pattern to allow `!` (#3417) [idleberg][]
 - enh(nsis) Update language strings pattern to allow `!` (#3420) [idleberg][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
