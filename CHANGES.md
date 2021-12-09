@@ -2,6 +2,7 @@
 
 Grammars:
 
+- enh(js/ts) fix => async function title highlights (#3405) [Josh Goebel][]
 - enh(twig) update keywords list (#3415) [Matthieu Lempereur][]
 - fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
