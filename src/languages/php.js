@@ -355,18 +355,31 @@ export default function(hljs) {
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
+      // both use and namespace still use "old style" rules (vs multi-match)
+      // because the namespace name can include `\` and we still want each
+      // element to be treated as it's own *individual* title
       {
         beginKeywords: 'namespace',
         relevance: 0,
         end: ';',
         illegal: /[.']/,
-        contains: [hljs.UNDERSCORE_TITLE_MODE]
+        contains: [
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { scope: "title.class" })
+        ]
       },
       {
         beginKeywords: 'use',
         relevance: 0,
         end: ';',
-        contains: [hljs.UNDERSCORE_TITLE_MODE]
+        contains: [
+          // TODO: title.function vs title.class
+          {
+            match: /\b(as|const|function)\b/,
+            scope: "keyword"
+          },
+          // TODO: could be title.class or title.function
+          hljs.UNDERSCORE_TITLE_MODE
+        ]
       },
       STRING,
       NUMBER

@@ -1,0 +1,8 @@
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">Location</span>\<span class="hljs-title class_">Web</span>;
+<span class="hljs-keyword">namespace</span> <span class="hljs-title class_">foo</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">My</span>\<span class="hljs-title">Full</span>\<span class="hljs-title">Classname</span> <span class="hljs-keyword">as</span> <span class="hljs-title">Another</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">My</span>\<span class="hljs-title">Full</span>\<span class="hljs-title">NSname</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">ArrayObject</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-keyword">function</span> <span class="hljs-title">My</span>\<span class="hljs-title">Full</span>\<span class="hljs-title">functionName</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-keyword">function</span> <span class="hljs-title">My</span>\<span class="hljs-title">Full</span>\<span class="hljs-title">functionName</span> <span class="hljs-keyword">as</span> <span class="hljs-title">func</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-keyword">const</span> <span class="hljs-title">My</span>\<span class="hljs-title">Full</span>\<span class="hljs-title">CONSTANT</span>;
