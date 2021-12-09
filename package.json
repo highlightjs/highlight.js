@@ -65,6 +65,7 @@
     "colors": "^1.1.2",
     "commander": "8.2",
     "css": "^3.0.0",
+    "css-color-names": "^1.0.1",
     "deep-freeze-es6": "^1.4.1",
     "del": "^6.0.0",
     "dependency-resolver": "^2.0.1",
@@ -84,6 +85,7 @@
     "should": "^13.2.3",
     "terser": "^5.7.0",
     "tiny-worker": "^2.3.0",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "wcag-contrast": "^3.0.0"
   }
 }
