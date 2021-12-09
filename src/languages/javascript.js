@@ -292,10 +292,10 @@ export default function(hljs) {
       /\bJSON/,
       // Float32Array, OutT
       /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
-      // CSSFactory
-      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+/,
-      // FPs
-      /\b[A-Z]{2,}[a-z]+([A-Z][a-z]+|\d)*/,
+      // CSSFactory, CSSFactoryT
+      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*|\d)*/,
+      // FPs, FPsT
+      /\b[A-Z]{2,}[a-z]+([A-Z][a-z]+|\d)*([A-Z][a-z]*|\d)*/,
       // P
       // single letters are not highlighted
       // BLAH

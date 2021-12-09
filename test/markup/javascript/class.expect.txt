@@ -36,3 +36,5 @@
 <span class="hljs-title class_">FPs</span>
 <span class="hljs-title class_">OutT</span>
 <span class="hljs-title class_">InT</span>
+<span class="hljs-title class_">CSSParserT</span>
+<span class="hljs-title class_">IResponseTsS</span>
