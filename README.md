@@ -76,7 +76,7 @@ The bare minimum for using highlight.js on a web page is linking to the
 library along with one of the themes and calling [`highlightAll`][1]:
 
 ```html
-<link rel="stylesheet" href="/path/to/styles/default.css">
+<link rel="stylesheet" href="/path/to/styles/default.min.css">
 <script src="/path/to/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 ```

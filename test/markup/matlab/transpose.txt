@@ -31,9 +31,9 @@ c2 = {'a','bc'}'; % transpose of a cell of strings
 s = ['a','bc']';  % you can transpose vectors of strings (they are really 'char' arrays)
 s = s';           % and transpose back
 % (s')' is a double transpose of a string
-x = [(s')', ' xyz ', 'a single quote in a string'', escape \', two quotes in a string'''''];  
+x = [(s')', ' xyz ', 'a single quote in a string'', two quotes in a string'''''];
 
-s2 = "abc\"def""ghi";      % newer versions of MATLAB support double quoted strings
+s2 = "abcdef""ghi";      % newer versions of MATLAB support double quoted strings
 s3 = (["abc", "defg"]')';  % transpose a vectors of quoted string twice
 s4 = "abc"!;               % transpose a quoted string
 
