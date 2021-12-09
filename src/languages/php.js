@@ -281,7 +281,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       hljs.HASH_COMMENT_MODE,
-      hljs.COMMENT('//', '$', {contains: [PREPROCESSOR]}),
+      hljs.COMMENT('//', '$'),
       hljs.COMMENT(
         '/\\*',
         '\\*/',
