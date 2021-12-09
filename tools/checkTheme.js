@@ -227,7 +227,7 @@ class CSSRule {
 
   contrastRatio() {
     if (!this.foreground) return "unknown (no fg)"
-    if (!this.background) return "unknown(no bg)"
+    if (!this.background) return "unknown (no bg)"
     return round2(wcagContrast.hex(this.foreground, this.background));
   }
 }
