@@ -271,7 +271,7 @@ const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: '
 
 ### ES6 Modules / `import`
 
-*Note: You can also import directly from fully static URLs, such as our every own pre-built
+*Note: You can also import directly from fully static URLs, such as our very own pre-built
 ES6 Module CDN resources. See [Fetch via CDN](#fetch-via-cdn) for specific examples.*
 
 The default import will register all languages:
