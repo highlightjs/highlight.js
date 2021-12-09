@@ -2,7 +2,7 @@
 'use strict';
 
 const fs = require('fs');
-const hljs = require('../build.js');
+const hljs = require('../build/lib/index.js');
 const path = require('path');
 const utility = require('../test/utility.js');
 const Table = require('cli-table');

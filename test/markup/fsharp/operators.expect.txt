@@ -1,28 +1,77 @@
 
- &gt;=   &lt;=   &lt;&gt;   &gt;   &lt;   =   +   -   *   /   %
- &gt;=?  &lt;=?  &lt;&gt;?  &gt;?  &lt;?  =?  +?  -?  *?  /?  %?
-?&gt;=? ?&lt;=? ?&lt;&gt;? ?&gt;? ?&lt;? ?=? ?+? ?-? ?*? ?/? ?%?
-?&gt;=  ?&lt;=  ?&lt;&gt;  ?&gt;  ?&lt;  ?=  ?+  ?-  ?*  ?/  ?%
+ <span class="hljs-operator">&gt;=</span>   <span class="hljs-operator">&lt;=</span>   <span class="hljs-operator">&lt;&gt;</span>   <span class="hljs-operator">&gt;</span>   <span class="hljs-operator">&lt;</span>   <span class="hljs-operator">=</span>   <span class="hljs-operator">+</span>   <span class="hljs-operator">-</span>   <span class="hljs-operator">*</span>   <span class="hljs-operator">/</span>   <span class="hljs-operator">%</span>
+ <span class="hljs-operator">&gt;=?</span>  <span class="hljs-operator">&lt;=?</span>  <span class="hljs-operator">&lt;&gt;?</span>  <span class="hljs-operator">&gt;?</span>  <span class="hljs-operator">&lt;?</span>  <span class="hljs-operator">=?</span>  <span class="hljs-operator">+?</span>  <span class="hljs-operator">-?</span>  <span class="hljs-operator">*?</span>  <span class="hljs-operator">/?</span>  <span class="hljs-operator">%?</span>
+<span class="hljs-operator">?&gt;=?</span> <span class="hljs-operator">?&lt;=?</span> <span class="hljs-operator">?&lt;&gt;?</span> <span class="hljs-operator">?&gt;?</span> <span class="hljs-operator">?&lt;?</span> <span class="hljs-operator">?=?</span> <span class="hljs-operator">?+?</span> <span class="hljs-operator">?-?</span> <span class="hljs-operator">?*?</span> <span class="hljs-operator">?/?</span> <span class="hljs-operator">?%?</span>
+<span class="hljs-operator">?&gt;=</span>  <span class="hljs-operator">?&lt;=</span>  <span class="hljs-operator">?&lt;&gt;</span>  <span class="hljs-operator">?&gt;</span>  <span class="hljs-operator">?&lt;</span>  <span class="hljs-operator">?=</span>  <span class="hljs-operator">?+</span>  <span class="hljs-operator">?-</span>  <span class="hljs-operator">?*</span>  <span class="hljs-operator">?/</span>  <span class="hljs-operator">?%</span>
 
-**
+<span class="hljs-operator">**</span>
 
-&lt;- -&gt;
-..
-::
-:&gt; :? :?&gt;
-&lt;&lt; &gt;&gt;
-&lt;&lt;&lt; &gt;&gt;&gt; ~~~ ^^^ &amp;&amp;&amp; |||
-| ||
-&lt;| &lt;|| &lt;|||
-|&gt; ||&gt; |||&gt;
-~~ ~- ~+
+<span class="hljs-operator">&lt;-</span> <span class="hljs-operator">-&gt;</span>
+<span class="hljs-operator">..</span>
+<span class="hljs-operator">::</span>
+<span class="hljs-operator">:&gt;</span> <span class="hljs-operator">:?</span> <span class="hljs-operator">:?&gt;</span>
+<span class="hljs-operator">&lt;&lt;</span> <span class="hljs-operator">&gt;&gt;</span>
+<span class="hljs-operator">&lt;&lt;&lt;</span> <span class="hljs-operator">&gt;&gt;&gt;</span> <span class="hljs-operator">~~~</span> <span class="hljs-operator">^^^</span> <span class="hljs-operator">&amp;&amp;&amp;</span> <span class="hljs-operator">|||</span>
+<span class="hljs-operator">|</span> <span class="hljs-operator">||</span>
+<span class="hljs-operator">&lt;|</span> <span class="hljs-operator">&lt;||</span> <span class="hljs-operator">&lt;|||</span>
+<span class="hljs-operator">|&gt;</span> <span class="hljs-operator">||&gt;</span> <span class="hljs-operator">|||&gt;</span>
+<span class="hljs-operator">~~</span> <span class="hljs-operator">~-</span> <span class="hljs-operator">~+</span>
 
-? ^ !
-!= ==
-&amp; &amp;&amp;
+<span class="hljs-operator">?</span> <span class="hljs-operator">^</span> <span class="hljs-operator">!</span>
+<span class="hljs-operator">!=</span> <span class="hljs-operator">==</span>
+<span class="hljs-operator">&amp;</span> <span class="hljs-operator">&amp;&amp;</span>
+
+<span class="hljs-keyword">let</span> array <span class="hljs-operator">=</span> [<span class="hljs-operator">|</span> <span class="hljs-number">0</span> <span class="hljs-operator">|</span>]
+<span class="hljs-keyword">let</span> anonymousRecord <span class="hljs-operator">=</span> {<span class="hljs-operator">|</span> x <span class="hljs-operator">=</span> <span class="hljs-number">42</span> <span class="hljs-operator">|</span>}
+<span class="hljs-keyword">let</span> range <span class="hljs-operator">=</span> [ <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0.</span><span class="hljs-number">.10</span> <span class="hljs-operator">-&gt;</span> i ]
+
+<span class="hljs-comment">// Custom operators</span>
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">+?</span>) (x<span class="hljs-operator">:</span> <span class="hljs-type">int</span>) (y<span class="hljs-operator">:</span> <span class="hljs-type">int</span>) <span class="hljs-operator">=</span> x <span class="hljs-operator">+</span> <span class="hljs-number">2</span><span class="hljs-operator">*</span>y
+<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%d&quot;</span> (<span class="hljs-number">10</span> <span class="hljs-operator">+?</span> <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&lt;!&gt;</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;U</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;T&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> Map.Invoke f x
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&lt;&lt;|</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;U</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;T&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> Map.Invoke f x
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">|&gt;&gt;</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;T&gt;``</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;U</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> Map.Invoke f x
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&lt;*&gt;</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;T -&gt; &#x27;U&gt;``</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;T&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> Apply.Invoke f x
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> ( <span class="hljs-operator">*&gt;</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;T&gt;``</span>) (y<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;U&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> ((<span class="hljs-keyword">fun</span> (_<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span>) (k<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;U</span>) <span class="hljs-operator">-&gt;</span> k) <span class="hljs-operator">&lt;!&gt;</span>  x <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;U-&gt;&#x27;U&gt;``</span>) <span class="hljs-operator">&lt;*&gt;</span> y
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&lt;*</span>  ) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;U&gt;``</span>) (y<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;T&gt;``</span>)<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> ((<span class="hljs-keyword">fun</span> (k<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;U</span>) (_<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span>) <span class="hljs-operator">-&gt;</span> k ) <span class="hljs-operator">&lt;!&gt;</span> x <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;T-&gt;&#x27;U&gt;``</span>) <span class="hljs-operator">&lt;*&gt;</span> y
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&lt;**&gt;</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;T&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;T -&gt; &#x27;U&gt;``</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;``Applicative&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> flip (<span class="hljs-operator">&lt;*&gt;</span>) x
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&gt;&gt;=</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Monad&lt;&#x27;T&gt;``</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;``Monad&lt;&#x27;U&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Monad&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> Bind.Invoke x f
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">=&lt;&lt;</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;``Monad&lt;&#x27;U&gt;``</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Monad&lt;&#x27;T&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Monad&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> Bind.Invoke x f
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&gt;=&gt;</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;``Monad&lt;&#x27;U&gt;``</span>) (g<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;U</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;``Monad&lt;&#x27;V&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">&#x27;``Monad&lt;&#x27;V&gt;``</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> Bind.Invoke (f x) g
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&lt;=&lt;</span>) (g<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;b</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;``Monad&lt;&#x27;V&gt;``</span>) (f<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;``Monad&lt;&#x27;U&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;T</span> <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">&#x27;``Monad&lt;&#x27;V&gt;``</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">fun</span> x <span class="hljs-operator">-&gt;</span> Bind.Invoke (f x) g
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">++</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;Monoid</span>) (y<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;Monoid</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;Monoid</span> <span class="hljs-operator">=</span> Plus.Invoke x y
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">&lt;|&gt;</span>) (x<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;T&gt;``</span>) (y<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;T&gt;``</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Functor&lt;&#x27;T&gt;``</span> <span class="hljs-operator">=</span> Append.Invoke x y
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">inline</span> (<span class="hljs-operator">=&gt;&gt;</span>) (s<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Comonad&lt;&#x27;T&gt;``</span>) (g<span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Comonad&lt;&#x27;T&gt;``</span><span class="hljs-operator">-&gt;</span><span class="hljs-symbol">&#x27;U</span>) <span class="hljs-operator">:</span> <span class="hljs-symbol">&#x27;``Comonad&lt;&#x27;U&gt;``</span> <span class="hljs-operator">=</span> Extend.Invoke g s
+
+<span class="hljs-comment">// Code quotation</span>
 
 <span class="hljs-keyword">open</span> Microsoft.FSharp.Quotations
 <span class="hljs-comment">// A typed code quotation.</span>
-<span class="hljs-keyword">let</span> expr : Expr&lt;<span class="hljs-type">int</span>&gt; = &lt;@ <span class="hljs-number">1</span> + <span class="hljs-number">1</span> @&gt;
+<span class="hljs-keyword">let</span> expr <span class="hljs-operator">:</span> Expr<span class="hljs-operator">&lt;</span><span class="hljs-type">int</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">=</span> <span class="hljs-operator">&lt;@</span> <span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-operator">@&gt;</span>
 <span class="hljs-comment">// An untyped code quotation.</span>
-<span class="hljs-keyword">let</span> expr2 : Expr = &lt;@@ <span class="hljs-number">1</span> + <span class="hljs-number">1</span> @@&gt;
+<span class="hljs-keyword">let</span> expr2 <span class="hljs-operator">:</span> Expr <span class="hljs-operator">=</span> <span class="hljs-operator">&lt;@@</span> <span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-operator">@@&gt;</span>
+
+<span class="hljs-comment">// Active patterns</span>
+
+<span class="hljs-keyword">let</span> (<span class="hljs-operator">|</span>Integer<span class="hljs-operator">|</span>_<span class="hljs-operator">|</span>) (str<span class="hljs-operator">:</span> <span class="hljs-type">string</span>) <span class="hljs-operator">=</span>
+   <span class="hljs-keyword">let</span> <span class="hljs-keyword">mutable</span> intvalue <span class="hljs-operator">=</span> <span class="hljs-number">0</span>
+   <span class="hljs-keyword">if</span> System.Int32.TryParse(str, <span class="hljs-operator">&amp;</span>intvalue) <span class="hljs-keyword">then</span> <span class="hljs-literal">Some</span>(intvalue)
+   <span class="hljs-keyword">else</span> <span class="hljs-literal">None</span>
+
+<span class="hljs-keyword">let</span> (<span class="hljs-operator">|</span>Even<span class="hljs-operator">|</span>Odd<span class="hljs-operator">|</span>) input <span class="hljs-operator">=</span> <span class="hljs-keyword">if</span> input <span class="hljs-operator">%</span> <span class="hljs-number">2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span> <span class="hljs-keyword">then</span> Even <span class="hljs-keyword">else</span> Odd
+<span class="hljs-comment">//</span>

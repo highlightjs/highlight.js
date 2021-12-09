@@ -21,8 +21,57 @@
 != ==
 & &&
 
+let array = [| 0 |]
+let anonymousRecord = {| x = 42 |}
+let range = [ for i in 0..10 -> i ]
+
+// Custom operators
+
+let inline (+?) (x: int) (y: int) = x + 2*y
+printf "%d" (10 +? 1)
+
+let inline (<!>) (f: 'T->'U) (x: '``Functor<'T>``) : '``Functor<'U>`` = Map.Invoke f x
+
+let inline (<<|) (f: 'T->'U) (x: '``Functor<'T>``) : '``Functor<'U>`` = Map.Invoke f x
+
+let inline (|>>) (x: '``Functor<'T>``) (f: 'T->'U) : '``Functor<'U>`` = Map.Invoke f x
+
+let inline (<*>) (f: '``Applicative<'T -> 'U>``) (x: '``Applicative<'T>``) : '``Applicative<'U>`` = Apply.Invoke f x
+
+let inline ( *>) (x: '``Applicative<'T>``) (y: '``Applicative<'U>``) : '``Applicative<'U>`` = ((fun (_: 'T) (k: 'U) -> k) <!>  x : '``Applicative<'U->'U>``) <*> y
+
+let inline (<*  ) (x: '``Applicative<'U>``) (y: '``Applicative<'T>``): '``Applicative<'U>`` = ((fun (k: 'U) (_: 'T) -> k ) <!> x : '``Applicative<'T->'U>``) <*> y
+
+let inline (<**>) (x: '``Applicative<'T>``) : '``Applicative<'T -> 'U>``->'``Applicative<'U>`` = flip (<*>) x
+
+let inline (>>=) (x: '``Monad<'T>``) (f: 'T->'``Monad<'U>``) : '``Monad<'U>`` = Bind.Invoke x f
+
+let inline (=<<) (f: 'T->'``Monad<'U>``) (x: '``Monad<'T>``) : '``Monad<'U>`` = Bind.Invoke x f
+
+let inline (>=>) (f: 'T->'``Monad<'U>``) (g: 'U->'``Monad<'V>``) : 'T -> '``Monad<'V>`` = fun x -> Bind.Invoke (f x) g
+
+let inline (<=<) (g: 'b->'``Monad<'V>``) (f: 'T->'``Monad<'U>``) : 'T -> '``Monad<'V>`` = fun x -> Bind.Invoke (f x) g
+
+let inline (++) (x: 'Monoid) (y: 'Monoid) : 'Monoid = Plus.Invoke x y
+
+let inline (<|>) (x: '``Functor<'T>``) (y: '``Functor<'T>``) : '``Functor<'T>`` = Append.Invoke x y
+
+let inline (=>>) (s: '``Comonad<'T>``) (g: '``Comonad<'T>``->'U) : '``Comonad<'U>`` = Extend.Invoke g s
+
+// Code quotation
+
 open Microsoft.FSharp.Quotations
 // A typed code quotation.
 let expr : Expr<int> = <@ 1 + 1 @>
 // An untyped code quotation.
 let expr2 : Expr = <@@ 1 + 1 @@>
+
+// Active patterns
+
+let (|Integer|_|) (str: string) =
+   let mutable intvalue = 0
+   if System.Int32.TryParse(str, &intvalue) then Some(intvalue)
+   else None
+
+let (|Even|Odd|) input = if input % 2 = 0 then Even else Odd
+//
