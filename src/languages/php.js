@@ -71,36 +71,210 @@ export default function(hljs) {
     ],
     relevance: 0
   };
-  const KEYWORDS = {
-    keyword:
+  const LITERALS = [
+    "false",
+    "null",
+    "true"
+  ];
+  const KWS = [
     // Magic constants:
     // <https://www.php.net/manual/en/language.constants.predefined.php>
-    '__CLASS__ __DIR__ __FILE__ __FUNCTION__ __LINE__ __METHOD__ __NAMESPACE__ __TRAIT__ ' +
+    "__CLASS__",
+    "__DIR__",
+    "__FILE__",
+    "__FUNCTION__",
+    "__LINE__",
+    "__METHOD__",
+    "__NAMESPACE__",
+    "__TRAIT__",
     // Function that look like language construct or language construct that look like function:
     // List of keywords that may not require parenthesis
-    'die echo exit include include_once print require require_once ' +
+    "die",
+    "echo",
+    "exit",
+    "include",
+    "include_once",
+    "print",
+    "require",
+    "require_once",
     // These are not language construct (function) but operate on the currently-executing function and can access the current symbol table
     // 'compact extract func_get_arg func_get_args func_num_args get_called_class get_parent_class ' +
     // Other keywords:
     // <https://www.php.net/manual/en/reserved.php>
     // <https://www.php.net/manual/en/language.types.type-juggling.php>
-    'array abstract and as binary bool boolean break callable case catch class clone const continue declare ' +
-    'default do double else elseif empty enddeclare endfor endforeach endif endswitch endwhile enum eval extends ' +
-    'final finally float for foreach from global goto if implements instanceof insteadof int integer interface ' +
-    'isset iterable list match|0 mixed new object or private protected public real return string switch throw trait ' +
-    'try unset use var void while xor yield',
-    literal: 'false null true',
-    built_in:
+    "array",
+    "abstract",
+    "and",
+    "as",
+    "binary",
+    "bool",
+    "boolean",
+    "break",
+    "callable",
+    "case",
+    "catch",
+    "class",
+    "clone",
+    "const",
+    "continue",
+    "declare",
+    "default",
+    "do",
+    "double",
+    "else",
+    "elseif",
+    "empty",
+    "enddeclare",
+    "endfor",
+    "endforeach",
+    "endif",
+    "endswitch",
+    "endwhile",
+    "enum",
+    "eval",
+    "extends",
+    "final",
+    "finally",
+    "float",
+    "for",
+    "foreach",
+    "from",
+    "global",
+    "goto",
+    "if",
+    "implements",
+    "instanceof",
+    "insteadof",
+    "int",
+    "integer",
+    "interface",
+    "isset",
+    "iterable",
+    "list",
+    "match|0",
+    "mixed",
+    "new",
+    "object",
+    "or",
+    "private",
+    "protected",
+    "public",
+    "real",
+    "return",
+    "string",
+    "switch",
+    "throw",
+    "trait",
+    "try",
+    "unset",
+    "use",
+    "var",
+    "void",
+    "while",
+    "xor",
+    "yield"
+  ];
+
+  const BUILT_INS = [
     // Standard PHP library:
     // <https://www.php.net/manual/en/book.spl.php>
-    'Error|0 ' + // error is too common a name esp since PHP is case in-sensitive
-    'AppendIterator ArgumentCountError ArithmeticError ArrayIterator ArrayObject AssertionError BadFunctionCallException BadMethodCallException CachingIterator CallbackFilterIterator CompileError Countable DirectoryIterator DivisionByZeroError DomainException EmptyIterator ErrorException Exception FilesystemIterator FilterIterator GlobIterator InfiniteIterator InvalidArgumentException IteratorIterator LengthException LimitIterator LogicException MultipleIterator NoRewindIterator OutOfBoundsException OutOfRangeException OuterIterator OverflowException ParentIterator ParseError RangeException RecursiveArrayIterator RecursiveCachingIterator RecursiveCallbackFilterIterator RecursiveDirectoryIterator RecursiveFilterIterator RecursiveIterator RecursiveIteratorIterator RecursiveRegexIterator RecursiveTreeIterator RegexIterator RuntimeException SeekableIterator SplDoublyLinkedList SplFileInfo SplFileObject SplFixedArray SplHeap SplMaxHeap SplMinHeap SplObjectStorage SplObserver SplObserver SplPriorityQueue SplQueue SplStack SplSubject SplSubject SplTempFileObject TypeError UnderflowException UnexpectedValueException UnhandledMatchError ' +
+    "Error|0",
+    "AppendIterator",
+    "ArgumentCountError",
+    "ArithmeticError",
+    "ArrayIterator",
+    "ArrayObject",
+    "AssertionError",
+    "BadFunctionCallException",
+    "BadMethodCallException",
+    "CachingIterator",
+    "CallbackFilterIterator",
+    "CompileError",
+    "Countable",
+    "DirectoryIterator",
+    "DivisionByZeroError",
+    "DomainException",
+    "EmptyIterator",
+    "ErrorException",
+    "Exception",
+    "FilesystemIterator",
+    "FilterIterator",
+    "GlobIterator",
+    "InfiniteIterator",
+    "InvalidArgumentException",
+    "IteratorIterator",
+    "LengthException",
+    "LimitIterator",
+    "LogicException",
+    "MultipleIterator",
+    "NoRewindIterator",
+    "OutOfBoundsException",
+    "OutOfRangeException",
+    "OuterIterator",
+    "OverflowException",
+    "ParentIterator",
+    "ParseError",
+    "RangeException",
+    "RecursiveArrayIterator",
+    "RecursiveCachingIterator",
+    "RecursiveCallbackFilterIterator",
+    "RecursiveDirectoryIterator",
+    "RecursiveFilterIterator",
+    "RecursiveIterator",
+    "RecursiveIteratorIterator",
+    "RecursiveRegexIterator",
+    "RecursiveTreeIterator",
+    "RegexIterator",
+    "RuntimeException",
+    "SeekableIterator",
+    "SplDoublyLinkedList",
+    "SplFileInfo",
+    "SplFileObject",
+    "SplFixedArray",
+    "SplHeap",
+    "SplMaxHeap",
+    "SplMinHeap",
+    "SplObjectStorage",
+    "SplObserver",
+    "SplObserver",
+    "SplPriorityQueue",
+    "SplQueue",
+    "SplStack",
+    "SplSubject",
+    "SplSubject",
+    "SplTempFileObject",
+    "TypeError",
+    "UnderflowException",
+    "UnexpectedValueException",
+    "UnhandledMatchError",
     // Reserved interfaces:
     // <https://www.php.net/manual/en/reserved.interfaces.php>
-    'ArrayAccess Closure Generator Iterator IteratorAggregate Serializable Stringable Throwable Traversable WeakReference WeakMap ' +
+    "ArrayAccess",
+    "Closure",
+    "Generator",
+    "Iterator",
+    "IteratorAggregate",
+    "Serializable",
+    "Stringable",
+    "Throwable",
+    "Traversable",
+    "WeakReference",
+    "WeakMap",
     // Reserved classes:
     // <https://www.php.net/manual/en/reserved.classes.php>
-    'Directory __PHP_Incomplete_Class parent php_user_filter self static stdClass'
+    "Directory",
+    "__PHP_Incomplete_Class",
+    "parent",
+    "php_user_filter",
+    "self",
+    "static",
+    "stdClass"
+  ];
+
+  const KEYWORDS = {
+    keyword: KWS,
+    literal: LITERALS,
+    built_in: BUILT_INS
   };
   return {
     case_insensitive: true,
