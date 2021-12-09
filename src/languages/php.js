@@ -56,11 +56,11 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     variants: [
-      { begin: `\\b0b[01]+(?:_[01]+)*\\b` }, // Binary w/ underscore support
-      { begin: `\\b0o[0-7]+(?:_[0-7]+)*\\b` }, // Octals w/ underscore support
-      { begin: `\\b0x[\\da-f]+(?:_[\\da-f]+)*\\b` }, // Hex w/ underscore support
+      { begin: `\\b0[bB][01]+(?:_[01]+)*\\b` }, // Binary w/ underscore support
+      { begin: `\\b0[oO][0-7]+(?:_[0-7]+)*\\b` }, // Octals w/ underscore support
+      { begin: `\\b0[xX][\\da-fA-F]+(?:_[\\da-fA-F]+)*\\b` }, // Hex w/ underscore support
       // Decimals w/ underscore support, with optional fragments and scientific exponent (e) suffix.
-      { begin: `(?:\\b\\d+(?:_\\d+)*(\\.(?:\\d+(?:_\\d+)*))?|\\B\\.\\d+)(?:e[+-]?\\d+)?` }
+      { begin: `(?:\\b\\d+(?:_\\d+)*(\\.(?:\\d+(?:_\\d+)*))?|\\B\\.\\d+)(?:[eE][+-]?\\d+)?` }
     ],
     relevance: 0
   };
@@ -269,7 +269,7 @@ export default function(hljs) {
     built_in: BUILT_INS
   };
   return {
-    case_insensitive: true,
+    case_insensitive: false,
     keywords: KEYWORDS,
     contains: [
       hljs.HASH_COMMENT_MODE,
