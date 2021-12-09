@@ -5,10 +5,6 @@ const css = require("css");
 const wcagContrast = require("wcag-contrast");
 const Table = require('cli-table');
 const csscolors = require('css-color-names');
-// const colors = require('colors/safe.js');
-
-
-
 require("colors");
 
 const CODE = {
