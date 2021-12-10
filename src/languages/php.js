@@ -288,14 +288,21 @@ export default function(hljs) {
           ]
         }
       ),
-      hljs.COMMENT(
-        '__halt_compiler.+?;',
-        null,
-        {
-          endsWithParent: true,
-          keywords: '__halt_compiler'
+      {
+        match: /__halt_compiler\(\);/,
+        keywords: '__halt_compiler',
+        starts: {
+          scope: "comment",
+          end: hljs.MATCH_NOTHING_RE,
+          contains: [
+            {
+              match: /\?>/,
+              scope: "meta",
+              endsParent: true
+            }
+          ]
         }
-      ),
+      },
       PREPROCESSOR,
       {
         className: 'variable.language',
