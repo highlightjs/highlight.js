@@ -48,14 +48,6 @@ export default function(hljs) {
   const STRING = {
     className: 'string',
     variants: [
-      hljs.inherit(SINGLE_QUOTED, {
-        begin: "b'",
-        end: "'",
-      }),
-      hljs.inherit(DOUBLE_QUOTED, {
-        begin: 'b"',
-        end: '"',
-      }),
       DOUBLE_QUOTED,
       SINGLE_QUOTED,
       HEREDOC
