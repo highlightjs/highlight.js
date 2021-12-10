@@ -76,6 +76,7 @@ export default function(hljs) {
     "__DIR__",
     "__FILE__",
     "__FUNCTION__",
+    "__COMPILER_HALT_OFFSET__",
     "__LINE__",
     "__METHOD__",
     "__NAMESPACE__",
@@ -289,7 +290,7 @@ export default function(hljs) {
       ),
       hljs.COMMENT(
         '__halt_compiler.+?;',
-        false,
+        null,
         {
           endsWithParent: true,
           keywords: '__halt_compiler'
