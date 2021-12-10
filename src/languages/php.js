@@ -305,7 +305,8 @@ export default function(hljs) {
       ),
       PREPROCESSOR,
       {
-        className: 'keyword', begin: /\$this\b/
+        className: 'variable.language',
+        begin: /\$this\b/
       },
       VARIABLE,
       {
