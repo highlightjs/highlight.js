@@ -9,6 +9,9 @@ These changes should be for the better and should not be super noticeable but if
 
 Grammars:
 
+- enh(php) improve `namespace` and `use` highlighting (#3427) [Josh Goebel][]
+- enh(php) `$this` is a `variable.language` now (#3427) [Josh Goebel][]
+- enh(php) add `__COMPILER_HALT_OFFSET__` (#3427) [Josh Goebel][]
 - enh(js/ts) fix => async function title highlights (#3405) [Josh Goebel][]
 - enh(twig) update keywords list (#3415) [Matthieu Lempereur][]
 - fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]

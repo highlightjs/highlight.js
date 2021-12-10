@@ -6,3 +6,4 @@ use ArrayObject;
 use function My\Full\functionName;
 use function My\Full\functionName as func;
 use const My\Full\CONSTANT;
+use Example\{ClassA, ClassB, ClassC as C};
