@@ -47,13 +47,14 @@ export default function(hljs) {
   });
   const STRING = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE, PREPROCESSOR],
     variants: [
       hljs.inherit(SINGLE_QUOTED, {
-        begin: "b'", end: "'",
+        begin: "b'",
+        end: "'",
       }),
       hljs.inherit(DOUBLE_QUOTED, {
-        begin: 'b"', end: '"',
+        begin: 'b"',
+        end: '"',
       }),
       DOUBLE_QUOTED,
       SINGLE_QUOTED,
