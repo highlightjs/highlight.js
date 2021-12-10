@@ -263,9 +263,30 @@ export default function(hljs) {
     "stdClass"
   ];
 
+  /** Dual-case keywords
+   *
+   * ["then","FILE"] =>
+   *     ["then", "THEN", "FILE", "file"]
+   *
+   * @param {string[]} items */
+  const dualCase = (items) => {
+    /** @type string[] */
+    const result = [];
+    items.forEach(item => {
+      if (item.toLowerCase() === item) {
+        result.push(item);
+        result.push(item.toUpperCase());
+      } else {
+        result.push(item);
+        result.push(item.toLowerCase());
+      }
+    });
+    return result;
+  };
+
   const KEYWORDS = {
     keyword: KWS,
-    literal: LITERALS,
+    literal: dualCase(LITERALS),
     built_in: BUILT_INS
   };
   return {
