@@ -145,8 +145,8 @@ The table below shows the full list of languages (and corresponding classes/alia
 | PHP                     | php                    |         |
 | Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
-| Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
 | Perl                    | perl, pl, pm           |         |
+| Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
