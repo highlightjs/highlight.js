@@ -6,3 +6,13 @@
 <span class="hljs-variable">$fn2</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$x</span></span>) <span class="hljs-keyword">use</span> (<span class="hljs-params"><span class="hljs-variable">$y</span></span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-variable">$x</span> + <span class="hljs-variable">$y</span>;
 };
+
+<span class="hljs-comment">/**
+ * Function invoke
+ */</span>
+<span class="hljs-variable">$date</span> = new DateTimeImmutable ();
+<span class="hljs-variable">$date</span>-&gt;<span class="hljs-function title_ invoke__">format</span>(<span class="hljs-string">&#x27;Y-m-d&#x27;</span>);
+
+DateTimeImmutable::<span class="hljs-function title_ invoke__">createFromMutable</span>(new \DateTime());
+
+<span class="hljs-function title_ invoke__">str_contains</span> (\<span class="hljs-function title_ invoke__">strtoupper</span>(<span class="hljs-function title_ invoke__">substr</span>(<span class="hljs-string">&#x27;abcdef&#x27;</span>, -<span class="hljs-number">2</span>), <span class="hljs-string">&#x27;f&#x27;</span>));
