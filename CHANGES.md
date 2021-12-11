@@ -1,5 +1,8 @@
 ## Version 11.4 (most likely)
 
+New Language:
+- Added Pine Script language support [JeylaniB][]
+
 Themes:
 
 - `Default` is now much closer WCAG AA (contrast) (#3402) [Josh Goebel]
