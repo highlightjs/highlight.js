@@ -11,6 +11,7 @@ Category: common
  * @returns {LanguageDetail}
  * */
 export default function(hljs) {
+  const regex = hljs.regex;
   const VARIABLE = {
     className: 'variable',
     begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
@@ -145,7 +146,6 @@ export default function(hljs) {
     "isset",
     "iterable",
     "list",
-    "match|0",
     "mixed",
     "new",
     "object",
@@ -172,7 +172,6 @@ export default function(hljs) {
   const BUILT_INS = [
     // Standard PHP library:
     // <https://www.php.net/manual/en/book.spl.php>
-    "Error|0",
     "AppendIterator",
     "ArgumentCountError",
     "ArithmeticError",
@@ -273,11 +272,10 @@ export default function(hljs) {
     /** @type string[] */
     const result = [];
     items.forEach(item => {
+      result.push(item);
       if (item.toLowerCase() === item) {
-        result.push(item);
         result.push(item.toUpperCase());
       } else {
-        result.push(item);
         result.push(item.toLowerCase());
       }
     });
@@ -285,9 +283,23 @@ export default function(hljs) {
   };
 
   const KEYWORDS = {
-    keyword: KWS,
+    keyword: KWS.concat([ "match|0" ]),
     literal: dualCase(LITERALS),
-    built_in: BUILT_INS
+    built_in: BUILT_INS.concat([ "Error|0" ]),
+  };
+
+  const FUNCTION_INVOKE = {
+    relevance: 0,
+    match: [
+      /(?:->|::|\s|\(|\\)/,
+      regex.concat("(?!fn\\b|function\\b|match\\b|", KWS.join("\\b|"), "|", BUILT_INS.join("\\b|"), "\\b)"),
+      /\w+/,
+      /\s*/,
+      regex.lookahead(/(?=\()/)
+    ],
+    scope: {
+      3: "function.title.invoke",
+    }
   };
   return {
     case_insensitive: false,
@@ -328,9 +340,14 @@ export default function(hljs) {
         begin: /\$this\b/
       },
       VARIABLE,
+      FUNCTION_INVOKE,
       {
         // swallow composed identifiers to avoid parsing them as keywords
-        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/
+        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?!\()/
+      },
+      {
+        // swallow create object
+        begin: /new\s\\?[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\s?\(/
       },
       {
         className: 'function',
@@ -378,7 +395,7 @@ export default function(hljs) {
       },
       // both use and namespace still use "old style" rules (vs multi-match)
       // because the namespace name can include `\` and we still want each
-      // element to be treated as it's own *individual* title
+      // element to be treated as its own *individual* title
       {
         beginKeywords: 'namespace',
         relevance: 0,

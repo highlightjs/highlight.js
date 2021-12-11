@@ -6,3 +6,13 @@ $fn1 = fn($x) => $x + $y;
 $fn2 = function ($x) use ($y) {
     return $x + $y;
 };
+
+/**
+ * Function invoke
+ */
+$date = new DateTimeImmutable ();
+$date->format('Y-m-d');
+
+DateTimeImmutable::createFromMutable(new \DateTime());
+
+str_contains (\strtoupper(substr('abcdef', -2), 'f'));
