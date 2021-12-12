@@ -1,9 +1,8 @@
 ## Version 11.4 (most likely)
 
 New Language:
-- Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B][]
 
-[Jeylani B]: https://github.com/jeyllani
+- Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B][]
 
 Themes:
 
@@ -46,6 +45,7 @@ Themes:
 
 - Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
+[Jeylani B]: https://github.com/jeyllani
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
 [Melvyn Laïly]: https://github.com/mlaily
