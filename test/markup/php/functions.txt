@@ -13,6 +13,25 @@ $fn2 = function ($x) use ($y) {
 $date = new DateTimeImmutable ();
 $date->format('Y-m-d');
 
-DateTimeImmutable::createFromMutable(new \DateTime());
+DateTimeImmutable::createFromMutable(new \DateTime('now'));
 
 str_contains (\strtoupper(substr('abcdef', -2), 'f'));
+
+/**
+ * Function declaration
+ */
+function testMe(string|int $name): int
+{
+    if (empty($name)) {
+        return 0;
+    } elseif ($name === 1) {
+        return (int) $name;
+    }
+
+    switch($name) {
+        case '2':
+            return 2;
+        default:
+            throw new \Exception('error');
+    }
+}

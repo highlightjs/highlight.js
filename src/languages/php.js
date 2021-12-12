@@ -288,11 +288,31 @@ export default function(hljs) {
     built_in: BUILT_INS.concat([ "Error|0" ]),
   };
 
+  const CONSTRUCTOR_CALL = {
+    variants: [
+      {
+        match: [
+          /new/,
+          /\s+/,
+          // to prevent built ins from being confused as the class constructor call
+          regex.concat("(?!", BUILT_INS.join("\\b|"), "\\b)"),
+          /\\?\w+/,
+          /\s*\(/,
+        ],
+        scope: {
+          1: "keyword",
+          4: "title.class",
+        },
+      }
+    ]
+  };
+
   const FUNCTION_INVOKE = {
     relevance: 0,
     match: [
       /(?:->|::|\s|\(|\\)/,
-      regex.concat("(?!fn\\b|function\\b|match\\b|", KWS.join("\\b|"), "|", BUILT_INS.join("\\b|"), "\\b)"),
+      // to prevent keywords from being confused as the function title
+      regex.concat("(?!fn\\b|function\\b|match\\b|Error\\b|", KWS.join("\\b|"), "|", BUILT_INS.join("\\b|"), "\\b)"),
       /\w+/,
       /\s*/,
       regex.lookahead(/(?=\()/)
@@ -301,6 +321,7 @@ export default function(hljs) {
       3: "function.title.invoke",
     }
   };
+
   return {
     case_insensitive: false,
     keywords: KEYWORDS,
@@ -343,12 +364,9 @@ export default function(hljs) {
       FUNCTION_INVOKE,
       {
         // swallow composed identifiers to avoid parsing them as keywords
-        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?!\()/
+        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/
       },
-      {
-        // swallow create object
-        begin: /new\s\\?[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\s?\(/
-      },
+      CONSTRUCTOR_CALL,
       {
         className: 'function',
         relevance: 0,
