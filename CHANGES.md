@@ -1,7 +1,9 @@
 ## Version 11.4 (most likely)
 
 New Language:
-- Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B](https://github.com//jeyllani)
+- Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B][]
+
+[Jeylani B]: https://github.com/jeyllani
 
 Themes:
 
