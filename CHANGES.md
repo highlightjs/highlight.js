@@ -13,6 +13,9 @@ These changes should be for the better and should not be super noticeable but if
 
 Grammars:
 
+- enh(php) support class constructor call (#3427) [Wojciech Kania][]
+- enh(php) support function invoke (#3427) [Wojciech Kania][]
+- enh(php) Switch highlighter to partially case-insensitive (#3427) [Wojciech Kania][]
 - enh(php) improve `namespace` and `use` highlighting (#3427) [Josh Goebel][]
 - enh(php) `$this` is a `variable.language` now (#3427) [Josh Goebel][]
 - enh(php) add `__COMPILER_HALT_OFFSET__` (#3427) [Josh Goebel][]
