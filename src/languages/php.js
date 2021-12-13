@@ -146,6 +146,7 @@ export default function(hljs) {
     "isset",
     "iterable",
     "list",
+    "match|0",
     "mixed",
     "new",
     "object",
@@ -172,6 +173,7 @@ export default function(hljs) {
   const BUILT_INS = [
     // Standard PHP library:
     // <https://www.php.net/manual/en/book.spl.php>
+    "Error|0",
     "AppendIterator",
     "ArgumentCountError",
     "ArithmeticError",
@@ -283,9 +285,17 @@ export default function(hljs) {
   };
 
   const KEYWORDS = {
-    keyword: KWS.concat([ "match|0" ]),
+    keyword: KWS,
     literal: dualCase(LITERALS),
-    built_in: BUILT_INS.concat([ "Error|0" ]),
+    built_in: BUILT_INS,
+  };
+
+  /**
+   * @param {string[]} items */
+  const normalizeKeywords = (items) => {
+    return items.map(item => {
+      return item.replace(/\|\d+$/, "");
+    });
   };
 
   const CONSTRUCTOR_CALL = {
@@ -295,7 +305,7 @@ export default function(hljs) {
           /new/,
           /\s+/,
           // to prevent built ins from being confused as the class constructor call
-          regex.concat("(?!", BUILT_INS.join("\\b|"), "\\b)"),
+          regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
           /\\?\w+/,
           /\s*\(/,
         ],
@@ -312,7 +322,7 @@ export default function(hljs) {
     match: [
       /(?:->|::|\s|\(|\\)/,
       // to prevent keywords from being confused as the function title
-      regex.concat("(?!fn\\b|function\\b|match\\b|Error\\b|", KWS.join("\\b|"), "|", BUILT_INS.join("\\b|"), "\\b)"),
+      regex.concat("(?!fn\\b|function\\b|", normalizeKeywords(KWS).join("\\b|"), "|", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
       /\w+/,
       /\s*/,
       regex.lookahead(/(?=\()/)
