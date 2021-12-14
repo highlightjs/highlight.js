@@ -436,14 +436,6 @@ export default function(hljs) {
         }
       },
       {
-        // cannot ever have these endings with the ~
-        match: [
-          /~\s*/,
-          /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
-        ],
-        scope: { }
-      },
-      {
         // highlights distributions that end with special endings
         scope: 'built_in',
         keywords: DISTRIBUTIONS,

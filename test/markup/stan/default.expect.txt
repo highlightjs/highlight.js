@@ -1,5 +1,5 @@
 <span class="hljs-title">functions</span> {
-  <span class="hljs-meta">#include <span class="hljs-string">normal</span>_<span class="hljs-string">copula.stanfunctions</span></span>
+  <span class="hljs-meta">#include <span class="hljs-string">normal_copula.stanfunctions</span></span>
 }
 <span class="hljs-title">data</span> {
   <span class="hljs-type">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; N;
@@ -18,10 +18,10 @@
   <span class="hljs-type">cholesky_factor_corr</span>[K] L;
 }
 <span class="hljs-title">model</span> {
-  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">normal_lpdf</span>(x[ : , <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]);
-  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">gumbel_lpdf</span>(x[ : , <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]);
-  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">lognormal_lpdf</span>(x[ : , <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]);
-  <span class="hljs-keyword">target </span>+= <span class="hljs-built_in">weibull_lpdf</span>(x[ : , <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">normal_lpdf</span>(x[ : , <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">gumbel_lpdf</span>(x[ : , <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">lognormal_lpdf</span>(x[ : , <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">weibull_lpdf</span>(x[ : , <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]);
   
   {
     <span class="hljs-type">matrix</span>[K, N] y;
