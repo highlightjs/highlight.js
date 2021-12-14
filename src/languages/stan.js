@@ -436,6 +436,14 @@ export default function(hljs) {
         }
       },
       {
+        // cannot ever have these endings with the ~
+        match: [
+          /~\s*/,
+          /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+        ],
+        scope: { }
+      },
+      {
         // highlights distributions that end with special endings
         scope: 'built_in',
         keywords: DISTRIBUTIONS,
@@ -463,14 +471,6 @@ export default function(hljs) {
         // highlights user defined distributions with special endings
         scope: 'title.function',
         begin: /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
-      },
-      {
-        // cannot ever have these endings with the ~
-        match: [
-          /~\s*/,
-          /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
-        ],
-        scope: { 2: "no-highlight" }
       },
       {
         scope: 'number',
