@@ -457,7 +457,7 @@ export default function(hljs) {
       },
       {
         // cannot ever have these endings with the ~
-        begin: [
+        match: [
           /~\s*/,
           /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
         ],
@@ -465,7 +465,7 @@ export default function(hljs) {
       },
       {
         scope: 'number',
-        begin: regex.concat(
+        match: regex.concat(
           // Comes from @RunDevelopment accessed 11/29/2021 at
           // https://github.com/PrismJS/prism/blob/c53ad2e65b7193ab4f03a1797506a54bbb33d5a2/components/prism-stan.js#L56
 
