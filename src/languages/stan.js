@@ -7,7 +7,7 @@ Category: scientific
 */
 
 export default function(hljs) {
-  const regex = regex;
+  const regex = hljs.regex;
   // variable names cannot conflict with block identifiers
   const BLOCKS = [
     'functions',
@@ -410,7 +410,7 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       BLOCK_COMMENT,
       {
-        scope: 'symbol',
+        scope: 'built_in',
         match: /\s(pi|e|sqrt2|log2|log10)(?=\()/,
         relevance: 0
       },
@@ -436,30 +436,36 @@ export default function(hljs) {
         }
       },
       {
-        // highlights distributrions that end with special endings
+        // highlights distributions that end with special endings
         scope: 'built_in',
-        match: /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+        keywords: DISTRIBUTIONS,
+        begin: regex.concat(/\w*/, regex.either(...DISTRIBUTIONS), /(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/)
       },
       {
-        // cannot ever have these endings with the ~
-        match: [
-          /~\s*/,
-          /\w+(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
-        ],
-        scope: { 2: "illegal" }
-      },
-      {
-        // highlights user defined distributions
-        match: [
+        // highlights user defined distributions after ~
+        begin: [
           /~/,
           /\s*/,
           /\w+(?=\s*[\(.*\)])/
         ],
-        scope: { 3: "built_in" },
+        scope: { 3: "title.function" },
+      },
+      {
+        // highlights user defined distributions with special endings
+        scope: 'title.function',
+        begin: /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+      },
+      {
+        // cannot ever have these endings with the ~
+        begin: [
+          /~\s*/,
+          /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+        ],
+        scope: { 2: "no-highlight" }
       },
       {
         scope: 'number',
-        match: regex.concat(
+        begin: regex.concat(
           // Comes from @RunDevelopment accessed 11/29/2021 at
           // https://github.com/PrismJS/prism/blob/c53ad2e65b7193ab4f03a1797506a54bbb33d5a2/components/prism-stan.js#L56
 
