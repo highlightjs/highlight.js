@@ -1,1 +1,1 @@
-<span class="hljs-template-variable">{{ &quot;string with spaces&quot;|<span class="hljs-keyword">url_encode</span> }}</span>
+<span class="hljs-template-variable">{{ <span class="hljs-string">&quot;string with spaces&quot;</span><span class="hljs-punctuation">|</span><span class="hljs-keyword">url_encode</span> }}</span>

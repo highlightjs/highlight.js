@@ -1,12 +1,33 @@
-## Version 11.3.2 (most likely)
+## Version 11.4 (most likely)
+
+New Language:
+
+- Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B][]
+
+Themes:
+
+- `Default` is now much closer WCAG AA (contrast) (#3402) [Josh Goebel]
+- `Dark` now meets WCAG AA (contrast) (#3402) [Josh Goebel]
+
+These changes should be for the better and should not be super noticeable but if you're super picky about your colors you may want to intervene here or copy over the older themes from 11.3 or prior.
 
 Grammars:
 
+- enh(php) improve `namespace` and `use` highlighting (#3427) [Josh Goebel][]
+- enh(php) `$this` is a `variable.language` now (#3427) [Josh Goebel][]
+- enh(php) add `__COMPILER_HALT_OFFSET__` (#3427) [Josh Goebel][]
+- enh(js/ts) fix => async function title highlights (#3405) [Josh Goebel][]
+- enh(twig) update keywords list (#3415) [Matthieu Lempereur][]
 - fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
 - fix(fsharp) Highlight operators, match type names only in type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- enh(js/ts) improve `CLASS_REFERENCE` (#3411) [Josh Goebel][]
+- enh(nsis) Update defines pattern to allow `!` (#3417) [idleberg][]
+- enh(nsis) Update language strings pattern to allow `!` (#3420) [idleberg][]
+- fix(stan) Updated for Stan 2.28 and other misc. improvements (#3410)
+- enh(nsis) Update variables pattern (#3416) [idleberg][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
   - fix(clojure) `comment` macro catches more than it should (#3395)
   - fix(clojure) `$` in symbol breaks highlighting
@@ -16,7 +37,6 @@ Grammars:
   - enh(clojure) Add `regex` mode to regex literal
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
-  - fix(stan) Updated for Stan 2.28 and other misc. improvements (#3410)
 
 Developer Tools:
 
@@ -26,13 +46,15 @@ Themes:
 
 - Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
+[Jeylani B]: https://github.com/jeyllani
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
 [Melvyn Laïly]: https://github.com/mlaily
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
 [Josh Goebel]: https://github.com/joshgoebel
 [Samia Ali]: https://github.com/samiaab1990
-
+[Matthieu Lempereur]: https://github.com/MrYamous
+[idleberg]: https://github.com/idleberg
 
 ## Version 11.3.1
 
