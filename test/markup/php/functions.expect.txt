@@ -35,3 +35,9 @@ DateTimeImmutable::<span class="hljs-function title_ invoke__">createFromMutable
             <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">\Exception</span>(<span class="hljs-string">&#x27;error&#x27;</span>);
     }
 }
+
+<span class="hljs-comment">/**
+ * First-class Callable Syntax
+ */</span>
+<span class="hljs-variable">$fun</span> = <span class="hljs-function title_ invoke__">mb_strlen</span>();
+<span class="hljs-variable">$fun</span>();

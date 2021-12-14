@@ -13,6 +13,7 @@ These changes should be for the better and should not be super noticeable but if
 
 Grammars:
 
+- enh(php) support First-class Callable Syntax (#3427) [Wojciech Kania][]
 - enh(php) support class constructor call (#3427) [Wojciech Kania][]
 - enh(php) support function invoke (#3427) [Wojciech Kania][]
 - enh(php) Switch highlighter to partially case-insensitive (#3427) [Wojciech Kania][]
@@ -49,6 +50,7 @@ Themes:
 
 - Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
+[Wojciech Kania]: https://github.com/wkania
 [Jeylani B]: https://github.com/jeyllani
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
