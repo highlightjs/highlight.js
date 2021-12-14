@@ -420,7 +420,7 @@ export default function(hljs) {
       },
       {
         scope: 'keyword',
-        match: /\btarget\s*(?=\+=)/,
+        match: /\btarget(?=\s*\+=)/,
       },
       {
         // highlights the 'T' in T[,] for only Stan language distributrions
