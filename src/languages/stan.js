@@ -442,13 +442,22 @@ export default function(hljs) {
         begin: regex.concat(/\w*/, regex.either(...DISTRIBUTIONS), /(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/)
       },
       {
-        // highlights user defined distributions after ~
+        // highlights distributions after ~
         begin: [
           /~/,
           /\s*/,
-          /\w+(?=\s*[\(.*\)])/
+          regex.concat(regex.either(...DISTRIBUTIONS), /(?=\s*[\(.*\)])/)
         ],
-        scope: { 3: "title.function" },
+        scope: { 3: "built_in" }
+      },
+      {
+        // highlights user defined distributions after ~
+        begin: [
+          /~/,
+          /\s*\w+(?=\s*[\(.*\)])/,
+          '(?!.*/\b(' + regex.either(...DISTRIBUTIONS) + ')\b)'
+        ],
+        scope: { 2: "title.function" }
       },
       {
         // highlights user defined distributions with special endings
