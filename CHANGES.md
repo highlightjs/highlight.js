@@ -26,6 +26,8 @@ Grammars:
 - enh(js/ts) improve `CLASS_REFERENCE` (#3411) [Josh Goebel][]
 - enh(nsis) Update defines pattern to allow `!` (#3417) [idleberg][]
 - enh(nsis) Update language strings pattern to allow `!` (#3420) [idleberg][]
+- fix(stan) Updated for Stan 2.28 and other misc. improvements (#3410)
+- enh(nsis) Update variables pattern (#3416) [idleberg][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
   - fix(clojure) `comment` macro catches more than it should (#3395)
   - fix(clojure) `$` in symbol breaks highlighting
@@ -35,7 +37,6 @@ Grammars:
   - enh(clojure) Add `regex` mode to regex literal
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
-  - enh(nsis) Update variables pattern (#3416) [idleberg][]
 
 Developer Tools:
 

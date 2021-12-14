@@ -1,39 +1,40 @@
-<span class="hljs-comment">// Multivariate Regression Example</span>
-<span class="hljs-comment">// Taken from stan-reference-2.8.0.pdf p.66</span>
-
-<span class="hljs-title">data</span> {
-  <span class="hljs-keyword">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; N;             <span class="hljs-comment">// num individuals</span>
-  <span class="hljs-keyword">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">1</span>&gt; K;             <span class="hljs-comment">// num ind predictors</span>
-  <span class="hljs-keyword">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">1</span>&gt; J;             <span class="hljs-comment">// num groups</span>
-  <span class="hljs-keyword">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">1</span>&gt; L;             <span class="hljs-comment">// num group predictors</span>
-  <span class="hljs-keyword">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">1</span>,<span class="hljs-keyword">upper</span>=J&gt; jj[N]; <span class="hljs-comment">// group for individual</span>
-  <span class="hljs-keyword">matrix</span>[N,K] x;              <span class="hljs-comment">// individual predictors</span>
-  <span class="hljs-keyword">row_vector</span>[L] u[J];         <span class="hljs-comment">// group predictors</span>
-  <span class="hljs-keyword">vector</span>[N] y;                <span class="hljs-comment">// outcomes</span>
+<span class="hljs-title">functions</span> {
+  <span class="hljs-meta">#include <span class="hljs-string">normal_copula.stanfunctions</span></span>
 }
+<span class="hljs-title">data</span> {
+  <span class="hljs-type">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; N;
+  <span class="hljs-type">int</span> K;
+  <span class="hljs-type">matrix</span>[N, K] x;
+}
+<span class="hljs-title">transformed</span> <span class="hljs-title">data</span> {
+    <span class="hljs-type">complex</span> zi = <span class="hljs-number">1</span>+<span class="hljs-number">3.14i</span>;
+    zi = zi * <span class="hljs-number">0i</span>;
+    <span class="hljs-type">complex</span> yi = <span class="hljs-built_in">to_complex</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1.1</span>) + <span class="hljs-built_in">to_complex</span>(<span class="hljs-number">0.0</span>, <span class="hljs-number">2.2</span>) + <span class="hljs-built_in">to_complex</span>();
+    <span class="hljs-type">real</span> x = <span class="hljs-built_in">get_real</span>(<span class="hljs-number">3i</span> - <span class="hljs-number">40e-3i</span> + <span class="hljs-number">1e10i</span>);
+}›
 <span class="hljs-title">parameters</span> {
-  <span class="hljs-keyword">corr_matrix</span>[K] Omega;       <span class="hljs-comment">// prior correlation</span>
-  <span class="hljs-keyword">vector</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt;[K] tau;     <span class="hljs-comment">// prior scale</span>
-  <span class="hljs-keyword">matrix</span>[L,K] gamma;          <span class="hljs-comment">// group coeffs</span>
-  <span class="hljs-keyword">vector</span>[K] beta[J];          <span class="hljs-comment">// indiv coeffs by group</span>
-  <span class="hljs-keyword">real</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; sigma;        <span class="hljs-comment">// prediction error scale</span>
+  <span class="hljs-type">array</span>[K - <span class="hljs-number">1</span>] <span class="hljs-type">real</span> mu;
+  <span class="hljs-type">array</span>[K + <span class="hljs-number">1</span>] <span class="hljs-type">real</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; sigma;
+  <span class="hljs-type">cholesky_factor_corr</span>[K] L;
 }
 <span class="hljs-title">model</span> {
-  tau ~ <span class="hljs-keyword">cauchy</span>(<span class="hljs-number">0</span>,<span class="hljs-number">2.5</span>);
-  Omega ~ <span class="hljs-keyword">lkj_corr</span>(<span class="hljs-number">2</span>);
-  <span class="hljs-built_in">to_vector</span>(gamma) ~ <span class="hljs-keyword">normal</span>(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">normal_lpdf</span>(x[ : , <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">gumbel_lpdf</span>(x[ : , <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">lognormal_lpdf</span>(x[ : , <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]);
+  <span class="hljs-keyword">target</span> += <span class="hljs-built_in">weibull_lpdf</span>(x[ : , <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]);
+  
   {
-    <span class="hljs-keyword">row_vector</span>[K] u_gamma[J];
-    <span class="hljs-keyword">for</span> (j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:J)
-      u_gamma[j] &lt;- u[j] * gamma;
-    beta ~ <span class="hljs-keyword">multi_normal</span>(u_gamma, <span class="hljs-built_in">quad_form_diag</span>(Omega, tau));
-  }
-  {
-    <span class="hljs-keyword">vector</span>[N] x_beta_jj;
-    <span class="hljs-keyword">for</span> (n <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>:N)
-      x_beta_jj[n] &lt;- x[n] * beta[jj[n]];
-    y ~ <span class="hljs-keyword">normal</span>(x_beta_jj, sigma);
+    <span class="hljs-type">matrix</span>[K, N] y;
+    <span class="hljs-keyword">for</span> (n <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> : N) {
+      y[<span class="hljs-number">1</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">normal_cdf</span>(x[n, <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]));
+      y[<span class="hljs-number">2</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">gumbel_cdf</span>(x[n, <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]));
+      y[<span class="hljs-number">3</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">lognormal_cdf</span>(x[n, <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]));
+      y[<span class="hljs-number">4</span>, n] = <span class="hljs-built_in">inv_Phi</span>(<span class="hljs-built_in">weibull_cdf</span>(x[n, <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]));
+    }
+    y ~ <span class="hljs-built_in">multi_normal</span>(L);
+
   }
 }
-
-<span class="hljs-comment"># Note: Octothorpes indicate comments, too!</span>
+<span class="hljs-title">generated</span> <span class="hljs-title">quantities</span> {
+  <span class="hljs-type">matrix</span>[K, K] Sigma = <span class="hljs-built_in">multiply_lower_tri_self_transpose</span>(L);
+}
