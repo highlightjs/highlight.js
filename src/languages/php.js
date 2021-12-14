@@ -303,11 +303,11 @@ export default function(hljs) {
       {
         match: [
           /new/,
-          /\s+/,
+          / +/,
           // to prevent built ins from being confused as the class constructor call
           regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
           /\\?\w+/,
-          /\s*\(/,
+          / *\(/,
         ],
         scope: {
           1: "keyword",
@@ -320,11 +320,11 @@ export default function(hljs) {
   const FUNCTION_INVOKE = {
     relevance: 0,
     match: [
-      /(?:->|::|\s|\(|\\)/,
+      /\b/,
       // to prevent keywords from being confused as the function title
       regex.concat("(?!fn\\b|function\\b|", normalizeKeywords(KWS).join("\\b|"), "|", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
       /\w+/,
-      /\s*/,
+      / */,
       regex.lookahead(/(?=\()/)
     ],
     scope: {
@@ -374,7 +374,8 @@ export default function(hljs) {
       FUNCTION_INVOKE,
       {
         // swallow composed identifiers to avoid parsing them as keywords
-        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/
+        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?! *\()(?![a-zA-Z0-9_\x7f-\xff])/,
+        // scope:"wrong"
       },
       CONSTRUCTOR_CALL,
       {
