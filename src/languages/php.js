@@ -46,6 +46,8 @@ export default function(hljs) {
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
+  // list of valid whitespaces because non-breaking space might be part of a name
+  const WHITESPACE = '[ \t\n]';
   const STRING = {
     className: 'string',
     variants: [
@@ -303,11 +305,11 @@ export default function(hljs) {
       {
         match: [
           /new/,
-          / +/,
+          regex.concat(WHITESPACE, "+"),
           // to prevent built ins from being confused as the class constructor call
           regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
           /\\?\w+/,
-          / *\(/,
+          regex.concat(WHITESPACE, "*\\("),
         ],
         scope: {
           1: "keyword",
@@ -324,7 +326,7 @@ export default function(hljs) {
       // to prevent keywords from being confused as the function title
       regex.concat("(?!fn\\b|function\\b|", normalizeKeywords(KWS).join("\\b|"), "|", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
       /\w+/,
-      / */,
+      regex.concat(WHITESPACE, "*"),
       regex.lookahead(/(?=\()/)
     ],
     scope: {
@@ -374,7 +376,11 @@ export default function(hljs) {
       FUNCTION_INVOKE,
       {
         // swallow composed identifiers to avoid parsing them as keywords
-        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*(?! *\()(?![a-zA-Z0-9_\x7f-\xff])/,
+        match: regex.concat(
+          /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/,
+          regex.concat("(?!", WHITESPACE, "*\\()"),
+          /(?![a-zA-Z0-9_\x7f-\xff])/
+        ),
         // scope:"wrong"
       },
       CONSTRUCTOR_CALL,
