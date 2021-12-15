@@ -12,12 +12,12 @@ MSG</span>);
 
 <span class="hljs-comment">// heredoc syntax</span>
 
-<span class="hljs-function title_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;SQL
+<span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;SQL
     SELECT *
     FROM table
 SQL</span>);
 
-<span class="hljs-function title_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;SQL
+<span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;SQL
     SELECT *
     FROM table
     SQL</span>);
