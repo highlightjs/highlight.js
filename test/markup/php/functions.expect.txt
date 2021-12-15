@@ -11,11 +11,11 @@
  * Function invoke
  */</span>
 <span class="hljs-variable">$date</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">DateTimeImmutable</span> ();
-<span class="hljs-variable">$date</span>-&gt;<span class="hljs-function title_ invoke__">format</span>(<span class="hljs-string">&#x27;Y-m-d&#x27;</span>);
+<span class="hljs-variable">$date</span>-&gt;<span class="hljs-title function_ invoke__">format</span>(<span class="hljs-string">&#x27;Y-m-d&#x27;</span>);
 
-DateTimeImmutable::<span class="hljs-function title_ invoke__">createFromMutable</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">\DateTime</span>(<span class="hljs-string">&#x27;now&#x27;</span>));
+DateTimeImmutable::<span class="hljs-title function_ invoke__">createFromMutable</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">\DateTime</span>(<span class="hljs-string">&#x27;now&#x27;</span>));
 
-<span class="hljs-function title_ invoke__">str_contains</span> (\<span class="hljs-function title_ invoke__">strtoupper</span>(<span class="hljs-function title_ invoke__">substr</span>(<span class="hljs-string">&#x27;abcdef&#x27;</span>, -<span class="hljs-number">2</span>), <span class="hljs-string">&#x27;f&#x27;</span>));
+<span class="hljs-title function_ invoke__">str_contains</span> (\<span class="hljs-title function_ invoke__">strtoupper</span>(<span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-string">&#x27;abcdef&#x27;</span>, -<span class="hljs-number">2</span>), <span class="hljs-string">&#x27;f&#x27;</span>));
 
 <span class="hljs-comment">/**
  * Function declaration
@@ -39,5 +39,5 @@ DateTimeImmutable::<span class="hljs-function title_ invoke__">createFromMutable
 <span class="hljs-comment">/**
  * First-class Callable Syntax
  */</span>
-<span class="hljs-variable">$fun</span> = <span class="hljs-function title_ invoke__">mb_strlen</span>();
+<span class="hljs-variable">$fun</span> = <span class="hljs-title function_ invoke__">mb_strlen</span>();
 <span class="hljs-variable">$fun</span>();

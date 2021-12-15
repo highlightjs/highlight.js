@@ -330,7 +330,7 @@ export default function(hljs) {
       regex.lookahead(/(?=\()/)
     ],
     scope: {
-      3: "function.title.invoke",
+      3: "title.function.invoke",
     }
   };
 

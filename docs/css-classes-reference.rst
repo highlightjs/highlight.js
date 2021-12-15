@@ -70,6 +70,8 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 +--------------------------+-------------------------------------------------------------+
 | title.function           | name of a function                                          |
 +--------------------------+-------------------------------------------------------------+
+| title.function.invoke    | name of a function (when being invoked)                     |
++--------------------------+-------------------------------------------------------------+
 | params                   | block of function arguments (parameters) at the             |
 |                          | place of declaration                                        |
 +--------------------------+-------------------------------------------------------------+
