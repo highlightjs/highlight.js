@@ -151,11 +151,13 @@ export default function(hljs) {
     "match|0",
     "mixed",
     "new",
+    "never",
     "object",
     "or",
     "private",
     "protected",
     "public",
+    "readonly",
     "real",
     "return",
     "string",
@@ -245,7 +247,9 @@ export default function(hljs) {
     // Reserved interfaces:
     // <https://www.php.net/manual/en/reserved.interfaces.php>
     "ArrayAccess",
+    "BackedEnum",
     "Closure",
+    "Fiber",
     "Generator",
     "Iterator",
     "IteratorAggregate",
@@ -253,6 +257,7 @@ export default function(hljs) {
     "Stringable",
     "Throwable",
     "Traversable",
+    "UnitEnum",
     "WeakReference",
     "WeakMap",
     // Reserved classes:
