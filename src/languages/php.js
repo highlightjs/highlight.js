@@ -13,14 +13,14 @@ Category: common
 export default function(hljs) {
   const regex = hljs.regex;
   const VARIABLE = {
-    className: 'variable',
-    begin: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
+    scope: 'variable',
+    match: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
       // negative look-ahead tries to avoid matching patterns that are not
       // Perl at all like $ident$, @ident@, etc.
       `(?![A-Za-z0-9])(?![$])`
   };
   const PREPROCESSOR = {
-    className: 'meta',
+    scope: 'meta',
     variants: [
       { begin: /<\?php/, relevance: 10 }, // boost for obvious PHP
       { begin: /<\?[=]?/ },
@@ -28,7 +28,7 @@ export default function(hljs) {
     ]
   };
   const SUBST = {
-    className: 'subst',
+    scope: 'subst',
     variants: [
       { begin: /\$\w+/ },
       { begin: /\{\$/, end: /\}/ }
@@ -49,7 +49,7 @@ export default function(hljs) {
   // list of valid whitespaces because non-breaking space might be part of a name
   const WHITESPACE = '[ \t\n]';
   const STRING = {
-    className: 'string',
+    scope: 'string',
     variants: [
       DOUBLE_QUOTED,
       SINGLE_QUOTED,
@@ -57,7 +57,7 @@ export default function(hljs) {
     ]
   };
   const NUMBER = {
-    className: 'number',
+    scope: 'number',
     variants: [
       { begin: `\\b0[bB][01]+(?:_[01]+)*\\b` }, // Binary w/ underscore support
       { begin: `\\b0[oO][0-7]+(?:_[0-7]+)*\\b` }, // Octals w/ underscore support
@@ -374,8 +374,8 @@ export default function(hljs) {
       },
       PREPROCESSOR,
       {
-        className: 'variable.language',
-        begin: /\$this\b/
+        scope: 'variable.language',
+        match: /\$this\b/
       },
       VARIABLE,
       FUNCTION_INVOKE,
@@ -390,7 +390,7 @@ export default function(hljs) {
       },
       CONSTRUCTOR_CALL,
       {
-        className: 'function',
+        scope: 'function',
         relevance: 0,
         beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
         illegal: '[$%\\[]',
@@ -404,7 +404,7 @@ export default function(hljs) {
             endsParent: true
           },
           {
-            className: 'params',
+            scope: 'params',
             begin: '\\(', end: '\\)',
             excludeBegin: true,
             excludeEnd: true,
@@ -420,7 +420,7 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'class',
+        scope: 'class',
         variants: [
           { beginKeywords: "enum", illegal: /[($"]/ },
           { beginKeywords: "class interface trait", illegal: /[:($"]/ }
