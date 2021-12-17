@@ -15,6 +15,7 @@ export default function(hljs) {
   const tsLanguage = javascript(hljs);
 
   const IDENT_RE = ECMAScript.IDENT_RE;
+  const IDENT_GEN = /[a-zA-Z]\w*/;
   const TYPES = [
     "any",
     "void",
@@ -33,8 +34,17 @@ export default function(hljs) {
       tsLanguage.exports.CLASS_REFERENCE
     ]
   };
+
   const INTERFACE = {
-    beginKeywords: 'interface',
+    begin: [
+      /interface/,
+      /\s+/,
+      IDENT_GEN
+    ],
+    beginScope: {
+      1: "keyword",
+      3: "title"
+    },
     end: /\{/,
     excludeEnd: true,
     keywords: {
@@ -45,6 +55,7 @@ export default function(hljs) {
       tsLanguage.exports.CLASS_REFERENCE
     ]
   };
+
   const USE_STRICT = {
     className: 'meta',
     relevance: 10,
@@ -74,6 +85,7 @@ export default function(hljs) {
     className: 'meta',
     begin: '@' + IDENT_RE,
   };
+
 
   const swapMode = (mode, label, replacement) => {
     const indx = mode.contains.findIndex(m => m.label === label);
