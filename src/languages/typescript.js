@@ -45,16 +45,12 @@ export default function(hljs) {
       1: "keyword",
       3: "title"
     },
-    end: /\{/,
     end: /\{|\s/,
     excludeEnd: true,
     keywords: {
       keyword: 'interface extends',
       built_in: TYPES
-    },
-    contains: [
-      tsLanguage.exports.CLASS_REFERENCE
-    ]
+    }
   };
 
   const USE_STRICT = {
