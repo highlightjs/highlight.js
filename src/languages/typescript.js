@@ -46,6 +46,7 @@ export default function(hljs) {
       3: "title"
     },
     end: /\{/,
+    end: /\{|\s/,
     excludeEnd: true,
     keywords: {
       keyword: 'interface extends',
