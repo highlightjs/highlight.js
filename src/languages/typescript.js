@@ -36,17 +36,15 @@ export default function(hljs) {
   };
 
   const INTERFACE = {
-    begin: [
+    match: [
       /interface/,
       /\s+/,
       IDENT_GEN
     ],
-    beginScope: {
+    scope: {
       1: "keyword",
       3: "title"
     },
-    end: /\{|\s/,
-    excludeEnd: true,
     keywords: {
       keyword: 'interface extends',
       built_in: TYPES
