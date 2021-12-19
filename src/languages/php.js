@@ -12,10 +12,13 @@ Category: common
  * */
 export default function(hljs) {
   const regex = hljs.regex;
-  const IDENT_RE = '([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
+  const IDENT_RE_CORE = '[a-zA-Z0-9_\x7f-\xff]*' +
     // negative look-ahead tries to avoid matching patterns that are not
     // Perl at all like $ident$, @ident@, etc.
     '(?![A-Za-z0-9])(?![$]))';
+  const IDENT_RE = regex.concat("([a-zA-Z_\\x7f-\\xff]", IDENT_RE_CORE);
+  // Will not detect camelCase classes
+  const PASCAL_CASE_CLASS_NAME_RE = regex.concat("([A-Z]", IDENT_RE_CORE);
   const VARIABLE = {
     scope: 'variable',
     match: '\\$+' + IDENT_RE,
@@ -47,7 +50,7 @@ export default function(hljs) {
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
-  // list of valid whitespaces because non-breaking space might be part of a name
+  // list of valid whitespaces because non-breaking space might be part of a IDENT_RE
   const WHITESPACE = '[ \t\n]';
   const STRING = {
     scope: 'string',
@@ -314,7 +317,7 @@ export default function(hljs) {
           regex.concat(WHITESPACE, "+"),
           // to prevent built ins from being confused as the class constructor call
           regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-          regex.concat("\\\\?", IDENT_RE, "+"),
+          regex.concat("\\\\?", IDENT_RE),
           regex.concat(WHITESPACE, "*\\("),
         ],
         scope: {
@@ -331,13 +334,64 @@ export default function(hljs) {
       /\b/,
       // to prevent keywords from being confused as the function title
       regex.concat("(?!fn\\b|function\\b|", normalizeKeywords(KWS).join("\\b|"), "|", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-      regex.concat(IDENT_RE, "+"),
+      IDENT_RE,
       regex.concat(WHITESPACE, "*"),
       regex.lookahead(/(?=\()/)
     ],
     scope: {
       3: "title.function.invoke",
     }
+  };
+
+  const CONSTANT_REFERENCE = regex.concat(IDENT_RE, "\\b(?!\\()");
+
+  const LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON = {
+    variants: [
+      {
+        match: [
+          regex.concat(
+            /::/,
+            regex.lookahead(/(?!class\b)/)
+          ),
+          CONSTANT_REFERENCE,
+        ],
+        scope: {
+          2: "variable.constant",
+        },
+      },
+      {
+        match: [
+          /::/,
+          /class/,
+        ],
+        scope: {
+          2: "variable.language",
+        },
+      },
+      {
+        match: [
+          PASCAL_CASE_CLASS_NAME_RE,
+          regex.concat(
+            "::",
+            regex.lookahead(/(?!class\b)/)
+          ),
+        ],
+        scope: {
+          1: "title.class",
+        },
+      },
+      {
+        match: [
+          PASCAL_CASE_CLASS_NAME_RE,
+          /::/,
+          /class/,
+        ],
+        scope: {
+          1: "title.class",
+          3: "variable.language",
+        },
+      }
+    ]
   };
 
   return {
@@ -380,16 +434,17 @@ export default function(hljs) {
       },
       VARIABLE,
       FUNCTION_INVOKE,
+      LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
       {
         match: [
           /const/,
-          regex.concat(WHITESPACE, "+"),
+          /\s/,
           IDENT_RE,
-          regex.concat(WHITESPACE, "*="),
+          /\s*=/,
         ],
         scope: {
           1: "keyword",
-          3: "variable",
+          3: "variable.constant",
         },
       },
       {
@@ -425,6 +480,7 @@ export default function(hljs) {
             contains: [
               'self',
               VARIABLE,
+              LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
               hljs.C_BLOCK_COMMENT_MODE,
               STRING,
               NUMBER

@@ -1,4 +1,4 @@
-final class Example {
+final class Example extends Foo {
     const FOO='foo';
 
     public function __construct(
@@ -15,6 +15,10 @@ final class Example {
 
     public static function getClassFromStatic(): string {
         return static::class;
+    }
+
+    public static function getParentClass(): string {
+        return parent::class;
     }
 }
 
