@@ -381,6 +381,18 @@ export default function(hljs) {
       VARIABLE,
       FUNCTION_INVOKE,
       {
+        match: [
+          /const/,
+          regex.concat(WHITESPACE, "+"),
+          IDENT_RE,
+          regex.concat(WHITESPACE, "*="),
+        ],
+        scope: {
+          1: "keyword",
+          3: "variable",
+        },
+      },
+      {
         // swallow composed identifiers to avoid parsing them as keywords
         match: regex.concat(
           /(::|->)+/,

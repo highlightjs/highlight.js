@@ -1,0 +1,22 @@
+final class Example {
+    const FOO='foo';
+
+    public function __construct(
+        public readonly string $name = self::FOO
+    ) {}
+
+    public function getClass(): string {
+        return DateTimeImmutable::class;
+    }
+
+    public function getClassFromSelf(): string {
+        return self::class;
+    }
+
+    public static function getClassFromStatic(): string {
+        return static::class;
+    }
+}
+
+$date = DateTimeImmutable::createFromMutable(new \DateTime());
+echo $date::class;
