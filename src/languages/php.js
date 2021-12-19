@@ -12,12 +12,13 @@ Category: common
  * */
 export default function(hljs) {
   const regex = hljs.regex;
+  const IDENT_RE = '([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
+    // negative look-ahead tries to avoid matching patterns that are not
+    // Perl at all like $ident$, @ident@, etc.
+    '(?![A-Za-z0-9])(?![$]))';
   const VARIABLE = {
     scope: 'variable',
-    match: '\\$+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
-      // negative look-ahead tries to avoid matching patterns that are not
-      // Perl at all like $ident$, @ident@, etc.
-      `(?![A-Za-z0-9])(?![$])`
+    match: '\\$+' + IDENT_RE,
   };
   const PREPROCESSOR = {
     scope: 'meta',
@@ -313,7 +314,7 @@ export default function(hljs) {
           regex.concat(WHITESPACE, "+"),
           // to prevent built ins from being confused as the class constructor call
           regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-          /\\?\w+/,
+          regex.concat("\\\\?", IDENT_RE, "+"),
           regex.concat(WHITESPACE, "*\\("),
         ],
         scope: {
@@ -330,7 +331,7 @@ export default function(hljs) {
       /\b/,
       // to prevent keywords from being confused as the function title
       regex.concat("(?!fn\\b|function\\b|", normalizeKeywords(KWS).join("\\b|"), "|", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-      /\w+/,
+      regex.concat(IDENT_RE, "+"),
       regex.concat(WHITESPACE, "*"),
       regex.lookahead(/(?=\()/)
     ],
@@ -351,8 +352,8 @@ export default function(hljs) {
         {
           contains: [
             {
-              className: 'doctag',
-              begin: '@[A-Za-z]+'
+              scope: 'doctag',
+              match: '@[A-Za-z]+'
             }
           ]
         }
@@ -382,9 +383,9 @@ export default function(hljs) {
       {
         // swallow composed identifiers to avoid parsing them as keywords
         match: regex.concat(
-          /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/,
-          regex.concat("(?!", WHITESPACE, "*\\()"),
-          /(?![a-zA-Z0-9_\x7f-\xff])/
+          /(::|->)+/,
+          IDENT_RE,
+          regex.concat("(?!", WHITESPACE, "*\\()")
         ),
         // scope:"wrong"
       },
