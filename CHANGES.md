@@ -42,6 +42,7 @@ Grammars:
   - enh(clojure) Add `regex` mode to regex literal
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
+- fix(julia) Enable the `jldoctest` alias (#3432) [Fons van der Plas][]
 
 Developer Tools:
 
@@ -61,6 +62,7 @@ Themes:
 [Samia Ali]: https://github.com/samiaab1990
 [Matthieu Lempereur]: https://github.com/MrYamous
 [idleberg]: https://github.com/idleberg
+[Fons van der Plas]: https://github.com/fonsp
 
 ## Version 11.3.1
 
