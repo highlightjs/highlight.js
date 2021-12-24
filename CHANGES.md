@@ -8,6 +8,7 @@ Themes:
 
 - `Default` is now much closer WCAG AA (contrast) (#3402) [Josh Goebel]
 - `Dark` now meets WCAG AA (contrast) (#3402) [Josh Goebel]
+- Added `intellij-light` theme [Pegasis]
 
 These changes should be for the better and should not be super noticeable but if you're super picky about your colors you may want to intervene here or copy over the older themes from 11.3 or prior.
 
@@ -52,6 +53,7 @@ Themes:
 
 - Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
+[Pegasis]: https://github.com/PegasisForever
 [Wojciech Kania]: https://github.com/wkania
 [Jeylani B]: https://github.com/jeyllani
 [Richard Gibson]: https://github.com/gibson042
