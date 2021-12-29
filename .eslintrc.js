@@ -12,7 +12,6 @@ module.exports = {
     ecmaVersion: 2015,
     sourceType: "module"
   },
-  // parser: '@typescript-eslint/parser',
   plugins: [
     "@typescript-eslint"
   ],
@@ -29,10 +28,10 @@ module.exports = {
     // for now ignore diff between types of quoting
     quotes: "off",
     // this is the style we are already using
-    "operator-linebreak": ["error", "before", { overrides: {
-      "=": "after",
-      "+": "after"
-    }
+    "operator-linebreak": ["error", "before", {
+      overrides: {
+        "=": "after"
+      }
     }],
     // sometimes we declare variables with extra spacing
     indent: ["error", 2, { VariableDeclarator: 2 }],
@@ -42,6 +41,14 @@ module.exports = {
     "import/extensions": ["error", "always"]
   },
   overrides: [
+    {
+      files: ["types/*.ts", "src/*.ts"],
+      parser: '@typescript-eslint/parser',
+      rules: {
+        "import/no-duplicates": "off",
+        "import/extensions": "off"
+      }
+    },
     {
       files: ["src/**/*.js"],
       rules: {
@@ -60,7 +67,7 @@ module.exports = {
         camelcase: "off",
         "no-control-regex": "off",
         "no-useless-escape": "off",
-        "comma-dangle": "warn",
+        "comma-dangle": "off",
         "array-bracket-spacing": ["error", "always"
           // {
           //   objectsInArrays: true
@@ -75,7 +82,7 @@ module.exports = {
         }],
         "array-element-newline": "warn",
         "object-curly-newline": [1, {
-          minProperties: 1
+          minProperties: 2
         }],
         "object-property-newline": [2,
           { allowAllPropertiesOnSameLine: false }

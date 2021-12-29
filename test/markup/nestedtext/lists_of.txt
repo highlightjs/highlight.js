@@ -1,0 +1,10 @@
+list_of_dictionaries:
+  -
+    hello: world
+    key: value
+
+list_of_lists:
+  -
+    - green
+    - blue
+    - red

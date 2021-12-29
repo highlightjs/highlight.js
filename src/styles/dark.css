@@ -5,10 +5,8 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #444;
+  color: #ddd;
+  background: #303030;
 }
 
 .hljs-keyword,
@@ -19,9 +17,9 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
   color: white;
 }
 
-.hljs,
+
 .hljs-subst {
-  color: #ddd;
+  /* default */
 }
 
 .hljs-string,
@@ -43,7 +41,7 @@ Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Or
 .hljs-quote,
 .hljs-deletion,
 .hljs-meta {
-  color: #777;
+  color: #979797;
 }
 
 .hljs-keyword,

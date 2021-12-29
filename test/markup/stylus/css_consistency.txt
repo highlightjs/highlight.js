@@ -22,7 +22,9 @@ h1, h2, figcaption, aside, main, form, footer {}
 
 a:visited { color: blue; }
 div::after { content: "test"; }
+div:after { content: "test"; }
 div::before { content: open-quote; }
+div:before { content: open-quote; }
 span:nth-child(33) { color:red; }
 
 p:lang(en) {}
@@ -56,4 +58,20 @@ a[href*="example"] {}
   /* it's not 100% clear how url and format should be highlighted universally */
   /* src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
        url("/fonts/OpenSans-Regular-webfont.woff") format("woff"); */
+}
+
+@keyframes important1 {
+  from { margin-top: 50px; }
+  50%  { margin-top: 60px !important; }
+  to   { margin-top: 100px; }
+}
+
+main {
+  --color: red;
+  color: var(--color);
+}
+
+main {
+  /* normal comment */
+  width: /* inline comment */ 50px;
 }

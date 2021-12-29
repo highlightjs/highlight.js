@@ -1,3 +1,3 @@
-<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">sqr</span></span>(i: <span class="hljs-built_in">i32</span>) { i * i }
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Minimum</span></span> : <span class="hljs-built_in">Copy</span> {}
-<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Builder</span></span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">Self</span>: <span class="hljs-built_in">Sized</span> + <span class="hljs-built_in">Iterator</span>&lt;Item=Event&gt; {}
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">sqr</span>(i: <span class="hljs-type">i32</span>) { i * i }
+<span class="hljs-keyword">trait</span> <span class="hljs-title class_">Minimum</span> : <span class="hljs-built_in">Copy</span> {}
+<span class="hljs-keyword">pub</span> <span class="hljs-keyword">trait</span> <span class="hljs-title class_">Builder</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">Self</span>: <span class="hljs-built_in">Sized</span> + <span class="hljs-built_in">Iterator</span>&lt;Item=Event&gt; {}

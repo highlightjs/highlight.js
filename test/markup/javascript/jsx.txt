@@ -25,3 +25,21 @@ class App extends Component {
 }
 
 var x = 5;
+
+// this is NOT JSX and should not trigger the rule
+interface Prefixer<Something extends string> {
+  (): `other__${Something}`;
+
+  parse: <From extends string>(
+    value: From
+  ) => number;
+}
+
+const cloneWith = <T, A extends keyof T, V>(
+  i: T,
+  a: A,
+  value: V
+): Omit<T, A> & {[K in A]: V} => ({
+  ...i,
+  [a]: value,
+});

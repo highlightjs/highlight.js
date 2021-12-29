@@ -2,8 +2,8 @@
 
 Night Owl for highlight.js (c) Carl Baxter <carl@cbax.tech>
 
-An adaptation of Sarah Drasner's Night Owl VS Code Theme 
-https://github.com/sdras/night-owl-vscode-theme 
+An adaptation of Sarah Drasner's Night Owl VS Code Theme
+https://github.com/sdras/night-owl-vscode-theme
 
 Copyright (c) 2018 Sarah Drasner
 
@@ -28,9 +28,6 @@ SOFTWARE.
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #011627;
   color: #d6deeb;
 }
@@ -90,10 +87,11 @@ SOFTWARE.
 .hljs-meta {
   color: #82aaff;
 }
-.hljs-meta-keyword {
+.hljs-meta .hljs-keyword {
+
   color: #82aaff;
 }
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #ecc48d;
 }
 
@@ -102,8 +100,7 @@ SOFTWARE.
   color: #82b1ff;
 }
 .hljs-tag,
-.hljs-name,
-.hljs-builtin-name {
+.hljs-name {
   color: #7fdbca;
 }
 .hljs-attr {

@@ -26,6 +26,13 @@ export default function(hljs) {
     end: /\}/,
     keywords: CRYSTAL_KEYWORDS
   };
+  // borrowed from Ruby
+  const VARIABLE = {
+    // negative-look forward attemps to prevent false matches like:
+    // @ident@ or $ident$ that might indicate this is not ruby at all
+    className: "variable",
+    begin: '(\\$\\W)|((\\$|@@?)(\\w+))(?=[^@$?])' + `(?![A-Za-z])(?![@$?'])`
+  };
   const EXPANSION = {
     className: 'template-variable',
     variants: [
@@ -200,7 +207,7 @@ export default function(hljs) {
     end: '\\]',
     contains: [
       hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        className: 'meta-string'
+        className: 'string'
       })
     ]
   };
@@ -211,6 +218,7 @@ export default function(hljs) {
     REGEXP2,
     REGEXP,
     ATTRIBUTE,
+    VARIABLE,
     hljs.HASH_COMMENT_MODE,
     {
       className: 'class',

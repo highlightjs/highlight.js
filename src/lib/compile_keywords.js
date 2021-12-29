@@ -13,7 +13,7 @@ const COMMON_KEYWORDS = [
   'value' // common variable name
 ];
 
-const DEFAULT_KEYWORD_CLASSNAME = "keyword";
+const DEFAULT_KEYWORD_SCOPE = "keyword";
 
 /**
  * Given raw keywords from a language definition, compile them.
@@ -21,22 +21,22 @@ const DEFAULT_KEYWORD_CLASSNAME = "keyword";
  * @param {string | Record<string,string|string[]> | Array<string>} rawKeywords
  * @param {boolean} caseInsensitive
  */
-export function compileKeywords(rawKeywords, caseInsensitive, className = DEFAULT_KEYWORD_CLASSNAME) {
+export function compileKeywords(rawKeywords, caseInsensitive, scopeName = DEFAULT_KEYWORD_SCOPE) {
   /** @type KeywordDict */
-  const compiledKeywords = {};
+  const compiledKeywords = Object.create(null);
 
   // input can be a string of keywords, an array of keywords, or a object with
-  // named keys representing className (which can then point to a string or array)
+  // named keys representing scopeName (which can then point to a string or array)
   if (typeof rawKeywords === 'string') {
-    compileList(className, rawKeywords.split(" "));
+    compileList(scopeName, rawKeywords.split(" "));
   } else if (Array.isArray(rawKeywords)) {
-    compileList(className, rawKeywords);
+    compileList(scopeName, rawKeywords);
   } else {
-    Object.keys(rawKeywords).forEach(function(className) {
+    Object.keys(rawKeywords).forEach(function(scopeName) {
       // collapse all our objects back into the parent object
       Object.assign(
         compiledKeywords,
-        compileKeywords(rawKeywords[className], caseInsensitive, className)
+        compileKeywords(rawKeywords[scopeName], caseInsensitive, scopeName)
       );
     });
   }
@@ -49,16 +49,16 @@ export function compileKeywords(rawKeywords, caseInsensitive, className = DEFAUL
    *
    * Ex: "for if when while|5"
    *
-   * @param {string} className
+   * @param {string} scopeName
    * @param {Array<string>} keywordList
    */
-  function compileList(className, keywordList) {
+  function compileList(scopeName, keywordList) {
     if (caseInsensitive) {
       keywordList = keywordList.map(x => x.toLowerCase());
     }
     keywordList.forEach(function(keyword) {
       const pair = keyword.split('|');
-      compiledKeywords[pair[0]] = [className, scoreForKeyword(pair[0], pair[1])];
+      compiledKeywords[pair[0]] = [scopeName, scoreForKeyword(pair[0], pair[1])];
     });
   }
 }

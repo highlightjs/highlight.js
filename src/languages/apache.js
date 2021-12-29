@@ -4,7 +4,7 @@ Author: Ruslan Keba <rukeba@gmail.com>
 Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://httpd.apache.org
 Description: language definition for Apache configuration files (httpd.conf & .htaccess)
-Category: common, config
+Category: config, web
 Audit: 2020
 */
 
@@ -16,7 +16,7 @@ export default function(hljs) {
   };
   const NUMBER = {
     className: 'number',
-    begin: /\d+/
+    begin: /\b\d+/
   };
   const IP_ADDRESS = {
     className: "number",
@@ -51,10 +51,24 @@ export default function(hljs) {
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
         keywords: {
-          nomarkup:
-            'order deny allow setenv rewriterule rewriteengine rewritecond documentroot ' +
-            'sethandler errordocument loadmodule options header listen serverroot ' +
-            'servername'
+          _: [
+            "order",
+            "deny",
+            "allow",
+            "setenv",
+            "rewriterule",
+            "rewriteengine",
+            "rewritecond",
+            "documentroot",
+            "sethandler",
+            "errordocument",
+            "loadmodule",
+            "options",
+            "header",
+            "listen",
+            "serverroot",
+            "servername"
+          ]
         },
         starts: {
           end: /$/,

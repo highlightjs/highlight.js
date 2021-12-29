@@ -1,0 +1,15 @@
+<span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pow</span></span>(<span class="hljs-keyword">inline</span> x: <span class="hljs-type">Int</span>, <span class="hljs-keyword">inline</span> n: <span class="hljs-type">Int</span>) = ???
+transparent <span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span> = ???
+<span class="hljs-keyword">inline</span> <span class="hljs-keyword">val</span> a: <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
+<span class="hljs-keyword">inline</span> <span class="hljs-keyword">given</span> <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
+
+notinline <span class="hljs-keyword">given</span> <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">expressions</span> </span>=
+  <span class="hljs-keyword">inline</span> <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">then</span> () <span class="hljs-keyword">else</span> ()
+  <span class="hljs-keyword">inline</span> x <span class="hljs-keyword">match</span> ...
+
+  x.inline
+  x.inline(y)
+  x.inline[<span class="hljs-type">T</span>]
+  `inline` + <span class="hljs-number">1</span>

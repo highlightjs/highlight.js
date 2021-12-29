@@ -37,8 +37,31 @@ export default function(hljs) {
   return {
     name: 'Flix',
     keywords: {
-      literal: 'true false',
-      keyword: 'case class def else enum if impl import in lat rel index let match namespace switch type yield with'
+      keyword: [
+        "case",
+        "class",
+        "def",
+        "else",
+        "enum",
+        "if",
+        "impl",
+        "import",
+        "in",
+        "lat",
+        "rel",
+        "index",
+        "let",
+        "match",
+        "namespace",
+        "switch",
+        "type",
+        "yield",
+        "with"
+      ],
+      literal: [
+        "true",
+        "false"
+      ]
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,

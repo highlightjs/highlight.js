@@ -5,16 +5,12 @@ Website: https://tools.ietf.org/html/rfc5234
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
-  const regexes = {
-    ruleDeclaration: /^[a-zA-Z][a-zA-Z0-9-]*/,
-    unexpectedChars: /[!@#$^&',?+~`|:]/
-  };
+  const regex = hljs.regex;
+  const IDENT = /^[a-zA-Z][a-zA-Z0-9-]*/;
 
-  const keywords = [
+  const KEYWORDS = [
     "ALPHA",
     "BIT",
     "CHAR",
@@ -33,44 +29,50 @@ export default function(hljs) {
     "WSP"
   ];
 
-  const commentMode = hljs.COMMENT(/;/, /$/);
+  const COMMENT = hljs.COMMENT(/;/, /$/);
 
-  const terminalBinaryMode = {
-    className: "symbol",
-    begin: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+){0,1}/
+  const TERMINAL_BINARY = {
+    scope: "symbol",
+    match: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+)?/
   };
 
-  const terminalDecimalMode = {
-    className: "symbol",
-    begin: /%d[0-9]+(-[0-9]+|(\.[0-9]+)+){0,1}/
+  const TERMINAL_DECIMAL = {
+    scope: "symbol",
+    match: /%d[0-9]+(-[0-9]+|(\.[0-9]+)+)?/
   };
 
-  const terminalHexadecimalMode = {
-    className: "symbol",
-    begin: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+){0,1}/
+  const TERMINAL_HEXADECIMAL = {
+    scope: "symbol",
+    match: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+)?/
   };
 
-  const caseSensitivityIndicatorMode = {
-    className: "symbol",
-    begin: /%[si]/
+  const CASE_SENSITIVITY = {
+    scope: "symbol",
+    match: /%[si](?=".*")/
   };
 
-  const ruleDeclarationMode = {
-    className: "attribute",
-    begin: regex.concat(regexes.ruleDeclaration, /(?=\s*=)/)
+  const RULE_DECLARATION = {
+    scope: "attribute",
+    match: regex.concat(IDENT, /(?=\s*=)/)
+  };
+
+  const ASSIGNMENT = {
+    scope: "operator",
+    match: /=\/?/
   };
 
   return {
     name: 'Augmented Backus-Naur Form',
-    illegal: regexes.unexpectedChars,
-    keywords: keywords,
+    illegal: /[!@#$^&',?+~`|:]/,
+    keywords: KEYWORDS,
     contains: [
-      ruleDeclarationMode,
-      commentMode,
-      terminalBinaryMode,
-      terminalDecimalMode,
-      terminalHexadecimalMode,
-      caseSensitivityIndicatorMode,
+      ASSIGNMENT,
+      RULE_DECLARATION,
+      COMMENT,
+      TERMINAL_BINARY,
+      TERMINAL_DECIMAL,
+      TERMINAL_HEXADECIMAL,
+      CASE_SENSITIVITY,
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE
     ]

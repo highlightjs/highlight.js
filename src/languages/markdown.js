@@ -6,9 +6,8 @@ Website: https://daringfireball.net/projects/markdown/
 Category: common, markup
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const INLINE_HTML = {
     begin: /<\/?[A-Za-z_]/,
     end: '>',
@@ -105,12 +104,16 @@ export default function(hljs) {
       },
       // whatever else, lower relevance (might not be a link at all)
       {
-        begin: /\[.+?\]\(.*?\)/,
+        begin: /\[.*?\]\(.*?\)/,
         relevance: 0
       }
     ],
     returnBegin: true,
     contains: [
+      {
+        // empty strings for alt or link text
+        match: /\[(?=\])/
+      },
       {
         className: 'string',
         relevance: 0,

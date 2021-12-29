@@ -63,3 +63,13 @@ a[href*="example"] {}
   50%  { margin-top: 60px !important; }
   to   { margin-top: 100px; }
 }
+
+main {
+  --color: red;
+  color: var(--color);
+}
+
+main {
+  /* normal comment */
+  width: /* inline comment */ 50px;
+}

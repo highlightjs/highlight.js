@@ -1,5 +1,5 @@
-<span class="php"><span class="hljs-meta">&lt;?</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">'php'</span>; <span class="hljs-comment">/* ?&gt; */</span> <span class="hljs-meta">?&gt;</span></span><span class="xml">
+<span class="language-php"><span class="hljs-meta">&lt;?</span> <span class="hljs-keyword">echo</span> <span class="hljs-string">'php'</span>; <span class="hljs-comment">/* ?&gt; */</span> <span class="hljs-meta">?&gt;</span></span><span class="language-xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">'Legacy code'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">write</span>(<span class="hljs-string">'Legacy code'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 </span>

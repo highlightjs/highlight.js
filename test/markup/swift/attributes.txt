@@ -1,9 +1,9 @@
-@available(iOS 14, deprecated: "reason", *)
 @convention(swift)
 @objc
 @objc(name)
 
 @propertyWrapper
 @SomeWrapper(value: 1.0, other: "string", bool: false)
+@resultBuilder
 
 @ notAnAttribute

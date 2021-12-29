@@ -1,12 +1,13 @@
 /*
 Language: Stan
 Description: The Stan probabilistic programming language
-Author: Jeffrey B. Arnold <jeffrey.arnold@gmail.com>
+Author: Sean Pinkney <sean.pinkney@gmail.com>
 Website: http://mc-stan.org/
 Category: scientific
 */
 
 export default function(hljs) {
+  const regex = hljs.regex;
   // variable names cannot conflict with block identifiers
   const BLOCKS = [
     'functions',
@@ -17,6 +18,7 @@ export default function(hljs) {
     'transformed',
     'generated'
   ];
+
   const STATEMENTS = [
     'for',
     'in',
@@ -27,16 +29,10 @@ export default function(hljs) {
     'continue',
     'return'
   ];
-  const SPECIAL_FUNCTIONS = [
-    'print',
-    'reject',
-    'increment_log_prob|10',
-    'integrate_ode|10',
-    'integrate_ode_rk45|10',
-    'integrate_ode_bdf|10',
-    'algebra_solver'
-  ];
-  const VAR_TYPES = [
+
+  const TYPES = [
+    'array',
+    'complex',
     'int',
     'real',
     'vector',
@@ -52,13 +48,24 @@ export default function(hljs) {
     'cov_matrix|10',
     'void'
   ];
+
+  // to get the functions list
+  // clone the [stan-docs repo](https://github.com/stan-dev/docs)
+  // then cd into it and run this bash script https://gist.github.com/joshgoebel/dcd33f82d4059a907c986049893843cf
+  //
+  // the output files are
+  // distributions_quoted.txt
+  // functions_quoted.txt
+
   const FUNCTIONS = [
     'Phi',
     'Phi_approx',
     'abs',
     'acos',
     'acosh',
+    'add_diag',
     'algebra_solver',
+    'algebra_solver_newton',
     'append_array',
     'append_col',
     'append_row',
@@ -67,56 +74,21 @@ export default function(hljs) {
     'atan',
     'atan2',
     'atanh',
-    'bernoulli_cdf',
-    'bernoulli_lccdf',
-    'bernoulli_lcdf',
-    'bernoulli_logit_lpmf',
-    'bernoulli_logit_rng',
-    'bernoulli_lpmf',
-    'bernoulli_rng',
     'bessel_first_kind',
     'bessel_second_kind',
-    'beta_binomial_cdf',
-    'beta_binomial_lccdf',
-    'beta_binomial_lcdf',
-    'beta_binomial_lpmf',
-    'beta_binomial_rng',
-    'beta_cdf',
-    'beta_lccdf',
-    'beta_lcdf',
-    'beta_lpdf',
-    'beta_rng',
     'binary_log_loss',
-    'binomial_cdf',
     'binomial_coefficient_log',
-    'binomial_lccdf',
-    'binomial_lcdf',
-    'binomial_logit_lpmf',
-    'binomial_lpmf',
-    'binomial_rng',
     'block',
-    'categorical_logit_lpmf',
-    'categorical_logit_rng',
-    'categorical_lpmf',
-    'categorical_rng',
-    'cauchy_cdf',
-    'cauchy_lccdf',
-    'cauchy_lcdf',
-    'cauchy_lpdf',
-    'cauchy_rng',
     'cbrt',
     'ceil',
-    'chi_square_cdf',
-    'chi_square_lccdf',
-    'chi_square_lcdf',
-    'chi_square_lpdf',
-    'chi_square_rng',
+    'chol2inv',
     'cholesky_decompose',
     'choose',
     'col',
     'cols',
     'columns_dot_product',
     'columns_dot_self',
+    'conj',
     'cos',
     'cosh',
     'cov_exp_quad',
@@ -134,34 +106,16 @@ export default function(hljs) {
     'diagonal',
     'digamma',
     'dims',
-    'dirichlet_lpdf',
-    'dirichlet_rng',
     'distance',
     'dot_product',
     'dot_self',
-    'double_exponential_cdf',
-    'double_exponential_lccdf',
-    'double_exponential_lcdf',
-    'double_exponential_lpdf',
-    'double_exponential_rng',
-    'e',
     'eigenvalues_sym',
     'eigenvectors_sym',
     'erf',
     'erfc',
     'exp',
     'exp2',
-    'exp_mod_normal_cdf',
-    'exp_mod_normal_lccdf',
-    'exp_mod_normal_lcdf',
-    'exp_mod_normal_lpdf',
-    'exp_mod_normal_rng',
     'expm1',
-    'exponential_cdf',
-    'exponential_lccdf',
-    'exponential_lcdf',
-    'exponential_lpdf',
-    'exponential_rng',
     'fabs',
     'falling_factorial',
     'fdim',
@@ -170,94 +124,68 @@ export default function(hljs) {
     'fmax',
     'fmin',
     'fmod',
-    'frechet_cdf',
-    'frechet_lccdf',
-    'frechet_lcdf',
-    'frechet_lpdf',
-    'frechet_rng',
-    'gamma_cdf',
-    'gamma_lccdf',
-    'gamma_lcdf',
-    'gamma_lpdf',
     'gamma_p',
     'gamma_q',
-    'gamma_rng',
-    'gaussian_dlm_obs_lpdf',
+    'generalized_inverse',
+    'get_imag',
     'get_lp',
-    'gumbel_cdf',
-    'gumbel_lccdf',
-    'gumbel_lcdf',
-    'gumbel_lpdf',
-    'gumbel_rng',
+    'get_real',
     'head',
-    'hypergeometric_lpmf',
-    'hypergeometric_rng',
+    'hmm_hidden_state_prob',
+    'hmm_marginal',
     'hypot',
+    'identity_matrix',
     'inc_beta',
     'int_step',
+    'integrate_1d',
     'integrate_ode',
+    'integrate_ode_adams',
     'integrate_ode_bdf',
     'integrate_ode_rk45',
     'inv',
     'inv_Phi',
-    'inv_chi_square_cdf',
-    'inv_chi_square_lccdf',
-    'inv_chi_square_lcdf',
-    'inv_chi_square_lpdf',
-    'inv_chi_square_rng',
     'inv_cloglog',
-    'inv_gamma_cdf',
-    'inv_gamma_lccdf',
-    'inv_gamma_lcdf',
-    'inv_gamma_lpdf',
-    'inv_gamma_rng',
     'inv_logit',
     'inv_sqrt',
     'inv_square',
-    'inv_wishart_lpdf',
-    'inv_wishart_rng',
     'inverse',
     'inverse_spd',
     'is_inf',
     'is_nan',
+    'lambert_w0',
+    'lambert_wm1',
     'lbeta',
     'lchoose',
+    'ldexp',
     'lgamma',
-    'lkj_corr_cholesky_lpdf',
-    'lkj_corr_cholesky_rng',
-    'lkj_corr_lpdf',
-    'lkj_corr_rng',
+    'linspaced_array',
+    'linspaced_int_array',
+    'linspaced_row_vector',
+    'linspaced_vector',
     'lmgamma',
     'lmultiply',
     'log',
-    'log10',
     'log1m',
     'log1m_exp',
     'log1m_inv_logit',
     'log1p',
     'log1p_exp',
-    'log2',
     'log_determinant',
     'log_diff_exp',
     'log_falling_factorial',
     'log_inv_logit',
+    'log_inv_logit_diff',
     'log_mix',
+    'log_modified_bessel_first_kind',
     'log_rising_factorial',
     'log_softmax',
     'log_sum_exp',
-    'logistic_cdf',
-    'logistic_lccdf',
-    'logistic_lcdf',
-    'logistic_lpdf',
-    'logistic_rng',
     'logit',
-    'lognormal_cdf',
-    'lognormal_lccdf',
-    'lognormal_lcdf',
-    'lognormal_lpdf',
-    'lognormal_rng',
     'machine_precision',
+    'map_rect',
     'matrix_exp',
+    'matrix_exp_multiply',
+    'matrix_power',
     'max',
     'mdivide_left_spd',
     'mdivide_left_tri_low',
@@ -267,120 +195,80 @@ export default function(hljs) {
     'min',
     'modified_bessel_first_kind',
     'modified_bessel_second_kind',
-    'multi_gp_cholesky_lpdf',
-    'multi_gp_lpdf',
-    'multi_normal_cholesky_lpdf',
-    'multi_normal_cholesky_rng',
-    'multi_normal_lpdf',
-    'multi_normal_prec_lpdf',
-    'multi_normal_rng',
-    'multi_student_t_lpdf',
-    'multi_student_t_rng',
-    'multinomial_lpmf',
-    'multinomial_rng',
     'multiply_log',
     'multiply_lower_tri_self_transpose',
-    'neg_binomial_2_cdf',
-    'neg_binomial_2_lccdf',
-    'neg_binomial_2_lcdf',
-    'neg_binomial_2_log_lpmf',
-    'neg_binomial_2_log_rng',
-    'neg_binomial_2_lpmf',
-    'neg_binomial_2_rng',
-    'neg_binomial_cdf',
-    'neg_binomial_lccdf',
-    'neg_binomial_lcdf',
-    'neg_binomial_lpmf',
-    'neg_binomial_rng',
     'negative_infinity',
-    'normal_cdf',
-    'normal_lccdf',
-    'normal_lcdf',
-    'normal_lpdf',
-    'normal_rng',
+    'norm',
     'not_a_number',
     'num_elements',
-    'ordered_logistic_lpmf',
-    'ordered_logistic_rng',
+    'ode_adams',
+    'ode_adams_tol',
+    'ode_adjoint_tol_ctl',
+    'ode_bdf',
+    'ode_bdf_tol',
+    'ode_ckrk',
+    'ode_ckrk_tol',
+    'ode_rk45',
+    'ode_rk45_tol',
+    'one_hot_array',
+    'one_hot_int_array',
+    'one_hot_row_vector',
+    'one_hot_vector',
+    'ones_array',
+    'ones_int_array',
+    'ones_row_vector',
+    'ones_vector',
     'owens_t',
-    'pareto_cdf',
-    'pareto_lccdf',
-    'pareto_lcdf',
-    'pareto_lpdf',
-    'pareto_rng',
-    'pareto_type_2_cdf',
-    'pareto_type_2_lccdf',
-    'pareto_type_2_lcdf',
-    'pareto_type_2_lpdf',
-    'pareto_type_2_rng',
-    'pi',
-    'poisson_cdf',
-    'poisson_lccdf',
-    'poisson_lcdf',
-    'poisson_log_lpmf',
-    'poisson_log_rng',
-    'poisson_lpmf',
-    'poisson_rng',
+    'polar',
     'positive_infinity',
     'pow',
     'print',
     'prod',
+    'proj',
     'qr_Q',
     'qr_R',
+    'qr_thin_Q',
+    'qr_thin_R',
     'quad_form',
     'quad_form_diag',
     'quad_form_sym',
+    'quantile',
     'rank',
-    'rayleigh_cdf',
-    'rayleigh_lccdf',
-    'rayleigh_lcdf',
-    'rayleigh_lpdf',
-    'rayleigh_rng',
+    'reduce_sum',
     'reject',
     'rep_array',
     'rep_matrix',
     'rep_row_vector',
     'rep_vector',
+    'reverse',
     'rising_factorial',
     'round',
     'row',
     'rows',
     'rows_dot_product',
     'rows_dot_self',
-    'scaled_inv_chi_square_cdf',
-    'scaled_inv_chi_square_lccdf',
-    'scaled_inv_chi_square_lcdf',
-    'scaled_inv_chi_square_lpdf',
-    'scaled_inv_chi_square_rng',
+    'scale_matrix_exp_multiply',
     'sd',
     'segment',
     'sin',
     'singular_values',
     'sinh',
     'size',
-    'skew_normal_cdf',
-    'skew_normal_lccdf',
-    'skew_normal_lcdf',
-    'skew_normal_lpdf',
-    'skew_normal_rng',
     'softmax',
     'sort_asc',
     'sort_desc',
     'sort_indices_asc',
     'sort_indices_desc',
     'sqrt',
-    'sqrt2',
     'square',
     'squared_distance',
     'step',
-    'student_t_cdf',
-    'student_t_lccdf',
-    'student_t_lcdf',
-    'student_t_lpdf',
-    'student_t_rng',
     'sub_col',
     'sub_row',
     'sum',
+    'svd_U',
+    'svd_V',
+    'symmetrize_from_lower_tri',
     'tail',
     'tan',
     'tanh',
@@ -389,6 +277,7 @@ export default function(hljs) {
     'tgamma',
     'to_array_1d',
     'to_array_2d',
+    'to_complex',
     'to_matrix',
     'to_row_vector',
     'to_vector',
@@ -397,35 +286,29 @@ export default function(hljs) {
     'trace_quad_form',
     'trigamma',
     'trunc',
-    'uniform_cdf',
-    'uniform_lccdf',
-    'uniform_lcdf',
-    'uniform_lpdf',
-    'uniform_rng',
+    'uniform_simplex',
     'variance',
-    'von_mises_lpdf',
-    'von_mises_rng',
-    'weibull_cdf',
-    'weibull_lccdf',
-    'weibull_lcdf',
-    'weibull_lpdf',
-    'weibull_rng',
-    'wiener_lpdf',
-    'wishart_lpdf',
-    'wishart_rng'
+    'zeros_array',
+    'zeros_int_array',
+    'zeros_row_vector'
   ];
+
   const DISTRIBUTIONS = [
     'bernoulli',
     'bernoulli_logit',
+    'bernoulli_logit_glm',
     'beta',
     'beta_binomial',
+    'beta_proportion',
     'binomial',
     'binomial_logit',
     'categorical',
     'categorical_logit',
+    'categorical_logit_glm',
     'cauchy',
     'chi_square',
     'dirichlet',
+    'discrete_range',
     'double_exponential',
     'exp_mod_normal',
     'exponential',
@@ -433,6 +316,7 @@ export default function(hljs) {
     'gamma',
     'gaussian_dlm_obs',
     'gumbel',
+    'hmm_latent',
     'hypergeometric',
     'inv_chi_square',
     'inv_gamma',
@@ -448,18 +332,26 @@ export default function(hljs) {
     'multi_normal_prec',
     'multi_student_t',
     'multinomial',
+    'multinomial_logit',
     'neg_binomial',
     'neg_binomial_2',
     'neg_binomial_2_log',
+    'neg_binomial_2_log_glm',
     'normal',
+    'normal_id_glm',
     'ordered_logistic',
+    'ordered_logistic_glm',
+    'ordered_probit',
     'pareto',
     'pareto_type_2',
     'poisson',
     'poisson_log',
+    'poisson_log_glm',
     'rayleigh',
     'scaled_inv_chi_square',
+    'skew_double_exponential',
     'skew_normal',
+    'std_normal',
     'student_t',
     'uniform',
     'von_mises',
@@ -468,78 +360,131 @@ export default function(hljs) {
     'wishart'
   ];
 
+  const BLOCK_COMMENT = hljs.COMMENT(
+    /\/\*/,
+    /\*\//,
+    {
+      relevance: 0,
+      contains: [
+        {
+          scope: 'doctag',
+          match: /@(return|param)/
+        }
+      ]
+    }
+  );
+
+  const INCLUDE = {
+    scope: 'meta',
+    begin: /#include\b/,
+    end: /$/,
+    contains: [
+      {
+        match: /[a-z][a-z-._]+/,
+        scope: 'string'
+      },
+      hljs.C_LINE_COMMENT_MODE
+    ]
+  };
+
+  const RANGE_CONSTRAINTS = [
+    "lower",
+    "upper",
+    "offset",
+    "multiplier"
+  ];
+
   return {
     name: 'Stan',
     aliases: [ 'stanfuncs' ],
     keywords: {
       $pattern: hljs.IDENT_RE,
       title: BLOCKS,
-      keyword: STATEMENTS.concat(VAR_TYPES).concat(SPECIAL_FUNCTIONS),
+      type: TYPES,
+      keyword: STATEMENTS,
       built_in: FUNCTIONS
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT(
-        /#/,
-        /$/,
-        {
-          relevance: 0,
-          keywords: {
-            'meta-keyword': 'include'
-          }
-        }
-      ),
-      hljs.COMMENT(
-        /\/\*/,
-        /\*\//,
-        {
-          relevance: 0,
-          // highlight doc strings mentioned in Stan reference
-          contains: [
-            {
-              className: 'doctag',
-              begin: /@(return|param)/
-            }
-          ]
-        }
-      ),
+      INCLUDE,
+      hljs.HASH_COMMENT_MODE,
+      BLOCK_COMMENT,
       {
-        // hack: in range constraints, lower must follow "<"
-        begin: /<\s*lower\s*=/,
-        keywords: 'lower'
+        scope: 'built_in',
+        match: /\s(pi|e|sqrt2|log2|log10)(?=\()/,
+        relevance: 0
       },
       {
-        // hack: in range constraints, upper must follow either , or <
-        // <lower = ..., upper = ...> or <upper = ...>
-        begin: /[<,]\s*upper\s*=/,
-        keywords: 'upper'
+        match: regex.concat(/[<,]\s*/, regex.either(...RANGE_CONSTRAINTS), /\s*=/),
+        keywords: RANGE_CONSTRAINTS
       },
       {
-        className: 'keyword',
-        begin: /\btarget\s*\+=/,
-        relevance: 10
+        scope: 'keyword',
+        match: /\btarget(?=\s*\+=)/,
       },
       {
-        begin: '~\\s*(' + hljs.IDENT_RE + ')\\s*\\(',
-        keywords: DISTRIBUTIONS
-      },
-      {
-        className: 'number',
-        variants: [
-          {
-            begin: /\b\d+(?:\.\d*)?(?:[eE][+-]?\d+)?/
-          },
-          {
-            begin: /\.\d+(?:[eE][+-]?\d+)?\b/
-          }
+        // highlights the 'T' in T[,] for only Stan language distributrions
+        match: [
+          /~\s*/,
+          regex.either(...DISTRIBUTIONS),
+          /(?:\(\))/,
+          /\s*T(?=\s*\[)/
         ],
+        scope: {
+          2: "built_in",
+          4: "keyword"
+        }
+      },
+      {
+        // highlights distributions that end with special endings
+        scope: 'built_in',
+        keywords: DISTRIBUTIONS,
+        begin: regex.concat(/\w*/, regex.either(...DISTRIBUTIONS), /(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/)
+      },
+      {
+        // highlights distributions after ~
+        begin: [
+          /~/,
+          /\s*/,
+          regex.concat(regex.either(...DISTRIBUTIONS), /(?=\s*[\(.*\)])/)
+        ],
+        scope: { 3: "built_in" }
+      },
+      {
+        // highlights user defined distributions after ~
+        begin: [
+          /~/,
+          /\s*\w+(?=\s*[\(.*\)])/,
+          '(?!.*/\b(' + regex.either(...DISTRIBUTIONS) + ')\b)'
+        ],
+        scope: { 2: "title.function" }
+      },
+      {
+        // highlights user defined distributions with special endings
+        scope: 'title.function',
+        begin: /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
+      },
+      {
+        scope: 'number',
+        match: regex.concat(
+          // Comes from @RunDevelopment accessed 11/29/2021 at
+          // https://github.com/PrismJS/prism/blob/c53ad2e65b7193ab4f03a1797506a54bbb33d5a2/components/prism-stan.js#L56
+
+          // start of big noncapture group which
+          // 1. gets numbers that are by themselves
+          // 2. numbers that are separated by _
+          // 3. numbers that are separted by .
+          /(?:\b\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\B\.\d+(?:_\d+)*)/,
+          // grabs scientific notation
+          // grabs complex numbers with i
+          /(?:[eE][+-]?\d+(?:_\d+)*)?i?(?!\w)/
+        ),
         relevance: 0
       },
       {
-        className: 'string',
-        begin: '"',
-        end: '"',
-        relevance: 0
+        scope: 'string',
+        begin: /"/,
+        end: /"/
       }
     ]
   };

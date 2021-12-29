@@ -22,6 +22,22 @@ const emitsWrappingTags = (node) => {
   return !!node.kind;
 };
 
+/**
+ *
+ * @param {string} name
+ * @param {{prefix:string}} options
+ */
+const expandScopeName = (name, { prefix }) => {
+  if (name.includes(".")) {
+    const pieces = name.split(".");
+    return [
+      `${prefix}${pieces.shift()}`,
+      ...(pieces.map((x, i) => `${x}${"_".repeat(i + 1)}`))
+    ].join(" ");
+  }
+  return `${prefix}${name}`;
+};
+
 /** @type {Renderer} */
 export default class HTMLRenderer {
   /**
@@ -51,11 +67,13 @@ export default class HTMLRenderer {
   openNode(node) {
     if (!emitsWrappingTags(node)) return;
 
-    let className = node.kind;
-    if (!node.sublanguage) {
-      className = `${this.classPrefix}${className}`;
+    let scope = node.kind;
+    if (node.sublanguage) {
+      scope = `language-${scope}`;
+    } else {
+      scope = expandScopeName(scope, { prefix: this.classPrefix });
     }
-    this.span(className);
+    this.span(scope);
   }
 
   /**

@@ -7,13 +7,13 @@
  */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  /* Custom font is optional */
-  /* font-family: 'Operator Mono', 'Fira Code', 'Menlo', 'Monaco', 'Courier New', 'monospace';  */
-  padding: 0.5em;
   background: #2d2b57;
+  color: #e3dfff;
   font-weight: normal;
+}
+
+.hljs-subst {
+  color: #e3dfff;
 }
 
 .hljs-title {
@@ -44,11 +44,6 @@
   color: #fb9e00;
 }
 
-.hljs,
-.hljs-subst {
-  color: #e3dfff;
-}
-
 .hljs-string,
 .hljs-attribute,
 .hljs-symbol,
@@ -66,7 +61,7 @@
 }
 
 .hljs-meta,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #fb9e00;
 }
 

@@ -10,62 +10,62 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */</span>
-<span class="hljs-meta-keyword">/include/</span> <span class="hljs-string">&quot;skeleton.dtsi&quot;</span>
+<span class="hljs-keyword">/include/</span> <span class="hljs-string">&quot;skeleton.dtsi&quot;</span>
 
-<span class="hljs-class">/ {
-	compatible = <span class="hljs-string">&quot;xlnx,zynq-7000&quot;</span>;
+<span class="hljs-title class_">/</span> <span class="hljs-punctuation">{</span>
+	<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;xlnx,zynq-7000&quot;</span><span class="hljs-punctuation">;</span>
 
-	<span class="hljs-class">pmu </span>{
-		compatible = <span class="hljs-string">&quot;arm,cortex-a9-pmu&quot;</span>;
-		interrupts = <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span>&gt;</span>, <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">6</span> <span class="hljs-number">4</span>&gt;</span>;
-		interrupt-parent = <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span>;
-		reg = <span class="hljs-params">&lt; <span class="hljs-number">0xf8891000</span> <span class="hljs-number">0x1000</span> <span class="hljs-number">0xf8893000</span> <span class="hljs-number">0x1000</span> &gt;</span>;
-	};</span>
+	<span class="hljs-title class_">pmu</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;arm,cortex-a9-pmu&quot;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">interrupts</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span>&gt;</span>, <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">6</span> <span class="hljs-number">4</span>&gt;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">interrupt-parent</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">reg</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt; <span class="hljs-number">0xf8891000</span> <span class="hljs-number">0x1000</span> <span class="hljs-number">0xf8893000</span> <span class="hljs-number">0x1000</span> &gt;</span><span class="hljs-punctuation">;</span>
+	<span class="hljs-punctuation">};</span>
 <span class="hljs-symbol">
-	regulator_vccpint:</span> <span class="hljs-class">fixedregulator@0 </span>{
-		compatible = <span class="hljs-string">&quot;regulator-fixed&quot;</span>;
-		regulator-name = <span class="hljs-string">&quot;VCCPINT&quot;</span>;
-		regulator-min-microvolt = <span class="hljs-params">&lt;<span class="hljs-number">1000000</span>&gt;</span>;
-		regulator-max-microvolt = <span class="hljs-params">&lt;<span class="hljs-number">1000000</span>&gt;</span>;
-		regulator-boot-on;
-		regulator-always-on;
-	};
+	regulator_vccpint:</span> <span class="hljs-title class_">fixedregulator@0</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;regulator-fixed&quot;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">regulator-name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;VCCPINT&quot;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">regulator-min-microvolt</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">1000000</span>&gt;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">regulator-max-microvolt</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">1000000</span>&gt;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">regulator-boot-on</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">regulator-always-on</span><span class="hljs-punctuation">;</span>
+	<span class="hljs-punctuation">};</span>
 <span class="hljs-symbol">
-	amba:</span> <span class="hljs-class">amba </span>{
-		compatible = <span class="hljs-string">&quot;simple-bus&quot;</span>;
+	amba:</span> <span class="hljs-title class_">amba</span> <span class="hljs-punctuation">{</span>
+		<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;simple-bus&quot;</span><span class="hljs-punctuation">;</span>
 		<span class="hljs-meta">#address-cells = &lt;1&gt;;</span>
 		<span class="hljs-meta">#size-cells = &lt;1&gt;;</span>
-		interrupt-parent = <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span>;
-		ranges;
+		<span class="hljs-attr">interrupt-parent</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-attr">ranges</span><span class="hljs-punctuation">;</span>
 <span class="hljs-symbol">
-		adc:</span> <span class="hljs-class">adc@f8007100 </span>{
-			compatible = <span class="hljs-string">&quot;xlnx,zynq-xadc-1.00.a&quot;</span>;
-			reg = <span class="hljs-params">&lt;<span class="hljs-number">0xf8007100</span> <span class="hljs-number">0x20</span>&gt;</span>;
-			interrupts = <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">7</span> <span class="hljs-number">4</span>&gt;</span>;
-			interrupt-parent = <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span>;
-			clocks = <span class="hljs-params">&lt;<span class="hljs-variable">&amp;clkc</span> <span class="hljs-number">12</span>&gt;</span>;
-		};
+		adc:</span> <span class="hljs-title class_">adc@f8007100</span> <span class="hljs-punctuation">{</span>
+			<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;xlnx,zynq-xadc-1.00.a&quot;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">reg</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">0xf8007100</span> <span class="hljs-number">0x20</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">interrupts</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">7</span> <span class="hljs-number">4</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">interrupt-parent</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">clocks</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-variable">&amp;clkc</span> <span class="hljs-number">12</span>&gt;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-punctuation">};</span>
 <span class="hljs-symbol">
-		i2c0:</span> <span class="hljs-class">i2c@e0004000 </span>{
-			compatible = <span class="hljs-string">&quot;cdns,i2c-r1p10&quot;</span>;
-			status = <span class="hljs-string">&quot;disabled&quot;</span>;
-			clocks = <span class="hljs-params">&lt;<span class="hljs-variable">&amp;clkc</span> <span class="hljs-number">38</span>&gt;</span>;
-			interrupt-parent = <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span>;
-			interrupts = <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">25</span> <span class="hljs-number">4</span>&gt;</span>;
-			reg = <span class="hljs-params">&lt;<span class="hljs-number">0xe0004000</span> <span class="hljs-number">0x1000</span>&gt;</span>;
+		i2c0:</span> <span class="hljs-title class_">i2c@e0004000</span> <span class="hljs-punctuation">{</span>
+			<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;cdns,i2c-r1p10&quot;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">status</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;disabled&quot;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">clocks</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-variable">&amp;clkc</span> <span class="hljs-number">38</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">interrupt-parent</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-variable">&amp;intc</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">interrupts</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">25</span> <span class="hljs-number">4</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">reg</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">0xe0004000</span> <span class="hljs-number">0x1000</span>&gt;</span><span class="hljs-punctuation">;</span>
 			<span class="hljs-meta">#address-cells = &lt;1&gt;;</span>
 			<span class="hljs-meta">#size-cells = &lt;0&gt;;</span>
-		};
+		<span class="hljs-punctuation">};</span>
 <span class="hljs-symbol">
-		L2:</span> cache-<span class="hljs-class">controller@f8f02000 </span>{
-			compatible = <span class="hljs-string">&quot;arm,pl310-cache&quot;</span>;
-			reg = <span class="hljs-params">&lt;<span class="hljs-number">0xF8F02000</span> <span class="hljs-number">0x1000</span>&gt;</span>;
-			interrupts = <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span>&gt;</span>;
-			arm,data-latency = <span class="hljs-params">&lt;<span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span>&gt;</span>;
-			arm,tag-latency = <span class="hljs-params">&lt;<span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span>&gt;</span>;
-			cache-unified;
-			cache-level = <span class="hljs-params">&lt;<span class="hljs-number">2</span>&gt;</span>;
-		};
+		L2:</span> <span class="hljs-title class_">cache-controller@f8f02000</span> <span class="hljs-punctuation">{</span>
+			<span class="hljs-attr">compatible</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;arm,pl310-cache&quot;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">reg</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">0xF8F02000</span> <span class="hljs-number">0x1000</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">interrupts</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">0</span> <span class="hljs-number">2</span> <span class="hljs-number">4</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">arm,data-latency</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">3</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">arm,tag-latency</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">2</span> <span class="hljs-number">2</span> <span class="hljs-number">2</span>&gt;</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">cache-unified</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-attr">cache-level</span> <span class="hljs-operator">=</span> <span class="hljs-params">&lt;<span class="hljs-number">2</span>&gt;</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-punctuation">};</span>
 
-	};
-};
+	<span class="hljs-punctuation">};</span>
+<span class="hljs-punctuation">};</span>

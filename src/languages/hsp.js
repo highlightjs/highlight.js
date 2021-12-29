@@ -37,11 +37,11 @@ export default function(hljs) {
         begin: '#',
         end: '$',
         keywords: {
-          'meta-keyword': 'addion cfunc cmd cmpopt comfunc const defcfunc deffunc define else endif enum epack func global if ifdef ifndef include modcfunc modfunc modinit modterm module pack packopt regcmd runtime undef usecom uselib'
+          keyword: 'addion cfunc cmd cmpopt comfunc const defcfunc deffunc define else endif enum epack func global if ifdef ifndef include modcfunc modfunc modinit modterm module pack packopt regcmd runtime undef usecom uselib'
         },
         contains: [
           hljs.inherit(hljs.QUOTE_STRING_MODE, {
-            className: 'meta-string'
+            className: 'string'
           }),
           hljs.NUMBER_MODE,
           hljs.C_NUMBER_MODE,

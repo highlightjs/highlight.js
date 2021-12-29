@@ -20,9 +20,8 @@ SQL is intended to highlight basic/common SQL keywords and expressions
 
  */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
+  const regex = hljs.regex;
   const COMMENT_MODE = hljs.COMMENT('--', '$');
   const STRING = {
     className: 'string',
@@ -444,7 +443,7 @@ export default function(hljs) {
     "unique",
     "unknown",
     "unnest",
-    "update   ",
+    "update",
     "upper",
     "user",
     "using",
@@ -618,6 +617,7 @@ export default function(hljs) {
 
   const FUNCTION_CALL = {
     begin: regex.concat(/\b/, regex.either(...FUNCTIONS), /\s*\(/),
+    relevance: 0,
     keywords: {
       built_in: FUNCTIONS
     }
@@ -654,6 +654,7 @@ export default function(hljs) {
     contains: [
       {
         begin: regex.either(...COMBOS),
+        relevance: 0,
         keywords: {
           $pattern: /[\w\.]+/,
           keyword: KEYWORDS.concat(COMBOS),

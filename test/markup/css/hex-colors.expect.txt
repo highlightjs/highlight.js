@@ -1,0 +1,19 @@
+<span class="hljs-selector-class">.test-short</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#abc</span>;
+}
+
+<span class="hljs-selector-class">.test-short-alpha</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#abcd</span>;
+}
+
+<span class="hljs-selector-class">.test-long</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#aabbcc</span>;
+}
+
+<span class="hljs-selector-class">.test-long-alpha</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#aabbccdd</span>;
+}
+
+<span class="hljs-selector-class">.test-invalid</span> {
+    <span class="hljs-attribute">color</span>: #aabbccd;
+}

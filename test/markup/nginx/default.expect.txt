@@ -9,10 +9,10 @@
 }
 
 <span class="hljs-section">http</span> {
-    <span class="hljs-attribute">log_format</span> main      <span class="hljs-string">&#x27;$remote_addr - $remote_user [$time_local] &#x27;</span>
-                         <span class="hljs-string">&#x27;&quot;$request&quot; $status $bytes_sent &#x27;</span>
-                         <span class="hljs-string">&#x27;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &#x27;</span>
-                         <span class="hljs-string">&#x27;&quot;$gzip_ratio&quot;&#x27;</span>;
+    <span class="hljs-attribute">log_format</span> main      <span class="hljs-string">&#x27;<span class="hljs-variable">$remote_addr</span> - <span class="hljs-variable">$remote_user</span> [<span class="hljs-variable">$time_local</span>] &#x27;</span>
+                         <span class="hljs-string">&#x27;&quot;<span class="hljs-variable">$request</span>&quot; <span class="hljs-variable">$status</span> <span class="hljs-variable">$bytes_sent</span> &#x27;</span>
+                         <span class="hljs-string">&#x27;&quot;<span class="hljs-variable">$http_referer</span>&quot; &quot;<span class="hljs-variable">$http_user_agent</span>&quot; &#x27;</span>
+                         <span class="hljs-string">&#x27;&quot;<span class="hljs-variable">$gzip_ratio</span>&quot;&#x27;</span>;
 
     <span class="hljs-attribute">send_timeout</span> <span class="hljs-number">3m</span>;
     <span class="hljs-attribute">client_header_buffer_size</span> <span class="hljs-number">1k</span>;
@@ -28,19 +28,19 @@
 
         <span class="hljs-attribute">rewrite</span> (.*) /index.php?page=<span class="hljs-variable">$1</span> <span class="hljs-literal">break</span>;
 
-        <span class="hljs-attribute">location</span> / {
+        <span class="hljs-section">location</span> / {
             <span class="hljs-attribute">proxy_pass</span>         http://127.0.0.1/;
             <span class="hljs-attribute">proxy_redirect</span>     <span class="hljs-literal">off</span>;
-            <span class="hljs-attribute">proxy_set_header</span>   Host             $host;
-            <span class="hljs-attribute">proxy_set_header</span>   X-Real-IP        $remote_addr;
+            <span class="hljs-attribute">proxy_set_header</span>   Host             <span class="hljs-variable">$host</span>;
+            <span class="hljs-attribute">proxy_set_header</span>   X-Real-IP        <span class="hljs-variable">$remote_addr</span>;
             <span class="hljs-attribute">charset</span>            koi8-r;
         }
 
-        <span class="hljs-attribute">location</span> /api/ {
+        <span class="hljs-section">location</span> /api/ {
             <span class="hljs-attribute">fastcgi_pass</span> <span class="hljs-number">127.0.0.1:9000</span>;
         }
 
-        <span class="hljs-attribute">location</span> <span class="hljs-regexp">~* \.(jpg|jpeg|gif)$</span> {
+        <span class="hljs-section">location</span> <span class="hljs-regexp">~* \.(jpg|jpeg|gif)$</span> {
             <span class="hljs-attribute">root</span>         /spool/www;
         }
     }

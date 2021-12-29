@@ -96,15 +96,21 @@ export default function(hljs) {
 
       {
         className: 'variable',
-        begin: /[bwtglsav]:[\w\d_]*/
+        begin: /[bwtglsav]:[\w\d_]+/
       },
       {
-        className: 'function',
-        beginKeywords: 'function function!',
+        begin: [
+          /\b(?:function|function!)/,
+          /\s+/,
+          hljs.IDENT_RE
+        ],
+        className: {
+          1: "keyword",
+          3: "title"
+        },
         end: '$',
         relevance: 0,
         contains: [
-          hljs.TITLE_MODE,
           {
             className: 'params',
             begin: '\\(',

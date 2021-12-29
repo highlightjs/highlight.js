@@ -1,5 +1,5 @@
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Shorty</span>(<span class="hljs-params"><span class="hljs-built_in">dict</span></span>):</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">len</span>(<span class="hljs-params">self</span>):</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Shorty</span>(<span class="hljs-title class_ inherited__">dict</span>):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">len</span>(<span class="hljs-params">self</span>):
         <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span>
 
 x = Shorty()
@@ -13,5 +13,4 @@ x = Shorty()
 
 <span class="hljs-built_in">exec</span>(<span class="hljs-number">123</span>)
 
-<span class="hljs-comment"># note, numbers still aren&#x27;t highlighted fully</span>
-<span class="hljs-built_in">print</span>(1<span class="hljs-keyword">if</span> <span class="hljs-number">0</span>==0<span class="hljs-keyword">else</span><span class="hljs-string">&quot;b&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-number">1</span><span class="hljs-keyword">if</span> <span class="hljs-number">0</span>==<span class="hljs-number">0</span><span class="hljs-keyword">else</span><span class="hljs-string">&quot;b&quot;</span>)

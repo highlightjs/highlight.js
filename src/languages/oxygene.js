@@ -47,12 +47,11 @@ export default function(hljs) {
     begin: '(#\\d+)+'
   };
   const FUNCTION = {
-    className: 'function',
     beginKeywords: 'function constructor destructor procedure method',
     end: '[:;]',
     keywords: 'function constructor|10 destructor|10 procedure|10 method|10',
     contains: [
-      hljs.TITLE_MODE,
+      hljs.inherit(hljs.TITLE_MODE, {scope: "title.function" }),
       {
         className: 'params',
         begin: '\\(',
@@ -67,6 +66,13 @@ export default function(hljs) {
       PAREN_COMMENT
     ]
   };
+
+  const SEMICOLON = {
+    scope: "punctuation",
+    match: /;/,
+    relevance: 0
+  };
+
   return {
     name: 'Oxygene',
     case_insensitive: true,
@@ -80,20 +86,7 @@ export default function(hljs) {
       CHAR_STRING,
       hljs.NUMBER_MODE,
       FUNCTION,
-      {
-        className: 'class',
-        begin: '=\\bclass\\b',
-        end: 'end;',
-        keywords: OXYGENE_KEYWORDS,
-        contains: [
-          STRING,
-          CHAR_STRING,
-          CURLY_COMMENT,
-          PAREN_COMMENT,
-          hljs.C_LINE_COMMENT_MODE,
-          FUNCTION
-        ]
-      }
+      SEMICOLON
     ]
   };
 }

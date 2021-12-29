@@ -3,7 +3,7 @@ Language: CoffeeScript
 Author: Dmytrii Nagirniak <dnagir@gmail.com>
 Contributors: Oleg Efimov <efimovov@gmail.com>, Cédric Néhémie <cedric.nehemie@gmail.com>
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
-Category: common, scripting
+Category: scripting
 Website: https://coffeescript.org
 */
 
@@ -155,6 +155,30 @@ export default function(hljs) {
     }]
   };
 
+  const CLASS_DEFINITION = {
+    variants: [
+      {
+        match: [
+          /class\s+/,
+          JS_IDENT_RE,
+          /\s+extends\s+/,
+          JS_IDENT_RE
+        ]
+      },
+      {
+        match: [
+          /class\s+/,
+          JS_IDENT_RE
+        ]
+      }
+    ],
+    scope: {
+      2: "title.class",
+      4: "title.class.inherited"
+    },
+    keywords: KEYWORDS
+  };
+
   return {
     name: 'CoffeeScript',
     aliases: [
@@ -164,7 +188,8 @@ export default function(hljs) {
     ],
     keywords: KEYWORDS,
     illegal: /\/\*/,
-    contains: EXPRESSIONS.concat([
+    contains: [
+      ...EXPRESSIONS,
       hljs.COMMENT('###', '###'),
       hljs.HASH_COMMENT_MODE,
       {
@@ -189,21 +214,7 @@ export default function(hljs) {
           contains: [PARAMS]
         }]
       },
-      {
-        className: 'class',
-        beginKeywords: 'class',
-        end: '$',
-        illegal: /[:="\[\]]/,
-        contains: [
-          {
-            beginKeywords: 'extends',
-            endsWithParent: true,
-            illegal: /[:="\[\]]/,
-            contains: [TITLE]
-          },
-          TITLE
-        ]
-      },
+      CLASS_DEFINITION,
       {
         begin: JS_IDENT_RE + ':',
         end: ':',
@@ -211,6 +222,6 @@ export default function(hljs) {
         returnEnd: true,
         relevance: 0
       }
-    ])
+    ]
   };
 }

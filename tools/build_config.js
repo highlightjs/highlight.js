@@ -5,15 +5,17 @@ const { nodeResolve } = require('@rollup/plugin-node-resolve');
 module.exports = {
   build_dir: "build",
   copyrightYears: `2006-${new Date().getFullYear()}`,
-  clean_css: {},
+  clean_css: {
+    level: 2
+  },
   rollup: {
-    node: {
-      output: { format: "cjs", strict: false, exports: "auto" },
+    core: {
       input: {
         plugins: [
           cjsPlugin(),
           jsonPlugin(),
           nodeResolve(),
+          // TODO: remove with version 12
           {
             transform: (x) => {
               if (/var module/.exec(x)) {
@@ -25,7 +27,15 @@ module.exports = {
         ]
       }
     },
-    browser_core: {
+    node: {
+      output: {
+        format: "cjs",
+        strict: false,
+        exports: "auto",
+        footer: ""
+      }
+    },
+    browser_iife: {
       input: {
         plugins: [
           jsonPlugin(),
@@ -37,19 +47,6 @@ module.exports = {
         name: "hljs",
         format: "iife",
         footer: "if (typeof exports === 'object' && typeof module !== 'undefined') { module.exports = hljs; }",
-        interop: false
-      }
-    },
-    browser: {
-      input: {
-        plugins: [
-          cjsPlugin(),
-          jsonPlugin()
-        ]
-      },
-      output: {
-        format: "iife",
-        outro: "return module.exports.definer || module.exports;",
         interop: false
       }
     }

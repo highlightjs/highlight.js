@@ -22,13 +22,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 */
 
 .hljs {
-	display: block;
-	overflow-x: auto;
-	padding: 0.5em;
 	background: #FFFFDF; /* Half and Half (approx.) */
-/* --- Uncomment to add PureBASIC native IDE styled font!
-	font-family: Consolas;
-*/
 }
 
 .hljs, /* --- used for PureBASIC base color --- */
@@ -50,21 +44,21 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 	color: #00AAAA; /* Persian Green (approx.) */
 }
 
+.hljs-keyword, /* --- used for PureBASIC Keywords --- */
+.hljs-class,
+.hljs-meta .hljs-keyword,
+
+.hljs-selector-class,
+.hljs-built_in {
+	color: #006666; /* Blue Stone (approx.) */
+	font-weight: bold;
+}
+
 .hljs-title, /* --- used for PureBASIC Procedures Names --- */
 .hljs-tag,
 .hljs-variable,
 .hljs-code  {
 	color: #006666; /* Blue Stone (approx.) */
-}
-
-.hljs-keyword, /* --- used for PureBASIC Keywords --- */
-.hljs-class,
-.hljs-meta-keyword,
-.hljs-selector-class,
-.hljs-built_in,
-.hljs-builtin-name {
-	color: #006666; /* Blue Stone (approx.) */
-	font-weight: bold;
 }
 
 .hljs-string, /* --- used for PureBASIC Strings --- */

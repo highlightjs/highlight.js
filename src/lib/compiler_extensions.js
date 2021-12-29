@@ -1,5 +1,10 @@
 import * as regex from './regex.js';
 
+/**
+@typedef {import('highlight.js').CallbackResponse} CallbackResponse
+@typedef {import('highlight.js').CompilerExt} CompilerExt
+*/
+
 // Grammar extensions / plugins
 // See: https://github.com/highlightjs/highlight.js/issues/2833
 
@@ -24,13 +29,24 @@ import * as regex from './regex.js';
  * @param {RegExpMatchArray} match
  * @param {CallbackResponse} response
  */
-function skipIfhasPrecedingDot(match, response) {
+function skipIfHasPrecedingDot(match, response) {
   const before = match.input[match.index - 1];
   if (before === ".") {
     response.ignoreMatch();
   }
 }
 
+/**
+ *
+ * @type {CompilerExt}
+ */
+export function scopeClassName(mode, _parent) {
+  // eslint-disable-next-line no-undefined
+  if (mode.className !== undefined) {
+    mode.scope = mode.className;
+    delete mode.className;
+  }
+}
 
 /**
  * `beginKeywords` syntactic sugar
@@ -46,7 +62,7 @@ export function beginKeywords(mode, parent) {
   // doesn't allow spaces in keywords anyways and we still check for the boundary
   // first
   mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')(?!\\.)(?=\\b|\\s)';
-  mode.__beforeBegin = skipIfhasPrecedingDot;
+  mode.__beforeBegin = skipIfHasPrecedingDot;
   mode.keywords = mode.keywords || mode.beginKeywords;
   delete mode.beginKeywords;
 

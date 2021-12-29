@@ -1,27 +1,16 @@
-Library API
-===========
+Core API
+========
 
 Highlight.js exports a few functions as methods of the ``hljs`` object.
 
+.. _newerapi:
 
-``highlight(languageName, code, ignoreIllegals, continuation)`` (deprecated with 10.7)
---------------------------------------------------------------------------------------
+highlight
+---------
 
-**This is the old API, please see the new API immediately below.**
+::
 
-``continuation`` is an optional mode stack representing unfinished parsing.
-When present, the function will restart parsing from this state instead of
-initializing a new one.  This is used internally for `sublanguage` support.
-
-Note: `continuation` is NOT intended to support line-by-line highlighting
-because there is no requirement that a grammar handle linebreaks in any special
-way. It's quite possible for a grammar to have a single mode/regex that matches
-MANY lines at once.  This is not discouraged and entirely up to the grammar.
-
-
-
-``highlight(code, {language, ignoreIllegals})``
---------------------------------------------------------------------------------------
+  highlight(code, {language, ignoreIllegals})
 
 Core highlighting function.  Accepts the code to highlight (string) and a list of options (object).
 The ``language`` parameter must be present and specify the language name or alias
@@ -40,8 +29,13 @@ Returns an object with the following properties:
 * ``code``: the original raw code
 
 
-``highlightAuto(code, languageSubset)``
----------------------------------------
+
+highlightAuto
+-------------
+
+::
+
+  highlightAuto(code, languageSubset)
 
 Highlighting with language detection.
 Accepts a string with the code to highlight and an optional array of language names and aliases restricting detection to only those languages. The subset can also be set with ``configure``, but the local parameter overrides the option if set.
@@ -51,21 +45,15 @@ Returns an object with the following properties:
 * ``language``: detected language
 * ``relevance``: integer value representing the relevance score
 * ``value``: HTML string with highlighting markup
-* ``second_best``: object with the same structure for second-best heuristically detected language (may be absent)
+* ``secondBest``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
-``fixMarkup(value)`` (deprecated as of 10.3)
---------------------------------------------
+highlightElement
+----------------
 
-**fixMarkup is deprecated and will be removed entirely in v11.**
+::
 
-Post-processing of the highlighted markup. Currently consists of replacing indentation TAB characters and using ``<br>`` tags instead of new-line characters. Options are set globally with ``configure``.
-
-Accepts a string with the highlighted markup.
-
-
-``highlightBlock(block)``
--------------------------
+  highlightElement(element)
 
 Applies highlighting to a DOM node containing code.
 
@@ -73,58 +61,55 @@ This function is the one to use to apply highlighting dynamically after page loa
 or within initialization code of third-party JavaScript frameworks.
 
 The function uses language detection by default but you can specify the language
-in the ``class`` attribute of the DOM node. See the :doc:`class reference
-</css-classes-reference>` for all available language names and aliases.
+in the ``class`` attribute of the DOM node. See the :doc:`scopes reference
+</css-classes-reference>` for all available language names and scopes.
 
 
-``configure(options)``
-----------------------
+
+
+highlightAll
+------------
+
+Applies highlighting to all elements on a page matching the configured ``cssSelector``.
+The default ``cssSelector`` value is ``'pre code'``, which highlights all code blocks.
+This can be called before or after the page's ``onload`` event has fired.
+
+
+configure
+---------
+
+::
+
+  configure(options)
 
 Configures global options:
 
-* ``tabReplace``: a string used to replace TAB characters in indentation.
-* ``useBR``: a flag to generate ``<br>`` tags instead of new-line characters in the output, useful when code is marked up using a non-``<pre>`` container.
 * ``classPrefix``: a string prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
 * ``languages``: an array of language names and aliases restricting auto detection to only these languages.
 * ``languageDetectRe``: a regex to configure how CSS class names map to language (allows class names like say `color-as-php` vs the default of `language-php`, etc.)
 * ``noHighlightRe``: a regex to configure which CSS classes are to be skipped completely.
+* ``cssSelector``: a CSS selector to configure which elements are affected by ``hljs.highlightAll``. Defaults to ``'pre code'``.
+* ``ignoreUnescapedHTML``: do not log warnings to console about unescaped HTML in code blocks
+* ``throwUnescapedHTML``: throw a ``HTMLInjectionError`` when ``highlightElement`` is asked to highlight content that includes unescaped HTML
+
 
 Accepts an object representing options with the values to updated. Other options don't change
 ::
 
   hljs.configure({
-    tabReplace: '    ', // 4 spaces
+    noHighlightRe: /^do-not-highlightme$/i,
+    languageDetectRe: /\bgrammar-([\w-]+)\b/i, // for `grammar-swift` style CSS naming
     classPrefix: ''     // don't append class prefix
                         // … other options aren't changed
   });
-  hljs.initHighlighting();
 
 
-``highlightAll()``
-------------------
+registerLanguage
+----------------
 
-Applies highlighting to all ``<pre><code>...</code></pre>`` blocks on a page.
-This can be called before or after the page's ``onload`` event has fired.
+::
 
-
-``initHighlighting()`` (deprecated as of 10.6)
-----------------------
-
-*Deprecated:* Please use ``highlightAll()`` instead.
-
-Applies highlighting to all ``<pre><code>...</code></pre>`` blocks on a page.
-
-
-``initHighlightingOnLoad()`` (deprecated as of 10.6)
-----------------------------
-
-*Deprecated:* Please use ``highlightAll()`` instead.
-
-Attaches highlighting to the page load event.
-
-
-``registerLanguage(languageName, languageDefinition)``
-------------------------------------
+  registerLanguage(languageName, languageDefinition)
 
 Adds new language to the library under the specified name. Used mostly internally.
 
@@ -134,16 +119,24 @@ Adds new language to the library under the specified name. Used mostly internall
   to use common regular expressions defined within it.
 
 
-``unregisterLanguage(languageName)``
-------------------------------------
+unregisterLanguage
+------------------
+
+::
+
+  unregisterLanguage(languageName)
 
 Removes a language and its aliases from the library. Used mostly internally.
 
 * ``languageName``: a string with the name of the language being removed.
 
 
-``registerAliases(alias|aliases, {languageName})``
---------------------------------------------------
+registerAliases
+---------------
+
+::
+
+  registerAliases(alias|aliases, {languageName})
 
 Adds new language alias or aliases to the library for the specified language name defined under ``languageName`` key.
 
@@ -151,8 +144,8 @@ Adds new language alias or aliases to the library for the specified language nam
 * ``languageName``: the language name as specified by ``registerLanguage``.
 
 
-``listLanguages()``
--------------------
+listLanguages
+-------------
 
 Returns the languages names list.
 
@@ -160,37 +153,88 @@ Returns the languages names list.
 .. _getLanguage:
 
 
-``getLanguage(name)``
----------------------
+getLanguage
+-----------
+
+::
+
+  getLanguage(name)
 
 Looks up a language by name or alias.
 
 Returns the language object if found, ``undefined`` otherwise.
 
 
-``requireLanguage(name)`` (deprecated as of 10.4)
--------------------------------------------------
+versionString
+-------------
 
-**This has been deprecated and will be removed in a future release.**  If you
-need this type of functionality use ``getLanguage`` with your own error
-handling.  It is highly recommended that all inter-dependencies between grammars
-be handled at built-time, not run-time.  This is what the core library now does.
+::
 
-Looks up a language by name or alias.
+   versionString
 
-This should be used when one language definition depends on another.
-Using this function (vs ``getLanguage``) will provide better error messaging
-when a required language is missing.
-
-Returns the language object if found, raises a hard error otherwise.
+Returns the full Highlight.js version as a string, ie: ``"11.0.1"``.
 
 
-``debugMode()``
----------------
+safeMode
+--------
 
-Enables *debug/development* mode.  **This mode purposely makes Highlight.js more fragile!  It should only be used for testing and local development (of languages or the library itself).**  By default "Safe Mode" is used, providing the most reliable experience for production usage.
+::
+
+   safeMode()
+
+Enables safe mode. This is the default mode, providing the most reliable experience for production usage.
+
+
+debugMode
+---------
+
+::
+
+   debugMode()
+
+Enables *debug/development* mode.
+
+.. warning::
+
+   This mode purposely makes Highlight.js more fragile!  It should only be used for testing and local development (of languages or the library itself).
 
 For example, if a new version suddenly had a serious bug (or breaking change) that affected only a single language:
 
-* **In Safe Mode**: All other languages would continue to highlight just fine. The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
-* **In Debug Mode**: All highlighting would stop when an error was encountered and a JavaScript error would be thrown.
+* **In Safe Mode** all other languages would continue to highlight just fine. The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
+* **In Debug Mode** all highlighting would stop and a JavaScript error would be thrown.
+
+
+Deprecated API
+--------------
+
+highlight
+^^^^^^^^^
+
+.. deprecated:: 10.7 This will be removed entirely in v12.
+
+::
+
+  highlight(languageName, code)
+
+
+Please see the :ref:`newer API<newerapi>` shown above.
+
+
+highlightBlock
+^^^^^^^^^^^^^^
+
+.. deprecated:: 11.0 Please use ``highlightElement()`` instead.
+
+
+initHighlighting
+^^^^^^^^^^^^^^^^
+
+.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
+
+
+
+initHighlightingOnLoad
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
+

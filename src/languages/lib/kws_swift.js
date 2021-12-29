@@ -32,6 +32,7 @@ export const keywords = [
   // strings below will be fed into the regular `keywords` engine while regex
   // will result in additional modes being created to scan for those keywords to
   // avoid conflicts with other rules
+  'actor',
   'associatedtype',
   'async',
   'await',
@@ -72,6 +73,8 @@ export const keywords = [
   'internal',
   'in',
   'is', // operator
+  'isolated', // contextual
+  'nonisolated', // contextual
   'lazy', // contextual
   'let',
   'mutating', // contextual
@@ -138,7 +141,7 @@ export const precedencegroupKeywords = [
 ];
 
 // Keywords that start with a number sign (#).
-// #available is handled separately.
+// #(un)available is handled separately.
 export const numberSignKeywords = [
   '#colorLiteral',
   '#column',
@@ -297,13 +300,14 @@ export const keywordAttributes = [
   'objcMembers',
   'propertyWrapper',
   'requires_stored_property_inits',
+  'resultBuilder',
   'testable',
   'UIApplicationMain',
   'unknown',
   'usableFromInline'
 ];
 
-// Contextual keywords used in @available and #available.
+// Contextual keywords used in @available and #(un)available.
 export const availabilityKeywords = [
   'iOS',
   'iOSApplicationExtension',

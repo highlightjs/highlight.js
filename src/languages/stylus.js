@@ -3,7 +3,7 @@ Language: Stylus
 Author: Bryant Williams <b.n.williams@gmail.com>
 Description: Stylus is an expressive, robust, feature-rich CSS language built for nodejs.
 Website: https://github.com/stylus/stylus
-Category: css
+Category: css, web
 */
 
 import * as css from "./lib/css-shared.js";
@@ -96,7 +96,7 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: '&?::(' + css.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
+        begin: '&?:(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
       modes.ATTRIBUTE_SELECTOR_MODE,
@@ -111,7 +111,7 @@ export default function(hljs) {
             keyword: AT_MODIFIERS,
             attribute: css.MEDIA_FEATURES.join(" ")
           },
-          contains: [ hljs.CSS_NUMBER_MODE ]
+          contains: [ modes.CSS_NUMBER_MODE ]
         }
       },
 
@@ -125,7 +125,7 @@ export default function(hljs) {
       VARIABLE,
 
       // dimension
-      hljs.CSS_NUMBER_MODE,
+      modes.CSS_NUMBER_MODE,
 
       // functions
       //  - only from beginning of line + whitespace
@@ -147,12 +147,15 @@ export default function(hljs) {
               modes.HEXCOLOR,
               VARIABLE,
               hljs.APOS_STRING_MODE,
-              hljs.CSS_NUMBER_MODE,
+              modes.CSS_NUMBER_MODE,
               hljs.QUOTE_STRING_MODE
             ]
           }
         ]
       },
+
+      // css variables
+      modes.CSS_VARIABLE,
 
       // attributes
       //  - only from beginning of line + whitespace
@@ -168,14 +171,15 @@ export default function(hljs) {
             VARIABLE,
             hljs.APOS_STRING_MODE,
             hljs.QUOTE_STRING_MODE,
-            hljs.CSS_NUMBER_MODE,
+            modes.CSS_NUMBER_MODE,
             hljs.C_BLOCK_COMMENT_MODE,
             modes.IMPORTANT
           ],
           illegal: /\./,
           relevance: 0
         }
-      }
+      },
+      modes.FUNCTION_DISPATCH
     ]
   };
 }

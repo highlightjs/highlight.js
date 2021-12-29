@@ -1,20 +1,16 @@
 /*
 Language: CSS
-Category: common, css
+Category: common, css, web
 Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
 // @ts-ignore
 import * as css from "./lib/css-shared.js";
-import * as regex from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const modes = css.MODES(hljs);
-  const FUNCTION_DISPATCH = {
-    className: "built_in",
-    begin: /[\w-]+(?=\()/
-  };
   const VENDOR_PREFIX = {
     begin: /-(webkit|moz|ms|o)-(?=[a-z])/
   };
@@ -39,11 +35,11 @@ export default function(hljs) {
       keyframePosition: "selector-tag"
     },
     contains: [
-      hljs.C_BLOCK_COMMENT_MODE,
+      modes.BLOCK_COMMENT,
       VENDOR_PREFIX,
       // to recognize keyframe 40% etc which are outside the scope of our
       // attribute value mode
-      hljs.CSS_NUMBER_MODE,
+      modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
         begin: /#[A-Za-z0-9_-]+/,
@@ -62,7 +58,7 @@ export default function(hljs) {
             begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')'
           },
           {
-            begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
+            begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'
           }
         ]
       },
@@ -72,18 +68,20 @@ export default function(hljs) {
       //   end: /\)/,
       //   contains: [ hljs.CSS_NUMBER_MODE ]
       // },
+      modes.CSS_VARIABLE,
       {
         className: 'attribute',
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'
       },
       // attribute values
       {
-        begin: ':',
-        end: '[;}]',
+        begin: /:/,
+        end: /[;}{]/,
         contains: [
+          modes.BLOCK_COMMENT,
           modes.HEXCOLOR,
           modes.IMPORTANT,
-          hljs.CSS_NUMBER_MODE,
+          modes.CSS_NUMBER_MODE,
           ...STRINGS,
           // needed to highlight these as strings and to avoid issues with
           // illegal characters that might be inside urls that would tigger the
@@ -106,7 +104,7 @@ export default function(hljs) {
               }
             ]
           },
-          FUNCTION_DISPATCH
+          modes.FUNCTION_DISPATCH
         ]
       },
       {
@@ -135,7 +133,7 @@ export default function(hljs) {
                 className: "attribute"
               },
               ...STRINGS,
-              hljs.CSS_NUMBER_MODE
+              modes.CSS_NUMBER_MODE
             ]
           }
         ]

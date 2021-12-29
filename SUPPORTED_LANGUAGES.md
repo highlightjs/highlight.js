@@ -1,14 +1,15 @@
 # Supported Languages
 
-The table below shows the full list of supported languages (and corresponding classes/aliases).  Note: Which languages are available may depend on how you've built or included the library in your app. See [Getting the Library][1] in the README.
+The table below shows the full list of languages (and corresponding classes/aliases) supported by Highlight.js.  Languages that list a **Package** below are 3rd party languages and are not bundled with the core library.  You can find their repositories by following the links.
 
-Languages that listed a **Package** below are 3rd party languages and are not bundled with the core library.  You can find their repositories by following the links.
+**Note:** The languages available will depend on how you've built or are included the library in your app. For example our default minified web build includes only ~40 popular languages.  See [Getting the Library][1] and [Importing the Library][2] in the README for examples of how to load additional/specific languages.
 
 <!-- LANGLIST -->
-| Language                | Classes                | Package |
+| Language                | Aliases                | Package |
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
 | 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
+| ABAP                    | sap-abap, abap         |[highlight-sap-abap](https://github.com/highlightjs/highlightjs-sap-abap) |
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
@@ -53,13 +54,14 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Crystal                 | crystal, cr            |         |
 | Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
 | D                       | d                      |         |
-| DNS Zone file           | dns, zone, bind        |         |
-| DOS                     | dos, bat, cmd          |         |
+| Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
 | Dart                    | dart                   |         |
-| Delphi                  | delphi, dpr, dfm, pas, pascal, freepascal, lazarus, lpr, lfm | |
+| Delphi                  | dpr, dfm, pas, pascal  |         |
 | Diff                    | diff, patch            |         |
 | Django                  | django, jinja          |         |
+| DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
+| DOS                     | dos, bat, cmd          |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
 | Dust                    | dust, dst              |         |
@@ -78,12 +80,14 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | GAUSS                   | gauss, gss             |         |
 | GDScript                | godot, gdscript        | [highlightjs-gdscript](https://github.com/highlightjs/highlightjs-gdscript) |
 | Gherkin                 | gherkin                |         |
+| Glimmer and EmberJS     | hbs, glimmer, html.hbs, html.handlebars, htmlbars | [highlightjs-glimmer](https://github.com/NullVoxPopuli/highlightjs-glimmer) |
 | GN for Ninja            | gn, gni                | [highlightjs-GN](https://github.com/highlightjs/highlightjs-GN) |
 | Go                      | go, golang             |         |
 | Grammatical Framework   | gf                     | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
 | Groovy                  | groovy                 |         |
+| GSQL                    | gsql                   | [highlightjs-gsql](https://github.com/DanBarkus/highlightjs-gsql) |
 | HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
 | HTTP                    | http, https            |         |
 | Haml                    | haml                   |         |
@@ -120,6 +124,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Mercury                 | mercury                |         |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
+| MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
@@ -137,9 +142,11 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Oracle Rules Language   | ruleslanguage          |         |
 | Oxygene                 | oxygene                |         |
 | PF                      | pf, pf.conf            |         |
-| PHP                     | php, php3, php4, php5, php6, php7, php8 |    |
+| PHP                     | php                    |         |
+| Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
+| Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
@@ -180,6 +187,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Smalltalk               | smalltalk, st          |         |
 | SML                     | sml, ml                |         |
 | Solidity                | solidity, sol          | [highlightjs-solidity](https://github.com/highlightjs/highlightjs-solidity) |
+| Splunk SPL              | spl                    | [highlightjs-spl](https://github.com/swsoyee/highlightjs-spl) |
 | Stan                    | stan, stanfuncs        |         |
 | Stata                   | stata                  |         |
 | Structured Text         | iecst, scl, stl, structured-text | [highlightjs-structured-text](https://github.com/highlightjs/highlightjs-structured-text) |
@@ -196,7 +204,7 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts         |         |
-| Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log)
+| Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
 | VB.Net                  | vbnet, vb              |         |
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |
 | VBScript                | vbscript, vbs          |         |
@@ -204,11 +212,13 @@ Languages that listed a **Package** below are 3rd party languages and are not bu
 | Vala                    | vala                   |         |
 | Verilog                 | verilog, v             |         |
 | Vim Script              | vim                    |         |
+| X#                      | xsharp, xs, prg        | [highlightjs-xsharp](https://github.com/InfomindsAg/highlightjs-xsharp) |
 | X++                     | axapta, x++            |         |
 | x86 Assembly            | x86asm                 |         |
 | XL                      | xl, tao                |         |
 | XQuery                  | xquery, xpath, xq      |         |
 | YAML                    | yml, yaml              |         |
+| ZenScript               | zenscript, zs          |[highlightjs-zenscript](https://github.com/highlightjs/highlightjs-zenscript) |
 | Zephir                  | zephir, zep            |         |
 <!-- LANGLIST_END -->
 
@@ -227,3 +237,4 @@ use the full name and not the alias to avoid any ambiguity.
 
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
+[2]: https://github.com/highlightjs/highlight.js#importing-the-library

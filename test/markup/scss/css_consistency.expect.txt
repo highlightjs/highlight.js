@@ -22,7 +22,9 @@
 
 <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span> { <span class="hljs-attribute">color</span>: blue; }
 <span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">::after</span> { <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;test&quot;</span>; }
+<span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">:after</span> { <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;test&quot;</span>; }
 <span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">::before</span> { <span class="hljs-attribute">content</span>: open-quote; }
+<span class="hljs-selector-tag">div</span><span class="hljs-selector-pseudo">:before</span> { <span class="hljs-attribute">content</span>: open-quote; }
 <span class="hljs-selector-tag">span</span><span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">33</span>) { <span class="hljs-attribute">color</span>:red; }
 
 <span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">:lang</span>(en) {}
@@ -56,4 +58,20 @@
   <span class="hljs-comment">/* it&#x27;s not 100% clear how url and format should be highlighted universally */</span>
   <span class="hljs-comment">/* src: url(&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;) format(&quot;woff2&quot;),
        url(&quot;/fonts/OpenSans-Regular-webfont.woff&quot;) format(&quot;woff&quot;); */</span>
+}
+
+<span class="hljs-keyword">@keyframes</span> important1 {
+  from { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">50px</span>; }
+  <span class="hljs-number">50%</span>  { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">60px</span> <span class="hljs-meta">!important</span>; }
+  to   { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">100px</span>; }
+}
+
+<span class="hljs-selector-tag">main</span> {
+  <span class="hljs-attr">--color</span>: red;
+  <span class="hljs-attribute">color</span>: var(--color);
+}
+
+<span class="hljs-selector-tag">main</span> {
+  <span class="hljs-comment">/* normal comment */</span>
+  <span class="hljs-attribute">width</span>: <span class="hljs-comment">/* inline comment */</span> <span class="hljs-number">50px</span>;
 }

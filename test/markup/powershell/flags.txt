@@ -1,0 +1,4 @@
+"Good Dog" --match-lower-case "Dog"
+2 --equality-check 2
+"abc" --format-drive-fully "def"
+format /dev/devices/driveA --format-drive-fully -yes

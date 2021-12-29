@@ -16,8 +16,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 15.x]
-        build-how: ["node", "browser", "browser -n"]
+        node-version: [12.x, 14.x, 16.x]
+        build-how: ["node", "browser", "browser -n", "cdn :common"]
 
     steps:
     - uses: actions/checkout@v2
@@ -28,11 +28,16 @@ jobs:
     - run: npm install
     - run: node ./tools/build.js -t ${{ matrix.build-how }}
     # normal browser build
-    - if: contains(matrix.build-how, 'browser')
-      name: Test browser build
+    - if: contains(matrix.build-how, 'browser') || contains(matrix.build-how, 'cdn')
+      name: Test browser/CDN build
       run: |
         npm run test-browser
         node test/builds/browser_build_as_commonjs.js
+    # CDN build should be easily importable
+    - if: contains(matrix.build-how, 'cdn')
+      name: Test that we can import CDN esm build
+      run: |
+        node test/builds/cdn_build_as_esm.mjs
 
     - if: contains(matrix.build-how, 'node')
       name: Test Node.js build

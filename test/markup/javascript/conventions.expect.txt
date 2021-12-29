@@ -1,0 +1,7 @@
+    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">KEY_KPASTERISK</span> = <span class="hljs-number">55</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">KEY_KP7</span>        = <span class="hljs-number">71</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">KEY_KP8</span>        = <span class="hljs-number">72</span>;
+
+<span class="hljs-keyword">if</span> (key == <span class="hljs-variable constant_">KEY_KP8</span>) {
+  <span class="hljs-comment">// do stuff</span>
+}

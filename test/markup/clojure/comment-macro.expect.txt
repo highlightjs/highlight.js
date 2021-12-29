@@ -1,0 +1,2 @@
+(<span class="hljs-name">comment</span> <span class="hljs-string">&quot;comment is a macro that emits no code. It can contain clojure code in itself.&quot;</span>)
+(<span class="hljs-name">comment-and-something</span> <span class="hljs-string">&quot;This is a valid function name&quot;</span>)

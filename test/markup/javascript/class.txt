@@ -26,3 +26,15 @@ while(value) {}
 if(value) {}
 switch(value) {}
 try {} catch(err) {}
+
+Car
+Vehicle
+SelfDrivingTruck
+CSSParser
+Float32Array
+BigInt64Array
+FPs
+OutT
+InT
+CSSParserT
+IResponseTsS

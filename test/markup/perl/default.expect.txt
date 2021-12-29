@@ -28,12 +28,12 @@
   <span class="hljs-keyword">return</span> $o;
 }
 
-<span class="mojolicious"><span class="hljs-meta">__DATA__</span><span class="xml">
-</span></span><span class="hljs-comment">@@ layouts/default.html.ep</span><span class="mojolicious"><span class="xml">
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="language-mojolicious"><span class="hljs-meta">__DATA__</span><span class="language-xml">
+</span></span><span class="hljs-comment">@@ layouts/default.html.ep</span><span class="language-mojolicious"><span class="language-xml">
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%=</span><span class="perl"> title </span><span class="xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>&lt;%=</span><span class="perl"> content </span><span class="xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%=</span><span class="language-perl"> title </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>&lt;%=</span><span class="language-perl"> content </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </span><span class="hljs-meta">__END__</span></span>
 

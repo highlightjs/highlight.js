@@ -7,10 +7,9 @@ Category: assembler
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT_RE = /([-a-zA-Z$._][\w$.-]*)/;
   const TYPE = {
     className: 'type',

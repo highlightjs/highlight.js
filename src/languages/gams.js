@@ -8,10 +8,9 @@
  Category: scientific
  */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const KEYWORDS = {
     keyword:
       'abort acronym acronyms alias all and assign binary card diag display ' +
@@ -119,7 +118,7 @@ export default function(hljs) {
         returnBegin: true,
         contains: [
           {
-            className: 'meta-keyword',
+            className: 'keyword',
             begin: '^\\$[a-z0-9]+'
           }
         ]

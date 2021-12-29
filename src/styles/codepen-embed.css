@@ -5,9 +5,6 @@
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #222;
   color: #fff;
 }
@@ -24,7 +21,6 @@
 .hljs-meta,
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-params,
 .hljs-symbol,

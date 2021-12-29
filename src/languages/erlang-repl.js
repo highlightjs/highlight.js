@@ -5,10 +5,9 @@ Website: https://www.erlang.org
 Category: functional
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   return {
     name: 'Erlang REPL',
     keywords: {

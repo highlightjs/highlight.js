@@ -6,10 +6,9 @@ Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started
 Category: common
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   /**
    * Character Literal
    * Either a single character ("a"C) or an escaped double quote (""""C).
@@ -113,7 +112,7 @@ export default function(hljs) {
         begin: /'/
       },
       {
-        // TODO: Use `beforeMatch:` for leading spaces
+        // TODO: Use multi-class for leading spaces
         begin: /([\t ]|^)REM(?=\s)/
       }
     ]
@@ -121,11 +120,11 @@ export default function(hljs) {
 
   const DIRECTIVES = {
     className: 'meta',
-    // TODO: Use `beforeMatch:` for indentation once available
+    // TODO: Use multi-class for indentation once available
     begin: /[\t ]*#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
     end: /$/,
     keywords: {
-      'meta-keyword':
+      keyword:
         'const disable else elseif enable end externalsource if region then'
     },
     contains: [ COMMENT ]

@@ -7,10 +7,9 @@ Website: https://www.r-project.org
 Category: common,scientific
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   // Identifiers in R cannot start with `_`, but they can start with `.` if it
   // is not immediately followed by a digit.
   // R also supports quoted identifiers, which are near-arbitrary sequences
@@ -18,13 +17,27 @@ export default function(hljs) {
   // handled in a separate mode. See `test/markup/r/names.txt` for examples.
   // FIXME: Support Unicode identifiers.
   const IDENT_RE = /(?:(?:[a-zA-Z]|\.[._a-zA-Z])[._a-zA-Z0-9]*)|\.(?!\d)/;
-  const SIMPLE_IDENT = /[a-zA-Z][a-zA-Z_0-9]*/;
+  const NUMBER_TYPES_RE = regex.either(
+    // Special case: only hexadecimal binary powers can contain fractions
+    /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/,
+    // Hexadecimal numbers without fraction and optional binary power
+    /0[xX][0-9a-fA-F]+(?:[pP][+-]?\d+)?[Li]?/,
+    // Decimal numbers
+    /(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?[Li]?/
+  );
+  const OPERATORS_RE = /[=!<>:]=|\|\||&&|:::?|<-|<<-|->>|->|\|>|[-+*\/?!$&|:<=>@^~]|\*\*/;
+  const PUNCTUATION_RE = regex.either(
+    /[()]/,
+    /[{}]/,
+    /\[\[/,
+    /[[\]]/,
+    /\\/,
+    /,/
+  );
 
   return {
     name: 'R',
 
-    // only in Haskell, not R
-    illegal: /->/,
     keywords: {
       $pattern: IDENT_RE,
       keyword:
@@ -56,30 +69,7 @@ export default function(hljs) {
         'standardGeneric substitute sum switch tan tanh tanpi tracemem ' +
         'trigamma trunc unclass untracemem UseMethod xtfrm',
     },
-    compilerExtensions: [
-      // allow beforeMatch to act as a "qualifier" for the match
-      // the full match begin must be [beforeMatch][begin]
-      (mode, parent) => {
-        if (!mode.beforeMatch) return;
-        // starts conflicts with endsParent which we need to make sure the child
-        // rule is not matched multiple times
-        if (mode.starts) throw new Error("beforeMatch cannot be used with starts");
 
-        const originalMode = Object.assign({}, mode);
-        Object.keys(mode).forEach((key) => { delete mode[key]; });
-
-        mode.begin = regex.concat(originalMode.beforeMatch, regex.lookahead(originalMode.begin));
-        mode.starts = {
-          relevance: 0,
-          contains: [
-            Object.assign(originalMode, { endsParent: true })
-          ]
-        };
-        mode.relevance = 0;
-
-        delete originalMode.beforeMatch;
-      }
-    ],
     contains: [
       // Roxygen comments
       hljs.COMMENT(
@@ -93,47 +83,42 @@ export default function(hljs) {
               // preventing highlighting. This code is example R code, so nested
               // doctags shouldn’t be treated as such. See
               // `test/markup/r/roxygen.txt` for an example.
-              className: 'doctag',
-              begin: '@examples',
+              scope: 'doctag',
+              match: /@examples/,
               starts: {
-                contains: [
-                  { begin: /\n/ },
-                  {
-                    begin: /#'\s*(?=@[a-zA-Z]+)/,
-                    endsParent: true,
-                  },
-                  {
-                    begin: /#'/,
-                    end: /$/,
-                    excludeBegin: true,
-                  }
-                ]
+                end: regex.lookahead(regex.either(
+                  // end if another doc comment
+                  /\n^#'\s*(?=@[a-zA-Z]+)/,
+                  // or a line with no comment
+                  /\n^(?!#')/
+                )),
+                endsParent: true
               }
             },
             {
               // Handle `@param` to highlight the parameter name following
               // after.
-              className: 'doctag',
+              scope: 'doctag',
               begin: '@param',
               end: /$/,
               contains: [
                 {
-                  className: 'variable',
+                  scope: 'variable',
                   variants: [
-                    { begin: IDENT_RE },
-                    { begin: /`(?:\\.|[^`\\])+`/ }
+                    { match: IDENT_RE },
+                    { match: /`(?:\\.|[^`\\])+`/ }
                   ],
                   endsParent: true
                 }
               ]
             },
             {
-              className: 'doctag',
-              begin: /@[a-zA-Z]+/
+              scope: 'doctag',
+              match: /@[a-zA-Z]+/
             },
             {
-              className: 'meta-keyword',
-              begin: /\\[a-zA-Z]+/,
+              scope: 'keyword',
+              match: /\\[a-zA-Z]+/
             }
           ]
         }
@@ -142,7 +127,7 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
 
       {
-        className: 'string',
+        scope: 'string',
         contains: [hljs.BACKSLASH_ESCAPE],
         variants: [
           hljs.END_SAME_AS_BEGIN({ begin: /[rR]"(-*)\(/, end: /\)(-*)"/ }),
@@ -155,38 +140,88 @@ export default function(hljs) {
           {begin: "'", end: "'", relevance: 0}
         ],
       },
+
+      // Matching numbers immediately following punctuation and operators is
+      // tricky since we need to look at the character ahead of a number to
+      // ensure the number is not part of an identifier, and we cannot use
+      // negative look-behind assertions. So instead we explicitly handle all
+      // possible combinations of (operator|punctuation), number.
+      // TODO: replace with negative look-behind when available
+      // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/ },
+      // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ },
+      // { begin: /(?<![a-zA-Z0-9._])(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
       {
-        className: 'number',
         relevance: 0,
-        beforeMatch: /([^a-zA-Z0-9._])/, // not part of an identifier
         variants: [
-          // TODO: replace with negative look-behind when available
-          // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/ },
-          // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ },
-          // { begin: /(?<![a-zA-Z0-9._])(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
           {
-            // Special case: only hexadecimal binary powers can contain fractions.
-            match: /0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*[pP][+-]?\d+i?/,
+            scope: {
+              1: 'operator',
+              2: 'number'
+            },
+            match: [
+              OPERATORS_RE,
+              NUMBER_TYPES_RE
+            ]
           },
           {
-            match: /0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/
+            scope: {
+              1: 'operator',
+              2: 'number'
+            },
+            match: [
+              /%[^%]*%/,
+              NUMBER_TYPES_RE
+            ]
           },
           {
-            match: /(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/,
+            scope: {
+              1: 'punctuation',
+              2: 'number'
+            },
+            match: [
+              PUNCTUATION_RE,
+              NUMBER_TYPES_RE
+            ]
+          },
+          {
+            scope: { 2: 'number' },
+            match: [
+              /[^a-zA-Z0-9._]|^/, // not part of an identifier, or start of document
+              NUMBER_TYPES_RE
+            ]
           }
-        ],
+        ]
       },
+
+      // Operators/punctuation when they're not directly followed by numbers
       {
-        // infix operator
-        begin: '%',
-        end: '%'
+        // Relevance boost for the most common assignment form.
+        scope: { 3: 'operator' },
+        match: [
+          IDENT_RE,
+          /\s+/,
+          /<-/,
+          /\s+/
+        ]
       },
-      // relevance boost for assignment
+
       {
-        begin: regex.concat(SIMPLE_IDENT, "\\s+<-\\s+")
+        scope: 'operator',
+        relevance: 0,
+        variants: [
+          { match: OPERATORS_RE },
+          { match: /%[^%]*%/ }
+        ]
       },
+
       {
-        // escaped identifier
+        scope: 'punctuation',
+        relevance: 0,
+        match: PUNCTUATION_RE
+      },
+
+      {
+        // Escaped identifier
         begin: '`',
         end: '`',
         contains: [

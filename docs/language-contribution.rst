@@ -106,7 +106,7 @@ distribute your own custom theme.
 
 
 7. Request a repository at the ``highlightjs`` organization
-----------------------------------------------------------
+-----------------------------------------------------------
 
 *This is optional.*  Of course you are free to host your repository anywhere
 you would like.

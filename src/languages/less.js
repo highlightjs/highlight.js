@@ -3,7 +3,7 @@ Language: Less
 Description: It's CSS, with just a little more.
 Author:   Max Mikhailov <seven.phases.max@gmail.com>
 Website: http://lesscss.org
-Category: common, css
+Category: common, css, web
 */
 
 import * as css from "./lib/css-shared.js";
@@ -58,7 +58,7 @@ export default function(hljs) {
     hljs.C_BLOCK_COMMENT_MODE,
     STRING_MODE("'"),
     STRING_MODE('"'),
-    hljs.CSS_NUMBER_MODE, // fixme: it does not include dot for numbers like .5em :(
+    modes.CSS_NUMBER_MODE, // fixme: it does not include dot for numbers like .5em :(
     {
       begin: '(url|data-uri)\\(',
       starts: {
@@ -109,6 +109,7 @@ export default function(hljs) {
       {
         begin: /-(webkit|moz|ms|o)-/
       },
+      modes.CSS_VARIABLE,
       {
         className: 'attribute',
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b',
@@ -186,7 +187,8 @@ export default function(hljs) {
         begin: '\\b(' + css.TAGS.join('|') + ')\\b',
         className: 'selector-tag'
       },
-      IDENT_MODE('selector-tag', INTERP_IDENT_RE + '%?', 0), // '%' for more consistent coloring of @keyframes "tags"
+      modes.CSS_NUMBER_MODE,
+      IDENT_MODE('selector-tag', INTERP_IDENT_RE, 0),
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
       IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
       IDENT_MODE('selector-tag', '&', 0),
@@ -197,16 +199,18 @@ export default function(hljs) {
       },
       {
         className: 'selector-pseudo',
-        begin: '::(' + css.PSEUDO_ELEMENTS.join('|') + ')'
+        begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'
       },
       {
-        begin: '\\(',
-        end: '\\)',
+        begin: /\(/,
+        end: /\)/,
+        relevance: 0,
         contains: VALUE_WITH_RULESETS
       }, // argument list of parametric mixins
       {
         begin: '!important'
-      } // eat !important after mixin call or it will be colored as tag
+      }, // eat !important after mixin call or it will be colored as tag
+      modes.FUNCTION_DISPATCH
     ]
   };
 

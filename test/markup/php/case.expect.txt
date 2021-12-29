@@ -1,0 +1,8 @@
+<span class="hljs-variable">$test</span> = <span class="hljs-literal">true</span>
+<span class="hljs-variable">$test</span> = <span class="hljs-literal">TRUE</span>
+
+<span class="hljs-variable">$a</span> = <span class="hljs-literal">false</span>
+<span class="hljs-variable">$a</span> = <span class="hljs-literal">FALSE</span>
+
+<span class="hljs-variable">$b</span> = <span class="hljs-literal">null</span>
+<span class="hljs-variable">$b</span> = <span class="hljs-literal">NULL</span>

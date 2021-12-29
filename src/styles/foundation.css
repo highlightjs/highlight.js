@@ -7,9 +7,6 @@ Date: 2013-04-02
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #eee;
   color: black;
 }
@@ -46,7 +43,9 @@ Date: 2013-04-02
   color: #900;
 }
 
+
 .hljs-class .hljs-title,
+.hljs-title.class_,
 .hljs-type {
   color: #458;
 }

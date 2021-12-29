@@ -1,0 +1,23 @@
+#r "nuget: Ply"
+open FSharp.Control.Tasks
+open System.Threading.Tasks
+
+// Single line, and contains a capital letter
+let unitTask = unitTask { return () }
+
+let work =
+    async {
+        let delayTask () =
+            // Nested computation
+            task {
+                printfn "Delay..."
+                do! Task.Delay 1000
+                return 42
+            }
+        let! result = delayTask () |> Async.AwaitTask
+        printfn "Async F# sleep..."
+        do! Async.Sleep 1000
+        return result
+    }
+
+let result = work |> Async.RunSynchronously

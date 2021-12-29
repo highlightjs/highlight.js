@@ -1,9 +1,9 @@
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">name</span><span class="hljs-params">()</span></span>
 
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">name</span><span class="hljs-params">(<span class="hljs-keyword">int32</span>, *somePointer)</span><span class="hljs-params">(<span class="hljs-keyword">string</span>)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">name</span><span class="hljs-params">(<span class="hljs-type">int32</span>, *somePointer)</span></span>(<span class="hljs-type">string</span>)
 
-<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(<span class="hljs-keyword">int32</span>, <span class="hljs-keyword">string</span>)</span></span>
+<span class="hljs-keyword">map</span>[<span class="hljs-type">string</span>]<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(<span class="hljs-type">int32</span>, <span class="hljs-type">string</span>)</span></span>
 
-<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">name</span> <span class="hljs-params">(x <span class="hljs-keyword">int32</span>)</span> <span class="hljs-title">int32</span></span> {
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">name</span> <span class="hljs-params">(x <span class="hljs-type">int32</span>)</span></span> <span class="hljs-type">int32</span> {
   <span class="hljs-keyword">return</span> x;
 }

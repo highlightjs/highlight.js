@@ -12,19 +12,9 @@ import javascript from "./javascript.js";
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const tsLanguage = javascript(hljs);
+
   const IDENT_RE = ECMAScript.IDENT_RE;
-  const NAMESPACE = {
-    beginKeywords: 'namespace', end: /\{/, excludeEnd: true
-  };
-  const INTERFACE = {
-    beginKeywords: 'interface', end: /\{/, excludeEnd: true,
-    keywords: 'interface extends'
-  };
-  const USE_STRICT = {
-    className: 'meta',
-    relevance: 10,
-    begin: /^\s*['"]use strict['"]/
-  };
   const TYPES = [
     "any",
     "void",
@@ -35,6 +25,31 @@ export default function(hljs) {
     "never",
     "enum"
   ];
+  const NAMESPACE = {
+    beginKeywords: 'namespace',
+    end: /\{/,
+    excludeEnd: true,
+    contains: [
+      tsLanguage.exports.CLASS_REFERENCE
+    ]
+  };
+  const INTERFACE = {
+    beginKeywords: 'interface',
+    end: /\{/,
+    excludeEnd: true,
+    keywords: {
+      keyword: 'interface extends',
+      built_in: TYPES
+    },
+    contains: [
+      tsLanguage.exports.CLASS_REFERENCE
+    ]
+  };
+  const USE_STRICT = {
+    className: 'meta',
+    relevance: 10,
+    begin: /^\s*['"]use strict['"]/
+  };
   const TS_SPECIFIC_KEYWORDS = [
     "type",
     "namespace",
@@ -52,7 +67,8 @@ export default function(hljs) {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
     literal: ECMAScript.LITERALS,
-    built_in: ECMAScript.BUILT_INS.concat(TYPES)
+    built_in: ECMAScript.BUILT_INS.concat(TYPES),
+    "variable.language": ECMAScript.BUILT_IN_VARIABLES
   };
   const DECORATOR = {
     className: 'meta',
@@ -66,7 +82,6 @@ export default function(hljs) {
     mode.contains.splice(indx, 1, replacement);
   };
 
-  const tsLanguage = javascript(hljs);
 
   // this should update anywhere keywords is used since
   // it will be the same actual JS object
@@ -84,7 +99,7 @@ export default function(hljs) {
   // JS use strict rule purposely excludes `asm` which makes no sense
   swapMode(tsLanguage, "use_strict", USE_STRICT);
 
-  const functionDeclaration = tsLanguage.contains.find(m => m.className === "function");
+  const functionDeclaration = tsLanguage.contains.find(m => m.label === "func.def");
   functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
 
   Object.assign(tsLanguage, {

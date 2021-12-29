@@ -8,6 +8,7 @@ Category: common
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   return {
     name: 'Diff',
     aliases: ['patch'],
@@ -15,51 +16,29 @@ export default function(hljs) {
       {
         className: 'meta',
         relevance: 10,
-        variants: [
-          {
-            begin: /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/
-          },
-          {
-            begin: /^\*\*\* +\d+,\d+ +\*\*\*\*$/
-          },
-          {
-            begin: /^--- +\d+,\d+ +----$/
-          }
-        ]
+        match: regex.either(
+          /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/,
+          /^\*\*\* +\d+,\d+ +\*\*\*\*$/,
+          /^--- +\d+,\d+ +----$/
+        )
       },
       {
         className: 'comment',
         variants: [
           {
-            begin: /Index: /,
+            begin: regex.either(
+              /Index: /,
+              /^index/,
+              /={3,}/,
+              /^-{3}/,
+              /^\*{3} /,
+              /^\+{3}/,
+              /^diff --git/
+            ),
             end: /$/
           },
           {
-            begin: /^index/,
-            end: /$/
-          },
-          {
-            begin: /={3,}/,
-            end: /$/
-          },
-          {
-            begin: /^-{3}/,
-            end: /$/
-          },
-          {
-            begin: /^\*{3} /,
-            end: /$/
-          },
-          {
-            begin: /^\+{3}/,
-            end: /$/
-          },
-          {
-            begin: /^\*{15}$/
-          },
-          {
-            begin: /^diff --git/,
-            end: /$/
+            match: /^\*{15}$/
           }
         ]
       },

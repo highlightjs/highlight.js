@@ -1,0 +1,8 @@
+
+<span class="hljs-keyword">if</span> (ch) {}
+
+<span class="hljs-keyword">switch</span> (ch) {}
+
+<span class="hljs-keyword">while</span> (ch) {}
+
+<span class="hljs-keyword">for</span> (;;) {}

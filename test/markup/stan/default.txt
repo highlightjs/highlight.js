@@ -1,39 +1,40 @@
-// Multivariate Regression Example
-// Taken from stan-reference-2.8.0.pdf p.66
-
-data {
-  int<lower=0> N;             // num individuals
-  int<lower=1> K;             // num ind predictors
-  int<lower=1> J;             // num groups
-  int<lower=1> L;             // num group predictors
-  int<lower=1,upper=J> jj[N]; // group for individual
-  matrix[N,K] x;              // individual predictors
-  row_vector[L] u[J];         // group predictors
-  vector[N] y;                // outcomes
+functions {
+  #include normal_copula.stanfunctions
 }
+data {
+  int<lower=0> N;
+  int K;
+  matrix[N, K] x;
+}
+transformed data {
+    complex zi = 1+3.14i;
+    zi = zi * 0i;
+    complex yi = to_complex(0, 1.1) + to_complex(0.0, 2.2) + to_complex();
+    real x = get_real(3i - 40e-3i + 1e10i);
+}›
 parameters {
-  corr_matrix[K] Omega;       // prior correlation
-  vector<lower=0>[K] tau;     // prior scale
-  matrix[L,K] gamma;          // group coeffs
-  vector[K] beta[J];          // indiv coeffs by group
-  real<lower=0> sigma;        // prediction error scale
+  array[K - 1] real mu;
+  array[K + 1] real<lower=0> sigma;
+  cholesky_factor_corr[K] L;
 }
 model {
-  tau ~ cauchy(0,2.5);
-  Omega ~ lkj_corr(2);
-  to_vector(gamma) ~ normal(0, 5);
+  target += normal_lpdf(x[ : , 1] | mu[1], sigma[1]);
+  target += gumbel_lpdf(x[ : , 2] | mu[2], sigma[2]);
+  target += lognormal_lpdf(x[ : , 3] | mu[3], sigma[3]);
+  target += weibull_lpdf(x[ : , 4] | sigma[4], sigma[5]);
+  
   {
-    row_vector[K] u_gamma[J];
-    for (j in 1:J)
-      u_gamma[j] <- u[j] * gamma;
-    beta ~ multi_normal(u_gamma, quad_form_diag(Omega, tau));
-  }
-  {
-    vector[N] x_beta_jj;
-    for (n in 1:N)
-      x_beta_jj[n] <- x[n] * beta[jj[n]];
-    y ~ normal(x_beta_jj, sigma);
+    matrix[K, N] y;
+    for (n in 1 : N) {
+      y[1, n] = inv_Phi(normal_cdf(x[n, 1] | mu[1], sigma[1]));
+      y[2, n] = inv_Phi(gumbel_cdf(x[n, 2] | mu[2], sigma[2]));
+      y[3, n] = inv_Phi(lognormal_cdf(x[n, 3] | mu[3], sigma[3]));
+      y[4, n] = inv_Phi(weibull_cdf(x[n, 4] | sigma[4], sigma[5]));
+    }
+    y ~ multi_normal(L);
+
   }
 }
-
-# Note: Octothorpes indicate comments, too!
+generated quantities {
+  matrix[K, K] Sigma = multiply_lower_tri_self_transpose(L);
+}

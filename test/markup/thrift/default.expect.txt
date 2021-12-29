@@ -17,24 +17,24 @@
 <span class="hljs-comment">// the following is expected to fail:</span>
 <span class="hljs-comment">// const Numberz urNumberz = ONE;</span>
 
-<span class="hljs-keyword">typedef</span> <span class="hljs-built_in">i64</span> UserId
+<span class="hljs-keyword">typedef</span> <span class="hljs-type">i64</span> UserId
 
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Msg</span>
 </span>{
-  <span class="hljs-number">1</span>: <span class="hljs-built_in">string</span> message,
-  <span class="hljs-number">2</span>: <span class="hljs-built_in">i32</span> type
+  <span class="hljs-number">1</span>: <span class="hljs-type">string</span> message,
+  <span class="hljs-number">2</span>: <span class="hljs-type">i32</span> type
 }
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">NestedListsI32x2</span>
 </span>{
-  <span class="hljs-number">1</span>: list&lt;list&lt;<span class="hljs-keyword">i32</span>&gt;&gt; integerlist
+  <span class="hljs-number">1</span>: <span class="hljs-type">list</span>&lt;<span class="hljs-type">list</span>&lt;<span class="hljs-type">i32</span>&gt;&gt; integerlist
 }
 <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">NestedListsI32x3</span>
 </span>{
-  <span class="hljs-number">1</span>: list&lt;list&lt;list&lt;<span class="hljs-keyword">i32</span>&gt;&gt;&gt; integerlist
+  <span class="hljs-number">1</span>: <span class="hljs-type">list</span>&lt;<span class="hljs-type">list</span>&lt;<span class="hljs-type">list</span>&lt;<span class="hljs-type">i32</span>&gt;&gt;&gt; integerlist
 }
 <span class="hljs-class"><span class="hljs-keyword">service</span> <span class="hljs-title">ThriftTest</span>
 </span>{
   <span class="hljs-keyword">void</span>        testVoid(),
-  <span class="hljs-built_in">string</span>      testString(<span class="hljs-number">1</span>: <span class="hljs-built_in">string</span> thing),
+  <span class="hljs-type">string</span>      testString(<span class="hljs-number">1</span>: <span class="hljs-type">string</span> thing),
   <span class="hljs-keyword">oneway</span> <span class="hljs-keyword">void</span> testInit()
 }

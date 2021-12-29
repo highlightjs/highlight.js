@@ -1,23 +1,57 @@
 const _ = require('lodash');
 const fs = require("fs").promises;
+const fss = require("fs");
 const glob = require("glob-promise");
 const path = require("path");
 const zlib = require('zlib');
 const Terser = require("terser");
 const child_process = require('child_process');
-const { getLanguages } = require("./lib/language");
-const { filter } = require("./lib/dependencies");
-const config = require("./build_config");
-const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makestuff");
+const { getLanguages } = require("./lib/language.js");
+const { filter } = require("./lib/dependencies.js");
+const config = require("./build_config.js");
+const { install, installCleanCSS, mkdir, renderTemplate } = require("./lib/makestuff.js");
 const log = (...args) => console.log(...args);
 const { rollupCode } = require("./lib/bundling.js");
 const bundling = require('./lib/bundling.js');
+const Table = require('cli-table');
 
-function buildHeader(args) {
-  return "/*\n" +
-  `  Highlight.js ${args.version} (${args.git_sha})\n` +
-  `  License: ${args.license}\n` +
-  `  Copyright (c) ${config.copyrightYears}, ${args.author.name}\n*/`;
+const getDefaultHeader = () => ({
+  ...require('../package.json'),
+  git_sha: child_process
+    .execSync("git rev-parse --short=10 HEAD")
+    .toString().trim()
+});
+function buildHeader(args = getDefaultHeader()) {
+  return "/*!\n"
+  + `  Highlight.js v${args.version} (git: ${args.git_sha})\n`
+  + `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n`
+  + `  License: ${args.license}\n`
+  + ` */`;
+}
+
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+    const x = a[key];
+    const y = b[key];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
+function detailedGrammarSizes(languages) {
+  if (languages.length > 180) return;
+
+  const resultTable = new Table({
+    head: ['lang', 'minified'],
+    // colWidths: [20,20,10,20,10,20],
+    chars: { mid: '', 'left-mid': '', 'mid-mid': '', 'right-mid': '' },
+    style: {
+      head: ['grey']
+    }
+  });
+  languages.map(async(lang) => {
+    resultTable.push([lang.name, lang.data.length]);
+  });
+  console.log(resultTable.sort((b, a) => a[1] - b[1]).toString());
 }
 
 async function buildBrowser(options) {
@@ -31,24 +65,20 @@ async function buildBrowser(options) {
   log("Preparing languages.");
   await Promise.all(
     languages.map(async(lang) => {
-      await lang.compile({ terser: config.terser });
+      // await lang.compile({ terser: config.terser });
       process.stdout.write(".");
     })
   );
   log("");
 
-  const size = await buildBrowserHighlightJS(languages, { minify: options.minify });
+  detailedGrammarSizes(languages);
+
+  const size = await buildCore("highlight", languages, { minify: options.minify, format: "cjs" });
 
   log("-----");
-  log("Core                :", size.core, "bytes");
-  if (options.minify) { log("Core (min)          :", size.core_min, "bytes"); }
-  log("Languages           :",
+  log("Languages (raw)     :",
     languages.map((el) => el.data.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  if (options.minify) {
-    log("Languages (min)     :",
-      languages.map((el) => el.minified.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  }
-  log("highlight.js        :", size.full, "bytes");
+  log("highlight.js        :", size.fullSize, "bytes");
   if (options.minify) {
     log("highlight.min.js    :", size.minified, "bytes");
     log("highlight.min.js.gz :", zlib.gzipSync(size.minifiedSrc).length, "bytes");
@@ -102,10 +132,19 @@ async function renderIndex(languages, minify) {
       count: categoryCounter.get(category)
     }));
 
-  const css = await glob("styles/*.css", { cwd: "./src" });
-  const styles = css
-    .map((el) => ({ name: _.startCase(path.basename(el, ".css")), path: el }))
+  function nameForStyle(file) {
+    let name = _.startCase(path.basename(file, ".css"));
+    if (file.includes("base16/")) {
+      name = `Base16 / ${name}`;
+    }
+    return name;
+  }
+
+  const css = await glob("styles/**/*.css", { cwd: "./src" });
+  let styles = css
+    .map((el) => ({ name: nameForStyle(el), path: el }))
     .filter((style) => style.name !== "Default");
+  styles = sortByKey(styles, "name");
 
   renderTemplate("./demo/index.html", "./demo/index.html", {
     categories,
@@ -126,79 +165,89 @@ async function installDocs() {
 function installDemoStyles() {
   log("Writing style files.");
   mkdir("demo/styles");
+  mkdir("demo/styles/base16");
 
-  glob.sync("*", { cwd: "./src/styles" }).forEach((file) => {
+  glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
+    const stat = fss.statSync(`./src/styles/${file}`);
     if (file.endsWith(".css")) {
       installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
-    } else {
+    } else if (!stat.isDirectory) {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `demo/styles/${file}`);
     }
   });
 }
 
-async function buildBrowserHighlightJS(languages, { minify }) {
-  log("Building highlight.js.");
+const builtInLanguagesPlugin = (languages) => ({
+  name: "hljs-index",
+  resolveId(source) {
+    if (source === "builtInLanguages") {
+      return source; // this signals that rollup should not ask other plugins or check the file system to find this id
+    }
+    return null; // other ids should be handled as usually
+  },
+  load(id) {
+    const escape = (s) => "grmr_" + s.replace("-", "_");
+    if (id === "builtInLanguages") {
+      return languages.map((lang) =>
+        `export { default as ${escape(lang.name)} } from ${JSON.stringify(lang.path)};`
+      ).join("\n");
+    }
+    return null;
+  }
+});
 
-  const git_sha = child_process
-    .execSync("git rev-parse HEAD")
-    .toString().trim()
-    .slice(0, 8);
-  const versionDetails = { ...require("../package"), git_sha };
-  const header = buildHeader(versionDetails);
-
-  const outFile = `${process.env.BUILD_DIR}/highlight.js`;
-  const minifiedFile = outFile.replace(/js$/, "min.js");
-
-  const input = { ...config.rollup.browser_core.input, input: `src/highlight.js` };
-  const output = { ...config.rollup.browser_core.output, file: outFile };
-  let librarySrc = await rollupCode(input, output);
-
-  // var librarySrc = await fs.readFile("src/highlight.js", {encoding: "utf8"});
-  const coreSize = librarySrc.length;
-
-  // strip off the original top comment
-  librarySrc = librarySrc.replace(/\/\*.*?\*\//s, "");
-
-  const fullSrc = [
-    header, librarySrc,
-    ...languages.map((lang) => lang.module)].join("\n");
-
-  const tasks = [];
-  tasks.push(fs.writeFile(outFile, fullSrc, { encoding: "utf8" }));
-  const shas = {
-    "highlight.js": bundling.sha384(fullSrc)
+async function buildCore(name, languages, options) {
+  const header = buildHeader();
+  let relativePath = "";
+  const input = {
+    ...config.rollup.core.input,
+    input: `src/stub.js`
+  };
+  input.plugins = [
+    ...input.plugins,
+    builtInLanguagesPlugin(languages)
+  ];
+  const output = {
+    ...(options.format === "es" ? config.rollup.node.output : config.rollup.browser_iife.output),
+    file: `${process.env.BUILD_DIR}/${name}.js`
   };
 
-  let core_min = [];
-  let minifiedSrc = "";
-
-  if (minify) {
-    const tersed = await Terser.minify(librarySrc, config.terser);
-
-    minifiedSrc = [
-      header, tersed.code,
-      ...languages.map((lang) => lang.minified)].join("\n");
-
-    // get approximate core minified size
-    core_min = [header, tersed.code].join().length;
-
-    tasks.push(fs.writeFile(minifiedFile, minifiedSrc, { encoding: "utf8" }));
-    shas["highlight.min.js"] = bundling.sha384(minifiedSrc);
+  // optimize for no languages by not including the language loading stub
+  if (languages.length === 0) {
+    input.input = "src/highlight.js";
   }
 
-  await Promise.all(tasks);
-  return {
-    core: coreSize,
-    core_min: core_min,
-    minified: Buffer.byteLength(minifiedSrc, 'utf8'),
-    minifiedSrc,
-    fullSrc,
-    shas,
-    full: Buffer.byteLength(fullSrc, 'utf8')
-  };
+  if (options.format === "es") {
+    output.format = "es";
+    output.file = `${process.env.BUILD_DIR}/es/${name}.js`;
+    relativePath = "es/";
+  }
+
+  log(`Building ${relativePath}${name}.js.`);
+
+  const index = await rollupCode(input, output);
+  const sizeInfo = { shas: [] };
+  const writePromises = [];
+  if (options.minify) {
+    const { code } = await Terser.minify(index, { ...config.terser, module: (options.format === "es") });
+    const src = `${header}\n${code}`;
+    writePromises.push(fs.writeFile(output.file.replace(/js$/, "min.js"), src));
+    sizeInfo.minified = src.length;
+    sizeInfo.minifiedSrc = src;
+    sizeInfo.shas[`${relativePath}${name}.min.js`] = bundling.sha384(src);
+  }
+  {
+    const src = `${header}\n${index}`;
+    writePromises.push(fs.writeFile(output.file, src));
+    sizeInfo.fullSize = src.length;
+    sizeInfo.fullSrc = src;
+    sizeInfo.shas[`${relativePath}${name}.js`] = bundling.sha384(src);
+  }
+  await Promise.all(writePromises);
+  return sizeInfo;
 }
 
 // CDN build uses the exact same highlight.js distributable
-module.exports.buildBrowserHighlightJS = buildBrowserHighlightJS;
+module.exports.buildCore = buildCore;
 module.exports.build = buildBrowser;

@@ -1,6 +1,6 @@
 .. highlight:: javascript
 
-Language definition guide
+Language Definition Guide
 =========================
 
 Highlighting overview
@@ -41,7 +41,7 @@ Here's an example:
     keywords: 'for if while',
     contains: [
       {
-        className: 'string',
+        scope: 'string',
         begin: '"', end: '"'
       },
       hljs.COMMENT(
@@ -50,7 +50,7 @@ Here's an example:
         {
           contains: [
             {
-              className: 'doc', begin: '@\\w+'
+              scope: 'doc', begin: '@\\w+'
             }
           ]
         }
@@ -135,7 +135,7 @@ This is commonly used to define nested modes:
 ::
 
   {
-    className: 'object',
+    scope: 'object',
     begin: /\{/, end: /\}/,
     contains: [hljs.QUOTE_STRING_MODE, 'self']
   }
@@ -163,24 +163,24 @@ Parameters for the function are:
 Markup generation
 -----------------
 
-Modes usually generate actual highlighting markup — ``<span>`` elements with specific class names that are defined by the ``className`` attribute:
+Modes usually generate actual highlighting markup — ``<span>`` elements with specific class names that are defined by the ``scope`` attribute:
 
 ::
 
   {
     contains: [
       {
-        className: 'string',
+        scope: 'string',
         // ... other attributes
       },
       {
-        className: 'number',
+        scope: 'number',
         // ...
       }
     ]
   }
 
-Names are not required to be unique, it's quite common to have several definitions with the same name.
+Scopes are not required to be unique; it's quite common to have several definitions with the same scope.
 For example, many languages have various syntaxes for strings, comments, etc…
 
 Sometimes modes are defined only to support specific parsing rules and aren't needed in the final markup.
@@ -189,12 +189,15 @@ A classic example is an escaping sequence inside strings allowing them to contai
 ::
 
   {
-    className: 'string',
+    scope: 'string',
     begin: '"', end: '"',
     contains: [{begin: '\\\\.'}],
   }
 
-For such modes, the ``className`` attribute should be omitted so they won't generate excessive markup.
+For such modes, the ``scope`` attribute should be omitted so they won't generate excessive markup.
+
+For a list of all supported scope names please see the :doc:`Scopes Reference
+</css-classes-reference>`.
 
 
 Mode attributes
@@ -220,7 +223,7 @@ So these string modes are given high relevance:
 ::
 
   {
-    className: 'string',
+    scope: 'string',
     begin: 'r"', end: '"',
     relevance: 10
   }
@@ -231,7 +234,7 @@ and it makes sense to bring their relevance to zero to lessen statistical noise:
 ::
 
   {
-    className: 'string',
+    scope: 'string',
     begin: '"', end: '"',
     relevance: 0
   }
@@ -267,7 +270,7 @@ Illegal symbols are defined using a single regular expression:
 ::
 
   {
-    className: 'class',
+    scope: 'class',
     illegal: '[${]'
   }
 
@@ -281,19 +284,22 @@ Many languages share common modes and regular expressions. These expressions are
 Regular Expression Features
 ---------------------------
 
-The goal of Highlight.js is to support whatever regex features JavaScript itself supports.  You're using real regular expressions, use them responsibly.  That said, due to the design of the parser, there are some caveats.  These are addressed below.
+The goal of Highlight.js is to support whatever regex features our supported JavaScript runtimes universally support.  You're using real regular expressions, use them responsibly.  That said, due to the design of the parser, there are some caveats.  These are addressed below.
 
-Things we support now that we did not always:
+Things we fully support now that we did not always:
 
 * look-ahead regex matching for `begin` (#2135)
 * look-ahead regex matching for `end` (#2237)
 * look-ahead regex matching for `illegal` (#2135)
 * back-references within your regex matches (#1897)
-* look-behind matching (when JS supports it) for `begin` (#2135)
 
-Things we currently know are still issues:
+Things that technically would work, but we do not allow (because Safari does not support look-behind):
 
-* look-behind matching (when JS supports it) for `end` matchers
+* look-behind matching for `begin` (#2135)
+
+Things that are not supported because of issues with the parsing engine itself:
+
+* look-behind matching for `end` matchers
 
 
 Contributing

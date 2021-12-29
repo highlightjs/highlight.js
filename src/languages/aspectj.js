@@ -6,20 +6,91 @@ Description: Syntax Highlighting for the AspectJ Language which is a general-pur
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
-  const KEYWORDS =
-    'false synchronized int abstract float private char boolean static null if const ' +
-    'for true while long throw strictfp finally protected import native final return void ' +
-    'enum else extends implements break transient new catch instanceof byte super volatile case ' +
-    'assert short package default double public try this switch continue throws privileged ' +
-    'aspectOf adviceexecution proceed cflowbelow cflow initialization preinitialization ' +
-    'staticinitialization withincode target within execution getWithinTypeName handler ' +
-    'thisJoinPoint thisJoinPointStaticPart thisEnclosingJoinPointStaticPart declare parents ' +
-    'warning error soft precedence thisAspectInstance';
-  const SHORTKEYS = 'get set args call';
+  const regex = hljs.regex;
+  const KEYWORDS = [
+    "false",
+    "synchronized",
+    "int",
+    "abstract",
+    "float",
+    "private",
+    "char",
+    "boolean",
+    "static",
+    "null",
+    "if",
+    "const",
+    "for",
+    "true",
+    "while",
+    "long",
+    "throw",
+    "strictfp",
+    "finally",
+    "protected",
+    "import",
+    "native",
+    "final",
+    "return",
+    "void",
+    "enum",
+    "else",
+    "extends",
+    "implements",
+    "break",
+    "transient",
+    "new",
+    "catch",
+    "instanceof",
+    "byte",
+    "super",
+    "volatile",
+    "case",
+    "assert",
+    "short",
+    "package",
+    "default",
+    "double",
+    "public",
+    "try",
+    "this",
+    "switch",
+    "continue",
+    "throws",
+    "privileged",
+    "aspectOf",
+    "adviceexecution",
+    "proceed",
+    "cflowbelow",
+    "cflow",
+    "initialization",
+    "preinitialization",
+    "staticinitialization",
+    "withincode",
+    "target",
+    "within",
+    "execution",
+    "getWithinTypeName",
+    "handler",
+    "thisJoinPoint",
+    "thisJoinPointStaticPart",
+    "thisEnclosingJoinPointStaticPart",
+    "declare",
+    "parents",
+    "warning",
+    "error",
+    "soft",
+    "precedence",
+    "thisAspectInstance"
+  ];
+  const SHORTKEYS = [
+    "get",
+    "set",
+    "args",
+    "call"
+  ];
 
   return {
     name: 'AspectJ',
@@ -62,7 +133,7 @@ export default function(hljs) {
           {
             begin: /\([^\)]*/,
             end: /[)]+/,
-            keywords: KEYWORDS + ' ' + SHORTKEYS,
+            keywords: KEYWORDS.concat(SHORTKEYS),
             excludeEnd: false
           }
         ]
@@ -107,7 +178,7 @@ export default function(hljs) {
         contains: [
           {
             begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
-            keywords: KEYWORDS + ' ' + SHORTKEYS,
+            keywords: KEYWORDS.concat(SHORTKEYS),
             relevance: 0
           },
           hljs.QUOTE_STRING_MODE

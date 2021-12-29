@@ -30,7 +30,7 @@ export function lookahead(re) {
  * @returns {string}
  */
 export function anyNumberOfTimes(re) {
-  return concat('(', re, ')*');
+  return concat('(?:', re, ')*');
 }
 
 /**
@@ -38,7 +38,7 @@ export function anyNumberOfTimes(re) {
  * @returns {string}
  */
 export function optional(re) {
-  return concat('(', re, ')?');
+  return concat('(?:', re, ')?');
 }
 
 /**
@@ -51,19 +51,40 @@ export function concat(...args) {
 }
 
 /**
+ * @param { Array<string | RegExp | Object> } args
+ * @returns {object}
+ */
+function stripOptionsFromArgs(args) {
+  const opts = args[args.length - 1];
+
+  if (typeof opts === 'object' && opts.constructor === Object) {
+    args.splice(args.length - 1, 1);
+    return opts;
+  } else {
+    return {};
+  }
+}
+
+/** @typedef { {capture?: boolean} } RegexEitherOptions */
+
+/**
  * Any of the passed expresssions may match
  *
  * Creates a huge this | this | that | that match
- * @param {(RegExp | string)[] } args
+ * @param {(RegExp | string)[] | [...(RegExp | string)[], RegexEitherOptions]} args
  * @returns {string}
  */
 export function either(...args) {
-  const joined = '(' + args.map((x) => source(x)).join("|") + ")";
+  /** @type { object & {capture?: boolean} }  */
+  const opts = stripOptionsFromArgs(args);
+  const joined = '('
+    + (opts.capture ? "" : "?:")
+    + args.map((x) => source(x)).join("|") + ")";
   return joined;
 }
 
 /**
- * @param {RegExp} re
+ * @param {RegExp | string} re
  * @returns {number}
  */
 export function countMatchGroups(re) {
@@ -89,6 +110,7 @@ export function startsWith(re, lexeme) {
 //   follow the '(' with a '?'.
 const BACKREF_RE = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
 
+// **INTERNAL** Not intended for outside usage
 // join logically computes regexps.join(separator), but fixes the
 // backreferences so they continue to match.
 // it also places each individual regular expression into it's own
@@ -96,10 +118,10 @@ const BACKREF_RE = /\[(?:[^\\\]]|\\.)*\]|\(\??|\\([1-9][0-9]*)|\\./;
 // is currently an exercise for the caller. :-)
 /**
  * @param {(string | RegExp)[]} regexps
- * @param {string} separator
+ * @param {{joinWith: string}} opts
  * @returns {string}
  */
-export function join(regexps, separator = "|") {
+export function _rewriteBackreferences(regexps, { joinWith }) {
   let numCaptures = 0;
 
   return regexps.map((regex) => {
@@ -127,5 +149,5 @@ export function join(regexps, separator = "|") {
       }
     }
     return out;
-  }).map(re => `(${re})`).join(separator);
+  }).map(re => `(${re})`).join(joinWith);
 }

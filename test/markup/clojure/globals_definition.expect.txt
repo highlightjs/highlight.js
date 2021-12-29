@@ -1,28 +1,39 @@
-(<span class="hljs-name"><span class="hljs-builtin-name">ns</span></span> playground
+(<span class="hljs-name"><span class="hljs-built_in">ns</span></span> playground
   (<span class="hljs-symbol">:require</span>
     [clojure.string <span class="hljs-symbol">:as</span> str]))
 
 <span class="hljs-comment">; function</span>
 (<span class="hljs-keyword">defn</span> <span class="hljs-title">clojure-function</span> [args]
-  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [string   <span class="hljs-string">&quot;multiline\nstring&quot;</span>
-        regexp   #<span class="hljs-string">&quot;regexp&quot;</span>
-        number   <span class="hljs-number">100</span>,<span class="hljs-number">000</span>
+  (<span class="hljs-name"><span class="hljs-built_in">let</span></span> [string   <span class="hljs-string">&quot;multiline\nstring&quot;</span>
+        regexp   <span class="hljs-regex">#&quot;regexp&quot;</span>
+        number   <span class="hljs-number">100000</span>
         booleans [<span class="hljs-literal">false</span> <span class="hljs-literal">true</span>]
         keyword  <span class="hljs-symbol">::the-keyword</span>]
     <span class="hljs-comment">;; this is comment</span>
-    (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> <span class="hljs-literal">true</span>
-      (<span class="hljs-name"><span class="hljs-builtin-name">-&gt;&gt;</span></span>
-        (<span class="hljs-name"><span class="hljs-builtin-name">list</span></span> [vector] {<span class="hljs-symbol">:map</span> map} #{&#x27;set})))))
+    (<span class="hljs-name"><span class="hljs-built_in">if</span></span> <span class="hljs-literal">true</span>
+      (<span class="hljs-name"><span class="hljs-built_in">-&gt;&gt;</span></span>
+        (<span class="hljs-name"><span class="hljs-built_in">list</span></span> [vector] {<span class="hljs-symbol">:map</span> map} #{&#x27;set})))))
+
+<span class="hljs-regex">#&quot;\&quot;abc\\&quot;</span>
+
+<span class="hljs-string">&quot;real
+multiline
+string&quot;</span>
+
+#:person{<span class="hljs-symbol">:first</span> <span class="hljs-string">&quot;Han&quot;</span>
+         <span class="hljs-symbol">:last</span> <span class="hljs-string">&quot;Solo&quot;</span>
+         <span class="hljs-symbol">:ship</span> #:ship{<span class="hljs-symbol">:name</span> <span class="hljs-string">&quot;Millenium Falcon&quot;</span>}}
+#::{<span class="hljs-symbol">:a</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-symbol">:b</span> <span class="hljs-number">2</span>}
 
 <span class="hljs-comment">; global</span>
 (<span class="hljs-keyword">def</span> <span class="hljs-title">some-var</span>)
 <span class="hljs-comment">; another one</span>
 (<span class="hljs-keyword">def</span> <span class="hljs-title">alternative-var</span> <span class="hljs-string">&quot;132&quot;</span>)
 <span class="hljs-comment">; defonce</span>
-(<span class="hljs-keyword">defonce</span> ^<span class="hljs-symbol">:private</span> <span class="hljs-title">another-var</span> #<span class="hljs-string">&quot;foo&quot;</span>)
+(<span class="hljs-keyword">defonce</span> ^<span class="hljs-symbol">:private</span> <span class="hljs-title">another-var</span> <span class="hljs-regex">#&quot;foo&quot;</span>)
 
 <span class="hljs-comment">; private function</span>
-(<span class="hljs-keyword">defn-</span> <span class="hljs-title">add</span> [x y] (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> x y))
+(<span class="hljs-keyword">defn-</span> <span class="hljs-title">add</span> [x y] (<span class="hljs-name"><span class="hljs-built_in">+</span></span> x y))
 
 <span class="hljs-comment">; protocols</span>
 (<span class="hljs-keyword">defprotocol</span> <span class="hljs-title">Fly</span>
@@ -31,17 +42,17 @@
 
 (<span class="hljs-keyword">defrecord</span> <span class="hljs-title">Bird</span> [name species]
   Fly
-  (<span class="hljs-name">fly</span> [this] (<span class="hljs-name"><span class="hljs-builtin-name">str</span></span> (<span class="hljs-symbol">:name</span> this) <span class="hljs-string">&quot; flies...&quot;</span>)))
+  (<span class="hljs-name">fly</span> [this] (<span class="hljs-name"><span class="hljs-built_in">str</span></span> (<span class="hljs-symbol">:name</span> this) <span class="hljs-string">&quot; flies...&quot;</span>)))
 
 <span class="hljs-comment">; multimethods</span>
-(<span class="hljs-keyword">defmulti</span> <span class="hljs-title">service-charge</span> (<span class="hljs-name"><span class="hljs-builtin-name">fn</span></span> [acct] [(<span class="hljs-name">account-level</span> acct) (<span class="hljs-symbol">:tag</span> acct)]))
+(<span class="hljs-keyword">defmulti</span> <span class="hljs-title">service-charge</span> (<span class="hljs-name"><span class="hljs-built_in">fn</span></span> [acct] [(<span class="hljs-name">account-level</span> acct) (<span class="hljs-symbol">:tag</span> acct)]))
 (<span class="hljs-keyword">defmethod</span> <span class="hljs-title">service-charge</span> [<span class="hljs-symbol">::acc/Basic</span> <span class="hljs-symbol">::acc/Checking</span>]   [_] <span class="hljs-number">25</span>)
 (<span class="hljs-keyword">defmethod</span> <span class="hljs-title">service-charge</span> [<span class="hljs-symbol">::acc/Basic</span> <span class="hljs-symbol">::acc/Savings</span>]    [_] <span class="hljs-number">10</span>)
 (<span class="hljs-keyword">defmethod</span> <span class="hljs-title">service-charge</span> [<span class="hljs-symbol">::acc/Premium</span> <span class="hljs-symbol">::acc/Account</span>] [_] <span class="hljs-number">0</span>)
 
 <span class="hljs-comment">; macros</span>
 (<span class="hljs-keyword">defmacro</span> <span class="hljs-title">unless</span> [pred a b]
-  `(<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">not</span></span> ~pred) ~a ~b))
+  `(<span class="hljs-name"><span class="hljs-built_in">if</span></span> (<span class="hljs-name"><span class="hljs-built_in">not</span></span> ~pred) ~a ~b))
 
 (<span class="hljs-name">unless</span> <span class="hljs-literal">false</span> (<span class="hljs-name">println</span> <span class="hljs-string">&quot;Will print&quot;</span>) (<span class="hljs-name">println</span> <span class="hljs-string">&quot;Will not print&quot;</span>))
 
@@ -52,9 +63,9 @@
 <span class="hljs-comment">;; multimethods again</span>
 (<span class="hljs-keyword">defmulti</span> <span class="hljs-title">area</span> class)
 (<span class="hljs-keyword">defmethod</span> <span class="hljs-title">area</span> Circle [c]
-    (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> Math/PI (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> (<span class="hljs-name">.radius</span> c) (<span class="hljs-name">.radius</span> c))))
+    (<span class="hljs-name"><span class="hljs-built_in">*</span></span> Math/PI (<span class="hljs-name"><span class="hljs-built_in">*</span></span> (<span class="hljs-name">.radius</span> c) (<span class="hljs-name">.radius</span> c))))
 (<span class="hljs-keyword">defmethod</span> <span class="hljs-title">area</span> Square [s]
-    (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> (<span class="hljs-name">.length</span> s) (<span class="hljs-name">.width</span> s)))
+    (<span class="hljs-name"><span class="hljs-built_in">*</span></span> (<span class="hljs-name">.length</span> s) (<span class="hljs-name">.width</span> s)))
 
 <span class="hljs-comment">;; create a couple shapes and get their area</span>
 (<span class="hljs-keyword">def</span> <span class="hljs-title">myCircle</span> (<span class="hljs-name">Circle.</span> <span class="hljs-number">10</span>))

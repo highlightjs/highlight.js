@@ -1,7 +1,17 @@
 import * as regex from './regex.js';
 import { inherit } from './utils.js';
 import * as EXT from "./compiler_extensions.js";
+import { beforeMatchExt } from "./exts/before_match.js";
 import { compileKeywords } from "./compile_keywords.js";
+import { MultiClass } from "./ext/multi_class.js";
+
+/**
+@typedef {import('highlight.js').Mode} Mode
+@typedef {import('highlight.js').CompiledMode} CompiledMode
+@typedef {import('highlight.js').Language} Language
+@typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
+@typedef {import('highlight.js').CompiledLanguage} CompiledLanguage
+*/
 
 // compilation
 
@@ -11,12 +21,11 @@ import { compileKeywords } from "./compile_keywords.js";
  * Given the raw result of a language definition (Language), compiles this so
  * that it is ready for highlighting code.
  * @param {Language} language
- * @param {{plugins: HLJSPlugin[]}} opts
  * @returns {CompiledLanguage}
  */
-export function compileLanguage(language, { plugins }) {
+export function compileLanguage(language) {
   /**
-   * Builds a regex with the case sensativility of the current language
+   * Builds a regex with the case sensitivity of the current language
    *
    * @param {RegExp | string} value
    * @param {boolean} [global]
@@ -24,7 +33,10 @@ export function compileLanguage(language, { plugins }) {
   function langRe(value, global) {
     return new RegExp(
       regex.source(value),
-      'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
+      'm'
+      + (language.case_insensitive ? 'i' : '')
+      + (language.unicodeRegex ? 'u' : '')
+      + (global ? 'g' : '')
     );
   }
 
@@ -66,7 +78,7 @@ export function compileLanguage(language, { plugins }) {
         this.exec = () => null;
       }
       const terminators = this.regexes.map(el => el[1]);
-      this.matcherRe = langRe(regex.join(terminators), true);
+      this.matcherRe = langRe(regex._rewriteBackreferences(terminators, { joinWith: '|' }), true);
       this.lastIndex = 0;
     }
 
@@ -282,9 +294,12 @@ export function compileLanguage(language, { plugins }) {
     if (mode.isCompiled) return cmode;
 
     [
+      EXT.scopeClassName,
       // do this early so compiler extensions generally don't have to worry about
       // the distinction between match/begin
-      EXT.compileMatch
+      EXT.compileMatch,
+      MultiClass,
+      beforeMatchExt
     ].forEach(ext => ext(mode, parent));
 
     language.compilerExtensions.forEach(ext => ext(mode, parent));
@@ -304,32 +319,28 @@ export function compileLanguage(language, { plugins }) {
     mode.isCompiled = true;
 
     let keywordPattern = null;
-    if (typeof mode.keywords === "object") {
+    if (typeof mode.keywords === "object" && mode.keywords.$pattern) {
+      // we need a copy because keywords might be compiled multiple times
+      // so we can't go deleting $pattern from the original on the first
+      // pass
+      mode.keywords = Object.assign({}, mode.keywords);
       keywordPattern = mode.keywords.$pattern;
       delete mode.keywords.$pattern;
     }
+    keywordPattern = keywordPattern || /\w+/;
 
     if (mode.keywords) {
       mode.keywords = compileKeywords(mode.keywords, language.case_insensitive);
     }
 
-    // both are not allowed
-    if (mode.lexemes && keywordPattern) {
-      throw new Error("ERR: Prefer `keywords.$pattern` to `mode.lexemes`, BOTH are not allowed. (see mode reference) ");
-    }
-
-    // `mode.lexemes` was the old standard before we added and now recommend
-    // using `keywords.$pattern` to pass the keyword pattern
-    keywordPattern = keywordPattern || mode.lexemes || /\w+/;
     cmode.keywordPatternRe = langRe(keywordPattern, true);
 
     if (parent) {
       if (!mode.begin) mode.begin = /\B|\b/;
-      cmode.beginRe = langRe(mode.begin);
-      if (mode.endSameAsBegin) mode.end = mode.begin;
+      cmode.beginRe = langRe(cmode.begin);
       if (!mode.end && !mode.endsWithParent) mode.end = /\B|\b/;
-      if (mode.end) cmode.endRe = langRe(mode.end);
-      cmode.terminatorEnd = regex.source(mode.end) || '';
+      if (mode.end) cmode.endRe = langRe(cmode.end);
+      cmode.terminatorEnd = regex.source(cmode.end) || '';
       if (mode.endsWithParent && parent.terminatorEnd) {
         cmode.terminatorEnd += (mode.end ? '|' : '') + parent.terminatorEnd;
       }

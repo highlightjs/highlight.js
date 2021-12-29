@@ -16,20 +16,137 @@ export default function(hljs) {
       hljs.NUMBER_MODE
     ]
   };
+  const FUNC_DEFINITION = {
+    variants: [
+      {
+        match: [
+          /(function|method)/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE,
+        ]
+      },
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    }
+  };
+  const CLASS_DEFINITION = {
+    variants: [
+      {
+        match: [
+          /(class|interface|extends|implements)/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE,
+        ]
+      },
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.class"
+    }
+  };
+  const BUILT_INS = [
+    "DebugLog",
+    "DebugStop",
+    "Error",
+    "Print",
+    "ACos",
+    "ACosr",
+    "ASin",
+    "ASinr",
+    "ATan",
+    "ATan2",
+    "ATan2r",
+    "ATanr",
+    "Abs",
+    "Abs",
+    "Ceil",
+    "Clamp",
+    "Clamp",
+    "Cos",
+    "Cosr",
+    "Exp",
+    "Floor",
+    "Log",
+    "Max",
+    "Max",
+    "Min",
+    "Min",
+    "Pow",
+    "Sgn",
+    "Sgn",
+    "Sin",
+    "Sinr",
+    "Sqrt",
+    "Tan",
+    "Tanr",
+    "Seed",
+    "PI",
+    "HALFPI",
+    "TWOPI"
+  ];
+  const LITERALS = [
+    "true",
+    "false",
+    "null"
+  ];
+  const KEYWORDS = [
+    "public",
+    "private",
+    "property",
+    "continue",
+    "exit",
+    "extern",
+    "new",
+    "try",
+    "catch",
+    "eachin",
+    "not",
+    "abstract",
+    "final",
+    "select",
+    "case",
+    "default",
+    "const",
+    "local",
+    "global",
+    "field",
+    "end",
+    "if",
+    "then",
+    "else",
+    "elseif",
+    "endif",
+    "while",
+    "wend",
+    "repeat",
+    "until",
+    "forever",
+    "for",
+    "to",
+    "step",
+    "next",
+    "return",
+    "module",
+    "inline",
+    "throw",
+    "import",
+    // not positive, but these are not literals
+    "and",
+    "or",
+    "shl",
+    "shr",
+    "mod"
+  ];
 
   return {
     name: 'Monkey',
     case_insensitive: true,
     keywords: {
-      keyword: 'public private property continue exit extern new try catch ' +
-        'eachin not abstract final select case default const local global field ' +
-        'end if then else elseif endif while wend repeat until forever for ' +
-        'to step next return module inline throw import',
-
-      built_in: 'DebugLog DebugStop Error Print ACos ACosr ASin ASinr ATan ATan2 ATan2r ATanr Abs Abs Ceil ' +
-        'Clamp Clamp Cos Cosr Exp Floor Log Max Max Min Min Pow Sgn Sgn Sin Sinr Sqrt Tan Tanr Seed PI HALFPI TWOPI',
-
-      literal: 'true false null and or shl shr mod'
+      keyword: KEYWORDS,
+      built_in: BUILT_INS,
+      literal: LITERALS
     },
     illegal: /\/\*/,
     contains: [
@@ -41,39 +158,26 @@ export default function(hljs) {
           relevance: 0
         }
       ),
+      FUNC_DEFINITION,
+      CLASS_DEFINITION,
       {
-        className: 'function',
-        beginKeywords: 'function method',
-        end: '[(=:]|$',
-        illegal: /\n/,
-        contains: [ hljs.UNDERSCORE_TITLE_MODE ]
-      },
-      {
-        className: 'class',
-        beginKeywords: 'class interface',
-        end: '$',
-        contains: [
-          {
-            beginKeywords: 'extends implements'
-          },
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
-      },
-      {
-        className: 'built_in',
-        begin: '\\b(self|super)\\b'
+        className: 'variable.language',
+        begin: /\b(self|super)\b/
       },
       {
         className: 'meta',
-        begin: '\\s*#',
+        begin: /\s*#/,
         end: '$',
         keywords: {
-          'meta-keyword': 'if else elseif endif end then'
+          keyword: 'if else elseif endif end then'
         }
       },
       {
-        className: 'meta',
-        begin: '^\\s*strict\\b'
+        match: [
+          /^\s*/,
+          /strict\b/
+        ],
+        scope: { 2: "meta" }
       },
       {
         beginKeywords: 'alias',

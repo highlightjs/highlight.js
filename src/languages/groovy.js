@@ -5,14 +5,13 @@
  Website: https://groovy-lang.org
  */
 
-import * as regex from '../lib/regex.js';
-
 function variants(variants, obj = {}) {
   obj.variants = variants;
   return obj;
 }
 
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT_RE = '[A-Za-z0-9_$]+';
   const COMMENT = variants([
     hljs.C_LINE_COMMENT_MODE,
@@ -67,19 +66,78 @@ export default function(hljs) {
   }
   );
 
+  const CLASS_DEFINITION = {
+    match: [
+      /(class|interface|trait|enum|extends|implements)/,
+      /\s+/,
+      hljs.UNDERSCORE_IDENT_RE
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.class",
+    }
+  };
+  const TYPES = [
+    "byte",
+    "short",
+    "char",
+    "int",
+    "long",
+    "boolean",
+    "float",
+    "double",
+    "void"
+  ];
+  const KEYWORDS = [
+    // groovy specific keywords
+    "def",
+    "as",
+    "in",
+    "assert",
+    "trait",
+    // common keywords with Java
+    "abstract",
+    "static",
+    "volatile",
+    "transient",
+    "public",
+    "private",
+    "protected",
+    "synchronized",
+    "final",
+    "class",
+    "interface",
+    "enum",
+    "if",
+    "else",
+    "for",
+    "while",
+    "switch",
+    "case",
+    "break",
+    "default",
+    "continue",
+    "throw",
+    "throws",
+    "try",
+    "catch",
+    "finally",
+    "implements",
+    "extends",
+    "new",
+    "import",
+    "package",
+    "return",
+    "instanceof"
+  ];
+
   return {
     name: 'Groovy',
     keywords: {
-      built_in: 'this super',
+      "variable.language": 'this super',
       literal: 'true false null',
-      keyword:
-            'byte short char int long boolean float double void ' +
-            // groovy specific keywords
-            'def as in assert trait ' +
-            // common keywords with Java
-            'abstract static volatile transient public private protected synchronized final ' +
-            'class interface enum if else for while switch case break default continue ' +
-            'throw throws try catch finally implements extends new import package return instanceof'
+      type: TYPES,
+      keyword: KEYWORDS
     },
     contains: [
       hljs.SHEBANG({
@@ -90,18 +148,7 @@ export default function(hljs) {
       STRING,
       REGEXP,
       NUMBER,
-      {
-        className: 'class',
-        beginKeywords: 'class interface trait enum',
-        end: /\{/,
-        illegal: ':',
-        contains: [
-          {
-            beginKeywords: 'extends implements'
-          },
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
-      },
+      CLASS_DEFINITION,
       {
         className: 'meta',
         begin: '@[A-Za-z]+',

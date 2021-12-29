@@ -1,5 +1,5 @@
 <span class="hljs-comment">/*
  * Multiline comment
  */</span>
-&amp;sql(<span class="sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Cinema.Film <span class="hljs-keyword">WHERE</span> Length <span class="hljs-operator">&gt;</span> <span class="hljs-number">2</span></span>)
-&amp;js&lt;<span class="javascript"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">String</span>(<span class="hljs-string">&quot;test&quot;</span>).split(<span class="hljs-string">&quot;&quot;</span>).length); ++i) { <span class="hljs-built_in">console</span>.log(i); }</span>&gt;
+&amp;sql(<span class="language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Cinema.Film <span class="hljs-keyword">WHERE</span> Length <span class="hljs-operator">&gt;</span> <span class="hljs-number">2</span></span>)
+&amp;js&lt;<span class="language-javascript"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;test&quot;</span>).<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;&quot;</span>).<span class="hljs-property">length</span>); ++i) { <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i); }</span>&gt;

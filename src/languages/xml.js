@@ -1,14 +1,13 @@
 /*
 Language: HTML, XML
 Website: https://www.w3.org/XML/
-Category: common
+Category: common, web
 Audit: 2020
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   // Element names can contain letters, digits, hyphens, underscores, and periods
   const TAG_NAME_RE = regex.concat(/[A-Z_]/, regex.optional(/[A-Z0-9_.-]*:/), /[A-Z0-9_.-]*/);
   const XML_IDENT_RE = /[A-Za-z0-9._:-]+/;
@@ -20,7 +19,7 @@ export default function(hljs) {
     begin: /\s/,
     contains: [
       {
-        className: 'meta-keyword',
+        className: 'keyword',
         begin: /#?[a-z_][a-z1-9_-]+/,
         illegal: /\n/
       }
@@ -31,10 +30,10 @@ export default function(hljs) {
     end: /\)/
   });
   const APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {
-    className: 'meta-string'
+    className: 'string'
   });
   const QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
-    className: 'meta-string'
+    className: 'string'
   });
   const TAG_INTERNALS = {
     endsWithParent: true,
@@ -142,8 +141,7 @@ export default function(hljs) {
         /*
         The lookahead pattern (?=...) ensures that 'begin' only matches
         '<style' as a single word, followed by a whitespace or an
-        ending braket. The '$' is needed for the lexeme to be recognized
-        by hljs.subMode() that tests lexemes outside the stream.
+        ending bracket.
         */
         begin: /<style(?=\s|>)/,
         end: />/,

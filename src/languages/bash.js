@@ -6,10 +6,9 @@ Website: https://www.gnu.org/software/bash/
 Category: common
 */
 
-import * as regex from '../lib/regex.js';
-
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const VAR = {};
   const BRACED_VAR = {
     begin: /\$\{/,
@@ -101,32 +100,271 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const KEYWORDS = [
+    "if",
+    "then",
+    "else",
+    "elif",
+    "fi",
+    "for",
+    "while",
+    "in",
+    "do",
+    "done",
+    "case",
+    "esac",
+    "function"
+  ];
+
+  const LITERALS = [
+    "true",
+    "false"
+  ];
+
+  // to consume paths to prevent keyword matches inside them
+  const PATH_MODE = {
+    match: /(\/[a-z._-]+)+/
+  };
+
+  // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
+  const SHELL_BUILT_INS = [
+    "break",
+    "cd",
+    "continue",
+    "eval",
+    "exec",
+    "exit",
+    "export",
+    "getopts",
+    "hash",
+    "pwd",
+    "readonly",
+    "return",
+    "shift",
+    "test",
+    "times",
+    "trap",
+    "umask",
+    "unset"
+  ];
+
+  const BASH_BUILT_INS = [
+    "alias",
+    "bind",
+    "builtin",
+    "caller",
+    "command",
+    "declare",
+    "echo",
+    "enable",
+    "help",
+    "let",
+    "local",
+    "logout",
+    "mapfile",
+    "printf",
+    "read",
+    "readarray",
+    "source",
+    "type",
+    "typeset",
+    "ulimit",
+    "unalias"
+  ];
+
+  const ZSH_BUILT_INS = [
+    "autoload",
+    "bg",
+    "bindkey",
+    "bye",
+    "cap",
+    "chdir",
+    "clone",
+    "comparguments",
+    "compcall",
+    "compctl",
+    "compdescribe",
+    "compfiles",
+    "compgroups",
+    "compquote",
+    "comptags",
+    "comptry",
+    "compvalues",
+    "dirs",
+    "disable",
+    "disown",
+    "echotc",
+    "echoti",
+    "emulate",
+    "fc",
+    "fg",
+    "float",
+    "functions",
+    "getcap",
+    "getln",
+    "history",
+    "integer",
+    "jobs",
+    "kill",
+    "limit",
+    "log",
+    "noglob",
+    "popd",
+    "print",
+    "pushd",
+    "pushln",
+    "rehash",
+    "sched",
+    "setcap",
+    "setopt",
+    "stat",
+    "suspend",
+    "ttyctl",
+    "unfunction",
+    "unhash",
+    "unlimit",
+    "unsetopt",
+    "vared",
+    "wait",
+    "whence",
+    "where",
+    "which",
+    "zcompile",
+    "zformat",
+    "zftp",
+    "zle",
+    "zmodload",
+    "zparseopts",
+    "zprof",
+    "zpty",
+    "zregexparse",
+    "zsocket",
+    "zstyle",
+    "ztcp"
+  ];
+
+  const GNU_CORE_UTILS = [
+    "chcon",
+    "chgrp",
+    "chown",
+    "chmod",
+    "cp",
+    "dd",
+    "df",
+    "dir",
+    "dircolors",
+    "ln",
+    "ls",
+    "mkdir",
+    "mkfifo",
+    "mknod",
+    "mktemp",
+    "mv",
+    "realpath",
+    "rm",
+    "rmdir",
+    "shred",
+    "sync",
+    "touch",
+    "truncate",
+    "vdir",
+    "b2sum",
+    "base32",
+    "base64",
+    "cat",
+    "cksum",
+    "comm",
+    "csplit",
+    "cut",
+    "expand",
+    "fmt",
+    "fold",
+    "head",
+    "join",
+    "md5sum",
+    "nl",
+    "numfmt",
+    "od",
+    "paste",
+    "ptx",
+    "pr",
+    "sha1sum",
+    "sha224sum",
+    "sha256sum",
+    "sha384sum",
+    "sha512sum",
+    "shuf",
+    "sort",
+    "split",
+    "sum",
+    "tac",
+    "tail",
+    "tr",
+    "tsort",
+    "unexpand",
+    "uniq",
+    "wc",
+    "arch",
+    "basename",
+    "chroot",
+    "date",
+    "dirname",
+    "du",
+    "echo",
+    "env",
+    "expr",
+    "factor",
+    // "false", // keyword literal already
+    "groups",
+    "hostid",
+    "id",
+    "link",
+    "logname",
+    "nice",
+    "nohup",
+    "nproc",
+    "pathchk",
+    "pinky",
+    "printenv",
+    "printf",
+    "pwd",
+    "readlink",
+    "runcon",
+    "seq",
+    "sleep",
+    "stat",
+    "stdbuf",
+    "stty",
+    "tee",
+    "test",
+    "timeout",
+    // "true", // keyword literal already
+    "tty",
+    "uname",
+    "unlink",
+    "uptime",
+    "users",
+    "who",
+    "whoami",
+    "yes"
+  ];
+
   return {
     name: 'Bash',
-    aliases: ['sh', 'zsh'],
+    aliases: ['sh'],
     keywords: {
       $pattern: /\b[a-z._-]+\b/,
-      keyword:
-        'if then else elif fi for while in do done case esac function',
-      literal:
-        'true false',
-      built_in:
-        // Shell built-ins
-        // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
-        'break cd continue eval exec exit export getopts hash pwd readonly return shift test times ' +
-        'trap umask unset ' +
-        // Bash built-ins
-        'alias bind builtin caller command declare echo enable help let local logout mapfile printf ' +
-        'read readarray source type typeset ulimit unalias ' +
+      keyword: KEYWORDS,
+      literal: LITERALS,
+      built_in:[
+        ...SHELL_BUILT_INS,
+        ...BASH_BUILT_INS,
         // Shell modifiers
-        'set shopt ' +
-        // Zsh built-ins
-        'autoload bg bindkey bye cap chdir clone comparguments compcall compctl compdescribe compfiles ' +
-        'compgroups compquote comptags comptry compvalues dirs disable disown echotc echoti emulate ' +
-        'fc fg float functions getcap getln history integer jobs kill limit log noglob popd print ' +
-        'pushd pushln rehash sched setcap setopt stat suspend ttyctl unfunction unhash unlimit ' +
-        'unsetopt vared wait whence where which zcompile zformat zftp zle zmodload zparseopts zprof ' +
-        'zpty zregexparse zsocket zstyle ztcp'
+        "set",
+        "shopt",
+        ...ZSH_BUILT_INS,
+        ...GNU_CORE_UTILS
+      ]
     },
     contains: [
       KNOWN_SHEBANG, // to catch known shells and boost relevancy
@@ -135,6 +373,7 @@ export default function(hljs) {
       ARITHMETIC,
       hljs.HASH_COMMENT_MODE,
       HERE_DOC,
+      PATH_MODE,
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,

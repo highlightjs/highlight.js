@@ -7,34 +7,83 @@ Website: https://www.angelcode.com/angelscript/
 
 /** @type LanguageFn */
 export default function(hljs) {
-  var builtInTypeMode = {
+  const builtInTypeMode = {
     className: 'built_in',
     begin: '\\b(void|bool|int|int8|int16|int32|int64|uint|uint8|uint16|uint32|uint64|string|ref|array|double|float|auto|dictionary)'
   };
 
-  var objectHandleMode = {
+  const objectHandleMode = {
     className: 'symbol',
     begin: '[a-zA-Z0-9_]+@'
   };
 
-  var genericMode = {
+  const genericMode = {
     className: 'keyword',
-    begin: '<', end: '>',
-    contains: [ builtInTypeMode, objectHandleMode ]
+    begin: '<',
+    end: '>',
+    contains: [
+      builtInTypeMode,
+      objectHandleMode
+    ]
   };
 
   builtInTypeMode.contains = [ genericMode ];
   objectHandleMode.contains = [ genericMode ];
 
+  const KEYWORDS = [
+    "for",
+    "in|0",
+    "break",
+    "continue",
+    "while",
+    "do|0",
+    "return",
+    "if",
+    "else",
+    "case",
+    "switch",
+    "namespace",
+    "is",
+    "cast",
+    "or",
+    "and",
+    "xor",
+    "not",
+    "get|0",
+    "in",
+    "inout|10",
+    "out",
+    "override",
+    "set|0",
+    "private",
+    "public",
+    "const",
+    "default|0",
+    "final",
+    "shared",
+    "external",
+    "mixin|10",
+    "enum",
+    "typedef",
+    "funcdef",
+    "this",
+    "super",
+    "import",
+    "from",
+    "interface",
+    "abstract|0",
+    "try",
+    "catch",
+    "protected",
+    "explicit",
+    "property"
+  ];
+
   return {
     name: 'AngelScript',
-    aliases: ['asc'],
+    aliases: [ 'asc' ],
 
-    keywords:
-      'for in|0 break continue while do|0 return if else case switch namespace is cast ' +
-      'or and xor not get|0 in inout|10 out override set|0 private public const default|0 ' +
-      'final shared external mixin|10 enum typedef funcdef this super import from interface ' +
-      'abstract|0 try catch protected explicit property',
+    keywords: KEYWORDS,
 
     // avoid close detection with C# and JS
     illegal: '(^using\\s+[A-Za-z0-9_\\.]+;$|\\bfunction\\s*[^\\(])',
@@ -42,7 +91,8 @@ export default function(hljs) {
     contains: [
       { // 'strings'
         className: 'string',
-        begin: '\'', end: '\'',
+        begin: '\'',
+        end: '\'',
         illegal: '\\n',
         contains: [ hljs.BACKSLASH_ESCAPE ],
         relevance: 0
@@ -51,12 +101,14 @@ export default function(hljs) {
       // """heredoc strings"""
       {
         className: 'string',
-        begin: '"""', end: '"""'
+        begin: '"""',
+        end: '"""'
       },
 
       { // "strings"
         className: 'string',
-        begin: '"', end: '"',
+        begin: '"',
+        end: '"',
         illegal: '\\n',
         contains: [ hljs.BACKSLASH_ESCAPE ],
         relevance: 0
@@ -67,11 +119,13 @@ export default function(hljs) {
 
       { // metadata
         className: 'string',
-        begin: '^\\s*\\[', end: '\\]',
+        begin: '^\\s*\\[',
+        end: '\\]'
       },
 
       { // interface or namespace declaration
-        beginKeywords: 'interface namespace', end: /\{/,
+        beginKeywords: 'interface namespace',
+        end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // interface or namespace name
@@ -82,7 +136,8 @@ export default function(hljs) {
       },
 
       { // class declaration
-        beginKeywords: 'class', end: /\{/,
+        beginKeywords: 'class',
+        end: /\{/,
         illegal: '[;.\\-]',
         contains: [
           { // class name

@@ -4,9 +4,6 @@
  */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #1E1E1E;
   color: #DCDCDC;
 }
@@ -33,7 +30,7 @@
 }
 
 .hljs-string,
-.hljs-meta-string {
+.hljs-meta .hljs-string {
   color: #D69D85;
 }
 
@@ -61,7 +58,8 @@
 }
 
 .hljs-meta,
-.hljs-meta-keyword,
+.hljs-meta .hljs-keyword,
+
 .hljs-tag {
   color: #9B9B9B;
 }
@@ -72,8 +70,7 @@
 }
 
 .hljs-attr,
-.hljs-attribute,
-.hljs-builtin-name {
+.hljs-attribute {
   color: #9CDCFE;
 }
 

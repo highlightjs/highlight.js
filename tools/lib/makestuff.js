@@ -2,8 +2,8 @@ const fs = require("fs");
 const CleanCSS = require('clean-css');
 const path = require('path');
 const _ = require('lodash');
-const config = require("../build_config");
 const del = require('del');
+const config = require("../build_config.js");
 
 async function clean(directory) {
   del.sync([directory]);
@@ -14,8 +14,21 @@ function install(file, dest = file) {
   fs.copyFileSync(file, `${process.env.BUILD_DIR}/${dest}`);
 }
 
+const DEFAULT_CSS = `
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+`.trim();
+
 function installCleanCSS(file, dest) {
-  const content = fs.readFileSync(file, { encoding: "utf8" });
+  const theme = fs.readFileSync(file, { encoding: "utf8" });
+  const content = DEFAULT_CSS + "\n" + theme;
   const out = new CleanCSS(config.clean_css).minify(content).styles;
   fs.writeFileSync(`${process.env.BUILD_DIR}/${dest}`, out);
 }

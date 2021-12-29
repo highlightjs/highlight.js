@@ -1,20 +1,21 @@
-/**
- * nnfx dark - a theme inspired by Netscape Navigator/Firefox
- *
- * @version 1.0.0
- * @author (c) 2020 Jim Mason <jmason@ibinx.com>
- * @license https://creativecommons.org/licenses/by-sa/4.0  CC BY-SA 4.0
- */
+ /*!
+  Theme: nnfx dark
+  Description: a theme inspired by Netscape Navigator/Firefox
+  Author: (c) 2020-2021 Jim Mason <jmason@ibinx.com>
+  Maintainer: @RocketMan
+  License: https://creativecommons.org/licenses/by-sa/4.0  CC BY-SA 4.0
+  Updated: 2021-05-17
+
+  @version 1.1.0
+*/
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   background: #333;
   color: #fff;
 }
 
-.xml .hljs-meta {
+.language-xml .hljs-meta,
+.language-xml .hljs-meta-string {
   font-weight: bold;
   font-style: italic;
   color: #69f;
@@ -27,7 +28,8 @@
 }
 
 .hljs-name,
-.hljs-keyword {
+.hljs-keyword,
+.hljs-built_in {
   color: #a7a;
 }
 
@@ -40,14 +42,9 @@
   font-weight: normal;
 }
 
-.hljs-variable,
-.hljs-template-variable {
-  color: #588;
-}
-
 .hljs-code,
 .hljs-string,
-.hljs-meta-string,
+.hljs-meta .hljs-string,
 .hljs-number,
 .hljs-regexp,
 .hljs-link {
@@ -57,24 +54,23 @@
 .hljs-title,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-built_in,
-.hljs-builtin-name {
+.hljs-variable,
+.hljs-template-variable {
   color: #d40;
 }
 
-.hljs-section,
-.hljs-meta {
-  color: #a85;
-}
-
+.hljs-title.class_,
 .hljs-class .hljs-title,
 .hljs-type {
+  font-weight: bold;
   color: #96c;
 }
 
+.hljs-title.function_,
 .hljs-function .hljs-title,
 .hljs-attr,
-.hljs-subst {
+.hljs-subst,
+.hljs-tag {
   color: #fff;
 }
 
@@ -91,9 +87,21 @@
   background-color: #c99;
 }
 
+.hljs-meta {
+  color: #69f;
+}
+
+.hljs-section,
 .hljs-selector-id,
-.hljs-selector-class {
-  color: #964;
+.hljs-selector-class,
+.hljs-selector-pseudo,
+.hljs-selector-tag {
+  font-weight: bold;
+  color: #69f;
+}
+
+.hljs-selector-pseudo {
+  font-style: italic;
 }
 
 .hljs-doctag,
