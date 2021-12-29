@@ -1,0 +1,6 @@
+//4. 对角矩阵
+//4.1 构造对角矩阵
+Eigen::VectorXd vector(5);                //构建5维向量
+vector<<1,2,3,4,5;                        //向量赋值
+Eigen::MatrixXd  C(vector.asDiagonal());  //使用向量生成对角阵
+std::cout << "\nC= \n" << C << std::endl;
