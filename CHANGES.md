@@ -15,6 +15,7 @@ These changes should be for the better and should not be super noticeable but if
 Grammars:
 
 - enh(php) add PHP 8.1 keywords [Wojciech Kania][]
+- fix(cpp) fix `vector<<` template false positive (#3437) [Josh Goebel][]
 - enh(php) support First-class Callable Syntax (#3427) [Wojciech Kania][]
 - enh(php) support class constructor call (#3427) [Wojciech Kania][]
 - enh(php) support function invoke (#3427) [Wojciech Kania][]
