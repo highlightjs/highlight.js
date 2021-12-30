@@ -4,7 +4,7 @@ New Language:
 
 - Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B][]
 - Added 3rd party cURL grammar to SUPPORTED_LANGUAGES [highlightjs-curl](https://github.com/highlightjs/highlightjs-curl)
-- Added 3rd party GraphQL grammar to SUPPORTED_LANGUAGES [highlightjs-graphql][https://github.com/jf990/highlightjs-graphql]
+- Added GraphQL to SUPPORTED_LANGUAGES [jf990][]
 
 Themes:
 
