@@ -52,6 +52,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | CpcdosC+                | cpc                    | [highlightjs-cpcdos](https://github.com/SPinti-Software/highlightjs-cpcdos) |
 | Crmsh                   | crmsh, crm, pcmk       |         |
 | Crystal                 | crystal, cr            |         |
+| cURL                    | curl                   | [highlightjs-curl](https://github.com/highlightjs/highlightjs-curl) |
 | Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
 | D                       | d                      |         |
 | Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
