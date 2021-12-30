@@ -3,6 +3,10 @@
 Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
 
+New Grammars:
+
+- Added GraphQL to SUPPORTED_LANGUAGES [jf990][]
+
 Grammars:
 
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
@@ -16,6 +20,8 @@ Grammars:
 - fix(llvm) escaping in strings and number formats [Flakebi][]
 - enh(elixir) recognize references to modules [Mark Ericksen][]
 
+
+[John Foster]: https://github.com/jf990
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
 [anydonym]: https://github.com/anydonym

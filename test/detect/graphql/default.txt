@@ -1,0 +1,16 @@
+# Graphql detection template
+
+mutation Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+      ... on Droid {
+        primaryFunction
+      }
+      ... on Human {
+        height
+      }
+    }
+  }
+}
