@@ -46,6 +46,7 @@ Grammars:
   - enh(clojure) Add `punctuation` mode for commas.
 - fix(julia) Enable the `jldoctest` alias (#3432) [Fons van der Plas][]
 - relocate(arcade) to [highlightjs-arcade](https://github.com/jf990/highlightjs-arcade)
+- enh(arcade) updated to version 1.16
 
 Developer Tools:
 
