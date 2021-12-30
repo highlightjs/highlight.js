@@ -22,7 +22,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | AngelScript             | angelscript, asc       |         |
 | Apache                  | apache, apacheconf     |         |
 | AppleScript             | applescript, osascript |         |
-| Arcade                  | arcade                 |         |
+| ArcGIS Arcade           | arcade                 | [highlightjs-arcade](https://github.com/jf990/highlightjs-arcade) |
 | AsciiDoc                | asciidoc, adoc         |         |
 | AspectJ                 | aspectj                |         |
 | AutoHotkey              | autohotkey             |         |
