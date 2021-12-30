@@ -45,6 +45,7 @@ Grammars:
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
 - fix(julia) Enable the `jldoctest` alias (#3432) [Fons van der Plas][]
+- enh(arcade) updated to ArcGIS Arcade version 1.16 [jf990][]
 
 Developer Tools:
 

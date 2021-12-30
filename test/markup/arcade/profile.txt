@@ -3,6 +3,7 @@
 */
 function offsetPopulation(offset){
    var popDensity = Round( $feature.POPULATION / AreaGeodetic(Geometry($feature), "square-kilometers") );
+   iif (city1.pop > city2.pop, city1, Reduce(cities, mostPopulated));
    var geom = Geometry({ 'x': offset.x, 'y': offset.y, 'spatialReference':{'wkid':102100} });
    var myLayer = FeatureSet($map, ["POPULATION", "ELECTION-DATA"]);
    return popDensity;

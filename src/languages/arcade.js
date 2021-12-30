@@ -1,12 +1,14 @@
-/*
+/**
  Language: ArcGIS Arcade
  Category: scripting
  Author: John Foster <jfoster@esri.com>
  Website: https://developers.arcgis.com/arcade/
  Description: ArcGIS Arcade is an expression language used in many Esri ArcGIS products such as Pro, Online, Server, Runtime, JavaScript, and Python
+ @param {HLJSApi} hljs
+ @returns {LanguageDetail}
+ @type LanguageFn
 */
 
-/** @type LanguageFn */
 export default function(hljs) {
   const IDENT_RE = '[A-Za-z_][0-9A-Za-z_]*';
   const KEYWORDS = {
@@ -14,18 +16,194 @@ export default function(hljs) {
       'if for while var new function do return void else break',
     literal:
       'BackSlash DoubleQuote false ForwardSlash Infinity NaN NewLine null PI SingleQuote Tab TextFormatting true undefined',
-    built_in:
-      'Abs Acos Angle Attachments Area AreaGeodetic Asin Atan Atan2 Average Bearing Boolean Buffer BufferGeodetic ' +
-      'Ceil Centroid Clip Console Constrain Contains Cos Count Crosses Cut Date DateAdd ' +
-      'DateDiff Day Decode DefaultValue Dictionary Difference Disjoint Distance DistanceGeodetic Distinct ' +
-      'DomainCode DomainName Equals Exp Extent Feature FeatureSet FeatureSetByAssociation FeatureSetById FeatureSetByPortalItem ' +
-      'FeatureSetByRelationshipName FeatureSetByTitle FeatureSetByUrl Filter First Floor Geometry GroupBy Guid HasKey Hour IIf IndexOf ' +
-      'Intersection Intersects IsEmpty IsNan IsSelfIntersecting Length LengthGeodetic Log Max Mean Millisecond Min Minute Month ' +
-      'MultiPartToSinglePart Multipoint NextSequenceValue Now Number OrderBy Overlaps Point Polygon ' +
-      'Polyline Portal Pow Random Relate Reverse RingIsClockWise Round Second SetGeometry Sin Sort Sqrt Stdev Sum ' +
-      'SymmetricDifference Tan Text Timestamp Today ToLocal Top Touches ToUTC TrackCurrentTime ' +
-      'TrackGeometryWindow TrackIndex TrackStartTime TrackWindow TypeOf Union UrlEncode Variance ' +
-      'Weekday When Within Year '
+    built_in: [
+      "Abs",
+      "Acos",
+      "All",
+      "Angle",
+      "Any",
+      "Area",
+      "AreaGeodetic",
+      "Array",
+      "Asin",
+      "Atan",
+      "Atan2",
+      "Attachments",
+      "Average",
+      "Back",
+      "Bearing",
+      "Boolean",
+      "Buffer",
+      "BufferGeodetic",
+      "Ceil",
+      "Centroid",
+      "Clip",
+      "Concatenate",
+      "Console",
+      "Constrain",
+      "Contains",
+      "ConvertDirection",
+      "Cos",
+      "Count",
+      "Crosses",
+      "Cut",
+      "Date",
+      "DateAdd",
+      "DateDiff",
+      "Day",
+      "Decode",
+      "DefaultValue",
+      "Densify",
+      "DensifyGeodetic",
+      "Dictionary",
+      "Difference",
+      "Disjoint",
+      "Distance",
+      "DistanceGeodetic",
+      "Distinct",
+      "Domain",
+      "DomainCode",
+      "DomainName",
+      "EnvelopeIntersects",
+      "Equals",
+      "Erase",
+      "Exp",
+      "Expects",
+      "Extent",
+      "Feature",
+      "FeatureSet",
+      "FeatureSetByAssociation",
+      "FeatureSetById",
+      "FeatureSetByName",
+      "FeatureSetByPortalItem",
+      "FeatureSetByRelationshipName",
+      "Filter",
+      "Find",
+      "First",
+      "Floor",
+      "FromCharCode",
+      "FromCodePoint",
+      "FromJSON",
+      "GdbVersion",
+      "Generalize",
+      "Geometry",
+      "GetFeatureSet",
+      "GetUser",
+      "GroupBy",
+      "Guid",
+      "Hash",
+      "HasKey",
+      "Hour",
+      "IIf",
+      "Includes",
+      "IndexOf",
+      "Insert",
+      "Intersection",
+      "Intersects",
+      "IsEmpty",
+      "IsNan",
+      "ISOMonth",
+      "ISOWeek",
+      "ISOWeekday",
+      "ISOYear",
+      "IsSelfIntersecting",
+      "IsSimple",
+      "Left",
+      "Length",
+      "Length3D",
+      "LengthGeodetic",
+      "Log",
+      "Lower",
+      "Map",
+      "Max",
+      "Mean",
+      "Mid",
+      "Millisecond",
+      "Min",
+      "Minute",
+      "Month",
+      "MultiPartToSinglePart",
+      "Multipoint",
+      "NextSequenceValue",
+      "None",
+      "Now",
+      "Number",
+      "Offset",
+      "OrderBy",
+      "Overlaps",
+      "Point",
+      "Polygon",
+      "Polyline",
+      "Pop",
+      "Portal",
+      "Pow",
+      "Proper",
+      "Push",
+      "Random",
+      "Reduce",
+      "Relate",
+      "Replace",
+      "Resize",
+      "Reverse",
+      "Right",
+      "RingIsClockwise",
+      "Rotate",
+      "Round",
+      "Schema",
+      "Second",
+      "SetGeometry",
+      "Simplify",
+      "Sin",
+      "Slice",
+      "Sort",
+      "Splice",
+      "Split",
+      "Sqrt",
+      "Stdev",
+      "SubtypeCode",
+      "SubtypeName",
+      "Subtypes",
+      "Sum",
+      "SymmetricDifference",
+      "Tan",
+      "Text",
+      "Timestamp",
+      "ToCharCode",
+      "ToCodePoint",
+      "Today",
+      "ToHex",
+      "ToLocal",
+      "Top",
+      "Touches",
+      "ToUTC",
+      "TrackAccelerationAt",
+      "TrackAccelerationWindow",
+      "TrackCurrentAcceleration",
+      "TrackCurrentDistance",
+      "TrackCurrentSpeed",
+      "TrackCurrentTime",
+      "TrackDistanceAt",
+      "TrackDistanceWindow",
+      "TrackDuration",
+      "TrackFieldWindow",
+      "TrackGeometryWindow",
+      "TrackIndex",
+      "TrackSpeedAt",
+      "TrackSpeedWindow",
+      "TrackStartTime",
+      "TrackWindow",
+      "Trim",
+      "TypeOf",
+      "Union",
+      "Upper",
+      "UrlEncode",
+      "Variance",
+      "Week",
+      "Weekday",
+      "When",
+      "Within",
+      "Year"
+    ]
   };
   const SYMBOL = {
     className: 'symbol',
@@ -34,15 +212,9 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     variants: [
-      {
-        begin: '\\b(0[bB][01]+)'
-      },
-      {
-        begin: '\\b(0[oO][0-7]+)'
-      },
-      {
-        begin: hljs.C_NUMBER_RE
-      }
+      { begin: '\\b(0[bB][01]+)' },
+      { begin: '\\b(0[oO][0-7]+)' },
+      { begin: hljs.C_NUMBER_RE }
     ],
     relevance: 0
   };
@@ -51,7 +223,8 @@ export default function(hljs) {
     begin: '\\$\\{',
     end: '\\}',
     keywords: KEYWORDS,
-    contains: [] // defined later
+    contains: [],  // defined later
+    relevance: 0
   };
   const TEMPLATE_STRING = {
     className: 'string',
@@ -60,7 +233,8 @@ export default function(hljs) {
     contains: [
       hljs.BACKSLASH_ESCAPE,
       SUBST
-    ]
+    ],
+    relevance: 0
   };
   SUBST.contains = [
     hljs.APOS_STRING_MODE,
@@ -75,7 +249,8 @@ export default function(hljs) {
   ]);
 
   return {
-    name: 'ArcGIS Arcade',
+    aliases: [ 'arcade' ],
+    case_insensitive: true,
     keywords: KEYWORDS,
     contains: [
       hljs.APOS_STRING_MODE,
@@ -88,16 +263,18 @@ export default function(hljs) {
       { // object attr container
         begin: /[{,]\s*/,
         relevance: 0,
-        contains: [{
-          begin: IDENT_RE + '\\s*:',
-          returnBegin: true,
-          relevance: 0,
-          contains: [{
-            className: 'attr',
-            begin: IDENT_RE,
-            relevance: 0
-          }]
-        }]
+        contains: [
+          {
+            begin: IDENT_RE + '\\s*:',
+            returnBegin: true,
+            relevance: 0,
+            contains: [{
+              className: 'attr',
+              begin: IDENT_RE,
+              relevance: 0
+            }]
+          }
+        ]
       },
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(return)\\b)\\s*',
@@ -111,45 +288,46 @@ export default function(hljs) {
             begin: '(\\(.*?\\)|' + IDENT_RE + ')\\s*=>',
             returnBegin: true,
             end: '\\s*=>',
-            contains: [{
-              className: 'params',
-              variants: [
-                {
-                  begin: IDENT_RE
-                },
-                {
-                  begin: /\(\s*\)/
-                },
-                {
-                  begin: /\(/,
-                  end: /\)/,
-                  excludeBegin: true,
-                  excludeEnd: true,
-                  keywords: KEYWORDS,
-                  contains: PARAMS_CONTAINS
-                }
-              ]
-            }]
+            contains: [
+              {
+                className: 'params',
+                variants: [
+                  {
+                    begin: IDENT_RE
+                  },
+                  {
+                    begin: /\(\s*\)/,
+                  },
+                  {
+                    begin: /\(/,
+                    end: /\)/,
+                    excludeBegin: true,
+                    excludeEnd: true,
+                    keywords: KEYWORDS,
+                    contains: PARAMS_CONTAINS
+                  }
+                ]
+              }
+            ]
           }
         ],
         relevance: 0
       },
       {
+        className: 'function',
         beginKeywords: 'function',
         end: /\{/,
         excludeEnd: true,
+        relevance: 0,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
-            className: "title.function",
-            begin: IDENT_RE
-          }),
+          hljs.inherit(hljs.TITLE_MODE, { begin: IDENT_RE }),
           {
             className: 'params',
-            begin: /\(/,
-            end: /\)/,
+            begin: /\(/, end: /\)/,
             excludeBegin: true,
             excludeEnd: true,
-            contains: PARAMS_CONTAINS
+            contains: PARAMS_CONTAINS,
+            relevance: 0
           }
         ],
         illegal: /\[|%/
@@ -160,4 +338,4 @@ export default function(hljs) {
     ],
     illegal: /#(?!!)/
   };
-}
+};

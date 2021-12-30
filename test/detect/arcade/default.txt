@@ -1,4 +1,4 @@
-/* Highlight.js est for Arcade */
+/* Highlight.js test for Arcade */
 function testGeometry(element, point) {
     if (point.y != -1)
         return point;
