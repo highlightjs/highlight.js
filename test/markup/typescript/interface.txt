@@ -1,0 +1,17 @@
+interface myInterface {
+  name: string;
+}
+
+interface lowercase {
+  isLowercase: boolean;
+}
+
+interface thisInterface extends OtherName {
+  length: number;
+  width: number;
+}
+
+interface newline extends ALLCAPS
+{
+  isSpace: boolean;
+}

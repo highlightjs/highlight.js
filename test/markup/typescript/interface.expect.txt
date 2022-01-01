@@ -1,0 +1,17 @@
+<span class="hljs-keyword">interface</span> <span class="hljs-title">myInterface</span> {
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">interface</span> <span class="hljs-title">lowercase</span> {
+  <span class="hljs-attr">isLowercase</span>: <span class="hljs-built_in">boolean</span>;
+}
+
+<span class="hljs-keyword">interface</span> <span class="hljs-title">thisInterface</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">OtherName</span> {
+  <span class="hljs-attr">length</span>: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">width</span>: <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-keyword">interface</span> <span class="hljs-title">newline</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ALLCAPS</span>
+{
+  <span class="hljs-attr">isSpace</span>: <span class="hljs-built_in">boolean</span>;
+}
