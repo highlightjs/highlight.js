@@ -193,9 +193,9 @@ class CSSRule {
   constructor(rule, body) {
     this.rule = rule;
     if (rule.declarations) {
-      this.bg = rule.declarations.find(x => x.property =="background-color")?.value;
+      this.bg = rule.declarations.find(x => x.property == "background-color")?.value;
       if (!this.bg) {
-        this.bg = rule.declarations.find(x => x.property =="background")?.value;
+        this.bg = rule.declarations.find(x => x.property == "background")?.value;
       }
       this.fg = rule.declarations.find(x => x.property =="color")?.value;
 
