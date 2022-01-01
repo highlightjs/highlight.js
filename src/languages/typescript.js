@@ -36,20 +36,49 @@ export default function(hljs) {
   };
 
   const INTERFACE = {
-    match: [
-      /interface/,
-      /\s+/,
-      IDENT_GEN
+    variants: [
+      {
+        match: [
+          /interface/,
+          /\s+/,
+          IDENT_GEN,
+          /\s+/,
+          /extends/,
+          /\s+/,
+          IDENT_GEN
+        ]
+      },
+      {
+        match: [
+          /interface/,
+          /\s+/,
+          IDENT_GEN
+        ]
+      }
     ],
     scope: {
       1: "keyword",
-      3: "title"
+      3: "title",
+      5: "keyword",
+      7: "title"
     },
     keywords: {
       keyword: 'interface extends',
       built_in: TYPES
     }
   };
+
+  const IMPORT = {
+    begin: [
+      /import/,
+      /s+/,
+      IDENT_GEN
+    ],
+    beginScope: {
+      1: "keyword",
+      3: "title"
+    }
+  }
 
   const USE_STRICT = {
     className: 'meta',
