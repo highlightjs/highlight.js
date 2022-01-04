@@ -317,8 +317,8 @@ export default function(hljs) {
           regex.concat(WHITESPACE, "+"),
           // to prevent built ins from being confused as the class constructor call
           regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-          regex.concat("\\\\?", IDENT_RE),
-          regex.concat(WHITESPACE, "*\\("),
+          regex.concat(/\\?/, IDENT_RE),
+          regex.concat(WHITESPACE, "*", /\(/),
         ],
         scope: {
           1: "keyword",
