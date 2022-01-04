@@ -10,22 +10,156 @@
 export default function(hljs) {
   const IDENT_RE = '[A-Za-z_][0-9A-Za-z_]*';
   const KEYWORDS = {
-    keyword:
-      'if for while var new function do return void else break',
-    literal:
-      'BackSlash DoubleQuote false ForwardSlash Infinity NaN NewLine null PI SingleQuote Tab TextFormatting true undefined',
-    built_in:
-      'Abs Acos Angle Attachments Area AreaGeodetic Asin Atan Atan2 Average Bearing Boolean Buffer BufferGeodetic ' +
-      'Ceil Centroid Clip Console Constrain Contains Cos Count Crosses Cut Date DateAdd ' +
-      'DateDiff Day Decode DefaultValue Dictionary Difference Disjoint Distance DistanceGeodetic Distinct ' +
-      'DomainCode DomainName Equals Exp Extent Feature FeatureSet FeatureSetByAssociation FeatureSetById FeatureSetByPortalItem ' +
-      'FeatureSetByRelationshipName FeatureSetByTitle FeatureSetByUrl Filter First Floor Geometry GroupBy Guid HasKey Hour IIf IndexOf ' +
-      'Intersection Intersects IsEmpty IsNan IsSelfIntersecting Length LengthGeodetic Log Max Mean Millisecond Min Minute Month ' +
-      'MultiPartToSinglePart Multipoint NextSequenceValue Now Number OrderBy Overlaps Point Polygon ' +
-      'Polyline Portal Pow Random Relate Reverse RingIsClockWise Round Second SetGeometry Sin Sort Sqrt Stdev Sum ' +
-      'SymmetricDifference Tan Text Timestamp Today ToLocal Top Touches ToUTC TrackCurrentTime ' +
-      'TrackGeometryWindow TrackIndex TrackStartTime TrackWindow TypeOf Union UrlEncode Variance ' +
-      'Weekday When Within Year '
+    keyword: [
+      "if",
+      "for",
+      "while",
+      "var",
+      "new",
+      "function",
+      "do",
+      "return",
+      "void",
+      "else",
+      "break"
+    ],
+    literal: [
+      "BackSlash",
+      "DoubleQuote",
+      "false",
+      "ForwardSlash",
+      "Infinity",
+      "NaN",
+      "NewLine",
+      "null",
+      "PI",
+      "SingleQuote",
+      "Tab",
+      "TextFormatting",
+      "true",
+      "undefined"
+    ],
+    built_in: [
+      "Abs",
+      "Acos",
+      "Angle",
+      "Attachments",
+      "Area",
+      "AreaGeodetic",
+      "Asin",
+      "Atan",
+      "Atan2",
+      "Average",
+      "Bearing",
+      "Boolean",
+      "Buffer",
+      "BufferGeodetic",
+      "Ceil",
+      "Centroid",
+      "Clip",
+      "Console",
+      "Constrain",
+      "Contains",
+      "Cos",
+      "Count",
+      "Crosses",
+      "Cut",
+      "Date",
+      "DateAdd",
+      "DateDiff",
+      "Day",
+      "Decode",
+      "DefaultValue",
+      "Dictionary",
+      "Difference",
+      "Disjoint",
+      "Distance",
+      "DistanceGeodetic",
+      "Distinct",
+      "DomainCode",
+      "DomainName",
+      "Equals",
+      "Exp",
+      "Extent",
+      "Feature",
+      "FeatureSet",
+      "FeatureSetByAssociation",
+      "FeatureSetById",
+      "FeatureSetByPortalItem",
+      "FeatureSetByRelationshipName",
+      "FeatureSetByTitle",
+      "FeatureSetByUrl",
+      "Filter",
+      "First",
+      "Floor",
+      "Geometry",
+      "GroupBy",
+      "Guid",
+      "HasKey",
+      "Hour",
+      "IIf",
+      "IndexOf",
+      "Intersection",
+      "Intersects",
+      "IsEmpty",
+      "IsNan",
+      "IsSelfIntersecting",
+      "Length",
+      "LengthGeodetic",
+      "Log",
+      "Max",
+      "Mean",
+      "Millisecond",
+      "Min",
+      "Minute",
+      "Month",
+      "MultiPartToSinglePart",
+      "Multipoint",
+      "NextSequenceValue",
+      "Now",
+      "Number",
+      "OrderBy",
+      "Overlaps",
+      "Point",
+      "Polygon",
+      "Polyline",
+      "Portal",
+      "Pow",
+      "Random",
+      "Relate",
+      "Reverse",
+      "RingIsClockWise",
+      "Round",
+      "Second",
+      "SetGeometry",
+      "Sin",
+      "Sort",
+      "Sqrt",
+      "Stdev",
+      "Sum",
+      "SymmetricDifference",
+      "Tan",
+      "Text",
+      "Timestamp",
+      "Today",
+      "ToLocal",
+      "Top",
+      "Touches",
+      "ToUTC",
+      "TrackCurrentTime",
+      "TrackGeometryWindow",
+      "TrackIndex",
+      "TrackStartTime",
+      "TrackWindow",
+      "TypeOf",
+      "Union",
+      "UrlEncode",
+      "Variance",
+      "Weekday",
+      "When",
+      "Within",
+      "Year"
+    ]
   };
   const SYMBOL = {
     className: 'symbol',
@@ -34,15 +168,9 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     variants: [
-      {
-        begin: '\\b(0[bB][01]+)'
-      },
-      {
-        begin: '\\b(0[oO][0-7]+)'
-      },
-      {
-        begin: hljs.C_NUMBER_RE
-      }
+      { begin: '\\b(0[bB][01]+)' },
+      { begin: '\\b(0[oO][0-7]+)' },
+      { begin: hljs.C_NUMBER_RE }
     ],
     relevance: 0
   };
@@ -88,16 +216,20 @@ export default function(hljs) {
       { // object attr container
         begin: /[{,]\s*/,
         relevance: 0,
-        contains: [{
-          begin: IDENT_RE + '\\s*:',
-          returnBegin: true,
-          relevance: 0,
-          contains: [{
-            className: 'attr',
-            begin: IDENT_RE,
-            relevance: 0
-          }]
-        }]
+        contains: [
+          {
+            begin: IDENT_RE + '\\s*:',
+            returnBegin: true,
+            relevance: 0,
+            contains: [
+              {
+                className: 'attr',
+                begin: IDENT_RE,
+                relevance: 0
+              }
+            ]
+          }
+        ]
       },
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(return)\\b)\\s*',
@@ -111,25 +243,23 @@ export default function(hljs) {
             begin: '(\\(.*?\\)|' + IDENT_RE + ')\\s*=>',
             returnBegin: true,
             end: '\\s*=>',
-            contains: [{
-              className: 'params',
-              variants: [
-                {
-                  begin: IDENT_RE
-                },
-                {
-                  begin: /\(\s*\)/
-                },
-                {
-                  begin: /\(/,
-                  end: /\)/,
-                  excludeBegin: true,
-                  excludeEnd: true,
-                  keywords: KEYWORDS,
-                  contains: PARAMS_CONTAINS
-                }
-              ]
-            }]
+            contains: [
+              {
+                className: 'params',
+                variants: [
+                  { begin: IDENT_RE },
+                  { begin: /\(\s*\)/ },
+                  {
+                    begin: /\(/,
+                    end: /\)/,
+                    excludeBegin: true,
+                    excludeEnd: true,
+                    keywords: KEYWORDS,
+                    contains: PARAMS_CONTAINS
+                  }
+                ]
+              }
+            ]
           }
         ],
         relevance: 0
@@ -154,9 +284,7 @@ export default function(hljs) {
         ],
         illegal: /\[|%/
       },
-      {
-        begin: /\$[(.]/
-      }
+      { begin: /\$[(.]/ }
     ],
     illegal: /#(?!!)/
   };
