@@ -450,7 +450,7 @@ export default function(hljs) {
       {
         // swallow composed identifiers to avoid parsing them as keywords
         match: regex.concat(
-          /(::|->)+/,
+          /->+/,
           IDENT_RE,
           regex.concat("(?!", WHITESPACE, "*\\()")
         ),
