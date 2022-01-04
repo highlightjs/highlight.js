@@ -447,15 +447,6 @@ export default function(hljs) {
           3: "variable.constant",
         },
       },
-      {
-        // swallow composed identifiers to avoid parsing them as keywords
-        match: regex.concat(
-          /->+/,
-          IDENT_RE,
-          regex.concat("(?!", WHITESPACE, "*\\()")
-        ),
-        // scope:"wrong"
-      },
       CONSTRUCTOR_CALL,
       {
         scope: 'function',
