@@ -249,7 +249,7 @@ export default function(hljs) {
   ]);
 
   return {
-    aliases: [ 'arcade' ],
+    name: 'ArcGIS Arcade',
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: [
