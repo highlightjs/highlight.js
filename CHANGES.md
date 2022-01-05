@@ -16,6 +16,7 @@ These changes should be for the better and should not be super noticeable but if
 Grammars:
 
 - enh(twig) update keywords list for symfony (#3453) [Matthieu Lempereur][]
+- enh(arcade) updated to ArcGIS Arcade version 1.16 [John Foster][]
 - enh(php) Left and right-side of double colon [Wojciech Kania][]
 - enh(php) add PHP constants [Wojciech Kania][]
 - enh(php) add PHP 8.1 keywords [Wojciech Kania][]
@@ -58,6 +59,7 @@ Themes:
 
 - Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
+[John Foster]: https://github.com/jf990
 [Pegasis]: https://github.com/PegasisForever
 [Wojciech Kania]: https://github.com/wkania
 [Jeylani B]: https://github.com/jeyllani
