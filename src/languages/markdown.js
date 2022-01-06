@@ -170,7 +170,6 @@ export default function(hljs) {
     ]
   };
   BOLD.contains.push(ITALIC);
-  ITALIC.contains.push(BOLD);
 
   let CONTAINABLE = [
     INLINE_HTML,
