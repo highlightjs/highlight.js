@@ -67,7 +67,7 @@ Themes:
 [Matthieu Lempereur]: https://github.com/MrYamous
 [idleberg]: https://github.com/idleberg
 [Fons van der Plas]: https://github.com/fonsp
-[Felipe Contreras]: https://github.com/felipec/vim-felipec
+[Felipe Contreras]: https://github.com/felipec
 
 ## Version 11.3.1
 
