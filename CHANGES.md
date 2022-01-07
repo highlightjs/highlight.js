@@ -1,3 +1,13 @@
+## Version 11.5.0 (in progress)
+
+Grammars:
+
+- fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
+
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 11.4.0
 
 New Language:
