@@ -1,8 +1,9 @@
-## Version 11.4 (most likely)
+## Version 11.4.0
 
 New Language:
 
 - Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B][]
+- Added 3rd party cURL grammar to SUPPORTED_LANGUAGES [highlightjs-curl](https://github.com/highlightjs/highlightjs-curl)
 
 Themes:
 
@@ -15,6 +16,9 @@ These changes should be for the better and should not be super noticeable but if
 
 Grammars:
 
+- enh(arcade) updated to ArcGIS Arcade version 1.16 [John Foster][]
+- enh(php) Left and right-side of double colon [Wojciech Kania][]
+- enh(php) add PHP constants [Wojciech Kania][]
 - enh(php) add PHP 8.1 keywords [Wojciech Kania][]
 - fix(cpp) fix `vector<<` template false positive (#3437) [Josh Goebel][]
 - enh(php) support First-class Callable Syntax (#3427) [Wojciech Kania][]
@@ -55,6 +59,7 @@ Themes:
 
 - Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
+[John Foster]: https://github.com/jf990
 [Pegasis]: https://github.com/PegasisForever
 [Wojciech Kania]: https://github.com/wkania
 [Jeylani B]: https://github.com/jeyllani
