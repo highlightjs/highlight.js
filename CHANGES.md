@@ -16,6 +16,7 @@ These changes should be for the better and should not be super noticeable but if
 
 Grammars:
 
+- enh(php) named arguments [Wojciech Kania][]
 - enh(arcade) updated to ArcGIS Arcade version 1.16 [John Foster][]
 - enh(php) Left and right-side of double colon [Wojciech Kania][]
 - enh(php) add PHP constants [Wojciech Kania][]
