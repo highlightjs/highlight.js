@@ -357,6 +357,20 @@ export default function(hljs) {
         match: [
           PASCAL_CASE_CLASS_NAME_RE,
           regex.concat(
+            /::/,
+            regex.lookahead(/(?!class\b)/)
+          ),
+          CONSTANT_REFERENCE,
+        ],
+        scope: {
+          1: "title.class",
+          3: "variable.constant",
+        },
+      },
+      {
+        match: [
+          PASCAL_CASE_CLASS_NAME_RE,
+          regex.concat(
             "::",
             regex.lookahead(/(?!class\b)/)
           ),
@@ -379,6 +393,24 @@ export default function(hljs) {
     ]
   };
 
+  const PARAMS_MODE = {
+    relevance: 0,
+    begin: /\(/,
+    end: /\)/,
+    keywords: KEYWORDS,
+    contains: [
+      {
+        scope: 'attr',
+        match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
+      },
+      VARIABLE,
+      LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+      hljs.C_BLOCK_COMMENT_MODE,
+      STRING,
+      NUMBER,
+      CONSTRUCTOR_CALL,
+    ],
+  };
   const FUNCTION_INVOKE = {
     relevance: 0,
     match: [
@@ -391,29 +423,12 @@ export default function(hljs) {
     ],
     scope: {
       3: "title.function.invoke",
-    }
-  };
-  FUNCTION_INVOKE.contains = [
-    {
-      relevance: 0,
-      begin: /\(/,
-      end: /\)/,
-      keywords: KEYWORDS,
-      contains: [
-        {
-          scope: 'attr',
-          match: IDENT_RE + regex.lookahead(':') + regex.lookahead(/(?!::)/),
-        },
-        VARIABLE,
-        LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
-        hljs.C_BLOCK_COMMENT_MODE,
-        STRING,
-        NUMBER,
-        CONSTRUCTOR_CALL,
-        FUNCTION_INVOKE,
-      ],
     },
-  ];
+    contains: [
+      PARAMS_MODE
+    ]
+  };
+  PARAMS_MODE.contains.push(FUNCTION_INVOKE);
 
   return {
     case_insensitive: false,
@@ -461,7 +476,6 @@ export default function(hljs) {
           /const/,
           /\s/,
           IDENT_RE,
-          /\s*=/,
         ],
         scope: {
           1: "keyword",

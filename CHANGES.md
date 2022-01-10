@@ -1,3 +1,12 @@
+## Version 11.4.1
+
+Grammars:
+
+- enh(php) named arguments [Wojciech Kania][]
+- fix(php) PHP constants [Wojciech Kania][]
+
+[Wojciech Kania]: https://github.com/wkania
+
 ## Version 11.4.0
 
 New Language:
@@ -16,7 +25,6 @@ These changes should be for the better and should not be super noticeable but if
 
 Grammars:
 
-- enh(php) named arguments [Wojciech Kania][]
 - enh(arcade) updated to ArcGIS Arcade version 1.16 [John Foster][]
 - enh(php) Left and right-side of double colon [Wojciech Kania][]
 - enh(php) add PHP constants [Wojciech Kania][]
