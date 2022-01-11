@@ -393,16 +393,17 @@ export default function(hljs) {
     ]
   };
 
+  const NAMED_ARGUMENT = {
+    scope: 'attr',
+    match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
+  };
   const PARAMS_MODE = {
     relevance: 0,
     begin: /\(/,
     end: /\)/,
     keywords: KEYWORDS,
     contains: [
-      {
-        scope: 'attr',
-        match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
-      },
+      NAMED_ARGUMENT,
       VARIABLE,
       LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
       hljs.C_BLOCK_COMMENT_MODE,
