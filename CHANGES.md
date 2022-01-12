@@ -1,3 +1,12 @@
+## Version 11.4.1
+
+Grammars:
+
+- enh(php) named arguments [Wojciech Kania][]
+- fix(php) PHP constants [Wojciech Kania][]
+
+[Wojciech Kania]: https://github.com/wkania
+
 ## Version 11.4.0
 
 New Language:
