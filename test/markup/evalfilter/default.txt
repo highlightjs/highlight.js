@@ -1,0 +1,46 @@
+//
+// This script is a very example of using `switch` and `case`.
+//
+// You can run this via the `evalfilter` command like so:
+//
+//    $ evalfilter run switch.script
+//
+// Once you do so you'll see the output, and the return-code displayed:
+//
+//    $ evalfilter run switch.script
+//    I know you Steve - expression-match!
+//    I know you Steven - literal-match!
+//    I know you steve - regexp-match!
+//    I don't know who you are steven
+//    I don't know who you are bob
+//    I don't know who you are test
+//    Script gave result type:NULL value:null - which is 'false'.
+//
+// NOTE:  Only the FIRST matching case statement will run.
+//
+
+function test( name ) {
+
+  switch( name ) {
+    case "Ste" + "ve" {
+	printf("I know you %s - expression-match!\n", name );
+    }
+    case "Steven" {
+	printf("I know you %s - literal-match!\n", name );
+    }
+    case /^steve$/ {
+        printf("I know you %s - regexp-match!\n", name );
+    }
+    default {
+	printf("I don't know who you are %s\n", name );
+    }
+  }
+}
+
+
+//
+// Now try a bunch of names
+//
+foreach name in [ "Steve", "Steven", "steve", "steven", "bob", "test" ] {
+  test( name );
+}

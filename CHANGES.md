@@ -5,6 +5,11 @@ Grammars:
 - enh(php) named arguments [Wojciech Kania][]
 - fix(php) PHP constants [Wojciech Kania][]
 
+New Language:
+
+- Added evalfilter support [Steve Kemp][]
+
+[Steve Kemp]: https://github.com/skx
 [Wojciech Kania]: https://github.com/wkania
 
 ## Version 11.4.0

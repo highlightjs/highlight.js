@@ -1,0 +1,46 @@
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// This script is a very example of using `switch` and `case`.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// You can run this via the `evalfilter` command like so:</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//    $ evalfilter run switch.script</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Once you do so you&#x27;ll see the output, and the return-code displayed:</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">//    $ evalfilter run switch.script</span>
+<span class="hljs-comment">//    I know you Steve - expression-match!</span>
+<span class="hljs-comment">//    I know you Steven - literal-match!</span>
+<span class="hljs-comment">//    I know you steve - regexp-match!</span>
+<span class="hljs-comment">//    I don&#x27;t know who you are steven</span>
+<span class="hljs-comment">//    I don&#x27;t know who you are bob</span>
+<span class="hljs-comment">//    I don&#x27;t know who you are test</span>
+<span class="hljs-comment">//    Script gave result type:NULL value:null - which is &#x27;false&#x27;.</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span>  Only the FIRST matching case statement will run.</span>
+<span class="hljs-comment">//</span>
+
+<span class="hljs-keyword">function</span> test( name ) {
+
+  <span class="hljs-keyword">switch</span>( name ) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Ste&quot;</span> + <span class="hljs-string">&quot;ve&quot;</span> {
+	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I know you %s - expression-match!\n&quot;</span>, name );
+    }
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;Steven&quot;</span> {
+	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I know you %s - literal-match!\n&quot;</span>, name );
+    }
+    <span class="hljs-keyword">case</span> /^steve$/ {
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I know you %s - regexp-match!\n&quot;</span>, name );
+    }
+    <span class="hljs-keyword">default</span> {
+	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I don&#x27;t know who you are %s\n&quot;</span>, name );
+    }
+  }
+}
+
+
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// Now try a bunch of names</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-keyword">foreach</span> name <span class="hljs-keyword">in</span> [ <span class="hljs-string">&quot;Steve&quot;</span>, <span class="hljs-string">&quot;Steven&quot;</span>, <span class="hljs-string">&quot;steve&quot;</span>, <span class="hljs-string">&quot;steven&quot;</span>, <span class="hljs-string">&quot;bob&quot;</span>, <span class="hljs-string">&quot;test&quot;</span> ] {
+  test( name );
+}
