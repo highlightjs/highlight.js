@@ -2,9 +2,11 @@
 
 Grammars:
 
+- enh(bash) Match `grep` keyword [Spencer Churchill][]
 - enh(php) named arguments [Wojciech Kania][]
 - fix(php) PHP constants [Wojciech Kania][]
 
+[Spencer Churchill]: https://github.com/splch
 [Wojciech Kania]: https://github.com/wkania
 
 ## Version 11.4.0
