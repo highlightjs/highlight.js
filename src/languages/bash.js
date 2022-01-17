@@ -315,6 +315,7 @@ export default function(hljs) {
     "expr",
     "factor",
     // "false", // keyword literal already
+    "grep",
     "groups",
     "hostid",
     "id",
