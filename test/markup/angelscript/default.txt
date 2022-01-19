@@ -16,6 +16,7 @@ namespace MyApplication
         array<array<SomeClass@>> m_subChildren; // Nested templates
 
         int m_thing;
+        uint64 m_thing2;
 
         SomeClass()
         {
