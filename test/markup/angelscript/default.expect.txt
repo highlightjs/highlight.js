@@ -15,7 +15,7 @@
         <span class="hljs-built_in">array<span class="hljs-keyword">&lt;<span class="hljs-symbol">SomeClass@</span>&gt;</span></span> m_children;
         <span class="hljs-built_in">array<span class="hljs-keyword">&lt;<span class="hljs-built_in">array<span class="hljs-keyword">&lt;<span class="hljs-symbol">SomeClass@</span>&gt;</span></span>&gt;</span></span> m_subChildren; <span class="hljs-comment">// Nested templates</span>
 
-        <span class="hljs-built_in">int</span> m_thing;
+        <span class="hljs-built_in">uint64</span> m_thing;
 
         SomeClass()
         {
