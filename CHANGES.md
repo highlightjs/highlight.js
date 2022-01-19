@@ -4,6 +4,7 @@ Grammars:
 
 - enh(php) named arguments [Wojciech Kania][]
 - fix(php) PHP constants [Wojciech Kania][]
+- fix(angelscript) incomplete int8, int16, int32, int64 highlighting [Melissa Geels][]
 
 [Wojciech Kania]: https://github.com/wkania
 
