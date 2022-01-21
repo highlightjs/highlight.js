@@ -1,0 +1,70 @@
+/* Tokyo Night Blue Theme */
+/* Original theme https://github.com/enkia/tokyo-night-vscode-theme*/
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #565f89;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #f7768e;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #ff9e64;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+  color: #e0af68;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #9ece6a;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+  color: #7aa2f7;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #bb9af7;
+}
+
+.hljs {
+  /* background: #002451; */
+  background: #24283b;
+  color: white;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
