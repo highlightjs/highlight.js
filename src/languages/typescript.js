@@ -23,7 +23,6 @@ export default function(hljs) {
     "string",
     "object",
     "never",
-    "enum",
     "null",
     "undefined",
     "symbol",
@@ -64,7 +63,9 @@ export default function(hljs) {
     "implements",
     "declare",
     "abstract",
-    "readonly"
+    "readonly",
+    "enum",
+    "keyof"
   ];
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
