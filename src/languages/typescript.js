@@ -23,7 +23,11 @@ export default function(hljs) {
     "string",
     "object",
     "never",
-    "enum"
+    "enum",
+    "null",
+    "undefined",
+    "symbol",
+    "bigint"
   ];
   const NAMESPACE = {
     beginKeywords: 'namespace',
@@ -53,7 +57,6 @@ export default function(hljs) {
   const TS_SPECIFIC_KEYWORDS = [
     "type",
     "namespace",
-    "typedef",
     "interface",
     "public",
     "private",
