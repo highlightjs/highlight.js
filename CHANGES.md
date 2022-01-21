@@ -22,6 +22,7 @@ Themes:
 - `Dark` now meets WCAG AA (contrast) (#3402) [Josh Goebel]
 - Added `intellij-light` theme [Pegasis]
 - Added `felipec` theme [Felipe Contreras]
+- Added `TokyoNight-dark` them [Henri Vandersleyen] 
 
 These changes should be for the better and should not be super noticeable but if you're super picky about your colors you may want to intervene here or copy over the older themes from 11.3 or prior.
 
@@ -84,6 +85,7 @@ Themes:
 [idleberg]: https://github.com/idleberg
 [Fons van der Plas]: https://github.com/fonsp
 [Felipe Contreras]: https://github.com/felipec
+[henri Vandersleyen]: https://github.com/Vanderscycle
 
 ## Version 11.3.1
 
