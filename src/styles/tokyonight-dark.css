@@ -9,8 +9,7 @@
 
 /* Red */
 /*INFO: This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red */
-.hljs-variable,
-.hljs-template-variable,
+/* .hljs-variable, */
 .hljs-tag,
 .hljs-doctag,
 .hljs-name,
@@ -26,8 +25,8 @@
 
 /*Orange */
 /*INFO: Number and Boolean constants, Language support constants */
+.hljs-template-variable,
 .hljs-number,
-.hljs-built_in,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
@@ -41,13 +40,17 @@
 .hljs-attribute {
   color: #e0af68;
 }
+/* cyan */
+/* INFO: Language support functions, CSS HTML elements */
+.hljs-built_in { color: #2ac3de;
+}
 /* light blue */
 /* INFO: Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords */
 .hljs-title,
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
 .hljs-subst,
-.hljs-property {color: #7dcfff}
+.hljs-property {color: #7dcfff;}
 
 /*Green */
 /* INFO: Strings, CSS class names */
