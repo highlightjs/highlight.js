@@ -48,7 +48,8 @@
     "test-markup": "mocha test/markup",
     "test-detect": "mocha test/detect",
     "test-browser": "mocha test/browser",
-    "test-parser": "mocha test/parser"
+    "test-parser": "mocha test/parser",
+    "view-browser": "npm run build_and_test_browser && http-server ./build/"
   },
   "engines": {
     "node": ">=12.0.0"
@@ -60,6 +61,7 @@
     "@types/mocha": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "http-server": "^14.1.0",
     "clean-css": "^5.0.1",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
