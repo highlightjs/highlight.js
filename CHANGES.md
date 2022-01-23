@@ -1,5 +1,8 @@
 ## Version 11.4.1
 
+Themes:
+- `tokyionight-dark` has been added and feedback/changes are welcome
+
 Grammars:
 
 - enh(php) named arguments [Wojciech Kania][]
@@ -10,6 +13,7 @@ Grammars:
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
 [anydonym]: https://github.com/anydonym
+[henri Vandersleyen]: https://github.com/Vanderscycle
 
 ## Version 11.4.0
 
@@ -87,7 +91,6 @@ Themes:
 [idleberg]: https://github.com/idleberg
 [Fons van der Plas]: https://github.com/fonsp
 [Felipe Contreras]: https://github.com/felipec
-[henri Vandersleyen]: https://github.com/Vanderscycle
 
 ## Version 11.3.1
 
