@@ -1,5 +1,8 @@
 ## Version 11.4.1
 
+Developer Tools:
+- add(package.json) http-server added to dev dependencies to so that [Vandersleyen Henri][]
+
 Grammars:
 
 - enh(php) named arguments [Wojciech Kania][]
@@ -8,6 +11,7 @@ Grammars:
 
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
+[henri Vandersleyen]: https://github.com/Vanderscycle
 
 ## Version 11.4.0
 
