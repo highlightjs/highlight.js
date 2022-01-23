@@ -1,25 +1,31 @@
 /* Tokyo Night Blue Theme */
 /* Original theme https://github.com/enkia/tokyo-night-vscode-theme*/
 
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
+/*  Comment */
+.hljs-comment
+ {
   color: #565f89;
 }
 
-/* Tomorrow Red */
+/* Red */
+/*INFO: This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red */
 .hljs-variable,
 .hljs-template-variable,
 .hljs-tag,
+.hljs-doctag,
 .hljs-name,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
+.hljs-template-tag,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
 .hljs-deletion {
   color: #f7768e;
 }
 
-/* Tomorrow Orange */
+/*Orange */
+/*INFO: Number and Boolean constants, Language support constants */
 .hljs-number,
 .hljs-built_in,
 .hljs-literal,
@@ -30,12 +36,22 @@
   color: #ff9e64;
 }
 
-/* Tomorrow Yellow */
+/*  Yellow */
+/* INFO:  	Function parameters, Regex character sets, Terminal Yellow */
 .hljs-attribute {
   color: #e0af68;
 }
+/* light blue */
+/* INFO: Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords */
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-subst,
+.hljs-property {color: #7dcfff}
 
-/* Tomorrow Green */
+/*Green */
+/* INFO: Strings, CSS class names */
+.hljs-quote,
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
@@ -43,22 +59,33 @@
   color: #9ece6a;
 }
 
-/* Tomorrow Blue */
-.hljs-title,
+/* Blue */
+/* INFO:  	Function names, CSS property names, Terminal Blue */
+.hljs-code,
+.hljs-formula,
 .hljs-section {
   color: #7aa2f7;
 }
 
-/* Tomorrow Purple */
+
+
+/* Purple */
+/*INFO: Control Keywords, Storage Types, Regex symbols and operators, HTML Attributes, Terminal Magenta */
+.hljs-meta,
 .hljs-keyword,
+.hljs-operator,
+.hljs-keyword,
+.hljs-attr,
 .hljs-selector-tag {
   color: #bb9af7;
 }
 
+/* white*/
+/* INFO: Variables, Class names, Terminal White */
 .hljs {
   /* background: #002451; */
-  background: #24283b;
-  color: white;
+  background: #1a1b26;
+  color: #c0caf5;
 }
 
 .hljs-emphasis {
