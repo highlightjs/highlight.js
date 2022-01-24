@@ -3,8 +3,7 @@
 
 /*  Comment */
 .hljs-meta,
-.hljs-comment
- {
+.hljs-comment {
   color: #565f89;
 }
 
@@ -18,6 +17,7 @@
 .hljs-template-tag,
 .hljs-selector-pseudo,
 .hljs-selector-attr,
+.hljs-variable.language_,
 .hljs-deletion {
   color: #f7768e;
 }
@@ -50,6 +50,7 @@
 /* light blue */
 /* INFO: Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords */
 .hljs-keyword,
+  .hljs-title.function_,
 .hljs-title,
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
@@ -87,16 +88,19 @@
 .hljs-keyword,
 .hljs-operator,
 .hljs-keyword,
+.hljs-char.escape_,
 .hljs-attr {
   color: #bb9af7;
 }
 
 /* white*/
 /* INFO: Variables, Class names, Terminal White */
+.hljs-punctuation {color: #c0caf5}
+
 .hljs {
   /* background: #002451; */
   background: #1a1b26;
-  color: #c0caf5;
+  color: #9aa5ce;
 }
 
 .hljs-emphasis {
