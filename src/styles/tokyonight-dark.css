@@ -2,6 +2,7 @@
 /* Original theme https://github.com/enkia/tokyo-night-vscode-theme*/
 
 /*  Comment */
+.hljs-meta,
 .hljs-comment
  {
   color: #565f89;
@@ -9,10 +10,8 @@
 
 /* Red */
 /*INFO: This keyword, HTML elements, Regex group symbol, CSS units, Terminal Red */
-/* .hljs-variable, */
 .hljs-tag,
 .hljs-doctag,
-.hljs-name,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
@@ -25,34 +24,44 @@
 
 /*Orange */
 /*INFO: Number and Boolean constants, Language support constants */
-.hljs-template-variable,
+.hljs-variable,
+/* .hljs-template-variable, */
 .hljs-number,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
-.hljs-meta,
 .hljs-link {
   color: #ff9e64;
 }
 
+
 /*  Yellow */
 /* INFO:  	Function parameters, Regex character sets, Terminal Yellow */
+.hljs-built_in, 
 .hljs-attribute {
   color: #e0af68;
 }
 /* cyan */
 /* INFO: Language support functions, CSS HTML elements */
-.hljs-built_in { color: #2ac3de;
+.hljs-selector-tag {
+  color: #2ac3de;
 }
+
 /* light blue */
 /* INFO: Object properties, Regex quantifiers and flags, Markdown headings, Terminal Cyan, Markdown code, Import/export keywords */
+.hljs-keyword,
 .hljs-title,
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
 .hljs-subst,
 .hljs-property {color: #7dcfff;}
 
-/*Green */
+/*Green*/
+/* INFO: Object literal keys, Markdown links, Terminal Green */
+.hljs-selector-tag { color: #73daca;}
+
+
+/*Green(er) */
 /* INFO: Strings, CSS class names */
 .hljs-quote,
 .hljs-string,
@@ -74,12 +83,11 @@
 
 /* Purple */
 /*INFO: Control Keywords, Storage Types, Regex symbols and operators, HTML Attributes, Terminal Magenta */
-.hljs-meta,
+.hljs-name,
 .hljs-keyword,
 .hljs-operator,
 .hljs-keyword,
-.hljs-attr,
-.hljs-selector-tag {
+.hljs-attr {
   color: #bb9af7;
 }
 
