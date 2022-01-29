@@ -1,7 +1,7 @@
 ## Version 11.4.1
 
 Themes:
-- `tokyionight-dark` has been added and feedback/changes are welcome
+- Added `TokyoNight-dark` theme [Henri Vandersleyen][]
 
 Grammars:
 
