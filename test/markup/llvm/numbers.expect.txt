@@ -1,0 +1,11 @@
+<span class="hljs-keyword">define</span> <span class="hljs-type">i32</span> <span class="hljs-title">@signed_int</span>() {
+  <span class="hljs-keyword">ret</span> <span class="hljs-type">i32</span> <span class="hljs-number">s0x12a</span>
+}
+
+<span class="hljs-keyword">define</span> float <span class="hljs-title">@signed_float</span>() {
+  <span class="hljs-keyword">ret</span> float <span class="hljs-number">+1.0</span>
+}
+
+<span class="hljs-keyword">define</span> float <span class="hljs-title">@float_format</span>() {
+  <span class="hljs-keyword">ret</span> float <span class="hljs-number">0xK12a</span>
+}
