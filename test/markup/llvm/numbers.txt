@@ -1,0 +1,11 @@
+define i32 @signed_int() {
+  ret i32 s0x12a
+}
+
+define float @signed_float() {
+  ret float +1.0
+}
+
+define float @float_format() {
+  ret float 0xK12a
+}

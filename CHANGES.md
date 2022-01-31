@@ -9,11 +9,15 @@ Grammars:
 - fix(php) PHP constants [Wojciech Kania][]
 - fix(angelscript) incomplete int8, int16, int32, int64 highlighting [Melissa Geels][]
 - enh(ts) modify TypeScript-specific keywords and types list [anydonym][]
+- fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
+- fix(llvm) escaping in strings and number formats [Flakebi][]
 
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
 [anydonym]: https://github.com/anydonym
 [henri Vandersleyen]: https://github.com/Vanderscycle
+[Christina Hanson]: https://github.com/LyricLy
+[Flakebi]: https://github.com/Flakebi
 
 ## Version 11.4.0
 
