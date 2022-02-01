@@ -328,21 +328,6 @@ export default function(hljs) {
     ]
   };
 
-  const FUNCTION_INVOKE = {
-    relevance: 0,
-    match: [
-      /\b/,
-      // to prevent keywords from being confused as the function title
-      regex.concat("(?!fn\\b|function\\b|", normalizeKeywords(KWS).join("\\b|"), "|", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-      IDENT_RE,
-      regex.concat(WHITESPACE, "*"),
-      regex.lookahead(/(?=\()/)
-    ],
-    scope: {
-      3: "title.function.invoke",
-    }
-  };
-
   const CONSTANT_REFERENCE = regex.concat(IDENT_RE, "\\b(?!\\()");
 
   const LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON = {
@@ -372,6 +357,20 @@ export default function(hljs) {
         match: [
           PASCAL_CASE_CLASS_NAME_RE,
           regex.concat(
+            /::/,
+            regex.lookahead(/(?!class\b)/)
+          ),
+          CONSTANT_REFERENCE,
+        ],
+        scope: {
+          1: "title.class",
+          3: "variable.constant",
+        },
+      },
+      {
+        match: [
+          PASCAL_CASE_CLASS_NAME_RE,
+          regex.concat(
             "::",
             regex.lookahead(/(?!class\b)/)
           ),
@@ -393,6 +392,44 @@ export default function(hljs) {
       }
     ]
   };
+
+  const NAMED_ARGUMENT = {
+    scope: 'attr',
+    match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
+  };
+  const PARAMS_MODE = {
+    relevance: 0,
+    begin: /\(/,
+    end: /\)/,
+    keywords: KEYWORDS,
+    contains: [
+      NAMED_ARGUMENT,
+      VARIABLE,
+      LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+      hljs.C_BLOCK_COMMENT_MODE,
+      STRING,
+      NUMBER,
+      CONSTRUCTOR_CALL,
+    ],
+  };
+  const FUNCTION_INVOKE = {
+    relevance: 0,
+    match: [
+      /\b/,
+      // to prevent keywords from being confused as the function title
+      regex.concat("(?!fn\\b|function\\b|", normalizeKeywords(KWS).join("\\b|"), "|", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
+      IDENT_RE,
+      regex.concat(WHITESPACE, "*"),
+      regex.lookahead(/(?=\()/)
+    ],
+    scope: {
+      3: "title.function.invoke",
+    },
+    contains: [
+      PARAMS_MODE
+    ]
+  };
+  PARAMS_MODE.contains.push(FUNCTION_INVOKE);
 
   return {
     case_insensitive: false,
@@ -440,7 +477,6 @@ export default function(hljs) {
           /const/,
           /\s/,
           IDENT_RE,
-          /\s*=/,
         ],
         scope: {
           1: "keyword",
@@ -476,7 +512,7 @@ export default function(hljs) {
               STRING,
               NUMBER
             ]
-          }
+          },
         ]
       },
       {
@@ -520,7 +556,7 @@ export default function(hljs) {
         ]
       },
       STRING,
-      NUMBER
+      NUMBER,
     ]
   };
 }

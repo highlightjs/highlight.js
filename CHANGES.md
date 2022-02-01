@@ -1,4 +1,26 @@
-## Version 11.4 (most likely)
+## Version 11.4.1
+
+Themes:
+- Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
+
+Grammars:
+
+- fix(java) prevent false positive variable init on `else` [Josh Goebel][]
+- enh(php) named arguments [Wojciech Kania][]
+- fix(php) PHP constants [Wojciech Kania][]
+- fix(angelscript) incomplete int8, int16, int32, int64 highlighting [Melissa Geels][]
+- enh(ts) modify TypeScript-specific keywords and types list [anydonym][]
+- fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
+- fix(llvm) escaping in strings and number formats [Flakebi][]
+
+[Wojciech Kania]: https://github.com/wkania
+[Melissa Geels]: https://github.com/codecat
+[anydonym]: https://github.com/anydonym
+[henri Vandersleyen]: https://github.com/Vanderscycle
+[Christina Hanson]: https://github.com/LyricLy
+[Flakebi]: https://github.com/Flakebi
+
+## Version 11.4.0
 
 New Language:
 
@@ -10,12 +32,13 @@ Themes:
 - `Default` is now much closer WCAG AA (contrast) (#3402) [Josh Goebel]
 - `Dark` now meets WCAG AA (contrast) (#3402) [Josh Goebel]
 - Added `intellij-light` theme [Pegasis]
+- Added `felipec` theme [Felipe Contreras]
 
 These changes should be for the better and should not be super noticeable but if you're super picky about your colors you may want to intervene here or copy over the older themes from 11.3 or prior.
 
 Grammars:
 
-- fix(java) prevent false positive variable init on `else` [Josh Goebel][]
+- enh(arcade) updated to ArcGIS Arcade version 1.16 [John Foster][]
 - enh(php) Left and right-side of double colon [Wojciech Kania][]
 - enh(php) add PHP constants [Wojciech Kania][]
 - enh(php) add PHP 8.1 keywords [Wojciech Kania][]
@@ -58,6 +81,7 @@ Themes:
 
 - Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
 
+[John Foster]: https://github.com/jf990
 [Pegasis]: https://github.com/PegasisForever
 [Wojciech Kania]: https://github.com/wkania
 [Jeylani B]: https://github.com/jeyllani
@@ -70,6 +94,7 @@ Themes:
 [Matthieu Lempereur]: https://github.com/MrYamous
 [idleberg]: https://github.com/idleberg
 [Fons van der Plas]: https://github.com/fonsp
+[Felipe Contreras]: https://github.com/felipec
 
 ## Version 11.3.1
 
