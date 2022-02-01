@@ -1,5 +1,8 @@
 ## Version 11.4.1
 
+Themes:
+- Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
+
 Grammars:
 
 - enh(php) named arguments [Wojciech Kania][]
@@ -12,6 +15,7 @@ Grammars:
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
 [anydonym]: https://github.com/anydonym
+[henri Vandersleyen]: https://github.com/Vanderscycle
 [Christina Hanson]: https://github.com/LyricLy
 [Flakebi]: https://github.com/Flakebi
 
