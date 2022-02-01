@@ -6,6 +6,7 @@ const { getLanguages } = require("./lib/language.js");
 const { install, mkdir, installCleanCSS } = require("./lib/makestuff.js");
 const { filter } = require("./lib/dependencies.js");
 const { rollupWrite } = require("./lib/bundling.js");
+const { generateCJSLanguageIndex, generateESLanguageIndex } = require('./lib/indexgen.js');
 const log = (...args) => console.log(...args);
 
 // https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards
@@ -195,6 +196,8 @@ async function buildNode(options) {
   await buildCJSIndex("index", languages);
   await buildCJSIndex("common", common);
   await buildLanguages(languages, options);
+  await fs.writeFile(`${process.env.BUILD_DIR}/lib/languages/index.js`, generateCJSLanguageIndex());
+  await fs.writeFile(`${process.env.BUILD_DIR}/es/languages/index.js`, generateESLanguageIndex());
 
   log("Writing highlight.js");
   await buildNodeHighlightJS(options);

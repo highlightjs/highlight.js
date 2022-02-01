@@ -263,7 +263,8 @@ For the smallest footprint, load only the languages you need:
 
 ```js
 const hljs = require('highlight.js/lib/core');
-hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
+const { xml } = require('highlight.js/lib/languages');
+hljs.registerLanguage('xml', xml);
 
 const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: 'xml'}).value
 ```
@@ -284,7 +285,7 @@ It is more efficient to import only the library and register the languages you n
 
 ```js
 import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
+import { javascript } from 'highlight.js/lib/languages';
 hljs.registerLanguage('javascript', javascript);
 ```
 
