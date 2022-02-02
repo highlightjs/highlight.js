@@ -49,7 +49,7 @@
     "test-detect": "mocha test/detect",
     "test-browser": "mocha test/browser",
     "test-parser": "mocha test/parser",
-    "view-browser": "npm run build && http-server"
+    "use-browser-tools": "rm -rf ./build && npm run build_and_test_browser && http-server ./tools"
   },
   "engines": {
     "node": ">=12.0.0"
