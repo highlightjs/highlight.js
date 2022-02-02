@@ -187,7 +187,7 @@ export default function(hljs) {
       },
       {
         begin: [
-          JAVA_IDENT_RE,
+          regex.concat(/(?!else)/, JAVA_IDENT_RE),
           /\s+/,
           JAVA_IDENT_RE,
           /\s+/,

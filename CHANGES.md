@@ -1,19 +1,33 @@
 ## Version 11.4.1
 
+
 Developer Tools:
-- add(package.json) http-server added to dev dependencies to so that [Vandersleyen Henri][]
+
+- added http-server as a dev dependencies so that new contributors can ```npm run use-browser-tools``` as a one command to run the tools available [Vandersleyen Henri][]
+
+
+Themes:
+
+- Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
+
 
 Grammars:
 
+- fix(java) prevent false positive variable init on `else` [Josh Goebel][]
 - enh(php) named arguments [Wojciech Kania][]
 - fix(php) PHP constants [Wojciech Kania][]
 - fix(angelscript) incomplete int8, int16, int32, int64 highlighting [Melissa Geels][]
 - enh(ts) modify TypeScript-specific keywords and types list [anydonym][]
+- fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
+- fix(llvm) escaping in strings and number formats [Flakebi][]
 
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
 [henri Vandersleyen]: https://github.com/Vanderscycle
 [anydonym]: https://github.com/anydonym
+[henri Vandersleyen]: https://github.com/Vanderscycle
+[Christina Hanson]: https://github.com/LyricLy
+[Flakebi]: https://github.com/Flakebi
 
 
 ## Version 11.4.0
