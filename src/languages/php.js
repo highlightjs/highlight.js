@@ -12,15 +12,16 @@ Category: common
  * */
 export default function(hljs) {
   const regex = hljs.regex;
-  const IDENT_RE = '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*' +
-    // negative look-ahead tries to avoid matching patterns that are not
-    // Perl at all like $ident$, @ident@, etc.
-    '(?![A-Za-z0-9])(?![$])';
-  // Will not detect camelCase classes
-  const PASCAL_CASE_CLASS_NAME_RE = '([\\\\?A-Z][a-zA-Z0-9_\x7f-\xff]*' +
   // negative look-ahead tries to avoid matching patterns that are not
   // Perl at all like $ident$, @ident@, etc.
-  '(?![A-Za-z0-9])(?![$])){1,}';
+  const NOT_PERL_ETC = /(?![A-Za-z0-9])(?![$])/;
+  const IDENT_RE = regex.concat(
+    /[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/,
+    NOT_PERL_ETC);
+  // Will not detect camelCase classes
+  const PASCAL_CASE_CLASS_NAME_RE = regex.concat(
+    /(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[^A-Z])){1,}/,
+    NOT_PERL_ETC);
   const VARIABLE = {
     scope: 'variable',
     match: '\\$+' + IDENT_RE,
