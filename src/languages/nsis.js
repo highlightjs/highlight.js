@@ -347,7 +347,7 @@ export default function(hljs) {
     "ManifestSupportedOS",
     "MessageBox",
     "MiscButtonText",
-    "Name",
+    "Name|0",
     "Nop",
     "OutFile",
     "Page",

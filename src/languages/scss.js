@@ -19,7 +19,8 @@ export default function(hljs) {
   const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   const VARIABLE = {
     className: 'variable',
-    begin: '(\\$' + IDENT_RE + ')\\b'
+    begin: '(\\$' + IDENT_RE + ')\\b',
+    relevance: 0
   };
 
   return {

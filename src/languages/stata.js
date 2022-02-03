@@ -27,7 +27,8 @@ export default function(hljs) {
       },
       {
         className: 'variable',
-        begin: /\$\{?[a-zA-Z0-9_]+\}?/
+        begin: /\$\{?[a-zA-Z0-9_]+\}?/,
+        relevance: 0
       },
       {
         className: 'string',

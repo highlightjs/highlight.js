@@ -9,7 +9,8 @@ Category: config
 export default function(hljs) {
   const MACRO = {
     className: 'variable',
-    begin: /\$[\w\d#@][\w\d_]*/
+    begin: /\$[\w\d#@][\w\d_]*/,
+    relevance: 0
   };
   const TABLE = {
     className: 'variable',
