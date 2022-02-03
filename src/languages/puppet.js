@@ -108,7 +108,8 @@ export default function(hljs) {
         contains: [
           {
             className: 'keyword',
-            begin: hljs.IDENT_RE
+            begin: hljs.IDENT_RE,
+            relevance: 0.2
           },
           {
             begin: /\{/,

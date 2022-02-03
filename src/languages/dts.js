@@ -104,7 +104,8 @@ export default function(hljs) {
 
   const NODE = {
     className: 'title.class',
-    begin: /[a-zA-Z_][a-zA-Z\d_@-]*(?=\s\{)/
+    begin: /[a-zA-Z_][a-zA-Z\d_@-]*(?=\s\{)/,
+    relevance: 0.2
   };
 
   const ROOT_NODE = {
