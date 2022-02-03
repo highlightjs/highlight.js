@@ -4,6 +4,7 @@
 <span class="hljs-meta">#[\MyExample\MyAttribute</span><span class="hljs-meta">]</span>
 <span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-number">1234</span>)<span class="hljs-meta">]</span>
 <span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-attr">value</span>: <span class="hljs-number">1234</span>)<span class="hljs-meta">]</span>
+<span class="hljs-meta">#[HTMLAttribute</span>(<span class="hljs-attr">tag</span>: <span class="hljs-string">&quot;h1&quot;</span>)<span class="hljs-meta">]</span>
 <span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-title class_">MyAttribute</span>::<span class="hljs-variable constant_">VALUE</span>)<span class="hljs-meta">]</span>
 <span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;key&quot;</span> =&gt; <span class="hljs-string">&quot;value&quot;</span>))<span class="hljs-meta">]</span>
 <span class="hljs-meta">#[MyAttribute</span>(<span class="hljs-number">100</span> + <span class="hljs-number">200</span>)<span class="hljs-meta">]</span>
