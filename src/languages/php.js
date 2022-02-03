@@ -20,7 +20,7 @@ export default function(hljs) {
     NOT_PERL_ETC);
   // Will not detect camelCase classes
   const PASCAL_CASE_CLASS_NAME_RE = regex.concat(
-    /(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[^A-Z])){1,}/,
+    /(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}/,
     NOT_PERL_ETC);
   const VARIABLE = {
     scope: 'variable',
