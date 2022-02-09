@@ -2,6 +2,9 @@
 
 const fs = require("fs");
 const css = require("css");
+const wcagContrast = require("wcag-contrast");
+const Table = require('cli-table');
+const csscolors = require('css-color-names');
 require("colors");
 
 const CODE = {
@@ -184,6 +187,82 @@ function check_group(group, rules) {
   }
 }
 
+const round2 = (x) => Math.round(x*100)/100;
+
+class CSSRule {
+  constructor(rule, body) {
+    this.rule = rule;
+    if (rule.declarations) {
+      this.bg = rule.declarations.find(x => x.property == "background-color")?.value;
+      if (!this.bg) {
+        this.bg = rule.declarations.find(x => x.property == "background")?.value;
+      }
+      this.fg = rule.declarations.find(x => x.property =="color")?.value;
+
+      if (this.bg) {
+        this.bg = csscolors[this.bg] || this.bg;
+      }
+      if (this.fg) {
+        this.fg = csscolors[this.fg] || this.fg;
+      }
+
+      // inherit from body if we're missing fg or bg
+      if (this.hasColor) {
+        if (!this.bg) this.bg = body.background;
+        if (!this.fg) this.fg = body.foreground;
+      }
+    }
+  }
+  get background() {
+    return this.bg
+  }
+
+  get foreground() {
+    return this.fg
+  }
+  get hasColor() {
+    if (!this.rule.declarations) return false;
+    return this.fg || this.bg;
+  }
+  toString() {
+    return ` ${this.foreground} on ${this.background}`
+  }
+
+  contrastRatio() {
+    if (!this.foreground) return "unknown (no fg)"
+    if (!this.background) return "unknown (no bg)"
+    return round2(wcagContrast.hex(this.foreground, this.background));
+  }
+}
+
+function contrast_report(rules) {
+  console.log("Accessibility Report".yellow);
+
+  var hljs = rules.find (x => x.selectors && x.selectors.includes(".hljs"));
+  var body = new CSSRule(hljs);
+  const table = new Table({
+    chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
+    head: ['ratio', 'selector', 'fg', 'bg'],
+    colWidths: [7, 40, 10, 10],
+    style: {
+      head: ['grey']
+    }
+  });
+
+  rules.forEach(rule => {
+    var color = new CSSRule(rule, body);
+    if (!color.hasColor) return;
+    table.push([
+      color.contrastRatio(),
+      rule.selectors,
+      color.foreground,
+      color.background
+    ])
+    // console.log(r.selectors[0], color.contrastRatio(), color.toString());
+  })
+  console.log(table.toString())
+}
+
 function validate(data) {
   const rules = data.stylesheet.rules;
 
@@ -195,6 +274,8 @@ function validate(data) {
   check_group(CODE, rules);
   check_group(OTHER, rules);
   check_group(HIGH_FIDELITY, rules);
+
+  contrast_report(rules);
 }
 
 process.argv.shift();

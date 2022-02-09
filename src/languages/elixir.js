@@ -262,10 +262,8 @@ export default function(hljs) {
     {
       className: 'variable',
       begin: '(\\$\\W)|((\\$|@@?)(\\w+))'
-    },
-    {
-      begin: '->'
     }
+    // -> has been removed, capnproto always uses this grammar construct
   ];
   SUBST.contains = ELIXIR_DEFAULT_CONTAINS;
 

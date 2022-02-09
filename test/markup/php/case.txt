@@ -1,0 +1,8 @@
+$test = true
+$test = TRUE
+
+$a = false
+$a = FALSE
+
+$b = null
+$b = NULL

@@ -40,7 +40,7 @@ last-three [<span class="hljs-number">1</span> <span class="hljs-keyword">to</sp
 ~<span class="hljs-keyword">function</span> add x, y
   @result = x + y
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>
   <span class="hljs-function"><span class="hljs-params">(num)</span> -&gt;</span>
     @x = num
   property: <span class="hljs-number">1</span>

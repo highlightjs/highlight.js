@@ -734,7 +734,8 @@ const HLJS = function(hljs) {
     if (element.children.length > 0) {
       if (!options.ignoreUnescapedHTML) {
         console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
-        console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
+        console.warn("https://github.com/highlightjs/highlight.js/wiki/security");
+        console.warn("The element with unescaped HTML:");
         console.warn(element);
       }
       if (options.throwUnescapedHTML) {

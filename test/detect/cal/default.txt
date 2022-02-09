@@ -1,4 +1,11 @@
-OBJECT Codeunit 11 Gen. Jnl.-Check Line
+OBJECT Table 12 something
+{
+}
+OBJECT XMLport 3000 something.other
+{
+}
+
+OBJECT Codeunit 11 Gen. Jnl.-Chck Line
 {
   OBJECT-PROPERTIES
   {

@@ -1,1 +1,1 @@
-let! (result2 : byte[])  = stream.AsyncRead(bufferSize)
+let! (result2 : byte[]) = stream.AsyncRead(bufferSize)

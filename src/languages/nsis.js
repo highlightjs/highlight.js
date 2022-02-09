@@ -8,6 +8,7 @@ Website: https://nsis.sourceforge.io/Main_Page
 import * as regex from '../lib/regex.js';
 
 export default function(hljs) {
+  const regex = hljs.regex;
   const LANGUAGE_CONSTANTS = [
     "ADMINTOOLS",
     "APPDATA",
@@ -153,20 +154,20 @@ export default function(hljs) {
   const DEFINES = {
     // ${defines}
     className: 'variable',
-    begin: /\$+\{[\w.:-]+\}/
+    begin: /\$+\{[\!\w.:-]+\}/
   };
 
   const VARIABLES = {
     // $variables
     className: 'variable',
-    begin: /\$+\w+/,
+    begin: /\$+\w[\w\.]*/,
     illegal: /\(\)\{\}/
   };
 
   const LANGUAGES = {
     // $(language_strings)
     className: 'variable',
-    begin: /\$+\([\w^.:-]+\)/
+    begin: /\$+\([\w^.:!-]+\)/
   };
 
   const PARAMETERS = {
@@ -184,9 +185,9 @@ export default function(hljs) {
     )
   };
 
-  const METACHARS = {
+  const ESCAPE_CHARS = {
     // $\n, $\r, $\t, $$
-    className: 'meta',
+    className: 'char.escape',
     begin: /\$(\\[nrt]|\$)/
   };
 
@@ -214,7 +215,7 @@ export default function(hljs) {
     ],
     illegal: /\n/,
     contains: [
-      METACHARS,
+      ESCAPE_CHARS,
       CONSTANTS,
       DEFINES,
       VARIABLES,
@@ -493,7 +494,7 @@ export default function(hljs) {
     "zlib"
   ];
 
-  const FUNCTION_DEF = {
+  const FUNCTION_DEFINITION = {
     match: [
       /Function/,
       /\s+/,
@@ -502,6 +503,23 @@ export default function(hljs) {
     scope: {
       1: "keyword",
       3: "title.function"
+    }
+  };
+
+  // Var Custom.Variable.Name.Item
+  // Var /GLOBAL Custom.Variable.Name.Item
+  const VARIABLE_NAME_RE = /[A-Za-z][\w.]*/;
+  const VARIABLE_DEFINITION = {
+    match: [
+      /Var/,
+      /\s+/,
+      /(?:\/GLOBAL\s+)?/,
+      VARIABLE_NAME_RE
+    ],
+    scope: {
+      1: "keyword",
+      3: "params",
+      4: "variable"
     }
   };
 
@@ -522,7 +540,8 @@ export default function(hljs) {
           relevance: 0
         }
       ),
-      FUNCTION_DEF,
+      VARIABLE_DEFINITION,
+      FUNCTION_DEFINITION,
       {
         beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd',
       },

@@ -6,3 +6,46 @@
 <span class="hljs-variable">$fn2</span> = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$x</span></span>) <span class="hljs-keyword">use</span> (<span class="hljs-params"><span class="hljs-variable">$y</span></span>) </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-variable">$x</span> + <span class="hljs-variable">$y</span>;
 };
+
+<span class="hljs-comment">/**
+ * Function invoke
+ */</span>
+<span class="hljs-variable">$date</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">DateTimeImmutable</span> ();
+<span class="hljs-variable">$date</span>-&gt;<span class="hljs-title function_ invoke__">format</span>(<span class="hljs-string">&#x27;Y-m-d&#x27;</span>);
+
+<span class="hljs-title class_">DateTimeImmutable</span>::<span class="hljs-title function_ invoke__">createFromMutable</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">\DateTime</span>(<span class="hljs-string">&#x27;now&#x27;</span>));
+
+<span class="hljs-title function_ invoke__">str_contains</span> (\<span class="hljs-title function_ invoke__">strtoupper</span>(<span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-string">&#x27;abcdef&#x27;</span>, -<span class="hljs-number">2</span>), <span class="hljs-string">&#x27;f&#x27;</span>));
+
+<span class="hljs-comment">/**
+ * Function declaration
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testMe</span>(<span class="hljs-params"><span class="hljs-keyword">string</span>|<span class="hljs-keyword">int</span> <span class="hljs-variable">$name</span></span>): <span class="hljs-title">int</span>
+</span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$name</span>)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    } <span class="hljs-keyword">elseif</span> (<span class="hljs-variable">$name</span> === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>) <span class="hljs-variable">$name</span>;
+    }
+
+    <span class="hljs-keyword">switch</span>(<span class="hljs-variable">$name</span>) {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">\Exception</span>(<span class="hljs-string">&#x27;error&#x27;</span>);
+    }
+}
+
+<span class="hljs-comment">/**
+ * First-class Callable Syntax
+ */</span>
+<span class="hljs-variable">$fun</span> = <span class="hljs-title function_ invoke__">mb_strlen</span>();
+<span class="hljs-variable">$fun</span>();
+
+<span class="hljs-comment">/**
+ * Named arguments
+ */</span>
+<span class="hljs-title function_ invoke__">setAlarm</span>(
+    <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;foo&#x27;</span>,
+    <span class="hljs-attr">time</span>:<span class="hljs-title function_ invoke__">time</span>() + <span class="hljs-keyword">array</span>(<span class="hljs-number">5</span>)[<span class="hljs-number">0</span>] + <span class="hljs-title class_">Foo</span>::<span class="hljs-variable constant_">HOUR</span>,
+);

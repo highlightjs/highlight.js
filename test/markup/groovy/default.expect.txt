@@ -4,15 +4,15 @@
 <span class="hljs-keyword">import</span> groovy.transform.CompileStatic
 <span class="hljs-keyword">import</span> java.util.List <span class="hljs-keyword">as</span> MyList
 
-<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Distributable</span> {</span>
-    <span class="hljs-keyword">void</span> distribute(String version) {}
+<span class="hljs-keyword">trait</span> <span class="hljs-title class_">Distributable</span> {
+    <span class="hljs-type">void</span> distribute(String version) {}
 }
 
 <span class="hljs-meta">@CompileStatic</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Distribution</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Distributable</span> {</span>
-    <span class="hljs-keyword">double</span> number = <span class="hljs-number">1234.234</span> / <span class="hljs-number">567</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Distribution</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Distributable</span> {
+    <span class="hljs-type">double</span> number = <span class="hljs-number">1234.234</span> / <span class="hljs-number">567</span>
     <span class="hljs-keyword">def</span> otherNumber = <span class="hljs-number">3</span> / <span class="hljs-number">4</span>
-    <span class="hljs-keyword">boolean</span> archivable = condition ?: <span class="hljs-literal">true</span>
+    <span class="hljs-type">boolean</span> archivable = condition ?: <span class="hljs-literal">true</span>
     <span class="hljs-keyword">def</span> ternary = a ? b : c
     String name = <span class="hljs-string">&quot;Guillaume&quot;</span>
     Closure description = <span class="hljs-literal">null</span>
@@ -30,9 +30,9 @@
      * description method
      * @param cl the closure
      */</span>
-    <span class="hljs-keyword">void</span> description(Closure cl) { <span class="hljs-built_in">this</span>.description = cl }
+    <span class="hljs-type">void</span> description(Closure cl) { <span class="hljs-variable language_">this</span>.description = cl }
 
-    <span class="hljs-keyword">void</span> version(String name, Closure versionSpec) {
+    <span class="hljs-type">void</span> version(String name, Closure versionSpec) {
         <span class="hljs-keyword">def</span> closure = { println <span class="hljs-string">&quot;hi&quot;</span> } <span class="hljs-keyword">as</span> Runnable
 
         MyList ml = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-attr">a:</span> <span class="hljs-number">1</span>, <span class="hljs-attr">b:</span><span class="hljs-number">2</span>,<span class="hljs-attr">c :</span><span class="hljs-number">3</span>]]
