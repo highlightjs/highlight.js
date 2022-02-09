@@ -16,3 +16,6 @@ __Bold *then italic*__
 
 * list with a *italic item*
 * list with a **bold item**
+
+***This is bold and italic***
+___This is bold and italic___
