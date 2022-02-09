@@ -1,0 +1,8 @@
+; Backslashes do not escape quotes, this is a legal string
+define void @"C:\"() {
+  ret void
+}
+
+define void @"escape_code_\0123\04end"() {
+  ret void
+}

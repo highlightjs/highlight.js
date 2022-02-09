@@ -41,3 +41,11 @@
  */</span>
 <span class="hljs-variable">$fun</span> = <span class="hljs-title function_ invoke__">mb_strlen</span>();
 <span class="hljs-variable">$fun</span>();
+
+<span class="hljs-comment">/**
+ * Named arguments
+ */</span>
+<span class="hljs-title function_ invoke__">setAlarm</span>(
+    <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;foo&#x27;</span>,
+    <span class="hljs-attr">time</span>:<span class="hljs-title function_ invoke__">time</span>() + <span class="hljs-keyword">array</span>(<span class="hljs-number">5</span>)[<span class="hljs-number">0</span>] + <span class="hljs-title class_">Foo</span>::<span class="hljs-variable constant_">HOUR</span>,
+);
