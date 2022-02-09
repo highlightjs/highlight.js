@@ -1,10 +1,11 @@
-## Version 11.4.1
+## Version 11.5.0 (in progress)
 
 Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
 
 Grammars:
 
+- fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
 - enh(php) named arguments [Wojciech Kania][]
@@ -20,6 +21,8 @@ Grammars:
 [henri Vandersleyen]: https://github.com/Vanderscycle
 [Christina Hanson]: https://github.com/LyricLy
 [Flakebi]: https://github.com/Flakebi
+[Josh Goebel]: https://github.com/joshgoebel
+
 
 ## Version 11.4.0
 
