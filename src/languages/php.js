@@ -433,6 +433,15 @@ export default function(hljs) {
   };
   PARAMS_MODE.contains.push(FUNCTION_INVOKE);
 
+  const ATTRIBUTE_CONTAINS = [
+    NAMED_ARGUMENT,
+    LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+    hljs.C_BLOCK_COMMENT_MODE,
+    STRING,
+    NUMBER,
+    CONSTRUCTOR_CALL,
+  ];
+
   const ATTRIBUTES = {
     begin: regex.concat(/#\[\s*/, PASCAL_CASE_CLASS_NAME_RE),
     beginScope: "meta",
@@ -458,20 +467,10 @@ export default function(hljs) {
         },
         contains: [
           'self',
-          NAMED_ARGUMENT,
-          LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
-          hljs.C_BLOCK_COMMENT_MODE,
-          STRING,
-          NUMBER,
-          CONSTRUCTOR_CALL,
+          ...ATTRIBUTE_CONTAINS,
         ]
       },
-      NAMED_ARGUMENT,
-      LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
-      hljs.C_BLOCK_COMMENT_MODE,
-      STRING,
-      NUMBER,
-      CONSTRUCTOR_CALL,
+      ...ATTRIBUTE_CONTAINS,
       {
         scope: 'meta',
         match: PASCAL_CASE_CLASS_NAME_RE
