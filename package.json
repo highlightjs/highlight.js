@@ -35,6 +35,7 @@
   "type": "commonjs",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "mocha": "mocha",
     "lint": "eslint src/*.js src/lib/*.js demo/*.js tools/**/*.js --ignore-pattern vendor",
