@@ -1,4 +1,4 @@
-<span class="hljs-meta">`<span class="hljs-meta-keyword">timescale</span> 1ns / 1ps</span>
+<span class="hljs-meta">`<span class="hljs-keyword">timescale</span> 1ns / 1ps</span>
 
 <span class="hljs-comment">/**
  * counter: a generic clearable up-counter
@@ -23,12 +23,12 @@
     <span class="hljs-comment">// Simple gated up-counter with async clear</span>
 
     <span class="hljs-keyword">always</span> @(<span class="hljs-keyword">posedge</span> clk <span class="hljs-keyword">or</span> <span class="hljs-keyword">negedge</span> arst_n) <span class="hljs-keyword">begin</span>
-        <span class="hljs-keyword">if</span> (arst_n == <span class="hljs-number">1'b0</span>) <span class="hljs-keyword">begin</span>
-            q &lt;= {WIDTH {<span class="hljs-number">1'b0</span>}};
+        <span class="hljs-keyword">if</span> (arst_n == <span class="hljs-number">1&#x27;b0</span>) <span class="hljs-keyword">begin</span>
+            q &lt;= {WIDTH {<span class="hljs-number">1&#x27;b0</span>}};
             <span class="hljs-keyword">end</span>
         <span class="hljs-keyword">else</span> <span class="hljs-keyword">begin</span>
             q &lt;= q;
-            <span class="hljs-keyword">if</span> (ce == <span class="hljs-number">1'b1</span>) <span class="hljs-keyword">begin</span>
+            <span class="hljs-keyword">if</span> (ce == <span class="hljs-number">1&#x27;b1</span>) <span class="hljs-keyword">begin</span>
                 q &lt;= q + <span class="hljs-number">1</span>;
             <span class="hljs-keyword">end</span>
         <span class="hljs-keyword">end</span>

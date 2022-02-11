@@ -9,6 +9,7 @@ Category: template
 // TODO support filter tags like :javascript, support inline HTML
 export default function(hljs) {
   return {
+    name: 'HAML',
     case_insensitive: true,
     contains: [
       {
@@ -19,17 +20,15 @@ export default function(hljs) {
       // FIXME these comments should be allowed to span indented lines
       hljs.COMMENT(
         '^\\s*(!=#|=#|-#|/).*$',
-        false,
-        {
-          relevance: 0
-        }
+        null,
+        { relevance: 0 }
       ),
       {
         begin: '^\\s*(-|=|!=)(?!#)',
-        starts: {
-          end: '\\n',
-          subLanguage: 'ruby'
-        }
+        end: /$/,
+        subLanguage: 'ruby',
+        excludeBegin: true,
+        excludeEnd: true
       },
       {
         className: 'tag',
@@ -48,8 +47,8 @@ export default function(hljs) {
             begin: '\\.[\\w-]+'
           },
           {
-            begin: '{\\s*',
-            end: '\\s*}',
+            begin: /\{\s*/,
+            end: /\s*\}/,
             contains: [
               {
                 begin: ':\\w+\\s*=>',
@@ -103,11 +102,11 @@ export default function(hljs) {
         begin: '^\\s*[=~]\\s*'
       },
       {
-        begin: '#{',
-        starts: {
-          end: '}',
-          subLanguage: 'ruby'
-        }
+        begin: /#\{/,
+        end: /\}/,
+        subLanguage: 'ruby',
+        excludeBegin: true,
+        excludeEnd: true
       }
     ]
   };

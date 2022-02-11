@@ -8,20 +8,88 @@ Category: common, system
 */
 
 export default function(hljs) {
-  var GO_KEYWORDS = {
-    keyword:
-      'break default func interface select case map struct chan else goto package switch ' +
-      'const fallthrough if range type continue for import return var go defer ' +
-      'bool byte complex64 complex128 float32 float64 int8 int16 int32 int64 string uint8 ' +
-      'uint16 uint32 uint64 int uint uintptr rune',
-    literal:
-       'true false iota nil',
-    built_in:
-      'append cap close complex copy imag len make new panic print println real recover delete'
+  const LITERALS = [
+    "true",
+    "false",
+    "iota",
+    "nil"
+  ];
+  const BUILT_INS = [
+    "append",
+    "cap",
+    "close",
+    "complex",
+    "copy",
+    "imag",
+    "len",
+    "make",
+    "new",
+    "panic",
+    "print",
+    "println",
+    "real",
+    "recover",
+    "delete"
+  ];
+  const TYPES = [
+    "bool",
+    "byte",
+    "complex64",
+    "complex128",
+    "error",
+    "float32",
+    "float64",
+    "int8",
+    "int16",
+    "int32",
+    "int64",
+    "string",
+    "uint8",
+    "uint16",
+    "uint32",
+    "uint64",
+    "int",
+    "uint",
+    "uintptr",
+    "rune"
+  ];
+  const KWS = [
+    "break",
+    "case",
+    "chan",
+    "const",
+    "continue",
+    "default",
+    "defer",
+    "else",
+    "fallthrough",
+    "for",
+    "func",
+    "go",
+    "goto",
+    "if",
+    "import",
+    "interface",
+    "map",
+    "package",
+    "range",
+    "return",
+    "select",
+    "struct",
+    "switch",
+    "type",
+    "var",
+  ];
+  const KEYWORDS = {
+    keyword: KWS,
+    type: TYPES,
+    literal: LITERALS,
+    built_in: BUILT_INS
   };
   return {
+    name: 'Go',
     aliases: ['golang'],
-    keywords: GO_KEYWORDS,
+    keywords: KEYWORDS,
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -31,13 +99,19 @@ export default function(hljs) {
         variants: [
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
-          {begin: '`', end: '`'},
+          {
+            begin: '`',
+            end: '`'
+          }
         ]
       },
       {
         className: 'number',
         variants: [
-          {begin: hljs.C_NUMBER_RE + '[i]', relevance: 1},
+          {
+            begin: hljs.C_NUMBER_RE + '[i]',
+            relevance: 1
+          },
           hljs.C_NUMBER_MODE
         ]
       },
@@ -46,13 +120,17 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        beginKeywords: 'func', end: '\\s*(\\{|$)', excludeEnd: true,
+        beginKeywords: 'func',
+        end: '\\s*(\\{|$)',
+        excludeEnd: true,
         contains: [
           hljs.TITLE_MODE,
           {
             className: 'params',
-            begin: /\(/, end: /\)/,
-            keywords: GO_KEYWORDS,
+            begin: /\(/,
+            end: /\)/,
+            endsParent: true,
+            keywords: KEYWORDS,
             illegal: /["']/
           }
         ]

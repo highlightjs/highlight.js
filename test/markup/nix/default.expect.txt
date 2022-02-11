@@ -1,0 +1,24 @@
+{ stdenv, foo, bar ? <span class="hljs-literal">false</span>, ... }:
+
+<span class="hljs-comment">/*
+ * foo
+ */</span>
+
+<span class="hljs-keyword">let</span>
+  <span class="hljs-attr">a</span> = <span class="hljs-number">1</span>; <span class="hljs-comment"># just a comment</span>
+  <span class="hljs-attr">b</span> = <span class="hljs-literal">null</span>;
+  <span class="hljs-attr">c</span> = <span class="hljs-built_in">toString</span> <span class="hljs-number">10</span>;
+<span class="hljs-keyword">in</span> stdenv.mkDerivation <span class="hljs-keyword">rec</span> {
+  <span class="hljs-attr">name</span> = <span class="hljs-string">&quot;foo-<span class="hljs-subst">${version}</span>&quot;</span>;
+  <span class="hljs-attr">version</span> = <span class="hljs-string">&quot;1.3&quot;</span>;
+
+  <span class="hljs-attr">configureFlags</span> = [ <span class="hljs-string">&quot;--with-foo2&quot;</span> ] ++ stdenv.lib.optional bar <span class="hljs-string">&quot;--with-foo=<span class="hljs-subst">${ <span class="hljs-keyword">with</span> stdenv.lib; foo }</span>&quot;</span>
+
+  <span class="hljs-attr">postInstall</span> = <span class="hljs-string">&#x27;&#x27;
+    <span class="hljs-subst">${ <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">then</span> <span class="hljs-string">&quot;--<span class="hljs-subst">${test}</span>&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">false</span> }</span>
+  &#x27;&#x27;</span>;
+
+  <span class="hljs-attr">meta</span> = <span class="hljs-keyword">with</span> stdenv.lib; {
+    <span class="hljs-attr">homepage</span> = https://nixos.org;
+  };
+}

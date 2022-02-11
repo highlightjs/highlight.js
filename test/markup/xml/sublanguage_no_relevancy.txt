@@ -1,0 +1,3 @@
+<script>foo();</script>
+<script>booger</script>
+<script>hjk</script>

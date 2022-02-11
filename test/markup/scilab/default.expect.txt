@@ -1,0 +1,14 @@
+<span class="hljs-comment">// A comment</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">I</span> = <span class="hljs-title">foo</span><span class="hljs-params">(dims, varargin)</span></span>
+  d=[<span class="hljs-number">1</span>; matrix(dims(<span class="hljs-number">1</span>:$<span class="hljs-number">-1</span>),<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>)]
+  <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>:<span class="hljs-built_in">size</span>(varargin)
+    <span class="hljs-keyword">if</span> varargin(i)==[] <span class="hljs-keyword">then</span>
+       I=[],
+       <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">endfunction</span>
+
+b = <span class="hljs-built_in">cos</span>(a) + <span class="hljs-built_in">cosh</span>(a);
+bar_matrix = [ <span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-string">&quot;world&quot;</span> ];
+foo_matrix = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>; <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>];

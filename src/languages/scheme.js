@@ -10,11 +10,12 @@ Category: lisp
 */
 
 export default function(hljs) {
-  var SCHEME_IDENT_RE = '[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+';
-  var SCHEME_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+([./]\\d+)?';
-  var SCHEME_COMPLEX_NUMBER_RE = SCHEME_SIMPLE_NUMBER_RE + '[+\\-]' + SCHEME_SIMPLE_NUMBER_RE + 'i';
-  var BUILTINS = {
-    'builtin-name':
+  const SCHEME_IDENT_RE = '[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+';
+  const SCHEME_SIMPLE_NUMBER_RE = '(-|\\+)?\\d+([./]\\d+)?';
+  const SCHEME_COMPLEX_NUMBER_RE = SCHEME_SIMPLE_NUMBER_RE + '[+\\-]' + SCHEME_SIMPLE_NUMBER_RE + 'i';
+  const KEYWORDS = {
+    $pattern: SCHEME_IDENT_RE,
+    built_in:
       'case-lambda call/cc class define-class exit-handler field import ' +
       'inherit init-field interface let*-values let-values let/ec mixin ' +
       'opt-lambda override protect provide public rename require ' +
@@ -50,37 +51,43 @@ export default function(hljs) {
       'with-input-from-file with-output-to-file write write-char zero?'
   };
 
-  var SHEBANG = {
-    className: 'meta',
-    begin: '^#!',
-    end: '$'
-  };
-
-  var LITERAL = {
+  const LITERAL = {
     className: 'literal',
     begin: '(#t|#f|#\\\\' + SCHEME_IDENT_RE + '|#\\\\.)'
   };
 
-  var NUMBER = {
+  const NUMBER = {
     className: 'number',
     variants: [
-      { begin: SCHEME_SIMPLE_NUMBER_RE, relevance: 0 },
-      { begin: SCHEME_COMPLEX_NUMBER_RE, relevance: 0 },
-      { begin: '#b[0-1]+(/[0-1]+)?' },
-      { begin: '#o[0-7]+(/[0-7]+)?' },
-      { begin: '#x[0-9a-f]+(/[0-9a-f]+)?' }
+      {
+        begin: SCHEME_SIMPLE_NUMBER_RE,
+        relevance: 0
+      },
+      {
+        begin: SCHEME_COMPLEX_NUMBER_RE,
+        relevance: 0
+      },
+      {
+        begin: '#b[0-1]+(/[0-1]+)?'
+      },
+      {
+        begin: '#o[0-7]+(/[0-7]+)?'
+      },
+      {
+        begin: '#x[0-9a-f]+(/[0-9a-f]+)?'
+      }
     ]
   };
 
-  var STRING = hljs.QUOTE_STRING_MODE;
+  const STRING = hljs.QUOTE_STRING_MODE;
 
-  var REGULAR_EXPRESSION = {
+  const REGULAR_EXPRESSION = {
     className: 'regexp',
     begin: '#[pr]x"',
     end: '[^\\\\]"'
   };
 
-  var COMMENT_MODES = [
+  const COMMENT_MODES = [
     hljs.COMMENT(
       ';',
       '$',
@@ -91,64 +98,114 @@ export default function(hljs) {
     hljs.COMMENT('#\\|', '\\|#')
   ];
 
-  var IDENT = {
+  const IDENT = {
     begin: SCHEME_IDENT_RE,
     relevance: 0
   };
 
-  var QUOTED_IDENT = {
+  const QUOTED_IDENT = {
     className: 'symbol',
     begin: '\'' + SCHEME_IDENT_RE
   };
 
-  var BODY = {
+  const BODY = {
     endsWithParent: true,
     relevance: 0
   };
 
-  var QUOTED_LIST = {
+  const QUOTED_LIST = {
     variants: [
-      { begin: /'/ },
-      { begin: '`' }
+      {
+        begin: /'/
+      },
+      {
+        begin: '`'
+      }
     ],
     contains: [
       {
-        begin: '\\(', end: '\\)',
-        contains: ['self', LITERAL, STRING, NUMBER, IDENT, QUOTED_IDENT]
+        begin: '\\(',
+        end: '\\)',
+        contains: [
+          'self',
+          LITERAL,
+          STRING,
+          NUMBER,
+          IDENT,
+          QUOTED_IDENT
+        ]
       }
     ]
   };
 
-  var NAME = {
+  const NAME = {
     className: 'name',
+    relevance: 0,
     begin: SCHEME_IDENT_RE,
-    lexemes: SCHEME_IDENT_RE,
-    keywords: BUILTINS
+    keywords: KEYWORDS
   };
 
-  var LAMBDA = {
-    begin: /lambda/, endsWithParent: true, returnBegin: true,
+  const LAMBDA = {
+    begin: /lambda/,
+    endsWithParent: true,
+    returnBegin: true,
     contains: [
       NAME,
       {
-        begin: /\(/, end: /\)/, endsParent: true,
-        contains: [IDENT],
+        endsParent: true,
+        variants: [
+          {
+            begin: /\(/,
+            end: /\)/
+          },
+          {
+            begin: /\[/,
+            end: /\]/
+          }
+        ],
+        contains: [ IDENT ]
       }
     ]
   };
 
-  var LIST = {
+  const LIST = {
     variants: [
-      { begin: '\\(', end: '\\)' },
-      { begin: '\\[', end: '\\]' }
+      {
+        begin: '\\(',
+        end: '\\)'
+      },
+      {
+        begin: '\\[',
+        end: '\\]'
+      }
     ],
-    contains: [LAMBDA, NAME, BODY]
+    contains: [
+      LAMBDA,
+      NAME,
+      BODY
+    ]
   };
 
-  BODY.contains = [LITERAL, NUMBER, STRING, IDENT, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES);
+  BODY.contains = [
+    LITERAL,
+    NUMBER,
+    STRING,
+    IDENT,
+    QUOTED_IDENT,
+    QUOTED_LIST,
+    LIST
+  ].concat(COMMENT_MODES);
 
   return {
+    name: 'Scheme',
     illegal: /\S/,
-    contains: [SHEBANG, NUMBER, STRING, QUOTED_IDENT, QUOTED_LIST, LIST].concat(COMMENT_MODES)
+    contains: [
+      hljs.SHEBANG(),
+      NUMBER,
+      STRING,
+      QUOTED_IDENT,
+      QUOTED_LIST,
+      LIST
+    ].concat(COMMENT_MODES)
   };
 }

@@ -1,0 +1,16 @@
+(3, "string")
+(c: (x: 1, y: 1), z: 1)
+(var: Array<Int>, let: Array<Double>)
+(_ x: inout Int) throws -> Int
+(abs(-2), abs(2))
+(x < y, a > b)
+($0, $1)
+(@escaping (String) -> Void, @autoclosure () -> String) -> String
+(
+  // x
+  x,
+  /* y */
+  y
+)
+(let x, var y)
+([key: value, key: value])

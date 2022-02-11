@@ -2,7 +2,7 @@
     <span class="hljs-comment">/*
       multiline nested comment LEVEL 1
     */</span>
-    println("on kotlin this is a commented code in comment LEVEL 0")
+    println(&quot;on kotlin this is a commented code in comment LEVEL 0&quot;)
     <span class="hljs-comment">/*
         another multiline nested comment LEVEL 1
     */</span>

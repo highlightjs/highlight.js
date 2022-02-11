@@ -7,11 +7,23 @@ Website: https://docs.docker.com/engine/reference/builder/
 Category: config
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
+  const KEYWORDS = [
+    "from",
+    "maintainer",
+    "expose",
+    "env",
+    "arg",
+    "user",
+    "onbuild",
+    "stopsignal"
+  ];
   return {
+    name: 'Dockerfile',
     aliases: ['docker'],
     case_insensitive: true,
-    keywords: 'from maintainer expose env arg user onbuild stopsignal',
+    keywords: KEYWORDS,
     contains: [
       hljs.HASH_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
@@ -26,5 +38,5 @@ export default function(hljs) {
       }
     ],
     illegal: '</'
-  }
+  };
 }

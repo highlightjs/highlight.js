@@ -1,13 +1,13 @@
-<span class="hljs-string">f'<span class="hljs-subst">{name}</span>'</span>
-<span class="hljs-string">f"<span class="hljs-subst">{name + <span class="hljs-number">5</span>}</span>"</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">f"""
+<span class="hljs-string">f&#x27;<span class="hljs-subst">{name}</span>&#x27;</span>
+<span class="hljs-string">f&quot;<span class="hljs-subst">{<span class="hljs-built_in">len</span>(name) + <span class="hljs-number">5</span>}</span>&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">f&quot;&quot;&quot;
 <span class="hljs-meta">... </span><span class="hljs-subst">{
 <span class="hljs-meta">... </span>   name
 <span class="hljs-meta">... </span>}</span>
-<span class="hljs-meta">... </span>"""</span>
-<span class="hljs-string">rf"<span class="hljs-subst">{name}</span>"</span>
-<span class="hljs-string">fr"<span class="hljs-subst">{name}</span>"</span>
-<span class="hljs-string">f"<span class="hljs-subst">{name + <span class="hljs-string">f'<span class="hljs-subst">{name}</span>'</span>}</span>"</span>
-<span class="hljs-string">f"{{ }}"</span>
-<span class="hljs-keyword">if</span><span class="hljs-string">"text"</span>==<span class="hljs-string">"text"</span>:
-    <span class="hljs-string">"good"</span>
+<span class="hljs-meta">... </span>&quot;&quot;&quot;</span>
+<span class="hljs-string">rf&quot;<span class="hljs-subst">{name}</span>&quot;</span>
+<span class="hljs-string">fr&quot;<span class="hljs-subst">{name}</span>&quot;</span>
+<span class="hljs-string">f&quot;<span class="hljs-subst">{name + <span class="hljs-string">f&#x27;<span class="hljs-subst">{name}</span>&#x27;</span>}</span>&quot;</span>
+<span class="hljs-string">f&quot;{{ }}&quot;</span>
+<span class="hljs-keyword">if</span><span class="hljs-string">&quot;text&quot;</span>==<span class="hljs-string">&quot;text&quot;</span>:
+    <span class="hljs-string">&quot;good&quot;</span>

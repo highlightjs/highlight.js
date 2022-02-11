@@ -1,6 +1,7 @@
-int main() {
-  A a = new A();
-  int b = b * sum(1, 2);
+int main(int argc, char** argv) {
+  auto a = std::make_unique<A>();
+  B *b = new B();
+  int c = c * sum(1, 2);
   if (a->check1())
     return 3;
   else if (a->check2())

@@ -4,7 +4,7 @@
     [<span class="hljs-built_in">string</span>]<span class="hljs-variable">$VendorSku</span>
 
     <span class="hljs-function">[<span class="hljs-built_in">string</span>]<span class="hljs-title">ToString</span></span>(){
-        <span class="hljs-keyword">return</span> (<span class="hljs-string">"{0}|{1}|{2}"</span> <span class="hljs-operator">-f</span> <span class="hljs-keyword">$this</span>.Brand, <span class="hljs-keyword">$this</span>.Model, <span class="hljs-keyword">$this</span>.VendorSku)
+        <span class="hljs-keyword">return</span> (<span class="hljs-string">&quot;{0}|{1}|{2}&quot;</span> <span class="hljs-operator">-f</span> <span class="hljs-keyword">$this</span>.Brand, <span class="hljs-keyword">$this</span>.Model, <span class="hljs-keyword">$this</span>.VendorSku)
     }
 }
 
@@ -47,9 +47,9 @@
 <span class="hljs-variable">$rack</span> = [<span class="hljs-type">Rack</span>]::new()
 
 <span class="hljs-variable">$surface</span> = [<span class="hljs-type">Device</span>]::new()
-<span class="hljs-variable">$surface</span>.Brand = <span class="hljs-string">"Microsoft"</span>
-<span class="hljs-variable">$surface</span>.Model = <span class="hljs-string">"Surface Pro 4"</span>
-<span class="hljs-variable">$surface</span>.VendorSku = <span class="hljs-string">"5072641000"</span>
+<span class="hljs-variable">$surface</span>.Brand = <span class="hljs-string">&quot;Microsoft&quot;</span>
+<span class="hljs-variable">$surface</span>.Model = <span class="hljs-string">&quot;Surface Pro 4&quot;</span>
+<span class="hljs-variable">$surface</span>.VendorSku = <span class="hljs-string">&quot;5072641000&quot;</span>
 
 <span class="hljs-variable">$rack</span>.AddDevice(<span class="hljs-variable">$surface</span>, <span class="hljs-number">2</span>)
 

@@ -1,11 +1,40 @@
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Vehicle</span> </span>{
-  <span class="hljs-keyword">constructor</span>(speed, cost) {
-    <span class="hljs-keyword">super</span>(speed);
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Vehicle</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Vehicle</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">speed, cost</span>) {
+    <span class="hljs-variable language_">super</span>(speed);
 
-    <span class="hljs-keyword">var</span> c = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'cost'</span>);
-    <span class="hljs-keyword">this</span>[c] = cost;
+    <span class="hljs-keyword">var</span> c = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;cost&#x27;</span>);
+    <span class="hljs-variable language_">this</span>[c] = cost;
 
-    <span class="hljs-keyword">this</span>.intro = <span class="hljs-string">`This is a car runs at
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">intro</span> = <span class="hljs-string">`This is a car runs at
       <span class="hljs-subst">${speed}</span>.`</span>;
   }
+  <span class="hljs-title function_">join</span>(<span class="hljs-params"></span>) {
+  }
+  <span class="hljs-title function_">other</span>(<span class="hljs-params">a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ) </span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a)
+  }
+  <span class="hljs-title function_">something</span>(<span class="hljs-params">a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ), b = <span class="hljs-number">1</span> </span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a)
+  }
+  <span class="hljs-title function_">onemore</span>(<span class="hljs-params">a=(<span class="hljs-number">3</span>+<span class="hljs-number">2</span>, b=(<span class="hljs-number">5</span>*<span class="hljs-number">9</span>))</span>) {}
 }
+
+<span class="hljs-comment">// these should not be matched as class functions</span>
+<span class="hljs-keyword">for</span>(expr; expr; expr) {}
+<span class="hljs-keyword">while</span>(value) {}
+<span class="hljs-keyword">if</span>(value) {}
+<span class="hljs-keyword">switch</span>(value) {}
+<span class="hljs-keyword">try</span> {} <span class="hljs-keyword">catch</span>(err) {}
+
+<span class="hljs-title class_">Car</span>
+<span class="hljs-title class_">Vehicle</span>
+<span class="hljs-title class_">SelfDrivingTruck</span>
+<span class="hljs-title class_">CSSParser</span>
+<span class="hljs-title class_">Float32Array</span>
+<span class="hljs-title class_">BigInt64Array</span>
+<span class="hljs-title class_">FPs</span>
+<span class="hljs-title class_">OutT</span>
+<span class="hljs-title class_">InT</span>
+<span class="hljs-title class_">CSSParserT</span>
+<span class="hljs-title class_">IResponseTsS</span>

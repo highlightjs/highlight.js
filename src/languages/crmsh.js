@@ -6,27 +6,26 @@ Description: Syntax Highlighting for the crmsh DSL
 Category: config
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var RESOURCES = 'primitive rsc_template';
-
-  var COMMANDS = 'group clone ms master location colocation order fencing_topology ' +
+  const RESOURCES = 'primitive rsc_template';
+  const COMMANDS = 'group clone ms master location colocation order fencing_topology ' +
       'rsc_ticket acl_target acl_group user role ' +
       'tag xml';
-
-  var PROPERTY_SETS = 'property rsc_defaults op_defaults';
-
-  var KEYWORDS = 'params meta operations op rule attributes utilization';
-
-  var OPERATORS = 'read write deny defined not_defined in_range date spec in ' +
+  const PROPERTY_SETS = 'property rsc_defaults op_defaults';
+  const KEYWORDS = 'params meta operations op rule attributes utilization';
+  const OPERATORS = 'read write deny defined not_defined in_range date spec in ' +
       'ref reference attribute type xpath version and or lt gt tag ' +
       'lte gte eq ne \\';
-
-  var TYPES = 'number string';
-
-  var LITERALS = 'Master Started Slave Stopped start promote demote stop monitor true false';
+  const TYPES = 'number string';
+  const LITERALS = 'Master Started Slave Stopped start promote demote stop monitor true false';
 
   return {
-    aliases: ['crm', 'pcmk'],
+    name: 'crmsh',
+    aliases: [
+      'crm',
+      'pcmk'
+    ],
     case_insensitive: true,
     keywords: {
       keyword: KEYWORDS + ' ' + OPERATORS + ' ' + TYPES,
@@ -87,7 +86,7 @@ export default function(hljs) {
       },
       {
         className: 'attr',
-        begin: /([A-Za-z\$_\#][\w_-]+)=/,
+        begin: /([A-Za-z$_#][\w_-]+)=/,
         relevance: 0
       },
       {

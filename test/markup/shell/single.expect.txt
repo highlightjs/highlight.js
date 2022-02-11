@@ -1,0 +1,1 @@
+<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>&quot;</span> -n</span>

@@ -1,0 +1,8 @@
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">16#deadbeef</span> / <span class="hljs-number">1003</span> ))
+
+yumi=deadbeef
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-number">16</span>#<span class="hljs-variable">$yumi</span> / <span class="hljs-number">1003</span> ))
+
+B=20
+yumi=deadbeef
+<span class="hljs-built_in">echo</span> $(( <span class="hljs-variable">$B</span>#<span class="hljs-variable">$yumi</span> / <span class="hljs-number">1003</span> ))

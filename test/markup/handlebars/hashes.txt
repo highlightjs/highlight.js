@@ -1,0 +1,11 @@
+{{helper key=value}}
+
+{{{helper key=value}}}
+
+{{>partial key=value}}
+
+{{#helper key=value}} {{/helper}}
+
+{{{{#helper key=value}}}} {{{{/helper}}}}
+
+{{helper (subExpression key=value)}}

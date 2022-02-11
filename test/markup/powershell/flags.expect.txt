@@ -1,0 +1,4 @@
+<span class="hljs-string">&quot;Good Dog&quot;</span> <span class="hljs-literal">--match-lower-case</span> <span class="hljs-string">&quot;Dog&quot;</span>
+<span class="hljs-number">2</span> <span class="hljs-literal">--equality-check</span> <span class="hljs-number">2</span>
+<span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-literal">--format-drive-fully</span> <span class="hljs-string">&quot;def&quot;</span>
+format /dev/devices/driveA <span class="hljs-literal">--format-drive-fully</span> <span class="hljs-literal">-yes</span>

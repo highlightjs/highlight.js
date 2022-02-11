@@ -6,13 +6,9 @@ Category: lisp
 */
 
 export default function(hljs) {
-  var LISP_IDENT_RE = '[a-zA-Z_\\-\\+\\*\\/\\<\\=\\>\\&\\#][a-zA-Z0-9_\\-\\+\\*\\/\\<\\=\\>\\&\\#!]*';
+  var LISP_IDENT_RE = '[a-zA-Z_\\-+\\*\\/<=>&#][a-zA-Z0-9_\\-+*\\/<=>&#!]*';
   var MEC_RE = '\\|[^]*?\\|';
-  var LISP_SIMPLE_NUMBER_RE = '(\\-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s|D|E|F|L|S)(\\+|\\-)?\\d+)?';
-  var SHEBANG = {
-    className: 'meta',
-    begin: '^#!', end: '$'
-  };
+  var LISP_SIMPLE_NUMBER_RE = '(-|\\+)?\\d+(\\.\\d+|\\/\\d+)?((d|e|f|l|s|D|E|F|L|S)(\\+|-)?\\d+)?';
   var LITERAL = {
     className: 'literal',
     begin: '\\b(t{1}|nil)\\b'
@@ -84,7 +80,10 @@ export default function(hljs) {
     {
       className: 'name',
       variants: [
-        {begin: LISP_IDENT_RE},
+        {
+          begin: LISP_IDENT_RE,
+          relevance: 0,
+        },
         {begin: MEC_RE}
       ]
     },
@@ -93,10 +92,11 @@ export default function(hljs) {
   BODY.contains = [QUOTED, QUOTED_ATOM, LIST, LITERAL, NUMBER, STRING, COMMENT, VARIABLE, KEYWORD, MEC, IDENT];
 
   return {
+    name: 'Lisp',
     illegal: /\S/,
     contains: [
       NUMBER,
-      SHEBANG,
+      hljs.SHEBANG(),
       LITERAL,
       STRING,
       COMMENT,

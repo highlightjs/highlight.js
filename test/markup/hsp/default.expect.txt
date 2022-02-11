@@ -1,0 +1,23 @@
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;foo.hsp&quot;</span></span>
+
+	<span class="hljs-comment">// line comment</span>
+	message = <span class="hljs-string">&quot;Hello, World!&quot;</span>
+	message2 = <span class="hljs-string">{&quot;Multi
+	line
+	string&quot;}</span>
+	num = <span class="hljs-number">0</span>
+	<span class="hljs-keyword">mes</span> message
+	
+	<span class="hljs-keyword">input</span> num : <span class="hljs-keyword">button</span> <span class="hljs-string">&quot;sqrt&quot;</span>, *label
+	<span class="hljs-keyword">stop</span>
+	
+<span class="hljs-symbol">*label</span>
+	<span class="hljs-comment">/*
+	 block comment
+	*/</span>
+	<span class="hljs-keyword">if</span>(num &gt;= <span class="hljs-number">0</span>) {
+		<span class="hljs-keyword">dialog</span> <span class="hljs-string">&quot;sqrt(&quot;</span> + num + <span class="hljs-string">&quot;) = &quot;</span> + <span class="hljs-keyword">sqrt</span>(num)
+	} <span class="hljs-keyword">else</span> {
+		<span class="hljs-keyword">dialog</span> <span class="hljs-string">&quot;error&quot;</span>, <span class="hljs-number">1</span>
+	}
+	<span class="hljs-keyword">stop</span>

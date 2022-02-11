@@ -1,0 +1,59 @@
+<span class="hljs-number">1</span>, <span class="hljs-number">10</span>,  <span class="hljs-number">999</span>,   <span class="hljs-number">0</span>, <span class="hljs-number">00</span>,  <span class="hljs-number">000</span>,   <span class="hljs-number">442L</span>
+<span class="hljs-number">1</span>, <span class="hljs-number">1_0</span>, <span class="hljs-number">9_9_9</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0_0</span>, <span class="hljs-number">0_0_0</span>, <span class="hljs-number">4_42l</span>
+
+<span class="hljs-number">0b0</span>,  <span class="hljs-number">0B11</span>,   <span class="hljs-number">0B000</span>,  <span class="hljs-number">0b010</span>,  <span class="hljs-number">0B11111l</span>
+<span class="hljs-number">0b_0</span>, <span class="hljs-number">0B_1_1</span>, <span class="hljs-number">0B0_00</span>, <span class="hljs-number">0b01_0</span>, <span class="hljs-number">0B1_1111L</span>
+
+<span class="hljs-number">0O0</span>,  <span class="hljs-number">0o01</span>,   <span class="hljs-number">0O777</span>,  <span class="hljs-number">0o644</span>, <span class="hljs-number">0O1234567L</span>
+<span class="hljs-number">0O_0</span>, <span class="hljs-number">0o_0_1</span>, <span class="hljs-number">0O77_7</span>, <span class="hljs-number">0o6_44</span>, <span class="hljs-number">0O123_4567l</span>
+
+<span class="hljs-number">0x0</span>,  <span class="hljs-number">0Xa0</span>,   <span class="hljs-number">0X7FFF</span>,  <span class="hljs-number">0xd3aD</span>,   <span class="hljs-number">0X1d306l</span>
+<span class="hljs-number">0x_0</span>, <span class="hljs-number">0X_a_0</span>, <span class="hljs-number">0X7F_FF</span>, <span class="hljs-number">0x_d3_aD</span>, <span class="hljs-number">0X1_d306L</span>
+
+
+<span class="hljs-number">.0</span>, <span class="hljs-number">.00</span>,  <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">40.0</span>,  <span class="hljs-number">0.</span>, <span class="hljs-number">00.</span>,  <span class="hljs-number">10.</span>
+<span class="hljs-number">.0</span>, <span class="hljs-number">.0_0</span>, <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">4_0.0</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">0_0.</span>, <span class="hljs-number">1_0.</span>
+
+<span class="hljs-number">.0e10</span>,  <span class="hljs-number">.00e+10</span>,  <span class="hljs-number">.9e-10</span>,  <span class="hljs-number">4.2E10</span>,  <span class="hljs-number">40.0E+08</span>,   <span class="hljs-number">0.E-10</span>,  <span class="hljs-number">00.e100</span>,    <span class="hljs-number">0010e+10</span>
+<span class="hljs-number">.0e1_0</span>, <span class="hljs-number">.0_0e+10</span>, <span class="hljs-number">.9e-1_0</span>, <span class="hljs-number">4.2E1_0</span>, <span class="hljs-number">4_0.0E+0_8</span>, <span class="hljs-number">0.E-1_0</span>, <span class="hljs-number">0_0.e1_0_0</span>, <span class="hljs-number">00_10e+10</span>
+
+
+<span class="hljs-number">.0j</span>, <span class="hljs-number">.00J</span>,  <span class="hljs-number">.9j</span>, <span class="hljs-number">4.2J</span>, <span class="hljs-number">40.0j</span>,  <span class="hljs-number">0.J</span>, <span class="hljs-number">00.j</span>,  <span class="hljs-number">10.J</span>
+<span class="hljs-number">.0j</span>, <span class="hljs-number">.0_0J</span>, <span class="hljs-number">.9j</span>, <span class="hljs-number">4.2J</span>, <span class="hljs-number">4_0.0j</span>, <span class="hljs-number">0.J</span>, <span class="hljs-number">0_0.j</span>, <span class="hljs-number">1_0.J</span>
+
+<span class="hljs-number">.0e10J</span>,  <span class="hljs-number">.00e+10j</span>,  <span class="hljs-number">.9e-10J</span>,  <span class="hljs-number">4.2E10j</span>,  <span class="hljs-number">40.0E+08J</span>,   <span class="hljs-number">0.E-10j</span>,  <span class="hljs-number">00.e100J</span>,    <span class="hljs-number">0010e+10j</span>
+<span class="hljs-number">.0e1_0J</span>, <span class="hljs-number">.0_0e+10j</span>, <span class="hljs-number">.9e-1_0J</span>, <span class="hljs-number">4.2E1_0j</span>, <span class="hljs-number">4_0.0E+0_8J</span>, <span class="hljs-number">0.E-1_0j</span>, <span class="hljs-number">0_0.e1_0_0J</span>, <span class="hljs-number">00_10e+10j</span>
+
+<span class="hljs-number">0j</span>, <span class="hljs-number">00J</span>,  <span class="hljs-number">000j</span>,   <span class="hljs-number">009J</span>,   <span class="hljs-number">1234j</span>
+<span class="hljs-number">0j</span>, <span class="hljs-number">0_0J</span>, <span class="hljs-number">0_0_0j</span>, <span class="hljs-number">0_0_9J</span>, <span class="hljs-number">12_3_4j</span>
+
+
+<span class="hljs-comment"># expressions containing numeric literals</span>
+<span class="hljs-number">0.</span>.__str__, <span class="hljs-number">1e1</span>.__str__, fn(<span class="hljs-number">.5</span>)
+<span class="hljs-number">0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0b0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0b0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0b_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0b_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0o0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0o0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0o_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0o_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0x0a</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0x0el</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0x_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0x_0_0l</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0e+0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.e-0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0e-0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.e+0_0_0</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0e+0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0.e-0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">.0_0_0e-0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_0.e+0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">009j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+<span class="hljs-number">0_0_0j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>, <span class="hljs-number">0_0_9j</span><span class="hljs-keyword">is</span> <span class="hljs-number">0</span>
+
+<span class="hljs-comment"># expressions not containing numeric literals</span>
+x0.j
+
+<span class="hljs-comment"># invalid pseudo-numeric expressions</span>
+1__0
+1e_1
+07
+0b1e1

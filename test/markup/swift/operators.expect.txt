@@ -1,0 +1,98 @@
+<span class="hljs-operator">!</span><span class="hljs-literal">true</span>
+<span class="hljs-operator">~</span>x
+<span class="hljs-operator">+</span><span class="hljs-number">1</span>
+<span class="hljs-operator">-</span><span class="hljs-number">1</span>
+<span class="hljs-operator">..&lt;</span><span class="hljs-number">1</span>
+<span class="hljs-operator">...</span><span class="hljs-number">1</span>
+<span class="hljs-number">0</span><span class="hljs-operator">...</span>
+a<span class="hljs-operator">?</span>
+a<span class="hljs-operator">!</span>
+
+a <span class="hljs-operator">&lt;&lt;</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&lt;&lt;</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&gt;&gt;</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&gt;&gt;</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">*</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">*</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">/</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">/</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">%</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">%</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&amp;*</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&amp;*</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&amp;</span> b
+a<span class="hljs-operator">&amp;</span>b
+a <span class="hljs-operator">+</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">+</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">-</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">-</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&amp;+</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&amp;+</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&amp;-</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&amp;-</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">|</span> b
+a<span class="hljs-operator">|</span>b
+a <span class="hljs-operator">^</span> b
+a<span class="hljs-operator">^</span>b
+<span class="hljs-number">0</span> <span class="hljs-operator">..&lt;</span> <span class="hljs-number">1</span>
+<span class="hljs-number">0</span><span class="hljs-operator">..&lt;</span><span class="hljs-number">1</span>
+<span class="hljs-number">0</span> <span class="hljs-operator">...</span> <span class="hljs-number">1</span>
+<span class="hljs-number">0</span><span class="hljs-operator">...</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">??</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">??</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&lt;</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&lt;</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&lt;=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&lt;=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&gt;</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&gt;</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&gt;=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&gt;=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">==</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">==</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">!=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">!=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">===</span> b
+a<span class="hljs-operator">===</span>b
+a <span class="hljs-operator">!==</span> b
+a<span class="hljs-operator">!==</span>b
+a <span class="hljs-operator">~=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">~=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">.==</span> b
+a<span class="hljs-operator">.==</span>b
+a <span class="hljs-operator">.!=</span> b
+a<span class="hljs-operator">.!=</span>b
+a <span class="hljs-operator">.&lt;</span> b
+a<span class="hljs-operator">.&lt;</span>b
+a <span class="hljs-operator">.&lt;=</span> b
+a<span class="hljs-operator">.&lt;=</span>b
+a <span class="hljs-operator">.&gt;</span> b
+a<span class="hljs-operator">.&gt;</span>b
+a <span class="hljs-operator">.&gt;=</span> b
+a<span class="hljs-operator">.&gt;=</span>b
+<span class="hljs-literal">true</span> <span class="hljs-operator">&amp;&amp;</span> <span class="hljs-literal">false</span>
+<span class="hljs-literal">true</span><span class="hljs-operator">&amp;&amp;</span><span class="hljs-literal">false</span>
+<span class="hljs-literal">true</span> <span class="hljs-operator">||</span> <span class="hljs-literal">false</span>
+<span class="hljs-literal">true</span><span class="hljs-operator">||</span><span class="hljs-literal">false</span>
+a <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">*=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">*=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">/=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">/=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">%=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">%=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">+=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">+=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">-=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">-=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&lt;&lt;=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&lt;&lt;=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&gt;&gt;=</span> <span class="hljs-number">1</span>
+a<span class="hljs-operator">&gt;&gt;=</span><span class="hljs-number">1</span>
+a <span class="hljs-operator">&amp;=</span> b
+a<span class="hljs-operator">&amp;=</span>b
+a <span class="hljs-operator">|=</span> b
+a<span class="hljs-operator">|=</span>b
+a <span class="hljs-operator">^=</span> b
+a<span class="hljs-operator">^=</span>b

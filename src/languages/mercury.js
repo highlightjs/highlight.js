@@ -6,7 +6,7 @@ Website: https://www.mercurylang.org
 */
 
 export default function(hljs) {
-  var KEYWORDS = {
+  const KEYWORDS = {
     keyword:
       'module use_module import_module include_module end_module initialise ' +
       'mutable initialize finalize finalise interface implementation pred ' +
@@ -35,44 +35,69 @@ export default function(hljs) {
       'semidet_true semidet_false semidet_fail impure_true impure semipure'
   };
 
-  var COMMENT = hljs.COMMENT('%', '$');
+  const COMMENT = hljs.COMMENT('%', '$');
 
-  var NUMCODE = {
+  const NUMCODE = {
     className: 'number',
     begin: "0'.\\|0[box][0-9a-fA-F]*"
   };
 
-  var ATOM = hljs.inherit(hljs.APOS_STRING_MODE, {relevance: 0});
-  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {relevance: 0});
-  var STRING_FMT = {
+  const ATOM = hljs.inherit(hljs.APOS_STRING_MODE, {
+    relevance: 0
+  });
+  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    relevance: 0
+  });
+  const STRING_FMT = {
     className: 'subst',
     begin: '\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]',
     relevance: 0
   };
-  STRING.contains = STRING.contains.slice() // we need our own copy of contains
+  STRING.contains = STRING.contains.slice(); // we need our own copy of contains
   STRING.contains.push(STRING_FMT);
 
-  var IMPLICATION = {
+  const IMPLICATION = {
     className: 'built_in',
     variants: [
-      {begin: '<=>'},
-      {begin: '<=', relevance: 0},
-      {begin: '=>', relevance: 0},
-      {begin: '/\\\\'},
-      {begin: '\\\\/'}
+      {
+        begin: '<=>'
+      },
+      {
+        begin: '<=',
+        relevance: 0
+      },
+      {
+        begin: '=>',
+        relevance: 0
+      },
+      {
+        begin: '/\\\\'
+      },
+      {
+        begin: '\\\\/'
+      }
     ]
   };
 
-  var HEAD_BODY_CONJUNCTION = {
+  const HEAD_BODY_CONJUNCTION = {
     className: 'built_in',
     variants: [
-      {begin: ':-\\|-->'},
-      {begin: '=', relevance: 0}
+      {
+        begin: ':-\\|-->'
+      },
+      {
+        begin: '=',
+        relevance: 0
+      }
     ]
   };
 
   return {
-    aliases: ['m', 'moo'],
+    name: 'Mercury',
+    aliases: [
+      'm',
+      'moo'
+    ],
     keywords: KEYWORDS,
     contains: [
       IMPLICATION,
@@ -83,8 +108,12 @@ export default function(hljs) {
       hljs.NUMBER_MODE,
       ATOM,
       STRING,
-      {begin: /:-/}, // relevance booster
-      {begin: /\.$/} // relevance booster
+      { // relevance booster
+        begin: /:-/
+      },
+      { // relevance booster
+        begin: /\.$/
+      }
     ]
   };
 }

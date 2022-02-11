@@ -1,0 +1,42 @@
+<span class="hljs-comment"># loads object</span>
+<span class="hljs-function"><span class="hljs-keyword">sub</span> <span class="hljs-title">load</span>
+</span>{
+  <span class="hljs-keyword">my</span> $flds = $c-&gt;db_load($id,@_) || <span class="hljs-keyword">do</span> {
+    Carp::carp <span class="hljs-string">&quot;Can`t load (class: $c, id: $id): &#x27;$!&#x27;&quot;</span>; <span class="hljs-keyword">return</span> <span class="hljs-keyword">undef</span>
+  };
+  <span class="hljs-keyword">my</span> $o = $c-&gt;_perl_new();
+  $id12 = $id / <span class="hljs-number">24</span> / <span class="hljs-number">3600</span>;
+  $o-&gt;{<span class="hljs-string">&#x27;ID&#x27;</span>} = $id12 + <span class="hljs-number">123</span>;
+  <span class="hljs-comment">#$o-&gt;{&#x27;SHCUT&#x27;} = $flds-&gt;{&#x27;SHCUT&#x27;};</span>
+  <span class="hljs-keyword">my</span> $p = $o-&gt;props;
+  <span class="hljs-keyword">my</span> $vt;
+  $string =~ <span class="hljs-regexp">m/^sought_text$/</span>;
+  $items = <span class="hljs-keyword">split</span> <span class="hljs-regexp">//</span>, <span class="hljs-string">&#x27;abc&#x27;</span>;
+  $string //= <span class="hljs-string">&quot;bar&quot;</span>;
+  <span class="hljs-keyword">for</span> <span class="hljs-keyword">my</span> $key (<span class="hljs-keyword">keys</span> %$p)
+  {
+    <span class="hljs-keyword">if</span>(${$vt.<span class="hljs-string">&#x27;::property&#x27;</span>}) {
+      $o-&gt;{$key . <span class="hljs-string">&#x27;_real&#x27;</span>} = $flds-&gt;{$key};
+      <span class="hljs-keyword">tie</span> $o-&gt;{$key}, <span class="hljs-string">&#x27;CMSBuilder::Property&#x27;</span>, $o, $key;
+    }
+  }
+  $o-&gt;save <span class="hljs-keyword">if</span> <span class="hljs-keyword">delete</span> $o-&gt;{<span class="hljs-string">&#x27;_save_after_load&#x27;</span>};
+
+  <span class="hljs-comment"># GH-117</span>
+  <span class="hljs-keyword">my</span> $g = <span class="hljs-keyword">glob</span>(<span class="hljs-string">&quot;/usr/bin/*&quot;</span>);
+
+  <span class="hljs-keyword">return</span> $o;
+}
+
+<span class="language-mojolicious"><span class="hljs-meta">__DATA__</span><span class="language-xml">
+</span></span><span class="hljs-comment">@@ layouts/default.html.ep</span><span class="language-mojolicious"><span class="language-xml">
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&lt;%=</span><span class="language-perl"> title </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>&lt;%=</span><span class="language-perl"> content </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span><span class="hljs-meta">__END__</span></span>
+
+<span class="hljs-comment">=head1 NAME
+POD till the end of file
+</span>

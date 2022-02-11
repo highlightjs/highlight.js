@@ -1,11 +1,11 @@
-<span class="hljs-keyword">class</span> Car <span class="hljs-keyword">extends</span> Vehicle {
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">speed, cost</span>) {
-    <span class="hljs-keyword">super</span>(speed);
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Vehicle</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">speed, cost</span>) {
+    <span class="hljs-variable language_">super</span>(speed);
 
-    <span class="hljs-keyword">var</span> c = Symbol(<span class="hljs-string">'cost'</span>);
-    <span class="hljs-keyword">this</span>[c] = cost;
+    <span class="hljs-keyword">var</span> c = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;cost&#x27;</span>);
+    <span class="hljs-variable language_">this</span>[c] = cost;
 
-    <span class="hljs-keyword">this</span>.intro = <span class="hljs-string">`This is a car runs at
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">intro</span> = <span class="hljs-string">`This is a car runs at
       <span class="hljs-subst">${speed}</span>.`</span>;
   }
 }

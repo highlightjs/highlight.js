@@ -1,14 +1,18 @@
-<span class="hljs-string">'a'</span>;
-<span class="hljs-string">'\n'</span>;
-<span class="hljs-string">'\x1A'</span>;
-<span class="hljs-string">'\u12AS'</span>;
-<span class="hljs-string">'\U1234ASDF'</span>;
-<span class="hljs-string">b'a'</span>;
+<span class="hljs-string">&#x27;a&#x27;</span>;
+<span class="hljs-string">&#x27;\n&#x27;</span>;
+<span class="hljs-string">&#x27;\x1A&#x27;</span>;
+<span class="hljs-string">&#x27;\u12AS&#x27;</span>;
+<span class="hljs-string">&#x27;\U1234ASDF&#x27;</span>;
+<span class="hljs-string">b&#x27;a&#x27;</span>;
 
-<span class="hljs-string">"hello"</span>;
-<span class="hljs-string">b"hello"</span>;
+<span class="hljs-string">&quot;hello&quot;</span>;
+<span class="hljs-string">b&quot;hello&quot;</span>;
 
-<span class="hljs-string">r"hello"</span>;
-<span class="hljs-string">r###"world"###</span>;
-<span class="hljs-string">r##" "###
-"# "##</span>;
+<span class="hljs-string">r&quot;hello&quot;</span>;
+<span class="hljs-string">r###&quot;world&quot;###</span>;
+<span class="hljs-string">r##&quot; &quot;###
+&quot;# &quot;##</span>;
+
+<span class="hljs-string">br&quot; &quot;</span>;
+<span class="hljs-string">br#&quot;hello&quot;#</span>;
+<span class="hljs-string">br##&quot;foo&quot;##</span>;

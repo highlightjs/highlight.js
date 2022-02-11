@@ -1,74 +1,136 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+
 /* Base styles */
 body {
-  color: #F0F0F0;
+  color: #f0f0f0;
   background: #500;
-  font-family: Arial, sans;
-  margin: 0; padding: 0;
+  font-family: PT Sans, DejaVu Sans, Arial, sans;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-  color: white;
+  color: #f0f0f0;
 }
 
 h1 {
-  font: bold 150% Arial, sans-serif;
-  margin: 0; padding: 1em 0;
+  font-size: 150%;
+  margin: 0;
+  padding: 1em 0 0.5em;
 }
 
 h2 {
-  font: bold 120% Arial, sans-serif;
+  font-size: 120%;
   margin: 1.5em 0 0.5em 0;
 }
 
 pre {
   margin: 0;
-  font-size: medium;
 }
 
-#sidebar {
-  float: left; width: 16em; height: 1000em; position: fixed;
-  padding: 1px 1em;
+code {
+  display: block;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 10pt;
+  overflow-x: auto;
+  padding: 0.5em;
+  scrollbar-width: thin;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+pre code.hljs {
+  /* compatible with school-book */
+  padding: 16px 30px 20px;
+}
+
+aside {
   background: #600;
-  box-shadow: 0 0 15px black;
+  bottom: 0;
+  box-shadow: 0 0 1em #000000;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  padding: 0 1.5em 1em;
+  position: fixed;
+  top: 0;
+  width: 16em;
 }
 
-#sidebar ul,
-#sidebar li {
+.categories {
+  flex: 0 4 25%;
+}
+
+.styles {
+  flex: 1 1 50%;
+}
+
+aside ul,
+aside li {
   list-style: none;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-#sidebar ul {
+aside ul {
   position: relative;
-  overflow-y: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
-#sidebar li {
-  padding: 1px 1em;
-  cursor: pointer;
+aside ul::-webkit-scrollbar {
+  width: 8px;
 }
 
-#sidebar li:hover {
+aside ul::-webkit-scrollbar-track {
+  background: #4d0607;
+  border-radius: 5px;
+}
+
+aside ul::-webkit-scrollbar-thumb {
+  background: #926868;
+  border-right: 1px solid #4d0607;
+  border-left: 1px solid #4d0607;
+  border-radius: 5px;
+}
+
+aside ul::-webkit-scrollbar-thumb:hover {
+  background: #7f5555;
+}
+
+aside ul::-webkit-scrollbar-thumb:active {
+  background: #5d3333;
+}
+
+aside ul a {
+  display: block;
+  padding: 1px 0.5em 1px 1em;
+  text-decoration: none;
+}
+
+aside ul a:focus,
+aside ul a:hover {
   background: #500;
+  outline: none;
 }
 
-#sidebar li.current:before {
-  content: '▶'; font-size: smaller;
-  position: absolute; left: 0;
+aside ul a.current:before {
+  content: "▶";
+  font-size: smaller;
+  position: absolute;
+  left: 0;
 }
 
-#content {
-  margin-left: 19em;
-}
-
-#languages {
+main {
+  margin-left: 18em;
+  min-width: 36em;
   padding: 1px 4em;
 }
 
-#languages div {
-  display: none;
+main > div {
+  margin: 2.5em 0 3em;
 }
 
-#languages div {
-  margin: 3em 0;
+.hidden {
+  display: none;
 }

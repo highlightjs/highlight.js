@@ -1,0 +1,57 @@
+<span class="hljs-number">1</span>; <span class="hljs-number">10</span>;  <span class="hljs-number">999</span>;   <span class="hljs-number">0</span>; <span class="hljs-number">00</span>;  <span class="hljs-number">000</span>
+<span class="hljs-number">1</span>; <span class="hljs-number">1_0</span>; <span class="hljs-number">9_9_9</span>; <span class="hljs-number">0</span>; <span class="hljs-number">0_0</span>; <span class="hljs-number">0_0_0</span>
+
+<span class="hljs-number">0D1</span>; <span class="hljs-number">0d10</span>;  <span class="hljs-number">0D999</span>;   <span class="hljs-number">0d0</span>; <span class="hljs-number">0D00</span>;  <span class="hljs-number">0d000</span>;   <span class="hljs-number">0d008</span>
+<span class="hljs-number">0D1</span>; <span class="hljs-number">0d1_0</span>; <span class="hljs-number">0D9_9_9</span>; <span class="hljs-number">0d0</span>; <span class="hljs-number">0D0_0</span>; <span class="hljs-number">0d0_0_0</span>; <span class="hljs-number">0D0_0_8</span>
+
+<span class="hljs-number">0b0</span>; <span class="hljs-number">0B11</span>;  <span class="hljs-number">0B000</span>;  <span class="hljs-number">0b010</span>
+<span class="hljs-number">0b0</span>; <span class="hljs-number">0B1_1</span>; <span class="hljs-number">0B0_00</span>; <span class="hljs-number">0b01_0</span>
+
+<span class="hljs-number">077</span>;   <span class="hljs-number">0O0</span>; <span class="hljs-number">0o01</span>;  <span class="hljs-number">0O777</span>;  <span class="hljs-number">0o644</span>
+<span class="hljs-number">0_7_7</span>; <span class="hljs-number">0O0</span>; <span class="hljs-number">0o0_1</span>; <span class="hljs-number">0O77_7</span>; <span class="hljs-number">0o6_44</span>
+
+<span class="hljs-number">0x0</span>; <span class="hljs-number">0Xa0</span>;  <span class="hljs-number">0X7FFF</span>;  <span class="hljs-number">0xd3aD</span>
+<span class="hljs-number">0x0</span>; <span class="hljs-number">0Xa_0</span>; <span class="hljs-number">0X7F_FF</span>; <span class="hljs-number">0xd3_aD</span>
+
+
+<span class="hljs-number">4.2</span>; <span class="hljs-number">4.20</span>;  <span class="hljs-number">88.0</span>;  <span class="hljs-number">13.37</span>
+<span class="hljs-number">4.2</span>; <span class="hljs-number">4.2_0</span>; <span class="hljs-number">8_8.0</span>; <span class="hljs-number">1_3.3_7</span>
+
+<span class="hljs-number">0e10</span>;  <span class="hljs-number">0.00e+10</span>;  <span class="hljs-number">9e-10</span>;  <span class="hljs-number">4.2E10</span>;  <span class="hljs-number">40.0E+10</span>;   <span class="hljs-number">0e100</span>;   <span class="hljs-number">1010e+10</span>
+<span class="hljs-number">0e1_0</span>; <span class="hljs-number">0.0_0e+10</span>; <span class="hljs-number">9e-1_0</span>; <span class="hljs-number">4.2E1_0</span>; <span class="hljs-number">4_0.0E+1_0</span>; <span class="hljs-number">0e1_0_0</span>; <span class="hljs-number">10_10e+10</span>
+
+
+<span class="hljs-number">100r</span>;  <span class="hljs-number">077r</span>;   <span class="hljs-number">4.2r</span>; <span class="hljs-number">4.20r</span>;  <span class="hljs-number">88.0r</span>; <span class="hljs-number">13.37r</span>;   <span class="hljs-number">0d800r</span>;   <span class="hljs-number">0B100r</span>;  <span class="hljs-number">0o700r</span>;  <span class="hljs-number">0XaB_cr</span>
+<span class="hljs-number">1_00r</span>; <span class="hljs-number">0_7_7r</span>; <span class="hljs-number">4.2r</span>; <span class="hljs-number">4.2_0r</span>; <span class="hljs-number">88.0r</span>; <span class="hljs-number">1_3.3_7r</span>; <span class="hljs-number">0d8_0_0r</span>; <span class="hljs-number">0B1_00r</span>; <span class="hljs-number">0o70_0r</span>; <span class="hljs-number">0XaB_cr</span>
+
+
+<span class="hljs-number">0i</span>; <span class="hljs-number">00i</span>;  <span class="hljs-number">000i</span>;   <span class="hljs-number">1234i</span>;  <span class="hljs-number">077i</span>;  <span class="hljs-number">0d08i</span>;  <span class="hljs-number">0B11i</span>;  <span class="hljs-number">0o77i</span>;  <span class="hljs-number">13.37i</span>
+<span class="hljs-number">0i</span>; <span class="hljs-number">0_0i</span>; <span class="hljs-number">0_0_0i</span>; <span class="hljs-number">12_34i</span>; <span class="hljs-number">0_77i</span>; <span class="hljs-number">0d0_8i</span>; <span class="hljs-number">0B1_1i</span>; <span class="hljs-number">0o7_7i</span>; <span class="hljs-number">13.3_7i</span>
+
+<span class="hljs-number">1e100i</span>;   <span class="hljs-number">13.37e08i</span>;    <span class="hljs-number">13.37E-07i</span>;   <span class="hljs-number">13.37e+09i</span>
+<span class="hljs-number">1e1_0_0i</span>; <span class="hljs-number">1_3.3_7e0_8i</span>; <span class="hljs-number">1_3.3_7E-07i</span>; <span class="hljs-number">13.37e+0_9i</span>
+
+
+<span class="hljs-number">100ri</span>;  <span class="hljs-number">077ri</span>;   <span class="hljs-number">4.2ri</span>; <span class="hljs-number">4.20ri</span>;  <span class="hljs-number">88.0ri</span>; <span class="hljs-number">13.37ri</span>;   <span class="hljs-number">0d800ri</span>;   <span class="hljs-number">0B100ri</span>;  <span class="hljs-number">0o700ri</span>;  <span class="hljs-number">0XaB_cri</span>
+<span class="hljs-number">1_00ri</span>; <span class="hljs-number">0_7_7ri</span>; <span class="hljs-number">4.2ri</span>; <span class="hljs-number">4.2_0ri</span>; <span class="hljs-number">88.0ri</span>; <span class="hljs-number">1_3.3_7ri</span>; <span class="hljs-number">0d8_0_0ri</span>; <span class="hljs-number">0B1_00ri</span>; <span class="hljs-number">0o70_0ri</span>; <span class="hljs-number">0XaB_cri</span>
+
+
+<span class="hljs-comment"># expressions containing numeric literals</span>
+<span class="hljs-number">0</span>..<span class="hljs-number">7</span>; <span class="hljs-number">1e1</span>..<span class="hljs-number">2e1</span>; <span class="hljs-number">0b0</span>.to_s
+
+<span class="hljs-comment"># pseudo-expressions containing numeric literals</span>
+<span class="hljs-number">0d100</span>.<span class="hljs-number">0</span>
+.<span class="hljs-number">0</span>
+<span class="hljs-number">0</span>.
+<span class="hljs-number">00</span>.<span class="hljs-number">0</span>
+
+<span class="hljs-comment"># invalid pseudo-numeric expressions</span>
+1__0
+1e_1
+1e1r
+08
+07e1
+0b1e1
+0I
+0R
+0ir

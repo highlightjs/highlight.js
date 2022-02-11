@@ -1,0 +1,13 @@
+<span class="hljs-comment">//=================== YOUR CODE GOES HERE ===================//</span>
+
+<span class="hljs-comment"># logical operator demo (highlight.js arm comment test)</span>
+<span class="hljs-keyword">mov</span> <span class="hljs-built_in">r0</span>, <span class="hljs-number">#0x00F0</span>     <span class="hljs-comment">// r0 = 0x00F0</span>
+<span class="hljs-keyword">mov</span> <span class="hljs-built_in">r1</span>, <span class="hljs-number">#0x000F</span>     <span class="hljs-comment">// r1 = 0x000F</span>
+<span class="hljs-keyword">mov</span> <span class="hljs-built_in">r2</span>, <span class="hljs-number">#0xFF00</span>     <span class="hljs-comment">// r2 = 0xFF00</span>
+
+    <span class="hljs-comment"># and even more code, but indented</span>
+    <span class="hljs-keyword">orr</span> <span class="hljs-built_in">r3</span>, <span class="hljs-built_in">r0</span>, <span class="hljs-built_in">r1</span>      <span class="hljs-comment">// r3 = r0 | r1     // r3 = 0x00FF</span>
+    <span class="hljs-keyword">and</span> <span class="hljs-built_in">r4</span>, <span class="hljs-built_in">r3</span>, <span class="hljs-built_in">r2</span>      <span class="hljs-comment">// r4 = r3 &amp; r2     // r4 = 0x0000</span>
+    <span class="hljs-keyword">orr</span> <span class="hljs-built_in">r5</span>, <span class="hljs-built_in">r3</span>, <span class="hljs-built_in">r2</span>      <span class="hljs-comment">// r4 = r3 | r2     // r5 = 0xFFFF</span>
+    <span class="hljs-keyword">eor</span> <span class="hljs-built_in">r6</span>, <span class="hljs-built_in">r5</span>, <span class="hljs-built_in">r2</span>      <span class="hljs-comment">// r6 = r5 ^ r2     // r6 = 0x00FF</span>
+<span class="hljs-comment">//===========================================================================//</span>

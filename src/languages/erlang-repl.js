@@ -5,8 +5,11 @@ Website: https://www.erlang.org
 Category: functional
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   return {
+    name: 'Erlang REPL',
     keywords: {
       built_in:
         'spawn spawn_link self',
@@ -16,19 +19,24 @@ export default function(hljs) {
     },
     contains: [
       {
-        className: 'meta', begin: '^[0-9]+> ',
+        className: 'meta',
+        begin: '^[0-9]+> ',
         relevance: 10
       },
       hljs.COMMENT('%', '$'),
       {
         className: 'number',
-        begin: '\\b(\\d+#[a-fA-F0-9]+|\\d+(\\.\\d+)?([eE][-+]?\\d+)?)',
+        begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)',
         relevance: 0
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        begin: '\\?(::)?([A-Z]\\w*(::)?)+'
+        begin: regex.concat(
+          /\?(::)?/,
+          /([A-Z]\w*)/, // at least one identifier
+          /((::)[A-Z]\w*)*/ // perhaps more
+        )
       },
       {
         begin: '->'

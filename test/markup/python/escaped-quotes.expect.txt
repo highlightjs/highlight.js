@@ -1,43 +1,51 @@
-<span class="hljs-string">'''text \''' text'''</span>
-<span class="hljs-string">u'''text \''' text'''</span>
-<span class="hljs-string">b'''text \''' text'''</span>
-<span class="hljs-string">r'''text \''' text'''</span>
-<span class="hljs-string">ur'''text \''' text'''</span>
-<span class="hljs-string">br'''text \''' text'''</span>
+<span class="hljs-string">&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">u&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">b&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">r&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">br&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">rb&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
 
-<span class="hljs-string">"""text \""" text"""</span>
-<span class="hljs-string">u"""text \""" text"""</span>
-<span class="hljs-string">b"""text \""" text"""</span>
-<span class="hljs-string">r"""text \""" text"""</span>
-<span class="hljs-string">ur"""text \""" text"""</span>
-<span class="hljs-string">br"""text \""" text"""</span>
+<span class="hljs-string">&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
+<span class="hljs-string">u&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
+<span class="hljs-string">b&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
+<span class="hljs-string">r&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
+<span class="hljs-string">br&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
+<span class="hljs-string">rb&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
 
-<span class="hljs-string">f'''text \''' text'''</span>
-<span class="hljs-string">fr'''text \''' text'''</span>
-<span class="hljs-string">rf'''text \''' text'''</span>
+<span class="hljs-string">f&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">fr&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
+<span class="hljs-string">rf&#x27;&#x27;&#x27;text \&#x27;&#x27;&#x27; text&#x27;&#x27;&#x27;</span>
 
-<span class="hljs-string">f"""text \""" text"""</span>
-<span class="hljs-string">fr"""text \""" text"""</span>
-<span class="hljs-string">rf"""text \""" text"""</span>
+<span class="hljs-string">f&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
+<span class="hljs-string">fr&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
+<span class="hljs-string">rf&quot;&quot;&quot;text \&quot;&quot;&quot; text&quot;&quot;&quot;</span>
 
-<span class="hljs-string">u'text \' text'</span>
-<span class="hljs-string">r'text \' text'</span>
-<span class="hljs-string">ur'text \' text'</span>
+<span class="hljs-string">u&#x27;text \&#x27; text&#x27;</span>
+<span class="hljs-string">r&#x27;text \&#x27; text&#x27;</span>
 
-<span class="hljs-string">u"text \" text"</span>
-<span class="hljs-string">r"text \" text"</span>
-<span class="hljs-string">ur"text \" text"</span>
+<span class="hljs-string">u&quot;text \&quot; text&quot;</span>
+<span class="hljs-string">r&quot;text \&quot; text&quot;</span>
 
-<span class="hljs-string">b'text \' text'</span>
-<span class="hljs-string">br'text \' text'</span>
+<span class="hljs-string">b&#x27;text \&#x27; text&#x27;</span>
+<span class="hljs-string">br&#x27;text \&#x27; text&#x27;</span>
+<span class="hljs-string">rb&#x27;text \&#x27; text&#x27;</span>
 
-<span class="hljs-string">b"text \" text"</span>
-<span class="hljs-string">br"text \" text"</span>
+<span class="hljs-string">b&quot;text \&quot; text&quot;</span>
+<span class="hljs-string">br&quot;text \&quot; text&quot;</span>
+<span class="hljs-string">rb&quot;text \&quot; text&quot;</span>
 
-<span class="hljs-string">f'text \' text'</span>
-<span class="hljs-string">fr'text \' text'</span>
-<span class="hljs-string">rf'text \' text'</span>
+<span class="hljs-string">f&#x27;text \&#x27; text&#x27;</span>
+<span class="hljs-string">fr&#x27;text \&#x27; text&#x27;</span>
+<span class="hljs-string">rf&#x27;text \&#x27; text&#x27;</span>
 
-<span class="hljs-string">f"text \" text"</span>
-<span class="hljs-string">fr"text \" text"</span>
-<span class="hljs-string">rf"text \" text"</span>
+<span class="hljs-string">f&quot;text \&quot; text&quot;</span>
+<span class="hljs-string">fr&quot;text \&quot; text&quot;</span>
+<span class="hljs-string">rf&quot;text \&quot; text&quot;</span>
+
+<span class="hljs-string">F&#x27;text \&#x27; text&#x27;</span>
+<span class="hljs-string">FR&#x27;text \&#x27; text&#x27;</span>
+<span class="hljs-string">Rf&#x27;text \&#x27; text&#x27;</span>
+
+<span class="hljs-string">F&quot;text \&quot; text&quot;</span>
+<span class="hljs-string">fR&quot;text \&quot; text&quot;</span>
+<span class="hljs-string">RF&quot;text \&quot; text&quot;</span>

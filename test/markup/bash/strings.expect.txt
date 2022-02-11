@@ -1,0 +1,14 @@
+SCRIPT_DIR=<span class="hljs-string">&quot;<span class="hljs-subst">$( cd <span class="hljs-string">&quot;<span class="hljs-subst">$( dirname <span class="hljs-string">&quot;<span class="hljs-variable">${BASH_SOURCE[0]}</span>&quot;</span> )</span>&quot;</span> &gt;/dev/null 2&gt;&amp;1 &amp;&amp; pwd )</span>&quot;</span>
+TLS_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$SCRIPT_DIR</span>/../src/main/resources/tls&quot;</span>
+ROOT_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$SCRIPT_DIR</span>/..&quot;</span>
+
+jshell -s - &lt;&lt; <span class="hljs-string">EOF
+System.out.printf(&quot;Procs: %s%n&quot;, getdata())
+EOF</span>
+
+jshell -s - &lt;&lt;&lt;<span class="hljs-string">&#x27;System.out.printf(&quot;Procs: %s%n&quot;, getdata())&#x27;</span>
+
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-string">&#x27;$VARIABLE&#x27;</span>
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$VARIABLE</span>&quot;</span>
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-variable">$VARIABLE</span>
+<span class="hljs-built_in">cat</span> &lt;&lt;&lt; `<span class="hljs-variable">$VARIABLE</span>`

@@ -1,0 +1,11 @@
+% foo ^^bar \baz
+foo%
+% !TeX program = pdflatex
+%% !TeX encoding = utf8
+%!TEX spellcheck = en-US
+%  !TeX foo
+% !tex foo
+% !tEx foo
+% !BIB foo
+%!bib foo
+% !Bib foo

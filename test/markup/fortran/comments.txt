@@ -1,0 +1,11 @@
+  !===============================
+  !   This is a test subroutine
+  !===============================
+
+! another comment
+
+C=2
+C = 2 !correct
+C ='boo'
+
+contains

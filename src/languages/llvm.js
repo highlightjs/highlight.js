@@ -4,12 +4,66 @@ Author: Michael Rodler <contact@f0rki.at>
 Description: language used as intermediate representation in the LLVM compiler framework
 Website: https://llvm.org/docs/LangRef.html
 Category: assembler
+Audit: 2020
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var identifier = '([-a-zA-Z$._][\\w\\-$.]*)';
+  const regex = hljs.regex;
+  const IDENT_RE = /([-a-zA-Z$._][\w$.-]*)/;
+  const TYPE = {
+    className: 'type',
+    begin: /\bi\d+(?=\s|\b)/
+  };
+  const OPERATOR = {
+    className: 'operator',
+    relevance: 0,
+    begin: /=/
+  };
+  const PUNCTUATION = {
+    className: 'punctuation',
+    relevance: 0,
+    begin: /,/
+  };
+  const NUMBER = {
+    className: 'number',
+    variants: [
+        { begin: /[su]?0[xX][KMLHR]?[a-fA-F0-9]+/ },
+        { begin: /[-+]?\d+(?:[.]\d+)?(?:[eE][-+]?\d+(?:[.]\d+)?)?/ }
+    ],
+    relevance: 0
+  };
+  const LABEL = {
+    className: 'symbol',
+    variants: [
+        { begin: /^\s*[a-z]+:/ }, // labels
+    ],
+    relevance: 0
+  };
+  const VARIABLE = {
+    className: 'variable',
+    variants: [
+      { begin: regex.concat(/%/, IDENT_RE) },
+      { begin: /%\d+/ },
+      { begin: /#\d+/ },
+    ]
+  };
+  const FUNCTION = {
+    className: 'title',
+    variants: [
+      { begin: regex.concat(/@/, IDENT_RE) },
+      { begin: /@\d+/ },
+      { begin: regex.concat(/!/, IDENT_RE) },
+      { begin: regex.concat(/!\d+/, IDENT_RE) },
+      // https://llvm.org/docs/LangRef.html#namedmetadatastructure
+      // obviously a single digit can also be used in this fashion
+      { begin: /!\d+/ }
+    ]
+  };
+
   return {
-    //lexemes: '[.%]?' + hljs.IDENT_RE,
+    name: 'LLVM IR',
+    // TODO: split into different categories of keywords
     keywords:
       'begin end true false declare define global ' +
       'constant private linker_private internal ' +
@@ -49,48 +103,29 @@ export default function(hljs) {
       'extractvalue insertvalue atomicrmw cmpxchg fence ' +
       'argmemonly double',
     contains: [
-      {
-        className: 'keyword',
-        begin: 'i\\d+'
-      },
-      hljs.COMMENT(
-        ';', '\\n', {relevance: 0}
-      ),
-      // Double quote string
-      hljs.QUOTE_STRING_MODE,
+      TYPE,
+      // this matches "empty comments"...
+      // ...because it's far more likely this is a statement terminator in
+      // another language than an actual comment
+      hljs.COMMENT(/;\s*$/, null, { relevance: 0 }),
+      hljs.COMMENT(/;/, /$/),
       {
         className: 'string',
-        variants: [
-          // Double-quoted string
-          { begin: '"', end: '[^\\\\]"' },
-        ],
-        relevance: 0
-      },
-      {
-        className: 'title',
-        variants: [
-          { begin: '@' + identifier },
-          { begin: '@\\d+' },
-          { begin: '!' + identifier },
-          { begin: '!\\d+' + identifier }
+        begin: /"/,
+        end: /"/,
+        contains: [
+          {
+            className: 'char.escape',
+            match: /\\\d\d/
+          }
         ]
       },
-      {
-        className: 'symbol',
-        variants: [
-          { begin: '%' + identifier },
-          { begin: '%\\d+' },
-          { begin: '#\\d+' },
-        ]
-      },
-      {
-        className: 'number',
-        variants: [
-            { begin: '0[xX][a-fA-F0-9]+' },
-            { begin: '-?\\d+(?:[.]\\d+)?(?:[eE][-+]?\\d+(?:[.]\\d+)?)?' }
-        ],
-        relevance: 0
-      },
+      FUNCTION,
+      PUNCTUATION,
+      OPERATOR,
+      VARIABLE,
+      LABEL,
+      NUMBER
     ]
   };
 }

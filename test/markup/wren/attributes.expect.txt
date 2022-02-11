@@ -1,0 +1,16 @@
+<span class="hljs-comment">#key</span>
+<span class="hljs-comment">#key = value</span>
+<span class="hljs-comment">#group(
+  multiple,
+  lines = <span class="hljs-literal">true</span>,
+  lines = 0
+)</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Example</span> {
+  <span class="hljs-comment">#test(skip = <span class="hljs-literal">true</span>, iterations = 32)</span>
+  <span class="hljs-title function_">doStuff</span>() {}
+
+  <span class="hljs-comment">#doc = &quot;not runtime data&quot;</span>
+  <span class="hljs-comment">#!runtimeAccess = true</span>
+  <span class="hljs-comment">#!maxIterations = 16</span>
+  <span class="hljs-title function_">anotherFn</span>() {}
+}

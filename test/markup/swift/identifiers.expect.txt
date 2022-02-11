@@ -1,0 +1,3 @@
+`func`
+{ <span class="hljs-variable">$0</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> }
+value.<span class="hljs-variable">$wrappedValue</span>

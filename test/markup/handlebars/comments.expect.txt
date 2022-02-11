@@ -1,4 +1,4 @@
-<span class="hljs-comment">{{!-- a comment {{expression}} --}}</span><span class="xml"> </span><span class="hljs-template-variable">{{expression}}</span><span class="xml">
+<span class="hljs-comment">{{!-- a comment {{expression}} --}}</span><span class="language-xml"> </span><span class="hljs-template-variable">{{<span class="hljs-name">expression</span>}}</span><span class="language-xml">
 
-</span><span class="hljs-comment">{{! a simple comment }}</span><span class="xml">
+</span><span class="hljs-comment">{{! a simple comment }}</span><span class="language-xml">
 </span>

@@ -6,13 +6,35 @@ Website: http://irpf90.ups-tlse.fr
 Category: scientific
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
-  var PARAMS = {
+  const regex = hljs.regex;
+  const PARAMS = {
     className: 'params',
-    begin: '\\(', end: '\\)'
+    begin: '\\(',
+    end: '\\)'
   };
 
-  var F_KEYWORDS = {
+  // regex in both fortran and irpf90 should match
+  const OPTIONAL_NUMBER_SUFFIX = /(_[a-z_\d]+)?/;
+  const OPTIONAL_NUMBER_EXP = /([de][+-]?\d+)?/;
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      {
+        begin: regex.concat(/\b\d+/, /\.(\d*)/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX)
+      },
+      {
+        begin: regex.concat(/\b\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX)
+      },
+      {
+        begin: regex.concat(/\.\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX)
+      }
+    ],
+    relevance: 0
+  };
+
+  const F_KEYWORDS = {
     literal: '.False. .True.',
     keyword: 'kind do while private call intrinsic where elsewhere ' +
       'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then ' +
@@ -50,7 +72,7 @@ export default function(hljs) {
       'set_exponent shape size spacing spread sum system_clock tiny transpose trim ubound unpack verify achar iachar transfer ' +
       'dble entry dprod cpu_time command_argument_count get_command get_command_argument get_environment_variable is_iostat_end ' +
       'ieee_arithmetic ieee_support_underflow_control ieee_get_underflow_mode ieee_set_underflow_mode ' +
-      'is_iostat_eor move_alloc new_line selected_char_kind same_type_as extends_type_of'  +
+      'is_iostat_eor move_alloc new_line selected_char_kind same_type_as extends_type_of ' +
       'acosh asinh atanh bessel_j0 bessel_j1 bessel_jn bessel_y0 bessel_y1 bessel_yn erf erfc erfc_scaled gamma log_gamma hypot norm2 ' +
       'atomic_define atomic_ref execute_command_line leadz trailz storage_size merge_bits ' +
       'bge bgt ble blt dshiftl dshiftr findloc iall iany iparity image_index lcobound ucobound maskl maskr ' +
@@ -59,26 +81,35 @@ export default function(hljs) {
       'IRP_ALIGN irp_here'
   };
   return {
+    name: 'IRPF90',
     case_insensitive: true,
     keywords: F_KEYWORDS,
     illegal: /\/\*/,
     contains: [
-      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {className: 'string', relevance: 0}),
+      hljs.inherit(hljs.APOS_STRING_MODE, {
+        className: 'string',
+        relevance: 0
+      }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        className: 'string',
+        relevance: 0
+      }),
       {
         className: 'function',
         beginKeywords: 'subroutine function program',
         illegal: '[${=\\n]',
-        contains: [hljs.UNDERSCORE_TITLE_MODE, PARAMS]
+        contains: [
+          hljs.UNDERSCORE_TITLE_MODE,
+          PARAMS
+        ]
       },
-      hljs.COMMENT('!', '$', {relevance: 0}),
-      hljs.COMMENT('begin_doc', 'end_doc', {relevance: 10}),
-      {
-        className: 'number',
-        // regex in both fortran and irpf90 should match
-        begin: '(?=\\b|\\+|\\-|\\.)(?:\\.|\\d+\\.?)\\d*([de][+-]?\\d+)?(_[a-z_\\d]+)?',
+      hljs.COMMENT('!', '$', {
         relevance: 0
-      }
+      }),
+      hljs.COMMENT('begin_doc', 'end_doc', {
+        relevance: 10
+      }),
+      NUMBER
     ]
   };
 }

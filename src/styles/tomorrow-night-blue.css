@@ -24,7 +24,6 @@
 /* Tomorrow Orange */
 .hljs-number,
 .hljs-built_in,
-.hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
 .hljs-params,
@@ -59,11 +58,8 @@
 }
 
 .hljs {
-  display: block;
-  overflow-x: auto;
   background: #002451;
   color: white;
-  padding: 0.5em;
 }
 
 .hljs-emphasis {

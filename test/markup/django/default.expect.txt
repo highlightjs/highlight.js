@@ -1,0 +1,16 @@
+<span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> articles|<span class="hljs-name">length</span> %}</span><span class="language-xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">for</span></span> article <span class="hljs-keyword">in</span> articles %}</span><span class="language-xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name">custom</span> %}</span><span class="language-xml">
+
+</span><span class="hljs-comment">{# Striped table #}</span><span class="language-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">cycle</span></span> odd,even %}</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><span class="hljs-template-variable">{{ article|<span class="hljs-name">default</span>:<span class="hljs-string">&quot;Hi... &quot;</span> }}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">td</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> article.today %}</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-attr">class</span>=<span class="hljs-string">&quot;today&quot;</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="language-xml"><span class="hljs-tag">&gt;</span>
+    Published on </span><span class="hljs-template-variable">{{ article.date }}</span><span class="language-xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endfor</span></span> %}</span><span class="language-xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="language-xml">
+</span>

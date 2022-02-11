@@ -15,7 +15,7 @@ namespace MyApplication
         array<SomeClass@> m_children;
         array<array<SomeClass@>> m_subChildren; // Nested templates
 
-        int m_thing;
+        uint64 m_thing;
 
         SomeClass()
         {
@@ -25,11 +25,13 @@ namespace MyApplication
             m_arr.insertLast(3.14159f);
             uint x = 0x7fff0000;
             int y = 9001;
+            uint z = 0b10101010;
         }
 
         int get_Thing() property { return m_thing; }
         void set_Thing(int x) property { m_thing = x; }
 
+        [Hook x=1 y=2]
         void DoSomething()
         {
             print("Something! " + 'stuff.');
@@ -54,3 +56,7 @@ void Main()
     SomeClass@ c = SomeClass();
     c.DoSomething();
 }
+
+string multilineString = """
+Hello world, "this is a test"!
+""";

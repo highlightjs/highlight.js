@@ -1,0 +1,19 @@
+<span class="hljs-comment"># rewrite`s rules for wordpress pretty url</span>
+<span class="hljs-attribute">LoadModule</span> rewrite_module  modules/mod_rewrite.so
+<span class="hljs-attribute">RewriteCond</span> <span class="hljs-variable">%{REQUEST_FILENAME}</span> !-f
+<span class="hljs-attribute">RewriteCond</span> <span class="hljs-variable">%{REQUEST_FILENAME}</span> !-d
+<span class="hljs-attribute">RewriteRule</span> . index.php<span class="hljs-meta"> [NC,L]</span>
+
+<span class="hljs-attribute">ExpiresActive</span> <span class="hljs-literal">On</span>
+<span class="hljs-attribute">ExpiresByType</span> application/x-javascript  <span class="hljs-string">&quot;access plus 1 days&quot;</span>
+
+<span class="hljs-attribute">Order</span> <span class="hljs-literal">Deny</span>,<span class="hljs-literal">Allow</span>
+<span class="hljs-attribute">Allow</span> from <span class="hljs-literal">All</span>
+
+<span class="hljs-section">&lt;Location /maps/&gt;</span>
+  <span class="hljs-attribute">RewriteMap</span> map txt:map.txt
+  <span class="hljs-attribute">RewriteMap</span> lower int:tolower
+  <span class="hljs-attribute">RewriteCond</span> <span class="hljs-variable">%{REQUEST_URI}</span> ^/([^/.]+)\.html$<span class="hljs-meta"> [NC]</span>
+  <span class="hljs-attribute">RewriteCond</span> <span class="hljs-variable">${map:<span class="hljs-variable">${lower:<span class="hljs-number">%1</span>}</span>|NOT_FOUND}</span> !NOT_FOUND
+  <span class="hljs-attribute">RewriteRule</span> .? /index.php?q=<span class="hljs-variable">${map:<span class="hljs-variable">${lower:<span class="hljs-number">%1</span>}</span>}</span><span class="hljs-meta"> [NC,L]</span>
+<span class="hljs-section">&lt;/Location&gt;</span>

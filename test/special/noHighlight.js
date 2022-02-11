@@ -1,12 +1,10 @@
 'use strict';
 
-const _ = require('lodash');
-
 describe('no highlighting', () => {
   before(() => {
     const testHTML = document.querySelectorAll('#no-highlight pre');
 
-    this.blocks   = _.map(testHTML, 'children[0].innerHTML');
+    this.blocks   = [...testHTML].map((x) => x.children[0].innerHTML);
     this.expected = {
       html:   '&lt;div id="contents"&gt;\n  ' +
               '&lt;p&gt;Hello, World!\n&lt;/div&gt;',

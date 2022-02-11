@@ -1,38 +1,38 @@
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">svg</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">" -//W3C//DTD SVG 1.1 Basic//EN "</span> <span class="hljs-meta-string">' http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd '</span> &gt;</span>
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">svg</span> <span class="hljs-meta-keyword">PUBLIC</span><span class="hljs-meta-string">"-//W3C//DTD SVG 1.1 Basic//EN"</span><span class="hljs-meta-string">'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd'</span>&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">svg</span> <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot; -//W3C//DTD SVG 1.1 Basic//EN &quot;</span> <span class="hljs-string">&#x27; http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd &#x27;</span> &gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">svg</span> <span class="hljs-keyword">PUBLIC</span><span class="hljs-string">&quot;-//W3C//DTD SVG 1.1 Basic//EN&quot;</span><span class="hljs-string">&#x27;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic.dtd&#x27;</span>&gt;</span>
 
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">note</span> [
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">nbsp</span> <span class="hljs-meta-string">'&amp;#xA0;'</span>&gt;</span>
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">pound</span> <span class="hljs-meta-string">'&amp;#xA3;'</span>&gt;</span>
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">writer_person</span> <span class="hljs-meta-string">" Writer: Donald Duck. "</span>&gt;</span>
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">copyright</span> <span class="hljs-meta-string">"Copyright: Walt Disney Company."</span>&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">note</span> [
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">nbsp</span> <span class="hljs-string">&#x27;&amp;#xA0;&#x27;</span>&gt;</span>
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">pound</span> <span class="hljs-string">&#x27;&amp;#xA3;&#x27;</span>&gt;</span>
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">writer_person</span> <span class="hljs-string">&quot; Writer: Donald Duck. &quot;</span>&gt;</span>
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">copyright</span> <span class="hljs-string">&quot;Copyright: Walt Disney Company.&quot;</span>&gt;</span>
 ]&gt;</span>
 
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">nbsp</span> <span class="hljs-meta-string">' &amp;#xA0; '</span>&gt;</span>
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">pound</span> <span class="hljs-meta-string">'&amp;#xA3;'</span>&gt;</span>
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">writer_person</span> <span class="hljs-meta-string">" Writer: Donald Duck. "</span>&gt;</span>
-<span class="hljs-meta">&lt;!ENTITY <span class="hljs-meta-keyword">copyright</span> <span class="hljs-meta-string">"Copyright: Walt Disney Company."</span>&gt;</span>
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">nbsp</span> <span class="hljs-string">&#x27; &amp;#xA0; &#x27;</span>&gt;</span>
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">pound</span> <span class="hljs-string">&#x27;&amp;#xA3;&#x27;</span>&gt;</span>
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">writer_person</span> <span class="hljs-string">&quot; Writer: Donald Duck. &quot;</span>&gt;</span>
+<span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">copyright</span> <span class="hljs-string">&quot;Copyright: Walt Disney Company.&quot;</span>&gt;</span>
 
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">bookstore</span> [
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">bookstore</span> (<span class="hljs-meta-keyword">book</span>*)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">book</span> (<span class="hljs-meta-keyword">title</span>,<span class="hljs-meta-keyword">author</span>,<span class="hljs-meta-keyword">genre</span>?)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">title</span> (<span class="hljs-meta-keyword">#PCDATA</span>)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">author</span> ( <span class="hljs-meta-keyword">first-name</span>+, <span class="hljs-meta-keyword">last-name</span>+ )+ &gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">genre</span> (<span class="hljs-meta-keyword">to</span>,<span class="hljs-meta-keyword">from</span>,<span class="hljs-meta-keyword">header</span>,(<span class="hljs-meta-keyword">message</span>| <span class="hljs-meta-keyword">body</span>))&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">first-name</span> (<span class="hljs-meta-keyword">#PCDATA</span>)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">last-name</span> (<span class="hljs-meta-keyword">#PCDATA</span>) &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">book</span> <span class="hljs-meta-keyword">price</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">book</span> <span class="hljs-meta-keyword">publication_date</span> <span class="hljs-meta-keyword">CDATA</span>&gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">book</span> <span class="hljs-meta-keyword">IBSN</span> <span class="hljs-meta-keyword">CDATA</span>&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">bookstore</span> [
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">bookstore</span> (<span class="hljs-keyword">book</span>*)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">book</span> (<span class="hljs-keyword">title</span>,<span class="hljs-keyword">author</span>,<span class="hljs-keyword">genre</span>?)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">title</span> (<span class="hljs-keyword">#PCDATA</span>)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">author</span> ( <span class="hljs-keyword">first-name</span>+, <span class="hljs-keyword">last-name</span>+ )+ &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">genre</span> (<span class="hljs-keyword">to</span>,<span class="hljs-keyword">from</span>,<span class="hljs-keyword">header</span>,(<span class="hljs-keyword">message</span>| <span class="hljs-keyword">body</span>))&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">first-name</span> (<span class="hljs-keyword">#PCDATA</span>)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">last-name</span> (<span class="hljs-keyword">#PCDATA</span>) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">book</span> <span class="hljs-keyword">price</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#REQUIRED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">book</span> <span class="hljs-keyword">publication_date</span> <span class="hljs-keyword">CDATA</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">book</span> <span class="hljs-keyword">IBSN</span> <span class="hljs-keyword">CDATA</span>&gt;</span>
 ]&gt;</span>
 
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">bookstore</span> (<span class="hljs-meta-keyword">book</span>*)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">book</span> (<span class="hljs-meta-keyword">title</span>,<span class="hljs-meta-keyword">author</span>,<span class="hljs-meta-keyword">genre</span>?)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">title</span> (<span class="hljs-meta-keyword">#PCDATA</span>)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">author</span> ( <span class="hljs-meta-keyword">first-name</span>+, <span class="hljs-meta-keyword">last-name</span>+ )+ &gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">genre</span> (<span class="hljs-meta-keyword">to</span>,<span class="hljs-meta-keyword">from</span>,<span class="hljs-meta-keyword">header</span>,(<span class="hljs-meta-keyword">message</span>| <span class="hljs-meta-keyword">body</span>))&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">first-name</span> (<span class="hljs-meta-keyword">#PCDATA</span>)&gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">last-name</span> (<span class="hljs-meta-keyword">#PCDATA</span>) &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">book</span> <span class="hljs-meta-keyword">price</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">book</span> <span class="hljs-meta-keyword">publication_date</span> <span class="hljs-meta-keyword">CDATA</span>&gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">book</span> <span class="hljs-meta-keyword">IBSN</span> <span class="hljs-meta-keyword">CDATA</span>&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">bookstore</span> (<span class="hljs-keyword">book</span>*)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">book</span> (<span class="hljs-keyword">title</span>,<span class="hljs-keyword">author</span>,<span class="hljs-keyword">genre</span>?)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">title</span> (<span class="hljs-keyword">#PCDATA</span>)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">author</span> ( <span class="hljs-keyword">first-name</span>+, <span class="hljs-keyword">last-name</span>+ )+ &gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">genre</span> (<span class="hljs-keyword">to</span>,<span class="hljs-keyword">from</span>,<span class="hljs-keyword">header</span>,(<span class="hljs-keyword">message</span>| <span class="hljs-keyword">body</span>))&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">first-name</span> (<span class="hljs-keyword">#PCDATA</span>)&gt;</span>
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">last-name</span> (<span class="hljs-keyword">#PCDATA</span>) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">book</span> <span class="hljs-keyword">price</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#REQUIRED</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">book</span> <span class="hljs-keyword">publication_date</span> <span class="hljs-keyword">CDATA</span>&gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">book</span> <span class="hljs-keyword">IBSN</span> <span class="hljs-keyword">CDATA</span>&gt;</span>

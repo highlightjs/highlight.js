@@ -1,0 +1,17 @@
+<span class="hljs-literal">++++++++++</span>
+<span class="hljs-title">[</span> <span class="hljs-comment">3*10 and 10*10</span>
+  <span class="hljs-literal">-</span>&gt;<span class="hljs-literal">+++</span>&gt;<span class="hljs-literal">++++++++++</span>&lt;&lt;
+<span class="hljs-title">]</span>&gt;&gt;
+<span class="hljs-title">[</span> <span class="hljs-comment">filling cells</span>
+  <span class="hljs-literal">-</span>&gt;<span class="hljs-literal">++</span>&gt;&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">++</span>&gt;&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">++</span><span class="hljs-title">[</span>&lt;<span class="hljs-comment">/</span><span class="hljs-title">]</span>&lt;<span class="hljs-title">[</span>&lt;<span class="hljs-title">]</span>&lt;<span class="hljs-title">[</span>&lt;<span class="hljs-title">]</span>&gt;&gt;
+<span class="hljs-title">]</span>&lt;
+<span class="hljs-literal">+++++++++</span>&lt;&lt;
+<span class="hljs-title">[</span> <span class="hljs-comment">rough codes correction loop</span>
+  <span class="hljs-literal">-</span>&gt;&gt;&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+++</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span>&gt;<span class="hljs-literal">+</span><span class="hljs-title">[</span>&lt;<span class="hljs-title">]</span>&lt;
+<span class="hljs-title">]</span>
+<span class="hljs-comment">more accurate сodes correction</span>
+&gt;&gt;&gt;<span class="hljs-literal">++</span>&gt;
+<span class="hljs-literal">--</span>&gt;<span class="hljs-literal">+++++++</span>&gt;<span class="hljs-literal">------</span>&gt;<span class="hljs-literal">++++++</span>&gt;<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">+++++++++</span>&gt;<span class="hljs-literal">++++++++++</span>&gt;<span class="hljs-literal">++++++++</span>&gt;<span class="hljs-literal">---</span>&gt;<span class="hljs-literal">++++++++++</span>&gt;<span class="hljs-literal">------</span>&gt;<span class="hljs-literal">++++++</span>&gt;
+<span class="hljs-literal">++</span>&gt;<span class="hljs-literal">+++++++++++</span>&gt;<span class="hljs-literal">++++++++++++</span>&gt;<span class="hljs-literal">------</span>&gt;<span class="hljs-literal">+++</span>
+<span class="hljs-comment">rewind and output</span>
+<span class="hljs-title">[</span>&lt;<span class="hljs-title">]</span>&gt;<span class="hljs-title">[</span><span class="hljs-string">.</span>&gt;<span class="hljs-title">]</span>

@@ -5,7 +5,7 @@ Description: built-in language 1C:Enterprise (v7, v8)
 Category: enterprise
 */
 
-export default function(hljs){
+export default function(hljs) {
 
   // общий паттерн для определения идентификаторов
   var UNDERSCORE_IDENT_RE = '[A-Za-zА-Яа-яёЁ_][A-Za-zА-Яа-яёЁ_0-9]+';
@@ -446,9 +446,12 @@ export default function(hljs){
   // meta : инструкции препроцессора, директивы компиляции
   var META = {
     className: 'meta',
-    lexemes: UNDERSCORE_IDENT_RE,
+
     begin: '#|&', end: '$',
-    keywords: {'meta-keyword': KEYWORD + METAKEYWORD},
+    keywords: {
+      $pattern: UNDERSCORE_IDENT_RE,
+      keyword: KEYWORD + METAKEYWORD
+    },
     contains: [
       COMMENTS
     ]
@@ -463,7 +466,6 @@ export default function(hljs){
   // function : объявление процедур и функций
   var FUNCTION = {
     className: 'function',
-    lexemes: UNDERSCORE_IDENT_RE,
     variants: [
       {begin: 'процедура|функция', end: '\\)', keywords: 'процедура функция'},
       {begin: 'конецпроцедуры|конецфункции', keywords: 'конецпроцедуры конецфункции'}
@@ -474,9 +476,9 @@ export default function(hljs){
         contains: [
           {
             className: 'params',
-            lexemes: UNDERSCORE_IDENT_RE,
             begin: UNDERSCORE_IDENT_RE, end: ',', excludeEnd: true, endsWithParent: true,
             keywords: {
+              $pattern: UNDERSCORE_IDENT_RE,
               keyword: 'знач',
               literal: LITERAL
             },
@@ -494,9 +496,10 @@ export default function(hljs){
   };
 
   return {
+    name: '1C:Enterprise',
     case_insensitive: true,
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: {
+      $pattern: UNDERSCORE_IDENT_RE,
       keyword: KEYWORD,
       built_in: BUILTIN,
       class: CLASS,
@@ -512,5 +515,5 @@ export default function(hljs){
       STRINGS,
       DATE
     ]
-  }
+  };
 }

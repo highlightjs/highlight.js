@@ -9,19 +9,24 @@ Website: https://www.purebasic.com
 // Base deafult colors in PB IDE: background: #FFFFDF; foreground: #000000;
 
 export default function(hljs) {
-  var STRINGS = { // PB IDE color: #0080FF (Azure Radiance)
+  const STRINGS = { // PB IDE color: #0080FF (Azure Radiance)
     className: 'string',
-    begin: '(~)?"', end: '"',
+    begin: '(~)?"',
+    end: '"',
     illegal: '\\n'
   };
-  var CONSTANTS = { // PB IDE color: #924B72 (Cannon Pink)
+  const CONSTANTS = { // PB IDE color: #924B72 (Cannon Pink)
     //  "#" + a letter or underscore + letters, digits or underscores + (optional) "$"
     className: 'symbol',
     begin: '#[a-zA-Z_]\\w*\\$?'
   };
 
   return {
-    aliases: ['pb', 'pbi'],
+    name: 'PureBASIC',
+    aliases: [
+      'pb',
+      'pbi'
+    ],
     keywords: // PB IDE color: #006666 (Blue Stone) + Bold
       // Keywords from all version of PureBASIC 5.00 upward ...
       'Align And Array As Break CallDebugger Case CompilerCase CompilerDefault ' +
@@ -41,7 +46,9 @@ export default function(hljs) {
       'UseModule Wend While With XIncludeFile XOr',
     contains: [
       // COMMENTS | PB IDE color: #00AAAA (Persian Green)
-      hljs.COMMENT(';', '$', {relevance: 0}),
+      hljs.COMMENT(';', '$', {
+        relevance: 0
+      }),
 
       { // PROCEDURES DEFINITIONS
         className: 'function',

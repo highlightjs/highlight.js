@@ -1,7 +1,15 @@
-<span class="hljs-keyword">interface</span> <span class="hljs-title">IObserver</span>&lt;<span class="hljs-keyword">in</span> T&gt;;
+<span class="hljs-keyword">interface</span> <span class="hljs-title">IObserver</span>&lt;<span class="hljs-keyword">in</span> <span class="hljs-title">T</span>&gt;;
 {}
 
-<span class="hljs-keyword">interface</span> <span class="hljs-title">IObservable</span>&lt;<span class="hljs-keyword">out</span> T&gt;;
+<span class="hljs-keyword">interface</span> <span class="hljs-title">IObservable</span>&lt;<span class="hljs-keyword">out</span> <span class="hljs-title">T</span>&gt;;
 {}
 
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">delegate</span> <span class="hljs-keyword">void</span> DContravariant&lt;<span class="hljs-keyword">in</span> A&gt;(A argument);
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DContravariant</span>&lt;<span class="hljs-keyword">in</span> <span class="hljs-title">A</span>&gt;(<span class="hljs-params">A argument</span>)</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">delegate</span> A <span class="hljs-title">DCovariant</span>&lt;<span class="hljs-keyword">out</span> <span class="hljs-title">A</span>&gt;()</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MethodWithGenericParameter</span>&lt;<span class="hljs-title">T</span>&gt;()</span>;
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> List&lt;<span class="hljs-built_in">string</span>&gt; leftHalfDiamond = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">string</span>&gt;();
+
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> List&lt;Tuple&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt;&gt; leftHalfDiamond = <span class="hljs-keyword">new</span> List&lt;Tuple&lt;<span class="hljs-built_in">int</span>, <span class="hljs-built_in">string</span>&gt;&gt;();

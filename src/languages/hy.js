@@ -7,8 +7,11 @@ Category: lisp
 */
 
 export default function(hljs) {
-  var keywords = {
-    'builtin-name':
+  const SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
+  const SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
+  const keywords = {
+    $pattern: SYMBOL_RE,
+    built_in:
       // keywords
       '!= % %= & &= * ** **= *= *map ' +
       '+ += , --build-class-- --import-- -= . / // //= ' +
@@ -39,71 +42,98 @@ export default function(hljs) {
       'string? sum switch symbol? take take-nth take-while tee try unless ' +
       'unquote unquote-splicing vars walk when while with with* with-decorator with-gensyms ' +
       'xi xor yield yield-from zero? zip zip-longest | |= ~'
-   };
-
-  var SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&#\'';
-  var SYMBOL_RE = '[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:]*';
-  var SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
-
-  var SHEBANG = {
-    className: 'meta',
-    begin: '^#!', end: '$'
   };
 
-  var SYMBOL = {
+  const SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
+
+  const SYMBOL = {
     begin: SYMBOL_RE,
     relevance: 0
   };
-  var NUMBER = {
-    className: 'number', begin: SIMPLE_NUMBER_RE,
+  const NUMBER = {
+    className: 'number',
+    begin: SIMPLE_NUMBER_RE,
     relevance: 0
   };
-  var STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null});
-  var COMMENT = hljs.COMMENT(
+  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    illegal: null
+  });
+  const COMMENT = hljs.COMMENT(
     ';',
     '$',
     {
       relevance: 0
     }
   );
-  var LITERAL = {
+  const LITERAL = {
     className: 'literal',
     begin: /\b([Tt]rue|[Ff]alse|nil|None)\b/
   };
-  var COLLECTION = {
-    begin: '[\\[\\{]', end: '[\\]\\}]'
+  const COLLECTION = {
+    begin: '[\\[\\{]',
+    end: '[\\]\\}]',
+    relevance: 0
   };
-  var HINT = {
+  const HINT = {
     className: 'comment',
     begin: '\\^' + SYMBOL_RE
   };
-  var HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
-  var KEY = {
+  const HINT_COL = hljs.COMMENT('\\^\\{', '\\}');
+  const KEY = {
     className: 'symbol',
     begin: '[:]{1,2}' + SYMBOL_RE
   };
-  var LIST = {
-    begin: '\\(', end: '\\)'
+  const LIST = {
+    begin: '\\(',
+    end: '\\)'
   };
-  var BODY = {
+  const BODY = {
     endsWithParent: true,
     relevance: 0
   };
-  var NAME = {
+  const NAME = {
+    className: 'name',
+    relevance: 0,
     keywords: keywords,
-    lexemes: SYMBOL_RE,
-    className: 'name', begin: SYMBOL_RE,
+    begin: SYMBOL_RE,
     starts: BODY
   };
-  var DEFAULT_CONTAINS = [LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL, SYMBOL];
+  const DEFAULT_CONTAINS = [
+    LIST,
+    STRING,
+    HINT,
+    HINT_COL,
+    COMMENT,
+    KEY,
+    COLLECTION,
+    NUMBER,
+    LITERAL,
+    SYMBOL
+  ];
 
-  LIST.contains = [hljs.COMMENT('comment', ''), NAME, BODY];
+  LIST.contains = [
+    hljs.COMMENT('comment', ''),
+    NAME,
+    BODY
+  ];
   BODY.contains = DEFAULT_CONTAINS;
   COLLECTION.contains = DEFAULT_CONTAINS;
 
   return {
-    aliases: ['hylang'],
+    name: 'Hy',
+    aliases: [ 'hylang' ],
     illegal: /\S/,
-    contains: [SHEBANG, LIST, STRING, HINT, HINT_COL, COMMENT, KEY, COLLECTION, NUMBER, LITERAL]
-  }
+    contains: [
+      hljs.SHEBANG(),
+      LIST,
+      STRING,
+      HINT,
+      HINT_COL,
+      COMMENT,
+      KEY,
+      COLLECTION,
+      NUMBER,
+      LITERAL
+    ]
+  };
 }

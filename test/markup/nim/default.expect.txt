@@ -1,0 +1,21 @@
+<span class="hljs-keyword">import</span> module1, module2, module3
+<span class="hljs-keyword">from</span> module4 <span class="hljs-keyword">import</span> <span class="hljs-keyword">nil</span>
+
+<span class="hljs-keyword">type</span>
+  <span class="hljs-type">TFoo</span> = <span class="hljs-keyword">object</span> <span class="hljs-comment">## Doc comment</span>
+    a: <span class="hljs-type">int32</span>
+  <span class="hljs-type">PFoo</span> = <span class="hljs-keyword">ref</span> <span class="hljs-type">TFoo</span>
+
+<span class="hljs-keyword">proc</span> do_stuff314(param_1: <span class="hljs-type">TFoo</span>, par2am: <span class="hljs-keyword">var</span> <span class="hljs-type">PFoo</span>): <span class="hljs-type">PFoo</span> <span class="hljs-meta">{.exportc: &quot;dostuff&quot; .}</span> =
+  <span class="hljs-comment"># Regular comment</span>
+  <span class="hljs-keyword">discard</span> <span class="hljs-string">&quot;&quot;&quot;
+  dfag
+sdfg&quot;&quot;
+&quot;&quot;&quot;</span>
+  <span class="hljs-built_in">result</span> = <span class="hljs-keyword">nil</span>
+
+<span class="hljs-keyword">method</span> abc(a: <span class="hljs-type">TFoo</span>) = <span class="hljs-keyword">discard</span> <span class="hljs-number">1u32</span> + <span class="hljs-number">0xabcdefABCDEFi32</span> + <span class="hljs-number">0o01234567i8</span> + <span class="hljs-number">0b010</span>
+
+<span class="hljs-keyword">discard</span> <span class="hljs-string">rawstring&quot;asdf&quot;&quot;adfa&quot;</span>
+<span class="hljs-keyword">var</span> normalstring = <span class="hljs-string">&quot;asdf&quot;</span>
+<span class="hljs-keyword">let</span> a: <span class="hljs-type">uint32</span> = <span class="hljs-number">0xFFaF&#x27;u32</span>

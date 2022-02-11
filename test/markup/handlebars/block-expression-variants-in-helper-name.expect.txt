@@ -1,14 +1,14 @@
-<span class="xml">text </span><span class="hljs-template-tag">{{#<span class="hljs-name">[ab}}c]</span> param }}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">[ab}}c]</span>}}</span><span class="xml">
+<span class="language-xml">text </span><span class="hljs-template-tag">{{#<span class="hljs-name">[ab}}c]</span> param }}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">[ab}}c]</span>}}</span><span class="language-xml">
 
-text </span><span class="hljs-template-tag">{{#<span class="hljs-name">'ab}}c'</span> param}}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">'ab}}c'</span>}}</span><span class="xml">
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">&#x27;ab}}c&#x27;</span> param}}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">&#x27;ab}}c&#x27;</span>}}</span><span class="language-xml">
 
-text </span><span class="hljs-template-tag">{{#<span class="hljs-name">"ab}}c"</span> param}}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">"ab}}c"</span>}}</span><span class="xml">
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">&quot;ab}}c&quot;</span> param}}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">&quot;ab}}c&quot;</span>}}</span><span class="language-xml">
 
-text </span><span class="hljs-template-tag">{{#<span class="hljs-name">""</span> param}}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">""</span>}}</span><span class="xml">
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">&quot;&quot;</span> param}}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">&quot;&quot;</span>}}</span><span class="language-xml">
 
-text </span><span class="hljs-template-tag">{{#<span class="hljs-name">''</span> param}}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">''</span>}}</span><span class="xml">
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">&#x27;&#x27;</span> param}}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">&#x27;&#x27;</span>}}</span><span class="language-xml">
 
-text </span><span class="hljs-template-tag">{{#<span class="hljs-name">[]</span> param}}</span><span class="xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">[]</span>}}</span><span class="xml">
+text </span><span class="hljs-template-tag">{{#<span class="hljs-name">[]</span> param}}</span><span class="language-xml">a</span><span class="hljs-template-tag">{{/<span class="hljs-name">[]</span>}}</span><span class="language-xml">
 
 text
 </span>

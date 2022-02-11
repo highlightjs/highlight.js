@@ -6,8 +6,8 @@ Website: https://www.aptech.com
 Category: scientific
 */
 export default function(hljs) {
-  var KEYWORDS = {
-    keyword:  'bool break call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
+  const KEYWORDS = {
+    keyword: 'bool break call callexe checkinterrupt clear clearg closeall cls comlog compile ' +
               'continue create debug declare delete disable dlibrary dllcall do dos ed edit else ' +
               'elseif enable end endfor endif endp endo errorlog errorlogat expr external fn ' +
               'for format goto gosub graph if keyword let lib library line load loadarray loadexe ' +
@@ -109,36 +109,43 @@ export default function(hljs) {
              'DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR'
   };
 
+  const AT_COMMENT_MODE = hljs.COMMENT('@', '@');
 
-  var AT_COMMENT_MODE = hljs.COMMENT('@', '@');
-
-  var PREPROCESSOR =
+  const PREPROCESSOR =
   {
     className: 'meta',
-    begin: '#', end: '$',
-    keywords: {'meta-keyword': 'define definecs|10 undef ifdef ifndef iflight ifdllcall ifmac ifos2win ifunix else endif lineson linesoff srcfile srcline'},
+    begin: '#',
+    end: '$',
+    keywords: {
+      keyword: 'define definecs|10 undef ifdef ifndef iflight ifdllcall ifmac ifos2win ifunix else endif lineson linesoff srcfile srcline'
+    },
     contains: [
       {
-        begin: /\\\n/, relevance: 0
+        begin: /\\\n/,
+        relevance: 0
       },
       {
-        beginKeywords: 'include', end: '$',
-        keywords: {'meta-keyword': 'include'},
+        beginKeywords: 'include',
+        end: '$',
+        keywords: {
+          keyword: 'include'
+        },
         contains: [
           {
-            className: 'meta-string',
-            begin: '"', end: '"',
+            className: 'string',
+            begin: '"',
+            end: '"',
             illegal: '\\n'
           }
         ]
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      AT_COMMENT_MODE,
+      AT_COMMENT_MODE
     ]
   };
 
-  var STRUCT_TYPE =
+  const STRUCT_TYPE =
   {
     begin: /\bstruct\s+/,
     end: /\s/,
@@ -147,16 +154,17 @@ export default function(hljs) {
       {
         className: "type",
         begin: hljs.UNDERSCORE_IDENT_RE,
-        relevance: 0,
-      },
-    ],
+        relevance: 0
+      }
+    ]
   };
 
   // only for definitions
-  var PARSE_PARAMS = [
+  const PARSE_PARAMS = [
     {
       className: 'params',
-      begin: /\(/, end: /\)/,
+      begin: /\(/,
+      end: /\)/,
       excludeBegin: true,
       excludeEnd: true,
       endsWithParent: true,
@@ -164,31 +172,31 @@ export default function(hljs) {
       contains: [
         { // dots
           className: 'literal',
-          begin: /\.\.\./,
+          begin: /\.\.\./
         },
         hljs.C_NUMBER_MODE,
         hljs.C_BLOCK_COMMENT_MODE,
         AT_COMMENT_MODE,
-        STRUCT_TYPE,
+        STRUCT_TYPE
       ]
     }
   ];
 
-  var FUNCTION_DEF =
+  const FUNCTION_DEF =
   {
     className: "title",
     begin: hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0,
+    relevance: 0
   };
 
-  var DEFINITION = function (beginKeywords, end, inherits) {
-    var mode = hljs.inherit(
+  const DEFINITION = function(beginKeywords, end, inherits) {
+    const mode = hljs.inherit(
       {
         className: "function",
         beginKeywords: beginKeywords,
         end: end,
         excludeEnd: true,
-        contains: [].concat(PARSE_PARAMS),
+        contains: [].concat(PARSE_PARAMS)
       },
       inherits || {}
     );
@@ -199,47 +207,51 @@ export default function(hljs) {
     return mode;
   };
 
-  var BUILT_IN_REF =
+  const BUILT_IN_REF =
   { // these are explicitly named internal function calls
     className: 'built_in',
-    begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b',
+    begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b'
   };
 
-  var STRING_REF =
+  const STRING_REF =
   {
     className: 'string',
-    begin: '"', end: '"',
+    begin: '"',
+    end: '"',
     contains: [hljs.BACKSLASH_ESCAPE],
-    relevance: 0,
+    relevance: 0
   };
 
-  var FUNCTION_REF =
+  const FUNCTION_REF =
   {
-    //className: "fn_ref",
+    // className: "fn_ref",
     begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
     returnBegin: true,
     keywords: KEYWORDS,
     relevance: 0,
     contains: [
       {
-        beginKeywords: KEYWORDS.keyword,
+        beginKeywords: KEYWORDS.keyword
       },
       BUILT_IN_REF,
       { // ambiguously named function calls get a relevance of 0
         className: 'built_in',
         begin: hljs.UNDERSCORE_IDENT_RE,
-        relevance: 0,
-      },
-    ],
+        relevance: 0
+      }
+    ]
   };
 
-  var FUNCTION_REF_PARAMS =
+  const FUNCTION_REF_PARAMS =
   {
-    //className: "fn_ref_params",
+    // className: "fn_ref_params",
     begin: /\(/,
     end: /\)/,
     relevance: 0,
-    keywords: { built_in: KEYWORDS.built_in, literal: KEYWORDS.literal },
+    keywords: {
+      built_in: KEYWORDS.built_in,
+      literal: KEYWORDS.literal
+    },
     contains: [
       hljs.C_NUMBER_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
@@ -247,13 +259,14 @@ export default function(hljs) {
       BUILT_IN_REF,
       FUNCTION_REF,
       STRING_REF,
-      'self',
-    ],
+      'self'
+    ]
   };
 
   FUNCTION_REF.contains.push(FUNCTION_REF_PARAMS);
 
   return {
+    name: 'GAUSS',
     aliases: ['gss'],
     case_insensitive: true, // language is case-insensitive
     keywords: KEYWORDS,
@@ -267,31 +280,35 @@ export default function(hljs) {
       PREPROCESSOR,
       {
         className: 'keyword',
-        begin: /\bexternal (matrix|string|array|sparse matrix|struct|proc|keyword|fn)/,
+        begin: /\bexternal (matrix|string|array|sparse matrix|struct|proc|keyword|fn)/
       },
       DEFINITION('proc keyword', ';'),
       DEFINITION('fn', '='),
       {
         beginKeywords: 'for threadfor',
         end: /;/,
-        //end: /\(/,
+        // end: /\(/,
         relevance: 0,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,
           AT_COMMENT_MODE,
-          FUNCTION_REF_PARAMS,
-        ],
+          FUNCTION_REF_PARAMS
+        ]
       },
       { // custom method guard
         // excludes method names from keyword processing
         variants: [
-          { begin: hljs.UNDERSCORE_IDENT_RE + '\\.' + hljs.UNDERSCORE_IDENT_RE, },
-          { begin: hljs.UNDERSCORE_IDENT_RE + '\\s*=', },
+          {
+            begin: hljs.UNDERSCORE_IDENT_RE + '\\.' + hljs.UNDERSCORE_IDENT_RE
+          },
+          {
+            begin: hljs.UNDERSCORE_IDENT_RE + '\\s*='
+          }
         ],
-        relevance: 0,
+        relevance: 0
       },
       FUNCTION_REF,
-      STRUCT_TYPE,
+      STRUCT_TYPE
     ]
   };
 }

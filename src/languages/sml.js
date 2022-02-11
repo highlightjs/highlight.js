@@ -8,8 +8,10 @@ Category: functional
 */
 export default function(hljs) {
   return {
-    aliases: ['ml'],
+    name: 'SML (Standard ML)',
+    aliases: [ 'ml' ],
     keywords: {
+      $pattern: '[a-z_]\\w*!?',
       keyword:
         /* according to Definition of Standard ML 97  */
         'abstype and andalso as case datatype do else end eqtype ' +
@@ -23,7 +25,6 @@ export default function(hljs) {
         'true false NONE SOME LESS EQUAL GREATER nil'
     },
     illegal: /\/\/|>>/,
-    lexemes: '[a-z_]\\w*!?',
     contains: [
       {
         className: 'literal',
@@ -34,7 +35,7 @@ export default function(hljs) {
         '\\(\\*',
         '\\*\\)',
         {
-          contains: ['self']
+          contains: [ 'self' ]
         }
       ),
       { /* type variable */
@@ -51,11 +52,16 @@ export default function(hljs) {
         begin: '\\b[A-Z][\\w\']*',
         relevance: 0
       },
-      { /* don't color identifiers, but safely catch all identifiers with '*/
+      { /* don't color identifiers, but safely catch all identifiers with ' */
         begin: '[a-z_]\\w*\'[\\w\']*'
       },
-      hljs.inherit(hljs.APOS_STRING_MODE, {className: 'string', relevance: 0}),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {illegal: null}),
+      hljs.inherit(hljs.APOS_STRING_MODE, {
+        className: 'string',
+        relevance: 0
+      }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, {
+        illegal: null
+      }),
       {
         className: 'number',
         begin:

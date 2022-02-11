@@ -1,0 +1,14 @@
+Integer = 1234
+BigInteger = 1_234_000
+NegInteger = -20_000
+Float = 2.34
+BigFloat = 3_333.14159_26535_89793
+SciFloat = 2.4e23
+PlusSciFloat = 2.4e+23
+SmallSciFloat = 2.4e-23
+Binary = 2#1010
+StrangeBinary = 2#1010_1010_1010
+Octal = 8#777
+StrangeOctal = 8#777_666_555
+Hex = 16#1ABEF
+StrangeHex = 16#1234_FACE_987D

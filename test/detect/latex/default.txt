@@ -1,17 +1,35 @@
+% !TeX encoding = utf8
 \documentclass{article}
-\usepackage[koi8-r]{inputenc}
-\hoffset=0pt
-\voffset=.3em
-\tolerance=400
-\newcommand{\eTiX}{\TeX}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{xparse}
+\usepackage{mathtools}
+
+\newcommand\hi[1]{Hello #1!}
+
+\ExplSyntaxOn
+  % Convert a roman number into an arabic one
+  \NewDocumentCommand \romantonum { m }
+    { \int_from_roman:n { #1 } }
+\ExplSyntaxOff
+
 \begin{document}
-\section*{Highlight.js}
-\begin{table}[c|c]
-$\frac 12\, + \, \frac 1{x^3}\text{Hello \! world}$ & \textbf{Goodbye\~ world} \\\eTiX $ \pi=400 $
-\end{table}
-Ch\'erie, \c{c}a ne me pla\^\i t pas! % comment \b
-G\"otterd\"ammerung~45\%=34.
-$$
-    \int\limits_{0}^{\pi}\frac{4}{x-7}=3
-$$
+
+\section{Highlight.js}
+\hi{you}
+This is \LaTeX\ syntax highlighted by \verb|highlight.js|.
+You should look at section~\ref{sec:fermat} next.
+
+Did you know that MDCLXI is \romantonum{MDCLXI}? % It's 1661.
+
+\subsection{Fermat}\label{sec:fermat}
+I have a wonderful proof that
+\[
+  a^n + b^n \neq c^n
+\]
+for \(a, b, c, d, n \in \mathbb{Z}_+\) with \(n > 2\).
+Sadly, it is too large to fit in this code snippet.
+
 \end{document}

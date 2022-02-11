@@ -2,3 +2,11 @@ key: !!builtintagname test
 key: !localtagname test
 key: "!notatag"
 key: '!!notatageither'
+key: !!python/dict test
+key: !!python/name:module.name test
+key: !foo2.bar test
+key: !(foo.bar?):tag test
+key: !named!tag test
+
+--- !<tag:clarkevans.com,2002:invoice>
+invoice: 34843

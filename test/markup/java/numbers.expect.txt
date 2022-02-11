@@ -1,9 +1,105 @@
-<span class="hljs-keyword">long</span> creditCardNumber = <span class="hljs-number">1234_5678_9012_3456L</span>;
-<span class="hljs-keyword">long</span> socialSecurityNumber = <span class="hljs-number">999_99_9999L</span>;
-<span class="hljs-keyword">float</span> pi = <span class="hljs-number">3.14_15F</span>;
-<span class="hljs-keyword">long</span> hexBytes = <span class="hljs-number">0xFF_EC_DE_5E</span>;
-<span class="hljs-keyword">long</span> hexWords = <span class="hljs-number">0xCAFE_BABE</span>;
-<span class="hljs-keyword">long</span> maxLong = <span class="hljs-number">0x7fff_ffff_ffff_ffffL</span>;
-<span class="hljs-keyword">byte</span> nybbles = <span class="hljs-number">0b0010_0101</span>;
-<span class="hljs-keyword">long</span> bytes = <span class="hljs-number">0b11010010_01101001_10010100_10010010</span>;
-<span class="hljs-keyword">int</span> n = <span class="hljs-number">1234</span> + Contacts._ID;
+<span class="hljs-type">int</span>[] decimalIntegers = {
+	<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>,  <span class="hljs-number">999</span>,
+	<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1_0</span>, <span class="hljs-number">9_9__9</span>,
+};
+<span class="hljs-type">long</span>[] longDecimalIntegers = {
+	<span class="hljs-number">0l</span>, <span class="hljs-number">1L</span>, <span class="hljs-number">10l</span>,  <span class="hljs-number">999L</span>,
+	<span class="hljs-number">0L</span>, <span class="hljs-number">1l</span>, <span class="hljs-number">1_0L</span>, <span class="hljs-number">9_9__9l</span>,
+};
+
+<span class="hljs-type">int</span>[] hexIntegers = {
+	<span class="hljs-number">0x0</span>, <span class="hljs-number">0Xa0</span>,  <span class="hljs-number">0X7FF</span>,   <span class="hljs-number">0xd3aD</span>,    <span class="hljs-number">0x00000000ffffffff</span>,
+	<span class="hljs-number">0X0</span>, <span class="hljs-number">0xa_0</span>, <span class="hljs-number">0x7__FF</span>, <span class="hljs-number">0Xd__3_aD</span>, <span class="hljs-number">0X0000_0000__ffff_ffff</span>,
+};
+<span class="hljs-type">long</span>[] longHexIntegers = {
+	<span class="hljs-number">0x0L</span>, <span class="hljs-number">0Xa0l</span>,  <span class="hljs-number">0X7FFL</span>,   <span class="hljs-number">0xd3aDl</span>,    <span class="hljs-number">0x7fffffffffffffffL</span>,
+	<span class="hljs-number">0X0l</span>, <span class="hljs-number">0xa_0L</span>, <span class="hljs-number">0x7__FFl</span>, <span class="hljs-number">0Xd__3_aDL</span>, <span class="hljs-number">0X7fff_ffff__ffff_ffffl</span>,
+};
+
+<span class="hljs-type">int</span>[] octalIntegers = {
+	<span class="hljs-number">00</span>,  <span class="hljs-number">001</span>,   <span class="hljs-number">0777</span>,
+	<span class="hljs-number">0_0</span>, <span class="hljs-number">0__01</span>, <span class="hljs-number">07__77</span>,
+};
+<span class="hljs-type">long</span>[] longOctalIntegers = {
+	<span class="hljs-number">00l</span>,  <span class="hljs-number">001L</span>,   <span class="hljs-number">0777l</span>,
+	<span class="hljs-number">0_0L</span>, <span class="hljs-number">0__01l</span>, <span class="hljs-number">07__77L</span>,
+};
+
+<span class="hljs-type">int</span>[] binaryIntegers = {
+	<span class="hljs-number">0b0</span>, <span class="hljs-number">0B11</span>,  <span class="hljs-number">0B000</span>,   <span class="hljs-number">0b01011</span>,
+	<span class="hljs-number">0b0</span>, <span class="hljs-number">0B1_1</span>, <span class="hljs-number">0B00__0</span>, <span class="hljs-number">0b01__0_1__1</span>,
+};
+<span class="hljs-type">long</span>[] longBinaryIntegers = {
+	<span class="hljs-number">0b0l</span>, <span class="hljs-number">0B11L</span>,  <span class="hljs-number">0B000l</span>,   <span class="hljs-number">0b01011L</span>,
+	<span class="hljs-number">0b0L</span>, <span class="hljs-number">0B1_1l</span>, <span class="hljs-number">0B00__0L</span>, <span class="hljs-number">0b01__0_1__1l</span>,
+};
+
+
+<span class="hljs-type">double</span>[] doubleDecimalIntegers = {
+	<span class="hljs-number">0d</span>, <span class="hljs-number">00D</span>,  <span class="hljs-number">1d</span>, <span class="hljs-number">00800d</span>,
+	<span class="hljs-number">0D</span>, <span class="hljs-number">0_0d</span>, <span class="hljs-number">1D</span>, <span class="hljs-number">0_0__8__0_0D</span>,
+};
+<span class="hljs-type">float</span>[] floatDecimalIntegers = {
+	<span class="hljs-number">0f</span>, <span class="hljs-number">00F</span>,  <span class="hljs-number">1f</span>, <span class="hljs-number">00800f</span>,
+	<span class="hljs-number">0F</span>, <span class="hljs-number">0_0f</span>, <span class="hljs-number">1F</span>, <span class="hljs-number">0_0__8__0_0F</span>,
+};
+
+<span class="hljs-type">double</span>[] doubleDecimals = {
+	<span class="hljs-number">.0</span>, <span class="hljs-number">.00</span>,   <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">40.010</span>,     <span class="hljs-number">0.</span>, <span class="hljs-number">00.</span>,  <span class="hljs-number">10.</span>,
+	<span class="hljs-number">.0</span>, <span class="hljs-number">.0__0</span>, <span class="hljs-number">.9</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">4_0.0__1_0</span>, <span class="hljs-number">0.</span>, <span class="hljs-number">0_0.</span>, <span class="hljs-number">1__0.</span>,
+
+	<span class="hljs-number">.0D</span>, <span class="hljs-number">.00d</span>,   <span class="hljs-number">.9D</span>, <span class="hljs-number">4.2d</span>, <span class="hljs-number">40.010D</span>,     <span class="hljs-number">0.d</span>, <span class="hljs-number">00.D</span>,  <span class="hljs-number">10.d</span>,
+	<span class="hljs-number">.0d</span>, <span class="hljs-number">.0__0D</span>, <span class="hljs-number">.9d</span>, <span class="hljs-number">4.2D</span>, <span class="hljs-number">4_0.0__1_0d</span>, <span class="hljs-number">0.D</span>, <span class="hljs-number">0_0.d</span>, <span class="hljs-number">1__0.D</span>,
+};
+<span class="hljs-type">float</span>[] floatDecimals = {
+	<span class="hljs-number">.0F</span>, <span class="hljs-number">.00f</span>,   <span class="hljs-number">.9F</span>, <span class="hljs-number">4.2f</span>, <span class="hljs-number">40.010F</span>,     <span class="hljs-number">0.f</span>, <span class="hljs-number">00.F</span>,  <span class="hljs-number">10.f</span>,
+	<span class="hljs-number">.0f</span>, <span class="hljs-number">.0__0F</span>, <span class="hljs-number">.9f</span>, <span class="hljs-number">4.2F</span>, <span class="hljs-number">4_0.0__1_0f</span>, <span class="hljs-number">0.F</span>, <span class="hljs-number">0_0.f</span>, <span class="hljs-number">1__0.F</span>,
+};
+
+<span class="hljs-type">double</span>[] doubleDecimalExponents = {
+	<span class="hljs-number">.0e10</span>,  <span class="hljs-number">.00e+10</span>,  <span class="hljs-number">.9e-10</span>,  <span class="hljs-number">4.2E10</span>,  <span class="hljs-number">40.010E+08</span>,      <span class="hljs-number">0.E-10</span>,  <span class="hljs-number">00.e100</span>,    <span class="hljs-number">00800e+10</span>,
+	<span class="hljs-number">.0e1_0</span>, <span class="hljs-number">.0_0e+10</span>, <span class="hljs-number">.9e-1_0</span>, <span class="hljs-number">4.2E1_0</span>, <span class="hljs-number">4_0.0__1_0E+0_8</span>, <span class="hljs-number">0.E-1_0</span>, <span class="hljs-number">0_0.e1_0_0</span>, <span class="hljs-number">0_0__8__00e+1___0</span>,
+
+	<span class="hljs-number">.0e10d</span>,  <span class="hljs-number">.00e+10D</span>,  <span class="hljs-number">.9e-10d</span>,  <span class="hljs-number">4.2E10D</span>,  <span class="hljs-number">40.010E+08d</span>,      <span class="hljs-number">0.E-10D</span>,  <span class="hljs-number">00.e100d</span>,    <span class="hljs-number">00800e+10D</span>,
+	<span class="hljs-number">.0e1_0D</span>, <span class="hljs-number">.0_0e+10d</span>, <span class="hljs-number">.9e-1_0D</span>, <span class="hljs-number">4.2E1_0d</span>, <span class="hljs-number">4_0.0__1_0E+0_8D</span>, <span class="hljs-number">0.E-1_0d</span>, <span class="hljs-number">0_0.e1_0_0D</span>, <span class="hljs-number">0_0__8__00e+1___0d</span>,
+};
+<span class="hljs-type">float</span>[] floatDecimalExponents = {
+	<span class="hljs-number">.0e10f</span>,  <span class="hljs-number">.00e+10F</span>,  <span class="hljs-number">.9e-10f</span>,  <span class="hljs-number">4.2E10F</span>,  <span class="hljs-number">40.010E+08f</span>,      <span class="hljs-number">0.E-10F</span>,  <span class="hljs-number">00.e100f</span>,    <span class="hljs-number">00800e+10F</span>,
+	<span class="hljs-number">.0e1_0F</span>, <span class="hljs-number">.0_0e+10f</span>, <span class="hljs-number">.9e-1_0F</span>, <span class="hljs-number">4.2E1_0f</span>, <span class="hljs-number">4_0.0__1_0E+0_8F</span>, <span class="hljs-number">0.E-1_0f</span>, <span class="hljs-number">0_0.e1_0_0F</span>, <span class="hljs-number">0_0__8__00e+1___0f</span>,
+};
+
+<span class="hljs-type">double</span>[] doubleHexExponents = {
+	<span class="hljs-number">0x0p0</span>, <span class="hljs-number">0x.ep6</span>, <span class="hljs-number">0Xa0.p+01</span>,   <span class="hljs-number">0X.7FFp-18</span>,      <span class="hljs-number">0xd3aD.B00p9</span>,
+	<span class="hljs-number">0X0P0</span>, <span class="hljs-number">0x.Ep6</span>, <span class="hljs-number">0xa_0.p+0_1</span>, <span class="hljs-number">0X.7__F_FP-1__8</span>, <span class="hljs-number">0Xd__3_aD.b00p9</span>,
+
+	<span class="hljs-number">0x0p0D</span>, <span class="hljs-number">0x.ep6D</span>, <span class="hljs-number">0Xa0.p+01d</span>,   <span class="hljs-number">0X.7FFp-18D</span>,      <span class="hljs-number">0xd3aD.B00p9d</span>,
+	<span class="hljs-number">0X0P0d</span>, <span class="hljs-number">0x.eP6d</span>, <span class="hljs-number">0xa_0.p+0_1D</span>, <span class="hljs-number">0X.7__F_FP-1__8d</span>, <span class="hljs-number">0Xd__3_aD.b00p9D</span>,
+};
+<span class="hljs-type">float</span>[] floatHexExponents = {
+	<span class="hljs-number">0x0p0F</span>, <span class="hljs-number">0x.ep6F</span>, <span class="hljs-number">0Xa0.p+01f</span>,   <span class="hljs-number">0X.7FFp-18F</span>,      <span class="hljs-number">0xf3aF.B00p9f</span>,
+	<span class="hljs-number">0X0P0f</span>, <span class="hljs-number">0x.eP6f</span>, <span class="hljs-number">0xa_0.p+0_1F</span>, <span class="hljs-number">0X.7__F_FP-1__8f</span>, <span class="hljs-number">0Xf__3_aF.b00p9F</span>,
+};
+
+
+<span class="hljs-comment">// expressions containing numeric literals</span>
+fn(<span class="hljs-number">.5</span>);
+fn(<span class="hljs-number">5.</span>);
+
+<span class="hljs-comment">// expressions not containing numeric literals</span>
+fn(x0.d);
+
+<span class="hljs-comment">// invalid pseudo-numeric literals</span>
+<span class="hljs-type">int</span>[] badNonDecimalIntegers =      { 08,  0_8,  019,     0x0g,      0B02, };
+<span class="hljs-type">long</span>[] longBadNonDecimalIntegers = { 08L, 0_8l, 01_9L,   0x0__GL,   0B0_2l, };
+
+<span class="hljs-type">int</span>[] badUnderscoreIntegers =      { 3_,  0x_0,  0X1_,  0B_0,  0b1_, };
+<span class="hljs-type">long</span>[] longBadUnderscoreIntegers = { 3_l, 0X_0L, 0x1_l, 0b_0L, 0B1_l, };
+
+<span class="hljs-type">double</span>[] doubleBadDecimals = { 0_d, 0_.,  <span class="hljs-number">0.</span>_1,  <span class="hljs-number">0.</span>_D, <span class="hljs-number">0.</span>1_d, };
+<span class="hljs-type">float</span>[] floatBadDecimals =   { 0_F, 0_.f, <span class="hljs-number">0.</span>_1F, <span class="hljs-number">0.</span>_f, <span class="hljs-number">0.</span>1_F, };
+
+<span class="hljs-type">double</span>[] doubleBadDecimalExponents = { 0_e0,  <span class="hljs-number">0.</span>_E1,  1e_2,  2E3_,  3e4_d, };
+<span class="hljs-type">float</span>[] floatBadDecimalExponents =   { 0_e0f, <span class="hljs-number">0.</span>_E1F, 1e_2f, 2E3_F, 3e4_f, };
+
+<span class="hljs-type">double</span>[] doubleBadHexExponents = { 0x0pA,  0x0_P0,  <span class="hljs-number">0x0</span>._p1,  0x1P_2,  0x2p3_,  0x3P4_D, };
+<span class="hljs-type">float</span>[] floatBadHexExponents =   { 0x0pAF, 0x0_P0f, <span class="hljs-number">0x0</span>._p1F, 0x1P_2f, 0x2p3_F, 0x3P4_f, };

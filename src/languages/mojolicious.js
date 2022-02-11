@@ -8,18 +8,20 @@ Category: template
 */
 export default function(hljs) {
   return {
+    name: 'Mojolicious',
     subLanguage: 'xml',
     contains: [
       {
         className: 'meta',
         begin: '^__(END|DATA)__$'
       },
-    // mojolicious line
+      // mojolicious line
       {
-        begin: "^\\s*%{1,2}={0,2}", end: '$',
+        begin: "^\\s*%{1,2}={0,2}",
+        end: '$',
         subLanguage: 'perl'
       },
-    // mojolicious block
+      // mojolicious block
       {
         begin: "<%{1,2}={0,2}",
         end: "={0,1}%>",

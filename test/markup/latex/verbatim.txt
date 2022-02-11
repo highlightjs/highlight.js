@@ -1,0 +1,48 @@
+\verb|\verb|\verb!%\&$^_{}!foo
+\verb{\verb{\verb}\verb{}
+\lstinline||foo
+\mint{\foo{bar}[}.\foo{bar}.
+\mintinline{foo}{\mintinline{foo}{\foo{bar}}}
+
+\verb xfooxfoo foo
+\verb  xfooxfoo foo
+\lstinline  xfooxfoo foo
+\mintinline {foo} \delimited_by_spaces$ foo
+
+\url {https://en.wikipedia.org/w/index.php?search=%25&advancedSearch-current={}}
+\hyperref{url}{category}{name}{text}
+\hyperref[label]{text}
+\href{url}{text}
+\href[options]{url}{text}
+\href[
+  several,
+  options,
+  on=lines,
+  ]{url}{text}
+
+\begin{verbatim}
+  Some verbatim text
+  }}%&$
+\end{verbatim}
+
+\begin{filecontents*}{filename}
+  {The file's contents}
+\end{filecontents*}
+
+\begin {Verbatim}
+\end {Verbatim}
+\begin{Verbatim}
+\end{Verbatim*}
+\begin{Verbatim*}
+\end{Verbatim}
+
+\begin {minted}
+    [some options,
+     given here]
+    {language}
+  [code]
+\end{minted}
+
+\begin{minted}{latex}
+On \beginnings and \endings
+\end{minted}

@@ -1,0 +1,58 @@
+<span class="hljs-meta">#!/usr/bin/env groovy</span>
+<span class="hljs-keyword">package</span> model
+
+<span class="hljs-keyword">import</span> groovy.transform.CompileStatic
+<span class="hljs-keyword">import</span> java.util.List <span class="hljs-keyword">as</span> MyList
+
+<span class="hljs-keyword">trait</span> <span class="hljs-title class_">Distributable</span> {
+    <span class="hljs-type">void</span> distribute(String version) {}
+}
+
+<span class="hljs-meta">@CompileStatic</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Distribution</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Distributable</span> {
+    <span class="hljs-type">double</span> number = <span class="hljs-number">1234.234</span> / <span class="hljs-number">567</span>
+    <span class="hljs-keyword">def</span> otherNumber = <span class="hljs-number">3</span> / <span class="hljs-number">4</span>
+    <span class="hljs-type">boolean</span> archivable = condition ?: <span class="hljs-literal">true</span>
+    <span class="hljs-keyword">def</span> ternary = a ? b : c
+    String name = <span class="hljs-string">&quot;Guillaume&quot;</span>
+    Closure description = <span class="hljs-literal">null</span>
+    List&lt;DownloadPackage&gt; packages = []
+    String regex = <span class="hljs-regexp">~/.*foo.*/</span>
+    String multi = <span class="hljs-string">&#x27;&#x27;&#x27;
+        multi line string
+    &#x27;&#x27;&#x27;</span> + <span class="hljs-string">&quot;&quot;&quot;
+        now with double quotes and ${gstring}
+    &quot;&quot;&quot;</span> + <span class="hljs-string">$/
+        even with dollar slashy strings
+    /$</span>
+
+    <span class="hljs-comment">/**
+     * description method
+     * @param cl the closure
+     */</span>
+    <span class="hljs-type">void</span> description(Closure cl) { <span class="hljs-variable language_">this</span>.description = cl }
+
+    <span class="hljs-type">void</span> version(String name, Closure versionSpec) {
+        <span class="hljs-keyword">def</span> closure = { println <span class="hljs-string">&quot;hi&quot;</span> } <span class="hljs-keyword">as</span> Runnable
+
+        MyList ml = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-attr">a:</span> <span class="hljs-number">1</span>, <span class="hljs-attr">b:</span><span class="hljs-number">2</span>,<span class="hljs-attr">c :</span><span class="hljs-number">3</span>]]
+        <span class="hljs-keyword">for</span> (ch <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;name&quot;</span>) {}
+
+        <span class="hljs-comment">// single line comment</span>
+        DownloadPackage pkg = <span class="hljs-keyword">new</span> DownloadPackage(<span class="hljs-attr">version:</span> name)
+
+        check <span class="hljs-attr">that:</span> <span class="hljs-literal">true</span>
+
+        <span class="hljs-symbol">label:</span>
+        <span class="hljs-comment">// This is purposely tabbed</span>
+		<span class="hljs-symbol">tabbed_label:</span>
+        <span class="hljs-keyword">def</span> clone = versionSpec.rehydrate(pkg, pkg, pkg)
+        <span class="hljs-comment">/*
+            now clone() in a multiline comment
+        */</span>
+        clone()
+        packages.add(pkg)
+
+        <span class="hljs-keyword">assert</span> <span class="hljs-number">4</span> / <span class="hljs-number">2</span> == <span class="hljs-number">2</span>
+    }
+}

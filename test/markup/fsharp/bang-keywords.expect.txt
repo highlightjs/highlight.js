@@ -1,1 +1,1 @@
-<span class="hljs-keyword">let!</span> (result2 : byte[])  = stream.AsyncRead(bufferSize)
+<span class="hljs-keyword">let!</span> (result2 <span class="hljs-operator">:</span> <span class="hljs-type">byte</span>[]) <span class="hljs-operator">=</span> stream.AsyncRead(bufferSize)

@@ -1,0 +1,28 @@
+#' A description
+#'
+#' Long description
+#' @param x the object of type \code{numeric}
+#' @return A logical indicating whether \code{x == 0}
+#' @export
+is_zero = function (x) x == 0
+
+#' Sum of numbers
+#'
+#' \code{sum_all} is a wrapper for \code{\link{sum}(..., na.rm = TRUE)}.
+#' @param ... one or more numeric vectors
+#' @examples
+#' sum_all(1 : 10) # 55 @this \link{should not be highlighted!}
+#' sum_all(1, NA, 2, 3) # 6
+#' @seealso \link[base]{sum} # this SHOULD be highlighted again.
+# comment
+sum_all <- function (...) {
+  sum(..., na.rm = TRUE)
+}
+
+# Weird identifier in @param string
+
+#' @param `a\`b\\` test
+
+#' @examples
+#' test = '\code{1 + 2} @return'
+format = function (str) {}

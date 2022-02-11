@@ -1,9 +1,9 @@
-puts <span class="hljs-template-variable">{{ <span class="hljs-string">"hello world"</span> }}</span>
+puts <span class="hljs-template-variable">{{ <span class="hljs-string">&quot;hello world&quot;</span> }}</span>
 
-<span class="hljs-template-variable">{% <span class="hljs-keyword">verbatim</span> %}</span><span class="hljs-template-variable">{{ <span class="hljs-string">"bla"</span>.id }}</span><span class="hljs-template-variable">{% <span class="hljs-keyword">end</span> %}</span>
+<span class="hljs-template-variable">{% <span class="hljs-keyword">verbatim</span> %}</span><span class="hljs-template-variable">{{ <span class="hljs-string">&quot;bla&quot;</span>.id }}</span><span class="hljs-template-variable">{% <span class="hljs-keyword">end</span> %}</span>
 
 <span class="hljs-function"><span class="hljs-keyword">macro</span> <span class="hljs-title">foo</span></span>
   <span class="hljs-template-variable">{% <span class="hljs-keyword">verbatim</span> %}</span>
-    <span class="hljs-template-variable">{{ <span class="hljs-string">"bla"</span>.id }}</span>
+    <span class="hljs-template-variable">{{ <span class="hljs-string">&quot;bla&quot;</span>.id }}</span>
   <span class="hljs-template-variable">{% <span class="hljs-keyword">end</span> %}</span>
 <span class="hljs-keyword">end</span>

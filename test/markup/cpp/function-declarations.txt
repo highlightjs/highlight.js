@@ -13,4 +13,13 @@ B::type test() {};
 // template
 boost::optional<application> handle_key(application state, key_code key, coord size);
 
+// pack expansion in function arguments
+template<typename T...>
+void foo(T... args) {}
+
 test();
+
+void A(): a(10) {}
+explicit A(): a(10) {}
+
+extern void f(int), g(char);

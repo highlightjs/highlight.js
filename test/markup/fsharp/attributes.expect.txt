@@ -1,0 +1,4 @@
+<span class="hljs-comment">// Strings and numbers are highlighted inside the attribute</span>
+<span class="hljs-meta">[&lt;Foo&gt;]</span>
+<span class="hljs-meta">[&lt;Bar(<span class="hljs-string">&quot;bar&quot;</span>); Foo(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)&gt;]</span>
+<span class="hljs-keyword">let</span> x () <span class="hljs-operator">=</span> ()

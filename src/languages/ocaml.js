@@ -10,8 +10,10 @@ Category: functional
 export default function(hljs) {
   /* missing support for heredoc-like string (OCaml 4.0.2+) */
   return {
+    name: 'OCaml',
     aliases: ['ml'],
     keywords: {
+      $pattern: '[a-z_]\\w*!?',
       keyword:
         'and as assert asr begin class constraint do done downto else end ' +
         'exception external for fun function functor if in include ' +
@@ -29,7 +31,6 @@ export default function(hljs) {
         'true false'
     },
     illegal: /\/\/|>>/,
-    lexemes: '[a-z_]\\w*!?',
     contains: [
       {
         className: 'literal',
@@ -72,7 +73,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: /[-=]>/ // relevance booster
+        begin: /->/ // relevance booster
       }
     ]
   }

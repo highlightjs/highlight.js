@@ -25,7 +25,7 @@
 
 <span class="hljs-comment">-- examples</span>
 
-<span class="hljs-keyword">SELECT</span> string_agg(empno, <span class="hljs-string">','</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> a) <span class="hljs-keyword">FROM</span> empsalary;
+<span class="hljs-keyword">SELECT</span> string_agg(empno, <span class="hljs-string">&#x27;,&#x27;</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> a) <span class="hljs-keyword">FROM</span> empsalary;
 <span class="hljs-keyword">SELECT</span> percentile_cont(<span class="hljs-number">0.5</span>) <span class="hljs-keyword">WITHIN</span> <span class="hljs-keyword">GROUP</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> income) <span class="hljs-keyword">FROM</span> households;
 <span class="hljs-keyword">SELECT</span> count(*) <span class="hljs-keyword">FILTER</span> (<span class="hljs-keyword">WHERE</span> i &lt; <span class="hljs-number">5</span>) <span class="hljs-keyword">FROM</span> generate_series(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>) <span class="hljs-keyword">AS</span> s(i);
 <span class="hljs-keyword">SELECT</span> depname, empno, salary, avg(salary) <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> depname) <span class="hljs-keyword">FROM</span> empsalary;

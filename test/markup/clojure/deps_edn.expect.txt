@@ -1,0 +1,14 @@
+{<span class="hljs-symbol">:aliases</span> {<span class="hljs-symbol">:export</span> {<span class="hljs-symbol">:exec-fn</span> stelcodes.dev-blog.generator/export}<span class="hljs-punctuation">,</span>
+           <span class="hljs-symbol">:repl</span> {<span class="hljs-symbol">:extra-deps</span> {cider/cider-nrepl {<span class="hljs-symbol">:mvn/version</span> <span class="hljs-string">&quot;0.25.2&quot;</span>}<span class="hljs-punctuation">,</span>
+                               nrepl/nrepl {<span class="hljs-symbol">:mvn/version</span> <span class="hljs-string">&quot;0.8.3&quot;</span>}}<span class="hljs-punctuation">,</span>
+                  <span class="hljs-symbol">:extra-paths</span> [<span class="hljs-string">&quot;dev&quot;</span>]<span class="hljs-punctuation">,</span>
+                  <span class="hljs-symbol">:main-opts</span> [<span class="hljs-string">&quot;-m&quot;</span>
+                              <span class="hljs-string">&quot;nrepl.cmdline&quot;</span>
+                              <span class="hljs-string">&quot;--middleware&quot;</span>
+                              <span class="hljs-string">&quot;[cider.nrepl/cider-middleware]&quot;</span>
+                              <span class="hljs-string">&quot;--interactive&quot;</span>]}<span class="hljs-punctuation">,</span>
+           <span class="hljs-symbol">:webhook</span> {<span class="hljs-symbol">:exec-fn</span> stelcodes.dev-blog.webhook/listen}}<span class="hljs-punctuation">,</span>
+ <span class="hljs-symbol">:deps</span> {http-kit/http-kit {<span class="hljs-symbol">:mvn/version</span> <span class="hljs-string">&quot;2.5.3&quot;</span>}<span class="hljs-punctuation">,</span>
+        org.clojure/clojure {<span class="hljs-symbol">:mvn/version</span> <span class="hljs-string">&quot;1.10.1&quot;</span>}<span class="hljs-punctuation">,</span>
+        stasis/stasis {<span class="hljs-symbol">:mvn/version</span> <span class="hljs-string">&quot;2.5.1&quot;</span>}}<span class="hljs-punctuation">,</span>
+ <span class="hljs-symbol">:paths</span> [<span class="hljs-string">&quot;src&quot;</span> <span class="hljs-string">&quot;resources&quot;</span>]}

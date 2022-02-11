@@ -46,37 +46,37 @@
 <span class="hljs-number">1_000_000.111_111</span>
 <span class="hljs-number">1_000_000.111_111e12</span>
 
-<span class="hljs-string">'c'</span>
-<span class="hljs-string">'\\'</span>
-<span class="hljs-string">'\u{ABCD}'</span>
+<span class="hljs-string">&#x27;c&#x27;</span>
+<span class="hljs-string">&#x27;\\&#x27;</span>
+<span class="hljs-string">&#x27;\u{ABCD}&#x27;</span>
 
-<span class="hljs-string">"string"</span>
-<span class="hljs-string">"\u{48 45 4C 4C 4F}"</span>
-<span class="hljs-string">"interpolated <span class="hljs-subst">#{string}</span>"</span>
-<span class="hljs-string">"interpolated <span class="hljs-subst">#{<span class="hljs-string">"string"</span>}</span>"</span>
+<span class="hljs-string">&quot;string&quot;</span>
+<span class="hljs-string">&quot;\u{48 45 4C 4C 4F}&quot;</span>
+<span class="hljs-string">&quot;interpolated <span class="hljs-subst">#{string}</span>&quot;</span>
+<span class="hljs-string">&quot;interpolated <span class="hljs-subst">#{<span class="hljs-string">&quot;string&quot;</span>}</span>&quot;</span>
 <span class="hljs-string">%(string)</span>
 <span class="hljs-string">%q(string)</span>
 <span class="hljs-string">%Q(string)</span>
-<span class="hljs-string">%(hello ("world"))</span>
-<span class="hljs-string">%[hello ["world"]]</span>
-<span class="hljs-string">%{hello {"world"}}</span>
-<span class="hljs-string">%&lt;hello &lt;"world"&gt;&gt;</span>
-<span class="hljs-string">%|hello "world"|</span>
-<span class="hljs-string">"hello
-      world"</span>
-<span class="hljs-string">"hello \
+<span class="hljs-string">%(hello (&quot;world&quot;))</span>
+<span class="hljs-string">%[hello [&quot;world&quot;]]</span>
+<span class="hljs-string">%{hello {&quot;world&quot;}}</span>
+<span class="hljs-string">%&lt;hello &lt;&quot;world&quot;&gt;&gt;</span>
+<span class="hljs-string">%|hello &quot;world&quot;|</span>
+<span class="hljs-string">&quot;hello
+      world&quot;</span>
+<span class="hljs-string">&quot;hello \
      world, \
-     no newlines"</span>
+     no newlines&quot;</span>
 <span class="hljs-string">&lt;&lt;-STRING
   Hello world
   STRING</span>
 
-<span class="hljs-string">&lt;&lt;-'HERE'
+<span class="hljs-string">&lt;&lt;-&#x27;HERE&#x27;
   hello \n
   HERE</span>
 
 :unquoted_symbol
-:<span class="hljs-string">"quoted symbol"</span>
+:<span class="hljs-string">&quot;quoted symbol&quot;</span>
 :question?
 :exclamation!
 :+

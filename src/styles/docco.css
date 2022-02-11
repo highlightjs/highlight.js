@@ -3,9 +3,6 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 */
 
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
   color: #000;
   background: #f8f8ff;
 }
@@ -70,8 +67,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
   color: #990073;
 }
 
-.hljs-built_in,
-.hljs-builtin-name {
+.hljs-built_in {
   color: #0086b3;
 }
 

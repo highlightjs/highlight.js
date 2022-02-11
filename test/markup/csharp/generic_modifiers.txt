@@ -5,3 +5,11 @@ interface IObservable<out T>;
 {}
 
 public delegate void DContravariant<in A>(A argument);
+
+public delegate A DCovariant<out A>();
+
+void MethodWithGenericParameter<T>();
+
+private static List<string> leftHalfDiamond = new List<string>();
+
+private static List<Tuple<int, string>> leftHalfDiamond = new List<Tuple<int, string>>();

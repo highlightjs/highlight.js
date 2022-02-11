@@ -5,45 +5,50 @@ Description: Syntax Highlighting for the Tagger Script as used by MusicBrainz Pi
 Website: https://picard.musicbrainz.org
  */
 export default function(hljs) {
-
-  var COMMENT = {
+  const NOOP = {
     className: 'comment',
     begin: /\$noop\(/,
     end: /\)/,
     contains: [{
+      begin: /\\[()]/
+    }, {
       begin: /\(/,
       end: /\)/,
-      contains: ['self', {
-        begin: /\\./
-      }]
-    }],
+      contains: [{
+        begin: /\\[()]/
+      }, 'self']
+    } ],
     relevance: 10
   };
 
-  var FUNCTION = {
+  const FUNCTION = {
     className: 'keyword',
-    begin: /\$(?!noop)[a-zA-Z][_a-zA-Z0-9]*/,
-    end: /\(/,
-    excludeEnd: true
+    begin: /\$[_a-zA-Z0-9]+(?=\()/
   };
 
-  var VARIABLE = {
+  const VARIABLE = {
     className: 'variable',
-    begin: /%[_a-zA-Z0-9:]*/,
-    end: '%'
+    begin: /%[_a-zA-Z0-9:]+%/
   };
 
-  var ESCAPE_SEQUENCE = {
+  const ESCAPE_SEQUENCE_UNICODE = {
     className: 'symbol',
-    begin: /\\./
+    begin: /\\u[a-fA-F0-9]{4}/
+  };
+
+  const ESCAPE_SEQUENCE = {
+    className: 'symbol',
+    begin: /\\[\\nt$%,()]/
   };
 
   return {
+    name: 'Tagger Script',
     contains: [
-      COMMENT,
+      NOOP,
       FUNCTION,
       VARIABLE,
-      ESCAPE_SEQUENCE
+      ESCAPE_SEQUENCE,
+      ESCAPE_SEQUENCE_UNICODE
     ]
   };
 }

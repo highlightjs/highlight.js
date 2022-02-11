@@ -8,7 +8,7 @@ var code = true;
 
 <span class="hljs-code">````md
 ```
-a = 'This is a code block in python'
+a = &#x27;This is a code block in python&#x27;
 ```
 ````</span>
 

@@ -1,22 +1,22 @@
-<span class="hljs-title">xquery version "3.1";</span>
+<span class="hljs-title">xquery version &quot;3.1&quot;;</span>
 <span class="hljs-comment">(:~
  : <span class="hljs-doctag">@author</span> Duncan Paterson
  : <span class="hljs-doctag">@version</span> 1.0:)</span>
 
-<span class="hljs-keyword">module</span> <span class="hljs-type">namespace</span> app=<span class="hljs-string">"http://none"</span>;
+<span class="hljs-keyword">module</span> <span class="hljs-type">namespace</span> app=<span class="hljs-string">&quot;http://none&quot;</span>;
 
-<span class="hljs-keyword">import</span> <span class="hljs-keyword">module</span> <span class="hljs-type">namespace</span> config=<span class="hljs-string">"http://config"</span> <span class="hljs-keyword">at</span> <span class="hljs-string">"config.xqm"</span>; <span class="hljs-comment">(: schema :)</span>
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">module</span> <span class="hljs-type">namespace</span> config=<span class="hljs-string">&quot;http://config&quot;</span> <span class="hljs-keyword">at</span> <span class="hljs-string">&quot;config.xqm&quot;</span>; <span class="hljs-comment">(: schema :)</span>
 
 
 <span class="hljs-keyword">declare</span> <span class="hljs-keyword">copy-namespaces</span> <span class="hljs-keyword">no-preserve</span>, <span class="hljs-keyword">inherit</span>;
 <span class="hljs-comment">(: switch to preserve, no-inherit:)</span>
 
 <span class="hljs-keyword">declare</span> <span class="hljs-meta">%private</span> <span class="hljs-keyword">variable</span> <span class="hljs-variable">$app:maxItems</span> := <span class="hljs-number">12</span>;
-<span class="hljs-keyword">declare</span> <span class="hljs-keyword">context</span> <span class="hljs-type">item</span> :=<span class="hljs-built_in"> doc</span>(<span class="hljs-string">"catalog.xml"</span>);
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">context</span> <span class="hljs-type">item</span> :=<span class="hljs-built_in"> doc</span>(<span class="hljs-string">&quot;catalog.xml&quot;</span>);
 
 <span class="hljs-keyword">declare</span> <span class="hljs-meta">%templates:wrap-all</span> <span class="hljs-keyword">function</span> <span class="hljs-built_in">app:helloworld</span>(<span class="hljs-variable">$node</span> <span class="hljs-keyword">as</span> <span class="hljs-type">node</span>(), <span class="hljs-variable">$model</span> <span class="hljs-keyword">as</span> <span class="hljs-keyword">map</span>(*), <span class="hljs-variable">$name</span> <span class="hljs-keyword">as</span> <span class="hljs-type">xs:string</span>?) {
     <span class="hljs-keyword">if</span> (<span class="hljs-variable">$name</span>) <span class="hljs-keyword">then</span>
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello </span><span class="xquery">{<span class="hljs-variable">$name</span>}</span><span class="xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
+        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello </span><span class="language-xquery">{<span class="hljs-variable">$name</span>}</span><span class="language-xml">!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>
     <span class="hljs-keyword">else</span>
         ()
 };

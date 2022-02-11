@@ -1,0 +1,32 @@
+<span class="hljs-comment"># Bare keys:</span>
+<span class="hljs-attr">key</span> = <span class="hljs-string">&quot;value&quot;</span>
+<span class="hljs-attr">bare_key</span> = <span class="hljs-string">&quot;value&quot;</span>
+<span class="hljs-attr">bare-key</span> = <span class="hljs-string">&quot;value&quot;</span>
+<span class="hljs-attr">1234</span> = <span class="hljs-string">&quot;value&quot;</span>
+
+<span class="hljs-comment"># Quoted keys:</span>
+<span class="hljs-attr">&quot;127.0.0.1&quot;</span> = <span class="hljs-string">&quot;value&quot;</span>
+<span class="hljs-attr">&quot;character encoding&quot;</span> = <span class="hljs-string">&quot;value&quot;</span>
+<span class="hljs-attr">&quot;ʎǝʞ&quot;</span> = <span class="hljs-string">&quot;value&quot;</span>
+<span class="hljs-attr">&#x27;key2&#x27;</span> = <span class="hljs-string">&quot;value&quot;</span>
+<span class="hljs-attr">&#x27;quoted &quot;value&quot;&#x27;</span> = <span class="hljs-string">&quot;value&quot;</span>
+
+<span class="hljs-attr">&quot;key \&quot;containing\&quot; backslash&quot;</span> = <span class="hljs-number">6</span>
+<span class="hljs-attr">&#x27;key \&quot;containing&quot; backslash\&#x27;</span> = <span class="hljs-number">6</span>
+
+<span class="hljs-comment"># empty quoted key is allowed</span>
+<span class="hljs-attr">&quot;&quot;</span> = <span class="hljs-string">&quot;blank&quot;</span>     <span class="hljs-comment"># VALID but discouraged</span>
+<span class="hljs-attr">&#x27;&#x27;</span> = <span class="hljs-string">&#x27;blank&#x27;</span>     <span class="hljs-comment"># VALID but discouraged</span>
+
+<span class="hljs-comment"># Dotted keys:</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;Orange&quot;</span>
+<span class="hljs-attr">physical.color</span> = <span class="hljs-string">&quot;orange&quot;</span>
+<span class="hljs-attr">physical.shape</span> = <span class="hljs-string">&quot;round&quot;</span>
+<span class="hljs-attr">site.&quot;google.com&quot;</span> = <span class="hljs-literal">true</span>
+<span class="hljs-attr">3.14159</span> = <span class="hljs-string">&quot;pi&quot;</span>
+
+<span class="hljs-comment"># Whitespace around dot-separated parts is ignored:</span>
+<span class="hljs-attr">hello  .  world</span>  =  <span class="hljs-string">&quot;!&quot;</span>
+
+<span class="hljs-comment"># Whitespace is ignored around key names and values</span>
+  <span class="hljs-attr">hello</span> = <span class="hljs-string">&quot;World!&quot;</span>

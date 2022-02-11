@@ -1,0 +1,38 @@
+<span class="hljs-comment"># Valid names</span>
+
+a1_foo<span class="hljs-punctuation">,</span> A1_FOO<span class="hljs-punctuation">,</span> .foo_<span class="hljs-punctuation">,</span> ._foo<span class="hljs-punctuation">,</span> Bar.42<span class="hljs-punctuation">,</span> foo..1<span class="hljs-punctuation">,</span> .<span class="hljs-punctuation">,</span> ._<span class="hljs-punctuation">,</span> ..<span class="hljs-punctuation">,</span> ...<span class="hljs-punctuation">,</span> ..1<span class="hljs-punctuation">,</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">,</span> <span class="hljs-built_in">T</span><span class="hljs-punctuation">,</span> <span class="hljs-built_in">F</span><span class="hljs-punctuation">,</span> ._1
+
+<span class="hljs-comment"># Reserved Words</span>
+
+<span class="hljs-literal">NA</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NA_integer_</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NA_real_</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NA_character_</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NA_complex_</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NaN</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">Inf</span>
+
+<span class="hljs-comment"># Keywords</span>
+
+<span class="hljs-keyword">function</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">while</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">repeat</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">for</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">if</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">in</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">else</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">next</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">break</span>
+
+<span class="hljs-comment"># Not reserved</span>
+
+NULLa<span class="hljs-punctuation">,</span> NULL1<span class="hljs-punctuation">,</span> NULL.<span class="hljs-punctuation">,</span> `NULL`<span class="hljs-punctuation">,</span> <span class="hljs-string">&#x27;NULL&#x27;</span><span class="hljs-punctuation">,</span> NA_foo_<span class="hljs-punctuation">,</span> na_real_<span class="hljs-punctuation">,</span> Function<span class="hljs-punctuation">,</span> for.
+
+<span class="hljs-comment"># Primitive built-ins</span>
+
+<span class="hljs-built_in">return</span><span class="hljs-punctuation">,</span> <span class="hljs-built_in">switch</span><span class="hljs-punctuation">,</span> <span class="hljs-built_in">sum</span>
+
+<span class="hljs-comment"># Non-primitive base functions</span>
+
+stop<span class="hljs-punctuation">,</span> try
+
+<span class="hljs-comment"># Quoted identifiers</span>
+
+`+`
+`%*%`
+`a 10 b`
+`for`
+`# x`
+`\`b`
+`\\`
+`%\`%`
+
+<span class="hljs-comment"># Invalid names (for reference)</span>
+
+<span class="hljs-comment"># 0abc, .0abc, abc+cde, _, _., _x, _1, .1_</span>

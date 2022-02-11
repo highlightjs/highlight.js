@@ -1,0 +1,25 @@
+<span class="hljs-comment"># language: en</span>
+<span class="hljs-keyword">Feature</span>: Addition
+  In order to avoid silly mistakes
+  As a math idiot
+  I want to be told the sum of two numbers
+
+  <span class="hljs-meta">@this_is_a_tag</span>
+  <span class="hljs-keyword">Scenario</span> <span class="hljs-keyword">Outline</span>: Add two numbers
+    <span class="hljs-symbol">*</span> I have a calculator
+    <span class="hljs-keyword">Given</span> I have entered <span class="hljs-variable">&lt;input_1&gt;</span> into the calculator
+    <span class="hljs-keyword">And</span> I have entered <span class="hljs-variable">&lt;input_2&gt;</span> into the calculator
+    <span class="hljs-keyword">When</span> I press <span class="hljs-variable">&lt;button&gt;</span>
+    <span class="hljs-keyword">Then</span> the result should be <span class="hljs-variable">&lt;output&gt;</span> on the screen
+    <span class="hljs-keyword">And</span> I have a string like
+    <span class="hljs-string">&quot;&quot;&quot;
+    Here is
+    some
+    multiline text
+    &quot;&quot;&quot;</span>
+
+  <span class="hljs-keyword">Examples</span>:
+    |<span class="hljs-string"> input_1 </span>|<span class="hljs-string"> input_2 </span>|<span class="hljs-string"> button </span>|<span class="hljs-string"> output </span>|
+    |<span class="hljs-string"> 20      </span>|<span class="hljs-string"> 30      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 50     </span>|
+    |<span class="hljs-string"> 2       </span>|<span class="hljs-string"> 5       </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 7      </span>|
+    |<span class="hljs-string"> 0       </span>|<span class="hljs-string"> 40      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 40     </span>|

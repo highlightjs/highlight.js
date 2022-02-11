@@ -9,7 +9,7 @@
     <span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>
     <span class="hljs-keyword">var</span> b = <span class="hljs-number">2</span>
 
-    <span class="hljs-keyword">println</span>(<span class="hljs-string">"hello"</span>)
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">&quot;hello&quot;</span>)
 
-    <span class="hljs-keyword">let</span> john = human(<span class="hljs-string">"John Doe"</span>)
+    <span class="hljs-keyword">let</span> john = human(<span class="hljs-string">&quot;John Doe&quot;</span>)
 }

@@ -1,0 +1,8 @@
+
+if (ch) {}
+
+switch (ch) {}
+
+while (ch) {}
+
+for (;;) {}

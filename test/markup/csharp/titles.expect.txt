@@ -2,12 +2,12 @@
 {
     <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Greet</span> : <span class="hljs-title">Base</span>, <span class="hljs-title">Other</span>, <span class="hljs-title">IInterface.test.path</span> <span class="hljs-comment">// class</span>
     {
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Greet</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> who</span>) <span class="hljs-comment">// function</span></span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Greet</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> who</span>) <span class="hljs-comment">// function</span></span>
         {
             Who = who;
         }
 
-        <span class="hljs-function"><span class="hljs-keyword">int</span>[] <span class="hljs-title">f</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span></span>)</span>
+        <span class="hljs-function"><span class="hljs-built_in">int</span>[] <span class="hljs-title">f</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> val = <span class="hljs-number">0</span></span>)</span>
         {
             <span class="hljs-keyword">new</span> Type();
             <span class="hljs-keyword">return</span> getType();
@@ -16,6 +16,6 @@
         }
     }
 
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TesterA</span>&lt;R, S&gt;  <span class="hljs-keyword">where</span> <span class="hljs-title">R</span> : <span class="hljs-keyword">class</span> <span class="hljs-keyword">where</span> <span class="hljs-title">S</span> : <span class="hljs-title">IComparable</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TesterA</span>&lt;<span class="hljs-title">R</span>, <span class="hljs-title">S</span>&gt;  <span class="hljs-keyword">where</span> <span class="hljs-title">R</span> : <span class="hljs-keyword">class</span> <span class="hljs-keyword">where</span> <span class="hljs-title">S</span> : <span class="hljs-title">IComparable</span>
     {}
 }

@@ -1,0 +1,7 @@
+{{#if this.userData.isLoaded}}
+  {{this.userData.value.userName}}
+{{else if this.userData.isError}}
+  Whoops, something went wrong!
+{{else}}
+  Something else!
+{{/if}}

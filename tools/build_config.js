@@ -1,49 +1,69 @@
-const cjsPlugin = require('rollup-plugin-commonjs');
+const cjsPlugin = require('@rollup/plugin-commonjs');
+const jsonPlugin = require('@rollup/plugin-json');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 
 module.exports = {
-    build_dir: "build",
-    copyrightYears: "2006-2020",
-    clean_css: {},
-    rollup: {
-      node: {
-        output: { format: "cjs", strict: false },
-        input : {
-          plugins: [
-            cjsPlugin(),
-            {
-              transform: (x) => {
-                if (/var module/.exec(x)) {
-                  // remove shim that only breaks things for rollup
-                  return x.replace(/var module\s*=.*$/m,"")
-                }
+  build_dir: "build",
+  copyrightYears: `2006-${new Date().getFullYear()}`,
+  clean_css: {
+    level: 2
+  },
+  rollup: {
+    core: {
+      input: {
+        plugins: [
+          cjsPlugin(),
+          jsonPlugin(),
+          nodeResolve(),
+          // TODO: remove with version 12
+          {
+            transform: (x) => {
+              if (/var module/.exec(x)) {
+                // remove shim that only breaks things for rollup
+                return x.replace(/var module\s*=.*$/m, "");
               }
             }
-          ],
-        },
-      },
-      browser: {
-        input: {
-          plugins: [
-            cjsPlugin()
-          ]
-        },
-        output: {
-          format: "iife",
-          outro: "return module.exports.definer || module.exports;",
-          strict: false,
-          compact: false,
-          interop: false,
-          extend: false,
-        }
+          }
+        ]
       }
     },
-    terser: {
-        "compress": {
-          passes: 2,
-          unsafe: true,
-          warnings: true,
-          dead_code: true,
-          toplevel: "funcs"
-        }
+    node: {
+      output: {
+        format: "cjs",
+        strict: false,
+        exports: "auto",
+        footer: ""
+      }
+    },
+    browser_iife: {
+      input: {
+        plugins: [
+          jsonPlugin(),
+          cjsPlugin(),
+          nodeResolve()
+        ]
+      },
+      output: {
+        name: "hljs",
+        format: "iife",
+        footer: "if (typeof exports === 'object' && typeof module !== 'undefined') { module.exports = hljs; }",
+        interop: false
+      }
     }
-}
+  },
+  terser: {
+    format: {
+      max_line_len: 80,
+      ascii_only: true
+    },
+    compress: {
+      ecma: 2015,
+      unsafe_arrows: true,
+      passes: 2,
+      unsafe: true,
+      warnings: true,
+      dead_code: true,
+      toplevel: "funcs"
+    }
+  }
+};

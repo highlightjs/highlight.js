@@ -1,9 +1,0 @@
-<div class="entry">
-  {{!-- only output this author names if an author exists --}}
-  {{#if author}}
-    {{#playwright-wrapper playwright=author action=(mut author) as |playwright|}}
-    <h1>{{playwright.firstName}} {{playwright.lastName}}</h1>
-    {{/playwright-wrapper}}
-  {{/if}}
-  {{yield}}
-</div>

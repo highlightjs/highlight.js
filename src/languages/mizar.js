@@ -8,6 +8,7 @@ Category: scientific
 
 export default function(hljs) {
   return {
+    name: 'Mizar',
     keywords:
       'environ vocabularies notations constructors definitions ' +
       'registrations theorems schemes requirements begin end definition ' +

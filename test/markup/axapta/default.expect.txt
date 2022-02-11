@@ -1,0 +1,32 @@
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ExchRateLoadBatch</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">RunBaseBatch</span> {
+  ExchRateLoad rbc;
+  <span class="hljs-built_in">container</span> currencies;
+  <span class="hljs-built_in">boolean</span> actual;
+  <span class="hljs-built_in">boolean</span> overwrite;
+  <span class="hljs-built_in">date</span> beg;
+  <span class="hljs-built_in">date</span> end;
+
+  <span class="hljs-meta">#define.CurrentVersion(5)</span>
+
+  <span class="hljs-meta">#localmacro.CurrentList</span>
+    currencies,
+    actual,
+    beg,
+    end
+  <span class="hljs-meta">#endmacro</span>
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-built_in">boolean</span> unpack(<span class="hljs-built_in">container</span> packedClass) {
+  <span class="hljs-built_in">container</span>       base;
+  <span class="hljs-built_in">boolean</span>         ret;
+  Integer         version    = runbase::getVersion(packedClass);
+
+  <span class="hljs-keyword">switch</span> (version) {
+    <span class="hljs-keyword">case</span> <span class="hljs-meta">#CurrentVersion:</span>
+      [version, <span class="hljs-meta">#CurrentList] = packedClass;</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    <span class="hljs-literal">default</span>:
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+  <span class="hljs-keyword">return</span> ret;
+}

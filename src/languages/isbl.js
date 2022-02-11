@@ -7,18 +7,18 @@ Category: enterprise
 
 export default function(hljs) {
   // Определение идентификаторов
-  var UNDERSCORE_IDENT_RE = "[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*";
+  const UNDERSCORE_IDENT_RE = "[A-Za-zА-Яа-яёЁ_!][A-Za-zА-Яа-яёЁ_0-9]*";
 
   // Определение имен функций
-  var FUNCTION_NAME_IDENT_RE = "[A-Za-zА-Яа-яёЁ_][A-Za-zА-Яа-яёЁ_0-9]*";
+  const FUNCTION_NAME_IDENT_RE = "[A-Za-zА-Яа-яёЁ_][A-Za-zА-Яа-яёЁ_0-9]*";
 
   // keyword : ключевые слова
-  var KEYWORD =
+  const KEYWORD =
     "and и else иначе endexcept endfinally endforeach конецвсе endif конецесли endwhile конецпока " +
     "except exitfor finally foreach все if если in в not не or или try while пока ";
 
   // SYSRES Constants
-  var sysres_constants =
+  const sysres_constants =
     "SYSRES_CONST_ACCES_RIGHT_TYPE_EDIT " +
     "SYSRES_CONST_ACCES_RIGHT_TYPE_FULL " +
     "SYSRES_CONST_ACCES_RIGHT_TYPE_VIEW " +
@@ -795,24 +795,24 @@ export default function(hljs) {
     "SYSRES_CONST_YES_VALUE ";
 
   // Base constant
-  var base_constants = "CR FALSE nil NO_VALUE NULL TAB TRUE YES_VALUE ";
+  const base_constants = "CR FALSE nil NO_VALUE NULL TAB TRUE YES_VALUE ";
 
   // Base group name
-  var base_group_name_constants =
+  const base_group_name_constants =
     "ADMINISTRATORS_GROUP_NAME CUSTOMIZERS_GROUP_NAME DEVELOPERS_GROUP_NAME SERVICE_USERS_GROUP_NAME ";
 
   // Decision block properties
-  var decision_block_properties_constants =
+  const decision_block_properties_constants =
     "DECISION_BLOCK_FIRST_OPERAND_PROPERTY DECISION_BLOCK_NAME_PROPERTY DECISION_BLOCK_OPERATION_PROPERTY " +
     "DECISION_BLOCK_RESULT_TYPE_PROPERTY DECISION_BLOCK_SECOND_OPERAND_PROPERTY ";
 
   // File extension
-  var file_extension_constants =
+  const file_extension_constants =
     "ANY_FILE_EXTENTION COMPRESSED_DOCUMENT_EXTENSION EXTENDED_DOCUMENT_EXTENSION " +
     "SHORT_COMPRESSED_DOCUMENT_EXTENSION SHORT_EXTENDED_DOCUMENT_EXTENSION ";
 
   // Job block properties
-  var job_block_properties_constants =
+  const job_block_properties_constants =
     "JOB_BLOCK_ABORT_DEADLINE_PROPERTY " +
     "JOB_BLOCK_AFTER_FINISH_EVENT " +
     "JOB_BLOCK_AFTER_QUERY_PARAMETERS_EVENT " +
@@ -836,14 +836,14 @@ export default function(hljs) {
     "JOB_BLOCK_SUBJECT_PROPERTY ";
 
   // Language code
-  var language_code_constants = "ENGLISH_LANGUAGE_CODE RUSSIAN_LANGUAGE_CODE ";
+  const language_code_constants = "ENGLISH_LANGUAGE_CODE RUSSIAN_LANGUAGE_CODE ";
 
   // Launching external applications
-  var launching_external_applications_constants =
+  const launching_external_applications_constants =
     "smHidden smMaximized smMinimized smNormal wmNo wmYes ";
 
   // Link kind
-  var link_kind_constants =
+  const link_kind_constants =
     "COMPONENT_TOKEN_LINK_KIND " +
     "DOCUMENT_LINK_KIND " +
     "EDOCUMENT_LINK_KIND " +
@@ -853,11 +853,11 @@ export default function(hljs) {
     "TASK_LINK_KIND ";
 
   // Lock type
-  var lock_type_constants =
+  const lock_type_constants =
     "COMPONENT_TOKEN_LOCK_TYPE EDOCUMENT_VERSION_LOCK_TYPE ";
 
   // Monitor block properties
-  var monitor_block_properties_constants =
+  const monitor_block_properties_constants =
     "MONITOR_BLOCK_AFTER_FINISH_EVENT " +
     "MONITOR_BLOCK_BEFORE_START_EVENT " +
     "MONITOR_BLOCK_DEADLINE_PROPERTY " +
@@ -869,7 +869,7 @@ export default function(hljs) {
     "MONITOR_BLOCK_SEARCH_SCRIPT_PROPERTY ";
 
   // Notice block properties
-  var notice_block_properties_constants =
+  const notice_block_properties_constants =
     "NOTICE_BLOCK_AFTER_FINISH_EVENT " +
     "NOTICE_BLOCK_ATTACHMENT_PROPERTY " +
     "NOTICE_BLOCK_ATTACHMENTS_RIGHTS_GROUP_PROPERTY " +
@@ -885,7 +885,7 @@ export default function(hljs) {
     "NOTICE_BLOCK_SUBJECT_PROPERTY ";
 
   // Object events
-  var object_events_constants =
+  const object_events_constants =
     "dseAfterCancel " +
     "dseAfterClose " +
     "dseAfterDelete " +
@@ -917,13 +917,13 @@ export default function(hljs) {
     "SELECTION_END_ROUTE_EVENT ";
 
   // Object params
-  var object_params_constants =
+  const object_params_constants =
     "CURRENT_PERIOD_IS_REQUIRED " +
     "PREVIOUS_CARD_TYPE_NAME " +
     "SHOW_RECORD_PROPERTIES_FORM ";
 
   // Other
-  var other_constants =
+  const other_constants =
     "ACCESS_RIGHTS_SETTING_DIALOG_CODE " +
     "ADMINISTRATOR_USER_CODE " +
     "ANALYTIC_REPORT_TYPE " +
@@ -992,7 +992,7 @@ export default function(hljs) {
     "REPEAT_PROCESS_CURRENT_OBJECT_EXCEPTION_NAME ";
 
   // Privileges
-  var privileges_constants =
+  const privileges_constants =
     "PRIVILEGE_COMPONENT_FULL_ACCESS " +
     "PRIVILEGE_DEVELOPMENT_EXPORT " +
     "PRIVILEGE_DEVELOPMENT_IMPORT " +
@@ -1013,7 +1013,7 @@ export default function(hljs) {
     "PRIVILEGES_PSEUDOREFERENCE_CODE ";
 
   // Pseudoreference code
-  var pseudoreference_code_constants =
+  const pseudoreference_code_constants =
     "ACCESS_TYPES_PSEUDOREFERENCE_CODE " +
     "ALL_AVAILABLE_COMPONENTS_PSEUDOREFERENCE_CODE " +
     "ALL_AVAILABLE_PRIVILEGES_PSEUDOREFERENCE_CODE " +
@@ -1035,27 +1035,27 @@ export default function(hljs) {
     "VIEWERS_PSEUDOREFERENCE_CODE ";
 
   // Requisite ISBCertificateType values
-  var requisite_ISBCertificateType_values_constants =
+  const requisite_ISBCertificateType_values_constants =
     "CERTIFICATE_TYPE_ENCRYPT " +
     "CERTIFICATE_TYPE_SIGN " +
     "CERTIFICATE_TYPE_SIGN_AND_ENCRYPT ";
 
   // Requisite ISBEDocStorageType values
-  var requisite_ISBEDocStorageType_values_constants =
+  const requisite_ISBEDocStorageType_values_constants =
     "STORAGE_TYPE_FILE " +
     "STORAGE_TYPE_NAS_CIFS " +
     "STORAGE_TYPE_SAPERION " +
     "STORAGE_TYPE_SQL_SERVER ";
 
   // Requisite CompType2 values
-  var requisite_compType2_values_constants =
+  const requisite_compType2_values_constants =
     "COMPTYPE2_REQUISITE_DOCUMENTS_VALUE " +
     "COMPTYPE2_REQUISITE_TASKS_VALUE " +
     "COMPTYPE2_REQUISITE_FOLDERS_VALUE " +
     "COMPTYPE2_REQUISITE_REFERENCES_VALUE ";
 
   // Requisite name
-  var requisite_name_constants =
+  const requisite_name_constants =
     "SYSREQ_CODE " +
     "SYSREQ_COMPTYPE2 " +
     "SYSREQ_CONST_AVAILABLE_FOR_WEB " +
@@ -1268,10 +1268,10 @@ export default function(hljs) {
     "SYSREQ_WORK_RULES_FOLDER_ID ";
 
   // Result
-  var result_constants = "RESULT_VAR_NAME RESULT_VAR_NAME_ENG ";
+  const result_constants = "RESULT_VAR_NAME RESULT_VAR_NAME_ENG ";
 
   // Rule identification
-  var rule_identification_constants =
+  const rule_identification_constants =
     "AUTO_NUMERATION_RULE_ID " +
     "CANT_CHANGE_ID_REQUISITE_RULE_ID " +
     "CANT_CHANGE_OURFIRM_REQUISITE_RULE_ID " +
@@ -1293,7 +1293,7 @@ export default function(hljs) {
     "SET_OURFIRM_REQUISITE_RULE_ID ";
 
   // Script block properties
-  var script_block_properties_constants =
+  const script_block_properties_constants =
     "SCRIPT_BLOCK_AFTER_FINISH_EVENT " +
     "SCRIPT_BLOCK_BEFORE_START_EVENT " +
     "SCRIPT_BLOCK_EXECUTION_RESULTS_PROPERTY " +
@@ -1301,7 +1301,7 @@ export default function(hljs) {
     "SCRIPT_BLOCK_SCRIPT_PROPERTY ";
 
   // Subtask block properties
-  var subtask_block_properties_constants =
+  const subtask_block_properties_constants =
     "SUBTASK_BLOCK_ABORT_DEADLINE_PROPERTY " +
     "SUBTASK_BLOCK_AFTER_FINISH_EVENT " +
     "SUBTASK_BLOCK_ASSIGN_PARAMS_EVENT " +
@@ -1334,7 +1334,7 @@ export default function(hljs) {
     "SUBTASK_BLOCK_WAIT_FOR_TASK_COMPLETE_PROPERTY ";
 
   // System component
-  var system_component_constants =
+  const system_component_constants =
     "SYSCOMP_CONTROL_JOBS " +
     "SYSCOMP_FOLDERS " +
     "SYSCOMP_JOBS " +
@@ -1342,7 +1342,7 @@ export default function(hljs) {
     "SYSCOMP_TASKS ";
 
   // System dialogs
-  var system_dialogs_constants =
+  const system_dialogs_constants =
     "SYSDLG_CREATE_EDOCUMENT " +
     "SYSDLG_CREATE_EDOCUMENT_VERSION " +
     "SYSDLG_CURRENT_PERIOD " +
@@ -1363,7 +1363,7 @@ export default function(hljs) {
     "SYSDLG_SIGN_MULTIPLE_EDOCUMENTS ";
 
   // System reference names
-  var system_reference_names_constants =
+  const system_reference_names_constants =
     "SYSREF_ACCESS_RIGHTS_TYPES " +
     "SYSREF_ADMINISTRATION_HISTORY " +
     "SYSREF_ALL_AVAILABLE_COMPONENTS " +
@@ -1443,13 +1443,13 @@ export default function(hljs) {
     "SYSREF_WORKING_TIME_CALENDARS ";
 
   // Table name
-  var table_name_constants =
+  const table_name_constants =
     "ACCESS_RIGHTS_TABLE_NAME " +
     "EDMS_ACCESS_TABLE_NAME " +
     "EDOC_TYPES_TABLE_NAME ";
 
   // Test
-  var test_constants =
+  const test_constants =
     "TEST_DEV_DB_NAME " +
     "TEST_DEV_SYSTEM_CODE " +
     "TEST_EDMS_DB_NAME " +
@@ -1464,7 +1464,7 @@ export default function(hljs) {
     "TEST_SQL_SERVER_NAME ";
 
   // Using the dialog windows
-  var using_the_dialog_windows_constants =
+  const using_the_dialog_windows_constants =
     "ATTENTION_CAPTION " +
     "cbsCommandLinks " +
     "cbsDefault " +
@@ -1475,13 +1475,13 @@ export default function(hljs) {
     "mrOk ";
 
   // Using the document
-  var using_the_document_constants =
+  const using_the_document_constants =
     "EDOC_VERSION_ACTIVE_STAGE_CODE " +
     "EDOC_VERSION_DESIGN_STAGE_CODE " +
     "EDOC_VERSION_OBSOLETE_STAGE_CODE ";
 
   // Using the EA and encryption
-  var using_the_EA_and_encryption_constants =
+  const using_the_EA_and_encryption_constants =
     "cpDataEnciphermentEnabled " +
     "cpDigitalSignatureEnabled " +
     "cpID " +
@@ -1494,11 +1494,11 @@ export default function(hljs) {
     "cpValidToDate ";
 
   // Using the ISBL-editor
-  var using_the_ISBL_editor_constants =
+  const using_the_ISBL_editor_constants =
     "ISBL_SYNTAX " + "NO_SYNTAX " + "XML_SYNTAX ";
 
   // Wait block properties
-  var wait_block_properties_constants =
+  const wait_block_properties_constants =
     "WAIT_BLOCK_AFTER_FINISH_EVENT " +
     "WAIT_BLOCK_BEFORE_START_EVENT " +
     "WAIT_BLOCK_DEADLINE_PROPERTY " +
@@ -1507,7 +1507,7 @@ export default function(hljs) {
     "WAIT_BLOCK_RELATIVE_DEADLINE_TYPE_PROPERTY ";
 
   // SYSRES Common
-  var sysres_common_constants =
+  const sysres_common_constants =
     "SYSRES_COMMON " +
     "SYSRES_CONST " +
     "SYSRES_MBFUNC " +
@@ -1519,7 +1519,7 @@ export default function(hljs) {
     "SYSRES_SYSCOMP ";
 
   // Константы ==> built_in
-  var CONSTANTS =
+  const CONSTANTS =
     sysres_constants +
     base_constants +
     base_group_name_constants +
@@ -1558,10 +1558,10 @@ export default function(hljs) {
     sysres_common_constants;
 
   // enum TAccountType
-  var TAccountType = "atUser atGroup atRole ";
+  const TAccountType = "atUser atGroup atRole ";
 
   // enum TActionEnabledMode
-  var TActionEnabledMode =
+  const TActionEnabledMode =
     "aemEnabledAlways " +
     "aemDisabledAlways " +
     "aemEnabledOnBrowse " +
@@ -1569,13 +1569,13 @@ export default function(hljs) {
     "aemDisabledOnBrowseEmpty ";
 
   // enum TAddPosition
-  var TAddPosition = "apBegin apEnd ";
+  const TAddPosition = "apBegin apEnd ";
 
   // enum TAlignment
-  var TAlignment = "alLeft alRight ";
+  const TAlignment = "alLeft alRight ";
 
   // enum TAreaShowMode
-  var TAreaShowMode =
+  const TAreaShowMode =
     "asmNever " +
     "asmNoButCustomize " +
     "asmAsLastTime " +
@@ -1583,19 +1583,19 @@ export default function(hljs) {
     "asmAlways ";
 
   // enum TCertificateInvalidationReason
-  var TCertificateInvalidationReason = "cirCommon cirRevoked ";
+  const TCertificateInvalidationReason = "cirCommon cirRevoked ";
 
   // enum TCertificateType
-  var TCertificateType = "ctSignature ctEncode ctSignatureEncode ";
+  const TCertificateType = "ctSignature ctEncode ctSignatureEncode ";
 
   // enum TCheckListBoxItemState
-  var TCheckListBoxItemState = "clbUnchecked clbChecked clbGrayed ";
+  const TCheckListBoxItemState = "clbUnchecked clbChecked clbGrayed ";
 
   // enum TCloseOnEsc
-  var TCloseOnEsc = "ceISB ceAlways ceNever ";
+  const TCloseOnEsc = "ceISB ceAlways ceNever ";
 
   // enum TCompType
-  var TCompType =
+  const TCompType =
     "ctDocument " +
     "ctReference " +
     "ctScript " +
@@ -1611,13 +1611,13 @@ export default function(hljs) {
     "ctControlJob ";
 
   // enum TConditionFormat
-  var TConditionFormat = "cfInternal cfDisplay ";
+  const TConditionFormat = "cfInternal cfDisplay ";
 
   // enum TConnectionIntent
-  var TConnectionIntent = "ciUnspecified ciWrite ciRead ";
+  const TConnectionIntent = "ciUnspecified ciWrite ciRead ";
 
   // enum TContentKind
-  var TContentKind =
+  const TContentKind =
     "ckFolder " +
     "ckEDocument " +
     "ckTask " +
@@ -1630,7 +1630,7 @@ export default function(hljs) {
     "ckDialog ";
 
   // enum TControlType
-  var TControlType =
+  const TControlType =
     "ctISBLEditor " +
     "ctBevel " +
     "ctButton " +
@@ -1667,7 +1667,7 @@ export default function(hljs) {
     "ctBitButton ";
 
   // enum TCriterionContentType
-  var TCriterionContentType =
+  const TCriterionContentType =
     "cctDate " +
     "cctInteger " +
     "cctNumeric " +
@@ -1677,10 +1677,10 @@ export default function(hljs) {
     "cctText ";
 
   // enum TCultureType
-  var TCultureType = "cltInternal cltPrimary cltGUI ";
+  const TCultureType = "cltInternal cltPrimary cltGUI ";
 
   // enum TDataSetEventType
-  var TDataSetEventType =
+  const TDataSetEventType =
     "dseBeforeOpen " +
     "dseAfterOpen " +
     "dseBeforeClose " +
@@ -1709,25 +1709,25 @@ export default function(hljs) {
     "dseOnAnyRequisiteChange ";
 
   // enum TDataSetState
-  var TDataSetState = "dssEdit dssInsert dssBrowse dssInActive ";
+  const TDataSetState = "dssEdit dssInsert dssBrowse dssInActive ";
 
   // enum TDateFormatType
-  var TDateFormatType = "dftDate dftShortDate dftDateTime dftTimeStamp ";
+  const TDateFormatType = "dftDate dftShortDate dftDateTime dftTimeStamp ";
 
   // enum TDateOffsetType
-  var TDateOffsetType = "dotDays dotHours dotMinutes dotSeconds ";
+  const TDateOffsetType = "dotDays dotHours dotMinutes dotSeconds ";
 
   // enum TDateTimeKind
-  var TDateTimeKind = "dtkndLocal dtkndUTC ";
+  const TDateTimeKind = "dtkndLocal dtkndUTC ";
 
   // enum TDeaAccessRights
-  var TDeaAccessRights = "arNone arView arEdit arFull ";
+  const TDeaAccessRights = "arNone arView arEdit arFull ";
 
   // enum TDocumentDefaultAction
-  var TDocumentDefaultAction = "ddaView ddaEdit ";
+  const TDocumentDefaultAction = "ddaView ddaEdit ";
 
   // enum TEditMode
-  var TEditMode =
+  const TEditMode =
     "emLock " +
     "emEdit " +
     "emSign " +
@@ -1776,47 +1776,47 @@ export default function(hljs) {
     "emReEncode ";
 
   // enum TEditorCloseObservType
-  var TEditorCloseObservType = "ecotFile ecotProcess ";
+  const TEditorCloseObservType = "ecotFile ecotProcess ";
 
   // enum TEdmsApplicationAction
-  var TEdmsApplicationAction = "eaGet eaCopy eaCreate eaCreateStandardRoute ";
+  const TEdmsApplicationAction = "eaGet eaCopy eaCreate eaCreateStandardRoute ";
 
   // enum TEDocumentLockType
-  var TEDocumentLockType = "edltAll edltNothing edltQuery ";
+  const TEDocumentLockType = "edltAll edltNothing edltQuery ";
 
   // enum TEDocumentStepShowMode
-  var TEDocumentStepShowMode = "essmText essmCard ";
+  const TEDocumentStepShowMode = "essmText essmCard ";
 
   // enum TEDocumentStepVersionType
-  var TEDocumentStepVersionType = "esvtLast esvtLastActive esvtSpecified ";
+  const TEDocumentStepVersionType = "esvtLast esvtLastActive esvtSpecified ";
 
   // enum TEDocumentStorageFunction
-  var TEDocumentStorageFunction = "edsfExecutive edsfArchive ";
+  const TEDocumentStorageFunction = "edsfExecutive edsfArchive ";
 
   // enum TEDocumentStorageType
-  var TEDocumentStorageType = "edstSQLServer edstFile ";
+  const TEDocumentStorageType = "edstSQLServer edstFile ";
 
   // enum TEDocumentVersionSourceType
-  var TEDocumentVersionSourceType =
+  const TEDocumentVersionSourceType =
     "edvstNone edvstEDocumentVersionCopy edvstFile edvstTemplate edvstScannedFile ";
 
   // enum TEDocumentVersionState
-  var TEDocumentVersionState = "vsDefault vsDesign vsActive vsObsolete ";
+  const TEDocumentVersionState = "vsDefault vsDesign vsActive vsObsolete ";
 
   // enum TEncodeType
-  var TEncodeType = "etNone etCertificate etPassword etCertificatePassword ";
+  const TEncodeType = "etNone etCertificate etPassword etCertificatePassword ";
 
   // enum TExceptionCategory
-  var TExceptionCategory = "ecException ecWarning ecInformation ";
+  const TExceptionCategory = "ecException ecWarning ecInformation ";
 
   // enum TExportedSignaturesType
-  var TExportedSignaturesType = "estAll estApprovingOnly ";
+  const TExportedSignaturesType = "estAll estApprovingOnly ";
 
   // enum TExportedVersionType
-  var TExportedVersionType = "evtLast evtLastActive evtQuery ";
+  const TExportedVersionType = "evtLast evtLastActive evtQuery ";
 
   // enum TFieldDataType
-  var TFieldDataType =
+  const TFieldDataType =
     "fdtString " +
     "fdtNumeric " +
     "fdtInteger " +
@@ -1827,7 +1827,7 @@ export default function(hljs) {
     "fdtLargeInteger ";
 
   // enum TFolderType
-  var TFolderType =
+  const TFolderType =
     "ftInbox " +
     "ftOutbox " +
     "ftFavorites " +
@@ -1839,13 +1839,13 @@ export default function(hljs) {
     "ftSearch ";
 
   // enum TGridRowHeight
-  var TGridRowHeight = "grhAuto " + "grhX1 " + "grhX2 " + "grhX3 ";
+  const TGridRowHeight = "grhAuto " + "grhX1 " + "grhX2 " + "grhX3 ";
 
   // enum THyperlinkType
-  var THyperlinkType = "hltText " + "hltRTF " + "hltHTML ";
+  const THyperlinkType = "hltText " + "hltRTF " + "hltHTML ";
 
   // enum TImageFileFormat
-  var TImageFileFormat =
+  const TImageFileFormat =
     "iffBMP " +
     "iffJPEG " +
     "iffMultiPageTIFF " +
@@ -1854,17 +1854,17 @@ export default function(hljs) {
     "iffPNG ";
 
   // enum TImageMode
-  var TImageMode = "im8bGrayscale " + "im24bRGB " + "im1bMonochrome ";
+  const TImageMode = "im8bGrayscale " + "im24bRGB " + "im1bMonochrome ";
 
   // enum TImageType
-  var TImageType = "itBMP " + "itJPEG " + "itWMF " + "itPNG ";
+  const TImageType = "itBMP " + "itJPEG " + "itWMF " + "itPNG ";
 
   // enum TInplaceHintKind
-  var TInplaceHintKind =
+  const TInplaceHintKind =
     "ikhInformation " + "ikhWarning " + "ikhError " + "ikhNoIcon ";
 
   // enum TISBLContext
-  var TISBLContext =
+  const TISBLContext =
     "icUnknown " +
     "icScript " +
     "icFunction " +
@@ -1917,22 +1917,22 @@ export default function(hljs) {
     "icProcessMessageHandler ";
 
   // enum TItemShow
-  var TItemShow = "isShow " + "isHide " + "isByUserSettings ";
+  const TItemShow = "isShow " + "isHide " + "isByUserSettings ";
 
   // enum TJobKind
-  var TJobKind = "jkJob " + "jkNotice " + "jkControlJob ";
+  const TJobKind = "jkJob " + "jkNotice " + "jkControlJob ";
 
   // enum TJoinType
-  var TJoinType = "jtInner " + "jtLeft " + "jtRight " + "jtFull " + "jtCross ";
+  const TJoinType = "jtInner " + "jtLeft " + "jtRight " + "jtFull " + "jtCross ";
 
   // enum TLabelPos
-  var TLabelPos = "lbpAbove " + "lbpBelow " + "lbpLeft " + "lbpRight ";
+  const TLabelPos = "lbpAbove " + "lbpBelow " + "lbpLeft " + "lbpRight ";
 
   // enum TLicensingType
-  var TLicensingType = "eltPerConnection " + "eltPerUser ";
+  const TLicensingType = "eltPerConnection " + "eltPerUser ";
 
   // enum TLifeCycleStageFontColor
-  var TLifeCycleStageFontColor =
+  const TLifeCycleStageFontColor =
     "sfcUndefined " +
     "sfcBlack " +
     "sfcGreen " +
@@ -1942,10 +1942,10 @@ export default function(hljs) {
     "sfcLilac ";
 
   // enum TLifeCycleStageFontStyle
-  var TLifeCycleStageFontStyle = "sfsItalic " + "sfsStrikeout " + "sfsNormal ";
+  const TLifeCycleStageFontStyle = "sfsItalic " + "sfsStrikeout " + "sfsNormal ";
 
   // enum TLockableDevelopmentComponentType
-  var TLockableDevelopmentComponentType =
+  const TLockableDevelopmentComponentType =
     "ldctStandardRoute " +
     "ldctWizard " +
     "ldctScript " +
@@ -1959,15 +1959,15 @@ export default function(hljs) {
     "ldctServerEvents ";
 
   // enum TMaxRecordCountRestrictionType
-  var TMaxRecordCountRestrictionType =
+  const TMaxRecordCountRestrictionType =
     "mrcrtNone " + "mrcrtUser " + "mrcrtMaximal " + "mrcrtCustom ";
 
   // enum TRangeValueType
-  var TRangeValueType =
+  const TRangeValueType =
     "vtEqual " + "vtGreaterOrEqual " + "vtLessOrEqual " + "vtRange ";
 
   // enum TRelativeDate
-  var TRelativeDate =
+  const TRelativeDate =
     "rdYesterday " +
     "rdToday " +
     "rdTomorrow " +
@@ -1980,10 +1980,10 @@ export default function(hljs) {
     "rdLastMonth ";
 
   // enum TReportDestination
-  var TReportDestination = "rdWindow " + "rdFile " + "rdPrinter ";
+  const TReportDestination = "rdWindow " + "rdFile " + "rdPrinter ";
 
   // enum TReqDataType
-  var TReqDataType =
+  const TReqDataType =
     "rdtString " +
     "rdtNumeric " +
     "rdtInteger " +
@@ -1997,32 +1997,32 @@ export default function(hljs) {
     "rdtDocument ";
 
   // enum TRequisiteEventType
-  var TRequisiteEventType = "reOnChange " + "reOnChangeValues ";
+  const TRequisiteEventType = "reOnChange " + "reOnChangeValues ";
 
   // enum TSBTimeType
-  var TSBTimeType = "ttGlobal " + "ttLocal " + "ttUser " + "ttSystem ";
+  const TSBTimeType = "ttGlobal " + "ttLocal " + "ttUser " + "ttSystem ";
 
   // enum TSearchShowMode
-  var TSearchShowMode =
+  const TSearchShowMode =
     "ssmBrowse " + "ssmSelect " + "ssmMultiSelect " + "ssmBrowseModal ";
 
   // enum TSelectMode
-  var TSelectMode = "smSelect " + "smLike " + "smCard ";
+  const TSelectMode = "smSelect " + "smLike " + "smCard ";
 
   // enum TSignatureType
-  var TSignatureType = "stNone " + "stAuthenticating " + "stApproving ";
+  const TSignatureType = "stNone " + "stAuthenticating " + "stApproving ";
 
   // enum TSignerContentType
-  var TSignerContentType = "sctString " + "sctStream ";
+  const TSignerContentType = "sctString " + "sctStream ";
 
   // enum TStringsSortType
-  var TStringsSortType = "sstAnsiSort " + "sstNaturalSort ";
+  const TStringsSortType = "sstAnsiSort " + "sstNaturalSort ";
 
   // enum TStringValueType
-  var TStringValueType = "svtEqual " + "svtContain ";
+  const TStringValueType = "svtEqual " + "svtContain ";
 
   // enum TStructuredObjectAttributeType
-  var TStructuredObjectAttributeType =
+  const TStructuredObjectAttributeType =
     "soatString " +
     "soatNumeric " +
     "soatInteger " +
@@ -2046,13 +2046,13 @@ export default function(hljs) {
     "soatUnknown ";
 
   // enum TTaskAbortReason
-  var TTaskAbortReason = "tarAbortByUser " + "tarAbortByWorkflowException ";
+  const TTaskAbortReason = "tarAbortByUser " + "tarAbortByWorkflowException ";
 
   // enum TTextValueType
-  var TTextValueType = "tvtAllWords " + "tvtExactPhrase " + "tvtAnyWord ";
+  const TTextValueType = "tvtAllWords " + "tvtExactPhrase " + "tvtAnyWord ";
 
   // enum TUserObjectStatus
-  var TUserObjectStatus =
+  const TUserObjectStatus =
     "usNone " +
     "usCompleted " +
     "usRedSquare " +
@@ -2064,7 +2064,7 @@ export default function(hljs) {
     "usFollowUp ";
 
   // enum TUserType
-  var TUserType =
+  const TUserType =
     "utUnknown " +
     "utUser " +
     "utDeveloper " +
@@ -2073,22 +2073,22 @@ export default function(hljs) {
     "utDisconnected ";
 
   // enum TValuesBuildType
-  var TValuesBuildType =
+  const TValuesBuildType =
     "btAnd " + "btDetailAnd " + "btOr " + "btNotOr " + "btOnly ";
 
   // enum TViewMode
-  var TViewMode = "vmView " + "vmSelect " + "vmNavigation ";
+  const TViewMode = "vmView " + "vmSelect " + "vmNavigation ";
 
   // enum TViewSelectionMode
-  var TViewSelectionMode =
+  const TViewSelectionMode =
     "vsmSingle " + "vsmMultiple " + "vsmMultipleCheck " + "vsmNoSelection ";
 
   // enum TWizardActionType
-  var TWizardActionType =
+  const TWizardActionType =
     "wfatPrevious " + "wfatNext " + "wfatCancel " + "wfatFinish ";
 
   // enum TWizardFormElementProperty
-  var TWizardFormElementProperty =
+  const TWizardFormElementProperty =
     "wfepUndefined " +
     "wfepText3 " +
     "wfepText6 " +
@@ -2109,11 +2109,11 @@ export default function(hljs) {
     "wfepRadioGroupColumn3 ";
 
   // enum TWizardFormElementType
-  var TWizardFormElementType =
+  const TWizardFormElementType =
     "wfetQueryParameter " + "wfetText " + "wfetDelimiter " + "wfetLabel ";
 
   // enum TWizardParamType
-  var TWizardParamType =
+  const TWizardParamType =
     "wptString " +
     "wptInteger " +
     "wptNumeric " +
@@ -2134,7 +2134,7 @@ export default function(hljs) {
     "wptDate ";
 
   // enum TWizardStepResult
-  var TWizardStepResult =
+  const TWizardStepResult =
     "wsrComplete " +
     "wsrGoNext " +
     "wsrGoPrevious " +
@@ -2143,7 +2143,7 @@ export default function(hljs) {
     "wsrGoFinal ";
 
   // enum TWizardStepType
-  var TWizardStepType =
+  const TWizardStepType =
     "wstForm " +
     "wstEDocument " +
     "wstTaskCard " +
@@ -2151,10 +2151,10 @@ export default function(hljs) {
     "wstFinal ";
 
   // enum TWorkAccessType
-  var TWorkAccessType = "waAll " + "waPerformers " + "waManual ";
+  const TWorkAccessType = "waAll " + "waPerformers " + "waManual ";
 
   // enum TWorkflowBlockType
-  var TWorkflowBlockType =
+  const TWorkflowBlockType =
     "wsbStart " +
     "wsbFinish " +
     "wsbNotice " +
@@ -2169,7 +2169,7 @@ export default function(hljs) {
     "wsbPause ";
 
   // enum TWorkflowDataType
-  var TWorkflowDataType =
+  const TWorkflowDataType =
     "wdtInteger " +
     "wdtFloat " +
     "wdtString " +
@@ -2206,13 +2206,13 @@ export default function(hljs) {
     "wdtAccountCollection ";
 
   // enum TWorkImportance
-  var TWorkImportance = "wiLow " + "wiNormal " + "wiHigh ";
+  const TWorkImportance = "wiLow " + "wiNormal " + "wiHigh ";
 
   // enum TWorkRouteType
-  var TWorkRouteType = "wrtSoft " + "wrtHard ";
+  const TWorkRouteType = "wrtSoft " + "wrtHard ";
 
   // enum TWorkState
-  var TWorkState =
+  const TWorkState =
     "wsInit " +
     "wsRunning " +
     "wsDone " +
@@ -2221,11 +2221,11 @@ export default function(hljs) {
     "wsContinued ";
 
   // enum TWorkTextBuildingMode
-  var TWorkTextBuildingMode =
+  const TWorkTextBuildingMode =
     "wtmFull " + "wtmFromCurrent " + "wtmOnlyCurrent ";
 
   // Перечисления
-  var ENUMS =
+  const ENUMS =
     TAccountType +
     TActionEnabledMode +
     TAddPosition +
@@ -2316,7 +2316,7 @@ export default function(hljs) {
     TWorkTextBuildingMode;
 
   // Системные функции ==> SYSFUNCTIONS
-  var system_functions =
+  const system_functions =
     "AddSubString " +
     "AdjustLineBreaks " +
     "AmountInWords " +
@@ -2751,7 +2751,7 @@ export default function(hljs) {
     "ЦПодстр ";
 
   // Предопределенные переменные ==> built_in
-  var predefined_variables =
+  const predefined_variables =
     "AltState " +
     "Application " +
     "CallType " +
@@ -2799,7 +2799,7 @@ export default function(hljs) {
     "РеквЗнач ";
 
   // Интерфейсы ==> type
-  var interfaces =
+  const interfaces =
     "IApplication " +
     "IAccessRights " +
     "IAccountRepository " +
@@ -3049,121 +3049,147 @@ export default function(hljs) {
     "SBCrypto ";
 
   // built_in : встроенные или библиотечные объекты (константы, перечисления)
-  var BUILTIN = CONSTANTS + ENUMS;
+  const BUILTIN = CONSTANTS + ENUMS;
 
   // class: встроенные наборы значений, системные объекты, фабрики
-  var CLASS = predefined_variables;
+  const CLASS = predefined_variables;
 
   // literal : примитивные типы
-  var LITERAL = "null true false nil ";
+  const LITERAL = "null true false nil ";
 
   // number : числа
-  var NUMBERS = {
+  const NUMBERS = {
     className: "number",
     begin: hljs.NUMBER_RE,
-    relevance: 0,
+    relevance: 0
   };
 
   // string : строки
-  var STRINGS = {
+  const STRINGS = {
     className: "string",
-    variants: [{ begin: '"', end: '"' }, { begin: "'", end: "'" }],
+    variants: [
+      {
+        begin: '"',
+        end: '"'
+      },
+      {
+        begin: "'",
+        end: "'"
+      }
+    ]
   };
 
   // Токены
-  var DOCTAGS = {
+  const DOCTAGS = {
     className: "doctag",
     begin: "\\b(?:TODO|DONE|BEGIN|END|STUB|CHG|FIXME|NOTE|BUG|XXX)\\b",
-    relevance: 0,
+    relevance: 0
   };
 
   // Однострочный комментарий
-  var ISBL_LINE_COMMENT_MODE = {
+  const ISBL_LINE_COMMENT_MODE = {
     className: "comment",
     begin: "//",
     end: "$",
     relevance: 0,
-    contains: [hljs.PHRASAL_WORDS_MODE, DOCTAGS],
+    contains: [
+      hljs.PHRASAL_WORDS_MODE,
+      DOCTAGS
+    ]
   };
 
   // Многострочный комментарий
-  var ISBL_BLOCK_COMMENT_MODE = {
+  const ISBL_BLOCK_COMMENT_MODE = {
     className: "comment",
     begin: "/\\*",
     end: "\\*/",
     relevance: 0,
-    contains: [hljs.PHRASAL_WORDS_MODE, DOCTAGS],
+    contains: [
+      hljs.PHRASAL_WORDS_MODE,
+      DOCTAGS
+    ]
   };
 
   // comment : комментарии
-  var COMMENTS = {
-    variants: [ISBL_LINE_COMMENT_MODE, ISBL_BLOCK_COMMENT_MODE],
+  const COMMENTS = {
+    variants: [
+      ISBL_LINE_COMMENT_MODE,
+      ISBL_BLOCK_COMMENT_MODE
+    ]
   };
 
   // keywords : ключевые слова
-  var KEYWORDS = {
+  const KEYWORDS = {
+    $pattern: UNDERSCORE_IDENT_RE,
     keyword: KEYWORD,
     built_in: BUILTIN,
     class: CLASS,
-    literal: LITERAL,
+    literal: LITERAL
   };
 
   // methods : методы
-  var METHODS = {
+  const METHODS = {
     begin: "\\.\\s*" + hljs.UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
-    relevance: 0,
+    relevance: 0
   };
 
   // type : встроенные типы
-  var TYPES = {
+  const TYPES = {
     className: "type",
     begin: ":[ \\t]*(" + interfaces.trim().replace(/\s/g, "|") + ")",
     end: "[ \\t]*=",
-    excludeEnd: true,
+    excludeEnd: true
   };
 
   // variables : переменные
-  var VARIABLES = {
+  const VARIABLES = {
     className: "variable",
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     begin: UNDERSCORE_IDENT_RE,
     relevance: 0,
-    contains: [TYPES, METHODS],
+    contains: [
+      TYPES,
+      METHODS
+    ]
   };
 
   // Имена функций
-  var FUNCTION_TITLE = FUNCTION_NAME_IDENT_RE + "\\(";
+  const FUNCTION_TITLE = FUNCTION_NAME_IDENT_RE + "\\(";
 
-  var TITLE_MODE = {
+  const TITLE_MODE = {
     className: "title",
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: {
-      built_in: system_functions,
+      $pattern: UNDERSCORE_IDENT_RE,
+      built_in: system_functions
     },
     begin: FUNCTION_TITLE,
     end: "\\(",
     returnBegin: true,
-    excludeEnd: true,
+    excludeEnd: true
   };
 
   // function : функции
-  var FUNCTIONS = {
+  const FUNCTIONS = {
     className: "function",
     begin: FUNCTION_TITLE,
     end: "\\)$",
     returnBegin: true,
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     illegal: "[\\[\\]\\|\\$\\?%,~#@]",
-    contains: [TITLE_MODE, METHODS, VARIABLES, STRINGS, NUMBERS, COMMENTS],
+    contains: [
+      TITLE_MODE,
+      METHODS,
+      VARIABLES,
+      STRINGS,
+      NUMBERS,
+      COMMENTS
+    ]
   };
 
   return {
-    aliases: ["isbl"],
+    name: 'ISBL',
     case_insensitive: true,
-    lexemes: UNDERSCORE_IDENT_RE,
     keywords: KEYWORDS,
     illegal: "\\$|\\?|%|,|;$|~|#|@|</",
     contains: [
@@ -3173,7 +3199,7 @@ export default function(hljs) {
       VARIABLES,
       STRINGS,
       NUMBERS,
-      COMMENTS,
-    ],
+      COMMENTS
+    ]
   };
 }

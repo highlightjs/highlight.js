@@ -1,9 +1,9 @@
 <span class="hljs-keyword">if</span> a == b <span class="hljs-keyword">and</span> b == a <span class="hljs-keyword">then</span>
-  env.out.print(<span class="hljs-string">"they are the same"</span>)
+  env.out.print(<span class="hljs-string">&quot;they are the same&quot;</span>)
 <span class="hljs-keyword">elseif</span> a &gt; b <span class="hljs-keyword">or</span> b &lt; a <span class="hljs-keyword">then</span>
-  env.out.print(<span class="hljs-string">"a is bigger"</span>)
+  env.out.print(<span class="hljs-string">&quot;a is bigger&quot;</span>)
 <span class="hljs-keyword">else</span>
-  env.out.print(<span class="hljs-string">"b bigger"</span>)
+  env.out.print(<span class="hljs-string">&quot;b bigger&quot;</span>)
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-keyword">while</span> count &lt;= <span class="hljs-number">10</span> <span class="hljs-keyword">do</span>
@@ -11,11 +11,11 @@
   count = count + <span class="hljs-number">1</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> [<span class="hljs-string">"Bob"</span>; <span class="hljs-string">"Fred"</span>; <span class="hljs-string">"Sarah"</span>].values() <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;Bob&quot;</span>; <span class="hljs-string">&quot;Fred&quot;</span>; <span class="hljs-string">&quot;Sarah&quot;</span>].values() <span class="hljs-keyword">do</span>
   env.out.print(name)
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-keyword">repeat</span>
-      env.out.print(<span class="hljs-string">"hello!"</span>)
+      env.out.print(<span class="hljs-string">&quot;hello!&quot;</span>)
       counter = counter + <span class="hljs-number">1</span>
 <span class="hljs-keyword">until</span> counter &gt; <span class="hljs-number">7</span> <span class="hljs-keyword">end</span>

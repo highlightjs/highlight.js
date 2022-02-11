@@ -6,67 +6,70 @@ Website: https://en.wikipedia.org/wiki/Prolog
 */
 
 export default function(hljs) {
-
-  var ATOM = {
+  const ATOM = {
 
     begin: /[a-z][A-Za-z0-9_]*/,
     relevance: 0
   };
 
-  var VAR = {
+  const VAR = {
 
     className: 'symbol',
     variants: [
-      {begin: /[A-Z][a-zA-Z0-9_]*/},
-      {begin: /_[A-Za-z0-9_]*/},
+      {
+        begin: /[A-Z][a-zA-Z0-9_]*/
+      },
+      {
+        begin: /_[A-Za-z0-9_]*/
+      }
     ],
     relevance: 0
   };
 
-  var PARENTED = {
+  const PARENTED = {
 
     begin: /\(/,
     end: /\)/,
     relevance: 0
   };
 
-  var LIST = {
+  const LIST = {
 
     begin: /\[/,
     end: /\]/
   };
 
-  var LINE_COMMENT = {
+  const LINE_COMMENT = {
 
     className: 'comment',
-    begin: /%/, end: /$/,
-    contains: [hljs.PHRASAL_WORDS_MODE]
+    begin: /%/,
+    end: /$/,
+    contains: [ hljs.PHRASAL_WORDS_MODE ]
   };
 
-  var BACKTICK_STRING = {
+  const BACKTICK_STRING = {
 
     className: 'string',
-    begin: /`/, end: /`/,
-    contains: [hljs.BACKSLASH_ESCAPE]
+    begin: /`/,
+    end: /`/,
+    contains: [ hljs.BACKSLASH_ESCAPE ]
   };
 
-  var CHAR_CODE = {
-
+  const CHAR_CODE = {
     className: 'string', // 0'a etc.
-    begin: /0\'(\\\'|.)/
+    begin: /0'(\\'|.)/
   };
 
-  var SPACE_CODE = {
-
+  const SPACE_CODE = {
     className: 'string',
-    begin: /0\'\\s/ // 0'\s
+    begin: /0'\\s/ // 0'\s
   };
 
-  var PRED_OP = { // relevance booster
+  const PRED_OP = { // relevance booster
     begin: /:-/
   };
 
-  var inner = [
+  const inner = [
 
     ATOM,
     VAR,
@@ -87,8 +90,11 @@ export default function(hljs) {
   LIST.contains = inner;
 
   return {
+    name: 'Prolog',
     contains: inner.concat([
-      {begin: /\.$/} // relevance booster
+      { // relevance booster
+        begin: /\.$/
+      }
     ])
   };
 }

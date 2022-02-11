@@ -15,7 +15,7 @@
         myfield tablename.columnname<span class="hljs-meta">%TYPE</span>;
     <span class="hljs-keyword">BEGIN</span>
         <span class="hljs-keyword">PERFORM</span> pg_sleep(<span class="hljs-number">1</span>);
-        <span class="hljs-keyword">RAISE</span> <span class="hljs-keyword">NOTICE</span> <span class="hljs-string">'Quantity here is %'</span>, quantity;
+        <span class="hljs-keyword">RAISE</span> <span class="hljs-keyword">NOTICE</span> <span class="hljs-string">&#x27;Quantity here is %&#x27;</span>, quantity;
     <span class="hljs-keyword">END</span>;
 
     <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">INTO</span> myrec <span class="hljs-keyword">FROM</span> emp <span class="hljs-keyword">WHERE</span> empname = myname;
@@ -23,7 +23,7 @@
     <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-built_in">FOUND</span> <span class="hljs-keyword">THEN</span>
         <span class="hljs-keyword">EXIT</span> <span class="hljs-symbol">&lt;&lt;outer_block&gt;&gt;</span>;
     <span class="hljs-keyword">ELSIF</span> quantity &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
-        <span class="hljs-keyword">ASSERT</span> a &gt; b, <span class="hljs-string">'Bad luck'</span>;
+        <span class="hljs-keyword">ASSERT</span> a &gt; b, <span class="hljs-string">&#x27;Bad luck&#x27;</span>;
     <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;
 
     <span class="hljs-keyword">FOR</span> r <span class="hljs-keyword">IN</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> foo <span class="hljs-keyword">LOOP</span>
@@ -44,7 +44,7 @@
         <span class="hljs-keyword">END</span> <span class="hljs-keyword">CASE</span>;
     <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span>;
 
-    <span class="hljs-keyword">EXECUTE</span> <span class="hljs-string">'SELECT count(*) FROM mytable WHERE inserted_by = $1'</span> <span class="hljs-keyword">INTO</span> c <span class="hljs-keyword">USING</span> checked_user;
+    <span class="hljs-keyword">EXECUTE</span> <span class="hljs-string">&#x27;SELECT count(*) FROM mytable WHERE inserted_by = $1&#x27;</span> <span class="hljs-keyword">INTO</span> c <span class="hljs-keyword">USING</span> checked_user;
 
     <span class="hljs-keyword">OPEN</span> curs1 <span class="hljs-keyword">SCROLL FOR</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> foo <span class="hljs-keyword">WHERE</span> key = mykey;
     <span class="hljs-keyword">FETCH LAST</span> <span class="hljs-keyword">FROM</span> curs1 <span class="hljs-keyword">INTO</span> x, y;
@@ -56,6 +56,6 @@
 <span class="hljs-keyword">EXCEPTION</span>
     <span class="hljs-keyword">WHEN</span> <span class="hljs-built_in">NO_DATA_FOUND</span> <span class="hljs-keyword">THEN</span>
         <span class="hljs-keyword">GET</span> <span class="hljs-keyword">DIAGNOSTICS</span> integer_var = <span class="hljs-built_in">ROW_COUNT</span>;
-    <span class="hljs-keyword">WHEN</span> <span class="hljs-built_in">SQLSTATE</span> <span class="hljs-string">'22012'</span> <span class="hljs-keyword">THEN</span>
+    <span class="hljs-keyword">WHEN</span> <span class="hljs-built_in">SQLSTATE</span> <span class="hljs-string">&#x27;22012&#x27;</span> <span class="hljs-keyword">THEN</span>
         <span class="hljs-keyword">NULL</span>;
 <span class="hljs-keyword">END</span>;

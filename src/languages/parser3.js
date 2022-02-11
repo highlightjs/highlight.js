@@ -7,25 +7,25 @@ Category: template
 */
 
 export default function(hljs) {
-  var CURLY_SUBCOMMENT = hljs.COMMENT(
-    '{',
-    '}',
+  const CURLY_SUBCOMMENT = hljs.COMMENT(
+    /\{/,
+    /\}/,
     {
-      contains: ['self']
+      contains: [ 'self' ]
     }
   );
   return {
-    subLanguage: 'xml', relevance: 0,
+    name: 'Parser3',
+    subLanguage: 'xml',
+    relevance: 0,
     contains: [
       hljs.COMMENT('^#', '$'),
       hljs.COMMENT(
-        '\\^rem{',
-        '}',
+        /\^rem\{/,
+        /\}/,
         {
           relevance: 10,
-          contains: [
-            CURLY_SUBCOMMENT
-          ]
+          contains: [ CURLY_SUBCOMMENT ]
         }
       ),
       {
@@ -39,11 +39,11 @@ export default function(hljs) {
       },
       {
         className: 'variable',
-        begin: '\\$\\{?[\\w\\-\\.\\:]+\\}?'
+        begin: /\$\{?[\w\-.:]+\}?/
       },
       {
         className: 'keyword',
-        begin: '\\^[\\w\\-\\.\\:]+'
+        begin: /\^[\w\-.:]+/
       },
       {
         className: 'number',

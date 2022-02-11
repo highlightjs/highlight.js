@@ -1,5 +1,5 @@
-<span class="hljs-attribute">first_quote_symbol</span>  = <span class="hljs-string">"'"</span> .
-<span class="hljs-attribute">second_quote_symbol</span> = <span class="hljs-string">'"'</span> .
+<span class="hljs-attribute">first_quote_symbol</span>  = <span class="hljs-string">&quot;&#x27;&quot;</span> .
+<span class="hljs-attribute">second_quote_symbol</span> = <span class="hljs-string">&#x27;&quot;&#x27;</span> .
 
 <span class="hljs-comment">(* escaped_quote_symbol tests backticks, which does not interfere
  * with backslashes. It has precedent in some language

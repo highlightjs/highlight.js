@@ -1,0 +1,4 @@
+R"foo(
+Truncated raw string
+)nope"
+Still not completed.

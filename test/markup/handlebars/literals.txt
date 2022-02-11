@@ -1,0 +1,13 @@
+{{helper true false}}
+
+{{helper 1234}}
+
+{{helper null}}
+
+{{helper undefined}}
+
+{{helper 'string'}}
+
+{{helper "string"}}
+
+{{helper [not a string literal but a variable]}}

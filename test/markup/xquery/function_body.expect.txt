@@ -2,10 +2,10 @@
 <span class="hljs-keyword">for</span> <span class="hljs-variable">$n</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$node</span>
 <span class="hljs-keyword">return</span>
   <span class="hljs-keyword">element</span> div { <span class="hljs-keyword">switch</span>(<span class="hljs-variable">$n</span>)
-    <span class="hljs-keyword">case</span> <span class="hljs-string">'abc'</span> <span class="hljs-keyword">return</span> <span class="hljs-string">'OK'</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;abc&#x27;</span> <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;OK&#x27;</span>
   <span class="hljs-keyword">default</span> <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>
   }
 };
 <span class="hljs-keyword">for</span> <span class="hljs-variable">$x</span> <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span>
 <span class="hljs-keyword">return</span>
-  <span class="hljs-built_in">local:test</span>(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">test</span>&gt;</span>abc<span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span></span>)
+  <span class="hljs-built_in">local:test</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">test</span>&gt;</span>abc<span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span></span>)

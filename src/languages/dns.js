@@ -5,16 +5,59 @@ Category: config
 Website: https://en.wikipedia.org/wiki/Zone_file
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
+  const KEYWORDS = [
+    "IN",
+    "A",
+    "AAAA",
+    "AFSDB",
+    "APL",
+    "CAA",
+    "CDNSKEY",
+    "CDS",
+    "CERT",
+    "CNAME",
+    "DHCID",
+    "DLV",
+    "DNAME",
+    "DNSKEY",
+    "DS",
+    "HIP",
+    "IPSECKEY",
+    "KEY",
+    "KX",
+    "LOC",
+    "MX",
+    "NAPTR",
+    "NS",
+    "NSEC",
+    "NSEC3",
+    "NSEC3PARAM",
+    "PTR",
+    "RRSIG",
+    "RP",
+    "SIG",
+    "SOA",
+    "SRV",
+    "SSHFP",
+    "TA",
+    "TKEY",
+    "TLSA",
+    "TSIG",
+    "TXT"
+  ];
   return {
-    aliases: ['bind', 'zone'],
-    keywords: {
-      keyword:
-        'IN A AAAA AFSDB APL CAA CDNSKEY CDS CERT CNAME DHCID DLV DNAME DNSKEY DS HIP IPSECKEY KEY KX ' +
-        'LOC MX NAPTR NS NSEC NSEC3 NSEC3PARAM PTR RRSIG RP SIG SOA SRV SSHFP TA TKEY TLSA TSIG TXT'
-    },
+    name: 'DNS Zone',
+    aliases: [
+      'bind',
+      'zone'
+    ],
+    keywords: KEYWORDS,
     contains: [
-      hljs.COMMENT(';', '$', {relevance: 0}),
+      hljs.COMMENT(';', '$', {
+        relevance: 0
+      }),
       {
         className: 'meta',
         begin: /^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b/
@@ -29,7 +72,9 @@ export default function(hljs) {
         className: 'number',
         begin: '((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\b'
       },
-      hljs.inherit(hljs.NUMBER_MODE, {begin: /\b\d+[dhwm]?/})
+      hljs.inherit(hljs.NUMBER_MODE, {
+        begin: /\b\d+[dhwm]?/
+      })
     ]
   };
 }

@@ -1,0 +1,23 @@
+<span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-comment">// variable substitution</span>
+
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&#x27;Hello {$person-&gt;name}! Welcome to $company!&#x27;</span>);
+
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&quot;Hello <span class="hljs-subst">{$person-&gt;name}</span>! Welcome to <span class="hljs-subst">$company</span>!&quot;</span>);
+
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&lt;&lt;&lt;MSG
+    Hello <span class="hljs-subst">{$person-&gt;name}</span>! Welcome to <span class="hljs-subst">$company</span>!
+MSG</span>);
+
+<span class="hljs-comment">// heredoc syntax</span>
+
+<span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;SQL
+    SELECT *
+    FROM table
+SQL</span>);
+
+<span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;SQL
+    SELECT *
+    FROM table
+    SQL</span>);

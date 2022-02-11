@@ -1,18 +1,15 @@
 'use strict';
 
-const _        = require('lodash');
 const { readFile } = require('fs').promises;
 const path     = require('path');
 
 // Build a path relative to `test/`
 exports.buildPath = function() {
-  const args  = _.slice(arguments, 0),
+  const args  = [...arguments],
         paths = [__dirname].concat(args);
 
   return path.join.apply(this, paths);
 };
-
-exports.numberToString = _.method('toString');
 
 exports.expectedFile = (filename, encoding, actual) => {
   return readFile(filename, encoding)
@@ -23,6 +20,6 @@ exports.setupFile = (filename, encoding, that, testHTML) => {
   return readFile(filename, encoding)
     .then(expected => {
       that.expected = expected.trim();
-      that.blocks   = _.map(testHTML, 'innerHTML');
+      that.blocks   = [...testHTML].map(x => x.innerHTML);
     });
 };

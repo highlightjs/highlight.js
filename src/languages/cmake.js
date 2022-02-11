@@ -5,8 +5,10 @@ Author: Igor Kalnitsky <igor@kalnitsky.org>
 Website: https://cmake.org
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
   return {
+    name: 'CMake',
     aliases: ['cmake.in'],
     case_insensitive: true,
     keywords: {
@@ -49,7 +51,8 @@ export default function(hljs) {
     contains: [
       {
         className: 'variable',
-        begin: '\\${', end: '}'
+        begin: /\$\{/,
+        end: /\}/
       },
       hljs.HASH_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,

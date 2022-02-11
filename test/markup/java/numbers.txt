@@ -1,9 +1,105 @@
-long creditCardNumber = 1234_5678_9012_3456L;
-long socialSecurityNumber = 999_99_9999L;
-float pi = 3.14_15F;
-long hexBytes = 0xFF_EC_DE_5E;
-long hexWords = 0xCAFE_BABE;
-long maxLong = 0x7fff_ffff_ffff_ffffL;
-byte nybbles = 0b0010_0101;
-long bytes = 0b11010010_01101001_10010100_10010010;
-int n = 1234 + Contacts._ID;
+int[] decimalIntegers = {
+	0, 1, 10,  999,
+	0, 1, 1_0, 9_9__9,
+};
+long[] longDecimalIntegers = {
+	0l, 1L, 10l,  999L,
+	0L, 1l, 1_0L, 9_9__9l,
+};
+
+int[] hexIntegers = {
+	0x0, 0Xa0,  0X7FF,   0xd3aD,    0x00000000ffffffff,
+	0X0, 0xa_0, 0x7__FF, 0Xd__3_aD, 0X0000_0000__ffff_ffff,
+};
+long[] longHexIntegers = {
+	0x0L, 0Xa0l,  0X7FFL,   0xd3aDl,    0x7fffffffffffffffL,
+	0X0l, 0xa_0L, 0x7__FFl, 0Xd__3_aDL, 0X7fff_ffff__ffff_ffffl,
+};
+
+int[] octalIntegers = {
+	00,  001,   0777,
+	0_0, 0__01, 07__77,
+};
+long[] longOctalIntegers = {
+	00l,  001L,   0777l,
+	0_0L, 0__01l, 07__77L,
+};
+
+int[] binaryIntegers = {
+	0b0, 0B11,  0B000,   0b01011,
+	0b0, 0B1_1, 0B00__0, 0b01__0_1__1,
+};
+long[] longBinaryIntegers = {
+	0b0l, 0B11L,  0B000l,   0b01011L,
+	0b0L, 0B1_1l, 0B00__0L, 0b01__0_1__1l,
+};
+
+
+double[] doubleDecimalIntegers = {
+	0d, 00D,  1d, 00800d,
+	0D, 0_0d, 1D, 0_0__8__0_0D,
+};
+float[] floatDecimalIntegers = {
+	0f, 00F,  1f, 00800f,
+	0F, 0_0f, 1F, 0_0__8__0_0F,
+};
+
+double[] doubleDecimals = {
+	.0, .00,   .9, 4.2, 40.010,     0., 00.,  10.,
+	.0, .0__0, .9, 4.2, 4_0.0__1_0, 0., 0_0., 1__0.,
+
+	.0D, .00d,   .9D, 4.2d, 40.010D,     0.d, 00.D,  10.d,
+	.0d, .0__0D, .9d, 4.2D, 4_0.0__1_0d, 0.D, 0_0.d, 1__0.D,
+};
+float[] floatDecimals = {
+	.0F, .00f,   .9F, 4.2f, 40.010F,     0.f, 00.F,  10.f,
+	.0f, .0__0F, .9f, 4.2F, 4_0.0__1_0f, 0.F, 0_0.f, 1__0.F,
+};
+
+double[] doubleDecimalExponents = {
+	.0e10,  .00e+10,  .9e-10,  4.2E10,  40.010E+08,      0.E-10,  00.e100,    00800e+10,
+	.0e1_0, .0_0e+10, .9e-1_0, 4.2E1_0, 4_0.0__1_0E+0_8, 0.E-1_0, 0_0.e1_0_0, 0_0__8__00e+1___0,
+
+	.0e10d,  .00e+10D,  .9e-10d,  4.2E10D,  40.010E+08d,      0.E-10D,  00.e100d,    00800e+10D,
+	.0e1_0D, .0_0e+10d, .9e-1_0D, 4.2E1_0d, 4_0.0__1_0E+0_8D, 0.E-1_0d, 0_0.e1_0_0D, 0_0__8__00e+1___0d,
+};
+float[] floatDecimalExponents = {
+	.0e10f,  .00e+10F,  .9e-10f,  4.2E10F,  40.010E+08f,      0.E-10F,  00.e100f,    00800e+10F,
+	.0e1_0F, .0_0e+10f, .9e-1_0F, 4.2E1_0f, 4_0.0__1_0E+0_8F, 0.E-1_0f, 0_0.e1_0_0F, 0_0__8__00e+1___0f,
+};
+
+double[] doubleHexExponents = {
+	0x0p0, 0x.ep6, 0Xa0.p+01,   0X.7FFp-18,      0xd3aD.B00p9,
+	0X0P0, 0x.Ep6, 0xa_0.p+0_1, 0X.7__F_FP-1__8, 0Xd__3_aD.b00p9,
+
+	0x0p0D, 0x.ep6D, 0Xa0.p+01d,   0X.7FFp-18D,      0xd3aD.B00p9d,
+	0X0P0d, 0x.eP6d, 0xa_0.p+0_1D, 0X.7__F_FP-1__8d, 0Xd__3_aD.b00p9D,
+};
+float[] floatHexExponents = {
+	0x0p0F, 0x.ep6F, 0Xa0.p+01f,   0X.7FFp-18F,      0xf3aF.B00p9f,
+	0X0P0f, 0x.eP6f, 0xa_0.p+0_1F, 0X.7__F_FP-1__8f, 0Xf__3_aF.b00p9F,
+};
+
+
+// expressions containing numeric literals
+fn(.5);
+fn(5.);
+
+// expressions not containing numeric literals
+fn(x0.d);
+
+// invalid pseudo-numeric literals
+int[] badNonDecimalIntegers =      { 08,  0_8,  019,     0x0g,      0B02, };
+long[] longBadNonDecimalIntegers = { 08L, 0_8l, 01_9L,   0x0__GL,   0B0_2l, };
+
+int[] badUnderscoreIntegers =      { 3_,  0x_0,  0X1_,  0B_0,  0b1_, };
+long[] longBadUnderscoreIntegers = { 3_l, 0X_0L, 0x1_l, 0b_0L, 0B1_l, };
+
+double[] doubleBadDecimals = { 0_d, 0_.,  0._1,  0._D, 0.1_d, };
+float[] floatBadDecimals =   { 0_F, 0_.f, 0._1F, 0._f, 0.1_F, };
+
+double[] doubleBadDecimalExponents = { 0_e0,  0._E1,  1e_2,  2E3_,  3e4_d, };
+float[] floatBadDecimalExponents =   { 0_e0f, 0._E1F, 1e_2f, 2E3_F, 3e4_f, };
+
+double[] doubleBadHexExponents = { 0x0pA,  0x0_P0,  0x0._p1,  0x1P_2,  0x2p3_,  0x3P4_D, };
+float[] floatBadHexExponents =   { 0x0pAF, 0x0_P0f, 0x0._p1F, 0x1P_2f, 0x2p3_F, 0x3P4_f, };

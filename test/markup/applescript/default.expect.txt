@@ -1,0 +1,14 @@
+<span class="hljs-keyword">repeat</span> <span class="hljs-number">5</span> <span class="hljs-keyword">times</span>
+    <span class="hljs-keyword">if</span> foo <span class="hljs-keyword">is</span> <span class="hljs-keyword">greater than</span> bar <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">display dialog</span> <span class="hljs-string">&quot;Hello there&quot;</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">beep</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">repeat</span>
+
+<span class="hljs-comment">(* comment <span class="hljs-comment">(*nested comment*)</span> *)</span>
+<span class="hljs-keyword">on</span> do_something(s, y)
+<span class="hljs-built_in">    return</span> {s + <span class="hljs-literal">pi</span>, y <span class="hljs-keyword">mod</span> <span class="hljs-number">4</span>}
+<span class="hljs-keyword">end</span> do_something
+
+<span class="hljs-built_in">do shell script</span> <span class="hljs-string">&quot;/bin/echo &#x27;hello&#x27;&quot;</span>

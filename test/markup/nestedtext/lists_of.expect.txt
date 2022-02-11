@@ -1,0 +1,10 @@
+<span class="hljs-attribute">list_of_dictionaries</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-bullet">-</span>
+    <span class="hljs-attribute">hello</span><span class="hljs-punctuation">:</span> <span class="hljs-string">world</span>
+    <span class="hljs-attribute">key</span><span class="hljs-punctuation">:</span> <span class="hljs-string">value</span>
+
+<span class="hljs-attribute">list_of_lists</span><span class="hljs-punctuation">:</span>
+  <span class="hljs-bullet">-</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">green</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">blue</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">red</span>

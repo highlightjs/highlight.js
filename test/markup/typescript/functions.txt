@@ -13,3 +13,14 @@ function getArray(): number[] {
 type Foo = {
     functionInFoo(): void;
 };
+
+const good = () => 0;
+const good = (x) => 0;
+const bad = (a => [...a, b]);
+const bad = (_ => doSomething());
+const bad = (() => 0);
+const bad = ((a, b) => [...a, b]);
+const array = [1, 2, 3].reduce<number[]>((acc, next) => [...acc, next], []);
+const bad = ((a=2, b=5) => [...a, b]);
+sides.every((length,width=(3+2+(4/5))) => length > 0 );
+

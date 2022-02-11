@@ -2,7 +2,7 @@
 <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-comment">/* b1 */</span> <span class="hljs-title">b</span><span class="hljs-params">(<span class="hljs-comment">/*b2*/</span> a : <span class="hljs-type">Int</span> <span class="hljs-comment">/*b3*/</span>)</span></span> <span class="hljs-comment">/*b4*/</span> = a <span class="hljs-comment">// b5</span>
 
 
-<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> <span class="hljs-title">c</span><span class="hljs-params">()</span></span> : String = <span class="hljs-string">"1"</span>
+<span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> <span class="hljs-title">c</span><span class="hljs-params">()</span></span> : String = <span class="hljs-string">&quot;1&quot;</span>
 <span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;<span class="hljs-keyword">reified</span> T&gt;</span> <span class="hljs-title">d</span><span class="hljs-params">()</span></span> { <span class="hljs-keyword">return</span> }
 
 

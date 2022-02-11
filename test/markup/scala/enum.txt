@@ -1,0 +1,6 @@
+enum Color:
+  case Red, Green, Blue
+
+enum State:
+  case On
+  case Off

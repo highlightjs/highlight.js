@@ -7,208 +7,108 @@ Website: https://www.typescriptlang.org
 Category: common, scripting
 */
 
+import * as ECMAScript from "./lib/ecmascript.js";
+import javascript from "./javascript.js";
+
+/** @type LanguageFn */
 export default function(hljs) {
-  var JS_IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
-  var KEYWORDS = {
-    keyword:
-      'in if for while finally var new function do return void else break catch ' +
-      'instanceof with throw case default try this switch continue typeof delete ' +
-      'let yield const class public private protected get set super ' +
-      'static implements enum export import declare type namespace abstract ' +
-      'as from extends async await',
-    literal:
-      'true false null undefined NaN Infinity',
-    built_in:
-      'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
-      'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
-      'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError ' +
-      'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
-      'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
-      'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
-      'module console window document any number boolean string void Promise'
-  };
+  const tsLanguage = javascript(hljs);
 
-  var DECORATOR = {
-    className: 'meta',
-    begin: '@' + JS_IDENT_RE,
-  };
-
-  var ARGS =
-  {
-    begin: '\\(',
-    end: /\)/,
-    keywords: KEYWORDS,
-    contains: [
-      'self',
-      hljs.QUOTE_STRING_MODE,
-      hljs.APOS_STRING_MODE,
-      hljs.NUMBER_MODE
-    ]
-  };
-
-  var PARAMS = {
-    className: 'params',
-    begin: /\(/, end: /\)/,
-    excludeBegin: true,
-    excludeEnd: true,
-    keywords: KEYWORDS,
-    contains: [
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      DECORATOR,
-      ARGS
-    ]
-  };
-  var NUMBER = {
-    className: 'number',
-    variants: [
-      { begin: '\\b(0[bB][01]+)n?' },
-      { begin: '\\b(0[oO][0-7]+)n?' },
-      { begin: hljs.C_NUMBER_RE + 'n?' }
-    ],
-    relevance: 0
-  };
-  var SUBST = {
-    className: 'subst',
-    begin: '\\$\\{', end: '\\}',
-    keywords: KEYWORDS,
-    contains: []  // defined later
-  };
-  var HTML_TEMPLATE = {
-    begin: 'html`', end: '',
-    starts: {
-      end: '`', returnEnd: false,
-      contains: [
-        hljs.BACKSLASH_ESCAPE,
-        SUBST
-      ],
-      subLanguage: 'xml',
-    }
-  };
-  var CSS_TEMPLATE = {
-    begin: 'css`', end: '',
-    starts: {
-      end: '`', returnEnd: false,
-      contains: [
-        hljs.BACKSLASH_ESCAPE,
-        SUBST
-      ],
-      subLanguage: 'css',
-    }
-  };
-  var TEMPLATE_STRING = {
-    className: 'string',
-    begin: '`', end: '`',
-    contains: [
-      hljs.BACKSLASH_ESCAPE,
-      SUBST
-    ]
-  };
-  SUBST.contains = [
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE,
-    HTML_TEMPLATE,
-    CSS_TEMPLATE,
-    TEMPLATE_STRING,
-    NUMBER,
-    hljs.REGEXP_MODE
+  const IDENT_RE = ECMAScript.IDENT_RE;
+  const TYPES = [
+    "any",
+    "void",
+    "number",
+    "boolean",
+    "string",
+    "object",
+    "never",
+    "symbol",
+    "bigint",
+    "unknown"
   ];
-
-
-
-  return {
-    aliases: ['ts'],
-    keywords: KEYWORDS,
+  const NAMESPACE = {
+    beginKeywords: 'namespace',
+    end: /\{/,
+    excludeEnd: true,
     contains: [
-      {
-        className: 'meta',
-        begin: /^\s*['"]use strict['"]/
-      },
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
-      HTML_TEMPLATE,
-      CSS_TEMPLATE,
-      TEMPLATE_STRING,
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      NUMBER,
-      { // "value" container
-        begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
-        keywords: 'return throw case',
-        contains: [
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
-          hljs.REGEXP_MODE,
-          {
-            className: 'function',
-            begin: '(\\(.*?\\)|' + hljs.IDENT_RE + ')\\s*=>', returnBegin: true,
-            end: '\\s*=>',
-            contains: [
-              {
-                className: 'params',
-                variants: [
-                  {
-                    begin: hljs.IDENT_RE
-                  },
-                  {
-                    begin: /\(\s*\)/,
-                  },
-                  {
-                    begin: /\(/, end: /\)/,
-                    excludeBegin: true, excludeEnd: true,
-                    keywords: KEYWORDS,
-                    contains: [
-                      'self',
-                      hljs.C_LINE_COMMENT_MODE,
-                      hljs.C_BLOCK_COMMENT_MODE
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        relevance: 0
-      },
-      {
-        className: 'function',
-        beginKeywords: 'function', end: /[\{;]/, excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          'self',
-          hljs.inherit(hljs.TITLE_MODE, { begin: JS_IDENT_RE }),
-          PARAMS
-        ],
-        illegal: /%/,
-        relevance: 0 // () => {} is more typical in TypeScript
-      },
-      {
-        beginKeywords: 'constructor', end: /[\{;]/, excludeEnd: true,
-        contains: [
-          'self',
-          PARAMS
-        ]
-      },
-      { // prevent references like module.id from being higlighted as module definitions
-        begin: /module\./,
-        keywords: { built_in: 'module' },
-        relevance: 0
-      },
-      {
-        beginKeywords: 'module', end: /\{/, excludeEnd: true
-      },
-      {
-        beginKeywords: 'interface', end: /\{/, excludeEnd: true,
-        keywords: 'interface extends'
-      },
-      {
-        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
-      },
-      {
-        begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
-      },
-      DECORATOR,
-      ARGS
+      tsLanguage.exports.CLASS_REFERENCE
     ]
   };
+  const INTERFACE = {
+    beginKeywords: 'interface',
+    end: /\{/,
+    excludeEnd: true,
+    keywords: {
+      keyword: 'interface extends',
+      built_in: TYPES
+    },
+    contains: [
+      tsLanguage.exports.CLASS_REFERENCE
+    ]
+  };
+  const USE_STRICT = {
+    className: 'meta',
+    relevance: 10,
+    begin: /^\s*['"]use strict['"]/
+  };
+  const TS_SPECIFIC_KEYWORDS = [
+    "type",
+    "namespace",
+    "interface",
+    "public",
+    "private",
+    "protected",
+    "implements",
+    "declare",
+    "abstract",
+    "readonly",
+    "enum",
+    "override"
+  ];
+  const KEYWORDS = {
+    $pattern: ECMAScript.IDENT_RE,
+    keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
+    literal: ECMAScript.LITERALS,
+    built_in: ECMAScript.BUILT_INS.concat(TYPES),
+    "variable.language": ECMAScript.BUILT_IN_VARIABLES
+  };
+  const DECORATOR = {
+    className: 'meta',
+    begin: '@' + IDENT_RE,
+  };
+
+  const swapMode = (mode, label, replacement) => {
+    const indx = mode.contains.findIndex(m => m.label === label);
+    if (indx === -1) { throw new Error("can not find mode to replace"); };
+
+    mode.contains.splice(indx, 1, replacement);
+  };
+
+
+  // this should update anywhere keywords is used since
+  // it will be the same actual JS object
+  Object.assign(tsLanguage.keywords, KEYWORDS);
+
+  tsLanguage.exports.PARAMS_CONTAINS.push(DECORATOR);
+  tsLanguage.contains = tsLanguage.contains.concat([
+    DECORATOR,
+    NAMESPACE,
+    INTERFACE,
+  ]);
+
+  // TS gets a simpler shebang rule than JS
+  swapMode(tsLanguage, "shebang", hljs.SHEBANG());
+  // JS use strict rule purposely excludes `asm` which makes no sense
+  swapMode(tsLanguage, "use_strict", USE_STRICT);
+
+  const functionDeclaration = tsLanguage.contains.find(m => m.label === "func.def");
+  functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
+
+  Object.assign(tsLanguage, {
+    name: 'TypeScript',
+    aliases: ['ts', 'tsx']
+  });
+
+  return tsLanguage;
 }

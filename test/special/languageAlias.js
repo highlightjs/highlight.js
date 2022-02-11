@@ -1,13 +1,12 @@
 'use strict';
 
-const _       = require('lodash');
 const utility = require('../utility');
 
 describe('language alias', () => {
   before(() => {
     const testHTML = document.querySelectorAll('#language-alias .hljs');
 
-    this.blocks = _.map(testHTML, 'innerHTML');
+    this.blocks = [...testHTML].map(x => x.innerHTML);
   });
 
   it('should highlight as aliased language', () => {

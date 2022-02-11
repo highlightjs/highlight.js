@@ -1,5 +1,5 @@
 <span class="hljs-comment"># Comment</span>
 <span class="hljs-comment">; ini-style comment</span>
-<span class="hljs-attr">x</span> = <span class="hljs-string">"abc"</span> <span class="hljs-comment"># Comment on same line</span>
+<span class="hljs-attr">x</span> = <span class="hljs-string">&quot;abc&quot;</span> <span class="hljs-comment"># Comment on same line</span>
 <span class="hljs-attr">y</span> = <span class="hljs-number">123</span> <span class="hljs-comment">; Comment on same line</span>
 <span class="hljs-section">[table]</span> <span class="hljs-comment">; Comment on same line</span>

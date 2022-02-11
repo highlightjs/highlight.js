@@ -1,0 +1,48 @@
+<span class="hljs-comment">/**********************************************************************
+ * Program: example.sas
+ * Purpose: SAS Example for HighlightJS Plug-in
+ **********************************************************************/</span>
+
+<span class="hljs-built_in">%put</span> Started at <span class="hljs-built_in">%sysfunc</span>(<span class="hljs-meta">putn</span>(<span class="hljs-built_in">%sysfunc</span>(<span class="hljs-meta">datetime</span>()), datetime.));
+<span class="hljs-keyword">options</span>
+    errors = 20  <span class="hljs-comment">/* Maximum number of prints of repeat errors */</span>
+    fullstimer   <span class="hljs-comment">/* Detailed timer after each step execution  */</span>
+;
+
+<span class="hljs-built_in">%let</span> maindir = /path/to/maindir;
+<span class="hljs-built_in">%let</span> outdir  = <span class="hljs-variable">&amp;maindir</span>/<span class="hljs-keyword">out</span>.;
+
+<span class="hljs-keyword">systask</span> command <span class="hljs-string">&quot;mkdir -p &amp;outdir.&quot;</span> wait;
+<span class="hljs-keyword">libname</span> main <span class="hljs-string">&quot;&amp;maindir&quot;</span> access = readonly;
+<span class="hljs-keyword">
+data </span>testing;
+    <span class="hljs-keyword">input</span> name $ number <span class="hljs-keyword">delimiter</span> = <span class="hljs-string">&quot;,&quot;</span>;
+    <span class="hljs-keyword">datalines;</span><span class="hljs-string">
+    John,1
+    Mary,2
+    Jane,3
+</span>    ;
+    <span class="hljs-keyword">if</span> number &gt; 1 <span class="hljs-keyword">then</span> final = 0;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">do</span>;
+        final = 1;
+    <span class="hljs-keyword">end</span>;
+<span class="hljs-keyword">run;</span>
+
+<span class="hljs-built_in">%macro</span> <span class="hljs-title function_">testMacro</span>(positional, named = value);
+    <span class="hljs-built_in">%put</span> positional = <span class="hljs-variable">&amp;positional.</span>;
+    <span class="hljs-built_in">%put</span> named      = <span class="hljs-variable">&amp;named.</span>;
+<span class="hljs-built_in">%mend</span> <span class="hljs-title function_">testMacro</span>;
+<span class="hljs-title function_">%testMacro</span>(positional, named = value);
+
+<span class="hljs-keyword">dm</span> <span class="hljs-string">&#x27;clear log output odsresults&#x27;</span>;
+<span class="hljs-keyword">
+proc datasets </span>lib = work kill noprint; quit;
+<span class="hljs-keyword">libname</span> <span class="hljs-literal">_all_</span> clear;
+<span class="hljs-keyword">
+data </span><span class="hljs-literal">_null_</span>;
+    <span class="hljs-keyword">set</span> sashelp.macro(
+        <span class="hljs-keyword">keep</span>  = name
+        <span class="hljs-keyword">where</span> = (scope = <span class="hljs-string">&quot;global&quot;</span>);
+    );
+    <span class="hljs-keyword">call</span> symdel(name);
+<span class="hljs-keyword">run;</span>

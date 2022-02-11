@@ -1,0 +1,14 @@
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+TLS_DIR="$SCRIPT_DIR/../src/main/resources/tls"
+ROOT_DIR="$SCRIPT_DIR/.."
+
+jshell -s - << EOF
+System.out.printf("Procs: %s%n", getdata())
+EOF
+
+jshell -s - <<<'System.out.printf("Procs: %s%n", getdata())'
+
+cat <<< '$VARIABLE'
+cat <<< "$VARIABLE"
+cat <<< $VARIABLE
+cat <<< `$VARIABLE`

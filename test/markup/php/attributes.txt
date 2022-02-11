@@ -1,0 +1,58 @@
+namespace Entity;
+
+#[MyAttribute]
+#[\MyExample\MyAttribute]
+#[MyAttribute(1234)]
+#[MyAttribute(value: 1234)]
+#[HTMLAttribute(tag: "h1")]
+#[MyAttribute(MyAttribute::VALUE)]
+#[MyAttribute(array("key" => "value"))]
+#[MyAttribute(100 + 200)]
+class Foo {}
+
+#[MyAttribute(1234), MyAttribute(5678)]
+class Bar
+{
+    #[Assert\IsTrue(message: 'The password cannot match your given name')]
+    public function isPasswordSafe()
+    {
+    }
+
+    #[Assert\AtLeastOneOf([
+        new Assert\Count(min: 2),
+        new Assert\All(
+           new Assert\GreaterThanOrEqual(7)
+        ),
+    ])]
+    public $stuff;
+}
+
+class Book
+{
+    #[Assert\Choice(
+        choices: ['blue', 'green'],
+        message: 'Choose a valid color.',
+    )]
+    private $color;
+
+    #[Assert\Choice(['Hardcover', 'Paperback'])]
+    private $format;
+
+    #[
+         Assert\Collection(
+             fields: [
+                 'authorEmail' => new Assert\Email,
+                 'shortDesc' => [
+                     /*something*/
+                     new Assert\NotBlank,
+                     new Assert\Length(
+                         max: 200,
+                         maxMessage: 'Your short desc is too long'
+                     )
+                 ],
+             ],
+             allowMissingFields: true,
+        )
+    ]
+    protected $additionalData;
+}

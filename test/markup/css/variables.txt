@@ -1,0 +1,9 @@
+body {
+ --text-color: red;
+ color: var(--text-color);
+}
+
+body {
+ --textBlue: blue;
+ color: var(--textBlue);
+}

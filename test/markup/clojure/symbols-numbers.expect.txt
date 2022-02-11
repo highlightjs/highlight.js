@@ -1,1 +1,4 @@
-(<span class="hljs-name"><span class="hljs-builtin-name">def</span></span> +x [(<span class="hljs-name">a</span> <span class="hljs-number">1</span>) <span class="hljs-number">+2</span> <span class="hljs-number">-3.0</span> y-5])
+(<span class="hljs-keyword">def</span> <span class="hljs-title">+x</span> [(<span class="hljs-name">a</span> <span class="hljs-number">1</span>) <span class="hljs-number">+2</span> <span class="hljs-number">-3.0</span> y-5])
+(<span class="hljs-name">System/getProperty</span> <span class="hljs-string">&quot;java.vm.version&quot;</span>)
+(<span class="hljs-name">.getEnclosingClass</span> java.util.Map$Entry)
+(<span class="hljs-name">java.util.Map$Entry.</span> .getEnclosingClass)

@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION hello_world(param_your_name text)
+RETURNS text AS
+$$
+SELECT 'Hello world. My name is ' || param_your_name || '.';
+$$
+language sql STRICT;
+
+SELECT sql_expression($sql$SELECT hello_world($phrase$Regina's elephant's dog$phrase$)
+    || $phrase$ I made a cat's meow today.$phrase$ $sql$);
