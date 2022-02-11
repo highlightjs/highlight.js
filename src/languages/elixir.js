@@ -259,9 +259,9 @@ export default function(hljs) {
       begin: ELIXIR_IDENT_RE + ':(?!:)',
       relevance: 0
     },
-    { // Usage of a module, struct, etc. Customized and paired with atom-one-dark.css customization
+    { // Usage of a module, struct, etc.
       className: 'title.class',
-      begin: '([A-Z][a-zA-z0-9_]+)'
+      begin: '([A-Z][a-zA-Z0-9_]+)'
     },
     NUMBER,
     {
