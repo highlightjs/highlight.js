@@ -1,0 +1,17 @@
+hello |&gt; <span class="hljs-title class_">IO</span>.inspect()
+
+<span class="hljs-title class_">AnAtom</span>
+
+<span class="hljs-title class_">My</span>.<span class="hljs-title class_">Other</span>.<span class="hljs-title class_">Atom</span>
+
+<span class="hljs-title class_">My</span>.<span class="hljs-title class_">Other</span>.<span class="hljs-title class_">Atom</span>.foo()
+
+<span class="hljs-title class_">NonStandard_Atom</span>
+
+not_matched
+
+<span class="hljs-symbol">:not_matched</span>.thing()
+
+<span class="hljs-symbol">:NotMatched?</span>
+
+%<span class="hljs-title class_">MyStruct</span>{<span class="hljs-symbol">a:</span> <span class="hljs-number">1</span>}
