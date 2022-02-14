@@ -15,3 +15,5 @@ not_matched
 <span class="hljs-symbol">:NotMatched?</span>
 
 %<span class="hljs-title class_">MyStruct</span>{<span class="hljs-symbol">a:</span> <span class="hljs-number">1</span>}
+
+noModuleMatch

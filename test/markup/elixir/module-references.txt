@@ -15,3 +15,5 @@ not_matched
 :NotMatched?
 
 %MyStruct{a: 1}
+
+noModuleMatch
