@@ -6,7 +6,7 @@ const { getLanguages } = require("./lib/language.js");
 const { install, mkdir, installCleanCSS } = require("./lib/makestuff.js");
 const { filter } = require("./lib/dependencies.js");
 const { rollupWrite } = require("./lib/bundling.js");
-const { generateCJSLanguageIndex, generateESLanguageIndex } = require('./lib/indexgen.js');
+const { generateCJSLanguageIndex, generateESLanguageIndex } = require('./lib/language_indexgen.js');
 const log = (...args) => console.log(...args);
 
 // https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards
