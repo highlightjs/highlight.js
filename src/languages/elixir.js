@@ -19,6 +19,7 @@ export default function(hljs) {
     "catch",
     "cond",
     "defstruct",
+    "defguard",
     "do",
     "else",
     "end",
@@ -256,6 +257,11 @@ export default function(hljs) {
     {
       className: 'symbol',
       begin: ELIXIR_IDENT_RE + ':(?!:)',
+      relevance: 0
+    },
+    { // Usage of a module, struct, etc.
+      className: 'title.class',
+      begin: /(\b[A-Z][a-zA-Z0-9_]+)/,
       relevance: 0
     },
     NUMBER,
