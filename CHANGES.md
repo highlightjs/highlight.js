@@ -15,6 +15,7 @@ Grammars:
 - enh(ts) modify TypeScript-specific keywords and types list [anydonym][]
 - fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
 - fix(llvm) escaping in strings and number formats [Flakebi][]
+- enh(elixir) recognize references to modules [Mark Ericksen][]
 
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
@@ -23,6 +24,7 @@ Grammars:
 [Christina Hanson]: https://github.com/LyricLy
 [Flakebi]: https://github.com/Flakebi
 [Josh Goebel]: https://github.com/joshgoebel
+[Mark Ericksen]: https://github.com/brainlid
 
 
 ## Version 11.4.0
