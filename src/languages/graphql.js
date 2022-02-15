@@ -1,9 +1,10 @@
 /*
  Language: graphql
  Category: scripting, protocols, web
- Author: John Foster [jf990][], and others
+ Author: John Foster (GH jf990), and others
  Description: Highlight GraphQL queries with highlight.js.
 */
+
 /** @type LanguageFn */
 export default function(hljs) {
   const regex = hljs.regex;
@@ -63,13 +64,13 @@ export default function(hljs) {
       },
       {
         scope: "symbol",
-        begin: regex.lookahead(regex.concat(GQL_NAME, /\s*:/)),
-        includeBegin: true,
-        end: /\s*:/,
-        excludeEnd: true,
+        begin: regex.concat(GQL_NAME, regex.lookahead(/\s*:/)),
         relevance: 0
       }
     ],
-    illegal: [ /[;<']/, /BEGIN/ ]
+    illegal: [
+      /[;<']/,
+      /BEGIN/
+    ]
   };
 }
