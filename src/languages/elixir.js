@@ -261,7 +261,7 @@ export default function(hljs) {
     },
     { // Usage of a module, struct, etc.
       className: 'title.class',
-      begin: '(\\b[A-Z][a-zA-Z0-9_]+)',
+      begin: /(\b[A-Z][a-zA-Z0-9_]+)/,
       relevance: 0
     },
     NUMBER,
