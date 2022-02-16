@@ -19,6 +19,7 @@ Grammars:
 - fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
 - fix(llvm) escaping in strings and number formats [Flakebi][]
 - enh(elixir) recognize references to modules [Mark Ericksen][]
+- enh(css): add support for more properties [Nicolaos Skimas][]
 
 
 [John Foster]: https://github.com/jf990
@@ -30,6 +31,7 @@ Grammars:
 [Flakebi]: https://github.com/Flakebi
 [Josh Goebel]: https://github.com/joshgoebel
 [Mark Ericksen]: https://github.com/brainlid
+[Nicolaos Skimas]: https://github.com/dev-nicolaos
 
 
 ## Version 11.4.0
