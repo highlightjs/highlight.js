@@ -5,7 +5,7 @@ const css = require("css");
 const wcagContrast = require("wcag-contrast");
 const Table = require('cli-table');
 const csscolors = require('css-color-names');
-require("colors");
+require("@colors/colors");
 
 const CODE = {
   name: "program code",
