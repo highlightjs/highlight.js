@@ -55,6 +55,7 @@
     "node": ">=12.0.0"
   },
   "devDependencies": {
+    "@colors/colors": "^1.5.0",
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
@@ -63,7 +64,6 @@
     "@typescript-eslint/parser": "^5.12.0",
     "clean-css": "^5.0.1",
     "cli-table": "^0.3.1",
-    "colors": "^1.1.2",
     "commander": "8.2",
     "css": "^3.0.0",
     "css-color-names": "^1.0.1",
