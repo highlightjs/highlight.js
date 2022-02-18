@@ -117,6 +117,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
 | Lua                     | lua                    |         |
+| Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Makefile                | makefile, mk, mak, make |        |
 | Markdown                | markdown, md, mkdown, mkd |      |
 | Mathematica             | mathematica, mma, wl   |         |
