@@ -6,6 +6,7 @@ Themes:
 New Grammars:
 
 - Added GraphQL to SUPPORTED_LANGUAGES [jf990][]
+- Added Macaulay2 to SUPPORTED_LANGUAGES [Doug Torrance][]
 
 Grammars:
 
@@ -32,6 +33,7 @@ Grammars:
 [Josh Goebel]: https://github.com/joshgoebel
 [Mark Ericksen]: https://github.com/brainlid
 [Nicolaos Skimas]: https://github.com/dev-nicolaos
+[Doug Torrance]: https://github.com/d-torrance
 
 
 ## Version 11.4.0
