@@ -309,7 +309,7 @@ export default function(hljs) {
   // ?>
   const SIMPLE_PROMPT = "[>?]>";
   // irb(main):001:0>
-  const DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
+  const DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+[>*]";
   const RVM_PROMPT = "(\\w+-)?\\d+\\.\\d+\\.\\d+(p\\d+)?[^\\d][^>]+>";
 
   const IRB_DEFAULT = [
