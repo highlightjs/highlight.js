@@ -1,6 +1,6 @@
-<span class="hljs-meta">pao-sw-a04-40(config)# </span><span class="language-bash">interface range ethernet 1/1/1-1/1/9</span>
-<span class="hljs-meta">pao-sw-a04-42(conf-range-eth1/1/1-1/1/9)# </span><span class="language-bash">switchport trunk allowed vlan 1102</span>
-<span class="hljs-meta">pao-sw-a04-42(conf-range-eth1/1/1-1/1/9)# </span><span class="language-bash">show configuration</span>
+<span class="hljs-meta prompt_">pao-sw-a04-40(config)# </span><span class="language-bash">interface range ethernet 1/1/1-1/1/9</span>
+<span class="hljs-meta prompt_">pao-sw-a04-42(conf-range-eth1/1/1-1/1/9)# </span><span class="language-bash">switchport trunk allowed vlan 1102</span>
+<span class="hljs-meta prompt_">pao-sw-a04-42(conf-range-eth1/1/1-1/1/9)# </span><span class="language-bash">show configuration</span>
 !
 interface ethernet1/1/1
  description pao-sw-a03-09_port56

@@ -16,7 +16,7 @@ export default function(hljs) {
     ],
     contains: [
       {
-        className: 'meta',
+        className: 'meta.prompt',
         // We cannot add \s (spaces) in the regular expression otherwise it will be too broad and produce unexpected result.
         // For instance, in the following example, it would match "echo /path/to/home >" as a prompt:
         // echo /path/to/home > t.exe
