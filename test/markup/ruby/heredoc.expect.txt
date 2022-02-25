@@ -13,7 +13,7 @@ message = <span class="hljs-string">&lt;&lt;-MESSAGE.chomp
   This looks good
 MESSAGE</span>
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>)
   msg = <span class="hljs-string">&lt;&lt;-HTML
   &lt;div&gt;
     &lt;h4&gt;<span class="hljs-subst">#{bar}</span>&lt;/h4&gt;
@@ -21,7 +21,7 @@ MESSAGE</span>
   HTML</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">baz</span><span class="hljs-params">()</span></span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">baz</span>(<span class="hljs-params"></span>)
   msg = <span class="hljs-string">&lt;&lt;~FOO
   &lt;div&gt;
     &lt;h4&gt;<span class="hljs-subst">#{bar}</span>&lt;/h4&gt;
