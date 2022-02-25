@@ -100,7 +100,7 @@ export default function(hljs) {
       className: 'string',
       begin: '"',
       end: '"',
-      contains: [SUBST]
+      contains: [ SUBST ]
     },
     {
       // character literal
@@ -126,9 +126,7 @@ export default function(hljs) {
     illegal: '\\$[^01]|#[^0-9a-fA-F]',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT('/\\*', '\\*/', {
-        contains: ['self']
-      }),
+      hljs.COMMENT('/\\*', '\\*/', { contains: [ 'self' ] }),
       {
         // compiler annotation
         className: 'meta',

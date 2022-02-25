@@ -10,7 +10,10 @@ Audit: 2020
 export default function(hljs) {
   return {
     name: 'Shell Session',
-    aliases: [ 'console', 'shellsession' ],
+    aliases: [
+      'console',
+      'shellsession'
+    ],
     contains: [
       {
         className: 'meta',

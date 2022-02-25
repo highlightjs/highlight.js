@@ -16,12 +16,8 @@ export default function(hljs) {
 
     className: 'symbol',
     variants: [
-      {
-        begin: /[A-Z][a-zA-Z0-9_]*/
-      },
-      {
-        begin: /_[A-Za-z0-9_]*/
-      }
+      { begin: /[A-Z][a-zA-Z0-9_]*/ },
+      { begin: /_[A-Za-z0-9_]*/ }
     ],
     relevance: 0
   };
@@ -66,8 +62,7 @@ export default function(hljs) {
   };
 
   const PRED_OP = { // relevance booster
-    begin: /:-/
-  };
+    begin: /:-/ };
 
   const inner = [
 
@@ -93,8 +88,7 @@ export default function(hljs) {
     name: 'Prolog',
     contains: inner.concat([
       { // relevance booster
-        begin: /\.$/
-      }
+        begin: /\.$/ }
     ])
   };
 }

@@ -20,15 +20,11 @@ export default function(hljs) {
   const KEY = {
     className: 'attr',
     variants: [
-      {
-        begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)'
-      },
+      { begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)' },
       { // double quoted keys
-        begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)'
-      },
+        begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' },
       { // single quoted keys
-        begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)'
-      }
+        begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)' }
     ]
   };
 
@@ -57,9 +53,7 @@ export default function(hljs) {
         begin: /"/,
         end: /"/
       },
-      {
-        begin: /\S+/
-      }
+      { begin: /\S+/ }
     ],
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -69,21 +63,17 @@ export default function(hljs) {
 
   // Strings inside of value containers (objects) can't contain braces,
   // brackets, or commas
-  const CONTAINER_STRING = hljs.inherit(STRING, {
-    variants: [
-      {
-        begin: /'/,
-        end: /'/
-      },
-      {
-        begin: /"/,
-        end: /"/
-      },
-      {
-        begin: /[^\s,{}[\]]+/
-      }
-    ]
-  });
+  const CONTAINER_STRING = hljs.inherit(STRING, { variants: [
+    {
+      begin: /'/,
+      end: /'/
+    },
+    {
+      begin: /"/,
+      end: /"/
+    },
+    { begin: /[^\s,{}[\]]+/ }
+  ] });
 
   const DATE_RE = '[0-9]{4}(-[0-9][0-9]){0,2}';
   const TIME_RE = '([Tt \\t][0-9][0-9]?(:[0-9][0-9]){2})?';
@@ -173,9 +163,7 @@ export default function(hljs) {
     hljs.HASH_COMMENT_MODE,
     {
       beginKeywords: LITERALS,
-      keywords: {
-        literal: LITERALS
-      }
+      keywords: { literal: LITERALS }
     },
     TIMESTAMP,
     // numbers are any valid C-style number that

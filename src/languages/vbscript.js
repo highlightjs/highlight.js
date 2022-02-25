@@ -123,9 +123,7 @@ export default function(hljs) {
     begin: regex.concat(regex.either(...BUILT_IN_FUNCTIONS), "\\s*\\("),
     // relevance 0 because this is acting as a beginKeywords really
     relevance: 0,
-    keywords: {
-      built_in: BUILT_IN_FUNCTIONS
-    }
+    keywords: { built_in: BUILT_IN_FUNCTIONS }
   };
 
   const LITERALS = [
@@ -198,7 +196,7 @@ export default function(hljs) {
 
   return {
     name: 'VBScript',
-    aliases: ['vbs'],
+    aliases: [ 'vbs' ],
     case_insensitive: true,
     keywords: {
       keyword: KEYWORDS,
@@ -208,13 +206,11 @@ export default function(hljs) {
     illegal: '//',
     contains: [
       BUILT_IN_CALL,
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {contains: [{begin: '""'}]}),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { contains: [ { begin: '""' } ] }),
       hljs.COMMENT(
         /'/,
         /$/,
-        {
-          relevance: 0
-        }
+        { relevance: 0 }
       ),
       hljs.C_NUMBER_MODE
     ]

@@ -12,23 +12,23 @@ export default function(hljs) {
   const regex = hljs.regex;
   const KEYWORDS = {
     keyword:
-      'in of on if for while finally var new function do return void else break catch ' +
-      'instanceof with throw case default try this switch continue typeof delete ' +
-      'let yield const export super debugger as async await import',
+      'in of on if for while finally var new function do return void else break catch '
+      + 'instanceof with throw case default try this switch continue typeof delete '
+      + 'let yield const export super debugger as async await import',
     literal:
       'true false null undefined NaN Infinity',
     built_in:
-      'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
-      'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
-      'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError ' +
-      'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
-      'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
-      'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
-      'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
-      'Behavior bool color coordinate date double enumeration font geocircle georectangle ' +
-      'geoshape int list matrix4x4 parent point quaternion real rect ' +
-      'size string url variant vector2d vector3d vector4d ' +
-      'Promise'
+      'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent '
+      + 'encodeURI encodeURIComponent escape unescape Object Function Boolean Error '
+      + 'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError '
+      + 'TypeError URIError Number Math Date String RegExp Array Float32Array '
+      + 'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array '
+      + 'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require '
+      + 'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect '
+      + 'Behavior bool color coordinate date double enumeration font geocircle georectangle '
+      + 'geoshape int list matrix4x4 parent point quaternion real rect '
+      + 'size string url variant vector2d vector3d vector4d '
+      + 'Promise'
   };
 
   const QML_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9\\._]*';
@@ -95,11 +95,7 @@ export default function(hljs) {
     end: /\{/,
     returnBegin: true,
     relevance: 0,
-    contains: [
-      hljs.inherit(hljs.TITLE_MODE, {
-        begin: QML_IDENT_RE
-      })
-    ]
+    contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: QML_IDENT_RE }) ]
   };
 
   return {
@@ -132,15 +128,9 @@ export default function(hljs) {
       {
         className: 'number',
         variants: [
-          {
-            begin: '\\b(0[bB][01]+)'
-          },
-          {
-            begin: '\\b(0[oO][0-7]+)'
-          },
-          {
-            begin: hljs.C_NUMBER_RE
-          }
+          { begin: '\\b(0[bB][01]+)' },
+          { begin: '\\b(0[oO][0-7]+)' },
+          { begin: hljs.C_NUMBER_RE }
         ],
         relevance: 0
       },
@@ -168,9 +158,7 @@ export default function(hljs) {
         end: /\{/,
         excludeEnd: true,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
-            begin: /[A-Za-z$_][0-9A-Za-z$_]*/
-          }),
+          hljs.inherit(hljs.TITLE_MODE, { begin: /[A-Za-z$_][0-9A-Za-z$_]*/ }),
           {
             className: 'params',
             begin: /\(/,

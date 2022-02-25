@@ -40,31 +40,27 @@ export default function(hljs) {
 
   const KEYWORDS = {
     keyword:
-      'and as asr assert begin class constraint do done downto else end exception external ' +
-      'for fun function functor if in include inherit initializer ' +
-      'land lazy let lor lsl lsr lxor match method mod module mutable new nonrec ' +
-      'object of open or private rec sig struct then to try type val virtual when while with',
+      'and as asr assert begin class constraint do done downto else end exception external '
+      + 'for fun function functor if in include inherit initializer '
+      + 'land lazy let lor lsl lsr lxor match method mod module mutable new nonrec '
+      + 'object of open or private rec sig struct then to try type val virtual when while with',
     built_in:
       'array bool bytes char exn|5 float int int32 int64 list lazy_t|5 nativeint|5 ref string unit ',
     literal:
       'true false'
   };
 
-  const RE_NUMBER = '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
-    '0[oO][0-7_]+[Lln]?|' +
-    '0[bB][01_]+[Lln]?|' +
-    '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)';
+  const RE_NUMBER = '\\b(0[xX][a-fA-F0-9_]+[Lln]?|'
+    + '0[oO][0-7_]+[Lln]?|'
+    + '0[bB][01_]+[Lln]?|'
+    + '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)';
 
   const NUMBER_MODE = {
     className: 'number',
     relevance: 0,
     variants: [
-      {
-        begin: RE_NUMBER
-      },
-      {
-        begin: '\\(-' + RE_NUMBER + '\\)'
-      }
+      { begin: RE_NUMBER },
+      { begin: '\\(-' + RE_NUMBER + '\\)' }
     ]
   };
 
@@ -150,15 +146,9 @@ export default function(hljs) {
           {
             className: 'params',
             variants: [
-              {
-                begin: RE_IDENT
-              },
-              {
-                begin: RE_PARAM
-              },
-              {
-                begin: /\(\s*\)/
-              }
+              { begin: RE_IDENT },
+              { begin: RE_PARAM },
+              { begin: /\(\s*\)/ }
             ]
           }
         ]
@@ -176,9 +166,7 @@ export default function(hljs) {
           }
         ]
       },
-      {
-        begin: '\\(\\.\\s' + RE_IDENT + '\\)\\s*=>'
-      }
+      { begin: '\\(\\.\\s' + RE_IDENT + '\\)\\s*=>' }
     ]
   };
   MODULE_ACCESS_CONTENTS.push(FUNCTION_BLOCK_MODE);
@@ -222,9 +210,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     returnBegin: true,
     variants: [
-      {
-        begin: "\\b(" + RE_MODULE_IDENT + "\\.)+" + RE_IDENT
-      },
+      { begin: "\\b(" + RE_MODULE_IDENT + "\\.)+" + RE_IDENT },
       {
         begin: "\\b(" + RE_MODULE_IDENT + "\\.)+\\(",
         end: "\\)",
@@ -255,9 +241,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     illegal: '(:-|:=|\\$\\{|\\+=)',
     contains: [
-      hljs.COMMENT('/\\*', '\\*/', {
-        illegal: '^(#,\\/\\/)'
-      }),
+      hljs.COMMENT('/\\*', '\\*/', { illegal: '^(#,\\/\\/)' }),
       {
         className: 'character',
         begin: '\'(\\\\[^\']+|[^\'])\'',

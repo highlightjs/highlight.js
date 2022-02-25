@@ -10,21 +10,17 @@ export default function(hljs) {
     className: 'number',
     relevance: 0,
     variants: [
-      {
-        begin: '[$][a-fA-F0-9]+'
-      },
+      { begin: '[$][a-fA-F0-9]+' },
       hljs.NUMBER_MODE
     ]
   };
   const FUNC_DEFINITION = {
     variants: [
-      {
-        match: [
-          /(function|method)/,
-          /\s+/,
-          hljs.UNDERSCORE_IDENT_RE,
-        ]
-      },
+      { match: [
+        /(function|method)/,
+        /\s+/,
+        hljs.UNDERSCORE_IDENT_RE,
+      ] },
     ],
     scope: {
       1: "keyword",
@@ -33,13 +29,11 @@ export default function(hljs) {
   };
   const CLASS_DEFINITION = {
     variants: [
-      {
-        match: [
-          /(class|interface|extends|implements)/,
-          /\s+/,
-          hljs.UNDERSCORE_IDENT_RE,
-        ]
-      },
+      { match: [
+        /(class|interface|extends|implements)/,
+        /\s+/,
+        hljs.UNDERSCORE_IDENT_RE,
+      ] },
     ],
     scope: {
       1: "keyword",
@@ -154,9 +148,7 @@ export default function(hljs) {
       hljs.COMMENT(
         "'",
         '$',
-        {
-          relevance: 0
-        }
+        { relevance: 0 }
       ),
       FUNC_DEFINITION,
       CLASS_DEFINITION,
@@ -168,9 +160,7 @@ export default function(hljs) {
         className: 'meta',
         begin: /\s*#/,
         end: '$',
-        keywords: {
-          keyword: 'if else elseif endif end then'
-        }
+        keywords: { keyword: 'if else elseif endif end then' }
       },
       {
         match: [

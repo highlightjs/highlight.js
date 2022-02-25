@@ -153,21 +153,13 @@ export default function(hljs) {
     built_in: BUILT_IN_KEYWORDS,
     literal: LITERAL_KEYWORDS
   };
-  const TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, {
-    begin: '[a-zA-Z](\\.?\\w)*'
-  });
+  const TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, { begin: '[a-zA-Z](\\.?\\w)*' });
   const NUMBERS = {
     className: 'number',
     variants: [
-      {
-        begin: '\\b(0b[01\']+)'
-      },
-      {
-        begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)'
-      },
-      {
-        begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)'
-      }
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
     ],
     relevance: 0
   };
@@ -175,36 +167,24 @@ export default function(hljs) {
     className: 'string',
     begin: '@"',
     end: '"',
-    contains: [
-      {
-        begin: '""'
-      }
-    ]
+    contains: [ { begin: '""' } ]
   };
-  const VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, {
-    illegal: /\n/
-  });
+  const VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, { illegal: /\n/ });
   const SUBST = {
     className: 'subst',
     begin: /\{/,
     end: /\}/,
     keywords: KEYWORDS
   };
-  const SUBST_NO_LF = hljs.inherit(SUBST, {
-    illegal: /\n/
-  });
+  const SUBST_NO_LF = hljs.inherit(SUBST, { illegal: /\n/ });
   const INTERPOLATED_STRING = {
     className: 'string',
     begin: /\$"/,
     end: '"',
     illegal: /\n/,
     contains: [
-      {
-        begin: /\{\{/
-      },
-      {
-        begin: /\}\}/
-      },
+      { begin: /\{\{/ },
+      { begin: /\}\}/ },
       hljs.BACKSLASH_ESCAPE,
       SUBST_NO_LF
     ]
@@ -214,30 +194,18 @@ export default function(hljs) {
     begin: /\$@"/,
     end: '"',
     contains: [
-      {
-        begin: /\{\{/
-      },
-      {
-        begin: /\}\}/
-      },
-      {
-        begin: '""'
-      },
+      { begin: /\{\{/ },
+      { begin: /\}\}/ },
+      { begin: '""' },
       SUBST
     ]
   };
   const INTERPOLATED_VERBATIM_STRING_NO_LF = hljs.inherit(INTERPOLATED_VERBATIM_STRING, {
     illegal: /\n/,
     contains: [
-      {
-        begin: /\{\{/
-      },
-      {
-        begin: /\}\}/
-      },
-      {
-        begin: '""'
-      },
+      { begin: /\{\{/ },
+      { begin: /\}\}/ },
+      { begin: '""' },
       SUBST_NO_LF
     ]
   });
@@ -257,27 +225,21 @@ export default function(hljs) {
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
     NUMBERS,
-    hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, {
-      illegal: /\n/
-    })
+    hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, { illegal: /\n/ })
   ];
-  const STRING = {
-    variants: [
-      INTERPOLATED_VERBATIM_STRING,
-      INTERPOLATED_STRING,
-      VERBATIM_STRING,
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE
-    ]
-  };
+  const STRING = { variants: [
+    INTERPOLATED_VERBATIM_STRING,
+    INTERPOLATED_STRING,
+    VERBATIM_STRING,
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE
+  ] };
 
   const GENERIC_MODIFIER = {
     begin: "<",
     end: ">",
     contains: [
-      {
-        beginKeywords: "in out"
-      },
+      { beginKeywords: "in out" },
       TITLE_MODE
     ]
   };
@@ -311,9 +273,7 @@ export default function(hljs) {
                   begin: '///',
                   relevance: 0
                 },
-                {
-                  begin: '<!--|-->'
-                },
+                { begin: '<!--|-->' },
                 {
                   begin: '</?',
                   end: '>'
@@ -329,9 +289,7 @@ export default function(hljs) {
         className: 'meta',
         begin: '#',
         end: '$',
-        keywords: {
-          keyword: 'if else elif endif define undef warning error line region endregion pragma checksum'
-        }
+        keywords: { keyword: 'if else elif endif define undef warning error line region endregion pragma checksum' }
       },
       STRING,
       NUMBERS,
@@ -341,9 +299,7 @@ export default function(hljs) {
         end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
-          {
-            beginKeywords: "where class"
-          },
+          { beginKeywords: "where class" },
           TITLE_MODE,
           GENERIC_MODIFIER,
           hljs.C_LINE_COMMENT_MODE,
@@ -416,9 +372,7 @@ export default function(hljs) {
             ],
             relevance: 0
           },
-          {
-            match: /\(\)/
-          },
+          { match: /\(\)/ },
           {
             className: 'params',
             begin: /\(/,

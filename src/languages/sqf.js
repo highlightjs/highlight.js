@@ -30,49 +30,75 @@ export default function(hljs) {
       {
         begin: '"',
         end: '"',
-        contains: [ {
-          begin: '""',
-          relevance: 0
-        } ]
+        contains: [
+          {
+            begin: '""',
+            relevance: 0
+          }
+        ]
       },
       {
         begin: '\'',
         end: '\'',
-        contains: [ {
-          begin: '\'\'',
-          relevance: 0
-        } ]
+        contains: [
+          {
+            begin: '\'\'',
+            relevance: 0
+          }
+        ]
       }
     ]
   };
 
   const KEYWORDS = [
-    'case', 'catch',
-    'default', 'do',
-    'else', 'exit', 'exitWith',
-    'for', 'forEach', 'from',
+    'case',
+    'catch',
+    'default',
+    'do',
+    'else',
+    'exit',
+    'exitWith',
+    'for',
+    'forEach',
+    'from',
     'if',
     'private',
     'switch',
-    'then', 'throw', 'to', 'try',
-    'waitUntil', 'while', 'with'
+    'then',
+    'throw',
+    'to',
+    'try',
+    'waitUntil',
+    'while',
+    'with'
   ];
 
   const LITERAL = [
     'blufor',
-    'civilian', 'configNull', 'controlNull',
+    'civilian',
+    'configNull',
+    'controlNull',
     'displayNull',
-    'east', 'endl',
+    'east',
+    'endl',
     'false',
     'grpNull',
     'independent',
-    'lineBreak', 'locationNull',
+    'lineBreak',
+    'locationNull',
     'nil',
-    'objNull', 'opfor',
+    'objNull',
+    'opfor',
     'pi',
     'resistance',
-    'scriptNull', 'sideAmbientLife', 'sideEmpty', 'sideLogic', 'sideUnknown',
-    'taskNull', 'teamMemberNull', 'true',
+    'scriptNull',
+    'sideAmbientLife',
+    'sideEmpty',
+    'sideLogic',
+    'sideUnknown',
+    'taskNull',
+    'teamMemberNull',
+    'true',
     'west'
   ];
 
@@ -2462,18 +2488,14 @@ export default function(hljs) {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
     end: /$/,
-    keywords: {
-      keyword:
-        'define undef ifdef ifndef else endif include'
-    },
+    keywords: { keyword:
+        'define undef ifdef ifndef else endif include' },
     contains: [
       {
         begin: /\\\n/,
         relevance: 0
       },
-      hljs.inherit(STRINGS, {
-        className: 'string'
-      }),
+      hljs.inherit(STRINGS, { className: 'string' }),
       {
         className: 'string',
         begin: /<[^\n>]*>/,

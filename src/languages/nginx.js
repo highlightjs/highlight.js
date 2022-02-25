@@ -12,15 +12,9 @@ export default function(hljs) {
   const VAR = {
     className: 'variable',
     variants: [
-      {
-        begin: /\$\d+/
-      },
-      {
-        begin: /\$\{\w+\}/
-      },
-      {
-        begin: regex.concat(/[$@]/, hljs.UNDERSCORE_IDENT_RE)
-      }
+      { begin: /\$\d+/ },
+      { begin: /\$\{\w+\}/ },
+      { begin: regex.concat(/[$@]/, hljs.UNDERSCORE_IDENT_RE) }
     ]
   };
   const LITERALS = [
@@ -103,13 +97,9 @@ export default function(hljs) {
             returnEnd: true
           },
           // *.example.com
-          {
-            begin: "\\*(\\.[a-z\\-]+)+"
-          },
+          { begin: "\\*(\\.[a-z\\-]+)+" },
           // sub.example.*
-          {
-            begin: "([a-z\\-]+\\.)+\\*"
-          }
+          { begin: "([a-z\\-]+\\.)+\\*" }
         ]
       },
       // IP
@@ -136,9 +126,7 @@ export default function(hljs) {
         beginKeywords: "upstream location",
         end: /;|\{/,
         contains: DEFAULT.contains,
-        keywords: {
-          section: "upstream location"
-        }
+        keywords: { section: "upstream location" }
       },
       {
         className: 'section',

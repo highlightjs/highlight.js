@@ -31,9 +31,7 @@ export default function(hljs) {
     beginKeywords: 'namespace',
     end: /\{/,
     excludeEnd: true,
-    contains: [
-      tsLanguage.exports.CLASS_REFERENCE
-    ]
+    contains: [ tsLanguage.exports.CLASS_REFERENCE ]
   };
   const INTERFACE = {
     beginKeywords: 'interface',
@@ -43,9 +41,7 @@ export default function(hljs) {
       keyword: 'interface extends',
       built_in: TYPES
     },
-    contains: [
-      tsLanguage.exports.CLASS_REFERENCE
-    ]
+    contains: [ tsLanguage.exports.CLASS_REFERENCE ]
   };
   const USE_STRICT = {
     className: 'meta',
@@ -80,7 +76,7 @@ export default function(hljs) {
 
   const swapMode = (mode, label, replacement) => {
     const indx = mode.contains.findIndex(m => m.label === label);
-    if (indx === -1) { throw new Error("can not find mode to replace"); };
+    if (indx === -1) { throw new Error("can not find mode to replace"); }
 
     mode.contains.splice(indx, 1, replacement);
   };
@@ -107,7 +103,10 @@ export default function(hljs) {
 
   Object.assign(tsLanguage, {
     name: 'TypeScript',
-    aliases: ['ts', 'tsx']
+    aliases: [
+      'ts',
+      'tsx'
+    ]
   });
 
   return tsLanguage;

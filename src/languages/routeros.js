@@ -36,12 +36,8 @@ export default function(hljs) {
   const VAR = {
     className: 'variable',
     variants: [
-      {
-        begin: /\$[\w\d#@][\w\d_]*/
-      },
-      {
-        begin: /\$\{(.*?)\}/
-      }
+      { begin: /\$[\w\d#@][\w\d_]*/ },
+      { begin: /\$\{(.*?)\}/ }
     ]
   };
 
@@ -72,9 +68,7 @@ export default function(hljs) {
 
   return {
     name: 'Microtik RouterOS script',
-    aliases: [
-      'mikrotik'
-    ],
+    aliases: [ 'mikrotik' ],
     case_insensitive: true,
     keywords: {
       $pattern: /:?[\w-]+/,
@@ -128,8 +122,7 @@ export default function(hljs) {
               },
               {
                 // Do not format unclassified values. Needed to exclude highlighting of values as built_in.
-                begin: /("[^"]*"|[^\s{}[\]]+)/
-              }
+                begin: /("[^"]*"|[^\s{}[\]]+)/ }
               /*
               {
                 // IPv4 addresses and subnets
@@ -168,9 +161,7 @@ export default function(hljs) {
       {
         className: 'built_in',
         variants: [
-          {
-            begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+'
-          },
+          { begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+' },
           {
             begin: /\.\./,
             relevance: 0

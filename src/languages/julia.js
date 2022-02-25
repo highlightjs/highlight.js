@@ -13,7 +13,7 @@ export default function(hljs) {
   // the following scripts for each.
 
   // ref: https://docs.julialang.org/en/v1/manual/variables/#Allowed-Variable-Names
-  var VARIABLE_NAME_RE = '[A-Za-z_\\u00A1-\\uFFFF][A-Za-z_0-9\\u00A1-\\uFFFF]*';
+  const VARIABLE_NAME_RE = '[A-Za-z_\\u00A1-\\uFFFF][A-Za-z_0-9\\u00A1-\\uFFFF]*';
 
   // # keyword generator, multi-word keywords handled manually below (Julia 1.5.2)
   // import REPL.REPLCompletions
@@ -25,7 +25,7 @@ export default function(hljs) {
   // end
   // sort!(unique!(res))
   // foreach(x -> println("\'", x, "\',"), res)
-  var KEYWORD_LIST = [
+  const KEYWORD_LIST = [
     'baremodule',
     'begin',
     'break',
@@ -58,7 +58,7 @@ export default function(hljs) {
     'using',
     'where',
     'while',
-  ]
+  ];
 
   // # literal generator (Julia 1.5.2)
   // import REPL.REPLCompletions
@@ -75,7 +75,7 @@ export default function(hljs) {
   // end
   // sort!(unique!(res))
   // foreach(x -> println("\'", x, "\',"), res)
-  var LITERAL_LIST = [
+  const LITERAL_LIST = [
     'ARGS',
     'C_NULL',
     'DEPOT_PATH',
@@ -115,7 +115,7 @@ export default function(hljs) {
     'undef',
     'π',
     'ℯ',
-  ]
+  ];
 
   // # built_in generator (Julia 1.5.2)
   // import REPL.REPLCompletions
@@ -132,7 +132,7 @@ export default function(hljs) {
   // end
   // sort!(unique!(res))
   // foreach(x -> println("\'", x, "\',"), res)
-  var BUILT_IN_LIST = [
+  const BUILT_IN_LIST = [
     'AbstractArray',
     'AbstractChannel',
     'AbstractChar',
@@ -319,9 +319,9 @@ export default function(hljs) {
     'VersionNumber',
     'WeakKeyDict',
     'WeakRef',
-  ]
+  ];
 
-  var KEYWORDS = {
+  const KEYWORDS = {
     $pattern: VARIABLE_NAME_RE,
     keyword: KEYWORD_LIST,
     literal: LITERAL_LIST,
@@ -329,12 +329,13 @@ export default function(hljs) {
   };
 
   // placeholder for recursive self-reference
-  var DEFAULT = {
-    keywords: KEYWORDS, illegal: /<\//
+  const DEFAULT = {
+    keywords: KEYWORDS,
+    illegal: /<\//
   };
 
   // ref: https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/
-  var NUMBER = {
+  const NUMBER = {
     className: 'number',
     // supported numeric literals:
     //  * binary literal (e.g. 0x10)
@@ -347,48 +348,72 @@ export default function(hljs) {
     relevance: 0
   };
 
-  var CHAR = {
+  const CHAR = {
     className: 'string',
     begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/
   };
 
-  var INTERPOLATION = {
+  const INTERPOLATION = {
     className: 'subst',
-    begin: /\$\(/, end: /\)/,
+    begin: /\$\(/,
+    end: /\)/,
     keywords: KEYWORDS
   };
 
-  var INTERPOLATED_VARIABLE = {
+  const INTERPOLATED_VARIABLE = {
     className: 'variable',
     begin: '\\$' + VARIABLE_NAME_RE
   };
 
   // TODO: neatly escape normal code in string literal
-  var STRING = {
+  const STRING = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE, INTERPOLATION, INTERPOLATED_VARIABLE],
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      INTERPOLATION,
+      INTERPOLATED_VARIABLE
+    ],
     variants: [
-      { begin: /\w*"""/, end: /"""\w*/, relevance: 10 },
-      { begin: /\w*"/, end: /"\w*/ }
+      {
+        begin: /\w*"""/,
+        end: /"""\w*/,
+        relevance: 10
+      },
+      {
+        begin: /\w*"/,
+        end: /"\w*/
+      }
     ]
   };
 
-  var COMMAND = {
+  const COMMAND = {
     className: 'string',
-    contains: [hljs.BACKSLASH_ESCAPE, INTERPOLATION, INTERPOLATED_VARIABLE],
-    begin: '`', end: '`'
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      INTERPOLATION,
+      INTERPOLATED_VARIABLE
+    ],
+    begin: '`',
+    end: '`'
   };
 
-  var MACROCALL = {
+  const MACROCALL = {
     className: 'meta',
     begin: '@' + VARIABLE_NAME_RE
   };
 
-  var COMMENT = {
+  const COMMENT = {
     className: 'comment',
     variants: [
-      { begin: '#=', end: '=#', relevance: 10 },
-      { begin: '#', end: '$' }
+      {
+        begin: '#=',
+        end: '=#',
+        relevance: 10
+      },
+      {
+        begin: '#',
+        end: '$'
+      }
     ]
   };
 
@@ -406,7 +431,7 @@ export default function(hljs) {
       begin:
         '\\b(((abstract|primitive)\\s+)type|(mutable\\s+)?struct)\\b'
     },
-    {begin: /<:/}  // relevance booster
+    { begin: /<:/ } // relevance booster
   ];
   INTERPOLATION.contains = DEFAULT.contains;
 
