@@ -325,6 +325,7 @@ export default function(hljs) {
       begin: '^(' + SIMPLE_PROMPT + "|" + DEFAULT_PROMPT + '|' + RVM_PROMPT + ')(?=[ ])',
       starts: {
         end: '$',
+        keywords: RUBY_KEYWORDS,
         contains: RUBY_DEFAULT_CONTAINS
       }
     }

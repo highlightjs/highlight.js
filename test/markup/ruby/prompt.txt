@@ -21,3 +21,16 @@ jruby-1.7.16 :001 > "RVM-Format"
 => "NO"
 
 irb(main):002:0> test = 1
+
+irb(main):001:1* class Secret
+irb(main):002:2*   def [](x)
+irb(main):003:2*     "TREASURE" if x==42
+irb(main):004:1*   end
+irb(main):005:0> end
+=> :[]
+irb(main):006:0> Secret.new[0]
+=> nil
+irb(main):008:0> Secret.new[2239232]
+=> nil
+irb(main):009:0> Secret.new[42]
+=> "TREASURE"
