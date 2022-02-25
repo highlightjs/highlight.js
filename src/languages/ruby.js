@@ -246,7 +246,7 @@ export default function(hljs) {
 
   const METHOD_DEFINITION = {
     match: [
-      /def/, /\s*/,
+      /def/, /\s+/,
       RUBY_METHOD_RE
     ],
     scope: {
@@ -259,6 +259,7 @@ export default function(hljs) {
   };
 
   const OBJECT_CREATION = {
+    relevance: 0,
     match: [
       CLASS_NAME_WITH_NAMESPACE_RE,
       /\.new[ (]/
