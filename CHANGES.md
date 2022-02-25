@@ -5,13 +5,14 @@ Themes:
 
 New Grammars:
 
-- Added GraphQL to SUPPORTED_LANGUAGES [jf990][]
+- Added GraphQL to SUPPORTED_LANGUAGES [John Foster][]
 - Added Macaulay2 to SUPPORTED_LANGUAGES [Doug Torrance][]
 
 Grammars:
 
 - enh(ruby ) better support multi-line IRB prompts
 - enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
+- add `meta.prompt` scope for REPL prompts, etc [Josh Goebel][]
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
