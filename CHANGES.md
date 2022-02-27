@@ -10,6 +10,7 @@ New Grammars:
 
 Grammars:
 
+- enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
@@ -22,7 +23,7 @@ Grammars:
 - enh(elixir) recognize references to modules [Mark Ericksen][]
 - enh(css): add support for more properties [Nicolaos Skimas][]
 
-
+[Martin Mattel]: https://github.com/mmattel
 [John Foster]: https://github.com/jf990
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
