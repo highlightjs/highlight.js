@@ -10,7 +10,7 @@ New Grammars:
 
 Grammars:
 
-- enh(bash) improved pattern regex [Martin Mattel][]
+- enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
