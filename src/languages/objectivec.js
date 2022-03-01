@@ -18,12 +18,16 @@ export default function(hljs) {
     "char",
     "unsigned",
     "signed",
-    "long",
-    "bool",
     "short",
+    "long",
     "double",
     "wchar_t",
-    "unichar"
+    "unichar",
+    "void",
+    "bool",
+    "BOOL",
+    "id|0",
+    "_Bool"
   ];
   const KWS = [
     "while",
@@ -41,7 +45,6 @@ export default function(hljs) {
     "do",
     "return",
     "goto",
-    "void",
     "enum",
     "else",
     "break",
@@ -153,7 +156,6 @@ export default function(hljs) {
     "NULL"
   ];
   const BUILT_INS = [
-    "BOOL",
     "dispatch_once_t",
     "dispatch_queue_t",
     "dispatch_sync",
