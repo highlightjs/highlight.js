@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>highlight.js developer</title>
@@ -8,20 +7,16 @@
   <link rel="stylesheet" href="../src/styles/default.css">
 
   <style>
-    body {
-      padding: 20px;
-      font-family: sans-serif;
-    }
-
+    body { padding: 20px;
+    font-family: sans-serif;
+     }
     .editor textarea {
-      display: block;
-      width: 100%;
+      display: block; width: 100%;
       height: 15em;
     }
-
     h3 {
-      margin: 0 0 0.5em;
-      font-size: 1.1em;
+      margin:0 0 0.5em;
+      font-size:1.1em;
     }
 
     pre code,
@@ -30,24 +25,22 @@
       font-size: 13px;
       line-height: 1.15rem;
       display: block;
-      padding: 20px !important;
+      padding:20px !important;
     }
 
     pre output {
-      display: block;
-      overflow: auto;
+      display: block; overflow: auto;
       padding: 0.5em;
       background: #F0F0F0;
     }
 
     .hljs-debug {
-      color: red;
-      font-weight: bold;
+      color: red; font-weight: bold;
     }
 
     .visible-structure pre code span {
       display: inline-block;
-      padding: 2px;
+      padding:2px;
       margin: 3px 0;
       border: 1px dashed #777;
       border-radius: 5px;
@@ -59,15 +52,14 @@
       content: attr(data-klass);
       font-size: 70%;
       background: #693;
-      padding: 1px 5px;
+      padding:1px 5px;
       border-radius: 3px;
-      color: white;
-      margin-right: 0.5em;
+      color:white;
+      margin-right:0.5em;
       font-weight: normal;
     }
   </style>
 </head>
-
 <body>
   <div class="editor" id="app">
     <h3>Code</h3>
@@ -76,12 +68,10 @@
       <p>
         <button id="update-highlighting">Update highlighting</button>
         <button id="show-structure">Show/hide structure</button>
-        Language: <select class="languages">
-          <option value="">(Auto)</option>
-        </select>
+        Language: <select class="languages"><option value="">(Auto)</option></select>
         Theme: <select class="theme">
           <option>stackoverflow-light.css</option>
-
+          <option>tokyo-night-dark.css</option>
           <option>qtcreator-light.css</option>
           <option>codepen-embed.css</option>
           <option>docco.css</option>
@@ -116,8 +106,6 @@
           <option>vs2015.css</option>
           <option>a11y-light.css</option>
           <option>tomorrow-night-blue.css</option>
-          <option>tokyo-night-dark.css</option>
-          <option>tokyo-night-light.css</option>
           <option>monokai.css</option>
           <option>idea.css</option>
           <option>intellij-light.css</option>
@@ -363,20 +351,20 @@
       })
     }
 
-    $(document).ready(function () {
+    $(document).ready(function() {
       var select = $('.languages');
-      hljs.listLanguages().forEach(function (l) {
+      hljs.listLanguages().forEach(function(l) {
         select.append('<option>' + l + '</option>');
       });
 
-      $(".theme").change(function (e) {
+      $(".theme").change(function(e) {
         var css = e.target.value;
         var link = $("link[rel=stylesheet]")[0]
         link.href = `../src/styles/${css}`
         localStorage.setItem(key_THEME, css);
       })
 
-      $('.editor button#update-highlighting').click(function (e) {
+      $('.editor button#update-highlighting').click(function(e) {
         var editor = $(this).parents('.editor');
         var language = editor.find('.languages').val();
         var source = editor.find('textarea').val();
@@ -386,9 +374,9 @@
         vue.code = source;
         vue.language = hljs.getLanguage(language) ? language : '';
 
-        var rendering_stats = result.language + ': relevance ' + (result.relevance);
+        var rendering_stats = result.language + ': relevance ' + (result.relevance );
         if (result.secondBest) {
-          rendering_stats += ', ' + result.secondBest.language + ': ' + (result.secondBest.relevance || result.secondBest.r);
+            rendering_stats += ', ' + result.secondBest.language + ': ' + (result.secondBest.relevance || result.secondBest.r);
         }
         editor.find('.rendering_stats').text(rendering_stats);
         editor.find('.rendering_time').text(rendering_time);
@@ -396,7 +384,7 @@
         saveSettings();
       });
 
-      $('.editor button#show-structure').click(function (e) {
+      $('.editor button#show-structure').click(function(e) {
         var editor = $(this).parents('.editor');
         editor.toggleClass('visible-structure');
 
@@ -409,14 +397,14 @@
     var key_LANGUAGE = 'hljs-lang';
     var key_THEME = 'hljs-theme';
     var key_STRUCTURE = 'hljs-structure';
-    (function () {
+    (function(){
       SourceStore = {
-        save: function ({code, language, theme}) {
+        save: function({code, language, theme}){
           localStorage.setItem(key_CODE, code);
           localStorage.setItem(key_LANGUAGE, language);
           localStorage.setItem(key_THEME, theme);
         },
-        resolve: function () {
+        resolve: function(){
           let code = localStorage.getItem(key_CODE)
           if (!code) return null;
 
@@ -427,7 +415,7 @@
           };
         }
       };
-      $(function () {
+      $(function(){
         var data = SourceStore.resolve();
         if (!data) return;
         $('.editor textarea').val(data.code);
@@ -448,27 +436,26 @@
     Vue.use(hljsVuePlugin);
     let vue = new Vue({
       el: '#app',
-      data: {code: "", language: ""},
+      data: { code: "", language: "" },
       methods: {
-        refreshKlass: function () {
+        refreshKlass: function() {
           // update data-klass post-render for cool class previews
           this.$nextTick(() => {
-            $(".hljs span").each((_, el) => {
-              $(el).attr("data-klass", el.className.replace(/hljs-/g, ""))
+            $(".hljs span").each((_,el) => {
+              $(el).attr("data-klass", el.className.replace(/hljs-/g,""))
             })
           })
         }
       },
       watch: {
-        code: function () {
+        code: function(){
           this.refreshKlass();
         },
-        language: function () {
+        language: function(){
           this.refreshKlass();
         }
       }
     });
   </script>
 </body>
-
 </html>
