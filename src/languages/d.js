@@ -33,18 +33,18 @@ export default function(hljs) {
   const D_KEYWORDS = {
     $pattern: hljs.UNDERSCORE_IDENT_RE,
     keyword:
-      'abstract alias align asm assert auto body break byte case cast catch class ' +
-      'const continue debug default delete deprecated do else enum export extern final ' +
-      'finally for foreach foreach_reverse|10 goto if immutable import in inout int ' +
-      'interface invariant is lazy macro mixin module new nothrow out override package ' +
-      'pragma private protected public pure ref return scope shared static struct ' +
-      'super switch synchronized template this throw try typedef typeid typeof union ' +
-      'unittest version void volatile while with __FILE__ __LINE__ __gshared|10 ' +
-      '__thread __traits __DATE__ __EOF__ __TIME__ __TIMESTAMP__ __VENDOR__ __VERSION__',
+      'abstract alias align asm assert auto body break byte case cast catch class '
+      + 'const continue debug default delete deprecated do else enum export extern final '
+      + 'finally for foreach foreach_reverse|10 goto if immutable import in inout int '
+      + 'interface invariant is lazy macro mixin module new nothrow out override package '
+      + 'pragma private protected public pure ref return scope shared static struct '
+      + 'super switch synchronized template this throw try typedef typeid typeof union '
+      + 'unittest version void volatile while with __FILE__ __LINE__ __gshared|10 '
+      + '__thread __traits __DATE__ __EOF__ __TIME__ __TIMESTAMP__ __VENDOR__ __VERSION__',
     built_in:
-      'bool cdouble cent cfloat char creal dchar delegate double dstring float function ' +
-      'idouble ifloat ireal long real short string ubyte ucent uint ulong ushort wchar ' +
-      'wstring',
+      'bool cdouble cent cfloat char creal dchar delegate double dstring float function '
+      + 'idouble ifloat ireal long real short string ubyte ucent uint ulong ushort wchar '
+      + 'wstring',
     literal:
       'false null true'
   };
@@ -61,39 +61,39 @@ export default function(hljs) {
   const hexadecimal_integer_re = '0[xX]' + hexadecimal_digits_re;
 
   const decimal_exponent_re = '([eE][+-]?' + decimal_integer_nosus_re + ')';
-  const decimal_float_re = '(' + decimal_integer_nosus_re + '(\\.\\d*|' + decimal_exponent_re + ')|' +
-                '\\d+\\.' + decimal_integer_nosus_re + '|' +
-                '\\.' + decimal_integer_re + decimal_exponent_re + '?' +
-              ')';
-  const hexadecimal_float_re = '(0[xX](' +
-                  hexadecimal_digits_re + '\\.' + hexadecimal_digits_re + '|' +
-                  '\\.?' + hexadecimal_digits_re +
-                 ')[pP][+-]?' + decimal_integer_nosus_re + ')';
+  const decimal_float_re = '(' + decimal_integer_nosus_re + '(\\.\\d*|' + decimal_exponent_re + ')|'
+                + '\\d+\\.' + decimal_integer_nosus_re + '|'
+                + '\\.' + decimal_integer_re + decimal_exponent_re + '?'
+              + ')';
+  const hexadecimal_float_re = '(0[xX]('
+                  + hexadecimal_digits_re + '\\.' + hexadecimal_digits_re + '|'
+                  + '\\.?' + hexadecimal_digits_re
+                 + ')[pP][+-]?' + decimal_integer_nosus_re + ')';
 
-  const integer_re = '(' +
-      decimal_integer_re + '|' +
-      binary_integer_re + '|' +
-       hexadecimal_integer_re +
-    ')';
+  const integer_re = '('
+      + decimal_integer_re + '|'
+      + binary_integer_re + '|'
+       + hexadecimal_integer_re
+    + ')';
 
-  const float_re = '(' +
-      hexadecimal_float_re + '|' +
-      decimal_float_re +
-    ')';
+  const float_re = '('
+      + hexadecimal_float_re + '|'
+      + decimal_float_re
+    + ')';
 
   /**
    * Escape sequence supported in D string and character literals
    *
    * @type {String}
    */
-  const escape_sequence_re = '\\\\(' +
-              '[\'"\\?\\\\abfnrtv]|' + // common escapes
-              'u[\\dA-Fa-f]{4}|' + // four hex digit unicode codepoint
-              '[0-7]{1,3}|' + // one to three octal digit ascii char code
-              'x[\\dA-Fa-f]{2}|' + // two hex digit ascii char code
-              'U[\\dA-Fa-f]{8}' + // eight hex digit unicode codepoint
-              ')|' +
-              '&[a-zA-Z\\d]{2,};'; // named character entity
+  const escape_sequence_re = '\\\\('
+              + '[\'"\\?\\\\abfnrtv]|' // common escapes
+              + 'u[\\dA-Fa-f]{4}|' // four hex digit unicode codepoint
+              + '[0-7]{1,3}|' // one to three octal digit ascii char code
+              + 'x[\\dA-Fa-f]{2}|' // two hex digit ascii char code
+              + 'U[\\dA-Fa-f]{8}' // eight hex digit unicode codepoint
+              + ')|'
+              + '&[a-zA-Z\\d]{2,};'; // named character entity
 
   /**
    * D integer number literals
@@ -112,10 +112,10 @@ export default function(hljs) {
    */
   const D_FLOAT_MODE = {
     className: 'number',
-    begin: '\\b(' +
-        float_re + '([fF]|L|i|[fF]i|Li)?|' +
-        integer_re + '(i|[fF]i|Li)' +
-      ')',
+    begin: '\\b('
+        + float_re + '([fF]|L|i|[fF]i|Li)?|'
+        + integer_re + '(i|[fF]i|Li)'
+      + ')',
     relevance: 0
   };
 
@@ -149,7 +149,7 @@ export default function(hljs) {
   const D_STRING_MODE = {
     className: 'string',
     begin: '"',
-    contains: [D_ESCAPE_SEQUENCE],
+    contains: [ D_ESCAPE_SEQUENCE ],
     end: '"[cwd]?'
   };
 
@@ -241,7 +241,7 @@ export default function(hljs) {
     '\\/\\+',
     '\\+\\/',
     {
-      contains: ['self'],
+      contains: [ 'self' ],
       relevance: 10
     }
   );

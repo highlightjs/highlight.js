@@ -4,8 +4,14 @@ Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
 - Added `Tokyo-Night-light` theme [Henri Vandersleyen][]
 
+New Grammars:
+
+- Added GraphQL to SUPPORTED_LANGUAGES [jf990][]
+- Added Macaulay2 to SUPPORTED_LANGUAGES [Doug Torrance][]
+
 Grammars:
 
+- enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
@@ -16,7 +22,10 @@ Grammars:
 - fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
 - fix(llvm) escaping in strings and number formats [Flakebi][]
 - enh(elixir) recognize references to modules [Mark Ericksen][]
+- enh(css): add support for more properties [Nicolaos Skimas][]
 
+[Martin Mattel]: https://github.com/mmattel
+[John Foster]: https://github.com/jf990
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat
 [anydonym]: https://github.com/anydonym
@@ -25,6 +34,8 @@ Grammars:
 [Flakebi]: https://github.com/Flakebi
 [Josh Goebel]: https://github.com/joshgoebel
 [Mark Ericksen]: https://github.com/brainlid
+[Nicolaos Skimas]: https://github.com/dev-nicolaos
+[Doug Torrance]: https://github.com/d-torrance
 
 
 ## Version 11.4.0

@@ -22,13 +22,11 @@ export default function(hljs) {
   // as illegal indicating that despite looking like JSON we do not truly have
   // JSON and thus improve false-positively greatly since JSON will try and claim
   // all sorts of JSON looking stuff
-  const LITERALS = {
-    beginKeywords: [
-      "true",
-      "false",
-      "null"
-    ].join(" ")
-  };
+  const LITERALS = { beginKeywords: [
+    "true",
+    "false",
+    "null"
+  ].join(" ") };
 
   return {
     name: 'JSON',

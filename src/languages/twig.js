@@ -162,7 +162,7 @@ export default function(hljs) {
     ]
   };
 
-  const tagNamed = (tagnames, {relevance}) => {
+  const tagNamed = (tagnames, { relevance }) => {
     return {
       beginScope: {
         1: 'template-tag',

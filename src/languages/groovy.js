@@ -61,9 +61,7 @@ export default function(hljs) {
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE
   ],
-  {
-    className: "string"
-  }
+  { className: "string" }
   );
 
   const CLASS_DEFINITION = {

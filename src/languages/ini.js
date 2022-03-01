@@ -12,12 +12,8 @@ export default function(hljs) {
     className: 'number',
     relevance: 0,
     variants: [
-      {
-        begin: /([+-]+)?[\d]+_[\d_]+/
-      },
-      {
-        begin: hljs.NUMBER_RE
-      }
+      { begin: /([+-]+)?[\d]+_[\d_]+/ },
+      { begin: hljs.NUMBER_RE }
     ]
   };
   const COMMENTS = hljs.COMMENT();
@@ -34,12 +30,8 @@ export default function(hljs) {
   const VARIABLES = {
     className: 'variable',
     variants: [
-      {
-        begin: /\$[\w\d"][\w\d_]*/
-      },
-      {
-        begin: /\$\{(.*?)\}/
-      }
+      { begin: /\$[\w\d"][\w\d_]*/ },
+      { begin: /\$\{(.*?)\}/ }
     ]
   };
   const LITERALS = {
@@ -48,7 +40,7 @@ export default function(hljs) {
   };
   const STRINGS = {
     className: "string",
-    contains: [hljs.BACKSLASH_ESCAPE],
+    contains: [ hljs.BACKSLASH_ESCAPE ],
     variants: [
       {
         begin: "'''",
@@ -97,7 +89,7 @@ export default function(hljs) {
 
   return {
     name: 'TOML, also INI',
-    aliases: ['toml'],
+    aliases: [ 'toml' ],
     case_insensitive: true,
     illegal: /\S/,
     contains: [

@@ -87,6 +87,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Grammatical Framework   | gf                     | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
+| GraphQL                 | graphql                |         |
 | Groovy                  | groovy                 |         |
 | GSQL                    | gsql                   | [highlightjs-gsql](https://github.com/DanBarkus/highlightjs-gsql) |
 | HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
@@ -116,6 +117,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
 | Lua                     | lua                    |         |
+| Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Makefile                | makefile, mk, mak, make |        |
 | Markdown                | markdown, md, mkdown, mkd |      |
 | Mathematica             | mathematica, mma, wl   |         |

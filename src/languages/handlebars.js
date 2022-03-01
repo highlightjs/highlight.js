@@ -68,7 +68,7 @@ export default function(hljs) {
     SINGLE_QUOTED_ID_REGEX,
     BRACKET_QUOTED_ID_REGEX,
     PLAIN_ID_REGEX
-    );
+  );
 
   const IDENTIFIER_REGEX = regex.concat(
     regex.optional(/\.|\.\/|\//), // relative or absolute path
@@ -87,13 +87,9 @@ export default function(hljs) {
     ')(?==)'
   );
 
-  const HELPER_NAME_OR_PATH_EXPRESSION = {
-    begin: IDENTIFIER_REGEX
-  };
+  const HELPER_NAME_OR_PATH_EXPRESSION = { begin: IDENTIFIER_REGEX };
 
-  const HELPER_PARAMETER = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
-    keywords: LITERALS
-  });
+  const HELPER_PARAMETER = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, { keywords: LITERALS });
 
   const SUB_EXPRESSION = {
     begin: /\(/,
@@ -109,30 +105,25 @@ export default function(hljs) {
     starts: {
       begin: /=/,
       end: /=/,
-      starts: {
-        contains: [
-          hljs.NUMBER_MODE,
-          hljs.QUOTE_STRING_MODE,
-          hljs.APOS_STRING_MODE,
-          HELPER_PARAMETER,
-          SUB_EXPRESSION
-        ]
-      }
+      starts: { contains: [
+        hljs.NUMBER_MODE,
+        hljs.QUOTE_STRING_MODE,
+        hljs.APOS_STRING_MODE,
+        HELPER_PARAMETER,
+        SUB_EXPRESSION
+      ] }
     }
   };
 
   const BLOCK_PARAMS = {
     // parameters of the form '{{#with x as | y |}}...{{/with}}'
     begin: /as\s+\|/,
-    keywords: {
-      keyword: 'as'
-    },
+    keywords: { keyword: 'as' },
     end: /\|/,
     contains: [
       {
         // define sub-mode in order to prevent highlighting of block-parameter named "as"
-        begin: /\w+/
-      }
+        begin: /\w+/ }
     ]
   };
 
@@ -155,19 +146,15 @@ export default function(hljs) {
   const SUB_EXPRESSION_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     className: 'name',
     keywords: BUILT_INS,
-    starts: hljs.inherit(HELPER_PARAMETERS, {
-      end: /\)/
-    })
+    starts: hljs.inherit(HELPER_PARAMETERS, { end: /\)/ })
   });
 
-  SUB_EXPRESSION.contains = [SUB_EXPRESSION_CONTENTS];
+  SUB_EXPRESSION.contains = [ SUB_EXPRESSION_CONTENTS ];
 
   const OPENING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     keywords: BUILT_INS,
     className: 'name',
-    starts: hljs.inherit(HELPER_PARAMETERS, {
-      end: /\}\}/
-    })
+    starts: hljs.inherit(HELPER_PARAMETERS, { end: /\}\}/ })
   });
 
   const CLOSING_BLOCK_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
@@ -178,9 +165,7 @@ export default function(hljs) {
   const BASIC_MUSTACHE_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
     className: 'name',
     keywords: BUILT_INS,
-    starts: hljs.inherit(HELPER_PARAMETERS, {
-      end: /\}\}/
-    })
+    starts: hljs.inherit(HELPER_PARAMETERS, { end: /\}\}/ })
   });
 
   const ESCAPE_MUSTACHE_WITH_PRECEEDING_BACKSLASH = {
@@ -212,7 +197,7 @@ export default function(hljs) {
         className: 'template-tag',
         begin: /\{\{\{\{(?!\/)/,
         end: /\}\}\}\}/,
-        contains: [OPENING_BLOCK_MUSTACHE_CONTENTS],
+        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS ],
         starts: {
           end: /\{\{\{\{\//,
           returnEnd: true,
@@ -224,14 +209,14 @@ export default function(hljs) {
         className: 'template-tag',
         begin: /\{\{\{\{\//,
         end: /\}\}\}\}/,
-        contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS]
+        contains: [ CLOSING_BLOCK_MUSTACHE_CONTENTS ]
       },
       {
         // open block statement
         className: 'template-tag',
         begin: /\{\{#/,
         end: /\}\}/,
-        contains: [OPENING_BLOCK_MUSTACHE_CONTENTS]
+        contains: [ OPENING_BLOCK_MUSTACHE_CONTENTS ]
       },
       {
         className: 'template-tag',
@@ -250,21 +235,21 @@ export default function(hljs) {
         className: 'template-tag',
         begin: /\{\{\//,
         end: /\}\}/,
-        contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS]
+        contains: [ CLOSING_BLOCK_MUSTACHE_CONTENTS ]
       },
       {
         // template variable or helper-call that is NOT html-escaped
         className: 'template-variable',
         begin: /\{\{\{/,
         end: /\}\}\}/,
-        contains: [BASIC_MUSTACHE_CONTENTS]
+        contains: [ BASIC_MUSTACHE_CONTENTS ]
       },
       {
         // template variable or helper-call that is html-escaped
         className: 'template-variable',
         begin: /\{\{/,
         end: /\}\}/,
-        contains: [BASIC_MUSTACHE_CONTENTS]
+        contains: [ BASIC_MUSTACHE_CONTENTS ]
       }
     ]
   };

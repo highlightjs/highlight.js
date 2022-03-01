@@ -178,12 +178,10 @@ export default function(hljs) {
     returnBegin: true,
     end: /->/,
     contains: [
-      hljs.inherit(hljs.TITLE_MODE, {
-        starts: {
-          endsWithParent: true,
-          keywords: KEYWORDS
-        }
-      })
+      hljs.inherit(hljs.TITLE_MODE, { starts: {
+        endsWithParent: true,
+        keywords: KEYWORDS
+      } })
     ]
   };
   return {

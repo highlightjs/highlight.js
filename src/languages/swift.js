@@ -24,9 +24,7 @@ export default function(hljs) {
   const BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',
-    {
-      contains: [ 'self' ]
-    }
+    { contains: [ 'self' ] }
   );
   const COMMENTS = [
     hljs.C_LINE_COMMENT_MODE,
@@ -40,9 +38,7 @@ export default function(hljs) {
       /\./,
       either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)
     ],
-    className: {
-      2: "keyword"
-    }
+    className: { 2: "keyword" }
   };
   const KEYWORD_GUARD = {
     // Consume .keyword to prevent highlighting properties and methods as keywords.
@@ -56,14 +52,12 @@ export default function(hljs) {
     .filter(kw => typeof kw !== 'string') // find regex
     .concat(Swift.keywordTypes)
     .map(Swift.keywordWrapper);
-  const KEYWORD = {
-    variants: [
-      {
-        className: 'keyword',
-        match: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
-      }
-    ]
-  };
+  const KEYWORD = { variants: [
+    {
+      className: 'keyword',
+      match: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
+    }
+  ] };
   // find all the regular keywords
   const KEYWORDS = {
     $pattern: either(
@@ -105,15 +99,12 @@ export default function(hljs) {
     className: 'operator',
     relevance: 0,
     variants: [
-      {
-        match: Swift.operator
-      },
+      { match: Swift.operator },
       {
         // dot-operator: only operators that start with a dot are allowed to use dots as
         // characters (..., ...<, .*, etc). So there rule here is: a dot followed by one or more
         // characters that may also include dots.
-        match: `\\.(\\.|${Swift.operatorCharacter})+`
-      }
+        match: `\\.(\\.|${Swift.operatorCharacter})+` }
     ]
   };
   const OPERATORS = [
@@ -130,21 +121,13 @@ export default function(hljs) {
     relevance: 0,
     variants: [
       // decimal floating-point-literal (subsumes decimal-literal)
-      {
-        match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b`
-      },
+      { match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b` },
       // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
-      {
-        match: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b`
-      },
+      { match: `\\b0x(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b` },
       // octal-literal
-      {
-        match: /\b0o([0-7]_*)+\b/
-      },
+      { match: /\b0o([0-7]_*)+\b/ },
       // binary-literal
-      {
-        match: /\b0b([01]_*)+\b/
-      }
+      { match: /\b0b([01]_*)+\b/ }
     ]
   };
 
@@ -152,12 +135,8 @@ export default function(hljs) {
   const ESCAPED_CHARACTER = (rawDelimiter = "") => ({
     className: 'subst',
     variants: [
-      {
-        match: concat(/\\/, rawDelimiter, /[0\\tnr"']/)
-      },
-      {
-        match: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/)
-      }
+      { match: concat(/\\/, rawDelimiter, /[0\\tnr"']/) },
+      { match: concat(/\\/, rawDelimiter, /u\{[0-9a-fA-F]{1,8}\}/) }
     ]
   });
   const ESCAPED_NEWLINE = (rawDelimiter = "") => ({
@@ -202,9 +181,7 @@ export default function(hljs) {
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID412
-  const QUOTED_IDENTIFIER = {
-    match: concat(/`/, Swift.identifier, /`/)
-  };
+  const QUOTED_IDENTIFIER = { match: concat(/`/, Swift.identifier, /`/) };
   const IMPLICIT_PARAMETER = {
     className: 'variable',
     match: /\$\d+/
@@ -223,20 +200,18 @@ export default function(hljs) {
   const AVAILABLE_ATTRIBUTE = {
     match: /(@|#(un)?)available/,
     className: "keyword",
-    starts: {
-      contains: [
-        {
-          begin: /\(/,
-          end: /\)/,
-          keywords: Swift.availabilityKeywords,
-          contains: [
-            ...OPERATORS,
-            NUMBER,
-            STRING
-          ]
-        }
-      ]
-    }
+    starts: { contains: [
+      {
+        begin: /\(/,
+        end: /\)/,
+        keywords: Swift.availabilityKeywords,
+        contains: [
+          ...OPERATORS,
+          NUMBER,
+          STRING
+        ]
+      }
+    ] }
   };
   const KEYWORD_ATTRIBUTE = {
     className: 'keyword',
@@ -395,9 +370,7 @@ export default function(hljs) {
       /\b(?:subscript|init[?!]?)/,
       /\s*(?=[<(])/,
     ],
-    className: {
-      1: "keyword"
-    },
+    className: { 1: "keyword" },
     contains: [
       GENERIC_PARAMETERS,
       FUNCTION_PARAMETERS,

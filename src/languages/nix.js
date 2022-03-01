@@ -52,7 +52,8 @@ export default function(hljs) {
     contains: [
       {
         className: 'attr',
-        begin: /\S+/
+        begin: /\S+/,
+        relevance: 0.2
       }
     ]
   };

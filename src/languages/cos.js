@@ -9,14 +9,18 @@ Website: https://cedocs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls
 export default function cos(hljs) {
   const STRINGS = {
     className: 'string',
-    variants: [{
-      begin: '"',
-      end: '"',
-      contains: [{ // escaped
-        begin: "\"\"",
-        relevance: 0
-      }]
-    }]
+    variants: [
+      {
+        begin: '"',
+        end: '"',
+        contains: [
+          { // escaped
+            begin: "\"\"",
+            relevance: 0
+          }
+        ]
+      }
+    ]
   };
 
   const NUMBERS = {
@@ -26,13 +30,13 @@ export default function cos(hljs) {
   };
 
   const COS_KEYWORDS =
-    'property parameter class classmethod clientmethod extends as break ' +
-    'catch close continue do d|0 else elseif for goto halt hang h|0 if job ' +
-    'j|0 kill k|0 lock l|0 merge new open quit q|0 read r|0 return set s|0 ' +
-    'tcommit throw trollback try tstart use view while write w|0 xecute x|0 ' +
-    'zkill znspace zn ztrap zwrite zw zzdump zzwrite print zbreak zinsert ' +
-    'zload zprint zremove zsave zzprint mv mvcall mvcrt mvdim mvprint zquit ' +
-    'zsync ascii';
+    'property parameter class classmethod clientmethod extends as break '
+    + 'catch close continue do d|0 else elseif for goto halt hang h|0 if job '
+    + 'j|0 kill k|0 lock l|0 merge new open quit q|0 read r|0 return set s|0 '
+    + 'tcommit throw trollback try tstart use view while write w|0 xecute x|0 '
+    + 'zkill znspace zn ztrap zwrite zw zzdump zzwrite print zbreak zinsert '
+    + 'zload zprint zremove zsave zzprint mv mvcall mvcrt mvdim mvprint zquit '
+    + 'zsync ascii';
 
   // registered function - no need in them due to all functions are highlighted,
   // but I'll just leave this here.
@@ -74,9 +78,7 @@ export default function cos(hljs) {
   return {
     name: 'Caché Object Script',
     case_insensitive: true,
-    aliases: [
-      "cls"
-    ],
+    aliases: [ "cls" ],
     keywords: COS_KEYWORDS,
     contains: [
       NUMBERS,

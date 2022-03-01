@@ -21,7 +21,7 @@ export default function(hljs) {
   ];
   return {
     name: 'Dockerfile',
-    aliases: ['docker'],
+    aliases: [ 'docker' ],
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: [

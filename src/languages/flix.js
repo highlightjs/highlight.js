@@ -5,7 +5,7 @@
  Website: https://flix.dev/
  */
 
- /** @type LanguageFn */
+/** @type LanguageFn */
 export default function(hljs) {
   const CHAR = {
     className: 'string',
@@ -14,10 +14,12 @@ export default function(hljs) {
 
   const STRING = {
     className: 'string',
-    variants: [{
-      begin: '"',
-      end: '"'
-    }]
+    variants: [
+      {
+        begin: '"',
+        end: '"'
+      }
+    ]
   };
 
   const NAME = {
@@ -31,7 +33,7 @@ export default function(hljs) {
     beginKeywords: 'def',
     end: /[:={\[(\n;]/,
     excludeEnd: true,
-    contains: [NAME]
+    contains: [ NAME ]
   };
 
   return {

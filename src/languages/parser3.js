@@ -10,9 +10,7 @@ export default function(hljs) {
   const CURLY_SUBCOMMENT = hljs.COMMENT(
     /\{/,
     /\}/,
-    {
-      contains: [ 'self' ]
-    }
+    { contains: [ 'self' ] }
   );
   return {
     name: 'Parser3',
