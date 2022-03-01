@@ -10,6 +10,7 @@ New Grammars:
 
 Grammars:
 
+- enh(xml) support processing instructions (#3492) [Josh Goebel][]
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
