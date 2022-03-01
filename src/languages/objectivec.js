@@ -12,11 +12,21 @@ export default function(hljs) {
     begin: '\\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\\w+'
   };
   const IDENTIFIER_RE = /[a-zA-Z@][a-zA-Z0-9_]*/;
-  const KWS = [
+  const TYPES = [
     "int",
     "float",
-    "while",
     "char",
+    "unsigned",
+    "signed",
+    "long",
+    "bool",
+    "short",
+    "double",
+    "wchar_t",
+    "unichar"
+  ];
+  const KWS = [
+    "while",
     "export",
     "sizeof",
     "typedef",
@@ -24,11 +34,8 @@ export default function(hljs) {
     "struct",
     "for",
     "union",
-    "unsigned",
-    "long",
     "volatile",
     "static",
-    "bool",
     "mutable",
     "if",
     "do",
@@ -41,17 +48,12 @@ export default function(hljs) {
     "extern",
     "asm",
     "case",
-    "short",
     "default",
-    "double",
     "register",
     "explicit",
-    "signed",
     "typename",
-    "this",
     "switch",
     "continue",
-    "wchar_t",
     "inline",
     "readonly",
     "assign",
@@ -61,8 +63,6 @@ export default function(hljs) {
     "id",
     "typeof",
     "nonatomic",
-    "super",
-    "unichar",
     "IBOutlet",
     "IBAction",
     "strong",
@@ -161,10 +161,15 @@ export default function(hljs) {
     "dispatch_once"
   ];
   const KEYWORDS = {
+    "variable.language": [
+      "this",
+      "super"
+    ],
     $pattern: IDENTIFIER_RE,
     keyword: KWS,
     literal: LITERALS,
-    built_in: BUILT_INS
+    built_in: BUILT_INS,
+    type: TYPES
   };
   const CLASS_KEYWORDS = {
     $pattern: IDENTIFIER_RE,
