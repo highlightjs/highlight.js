@@ -10,7 +10,7 @@ export default function(hljs) {
     aliases: [ 'pycon' ],
     contains: [
       {
-        className: 'meta',
+        className: 'meta.prompt',
         starts: {
           // a space separates the REPL prefix from the actual code
           // this is purely for cleaner HTML output

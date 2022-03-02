@@ -1,36 +1,36 @@
-<span class="hljs-meta">2.0.0p0 :001 &gt;</span> [<span class="hljs-string">&#x27;some&#x27;</span>]
+<span class="hljs-meta prompt_">2.0.0p0 :001 &gt;</span> [<span class="hljs-string">&#x27;some&#x27;</span>]
  =&gt; [<span class="hljs-string">&quot;some&quot;</span>]
-<span class="hljs-meta">2.0.0p0 :002 &gt;</span> <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span>
-<span class="hljs-meta">2.0.0p0 :003?&gt;</span>   <span class="hljs-string">&quot;yop&quot;</span>
-<span class="hljs-meta">2.0.0p0 :004?&gt;</span>   <span class="hljs-keyword">end</span>
+<span class="hljs-meta prompt_">2.0.0p0 :002 &gt;</span> <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span>
+<span class="hljs-meta prompt_">2.0.0p0 :003?&gt;</span>   <span class="hljs-string">&quot;yop&quot;</span>
+<span class="hljs-meta prompt_">2.0.0p0 :004?&gt;</span>   <span class="hljs-keyword">end</span>
  =&gt; <span class="hljs-string">&quot;yop&quot;</span>
 
-<span class="hljs-meta">jruby-1.7.16 :001 &gt;</span> <span class="hljs-string">&quot;RVM-Format&quot;</span>
+<span class="hljs-meta prompt_">jruby-1.7.16 :001 &gt;</span> <span class="hljs-string">&quot;RVM-Format&quot;</span>
 
-<span class="hljs-meta">&gt;&gt;</span> obj = OpenStruct.new <span class="hljs-symbol">:integer</span> =&gt; <span class="hljs-number">987</span>, <span class="hljs-symbol">:symbol</span> =&gt; <span class="hljs-symbol">:so_great</span>
+<span class="hljs-meta prompt_">&gt;&gt;</span> obj = OpenStruct.new <span class="hljs-symbol">:integer</span> =&gt; <span class="hljs-number">987</span>, <span class="hljs-symbol">:symbol</span> =&gt; <span class="hljs-symbol">:so_great</span>
 =&gt; #&lt;OpenStruct integer=987, symbol=:so_great&gt;
-<span class="hljs-meta">&gt;&gt;</span> [obj,obj,obj]
+<span class="hljs-meta prompt_">&gt;&gt;</span> [obj,obj,obj]
 =&gt; [#&lt;OpenStruct integer=987, symbol=:so_great&gt;, #&lt;OpenStruct integer=987, symbol=:so_great&gt;, #&lt;OpenStruct integer=987, symbol=:so_great&gt;]
-<span class="hljs-meta">&gt;&gt;</span> {<span class="hljs-number">1</span> =&gt; obj, <span class="hljs-number">2</span> =&gt; obj}
+<span class="hljs-meta prompt_">&gt;&gt;</span> {<span class="hljs-number">1</span> =&gt; obj, <span class="hljs-number">2</span> =&gt; obj}
 =&gt; {<span class="hljs-number">1</span>=&gt;#&lt;OpenStruct integer=987, symbol=:so_great&gt;, <span class="hljs-number">2</span>=&gt;#&lt;OpenStruct integer=987, symbol=:so_great&gt;}
-<span class="hljs-meta">&gt;&gt;</span> <span class="hljs-keyword">if</span> <span class="hljs-number">10</span> &gt; <span class="hljs-number">20</span>
-<span class="hljs-meta">&gt;&gt;</span> <span class="hljs-string">&quot;YEAH&quot;</span>
-<span class="hljs-meta">&gt;&gt;</span> <span class="hljs-keyword">else</span>
-<span class="hljs-meta">?&gt;</span> <span class="hljs-string">&quot;NO&quot;</span>
-<span class="hljs-meta">&gt;&gt;</span> <span class="hljs-keyword">end</span>
+<span class="hljs-meta prompt_">&gt;&gt;</span> <span class="hljs-keyword">if</span> <span class="hljs-number">10</span> &gt; <span class="hljs-number">20</span>
+<span class="hljs-meta prompt_">&gt;&gt;</span> <span class="hljs-string">&quot;YEAH&quot;</span>
+<span class="hljs-meta prompt_">&gt;&gt;</span> <span class="hljs-keyword">else</span>
+<span class="hljs-meta prompt_">?&gt;</span> <span class="hljs-string">&quot;NO&quot;</span>
+<span class="hljs-meta prompt_">&gt;&gt;</span> <span class="hljs-keyword">end</span>
 =&gt; <span class="hljs-string">&quot;NO&quot;</span>
 
-<span class="hljs-meta">irb(main):002:0&gt;</span> test = <span class="hljs-number">1</span>
+<span class="hljs-meta prompt_">irb(main):002:0&gt;</span> test = <span class="hljs-number">1</span>
 
-<span class="hljs-meta">irb(main):001:1*</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Secret</span></span>
-<span class="hljs-meta">irb(main):002:2*</span>   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">[]</span><span class="hljs-params">(x)</span></span>
-<span class="hljs-meta">irb(main):003:2*</span>     <span class="hljs-string">&quot;TREASURE&quot;</span> <span class="hljs-keyword">if</span> x==<span class="hljs-number">42</span>
-<span class="hljs-meta">irb(main):004:1*</span>   <span class="hljs-keyword">end</span>
-<span class="hljs-meta">irb(main):005:0&gt;</span> <span class="hljs-keyword">end</span>
+<span class="hljs-meta prompt_">irb(main):001:1*</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Secret</span></span>
+<span class="hljs-meta prompt_">irb(main):002:2*</span>   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">[]</span><span class="hljs-params">(x)</span></span>
+<span class="hljs-meta prompt_">irb(main):003:2*</span>     <span class="hljs-string">&quot;TREASURE&quot;</span> <span class="hljs-keyword">if</span> x==<span class="hljs-number">42</span>
+<span class="hljs-meta prompt_">irb(main):004:1*</span>   <span class="hljs-keyword">end</span>
+<span class="hljs-meta prompt_">irb(main):005:0&gt;</span> <span class="hljs-keyword">end</span>
 =&gt; <span class="hljs-symbol">:[]</span>
-<span class="hljs-meta">irb(main):006:0&gt;</span> Secret.new[<span class="hljs-number">0</span>]
+<span class="hljs-meta prompt_">irb(main):006:0&gt;</span> Secret.new[<span class="hljs-number">0</span>]
 =&gt; nil
-<span class="hljs-meta">irb(main):008:0&gt;</span> Secret.new[<span class="hljs-number">2239232</span>]
+<span class="hljs-meta prompt_">irb(main):008:0&gt;</span> Secret.new[<span class="hljs-number">2239232</span>]
 =&gt; nil
-<span class="hljs-meta">irb(main):009:0&gt;</span> Secret.new[<span class="hljs-number">42</span>]
+<span class="hljs-meta prompt_">irb(main):009:0&gt;</span> Secret.new[<span class="hljs-number">42</span>]
 =&gt; <span class="hljs-string">&quot;TREASURE&quot;</span>
