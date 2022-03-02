@@ -10,7 +10,7 @@ Category: common
 export default function(hljs) {
   const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
-  const CLASS_NAME_RE = /[A-Z][a-z0-9]*/;
+  const CLASS_NAME_RE = /\b[A-Z]+[a-z0-9]*([A-Z]+[a-z0-9]+)*/;
   const CLASS_NAME_WITH_NAMESPACE_RE = regex.concat(CLASS_NAME_RE, /(::\w+)*/)
   const RUBY_KEYWORDS = {
     "variable.constant": [
