@@ -2,6 +2,7 @@
 
 Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
+- Added `Tokyo-Night-light` theme [Henri Vandersleyen][]
 
 New Grammars:
 
