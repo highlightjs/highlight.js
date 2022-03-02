@@ -276,7 +276,7 @@ export default function(hljs) {
   // ?>
   const SIMPLE_PROMPT = "[>?]>";
   // irb(main):001:0>
-  const DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
+  const DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+[>*]";
   const RVM_PROMPT = "(\\w+-)?\\d+\\.\\d+\\.\\d+(p\\d+)?[^\\d][^>]+>";
 
   const IRB_DEFAULT = [
@@ -288,10 +288,11 @@ export default function(hljs) {
       }
     },
     {
-      className: 'meta',
+      className: 'meta.prompt',
       begin: '^(' + SIMPLE_PROMPT + "|" + DEFAULT_PROMPT + '|' + RVM_PROMPT + ')(?=[ ])',
       starts: {
         end: '$',
+        keywords: RUBY_KEYWORDS,
         contains: RUBY_DEFAULT_CONTAINS
       }
     }

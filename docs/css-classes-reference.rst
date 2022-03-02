@@ -84,6 +84,8 @@ in mind so a better choice (for best theme support) might possibly be ``string``
 | meta                     | flags, modifiers, annotations, processing                   |
 |                          | instructions, preprocessor directives, etc                  |
 +--------------------------+-------------------------------------------------------------+
+| meta.prompt              | REPL or shell prompts or similar                            |
++--------------------------+-------------------------------------------------------------+
 | meta keyword             | a keyword inside a meta block                               |
 |                          | (note this is nested, not subscoped)                        |
 +--------------------------+-------------------------------------------------------------+

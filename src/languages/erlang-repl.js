@@ -19,7 +19,7 @@ export default function(hljs) {
     },
     contains: [
       {
-        className: 'meta',
+        className: 'meta.prompt',
         begin: '^[0-9]+> ',
         relevance: 10
       },
