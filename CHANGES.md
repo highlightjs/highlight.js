@@ -11,6 +11,7 @@ New Grammars:
 
 Grammars:
 
+- enh(xml) support processing instructions (#3492) [Josh Goebel][]
 - enh(ruby ) better support multi-line IRB prompts
 - enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
 - add `meta.prompt` scope for REPL prompts, etc [Josh Goebel][]

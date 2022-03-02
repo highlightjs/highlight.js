@@ -122,11 +122,23 @@ export default function(hljs) {
         relevance: 10
       },
       XML_ENTITIES,
+      // xml processing instructions
       {
         className: 'meta',
-        begin: /<\?xml/,
         end: /\?>/,
-        relevance: 10
+        variants: [
+          {
+            begin: /<\?xml/,
+            relevance: 10,
+            contains: [
+              QUOTE_META_STRING_MODE
+            ]
+          },
+          {
+            begin: /<\?[a-z][a-z0-9]+/,
+          }
+        ]
+
       },
       {
         className: 'tag',
