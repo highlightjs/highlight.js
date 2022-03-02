@@ -206,12 +206,19 @@ export default function(hljs) {
   };
 
   const PARAMS = {
-    className: 'params',
-    begin: /\(/,
-    end: /(?=\))/,
-    excludeBegin: true,
-    endsParent: true,
-    keywords: RUBY_KEYWORDS
+    variants: [
+      {
+        match: /\(\)/,
+      },
+      {
+        className: 'params',
+        begin: /\(/,
+        end: /(?=\))/,
+        excludeBegin: true,
+        endsParent: true,
+        keywords: RUBY_KEYWORDS,
+      }
+    ]
   };
 
   const CLASS_DEFINITION = {
