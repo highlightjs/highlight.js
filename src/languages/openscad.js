@@ -20,14 +20,10 @@ export default function(hljs) {
     begin: '\\b\\d+(\\.\\d+)?(e-?\\d+)?', // adds 1e5, 1e-10
     relevance: 0
   };
-  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
-    illegal: null
-  });
+  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const PREPRO = {
     className: 'meta',
-    keywords: {
-      keyword: 'include use'
-    },
+    keywords: { keyword: 'include use' },
     begin: 'include|use <',
     end: '>'
   };

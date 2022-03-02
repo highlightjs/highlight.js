@@ -1,5 +1,5 @@
 /*!
-  Theme: Tokyo-night-Dark
+  Theme: Tokyo-night-light
   origin: https://github.com/enkia/tokyo-night-vscode-theme
   Description: Original highlight.js style
   Author: (c) Henri Vandersleyen <hvandersleyen@gmail.com>
@@ -10,7 +10,7 @@
 /*  Comment */
 .hljs-meta,
 .hljs-comment {
-  color: #565f89;
+  color: #9699a3;
 }
 
 /* Red */
@@ -25,7 +25,7 @@
 .hljs-selector-attr,
 .hljs-variable.language_,
 .hljs-deletion {
-  color: #f7768e;
+  color: #8c4351;
 }
 
 /*Orange */
@@ -37,7 +37,7 @@
 .hljs-type,
 .hljs-params,
 .hljs-link {
-  color: #ff9e64;
+  color: #965027;
 }
 
 
@@ -45,12 +45,12 @@
 /* INFO:  	Function parameters, Regex character sets, Terminal Yellow */
 .hljs-built_in, 
 .hljs-attribute {
-  color: #e0af68;
+  color: #8f5e15;
 }
 /* cyan */
 /* INFO: Language support functions, CSS HTML elements */
 .hljs-selector-tag {
-  color: #2ac3de;
+  color: #166775;
 }
 
 /* light blue */
@@ -61,11 +61,11 @@
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
 .hljs-subst,
-.hljs-property {color: #7dcfff;}
+.hljs-property {color: #0f4b6e;}
 
 /*Green*/
 /* INFO: Object literal keys, Markdown links, Terminal Green */
-.hljs-selector-tag { color: #73daca;}
+.hljs-selector-tag { color: #33635c;}
 
 
 /*Green(er) */
@@ -75,7 +75,7 @@
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
-  color: #9ece6a;
+  color: #485e30;
 }
 
 /* Blue */
@@ -83,7 +83,7 @@
 .hljs-code,
 .hljs-formula,
 .hljs-section {
-  color: #7aa2f7;
+  color: #34548a;
 }
 
 
@@ -96,16 +96,16 @@
 .hljs-keyword,
 .hljs-char.escape_,
 .hljs-attr {
-  color: #bb9af7;
+  color: #5a4a78;
 }
 
 /* white*/
 /* INFO: Variables, Class names, Terminal White */
-.hljs-punctuation {color: #c0caf5}
+.hljs-punctuation {color: #343b58}
 
 .hljs {
-  background: #1a1b26;
-  color: #9aa5ce;
+  background: #d5d6db;
+  color: #565a6e;
 }
 
 .hljs-emphasis {
@@ -115,3 +115,4 @@
 .hljs-strong {
   font-weight: bold;
 }
+

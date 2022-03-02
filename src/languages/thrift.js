@@ -56,15 +56,17 @@ export default function(hljs) {
             starts: {
               endsWithParent: true,
               excludeEnd: true
-            }
-          })
+            } })
         ]
       },
       {
         begin: '\\b(set|list|map)\\s*<',
-        keywords: {
-          type: [...TYPES, "set", "list", "map"]
-        },
+        keywords: { type: [
+          ...TYPES,
+          "set",
+          "list",
+          "map"
+        ] },
         end: '>',
         contains: [ 'self' ]
       }

@@ -24,25 +24,19 @@ export default function(hljs) {
         className: 'string',
         begin: /\{"/,
         end: /"\}/,
-        contains: [hljs.BACKSLASH_ESCAPE]
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       },
 
-      hljs.COMMENT(';', '$', {
-        relevance: 0
-      }),
+      hljs.COMMENT(';', '$', { relevance: 0 }),
 
       {
         // pre-processor
         className: 'meta',
         begin: '#',
         end: '$',
-        keywords: {
-          keyword: 'addion cfunc cmd cmpopt comfunc const defcfunc deffunc define else endif enum epack func global if ifdef ifndef include modcfunc modfunc modinit modterm module pack packopt regcmd runtime undef usecom uselib'
-        },
+        keywords: { keyword: 'addion cfunc cmd cmpopt comfunc const defcfunc deffunc define else endif enum epack func global if ifdef ifndef include modcfunc modfunc modinit modterm module pack packopt regcmd runtime undef usecom uselib' },
         contains: [
-          hljs.inherit(hljs.QUOTE_STRING_MODE, {
-            className: 'string'
-          }),
+          hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' }),
           hljs.NUMBER_MODE,
           hljs.C_NUMBER_MODE,
           hljs.C_LINE_COMMENT_MODE,

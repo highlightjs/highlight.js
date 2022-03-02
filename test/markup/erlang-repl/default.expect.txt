@@ -1,27 +1,27 @@
-<span class="hljs-meta">1&gt; </span>Str = <span class="hljs-string">&quot;abcd&quot;</span>.
+<span class="hljs-meta prompt_">1&gt; </span>Str = <span class="hljs-string">&quot;abcd&quot;</span>.
 <span class="hljs-string">&quot;abcd&quot;</span>
-<span class="hljs-meta">2&gt; </span>L = test:length(Str).
+<span class="hljs-meta prompt_">2&gt; </span>L = test:length(Str).
 <span class="hljs-number">4</span>
-<span class="hljs-meta">3&gt; </span>Descriptor = {L, list_to_atom(Str)}.
+<span class="hljs-meta prompt_">3&gt; </span>Descriptor = {L, list_to_atom(Str)}.
 {<span class="hljs-number">4</span>,abcd}
-<span class="hljs-meta">4&gt; </span>L.
+<span class="hljs-meta prompt_">4&gt; </span>L.
 <span class="hljs-number">4</span>
-<span class="hljs-meta">5&gt; </span>b().
+<span class="hljs-meta prompt_">5&gt; </span>b().
 Descriptor = {<span class="hljs-number">4</span>,abcd}
 L = <span class="hljs-number">4</span>
 Str = <span class="hljs-string">&quot;abcd&quot;</span>
 ok
-<span class="hljs-meta">6&gt; </span>f(L).
+<span class="hljs-meta prompt_">6&gt; </span>f(L).
 ok
-<span class="hljs-meta">7&gt; </span>b().
+<span class="hljs-meta prompt_">7&gt; </span>b().
 Descriptor = {<span class="hljs-number">4</span>,abcd}
 Str = <span class="hljs-string">&quot;abcd&quot;</span>
 ok
-<span class="hljs-meta">8&gt; </span>{L, _} = Descriptor.
+<span class="hljs-meta prompt_">8&gt; </span>{L, _} = Descriptor.
 {<span class="hljs-number">4</span>,abcd}
-<span class="hljs-meta">9&gt; </span>L.
+<span class="hljs-meta prompt_">9&gt; </span>L.
 <span class="hljs-number">4</span>
-<span class="hljs-meta">10&gt; </span><span class="hljs-number">2#101</span>.
+<span class="hljs-meta prompt_">10&gt; </span><span class="hljs-number">2#101</span>.
 <span class="hljs-number">5</span>
-<span class="hljs-meta">11&gt; </span><span class="hljs-number">1.85e+3</span>.
+<span class="hljs-meta prompt_">11&gt; </span><span class="hljs-number">1.85e+3</span>.
 <span class="hljs-number">1850</span>

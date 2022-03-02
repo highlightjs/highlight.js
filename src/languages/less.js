@@ -91,11 +91,7 @@ export default function(hljs) {
   const MIXIN_GUARD_MODE = {
     beginKeywords: 'when',
     endsWithParent: true,
-    contains: [
-      {
-        beginKeywords: 'and not'
-      }
-    ].concat(VALUE_MODES) // using this form to override VALUE’s 'function' match
+    contains: [ { beginKeywords: 'and not' } ].concat(VALUE_MODES) // using this form to override VALUE’s 'function' match
   };
 
   /* Rule-Level Modes */
@@ -106,9 +102,7 @@ export default function(hljs) {
     end: /[;}]/,
     relevance: 0,
     contains: [
-      {
-        begin: /-(webkit|moz|ms|o)-/
-      },
+      { begin: /-(webkit|moz|ms|o)-/ },
       modes.CSS_VARIABLE,
       {
         className: 'attribute',
@@ -148,9 +142,7 @@ export default function(hljs) {
         begin: '@' + IDENT_RE + '\\s*:',
         relevance: 15
       },
-      {
-        begin: '@' + IDENT_RE
-      }
+      { begin: '@' + IDENT_RE }
     ],
     starts: {
       end: '[;}]',
@@ -207,9 +199,7 @@ export default function(hljs) {
         relevance: 0,
         contains: VALUE_WITH_RULESETS
       }, // argument list of parametric mixins
-      {
-        begin: '!important'
-      }, // eat !important after mixin call or it will be colored as tag
+      { begin: '!important' }, // eat !important after mixin call or it will be colored as tag
       modes.FUNCTION_DISPATCH
     ]
   };

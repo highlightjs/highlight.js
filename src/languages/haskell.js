@@ -7,18 +7,14 @@ Category: functional
 */
 
 export default function(hljs) {
-  const COMMENT = {
-    variants: [
-      hljs.COMMENT('--', '$'),
-      hljs.COMMENT(
-        /\{-/,
-        /-\}/,
-        {
-          contains: ['self']
-        }
-      )
-    ]
-  };
+  const COMMENT = { variants: [
+    hljs.COMMENT('--', '$'),
+    hljs.COMMENT(
+      /\{-/,
+      /-\}/,
+      { contains: [ 'self' ] }
+    )
+  ] };
 
   const PRAGMA = {
     className: 'meta',
@@ -49,9 +45,7 @@ export default function(hljs) {
         className: 'type',
         begin: '\\b[A-Z][\\w]*(\\((\\.\\.|,|\\w+)\\))?'
       },
-      hljs.inherit(hljs.TITLE_MODE, {
-        begin: '[_a-z][\\w\']*'
-      }),
+      hljs.inherit(hljs.TITLE_MODE, { begin: '[_a-z][\\w\']*' }),
       COMMENT
     ]
   };
@@ -80,32 +74,24 @@ export default function(hljs) {
     relevance: 0,
     variants: [
       // decimal floating-point-literal (subsumes decimal-literal)
-      {
-        match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b`
-      },
+      { match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b` },
       // hexadecimal floating-point-literal (subsumes hexadecimal-literal)
-      {
-        match: `\\b0[xX]_*(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b`
-      },
+      { match: `\\b0[xX]_*(${hexDigits})(\\.(${hexDigits}))?` + `([pP][+-]?(${decimalDigits}))?\\b` },
       // octal-literal
-      {
-        match: `\\b0[oO](${octalDigits})\\b`
-      },
+      { match: `\\b0[oO](${octalDigits})\\b` },
       // binary-literal
-      {
-        match: `\\b0[bB](${binaryDigits})\\b`
-      }
+      { match: `\\b0[bB](${binaryDigits})\\b` }
     ]
   };
 
   return {
     name: 'Haskell',
-    aliases: ['hs'],
+    aliases: [ 'hs' ],
     keywords:
-      'let in if then else case of where do module import hiding ' +
-      'qualified type data newtype deriving class instance as default ' +
-      'infix infixl infixr foreign export ccall stdcall cplusplus ' +
-      'jvm dotnet safe unsafe family forall mdo proc rec',
+      'let in if then else case of where do module import hiding '
+      + 'qualified type data newtype deriving class instance as default '
+      + 'infix infixl infixr foreign export ccall stdcall cplusplus '
+      + 'jvm dotnet safe unsafe family forall mdo proc rec',
     contains: [
       // Top-level constructions.
       {
@@ -172,8 +158,8 @@ export default function(hljs) {
       {
         begin: '\\bforeign\\b',
         end: '$',
-        keywords: 'foreign import export ccall stdcall cplusplus jvm ' +
-                  'dotnet safe unsafe',
+        keywords: 'foreign import export ccall stdcall cplusplus jvm '
+                  + 'dotnet safe unsafe',
         contains: [
           CONSTRUCTOR,
           hljs.QUOTE_STRING_MODE,
@@ -195,13 +181,10 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       NUMBER,
       CONSTRUCTOR,
-      hljs.inherit(hljs.TITLE_MODE, {
-        begin: '^[_a-z][\\w\']*'
-      }),
+      hljs.inherit(hljs.TITLE_MODE, { begin: '^[_a-z][\\w\']*' }),
       COMMENT,
       { // No markup, relevance booster
-        begin: '->|<-'
-      }
+        begin: '->|<-' }
     ]
   };
 }

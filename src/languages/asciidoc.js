@@ -16,26 +16,16 @@ export default function(hljs) {
   };
   const ESCAPED_FORMATTING = [
     // escaped constrained formatting marks (i.e., \* \_ or \`)
-    {
-      begin: /\\[*_`]/
-    },
+    { begin: /\\[*_`]/ },
     // escaped unconstrained formatting marks (i.e., \\** \\__ or \\``)
     // must ignore until the next formatting marks
     // this rule might not be 100% compliant with Asciidoctor 2.0 but we are entering undefined behavior territory...
-    {
-      begin: /\\\\\*{2}[^\n]*?\*{2}/
-    },
-    {
-      begin: /\\\\_{2}[^\n]*_{2}/
-    },
-    {
-      begin: /\\\\`{2}[^\n]*`{2}/
-    },
+    { begin: /\\\\\*{2}[^\n]*?\*{2}/ },
+    { begin: /\\\\_{2}[^\n]*_{2}/ },
+    { begin: /\\\\`{2}[^\n]*`{2}/ },
     // guard: constrained formatting mark may not be preceded by ":", ";" or
     // "}". match these so the constrained rule doesn't see them
-    {
-      begin: /[:;}][*_`](?![*_`])/
-    }
+    { begin: /[:;}][*_`](?![*_`])/ }
   ];
   const STRONG = [
     // inline unconstrained strong (single line)
@@ -103,10 +93,12 @@ export default function(hljs) {
       begin: '\\B\'(?![\'\\s])',
       end: '(\\n{2}|\')',
       // allow escaped single quote followed by word char
-      contains: [{
-        begin: '\\\\\'\\w',
-        relevance: 0
-      }],
+      contains: [
+        {
+          begin: '\\\\\'\\w',
+          relevance: 0
+        }
+      ],
       relevance: 0
     }
   ];
@@ -122,7 +114,7 @@ export default function(hljs) {
 
   return {
     name: 'AsciiDoc',
-    aliases: ['adoc'],
+    aliases: [ 'adoc' ],
     contains: [
       // block comment
       hljs.COMMENT(
@@ -131,17 +123,13 @@ export default function(hljs) {
         // can also be done as...
         // '^/{4,}$',
         // '^/{4,}$',
-        {
-          relevance: 10
-        }
+        { relevance: 10 }
       ),
       // line comment
       hljs.COMMENT(
         '^//',
         '$',
-        {
-          relevance: 0
-        }
+        { relevance: 0 }
       ),
       // title
       {
@@ -159,12 +147,8 @@ export default function(hljs) {
         className: 'section',
         relevance: 10,
         variants: [
-          {
-            begin: '^(={1,6})[ \t].+?([ \t]\\1)?$'
-          },
-          {
-            begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$'
-          }
+          { begin: '^(={1,6})[ \t].+?([ \t]\\1)?$' },
+          { begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$' }
         ]
       },
       // document attributes
@@ -199,12 +183,14 @@ export default function(hljs) {
       {
         begin: '^\\+{4,}\\n',
         end: '\\n\\+{4,}$',
-        contains: [{
-          begin: '<',
-          end: '>',
-          subLanguage: 'xml',
-          relevance: 0
-        }],
+        contains: [
+          {
+            begin: '<',
+            end: '>',
+            subLanguage: 'xml',
+            relevance: 0
+          }
+        ],
         relevance: 10
       },
 
@@ -218,12 +204,8 @@ export default function(hljs) {
       {
         className: 'string',
         variants: [
-          {
-            begin: "``.+?''"
-          },
-          {
-            begin: "`.+?'"
-          }
+          { begin: "``.+?''" },
+          { begin: "`.+?'" }
         ]
       },
       // inline unconstrained emphasis

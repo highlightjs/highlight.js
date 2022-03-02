@@ -2,15 +2,19 @@
 
 Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
+- Added `Tokyo-Night-light` theme [Henri Vandersleyen][]
 
 New Grammars:
 
-- Added GraphQL to SUPPORTED_LANGUAGES [jf990][]
+- Added GraphQL to SUPPORTED_LANGUAGES [John Foster][]
 - Added Macaulay2 to SUPPORTED_LANGUAGES [Doug Torrance][]
 
 Grammars:
 
 - enh(xml) support processing instructions (#3492) [Josh Goebel][]
+- enh(ruby ) better support multi-line IRB prompts
+- enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
+- add `meta.prompt` scope for REPL prompts, etc [Josh Goebel][]
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
 - fix(java) prevent false positive variable init on `else` [Josh Goebel][]
@@ -23,7 +27,7 @@ Grammars:
 - enh(elixir) recognize references to modules [Mark Ericksen][]
 - enh(css): add support for more properties [Nicolaos Skimas][]
 
-
+[Martin Mattel]: https://github.com/mmattel
 [John Foster]: https://github.com/jf990
 [Wojciech Kania]: https://github.com/wkania
 [Melissa Geels]: https://github.com/codecat

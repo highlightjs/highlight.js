@@ -13,7 +13,7 @@ export default function(hljs) {
     name: 'Clojure REPL',
     contains: [
       {
-        className: 'meta',
+        className: 'meta.prompt',
         begin: /^([\w.-]+|\s*#_)?=>/,
         starts: {
           end: /$/,

@@ -5,7 +5,7 @@
  Category: enterprise, config
  */
 
- /** @type LanguageFn */
+/** @type LanguageFn */
 export default function(hljs) {
   const QUOTED_PROPERTY = {
     className: 'string',

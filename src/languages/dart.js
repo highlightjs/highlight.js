@@ -11,17 +11,17 @@ Category: scripting
 export default function(hljs) {
   const SUBST = {
     className: 'subst',
-    variants: [{
-      begin: '\\$[A-Za-z0-9_]+'
-    }]
+    variants: [ { begin: '\\$[A-Za-z0-9_]+' } ]
   };
 
   const BRACED_SUBST = {
     className: 'subst',
-    variants: [{
-      begin: /\$\{/,
-      end: /\}/
-    }],
+    variants: [
+      {
+        begin: /\$\{/,
+        end: /\}/
+      }
+    ],
     keywords: 'true false null this is new super'
   };
 
@@ -224,14 +224,14 @@ export default function(hljs) {
       ),
       hljs.COMMENT(
         /\/{3,} ?/,
-        /$/, {
-          contains: [{
+        /$/, { contains: [
+          {
             subLanguage: 'markdown',
             begin: '.',
             end: '$',
             relevance: 0
-          }]
-        }
+          }
+        ] }
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
@@ -241,9 +241,7 @@ export default function(hljs) {
         end: /\{/,
         excludeEnd: true,
         contains: [
-          {
-            beginKeywords: 'extends implements'
-          },
+          { beginKeywords: 'extends implements' },
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
@@ -252,8 +250,7 @@ export default function(hljs) {
         className: 'meta',
         begin: '@[A-Za-z]+'
       },
-      {
-        begin: '=>' // No markup, just a relevance booster
+      { begin: '=>' // No markup, just a relevance booster
       }
     ]
   };

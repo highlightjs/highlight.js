@@ -13,31 +13,32 @@ export default function(hljs) {
   const HEADER = {
     className: 'attribute',
     begin: regex.concat('^', HEADER_NAME, '(?=\\:\\s)'),
-    starts: {
-      contains: [
-        {
-          className: "punctuation",
-          begin: /: /,
-          relevance: 0,
-          starts: {
-            end: '$',
-            relevance: 0
-          }
+    starts: { contains: [
+      {
+        className: "punctuation",
+        begin: /: /,
+        relevance: 0,
+        starts: {
+          end: '$',
+          relevance: 0
         }
-      ]
-    }
+      }
+    ] }
   };
   const HEADERS_AND_BODY = [
     HEADER,
     {
       begin: '\\n\\n',
-      starts: { subLanguage: [], endsWithParent: true }
+      starts: {
+        subLanguage: [],
+        endsWithParent: true
+      }
     }
   ];
 
   return {
     name: 'HTTP',
-    aliases: ['https'],
+    aliases: [ 'https' ],
     illegal: /\S/,
     contains: [
       // response
@@ -50,7 +51,8 @@ export default function(hljs) {
             begin: VERSION
           },
           {
-            className: 'number', begin: '\\b\\d{3}\\b'
+            className: 'number',
+            begin: '\\b\\d{3}\\b'
           }
         ],
         starts: {
@@ -87,9 +89,7 @@ export default function(hljs) {
         }
       },
       // to allow headers to work even without a preamble
-      hljs.inherit(HEADER, {
-        relevance: 0
-      })
+      hljs.inherit(HEADER, { relevance: 0 })
     ]
   };
 }

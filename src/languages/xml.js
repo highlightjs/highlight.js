@@ -29,12 +29,8 @@ export default function(hljs) {
     begin: /\(/,
     end: /\)/
   });
-  const APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, {
-    className: 'string'
-  });
-  const QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, {
-    className: 'string'
-  });
+  const APOS_META_STRING_MODE = hljs.inherit(hljs.APOS_STRING_MODE, { className: 'string' });
+  const QUOTE_META_STRING_MODE = hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' });
   const TAG_INTERNALS = {
     endsWithParent: true,
     illegal: /</,
@@ -63,9 +59,7 @@ export default function(hljs) {
                 end: /'/,
                 contains: [ XML_ENTITIES ]
               },
-              {
-                begin: /[^\s"'=<>`]+/
-              }
+              { begin: /[^\s"'=<>`]+/ }
             ]
           }
         ]
@@ -120,9 +114,7 @@ export default function(hljs) {
       hljs.COMMENT(
         /<!--/,
         /-->/,
-        {
-          relevance: 10
-        }
+        { relevance: 10 }
       ),
       {
         begin: /<!\[CDATA\[/,
@@ -157,9 +149,7 @@ export default function(hljs) {
         */
         begin: /<style(?=\s|>)/,
         end: />/,
-        keywords: {
-          name: 'style'
-        },
+        keywords: { name: 'style' },
         contains: [ TAG_INTERNALS ],
         starts: {
           end: /<\/style>/,
@@ -175,9 +165,7 @@ export default function(hljs) {
         // See the comment in the <style tag about the lookahead pattern
         begin: /<script(?=\s|>)/,
         end: />/,
-        keywords: {
-          name: 'script'
-        },
+        keywords: { name: 'script' },
         contains: [ TAG_INTERNALS ],
         starts: {
           end: /<\/script>/,

@@ -13,7 +13,7 @@ export default function(hljs) {
   };
   return {
     name: 'Brainfuck',
-    aliases: ['bf'],
+    aliases: [ 'bf' ],
     contains: [
       hljs.COMMENT(
         /[^\[\]\.,\+\-<> \r\n]/,

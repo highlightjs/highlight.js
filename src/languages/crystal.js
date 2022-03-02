@@ -14,10 +14,10 @@ export default function(hljs) {
   const CRYSTAL_KEYWORDS = {
     $pattern: CRYSTAL_IDENT_RE,
     keyword:
-      'abstract alias annotation as as? asm begin break case class def do else elsif end ensure enum extend for fun if ' +
-      'include instance_sizeof is_a? lib macro module next nil? of out pointerof private protected rescue responds_to? ' +
-      'return require select self sizeof struct super then type typeof union uninitialized unless until verbatim when while with yield ' +
-      '__DIR__ __END_LINE__ __FILE__ __LINE__',
+      'abstract alias annotation as as? asm begin break case class def do else elsif end ensure enum extend for fun if '
+      + 'include instance_sizeof is_a? lib macro module next nil? of out pointerof private protected rescue responds_to? '
+      + 'return require select self sizeof struct super then type typeof union uninitialized unless until verbatim when while with yield '
+      + '__DIR__ __END_LINE__ __FILE__ __LINE__',
     literal: 'false nil true'
   };
   const SUBST = {
@@ -205,11 +205,7 @@ export default function(hljs) {
     className: 'meta',
     begin: '@\\[',
     end: '\\]',
-    contains: [
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        className: 'string'
-      })
-    ]
+    contains: [ hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' }) ]
   };
   const CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,
@@ -227,12 +223,9 @@ export default function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {
-          begin: CRYSTAL_PATH_RE
-        }),
+        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE }),
         { // relevance booster for inheritance
-          begin: '<'
-        }
+          begin: '<' }
       ]
     },
     {
@@ -242,9 +235,7 @@ export default function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {
-          begin: CRYSTAL_PATH_RE
-        })
+        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE })
       ]
     },
     {
@@ -253,9 +244,7 @@ export default function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, {
-          begin: CRYSTAL_PATH_RE
-        })
+        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE })
       ],
       relevance: 2
     },
@@ -292,30 +281,18 @@ export default function(hljs) {
       begin: ':',
       contains: [
         STRING,
-        {
-          begin: CRYSTAL_METHOD_RE
-        }
+        { begin: CRYSTAL_METHOD_RE }
       ],
       relevance: 0
     },
     {
       className: 'number',
       variants: [
-        {
-          begin: '\\b0b([01_]+)' + INT_SUFFIX
-        },
-        {
-          begin: '\\b0o([0-7_]+)' + INT_SUFFIX
-        },
-        {
-          begin: '\\b0x([A-Fa-f0-9_]+)' + INT_SUFFIX
-        },
-        {
-          begin: '\\b([1-9][0-9_]*[0-9]|[0-9])(\\.[0-9][0-9_]*)?([eE]_?[-+]?[0-9_]*)?' + FLOAT_SUFFIX + '(?!_)'
-        },
-        {
-          begin: '\\b([1-9][0-9_]*|0)' + INT_SUFFIX
-        }
+        { begin: '\\b0b([01_]+)' + INT_SUFFIX },
+        { begin: '\\b0o([0-7_]+)' + INT_SUFFIX },
+        { begin: '\\b0x([A-Fa-f0-9_]+)' + INT_SUFFIX },
+        { begin: '\\b([1-9][0-9_]*[0-9]|[0-9])(\\.[0-9][0-9_]*)?([eE]_?[-+]?[0-9_]*)?' + FLOAT_SUFFIX + '(?!_)' },
+        { begin: '\\b([1-9][0-9_]*|0)' + INT_SUFFIX }
       ],
       relevance: 0
     }
