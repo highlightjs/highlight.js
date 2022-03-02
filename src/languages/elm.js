@@ -7,18 +7,14 @@ Category: functional
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const COMMENT = {
-    variants: [
-      hljs.COMMENT('--', '$'),
-      hljs.COMMENT(
-        /\{-/,
-        /-\}/,
-        {
-          contains: ['self']
-        }
-      )
-    ]
-  };
+  const COMMENT = { variants: [
+    hljs.COMMENT('--', '$'),
+    hljs.COMMENT(
+      /\{-/,
+      /-\}/,
+      { contains: [ 'self' ] }
+    )
+  ] };
 
   const CONSTRUCTOR = {
     className: 'type',
@@ -126,7 +122,7 @@ export default function(hljs) {
         begin: 'port',
         end: '$',
         keywords: 'port',
-        contains: [COMMENT]
+        contains: [ COMMENT ]
       },
 
       // Literals and names.
@@ -134,14 +130,11 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
-      hljs.inherit(hljs.TITLE_MODE, {
-        begin: '^[_a-z][\\w\']*'
-      }),
+      hljs.inherit(hljs.TITLE_MODE, { begin: '^[_a-z][\\w\']*' }),
       COMMENT,
 
       { // No markup, relevance booster
-        begin: '->|<-'
-      }
+        begin: '->|<-' }
     ],
     illegal: /;/
   };

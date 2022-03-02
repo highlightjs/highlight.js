@@ -12,47 +12,41 @@ export default function(hljs) {
     className: 'string',
     contains: [ hljs.BACKSLASH_ESCAPE ],
     variants: [
-      hljs.inherit(hljs.APOS_STRING_MODE, {
-        illegal: null
-      }),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        illegal: null
-      })
+      hljs.inherit(hljs.APOS_STRING_MODE, { illegal: null }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null })
     ]
   };
   const TITLE_MODE = hljs.UNDERSCORE_TITLE_MODE;
-  const NUMBER = {
-    variants: [
-      hljs.BINARY_NUMBER_MODE,
-      hljs.C_NUMBER_MODE
-    ]
-  };
+  const NUMBER = { variants: [
+    hljs.BINARY_NUMBER_MODE,
+    hljs.C_NUMBER_MODE
+  ] };
   const KEYWORDS =
     // classes and objects
-    'namespace class interface use extends ' +
-    'function return ' +
-    'abstract final public protected private static deprecated ' +
+    'namespace class interface use extends '
+    + 'function return '
+    + 'abstract final public protected private static deprecated '
     // error handling
-    'throw try catch Exception ' +
+    + 'throw try catch Exception '
     // keyword-ish things their website does NOT seem to highlight (in their own snippets)
     // 'typeof fetch in ' +
     // operators/helpers
-    'echo empty isset instanceof unset ' +
+    + 'echo empty isset instanceof unset '
     // assignment/variables
-    'let var new const self ' +
+    + 'let var new const self '
     // control
-    'require ' +
-    'if else elseif switch case default ' +
-    'do while loop for continue break ' +
-    'likely unlikely ' +
+    + 'require '
+    + 'if else elseif switch case default '
+    + 'do while loop for continue break '
+    + 'likely unlikely '
     // magic constants
     // https://github.com/phalcon/zephir/blob/master/Library/Expression/Constants.php
-    '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ ' +
+    + '__LINE__ __FILE__ __DIR__ __FUNCTION__ __CLASS__ __TRAIT__ __METHOD__ __NAMESPACE__ '
     // types - https://docs.zephir-lang.com/0.12/en/types
-    'array boolean float double integer object resource string ' +
-    'char long unsigned bool int uint ulong uchar ' +
+    + 'array boolean float double integer object resource string '
+    + 'char long unsigned bool int uint ulong uchar '
     // built-ins
-    'true false null undefined';
+    + 'true false null undefined';
 
   return {
     name: 'Zephir',
@@ -63,14 +57,12 @@ export default function(hljs) {
       hljs.COMMENT(
         /\/\*/,
         /\*\//,
-        {
-          contains: [
-            {
-              className: 'doctag',
-              begin: /@[A-Za-z]+/
-            }
-          ]
-        }
+        { contains: [
+          {
+            className: 'doctag',
+            begin: /@[A-Za-z]+/
+          }
+        ] }
       ),
       {
         className: 'string',
@@ -80,8 +72,7 @@ export default function(hljs) {
       },
       {
         // swallow composed identifiers to avoid parsing them as keywords
-        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/
-      },
+        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/ },
       {
         className: 'function',
         beginKeywords: 'function fn',
@@ -111,9 +102,7 @@ export default function(hljs) {
         excludeEnd: true,
         illegal: /[:($"]/,
         contains: [
-          {
-            beginKeywords: 'extends implements'
-          },
+          { beginKeywords: 'extends implements' },
           TITLE_MODE
         ]
       },
@@ -128,8 +117,7 @@ export default function(hljs) {
         end: /;/,
         contains: [ TITLE_MODE ]
       },
-      {
-        begin: /=>/ // No markup, just a relevance booster
+      { begin: /=>/ // No markup, just a relevance booster
       },
       STRING,
       NUMBER

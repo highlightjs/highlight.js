@@ -12,7 +12,7 @@ export default function(hljs) {
   const VAR = {};
   const BRACED_VAR = {
     begin: /\$\{/,
-    end:/\}/,
+    end: /\}/,
     contains: [
       "self",
       {
@@ -21,10 +21,10 @@ export default function(hljs) {
       } // default values
     ]
   };
-  Object.assign(VAR,{
+  Object.assign(VAR, {
     className: 'variable',
     variants: [
-      {begin: regex.concat(/\$[\w\d#@][\w\d_]*/,
+      { begin: regex.concat(/\$[\w\d#@][\w\d_]*/,
         // negative look-ahead tries to avoid matching patterns that are not
         // Perl at all like $ident$, @ident@, etc.
         `(?![\\w\\d])(?![$])`) },
@@ -34,24 +34,24 @@ export default function(hljs) {
 
   const SUBST = {
     className: 'subst',
-    begin: /\$\(/, end: /\)/,
-    contains: [hljs.BACKSLASH_ESCAPE]
+    begin: /\$\(/,
+    end: /\)/,
+    contains: [ hljs.BACKSLASH_ESCAPE ]
   };
   const HERE_DOC = {
     begin: /<<-?\s*(?=\w+)/,
-    starts: {
-      contains: [
-        hljs.END_SAME_AS_BEGIN({
-          begin: /(\w+)/,
-          end: /(\w+)/,
-          className: 'string'
-        })
-      ]
-    }
+    starts: { contains: [
+      hljs.END_SAME_AS_BEGIN({
+        begin: /(\w+)/,
+        end: /(\w+)/,
+        className: 'string'
+      })
+    ] }
   };
   const QUOTE_STRING = {
     className: 'string',
-    begin: /"/, end: /"/,
+    begin: /"/,
+    end: /"/,
     contains: [
       hljs.BACKSLASH_ESCAPE,
       VAR,
@@ -66,13 +66,17 @@ export default function(hljs) {
   };
   const APOS_STRING = {
     className: 'string',
-    begin: /'/, end: /'/
+    begin: /'/,
+    end: /'/
   };
   const ARITHMETIC = {
     begin: /\$\(\(/,
     end: /\)\)/,
     contains: [
-      { begin: /\d+#[0-9a-f]+/, className: "number" },
+      {
+        begin: /\d+#[0-9a-f]+/,
+        className: "number"
+      },
       hljs.NUMBER_MODE,
       VAR
     ]
@@ -96,7 +100,7 @@ export default function(hljs) {
     className: 'function',
     begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
     returnBegin: true,
-    contains: [hljs.inherit(hljs.TITLE_MODE, {begin: /\w[\w\d_]*/})],
+    contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: /\w[\w\d_]*/ }) ],
     relevance: 0
   };
 
@@ -122,9 +126,7 @@ export default function(hljs) {
   ];
 
   // to consume paths to prevent keyword matches inside them
-  const PATH_MODE = {
-    match: /(\/[a-z._-]+)+/
-  };
+  const PATH_MODE = { match: /(\/[a-z._-]+)+/ };
 
   // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
   const SHELL_BUILT_INS = [
@@ -351,12 +353,12 @@ export default function(hljs) {
 
   return {
     name: 'Bash',
-    aliases: ['sh'],
+    aliases: [ 'sh' ],
     keywords: {
-      $pattern: /\b[a-z._-]+\b/,
+      $pattern: /\b[a-z][a-z0-9._-]+\b/,
       keyword: KEYWORDS,
       literal: LITERALS,
-      built_in:[
+      built_in: [
         ...SHELL_BUILT_INS,
         ...BASH_BUILT_INS,
         // Shell modifiers

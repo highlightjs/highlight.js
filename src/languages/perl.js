@@ -258,25 +258,19 @@ export default function(hljs) {
     end: /\}/
     // contains defined later
   };
-  const VAR = {
-    variants: [
-      {
-        begin: /\$\d/
-      },
-      {
-        begin: regex.concat(
-          /[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
-          // negative look-ahead tries to avoid matching patterns that are not
-          // Perl at all like $ident$, @ident@, etc.
-          `(?![A-Za-z])(?![@$%])`
-        )
-      },
-      {
-        begin: /[$%@][^\s\w{]/,
-        relevance: 0
-      }
-    ]
-  };
+  const VAR = { variants: [
+    { begin: /\$\d/ },
+    { begin: regex.concat(
+      /[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
+      // negative look-ahead tries to avoid matching patterns that are not
+      // Perl at all like $ident$, @ident@, etc.
+      `(?![A-Za-z])(?![@$%])`
+    ) },
+    {
+      begin: /[$%@][^\s\w{]/,
+      relevance: 0
+    }
+  ] };
   const STRING_CONTAINS = [
     hljs.BACKSLASH_ESCAPE,
     SUBST,
@@ -330,9 +324,7 @@ export default function(hljs) {
     hljs.COMMENT(
       /^=\w/,
       /=cut/,
-      {
-        endsWithParent: true
-      }
+      { endsWithParent: true }
     ),
     METHOD,
     {
@@ -426,13 +418,13 @@ export default function(hljs) {
               relevance: 0
             },
             // prefix is optional with /regex/
-            { begin: PAIRED_RE("(?:m|qr)?", /\//, /\//)},
+            { begin: PAIRED_RE("(?:m|qr)?", /\//, /\//) },
             // allow matching common delimiters
-            { begin: PAIRED_RE("m|qr", regex.either(...REGEX_DELIMS, { capture: true }), /\1/)},
+            { begin: PAIRED_RE("m|qr", regex.either(...REGEX_DELIMS, { capture: true }), /\1/) },
             // allow common paired delmins
-            { begin: PAIRED_RE("m|qr", /\(/, /\)/)},
-            { begin: PAIRED_RE("m|qr", /\[/, /\]/)},
-            { begin: PAIRED_RE("m|qr", /\{/, /\}/)}
+            { begin: PAIRED_RE("m|qr", /\(/, /\)/) },
+            { begin: PAIRED_RE("m|qr", /\[/, /\]/) },
+            { begin: PAIRED_RE("m|qr", /\{/, /\}/) }
           ]
         }
       ]

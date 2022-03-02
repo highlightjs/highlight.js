@@ -512,12 +512,8 @@ export default function(hljs) {
         scope: 'number',
         contains: [ hljs.BACKSLASH_ESCAPE ],
         variants: [
-          {
-            begin: /\b((\d+'([bhodBHOD]))[0-9xzXZa-fA-F_]+)/
-          },
-          {
-            begin: /\B(('([bhodBHOD]))[0-9xzXZa-fA-F_]+)/
-          },
+          { begin: /\b((\d+'([bhodBHOD]))[0-9xzXZa-fA-F_]+)/ },
+          { begin: /\B(('([bhodBHOD]))[0-9xzXZa-fA-F_]+)/ },
           { // decimal
             begin: /\b[0-9][0-9_]*/,
             relevance: 0
@@ -528,9 +524,7 @@ export default function(hljs) {
       {
         scope: 'variable',
         variants: [
-          {
-            begin: '#\\((?!parameter).+\\)'
-          },
+          { begin: '#\\((?!parameter).+\\)' },
           {
             begin: '\\.\\w+',
             relevance: 0

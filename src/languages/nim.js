@@ -154,11 +154,7 @@ export default function(hljs) {
         className: 'string',
         begin: /[a-zA-Z]\w*"/,
         end: /"/,
-        contains: [
-          {
-            begin: /""/
-          }
-        ]
+        contains: [ { begin: /""/ } ]
       },
       {
         className: 'string',
@@ -175,18 +171,10 @@ export default function(hljs) {
         className: 'number',
         relevance: 0,
         variants: [
-          {
-            begin: /\b(0[xX][0-9a-fA-F][_0-9a-fA-F]*)('?[iIuU](8|16|32|64))?/
-          },
-          {
-            begin: /\b(0o[0-7][_0-7]*)('?[iIuUfF](8|16|32|64))?/
-          },
-          {
-            begin: /\b(0(b|B)[01][_01]*)('?[iIuUfF](8|16|32|64))?/
-          },
-          {
-            begin: /\b(\d[_\d]*)('?[iIuUfF](8|16|32|64))?/
-          }
+          { begin: /\b(0[xX][0-9a-fA-F][_0-9a-fA-F]*)('?[iIuU](8|16|32|64))?/ },
+          { begin: /\b(0o[0-7][_0-7]*)('?[iIuUfF](8|16|32|64))?/ },
+          { begin: /\b(0(b|B)[01][_01]*)('?[iIuUfF](8|16|32|64))?/ },
+          { begin: /\b(\d[_\d]*)('?[iIuUfF](8|16|32|64))?/ }
         ]
       },
       hljs.HASH_COMMENT_MODE

@@ -10,28 +10,22 @@ export default function(hljs) {
   // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does
   // not include such support nor can we be sure all the grammars depending
   // on it would desire this behavior
-  const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', {
-    contains: [
-      {
-        begin: /\\\n/
-      }
-    ]
-  });
+  const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', { contains: [ { begin: /\\\n/ } ] });
   const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
   const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
   const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
-  const FUNCTION_TYPE_RE = '(' +
-    DECLTYPE_AUTO_RE + '|' +
-    regex.optional(NAMESPACE_RE) +
-    '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
-  ')';
+  const FUNCTION_TYPE_RE = '('
+    + DECLTYPE_AUTO_RE + '|'
+    + regex.optional(NAMESPACE_RE)
+    + '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE)
+  + ')';
 
 
   const TYPES = {
     className: 'type',
     variants: [
       { begin: '\\b[a-z\\d_]*_t\\b' },
-      { match: /\batomic_[a-z]{3,6}\b/}
+      { match: /\batomic_[a-z]{3,6}\b/ }
     ]
 
   };
@@ -63,15 +57,9 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     variants: [
-      {
-        begin: '\\b(0b[01\']+)'
-      },
-      {
-        begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)'
-      },
-      {
-        begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)'
-      }
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
     ],
     relevance: 0
   };
@@ -80,19 +68,15 @@ export default function(hljs) {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
     end: /$/,
-    keywords: {
-      keyword:
-        'if else elif endif define undef warning error line ' +
-        'pragma _Pragma ifdef ifndef include'
-    },
+    keywords: { keyword:
+        'if else elif endif define undef warning error line '
+        + 'pragma _Pragma ifdef ifndef include' },
     contains: [
       {
         begin: /\\\n/,
         relevance: 0
       },
-      hljs.inherit(STRINGS, {
-        className: 'string'
-      }),
+      hljs.inherit(STRINGS, { className: 'string' }),
       {
         className: 'string',
         begin: /<.*?>/
@@ -183,15 +167,15 @@ export default function(hljs) {
     type: C_TYPES,
     literal: 'true false NULL',
     // TODO: apply hinting work similar to what was done in cpp.js
-    built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream ' +
-      'auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set ' +
-      'unordered_map unordered_multiset unordered_multimap priority_queue make_pair array shared_ptr abort terminate abs acos ' +
-      'asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp ' +
-      'fscanf future isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper ' +
-      'isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow ' +
-      'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp ' +
-      'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan ' +
-      'vfprintf vprintf vsprintf endl initializer_list unique_ptr',
+    built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream '
+      + 'auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set '
+      + 'unordered_map unordered_multiset unordered_multimap priority_queue make_pair array shared_ptr abort terminate abs acos '
+      + 'asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp '
+      + 'fscanf future isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper '
+      + 'isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow '
+      + 'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp '
+      + 'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan '
+      + 'vfprintf vprintf vsprintf endl initializer_list unique_ptr',
   };
 
   const EXPRESSION_CONTAINS = [
@@ -250,9 +234,7 @@ export default function(hljs) {
       {
         begin: FUNCTION_TITLE,
         returnBegin: true,
-        contains: [
-          hljs.inherit(TITLE_MODE, { className: "title.function" })
-        ],
+        contains: [ hljs.inherit(TITLE_MODE, { className: "title.function" }) ],
         relevance: 0
       },
       // allow for multiple declarations, e.g.:
@@ -299,9 +281,7 @@ export default function(hljs) {
 
   return {
     name: "C",
-    aliases: [
-      'h'
-    ],
+    aliases: [ 'h' ],
     keywords: KEYWORDS,
     // Until differentiations are added between `c` and `cpp`, `c` will
     // not be auto-detected to avoid auto-detect conflicts between C and C++
@@ -322,9 +302,7 @@ export default function(hljs) {
           beginKeywords: 'enum class struct union',
           end: /[{;:<>=]/,
           contains: [
-            {
-              beginKeywords: "final class struct"
-            },
+            { beginKeywords: "final class struct" },
             hljs.TITLE_MODE
           ]
         }

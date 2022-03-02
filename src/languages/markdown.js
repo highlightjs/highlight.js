@@ -22,12 +22,8 @@ export default function(hljs) {
     className: 'code',
     variants: [
       // TODO: fix to allow these to work with sublanguage also
-      {
-        begin: '(`{3,})[^`](.|\\n)*?\\1`*[ ]*'
-      },
-      {
-        begin: '(~{3,})[^~](.|\\n)*?\\1~*[ ]*'
-      },
+      { begin: '(`{3,})[^`](.|\\n)*?\\1`*[ ]*' },
+      { begin: '(~{3,})[^~](.|\\n)*?\\1~*[ ]*' },
       // needed to allow markdown as a sublanguage to work
       {
         begin: '```',
@@ -37,9 +33,7 @@ export default function(hljs) {
         begin: '~~~',
         end: '~~~+[ ]*$'
       },
-      {
-        begin: '`.+?`'
-      },
+      { begin: '`.+?`' },
       {
         begin: '(?=^( {4}|\\t))',
         // use contains to gobble up multiple lines to allow the block to be whatever size
@@ -112,8 +106,7 @@ export default function(hljs) {
     contains: [
       {
         // empty strings for alt or link text
-        match: /\[(?=\])/
-      },
+        match: /\[(?=\])/ },
       {
         className: 'string',
         relevance: 0,
@@ -183,7 +176,12 @@ export default function(hljs) {
     LINK
   ];
 
-  [ BOLD, ITALIC, BOLD_WITHOUT_ITALIC, ITALIC_WITHOUT_BOLD ].forEach(m => {
+  [
+    BOLD,
+    ITALIC,
+    BOLD_WITHOUT_ITALIC,
+    ITALIC_WITHOUT_BOLD
+  ].forEach(m => {
     m.contains = m.contains.concat(CONTAINABLE);
   });
 
@@ -200,9 +198,7 @@ export default function(hljs) {
       {
         begin: '(?=^.+?\\n[=-]{2,}$)',
         contains: [
-          {
-            begin: '^[=-]*$'
-          },
+          { begin: '^[=-]*$' },
           {
             begin: '^',
             end: "\\n",

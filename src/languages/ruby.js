@@ -12,10 +12,10 @@ export default function(hljs) {
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
   const RUBY_KEYWORDS = {
     keyword:
-      'and then defined module in return redo if BEGIN retry end for self when ' +
-      'next until do begin unless END rescue else break undef not super class case ' +
-      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor ' +
-      '__FILE__',
+      'and then defined module in return redo if BEGIN retry end for self when '
+      + 'next until do begin unless END rescue else break undef not super class case '
+      + 'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor '
+      + '__FILE__',
     built_in: 'proc lambda',
     literal:
       'true false nil'
@@ -32,9 +32,7 @@ export default function(hljs) {
     hljs.COMMENT(
       '#',
       '$',
-      {
-        contains: [ YARDOCTAG ]
-      }
+      { contains: [ YARDOCTAG ] }
     ),
     hljs.COMMENT(
       '^=begin',
@@ -105,24 +103,12 @@ export default function(hljs) {
       },
       // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
       // where ? is the last character of a preceding identifier, as in: `func?4`
-      {
-        begin: /\B\?(\\\d{1,3})/
-      },
-      {
-        begin: /\B\?(\\x[A-Fa-f0-9]{1,2})/
-      },
-      {
-        begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/
-      },
-      {
-        begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/
-      },
-      {
-        begin: /\B\?\\(c|C-)[\x20-\x7e]/
-      },
-      {
-        begin: /\B\?\\?\S/
-      },
+      { begin: /\B\?(\\\d{1,3})/ },
+      { begin: /\B\?(\\x[A-Fa-f0-9]{1,2})/ },
+      { begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/ },
+      { begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/ },
+      { begin: /\B\?\\(c|C-)[\x20-\x7e]/ },
+      { begin: /\B\?\\?\S/ },
       // heredocs
       {
         // this guard makes sure that we have an entire heredoc and not a false
@@ -155,29 +141,17 @@ export default function(hljs) {
     relevance: 0,
     variants: [
       // decimal integer/float, optionally exponential or rational, optionally imaginary
-      {
-        begin: `\\b(${decimal})(\\.(${digits}))?([eE][+-]?(${digits})|r)?i?\\b`
-      },
+      { begin: `\\b(${decimal})(\\.(${digits}))?([eE][+-]?(${digits})|r)?i?\\b` },
 
       // explicit decimal/binary/octal/hexadecimal integer,
       // optionally rational and/or imaginary
-      {
-        begin: "\\b0[dD][0-9](_?[0-9])*r?i?\\b"
-      },
-      {
-        begin: "\\b0[bB][0-1](_?[0-1])*r?i?\\b"
-      },
-      {
-        begin: "\\b0[oO][0-7](_?[0-7])*r?i?\\b"
-      },
-      {
-        begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*r?i?\\b"
-      },
+      { begin: "\\b0[dD][0-9](_?[0-9])*r?i?\\b" },
+      { begin: "\\b0[bB][0-1](_?[0-1])*r?i?\\b" },
+      { begin: "\\b0[oO][0-7](_?[0-7])*r?i?\\b" },
+      { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*r?i?\\b" },
 
       // 0-prefixed implicit octal integer, optionally rational and/or imaginary
-      {
-        begin: "\\b0(_?[0-7])+r?i?\\b"
-      }
+      { begin: "\\b0(_?[0-7])+r?i?\\b" }
     ]
   };
 
@@ -197,9 +171,7 @@ export default function(hljs) {
       end: '$|;',
       illegal: /=/,
       contains: [
-        hljs.inherit(hljs.TITLE_MODE, {
-          begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|!)?'
-        }),
+        hljs.inherit(hljs.TITLE_MODE, { begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|!)?' }),
         {
           begin: '<\\s*',
           contains: [
@@ -223,16 +195,13 @@ export default function(hljs) {
       keywords: "def",
       end: '$|;',
       contains: [
-        hljs.inherit(hljs.TITLE_MODE, {
-          begin: RUBY_METHOD_RE
-        }),
+        hljs.inherit(hljs.TITLE_MODE, { begin: RUBY_METHOD_RE }),
         PARAMS
       ].concat(COMMENT_MODES)
     },
     {
       // swallow namespace qualifiers before symbols
-      begin: hljs.IDENT_RE + '::'
-    },
+      begin: hljs.IDENT_RE + '::' },
     {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
@@ -243,9 +212,7 @@ export default function(hljs) {
       begin: ':(?!\\s)',
       contains: [
         STRING,
-        {
-          begin: RUBY_METHOD_RE
-        }
+        { begin: RUBY_METHOD_RE }
       ],
       relevance: 0
     },
@@ -344,11 +311,7 @@ export default function(hljs) {
     ],
     keywords: RUBY_KEYWORDS,
     illegal: /\/\*/,
-    contains: [
-      hljs.SHEBANG({
-        binary: "ruby"
-      })
-    ]
+    contains: [ hljs.SHEBANG({ binary: "ruby" }) ]
       .concat(IRB_DEFAULT)
       .concat(COMMENT_MODES)
       .concat(RUBY_DEFAULT_CONTAINS)

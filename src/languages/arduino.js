@@ -380,13 +380,22 @@ export default function(hljs) {
 
   const kws = /** @type {Record<string,any>} */ (ARDUINO.keywords);
 
-  kws.type = [ ...kws.type, ...ARDUINO_KW.type ];
-  kws.literal = [ ...kws.literal, ...ARDUINO_KW.literal ];
-  kws.built_in = [ ...kws.built_in, ...ARDUINO_KW.built_in ];
+  kws.type = [
+    ...kws.type,
+    ...ARDUINO_KW.type
+  ];
+  kws.literal = [
+    ...kws.literal,
+    ...ARDUINO_KW.literal
+  ];
+  kws.built_in = [
+    ...kws.built_in,
+    ...ARDUINO_KW.built_in
+  ];
   kws._hints = ARDUINO_KW._hints;
 
   ARDUINO.name = 'Arduino';
-  ARDUINO.aliases = ['ino'];
+  ARDUINO.aliases = [ 'ino' ];
   ARDUINO.supersetOf = "cpp";
 
   return ARDUINO;

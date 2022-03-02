@@ -10,9 +10,7 @@ Audit: 2020
 export default function(hljs) {
   const regex = hljs.regex;
   const STRING = hljs.inherit(
-    hljs.QUOTE_STRING_MODE, {
-      illegal: null
-    });
+    hljs.QUOTE_STRING_MODE, { illegal: null });
   const PARAMS = {
     className: 'params',
     begin: /\(/,
@@ -27,12 +25,10 @@ export default function(hljs) {
   const COMMENT_MODE_2 = hljs.COMMENT(
     /\(\*/,
     /\*\)/,
-    {
-      contains: [
-        'self', // allow nesting
-        COMMENT_MODE_1
-      ]
-    }
+    { contains: [
+      'self', // allow nesting
+      COMMENT_MODE_1
+    ] }
   );
   const COMMENTS = [
     COMMENT_MODE_1,
@@ -87,26 +83,26 @@ export default function(hljs) {
     aliases: [ 'osascript' ],
     keywords: {
       keyword:
-        'about above after against and around as at back before beginning ' +
-        'behind below beneath beside between but by considering ' +
-        'contain contains continue copy div does eighth else end equal ' +
-        'equals error every exit fifth first for fourth from front ' +
-        'get given global if ignoring in into is it its last local me ' +
-        'middle mod my ninth not of on onto or over prop property put ref ' +
-        'reference repeat returning script second set seventh since ' +
-        'sixth some tell tenth that the|0 then third through thru ' +
-        'timeout times to transaction try until where while whose with ' +
-        'without',
+        'about above after against and around as at back before beginning '
+        + 'behind below beneath beside between but by considering '
+        + 'contain contains continue copy div does eighth else end equal '
+        + 'equals error every exit fifth first for fourth from front '
+        + 'get given global if ignoring in into is it its last local me '
+        + 'middle mod my ninth not of on onto or over prop property put ref '
+        + 'reference repeat returning script second set seventh since '
+        + 'sixth some tell tenth that the|0 then third through thru '
+        + 'timeout times to transaction try until where while whose with '
+        + 'without',
       literal:
         'AppleScript false linefeed return pi quote result space tab true',
       built_in:
-        'alias application boolean class constant date file integer list ' +
-        'number real record string text ' +
-        'activate beep count delay launch log offset read round ' +
-        'run say summarize write ' +
-        'character characters contents day frontmost id item length ' +
-        'month name|0 paragraph paragraphs rest reverse running time version ' +
-        'weekday word words year'
+        'alias application boolean class constant date file integer list '
+        + 'number real record string text '
+        + 'activate beep count delay launch log offset read round '
+        + 'run say summarize write '
+        + 'character characters contents day frontmost id item length '
+        + 'month name|0 paragraph paragraphs rest reverse running time version '
+        + 'weekday word words year'
     },
     contains: [
       STRING,

@@ -10,21 +10,20 @@ export default function(hljs) {
   const END_BRACKET = '\\]';
   return {
     name: 'Inform 7',
-    aliases: ['i7'],
+    aliases: [ 'i7' ],
     case_insensitive: true,
     keywords: {
       // Some keywords more or less unique to I7, for relevance.
       keyword:
         // kind:
-        'thing room person man woman animal container ' +
-        'supporter backdrop door ' +
+        'thing room person man woman animal container '
+        + 'supporter backdrop door '
         // characteristic:
-        'scenery open closed locked inside gender ' +
+        + 'scenery open closed locked inside gender '
         // verb:
-        'is are say understand ' +
+        + 'is are say understand '
         // misc keyword:
-        'kind of rule'
-    },
+        + 'kind of rule' },
     contains: [
       {
         className: 'string',
@@ -61,7 +60,7 @@ export default function(hljs) {
         className: 'comment',
         begin: START_BRACKET,
         end: END_BRACKET,
-        contains: ['self']
+        contains: [ 'self' ]
       }
     ]
   };

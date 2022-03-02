@@ -14,10 +14,10 @@ export default function(hljs) {
       $pattern: '[a-z_]\\w*!?',
       keyword:
         /* according to Definition of Standard ML 97  */
-        'abstype and andalso as case datatype do else end eqtype ' +
-        'exception fn fun functor handle if in include infix infixr ' +
-        'let local nonfix of op open orelse raise rec sharing sig ' +
-        'signature struct structure then type val with withtype where while',
+        'abstype and andalso as case datatype do else end eqtype '
+        + 'exception fn fun functor handle if in include infix infixr '
+        + 'let local nonfix of op open orelse raise rec sharing sig '
+        + 'signature struct structure then type val with withtype where while',
       built_in:
         /* built-in types according to basis library */
         'array bool char exn int list option order real ref string substring vector unit word',
@@ -34,9 +34,7 @@ export default function(hljs) {
       hljs.COMMENT(
         '\\(\\*',
         '\\*\\)',
-        {
-          contains: [ 'self' ]
-        }
+        { contains: [ 'self' ] }
       ),
       { /* type variable */
         className: 'symbol',
@@ -53,26 +51,22 @@ export default function(hljs) {
         relevance: 0
       },
       { /* don't color identifiers, but safely catch all identifiers with ' */
-        begin: '[a-z_]\\w*\'[\\w\']*'
-      },
+        begin: '[a-z_]\\w*\'[\\w\']*' },
       hljs.inherit(hljs.APOS_STRING_MODE, {
         className: 'string',
         relevance: 0
       }),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        illegal: null
-      }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
         className: 'number',
         begin:
-          '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
-          '0[oO][0-7_]+[Lln]?|' +
-          '0[bB][01_]+[Lln]?|' +
-          '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
+          '\\b(0[xX][a-fA-F0-9_]+[Lln]?|'
+          + '0[oO][0-7_]+[Lln]?|'
+          + '0[bB][01_]+[Lln]?|'
+          + '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
         relevance: 0
       },
-      {
-        begin: /[-=]>/ // relevance booster
+      { begin: /[-=]>/ // relevance booster
       }
     ]
   };
