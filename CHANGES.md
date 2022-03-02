@@ -10,6 +10,7 @@ New Grammars:
 
 Grammars:
 
+- enh(ruby ) better support multi-line IRB prompts
 - enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
 - fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
 - enh(php) add support for PHP Attributes [Wojciech Kania][]
