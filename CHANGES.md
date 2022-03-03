@@ -11,6 +11,7 @@ New Grammars:
 
 Grammars:
 
+- enh(ruby) lots of small Ruby cleanups/improvements [Josh Goebel][]
 - enh(objectivec) add `type` and `variable.language` scopes [Josh Goebel][]
 - enh(xml) support processing instructions (#3492) [Josh Goebel][]
 - enh(ruby ) better support multi-line IRB prompts
