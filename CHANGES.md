@@ -11,6 +11,7 @@ New Grammars:
 
 Grammars:
 
+- enh(objectivec) add `type` and `variable.language` scopes [Josh Goebel][]
 - enh(xml) support processing instructions (#3492) [Josh Goebel][]
 - enh(ruby ) better support multi-line IRB prompts
 - enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
