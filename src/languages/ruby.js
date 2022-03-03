@@ -10,7 +10,13 @@ Category: common
 export default function(hljs) {
   const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
-  const CLASS_NAME_RE = /\b[A-Z]+[a-z0-9]*([A-Z]+[a-z0-9]+)*/;
+  // TODO: move concepts like CAMEL_CASE into `modes.js`
+  const CLASS_NAME_RE = regex.either(
+    /\b([A-Z]+[a-z0-9]+)+/,
+    // ends in caps
+    /\b([A-Z]+[a-z0-9]+)+[A-Z]+/,
+  )
+  ;
   const CLASS_NAME_WITH_NAMESPACE_RE = regex.concat(CLASS_NAME_RE, /(::\w+)*/)
   const RUBY_KEYWORDS = {
     "variable.constant": [
@@ -279,8 +285,8 @@ export default function(hljs) {
   const RUBY_DEFAULT_CONTAINS = [
     STRING,
     CLASS_DEFINITION,
-    UPPER_CASE_CONSTANT,
     OBJECT_CREATION,
+    UPPER_CASE_CONSTANT,
     METHOD_DEFINITION,
     {
       // swallow namespace qualifiers before symbols
