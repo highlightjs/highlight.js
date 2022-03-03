@@ -1,0 +1,6 @@
+<span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span> ?&gt;</span>
+<span class="hljs-meta">&lt;?PITarget PIContent?&gt;</span>
+<span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/xsl&quot;</span> href=<span class="hljs-string">&quot;style.xsl&quot;</span>?&gt;</span>
+<span class="hljs-meta">&lt;?xml-stylesheet type=<span class="hljs-string">&quot;text/css&quot;</span> href=<span class="hljs-string">&quot;style.css&quot;</span>?&gt;</span>
+Some <span class="hljs-meta">&lt;?Pub _font FontColor=&quot;green&quot;?&gt;</span>green<span class="hljs-meta">&lt;?Pub /_font?&gt;</span> text.
+<span class="hljs-meta">&lt;?mso-application progid=&quot;Excel.Sheet&quot;?&gt;</span>

@@ -27,7 +27,7 @@ export default function(hljs) {
     name: 'Julia REPL',
     contains: [
       {
-        className: 'meta',
+        className: 'meta.prompt',
         begin: /^julia>/,
         relevance: 10,
         starts: {

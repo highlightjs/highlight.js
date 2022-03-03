@@ -1,10 +1,10 @@
-<span class="hljs-meta">&gt;</span> <span class="language-javascript"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++){</span>
-<span class="hljs-meta">...</span> <span class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i);</span>
-<span class="hljs-meta">...</span> <span class="language-javascript">}</span>
+<span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++){</span>
+<span class="hljs-meta prompt_">...</span> <span class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(i);</span>
+<span class="hljs-meta prompt_">...</span> <span class="language-javascript">}</span>
 0
 1
 2
 3
 4
 undefined
-<span class="hljs-meta">&gt;</span> 
+<span class="hljs-meta prompt_">&gt;</span> 
