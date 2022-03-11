@@ -14,12 +14,12 @@ export default function(hljs) {
 
   return {
     name: 'Haxe',
-    aliases: ['hx'],
+    aliases: [ 'hx' ],
     keywords: {
-      keyword: 'break case cast catch continue default do dynamic else enum extern ' +
-               'for function here if import in inline never new override package private get set ' +
-               'public return static super switch this throw trace try typedef untyped using var while ' +
-               HAXE_BASIC_TYPES,
+      keyword: 'break case cast catch continue default do dynamic else enum extern '
+               + 'for function here if import in inline never new override package private get set '
+               + 'public return static super switch this throw trace try typedef untyped using var while '
+               + HAXE_BASIC_TYPES,
       built_in:
         'trace this',
       literal:
@@ -57,9 +57,7 @@ export default function(hljs) {
         className: 'meta', // compiler conditionals
         begin: '#',
         end: '$',
-        keywords: {
-          keyword: 'if else elseif end error'
-        }
+        keywords: { keyword: 'if else elseif end error' }
       },
       {
         className: 'type', // function types
@@ -87,7 +85,7 @@ export default function(hljs) {
         className: 'class', // enums
         beginKeywords: 'enum',
         end: '\\{',
-        contains: [hljs.TITLE_MODE]
+        contains: [ hljs.TITLE_MODE ]
       },
       {
         className: 'class', // abstracts
@@ -117,9 +115,7 @@ export default function(hljs) {
           },
           hljs.TITLE_MODE
         ],
-        keywords: {
-          keyword: 'abstract from to'
-        }
+        keywords: { keyword: 'abstract from to' }
       },
       {
         className: 'class', // classes
@@ -149,7 +145,7 @@ export default function(hljs) {
         end: '\\(',
         excludeEnd: true,
         illegal: '\\S',
-        contains: [hljs.TITLE_MODE]
+        contains: [ hljs.TITLE_MODE ]
       }
     ],
     illegal: /<\//

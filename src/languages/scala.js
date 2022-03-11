@@ -17,9 +17,7 @@ export default function(hljs) {
   const SUBST = {
     className: 'subst',
     variants: [
-      {
-        begin: '\\$[A-Za-z0-9_]+'
-      },
+      { begin: '\\$[A-Za-z0-9_]+' },
       {
         begin: /\$\{/,
         end: /\}/
@@ -118,33 +116,33 @@ export default function(hljs) {
       'extension',
       /\s+(?=[[(])/, // followed by at least one space and `[` or `(`
     ],
-    beginScope: {
-      2: "keyword",
-    }
+    beginScope: { 2: "keyword", }
   };
 
-  const END = [{
-    begin: [
-      /^\s*/, // Is first token on the line
-      /end/,
-      /\s+/,
-      /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
-    ],
-    beginScope: {
-      2: "keyword",
-      4: "keyword",
+  const END = [
+    {
+      begin: [
+        /^\s*/, // Is first token on the line
+        /end/,
+        /\s+/,
+        /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
+      ],
+      beginScope: {
+        2: "keyword",
+        4: "keyword",
+      }
     }
-  }];
+  ];
 
   // TODO: use negative look-behind in future
   //       /(?<!\.)\binline(?=\s)/
-  const INLINE_MODES = [{
-    match: /\.inline\b/
-  },
-  {
-    begin: /\binline(?=\s)/,
-    keywords: 'inline'
-  }];
+  const INLINE_MODES = [
+    { match: /\.inline\b/ },
+    {
+      begin: /\binline(?=\s)/,
+      keywords: 'inline'
+    }
+  ];
 
   const USING_PARAM_CLAUSE = {
     begin: [
@@ -152,9 +150,7 @@ export default function(hljs) {
       /using/,
       /\s+(?!\))/, // Spaces not followed by `)`
     ],
-    beginScope: {
-      2: "keyword",
-    }
+    beginScope: { 2: "keyword", }
   };
 
   return {

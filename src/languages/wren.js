@@ -61,9 +61,12 @@ export default function(hljs) {
     /\.\.\./,
     /\.\./,
     /\+/,
-    "<<", ">>",
-    ">=", "<=",
-    "<", ">",
+    "<<",
+    ">>",
+    ">=",
+    "<=",
+    "<",
+    ">",
     /\^/,
     /!=/,
     /!/,
@@ -89,38 +92,32 @@ export default function(hljs) {
       ),
       /(?=\s*\([^)]+\)\s*\{)/),
     className: "title.function",
-    starts: {
-      contains: [
-        {
-          begin: /\(/,
-          end: /\)/,
-          contains: [
-            {
-              relevance: 0,
-              scope: "params",
-              match: IDENT_RE
-            }
-          ]
-        }
-      ]
-    }
+    starts: { contains: [
+      {
+        begin: /\(/,
+        end: /\)/,
+        contains: [
+          {
+            relevance: 0,
+            scope: "params",
+            match: IDENT_RE
+          }
+        ]
+      }
+    ] }
   };
   const CLASS_DEFINITION = {
     variants: [
-      {
-        match: [
-          /class\s+/,
-          IDENT_RE,
-          /\s+is\s+/,
-          IDENT_RE
-        ]
-      },
-      {
-        match: [
-          /class\s+/,
-          IDENT_RE
-        ]
-      }
+      { match: [
+        /class\s+/,
+        IDENT_RE,
+        /\s+is\s+/,
+        IDENT_RE
+      ] },
+      { match: [
+        /class\s+/,
+        IDENT_RE
+      ] }
     ],
     scope: {
       2: "title.class",
@@ -160,9 +157,7 @@ export default function(hljs) {
     relevance: 0,
     match: /\b[A-Z]+[a-z]+([A-Z]+[a-z]+)*/,
     scope: "title.class",
-    keywords: {
-      _: CORE_CLASSES
-    }
+    keywords: { _: CORE_CLASSES }
   };
 
   // TODO: add custom number modes
@@ -170,9 +165,13 @@ export default function(hljs) {
 
   const SETTER = {
     match: [
-      IDENT_RE, /\s*/,
-      /=/, /\s*/,
-      /\(/, IDENT_RE, /\)\s*\{/
+      IDENT_RE,
+      /\s*/,
+      /=/,
+      /\s*/,
+      /\(/,
+      IDENT_RE,
+      /\)\s*\{/
     ],
     scope: {
       1: "title.function",
@@ -184,15 +183,13 @@ export default function(hljs) {
   const COMMENT_DOCS = hljs.COMMENT(
     /\/\*\*/,
     /\*\//,
-    {
-      contains: [
-        {
-          match: /@[a-z]+/,
-          scope: "doctag"
-        },
-        "self"
-      ]
-    }
+    { contains: [
+      {
+        match: /@[a-z]+/,
+        scope: "doctag"
+      },
+      "self"
+    ] }
   );
   const SUBST = {
     scope: "subst",
@@ -225,7 +222,11 @@ export default function(hljs) {
   };
   SUBST.contains.push(STRING);
 
-  const ALL_KWS = [...KEYWORDS, ...LANGUAGE_VARS, ...LITERALS];
+  const ALL_KWS = [
+    ...KEYWORDS,
+    ...LANGUAGE_VARS,
+    ...LITERALS
+  ];
   const VARIABLE = {
     relevance: 0,
     match: regex.concat(
@@ -243,13 +244,14 @@ export default function(hljs) {
     scope: "comment",
     variants: [
       {
-        begin: [/#!?/, /[A-Za-z_]+(?=\()/],
+        begin: [
+          /#!?/,
+          /[A-Za-z_]+(?=\()/
+        ],
         beginScope: {
           // 2: "attr"
         },
-        keywords: {
-          literal: LITERALS
-        },
+        keywords: { literal: LITERALS },
         contains: [
           // NUMBER,
           // VARIABLE
@@ -257,7 +259,10 @@ export default function(hljs) {
         end: /\)/
       },
       {
-        begin: [/#!?/, /[A-Za-z_]+/],
+        begin: [
+          /#!?/,
+          /[A-Za-z_]+/
+        ],
         beginScope: {
           // 2: "attr"
         },

@@ -42,12 +42,8 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.COMMENT('/\\*\\*!', '\\*/'),
       hljs.C_NUMBER_MODE,
-      hljs.inherit(hljs.APOS_STRING_MODE, {
-        illegal: null
-      }),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        illegal: null
-      }),
+      hljs.inherit(hljs.APOS_STRING_MODE, { illegal: null }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
         className: 'string',
         begin: "'",

@@ -1,0 +1,51 @@
+<span class="hljs-keyword">type</span> Project <span class="hljs-punctuation">{</span>
+  <span class="hljs-symbol">name</span><span class="hljs-punctuation">:</span> String
+  <span class="hljs-symbol">tagline</span><span class="hljs-punctuation">:</span> String
+  <span class="hljs-symbol">contributors</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>User<span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment"># Example mutation</span>
+
+<span class="hljs-keyword">mutation</span> updateMyUrbanEvent<span class="hljs-punctuation">(</span><span class="hljs-variable">$studyArea</span>: PolygonInput<span class="hljs-punctuation">!</span>, <span class="hljs-variable">$myDescription</span>: String<span class="hljs-punctuation">!</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  updateProjects<span class="hljs-punctuation">(</span>
+    <span class="hljs-symbol">urbanDatabaseId</span> <span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;9c3ba6c054f945acabd1256bcbcf8XXX&quot;</span>
+    <span class="hljs-symbol">projects</span>        <span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span> <span class="hljs-symbol">attributes</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-symbol">GlobalID</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;078D217A-1764-4AA2-9D23-6FCDA01F0XXX&quot;</span>, <span class="hljs-symbol">Description</span><span class="hljs-punctuation">:</span> <span class="hljs-variable">$myDescription</span> <span class="hljs-punctuation">}</span>, <span class="hljs-symbol">geometry</span><span class="hljs-punctuation">:</span> <span class="hljs-variable">$studyArea</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+    attributes <span class="hljs-punctuation">{</span>
+      GlobalID
+      CustomID
+      Description
+    <span class="hljs-punctuation">}</span>
+    geometry <span class="hljs-punctuation">{</span>
+      rings
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment"># Example of a query:</span>
+
+<span class="hljs-keyword">query</span> HeroForEpisode<span class="hljs-punctuation">(</span><span class="hljs-variable">$ep</span>: Episode<span class="hljs-punctuation">!</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span>
+  hero<span class="hljs-punctuation">(</span><span class="hljs-symbol">episode</span><span class="hljs-punctuation">:</span> <span class="hljs-variable">$ep</span>) <span class="hljs-punctuation">{</span>
+    name
+    <span class="hljs-punctuation">...</span> <span class="hljs-keyword">on</span> Droid <span class="hljs-punctuation">{</span>
+      primaryFunction
+    <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">...</span> <span class="hljs-keyword">on</span> Human <span class="hljs-punctuation">{</span>
+      height
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+
+<span class="hljs-comment"># Example fragment:</span>
+
+<span class="hljs-keyword">fragment</span> comparisonFields <span class="hljs-keyword">on</span> Character <span class="hljs-punctuation">{</span>
+  name
+  friendsConnection<span class="hljs-punctuation">(</span><span class="hljs-symbol">first</span><span class="hljs-punctuation">:</span> <span class="hljs-variable">$first</span>) <span class="hljs-punctuation">{</span>
+    totalCount
+    edges <span class="hljs-punctuation">{</span>
+      node <span class="hljs-punctuation">{</span>
+        name
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>

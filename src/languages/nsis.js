@@ -347,7 +347,7 @@ export default function(hljs) {
     "ManifestSupportedOS",
     "MessageBox",
     "MiscButtonText",
-    "Name",
+    "Name|0",
     "Nop",
     "OutFile",
     "Page",
@@ -536,15 +536,11 @@ export default function(hljs) {
       hljs.COMMENT(
         ';',
         '$',
-        {
-          relevance: 0
-        }
+        { relevance: 0 }
       ),
       VARIABLE_DEFINITION,
       FUNCTION_DEFINITION,
-      {
-        beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd',
-      },
+      { beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd', },
       STRING,
       COMPILER,
       DEFINES,

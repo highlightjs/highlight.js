@@ -41,3 +41,11 @@ function testMe(string|int $name): int
  */
 $fun = mb_strlen();
 $fun();
+
+/**
+ * Named arguments
+ */
+setAlarm(
+    label: 'foo',
+    time:time() + array(5)[0] + Foo::HOUR,
+);

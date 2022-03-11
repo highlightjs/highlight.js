@@ -26,12 +26,8 @@ export default function(hljs) {
       end: /$/,
       relevance: 0,
       contains: [
-        {
-          begin: '\\\\\\\\'
-        },
-        {
-          begin: '\\\\\\n'
-        }
+        { begin: '\\\\\\\\' },
+        { begin: '\\\\\\n' }
       ]
     }
   };
@@ -48,12 +44,8 @@ export default function(hljs) {
       {
         returnBegin: true,
         variants: [
-          {
-            begin: KEY + EQUAL_DELIM
-          },
-          {
-            begin: KEY + WS_DELIM
-          }
+          { begin: KEY + EQUAL_DELIM },
+          { begin: KEY + WS_DELIM }
         ],
         contains: [
           {

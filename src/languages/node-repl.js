@@ -11,7 +11,7 @@ export default function(hljs) {
     name: 'Node REPL',
     contains: [
       {
-        className: 'meta',
+        className: 'meta.prompt',
         starts: {
           // a space separates the REPL prefix from the actual code
           // this is purely for cleaner HTML output
@@ -22,12 +22,8 @@ export default function(hljs) {
           }
         },
         variants: [
-          {
-            begin: /^>(?=[ ]|$)/
-          },
-          {
-            begin: /^\.\.\.(?=[ ]|$)/
-          }
+          { begin: /^>(?=[ ]|$)/ },
+          { begin: /^\.\.\.(?=[ ]|$)/ }
         ]
       }
     ]

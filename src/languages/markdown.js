@@ -22,12 +22,8 @@ export default function(hljs) {
     className: 'code',
     variants: [
       // TODO: fix to allow these to work with sublanguage also
-      {
-        begin: '(`{3,})[^`](.|\\n)*?\\1`*[ ]*'
-      },
-      {
-        begin: '(~{3,})[^~](.|\\n)*?\\1~*[ ]*'
-      },
+      { begin: '(`{3,})[^`](.|\\n)*?\\1`*[ ]*' },
+      { begin: '(~{3,})[^~](.|\\n)*?\\1~*[ ]*' },
       // needed to allow markdown as a sublanguage to work
       {
         begin: '```',
@@ -37,9 +33,7 @@ export default function(hljs) {
         begin: '~~~',
         end: '~~~+[ ]*$'
       },
-      {
-        begin: '`.+?`'
-      },
+      { begin: '`.+?`' },
       {
         begin: '(?=^( {4}|\\t))',
         // use contains to gobble up multiple lines to allow the block to be whatever size
@@ -112,8 +106,7 @@ export default function(hljs) {
     contains: [
       {
         // empty strings for alt or link text
-        match: /\[(?=\])/
-      },
+        match: /\[(?=\])/ },
       {
         className: 'string',
         relevance: 0,
@@ -169,16 +162,28 @@ export default function(hljs) {
       }
     ]
   };
-  BOLD.contains.push(ITALIC);
-  ITALIC.contains.push(BOLD);
+
+  // 3 level deep nesting is not allowed because it would create confusion
+  // in cases like `***testing***` because where we don't know if the last
+  // `***` is starting a new bold/italic or finishing the last one
+  const BOLD_WITHOUT_ITALIC = hljs.inherit(BOLD, { contains: [] });
+  const ITALIC_WITHOUT_BOLD = hljs.inherit(ITALIC, { contains: [] });
+  BOLD.contains.push(ITALIC_WITHOUT_BOLD);
+  ITALIC.contains.push(BOLD_WITHOUT_ITALIC);
 
   let CONTAINABLE = [
     INLINE_HTML,
     LINK
   ];
 
-  BOLD.contains = BOLD.contains.concat(CONTAINABLE);
-  ITALIC.contains = ITALIC.contains.concat(CONTAINABLE);
+  [
+    BOLD,
+    ITALIC,
+    BOLD_WITHOUT_ITALIC,
+    ITALIC_WITHOUT_BOLD
+  ].forEach(m => {
+    m.contains = m.contains.concat(CONTAINABLE);
+  });
 
   CONTAINABLE = CONTAINABLE.concat(BOLD, ITALIC);
 
@@ -193,9 +198,7 @@ export default function(hljs) {
       {
         begin: '(?=^.+?\\n[=-]{2,}$)',
         contains: [
-          {
-            begin: '^[=-]*$'
-          },
+          { begin: '^[=-]*$' },
           {
             begin: '^',
             end: "\\n",

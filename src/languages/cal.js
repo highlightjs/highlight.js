@@ -42,25 +42,19 @@ export default function(hljs) {
     hljs.COMMENT(
       /\{/,
       /\}/,
-      {
-        relevance: 0
-      }
+      { relevance: 0 }
     ),
     hljs.COMMENT(
       /\(\*/,
       /\*\)/,
-      {
-        relevance: 10
-      }
+      { relevance: 10 }
     )
   ];
   const STRING = {
     className: 'string',
     begin: /'/,
     end: /'/,
-    contains: [{
-      begin: /''/
-    }]
+    contains: [ { begin: /''/ } ]
   };
   const CHAR_STRING = {
     className: 'string',

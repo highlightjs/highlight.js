@@ -19,6 +19,7 @@ export default function(hljs) {
     "catch",
     "cond",
     "defstruct",
+    "defguard",
     "do",
     "else",
     "end",
@@ -122,13 +123,11 @@ export default function(hljs) {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
-      {
-        contains: [
-          escapeSigilEnd(x.end),
-          BACKSLASH_ESCAPE,
-          SUBST
-        ]
-      }
+      { contains: [
+        escapeSigilEnd(x.end),
+        BACKSLASH_ESCAPE,
+        SUBST
+      ] }
     ))
   };
 
@@ -136,9 +135,7 @@ export default function(hljs) {
     className: 'string',
     begin: '~[A-Z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
-      {
-        contains: [ escapeSigilEnd(x.end) ]
-      }
+      { contains: [ escapeSigilEnd(x.end) ] }
     ))
   };
 
@@ -239,23 +236,24 @@ export default function(hljs) {
     hljs.HASH_COMMENT_MODE,
     CLASS,
     FUNCTION,
-    {
-      begin: '::'
-    },
+    { begin: '::' },
     {
       className: 'symbol',
       begin: ':(?![\\s:])',
       contains: [
         STRING,
-        {
-          begin: ELIXIR_METHOD_RE
-        }
+        { begin: ELIXIR_METHOD_RE }
       ],
       relevance: 0
     },
     {
       className: 'symbol',
       begin: ELIXIR_IDENT_RE + ':(?!:)',
+      relevance: 0
+    },
+    { // Usage of a module, struct, etc.
+      className: 'title.class',
+      begin: /(\b[A-Z][a-zA-Z0-9_]+)/,
       relevance: 0
     },
     NUMBER,
@@ -269,7 +267,10 @@ export default function(hljs) {
 
   return {
     name: 'Elixir',
-    aliases: ['ex', 'exs'],
+    aliases: [
+      'ex',
+      'exs'
+    ],
     keywords: KWS,
     contains: ELIXIR_DEFAULT_CONTAINS
   };

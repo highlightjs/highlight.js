@@ -98,9 +98,7 @@ export default function(hljs) {
           }
         ]
       },
-      {
-        begin: '^\\s*[=~]\\s*'
-      },
+      { begin: '^\\s*[=~]\\s*' },
       {
         begin: /#\{/,
         end: /\}/,

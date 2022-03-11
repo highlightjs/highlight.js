@@ -12,13 +12,16 @@ Category: common
  * */
 export default function(hljs) {
   const regex = hljs.regex;
-  const IDENT_RE_CORE = '[a-zA-Z0-9_\x7f-\xff]*' +
-    // negative look-ahead tries to avoid matching patterns that are not
-    // Perl at all like $ident$, @ident@, etc.
-    '(?![A-Za-z0-9])(?![$]))';
-  const IDENT_RE = regex.concat("([a-zA-Z_\\x7f-\\xff]", IDENT_RE_CORE);
+  // negative look-ahead tries to avoid matching patterns that are not
+  // Perl at all like $ident$, @ident@, etc.
+  const NOT_PERL_ETC = /(?![A-Za-z0-9])(?![$])/;
+  const IDENT_RE = regex.concat(
+    /[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/,
+    NOT_PERL_ETC);
   // Will not detect camelCase classes
-  const PASCAL_CASE_CLASS_NAME_RE = regex.concat("([A-Z]", IDENT_RE_CORE);
+  const PASCAL_CASE_CLASS_NAME_RE = regex.concat(
+    /(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}/,
+    NOT_PERL_ETC);
   const VARIABLE = {
     scope: 'variable',
     match: '\\$+' + IDENT_RE,
@@ -27,7 +30,9 @@ export default function(hljs) {
     scope: 'meta',
     variants: [
       { begin: /<\?php/, relevance: 10 }, // boost for obvious PHP
-      { begin: /<\?[=]?/ },
+      { begin: /<\?=/ },
+      // less relevant per PSR-1 which says not to use short-tags
+      { begin: /<\?/, relevance: 0.1 },
       { begin: /\?>/ } // end php tag
     ]
   };
@@ -35,12 +40,13 @@ export default function(hljs) {
     scope: 'subst',
     variants: [
       { begin: /\$\w+/ },
-      { begin: /\{\$/, end: /\}/ }
+      {
+        begin: /\{\$/,
+        end: /\}/
+      }
     ]
   };
-  const SINGLE_QUOTED = hljs.inherit(hljs.APOS_STRING_MODE, {
-    illegal: null,
-  });
+  const SINGLE_QUOTED = hljs.inherit(hljs.APOS_STRING_MODE, { illegal: null, });
   const DOUBLE_QUOTED = hljs.inherit(hljs.QUOTE_STRING_MODE, {
     illegal: null,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
@@ -309,25 +315,98 @@ export default function(hljs) {
     });
   };
 
-  const CONSTRUCTOR_CALL = {
-    variants: [
-      {
-        match: [
-          /new/,
-          regex.concat(WHITESPACE, "+"),
-          // to prevent built ins from being confused as the class constructor call
-          regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
-          regex.concat(/\\?/, IDENT_RE),
-          regex.concat(WHITESPACE, "*", /\(/),
-        ],
-        scope: {
-          1: "keyword",
-          4: "title.class",
-        },
-      }
-    ]
-  };
+  const CONSTRUCTOR_CALL = { variants: [
+    {
+      match: [
+        /new/,
+        regex.concat(WHITESPACE, "+"),
+        // to prevent built ins from being confused as the class constructor call
+        regex.concat("(?!", normalizeKeywords(BUILT_INS).join("\\b|"), "\\b)"),
+        PASCAL_CASE_CLASS_NAME_RE,
+      ],
+      scope: {
+        1: "keyword",
+        4: "title.class",
+      },
+    }
+  ] };
 
+  const CONSTANT_REFERENCE = regex.concat(IDENT_RE, "\\b(?!\\()");
+
+  const LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON = { variants: [
+    {
+      match: [
+        regex.concat(
+          /::/,
+          regex.lookahead(/(?!class\b)/)
+        ),
+        CONSTANT_REFERENCE,
+      ],
+      scope: { 2: "variable.constant", },
+    },
+    {
+      match: [
+        /::/,
+        /class/,
+      ],
+      scope: { 2: "variable.language", },
+    },
+    {
+      match: [
+        PASCAL_CASE_CLASS_NAME_RE,
+        regex.concat(
+          /::/,
+          regex.lookahead(/(?!class\b)/)
+        ),
+        CONSTANT_REFERENCE,
+      ],
+      scope: {
+        1: "title.class",
+        3: "variable.constant",
+      },
+    },
+    {
+      match: [
+        PASCAL_CASE_CLASS_NAME_RE,
+        regex.concat(
+          "::",
+          regex.lookahead(/(?!class\b)/)
+        ),
+      ],
+      scope: { 1: "title.class", },
+    },
+    {
+      match: [
+        PASCAL_CASE_CLASS_NAME_RE,
+        /::/,
+        /class/,
+      ],
+      scope: {
+        1: "title.class",
+        3: "variable.language",
+      },
+    }
+  ] };
+
+  const NAMED_ARGUMENT = {
+    scope: 'attr',
+    match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
+  };
+  const PARAMS_MODE = {
+    relevance: 0,
+    begin: /\(/,
+    end: /\)/,
+    keywords: KEYWORDS,
+    contains: [
+      NAMED_ARGUMENT,
+      VARIABLE,
+      LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+      hljs.C_BLOCK_COMMENT_MODE,
+      STRING,
+      NUMBER,
+      CONSTRUCTOR_CALL,
+    ],
+  };
   const FUNCTION_INVOKE = {
     relevance: 0,
     match: [
@@ -338,58 +417,52 @@ export default function(hljs) {
       regex.concat(WHITESPACE, "*"),
       regex.lookahead(/(?=\()/)
     ],
-    scope: {
-      3: "title.function.invoke",
-    }
+    scope: { 3: "title.function.invoke", },
+    contains: [ PARAMS_MODE ]
   };
+  PARAMS_MODE.contains.push(FUNCTION_INVOKE);
 
-  const CONSTANT_REFERENCE = regex.concat(IDENT_RE, "\\b(?!\\()");
+  const ATTRIBUTE_CONTAINS = [
+    NAMED_ARGUMENT,
+    LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+    hljs.C_BLOCK_COMMENT_MODE,
+    STRING,
+    NUMBER,
+    CONSTRUCTOR_CALL,
+  ];
 
-  const LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON = {
-    variants: [
+  const ATTRIBUTES = {
+    begin: regex.concat(/#\[\s*/, PASCAL_CASE_CLASS_NAME_RE),
+    beginScope: "meta",
+    end: /]/,
+    endScope: "meta",
+    keywords: {
+      literal: LITERALS,
+      keyword: [
+        'new',
+        'array',
+      ]
+    },
+    contains: [
       {
-        match: [
-          regex.concat(
-            /::/,
-            regex.lookahead(/(?!class\b)/)
-          ),
-          CONSTANT_REFERENCE,
-        ],
-        scope: {
-          2: "variable.constant",
+        begin: /\[/,
+        end: /]/,
+        keywords: {
+          literal: LITERALS,
+          keyword: [
+            'new',
+            'array',
+          ]
         },
+        contains: [
+          'self',
+          ...ATTRIBUTE_CONTAINS,
+        ]
       },
+      ...ATTRIBUTE_CONTAINS,
       {
-        match: [
-          /::/,
-          /class/,
-        ],
-        scope: {
-          2: "variable.language",
-        },
-      },
-      {
-        match: [
-          PASCAL_CASE_CLASS_NAME_RE,
-          regex.concat(
-            "::",
-            regex.lookahead(/(?!class\b)/)
-          ),
-        ],
-        scope: {
-          1: "title.class",
-        },
-      },
-      {
-        match: [
-          PASCAL_CASE_CLASS_NAME_RE,
-          /::/,
-          /class/,
-        ],
-        scope: {
-          1: "title.class",
-          3: "variable.language",
-        },
+        scope: 'meta',
+        match: PASCAL_CASE_CLASS_NAME_RE
       }
     ]
   };
@@ -398,19 +471,18 @@ export default function(hljs) {
     case_insensitive: false,
     keywords: KEYWORDS,
     contains: [
+      ATTRIBUTES,
       hljs.HASH_COMMENT_MODE,
       hljs.COMMENT('//', '$'),
       hljs.COMMENT(
         '/\\*',
         '\\*/',
-        {
-          contains: [
-            {
-              scope: 'doctag',
-              match: '@[A-Za-z]+'
-            }
-          ]
-        }
+        { contains: [
+          {
+            scope: 'doctag',
+            match: '@[A-Za-z]+'
+          }
+        ] }
       ),
       {
         match: /__halt_compiler\(\);/,
@@ -440,7 +512,6 @@ export default function(hljs) {
           /const/,
           /\s/,
           IDENT_RE,
-          /\s*=/,
         ],
         scope: {
           1: "keyword",
@@ -451,12 +522,12 @@ export default function(hljs) {
       {
         scope: 'function',
         relevance: 0,
-        beginKeywords: 'fn function', end: /[;{]/, excludeEnd: true,
+        beginKeywords: 'fn function',
+        end: /[;{]/,
+        excludeEnd: true,
         illegal: '[$%\\[]',
         contains: [
-          {
-            beginKeywords: 'use',
-          },
+          { beginKeywords: 'use', },
           hljs.UNDERSCORE_TITLE_MODE,
           {
             begin: '=>', // No markup, just a relevance booster
@@ -464,7 +535,8 @@ export default function(hljs) {
           },
           {
             scope: 'params',
-            begin: '\\(', end: '\\)',
+            begin: '\\(',
+            end: '\\)',
             excludeBegin: true,
             excludeEnd: true,
             keywords: KEYWORDS,
@@ -476,20 +548,26 @@ export default function(hljs) {
               STRING,
               NUMBER
             ]
-          }
+          },
         ]
       },
       {
         scope: 'class',
         variants: [
-          { beginKeywords: "enum", illegal: /[($"]/ },
-          { beginKeywords: "class interface trait", illegal: /[:($"]/ }
+          {
+            beginKeywords: "enum",
+            illegal: /[($"]/
+          },
+          {
+            beginKeywords: "class interface trait",
+            illegal: /[:($"]/
+          }
         ],
         relevance: 0,
         end: /\{/,
         excludeEnd: true,
         contains: [
-          {beginKeywords: 'extends implements'},
+          { beginKeywords: 'extends implements' },
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
@@ -501,9 +579,7 @@ export default function(hljs) {
         relevance: 0,
         end: ';',
         illegal: /[.']/,
-        contains: [
-          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { scope: "title.class" })
-        ]
+        contains: [ hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { scope: "title.class" }) ]
       },
       {
         beginKeywords: 'use',
@@ -520,7 +596,7 @@ export default function(hljs) {
         ]
       },
       STRING,
-      NUMBER
+      NUMBER,
     ]
   };
 }

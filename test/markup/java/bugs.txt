@@ -1,0 +1,6 @@
+
+// `else x =` should not be detected as a variable creation
+if ( O == l )
+  l = O1;
+else
+  a = 01;

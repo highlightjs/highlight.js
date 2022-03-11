@@ -1,0 +1,19 @@
+hello |> IO.inspect()
+
+AnAtom
+
+My.Other.Atom
+
+My.Other.Atom.foo()
+
+NonStandard_Atom
+
+not_matched
+
+:not_matched.thing()
+
+:NotMatched?
+
+%MyStruct{a: 1}
+
+noModuleMatch

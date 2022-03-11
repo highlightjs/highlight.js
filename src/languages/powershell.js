@@ -26,43 +26,43 @@ export default function(hljs) {
 
   // https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands
   const VALID_VERBS =
-    'Add|Clear|Close|Copy|Enter|Exit|Find|Format|Get|Hide|Join|Lock|' +
-    'Move|New|Open|Optimize|Pop|Push|Redo|Remove|Rename|Reset|Resize|' +
-    'Search|Select|Set|Show|Skip|Split|Step|Switch|Undo|Unlock|' +
-    'Watch|Backup|Checkpoint|Compare|Compress|Convert|ConvertFrom|' +
-    'ConvertTo|Dismount|Edit|Expand|Export|Group|Import|Initialize|' +
-    'Limit|Merge|Mount|Out|Publish|Restore|Save|Sync|Unpublish|Update|' +
-    'Approve|Assert|Build|Complete|Confirm|Deny|Deploy|Disable|Enable|Install|Invoke|' +
-    'Register|Request|Restart|Resume|Start|Stop|Submit|Suspend|Uninstall|' +
-    'Unregister|Wait|Debug|Measure|Ping|Repair|Resolve|Test|Trace|Connect|' +
-    'Disconnect|Read|Receive|Send|Write|Block|Grant|Protect|Revoke|Unblock|' +
-    'Unprotect|Use|ForEach|Sort|Tee|Where';
+    'Add|Clear|Close|Copy|Enter|Exit|Find|Format|Get|Hide|Join|Lock|'
+    + 'Move|New|Open|Optimize|Pop|Push|Redo|Remove|Rename|Reset|Resize|'
+    + 'Search|Select|Set|Show|Skip|Split|Step|Switch|Undo|Unlock|'
+    + 'Watch|Backup|Checkpoint|Compare|Compress|Convert|ConvertFrom|'
+    + 'ConvertTo|Dismount|Edit|Expand|Export|Group|Import|Initialize|'
+    + 'Limit|Merge|Mount|Out|Publish|Restore|Save|Sync|Unpublish|Update|'
+    + 'Approve|Assert|Build|Complete|Confirm|Deny|Deploy|Disable|Enable|Install|Invoke|'
+    + 'Register|Request|Restart|Resume|Start|Stop|Submit|Suspend|Uninstall|'
+    + 'Unregister|Wait|Debug|Measure|Ping|Repair|Resolve|Test|Trace|Connect|'
+    + 'Disconnect|Read|Receive|Send|Write|Block|Grant|Protect|Revoke|Unblock|'
+    + 'Unprotect|Use|ForEach|Sort|Tee|Where';
 
   const COMPARISON_OPERATORS =
-    '-and|-as|-band|-bnot|-bor|-bxor|-casesensitive|-ccontains|-ceq|-cge|-cgt|' +
-    '-cle|-clike|-clt|-cmatch|-cne|-cnotcontains|-cnotlike|-cnotmatch|-contains|' +
-    '-creplace|-csplit|-eq|-exact|-f|-file|-ge|-gt|-icontains|-ieq|-ige|-igt|' +
-    '-ile|-ilike|-ilt|-imatch|-in|-ine|-inotcontains|-inotlike|-inotmatch|' +
-    '-ireplace|-is|-isnot|-isplit|-join|-le|-like|-lt|-match|-ne|-not|' +
-    '-notcontains|-notin|-notlike|-notmatch|-or|-regex|-replace|-shl|-shr|' +
-    '-split|-wildcard|-xor';
+    '-and|-as|-band|-bnot|-bor|-bxor|-casesensitive|-ccontains|-ceq|-cge|-cgt|'
+    + '-cle|-clike|-clt|-cmatch|-cne|-cnotcontains|-cnotlike|-cnotmatch|-contains|'
+    + '-creplace|-csplit|-eq|-exact|-f|-file|-ge|-gt|-icontains|-ieq|-ige|-igt|'
+    + '-ile|-ilike|-ilt|-imatch|-in|-ine|-inotcontains|-inotlike|-inotmatch|'
+    + '-ireplace|-is|-isnot|-isplit|-join|-le|-like|-lt|-match|-ne|-not|'
+    + '-notcontains|-notin|-notlike|-notmatch|-or|-regex|-replace|-shl|-shr|'
+    + '-split|-wildcard|-xor';
 
   const KEYWORDS = {
     $pattern: /-?[A-z\.\-]+\b/,
     keyword:
-      'if else foreach return do while until elseif begin for trap data dynamicparam ' +
-      'end break throw param continue finally in switch exit filter try process catch ' +
-      'hidden static parameter',
+      'if else foreach return do while until elseif begin for trap data dynamicparam '
+      + 'end break throw param continue finally in switch exit filter try process catch '
+      + 'hidden static parameter',
     // "echo" relevance has been set to 0 to avoid auto-detect conflicts with shell transcripts
     built_in:
-      'ac asnp cat cd CFS chdir clc clear clhy cli clp cls clv cnsn compare copy cp ' +
-      'cpi cpp curl cvpa dbp del diff dir dnsn ebp echo|0 epal epcsv epsn erase etsn exsn fc fhx ' +
-      'fl ft fw gal gbp gc gcb gci gcm gcs gdr gerr ghy gi gin gjb gl gm gmo gp gps gpv group ' +
-      'gsn gsnp gsv gtz gu gv gwmi h history icm iex ihy ii ipal ipcsv ipmo ipsn irm ise iwmi ' +
-      'iwr kill lp ls man md measure mi mount move mp mv nal ndr ni nmo npssc nsn nv ogv oh ' +
-      'popd ps pushd pwd r rbp rcjb rcsn rd rdr ren ri rjb rm rmdir rmo rni rnp rp rsn rsnp ' +
-      'rujb rv rvpa rwmi sajb sal saps sasv sbp sc scb select set shcm si sl sleep sls sort sp ' +
-      'spjb spps spsv start stz sujb sv swmi tee trcm type wget where wjb write'
+      'ac asnp cat cd CFS chdir clc clear clhy cli clp cls clv cnsn compare copy cp '
+      + 'cpi cpp curl cvpa dbp del diff dir dnsn ebp echo|0 epal epcsv epsn erase etsn exsn fc fhx '
+      + 'fl ft fw gal gbp gc gcb gci gcm gcs gdr gerr ghy gi gin gjb gl gm gmo gp gps gpv group '
+      + 'gsn gsnp gsv gtz gu gv gwmi h history icm iex ihy ii ipal ipcsv ipmo ipsn irm ise iwmi '
+      + 'iwr kill lp ls man md measure mi mount move mp mv nal ndr ni nmo npssc nsn nv ogv oh '
+      + 'popd ps pushd pwd r rbp rcjb rcsn rd rdr ren ri rjb rm rmdir rmo rni rnp rp rsn rsnp '
+      + 'rujb rv rvpa rwmi sajb sal saps sasv sbp sc scb select set shcm si sl sleep sls sort sp '
+      + 'spjb spps spsv start stz sujb sv swmi tee trcm type wget where wjb write'
     // TODO: 'validate[A-Z]+' can't work in keywords
   };
 
@@ -76,16 +76,12 @@ export default function(hljs) {
   const VAR = {
     className: 'variable',
     variants: [
-      {
-        begin: /\$\B/
-      },
+      { begin: /\$\B/ },
       {
         className: 'keyword',
         begin: /\$this/
       },
-      {
-        begin: /\$[\w\d][\w\d_:]*/
-      }
+      { begin: /\$[\w\d][\w\d_:]*/ }
     ]
   };
 
@@ -135,13 +131,9 @@ export default function(hljs) {
     className: "doctag",
     variants: [
       /* no paramater help tags */
-      {
-        begin: /\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)/
-      },
+      { begin: /\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)/ },
       /* one parameter help tags */
-      {
-        begin: /\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\s+\S+/
-      }
+      { begin: /\.(parameter|forwardhelptargetname|forwardhelpcategory|remotehelprunspace|externalhelp)\s+\S+/ }
     ]
   };
 
@@ -166,11 +158,7 @@ export default function(hljs) {
 
   const CMDLETS = {
     className: 'built_in',
-    variants: [
-      {
-        begin: '('.concat(VALID_VERBS, ')+(-)[\\w\\d]+')
-      }
-    ]
+    variants: [ { begin: '('.concat(VALID_VERBS, ')+(-)[\\w\\d]+') } ]
   };
 
   const PS_CLASS = {
@@ -227,20 +215,18 @@ export default function(hljs) {
   };
 
   // Comperison operators & function named parameters.
-  const PS_ARGUMENTS = {
-    variants: [
-      // PS literals are pretty verbose so it's a good idea to accent them a bit.
-      {
-        className: 'operator',
-        begin: '('.concat(COMPARISON_OPERATORS, ')\\b')
-      },
-      {
-        className: 'literal',
-        begin: /(-){1,2}[\w\d-]+/,
-        relevance: 0
-      }
-    ]
-  };
+  const PS_ARGUMENTS = { variants: [
+    // PS literals are pretty verbose so it's a good idea to accent them a bit.
+    {
+      className: 'operator',
+      begin: '('.concat(COMPARISON_OPERATORS, ')\\b')
+    },
+    {
+      className: 'literal',
+      begin: /(-){1,2}[\w\d-]+/,
+      relevance: 0
+    }
+  ] };
 
   const STATIC_MEMBER = {
     className: 'selector-tag',
@@ -297,9 +283,7 @@ export default function(hljs) {
         endsParent: true,
         relevance: 0
       },
-      hljs.inherit(hljs.TITLE_MODE, {
-        endsParent: true
-      })
+      hljs.inherit(hljs.TITLE_MODE, { endsParent: true })
     ]
   };
 

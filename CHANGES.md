@@ -1,4 +1,49 @@
-## Version 11.4 (most likely)
+## Version 11.5.0 (in progress)
+
+Themes:
+- Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
+- Added `Tokyo-Night-light` theme [Henri Vandersleyen][]
+
+New Grammars:
+
+- Added GraphQL to SUPPORTED_LANGUAGES [John Foster][]
+- Added Macaulay2 to SUPPORTED_LANGUAGES [Doug Torrance][]
+
+Grammars:
+
+- enh(ruby) lots of small Ruby cleanups/improvements [Josh Goebel][]
+- enh(objectivec) add `type` and `variable.language` scopes [Josh Goebel][]
+- enh(xml) support processing instructions (#3492) [Josh Goebel][]
+- enh(ruby ) better support multi-line IRB prompts
+- enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
+- add `meta.prompt` scope for REPL prompts, etc [Josh Goebel][]
+- fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
+- enh(php) add support for PHP Attributes [Wojciech Kania][]
+- fix(java) prevent false positive variable init on `else` [Josh Goebel][]
+- enh(php) named arguments [Wojciech Kania][]
+- fix(php) PHP constants [Wojciech Kania][]
+- fix(angelscript) incomplete int8, int16, int32, int64 highlighting [Melissa Geels][]
+- enh(ts) modify TypeScript-specific keywords and types list [anydonym][]
+- fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
+- fix(llvm) escaping in strings and number formats [Flakebi][]
+- enh(elixir) recognize references to modules [Mark Ericksen][]
+- enh(css): add support for more properties [Nicolaos Skimas][]
+
+[Martin Mattel]: https://github.com/mmattel
+[John Foster]: https://github.com/jf990
+[Wojciech Kania]: https://github.com/wkania
+[Melissa Geels]: https://github.com/codecat
+[anydonym]: https://github.com/anydonym
+[henri Vandersleyen]: https://github.com/Vanderscycle
+[Christina Hanson]: https://github.com/LyricLy
+[Flakebi]: https://github.com/Flakebi
+[Josh Goebel]: https://github.com/joshgoebel
+[Mark Ericksen]: https://github.com/brainlid
+[Nicolaos Skimas]: https://github.com/dev-nicolaos
+[Doug Torrance]: https://github.com/d-torrance
+
+
+## Version 11.4.0
 
 New Language:
 
@@ -10,6 +55,7 @@ Themes:
 - `Default` is now much closer WCAG AA (contrast) (#3402) [Josh Goebel]
 - `Dark` now meets WCAG AA (contrast) (#3402) [Josh Goebel]
 - Added `intellij-light` theme [Pegasis]
+- Added `felipec` theme [Felipe Contreras]
 
 These changes should be for the better and should not be super noticeable but if you're super picky about your colors you may want to intervene here or copy over the older themes from 11.3 or prior.
 
@@ -72,6 +118,7 @@ Themes:
 [Matthieu Lempereur]: https://github.com/MrYamous
 [idleberg]: https://github.com/idleberg
 [Fons van der Plas]: https://github.com/fonsp
+[Felipe Contreras]: https://github.com/felipec
 
 ## Version 11.3.1
 

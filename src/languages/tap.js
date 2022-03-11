@@ -16,12 +16,8 @@ export default function(hljs) {
       {
         className: 'meta',
         variants: [
-          {
-            begin: '^TAP version (\\d+)$'
-          },
-          {
-            begin: '^1\\.\\.(\\d+)$'
-          }
+          { begin: '^TAP version (\\d+)$' },
+          { begin: '^1\\.\\.(\\d+)$' }
         ]
       },
       // YAML block
@@ -40,12 +36,8 @@ export default function(hljs) {
       {
         className: 'symbol',
         variants: [
-          {
-            begin: '^ok'
-          },
-          {
-            begin: '^not ok'
-          }
+          { begin: '^ok' },
+          { begin: '^not ok' }
         ]
       }
     ]
