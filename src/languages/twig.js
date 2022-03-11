@@ -11,19 +11,19 @@ export default function(hljs) {
   const regex = hljs.regex;
   const FUNCTION_NAMES = [
     "absolute_url",
-    "asset",
+    "asset|0",
     "asset_version",
     "attribute",
     "block",
     "constant",
-    "controller",
+    "controller|0",
     "country_timezones",
     "csrf_token",
     "cycle",
     "date",
     "dump",
     "expression",
-    "form",
+    "form|0",
     "form_end",
     "form_errors",
     "form_help",
@@ -40,7 +40,7 @@ export default function(hljs) {
     "max",
     "min",
     "parent",
-    "path",
+    "path|0",
     "random",
     "range",
     "relative_path",
@@ -48,7 +48,7 @@ export default function(hljs) {
     "render_esi",
     "source",
     "template_from_string",
-    "url"
+    "url|0"
   ];
 
   const FILTERS = [
