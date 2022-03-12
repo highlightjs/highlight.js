@@ -10,7 +10,7 @@ on:
 
 jobs:
   prerelease:
-    name: Pre-release
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout highlight.js
