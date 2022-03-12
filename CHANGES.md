@@ -1,4 +1,4 @@
-## Version 11.5.0 (in progress)
+## Version 11.5.0
 
 Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
