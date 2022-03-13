@@ -1,14 +1,19 @@
 import HTMLRenderer from './html_renderer.js';
 
-/** @typedef {{kind?: string, sublanguage?: boolean, children: Node[]} | string} Node */
-/** @typedef {{kind?: string, sublanguage?: boolean, children: Node[]} } DataNode */
+/** @typedef {{scope?: string, language?: string, sublanguage?: boolean, children: Node[]} | string} Node */
+/** @typedef {{scope?: string, language?: string, sublanguage?: boolean, children: Node[]} } DataNode */
 /** @typedef {import('highlight.js').Emitter} Emitter */
 /**  */
+
+/** @returns {DataNode} */
+const newNode = (opts = {}) => {
+  return { children: [], ...opts };
+}
 
 class TokenTree {
   constructor() {
     /** @type DataNode */
-    this.rootNode = { children: [] };
+    this.rootNode = newNode();
     this.stack = [this.rootNode];
   }
 
@@ -23,10 +28,10 @@ class TokenTree {
     this.top.children.push(node);
   }
 
-  /** @param {string} kind */
-  openNode(kind) {
+  /** @param {string} scope */
+  openNode(scope) {
     /** @type Node */
-    const node = { kind, children: [] };
+    const node = newNode({scope});
     this.add(node);
     this.stack.push(node);
   }
@@ -98,11 +103,11 @@ class TokenTree {
 
   Minimal interface:
 
-  - addKeyword(text, kind)
+  - addKeyword(text, scope)
   - addText(text)
   - addSublanguage(emitter, subLanguageName)
   - finalize()
-  - openNode(kind)
+  - openNode(scope)
   - closeNode()
   - closeAllNodes()
   - toHTML()
@@ -123,12 +128,12 @@ export default class TokenTreeEmitter extends TokenTree {
 
   /**
    * @param {string} text
-   * @param {string} kind
+   * @param {string} scope
    */
-  addKeyword(text, kind) {
+  addKeyword(text, scope) {
     if (text === "") { return; }
 
-    this.openNode(kind);
+    this.openNode(scope);
     this.addText(text);
     this.closeNode();
   }
@@ -149,8 +154,8 @@ export default class TokenTreeEmitter extends TokenTree {
   addSublanguage(emitter, name) {
     /** @type DataNode */
     const node = emitter.root;
-    node.kind = name;
     node.sublanguage = true;
+    node.language = name;
     this.add(node);
   }
 

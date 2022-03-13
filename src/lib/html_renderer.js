@@ -8,7 +8,7 @@ import { escapeHTML } from './utils.js';
  * @property {() => string} value
  */
 
-/** @typedef {{kind?: string, sublanguage?: boolean}} Node */
+/** @typedef {{scope?: string, language?: string, sublanguage?: boolean}} Node */
 /** @typedef {{walk: (r: Renderer) => void}} Tree */
 /** */
 
@@ -19,7 +19,9 @@ const SPAN_CLOSE = '</span>';
  *
  * @param {Node} node */
 const emitsWrappingTags = (node) => {
-  return !!node.kind;
+  // rarely we can have a sublanguage where language is undefined
+  // TODO: track down why
+  return !!node.scope || (node.sublanguage && node.language) ;
 };
 
 /**
@@ -27,7 +29,7 @@ const emitsWrappingTags = (node) => {
  * @param {string} name
  * @param {{prefix:string}} options
  */
-const expandScopeName = (name, { prefix }) => {
+const scopeToCSSClass = (name, { prefix }) => {
   if (name.includes(".")) {
     const pieces = name.split(".");
     return [
@@ -67,13 +69,13 @@ export default class HTMLRenderer {
   openNode(node) {
     if (!emitsWrappingTags(node)) return;
 
-    let scope = node.kind;
+    let className = "";
     if (node.sublanguage) {
-      scope = `language-${scope}`;
+      className = `language-${node.language}`;
     } else {
-      scope = expandScopeName(scope, { prefix: this.classPrefix });
+      className = scopeToCSSClass(node.scope, { prefix: this.classPrefix });
     }
-    this.span(scope);
+    this.span(className);
   }
 
   /**
