@@ -3,8 +3,8 @@
 Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
 - Added `Tokyo-Night-light` theme [Henri Vandersleyen][]
-- Added `panda-theme-dark` theme [Annmarie Switzer][]
-- Added `panda-theme-light` theme [Annmarie Switzer][]
+- Added `panda-syntax-dark` theme [Annmarie Switzer][]
+- Added `panda-syntax-light` theme [Annmarie Switzer][]
 
 New Grammars:
 
