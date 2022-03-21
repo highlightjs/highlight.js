@@ -31,7 +31,8 @@
   color: #31353a;
 }
 
-.hljs-punctuation {
+.hljs-punctuation,
+.hljs-attr {
   color: #2a2c2d;
 }
 
