@@ -32,13 +32,13 @@
 }
 
 .hljs-punctuation {
-    color: #e6e6e6;
+  color: #e6e6e6;
 }
 
 .hljs-selector-tag,
 .hljs-name,
 .hljs-meta {
-  color: #FF4B82;
+  color: #ff4b82;
 }
 
 .hljs-operator,
@@ -74,7 +74,6 @@
 .hljs-selector-class,
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
-
 .hljs-meta .hljs-string {
   color: #19f9d8;
 }
@@ -90,7 +89,6 @@
 .hljs-selector-id,
 .hljs-tag,
 .hljs-doctag,
-
 .hljs-attribute,
 .hljs-template-tag,
 .hljs-meta .hljs-keyword,

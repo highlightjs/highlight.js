@@ -32,7 +32,7 @@
 }
 
 .hljs-punctuation {
-    color: #2a2c2d;
+  color: #2a2c2d;
 }
 
 .hljs-selector-tag,
@@ -40,7 +40,7 @@
 .hljs-meta,
 .hljs-operator,
 .hljs-char.escape_ {
-    color: #c56200;
+  color: #c56200;
 }
 
 .hljs-keyword,
@@ -71,7 +71,6 @@
 .hljs-selector-class,
 .hljs-title.class_,
 .hljs-title.class_.inherited__,
-
 .hljs-meta .hljs-string {
   color: #0d7d6c;
 }
@@ -87,7 +86,6 @@
 .hljs-selector-id,
 .hljs-tag,
 .hljs-doctag,
-
 .hljs-attribute,
 .hljs-template-tag,
 .hljs-meta .hljs-keyword {
