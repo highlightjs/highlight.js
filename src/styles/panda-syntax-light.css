@@ -4,93 +4,92 @@
  * Author: Annmarie Switzer <https://github.com/annmarie-switzer>
  */
 
- .hljs {
+.hljs {
+  color: #2a2c2d;
+  background: #e6e6e6;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #31353a;
+  font-style: italic;
+}
+
+.hljs-params {
+  color: #31353a;
+}
+
+.hljs-punctuation {
     color: #2a2c2d;
-    background: #e6e6e6;
-  }
-  
-  .hljs-emphasis {
-    font-style: italic;
-  }
-  
-  .hljs-strong {
-    font-weight: bold;
-  }
-  
-  .hljs-link {
-    text-decoration: underline;
-  }
-  
-  .hljs-comment,
-  .hljs-quote {
-    color: #31353a;
-    font-style: italic;
-  }
-  
-  .hljs-params {
-    color: #676B79;
-  }
-  
-  /* HTML/JSX brackets */
-  .hljs-selector-tag,
-  /* HTML/JSX tag names */
-  .hljs-name {
-    color: #ff2c6d;
-  }
-  
-  .hljs-operator,
-  .hljs-char.escape_ {
-    color: #b084eb;
-  }
-  
-  .hljs-keyword,
-  .hljs-deletion {
-    color: #ff75b5;
-  }
-  
-  .hljs-regexp,
-  .hljs-selector-pseudo,
-  .hljs-selector-attr,
-  .hljs-variable.language_ {
-    color: #ff9ac1;
-  }
-  
-  .hljs-subst,
-  .hljs-property,
-  .hljs-code,
-  .hljs-formula,
-  .hljs-section,
-  .hljs-title.function_ {
-    color: #45a9f9;
-  }
-  
-  .hljs-quote,
-  .hljs-string,
-  .hljs-symbol,
-  .hljs-bullet,
-  .hljs-addition,
-  .hljs-selector-class,
-  .hljs-title.class_,
-  .hljs-title.class_.inherited__ {
-    color: #19f9d899;
-  }
-  
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-number,
-  .hljs-literal,
-  .hljs-type,
-  .hljs-link,
-  .hljs-built_in,
-  .hljs-title,
-  .hljs-selector-id,
-  .hljs-tag,
-  .hljs-doctag {
-    color: #ffb86c;
-  }
-  
-  /* JSON keys */
-  .hljs-attr {
-    color: #ffcc95;
-  }
-  
+}
+
+.hljs-selector-tag,
+.hljs-name,
+.hljs-meta,
+.hljs-operator,
+.hljs-char.escape_ {
+    color: #c56200;
+}
+
+.hljs-keyword,
+.hljs-deletion {
+  color: #cc2357;
+}
+
+.hljs-regexp,
+.hljs-selector-pseudo,
+.hljs-selector-attr,
+.hljs-variable.language_ {
+  color: #cc5e91;
+}
+
+.hljs-subst,
+.hljs-property,
+.hljs-code,
+.hljs-formula,
+.hljs-section,
+.hljs-title.function_ {
+  color: #3787c7;
+}
+
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-selector-class,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+
+.hljs-meta .hljs-string {
+  color: #0d7d6c;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-number,
+.hljs-literal,
+.hljs-type,
+.hljs-link,
+.hljs-built_in,
+.hljs-title,
+.hljs-selector-id,
+.hljs-tag,
+.hljs-doctag,
+
+.hljs-attribute,
+.hljs-template-tag,
+.hljs-meta .hljs-keyword {
+  color: #7b5ca5;
+}
