@@ -23,12 +23,12 @@
 
 .hljs-comment,
 .hljs-quote {
-  color: #31353a;
+  color: #676B79;
   font-style: italic;
 }
 
 .hljs-params {
-  color: #31353a;
+  color: #676B79;
 }
 
 .hljs-punctuation,
@@ -46,7 +46,7 @@
 
 .hljs-keyword,
 .hljs-deletion {
-  color: #cc2357;
+  color: #d92792;
 }
 
 .hljs-regexp,
@@ -90,5 +90,5 @@
 .hljs-attribute,
 .hljs-template-tag,
 .hljs-meta .hljs-keyword {
-  color: #7b5ca5;
+  color: #7641bb;
 }
