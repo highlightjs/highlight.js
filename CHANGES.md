@@ -3,6 +3,8 @@
 Themes:
 - Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
 - Added `Tokyo-Night-light` theme [Henri Vandersleyen][]
+- Added `panda-syntax-dark` theme [Annmarie Switzer][]
+- Added `panda-syntax-light` theme [Annmarie Switzer][]
 
 New Grammars:
 
@@ -41,6 +43,7 @@ Grammars:
 [Mark Ericksen]: https://github.com/brainlid
 [Nicolaos Skimas]: https://github.com/dev-nicolaos
 [Doug Torrance]: https://github.com/d-torrance
+[Annmarie Switzer]: https://github.com/annmarie-switzer
 
 
 ## Version 11.4.0
