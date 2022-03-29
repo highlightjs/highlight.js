@@ -7,10 +7,7 @@
   ],
   "homepage": "https://highlightjs.org/",
   "version": "11.5.0",
-  "author": {
-    "name": "Ivan Sagalaev",
-    "email": "maniac@softwaremaniacs.org"
-  },
+  "author": "Josh Goebel <hello@joshgoebel.com>",
   "contributors": [
     "Josh Goebel <hello@joshgoebel.com>",
     "Egor Rogov <e.rogov@postgrespro.ru>",
