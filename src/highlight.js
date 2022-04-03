@@ -277,8 +277,8 @@ const HLJS = function(hljs) {
      */
     function emitMultiClass(scope, match) {
       let i = 1;
-      // eslint-disable-next-line no-undefined
-      while (match[i] !== undefined) {
+      const max = match.length - 1;
+      while (i <= max) {
         if (!scope._emit[i]) { i++; continue; }
         const klass = language.classNameAliases[scope[i]] || scope[i];
         const text = match[i];
@@ -734,7 +734,8 @@ const HLJS = function(hljs) {
     if (element.children.length > 0) {
       if (!options.ignoreUnescapedHTML) {
         console.warn("One of your code blocks includes unescaped HTML. This is a potentially serious security risk.");
-        console.warn("https://github.com/highlightjs/highlight.js/issues/2886");
+        console.warn("https://github.com/highlightjs/highlight.js/wiki/security");
+        console.warn("The element with unescaped HTML:");
         console.warn(element);
       }
       if (options.throwUnescapedHTML) {

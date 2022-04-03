@@ -384,7 +384,7 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         match: [
-          /def/, /\s+/,
+          /\bdef/, /\s+/,
           IDENT_RE,
         ],
         scope: {
@@ -397,14 +397,14 @@ export default function(hljs) {
         variants: [
           {
             match: [
-              /class/, /\s+/,
+              /\bclass/, /\s+/,
               IDENT_RE, /\s*/,
               /\(\s*/, IDENT_RE,/\s*\)/
             ],
           },
           {
             match: [
-              /class/, /\s+/,
+              /\bclass/, /\s+/,
               IDENT_RE
             ],
           }

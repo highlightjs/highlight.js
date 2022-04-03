@@ -1,0 +1,8 @@
+<span class="hljs-comment">; Backslashes do not escape quotes, this is a legal string</span>
+<span class="hljs-keyword">define</span> void @<span class="hljs-string">&quot;C:\&quot;</span>() {
+  <span class="hljs-keyword">ret</span> void
+}
+
+<span class="hljs-keyword">define</span> void @<span class="hljs-string">&quot;escape_code_<span class="hljs-char escape_">\01</span>23<span class="hljs-char escape_">\04</span>end&quot;</span>() {
+  <span class="hljs-keyword">ret</span> void
+}

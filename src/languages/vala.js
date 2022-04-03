@@ -11,18 +11,18 @@ export default function(hljs) {
     keywords: {
       keyword:
         // Value types
-        'char uchar unichar int uint long ulong short ushort int8 int16 int32 int64 uint8 ' +
-        'uint16 uint32 uint64 float double bool struct enum string void ' +
+        'char uchar unichar int uint long ulong short ushort int8 int16 int32 int64 uint8 '
+        + 'uint16 uint32 uint64 float double bool struct enum string void '
         // Reference types
-        'weak unowned owned ' +
+        + 'weak unowned owned '
         // Modifiers
-        'async signal static abstract interface override virtual delegate ' +
+        + 'async signal static abstract interface override virtual delegate '
         // Control Structures
-        'if while do for foreach else switch case break default return try catch ' +
+        + 'if while do for foreach else switch case break default return try catch '
         // Visibility
-        'public private protected internal ' +
+        + 'public private protected internal '
         // Other
-        'using new this get set const stdout stdin stderr var',
+        + 'using new this get set const stdout stdin stderr var',
       built_in:
         'DBus GLib CCode Gee Object Gtk Posix',
       literal:

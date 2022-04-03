@@ -61,9 +61,7 @@ export default function(hljs) {
     built_in: ECMAScript.BUILT_INS.concat(LIVESCRIPT_BUILT_INS)
   };
   const JS_IDENT_RE = '[A-Za-z$_](?:-[0-9A-Za-z$_]|[0-9A-Za-z$_])*';
-  const TITLE = hljs.inherit(hljs.TITLE_MODE, {
-    begin: JS_IDENT_RE
-  });
+  const TITLE = hljs.inherit(hljs.TITLE_MODE, { begin: JS_IDENT_RE });
   const SUBST = {
     className: 'subst',
     begin: /#\{/,
@@ -93,12 +91,12 @@ export default function(hljs) {
         {
           begin: /'''/,
           end: /'''/,
-          contains: [hljs.BACKSLASH_ESCAPE]
+          contains: [ hljs.BACKSLASH_ESCAPE ]
         },
         {
           begin: /'/,
           end: /'/,
-          contains: [hljs.BACKSLASH_ESCAPE]
+          contains: [ hljs.BACKSLASH_ESCAPE ]
         },
         {
           begin: /"""/,
@@ -139,13 +137,10 @@ export default function(hljs) {
         {
           // regex can't start with space to parse x / 2 / 3 as two divisions
           // regex can't start with *, and it supports an "illegal" in the main mode
-          begin: /\/(?![ *])(\\.|[^\\\n])*?\/[gim]*(?=\W)/
-        }
+          begin: /\/(?![ *])(\\.|[^\\\n])*?\/[gim]*(?=\W)/ }
       ]
     },
-    {
-      begin: '@' + JS_IDENT_RE
-    },
+    { begin: '@' + JS_IDENT_RE },
     {
       begin: '``',
       end: '``',
@@ -167,18 +162,36 @@ export default function(hljs) {
         begin: /\(/,
         end: /\)/,
         keywords: KEYWORDS,
-        contains: ['self'].concat(EXPRESSIONS)
+        contains: [ 'self' ].concat(EXPRESSIONS)
       }
     ]
   };
 
-  const SYMBOLS = {
-    begin: '(#=>|=>|\\|>>|-?->|!->)'
+  const SYMBOLS = { begin: '(#=>|=>|\\|>>|-?->|!->)' };
+
+  const CLASS_DEFINITION = {
+    variants: [
+      { match: [
+        /class\s+/,
+        JS_IDENT_RE,
+        /\s+extends\s+/,
+        JS_IDENT_RE
+      ] },
+      { match: [
+        /class\s+/,
+        JS_IDENT_RE
+      ] }
+    ],
+    scope: {
+      2: "title.class",
+      4: "title.class.inherited"
+    },
+    keywords: KEYWORDS
   };
 
   return {
     name: 'LiveScript',
-    aliases: ['ls'],
+    aliases: [ 'ls' ],
     keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: EXPRESSIONS.concat([
@@ -207,21 +220,7 @@ export default function(hljs) {
           }
         ]
       },
-      {
-        className: 'class',
-        beginKeywords: 'class',
-        end: '$',
-        illegal: /[:="\[\]]/,
-        contains: [
-          {
-            beginKeywords: 'extends',
-            endsWithParent: true,
-            illegal: /[:="\[\]]/,
-            contains: [TITLE]
-          },
-          TITLE
-        ]
-      },
+      CLASS_DEFINITION,
       {
         begin: JS_IDENT_RE + ':',
         end: ':',

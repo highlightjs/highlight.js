@@ -1,6 +1,6 @@
 <span class="hljs-comment">&lt;%# this is a comment %&gt;</span><span class="language-xml">
 
-&lt;%</span><span class="language-ruby"> <span class="hljs-variable">@posts</span>.each <span class="hljs-keyword">do</span> <span class="hljs-params">|post|</span> </span><span class="language-xml">%&gt;
+&lt;%</span><span class="language-ruby"> <span class="hljs-variable">@posts</span>.each <span class="hljs-keyword">do</span> |<span class="hljs-params">post</span>| </span><span class="language-xml">%&gt;
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&lt;%=</span><span class="language-ruby"> link_to post.title, post </span><span class="language-xml">%&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 &lt;%</span><span class="language-ruby"> <span class="hljs-keyword">end</span> </span><span class="language-xml">%&gt;
 

@@ -8,7 +8,7 @@
 export default function(hljs) {
   return {
     name: 'Gherkin',
-    aliases: ['feature'],
+    aliases: [ 'feature' ],
     keywords: 'Feature Background Ability Business\ Need Scenario Scenarios Scenario\ Outline Scenario\ Template Examples Given And Then But When',
     contains: [
       {

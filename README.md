@@ -17,7 +17,7 @@
 [![discord](https://badgen.net/badge/icon/discord?icon=discord&label&color=pink)](https://discord.gg/M24EbU7ja9)
 [![open issues](https://badgen.net/github/open-issues/highlightjs/highlight.js?label=issues)](https://github.com/highlightjs/highlight.js/issues)
 [![help welcome issues](https://badgen.net/github/label-issues/highlightjs/highlight.js/help%20welcome/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+welcome%22)
-[![good first issue](https://badgen.net/github/label-issues/highlightjs/highlight.js/good%20first%20issue/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22beginner+friendly%22)
+[![good first issue](https://badgen.net/github/label-issues/highlightjs/highlight.js/good%20first%20issue/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
 <!-- [![Build CI](https://img.shields.io/github/workflow/status/highlightjs/highlight.js/Node.js%20CI)](https://github.com/highlightjs/highlight.js/actions?query=workflow%3A%22Node.js+CI%22) -->
 <!-- [![commits since release](https://img.shields.io/github/commits-since/highlightjs/highlight.js/latest?label=commits+since)](https://github.com/highlightjs/highlight.js/commits/main) -->
@@ -48,6 +48,9 @@ detection.
   - [ES6 Modules / `import`](#es6-modules--import)
 - [Getting the Library](#getting-the-library)
   - [Fetch via CDN](#fetch-via-cdn)
+    - [cdnjs (link)](#cdnjs-link)
+    - [jsdelivr (link)](#jsdelivr-link)
+    - [unpkg (link)](#unpkg-link)
     - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
   - [Download from our website](#download-from-our-website)
   - [Install via NPM package](#install-via-npm-package)
@@ -76,7 +79,7 @@ The bare minimum for using highlight.js on a web page is linking to the
 library along with one of the themes and calling [`highlightAll`][1]:
 
 ```html
-<link rel="stylesheet" href="/path/to/styles/default.css">
+<link rel="stylesheet" href="/path/to/styles/default.min.css">
 <script src="/path/to/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 ```
@@ -268,13 +271,16 @@ const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: '
 
 ### ES6 Modules / `import`
 
+*Note: You can also import directly from fully static URLs, such as our very own pre-built
+ES6 Module CDN resources. See [Fetch via CDN](#fetch-via-cdn) for specific examples.*
+
 The default import will register all languages:
 
 ```js
 import hljs from 'highlight.js';
 ```
 
- It is more efficient to import only the library and register the languages you need:
+It is more efficient to import only the library and register the languages you need:
 
 ```js
 import hljs from 'highlight.js/lib/core';
@@ -317,32 +323,77 @@ A prebuilt version of Highlight.js bundled with many common languages is hosted 
 When using Highlight.js via CDN you can use Subresource Integrity for additional security.  For details
 see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md).
 
-**cdnjs** ([link](https://cdnjs.com/libraries/highlight.js))
+#### cdnjs ([link](https://cdnjs.com/libraries/highlight.js))
+
+##### Common JS <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/languages/go.min.js"></script>
 ```
 
-**jsdelivr** ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
+##### ES6 Modules <!-- omit in toc -->
+
+````html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/dark.min.css">
+<script type="module">
+import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/es/highlight.min.js';
+//  and it's easy to individually load additional languages
+import go from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/es/languages/go.min.js';
+hljs.registerLanguage('go', go);
+</script>
+
+````
+
+
+#### jsdelivr ([link](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release))
+
+##### Common JS <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/languages/go.min.js"></script>
 ```
 
-**unpkg** ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
+##### ES6 Modules <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/styles/default.min.css">
-<script src="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/highlight.min.js"></script>
-<!-- and it's easy to individually load additional languages -->
-<script src="https://unpkg.com/@highlightjs/cdn-assets@11.3.1/languages/go.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/default.min.css">
+<script type="module">
+import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/es/highlight.min.js';
+//  and it's easy to individually load additional languages
+import go from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/es/languages/go.min.js';
+hljs.registerLanguage('go', go);
+</script>
 ```
+
+#### unpkg ([link](https://unpkg.com/browse/@highlightjs/cdn-assets/))
+
+##### Common JS <!-- omit in toc -->
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/languages/go.min.js"></script>
+```
+
+##### ES6 Modules <!-- omit in toc -->
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.5.0/styles/default.min.css">
+<script type="module">
+import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.5.0/es/highlight.min.js';
+//  and it's easy to individually load & register additional languages
+import go from 'https://unpkg.com/@highlightjs/cdn-assets@11.5.0/es/languages/go.min.js';
+hljs.registerLanguage('go', go);
+</script>
+```
+
 
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
 very large. You can find our list of "common" languages that we bundle by default on our [download page][5].

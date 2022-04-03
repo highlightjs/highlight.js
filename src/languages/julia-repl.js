@@ -27,7 +27,7 @@ export default function(hljs) {
     name: 'Julia REPL',
     contains: [
       {
-        className: 'meta',
+        className: 'meta.prompt',
         begin: /^julia>/,
         relevance: 10,
         starts: {
@@ -35,14 +35,14 @@ export default function(hljs) {
           // least six spaces in the beginning
           end: /^(?![ ]{6})/,
           subLanguage: 'julia'
+        },
       },
-      // jldoctest Markdown blocks are used in the Julia manual and package docs indicate
-      // code snippets that should be verified when the documentation is built. They can be
-      // either REPL-like or script-like, but are usually REPL-like and therefore we apply
-      // julia-repl highlighting to them. More information can be found in Documenter's
-      // manual: https://juliadocs.github.io/Documenter.jl/latest/man/doctests.html
-      aliases: ['jldoctest']
-      }
-    ]
-  }
+    ],
+    // jldoctest Markdown blocks are used in the Julia manual and package docs indicate
+    // code snippets that should be verified when the documentation is built. They can be
+    // either REPL-like or script-like, but are usually REPL-like and therefore we apply
+    // julia-repl highlighting to them. More information can be found in Documenter's
+    // manual: https://juliadocs.github.io/Documenter.jl/latest/man/doctests.html
+    aliases: [ 'jldoctest' ],
+  };
 }

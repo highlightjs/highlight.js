@@ -1,0 +1,143 @@
+// Testing type definition and type annotation highlighting:
+
+let test'test = 15 // compiles
+let bla = test'test // compiles
+type test'test<'a> = Test<'a> // compiles
+
+let ``type`` = "hello" // compiles
+let ``type` is a keyword but I can use it in my 'd funky \ \\ \n " ^d binding`` = "hello" // compiles
+
+// Type names (here with char) can be used to redefine bindings:
+let char : char =
+    let char = box (char "a")
+    let result = unbox<char> char
+    try ()
+    with | :? ArgumentException -> failwith "..."
+    result
+
+// All the following type annotation examples are valid F#
+type ``my = type`` = {a:string}
+let x : char array = [|'a'|]
+let f f' = f' () : 'returnType // the type annotation should end now
+and not color this as a type. let's end this with an end pattern: =
+let f (a: int, (b: string)) = ()
+let f (a: int, b: string) = ()
+let anonymousRecordAnnotation : {| X: string; Y: int array * string |} = ...
+let nested : {| X: string; Y: {| Nested: bool |} |} = ()
+let test (a: {| X: string; (* this is a comment *) Y: {| Nested: bool |} |}) = ()
+let f (a: (string[])) = a
+let f (a: int -> (unit -> string) -> string) (b: ('a -> 'b -> _ -> ``my = type`` -> {| Prop: '``quoted``|}) -> 'a list -> 'b list) = a
+let f (a: ('a -> 'b) -> 'a list -> 'b list -> (unit -> string) -> {| X: string |}) : _ * (int -> unit) = a, (fun x -> ())
+let f (a: ('a -> 'b) // multiline! (currently not supported)
+          -> {| X: (int -> {| Y: (string -> (unit (*this is getting*))(*really nested...*)); A: ``my = type`` |}) |}
+          -> 'b list -> (unit -> string) -> {| X: string |}) = a
+let test : string (* this is a comment *) = ...
+let f (a: 'a when 'a : null, b: string) = ()
+let iterate2 (f : unit -> #seq<int>) =
+    for e in f() do printfn "%d" e
+type record =
+    { X: int -> ('a -> 'b) -> (unit -> string) -> 'a list -> 'b list // comment
+      Y: {| Bla: string (*comment*) array -> unit |} }
+type record =
+    { X: string // comment
+      Y: {|
+            Bla: string (*comment*) array
+                 -> unit |} }
+
+type FancyClass(thing:int, var2 : string -> string, ``ddzdz``: string list, extra) as xxx =
+
+    let pf() = xxx.Test()
+    let mutable myInternalValue = null
+
+    member xxx.Test() = "F#"
+
+    // A read-only property.
+    member __.MyReadOnlyProperty = myInternalValue
+    // A write-only property.
+    member __.MyWriteOnlyProperty with set (value) = myInternalValue <- value
+    // A read-write property.
+    member __.MyReadWriteProperty
+        with get () = myInternalValue
+        and set (value) = myInternalValue <- value
+
+    member __.ReadAndWriteWithSignature
+        with get (count : int) : string = string count
+        and set (value : int) : unit = failwith ""
+
+    member __.MyReadWriteProperty with get () = myInternalValue
+    member __.MyReadWriteProperty with set (value) = myInternalValue <- value
+
+    abstract Update : int * string * string option * obj -> FancyClass
+    default this.Update (thing:int, var2 : string, ``name with spaces``: string option, extra) = this
+
+    member val Property1 = thing
+    member val Property2 = "" with get, set
+
+// Testing for generic parameters highlighting:
+
+type Ref<'a> =
+{ mutable contents: 'a }
+
+type Bla<'a> = {X: string}
+type Blah<
+         'a
+         > = { x: 'a }
+type Blah <
+          'a
+          > = { x: 'a }
+type Bla  <'a> = {X: string}
+let inline asdf x: Bla<'a> = {X = ""}
+
+let inline asdf x: Bla<^a> = {X = ""}
+let inline asdf x: Bla< ^a > = {X = ""}
+
+let a : '``asdf``_asdf = () // This is not valid and should not be parsed as a single generic type symbol
+
+type MyType<'T when 'T : null> = ...
+type MyType<'T when 'T : unmanaged> = ...
+type MyType<'T when 'T : (member Method1 : 'T -> int)> = ...
+type MyType<'T when 'T : delegate<obj * System.EventArgs, unit>> = ...
+
+let genericSumUnits ( x : float<'u>) (y: float<'u>) = x + y
+
+let inline konst x _ = x
+
+type CFunctor() =
+    static member inline fmap (f: ^a -> ^b, a: ^a list) = List.map f a
+    static member inline fmap (f: ^a -> ^b, a: ^a option) =
+        match a with
+        | None -> None
+        | Some x -> Some (f x)
+
+    // default implementation of replace
+    static member inline replace< ^a, ^b, ^c, ^d, ^e when ^a :> CFunctor and (^a or ^d): (static member fmap: (^b -> ^c) * ^d -> ^e) > (a, f) =
+        ((^a or ^d) : (static member fmap : (^b -> ^c) * ^d -> ^e) (konst a, f))
+
+    // call overridden replace if present
+    static member inline replace< ^a, ^b, ^c when ^b: (static member replace: ^a * ^b -> ^c)>(a: ^a, f: ^b) =
+        (^b : (static member replace: ^a * ^b -> ^c) (a, f))
+
+let inline replace_instance< ^a, ^b, ^c, ^d when (^a or ^c): (static member replace: ^b * ^c -> ^d)> (a: ^b, f: ^c) =
+        ((^a or ^c): (static member replace: ^b * ^c -> ^d) (a, f))
+
+// Note the concrete type 'CFunctor' specified in the signature
+let inline replace (a: ^a) (f: ^b): ^a0 when (CFunctor or  ^b): (static member replace: ^a *  ^b ->  ^a0) =
+    replace_instance<CFunctor, _, _, _> (a, f)
+
+type DUType =
+    | CaseA
+    | CaseB of int
+    | CaseC of (int * (string * string) list)
+    | CaseD of name :string * age:int
+    | CaseE of client: Client
+    | CaseF of client: Client (*comment tests*) * (*comment tests*) string * port : int
+    | CaseG of (obj -> unit)
+    | CaseH of string * (obj -> unit)
+    // Check multiple declaration on one line
+    | CaseI of int | CaseJ of int
+    | CaseF2 of client: Client // * string * port : int
+    | FetchDomainsSuccess of Result<int list * ``type with spaces`` * int, ``type * with * spaces``>
+    | CaseK of ``var with spaces``: string
+    | CaseL of ``var with spaces``: ``type with spaces``
+    | CaseM of v1 : ``type with spaces``
+    | CaseN of ``type with spaces``

@@ -8,6 +8,7 @@ Category: enterprise
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const IDENT_RE = hljs.UNDERSCORE_IDENT_RE;
   const BUILT_IN_KEYWORDS = [
     'anytype',
     'boolean',
@@ -144,9 +145,29 @@ export default function(hljs) {
     literal: LITERAL_KEYWORDS
   };
 
+  const CLASS_DEFINITION = {
+    variants: [
+      { match: [
+        /(class|interface)\s+/,
+        IDENT_RE,
+        /\s+(extends|implements)\s+/,
+        IDENT_RE
+      ] },
+      { match: [
+        /class\s+/,
+        IDENT_RE
+      ] }
+    ],
+    scope: {
+      2: "title.class",
+      4: "title.class.inherited"
+    },
+    keywords: KEYWORDS
+  };
+
   return {
     name: 'X++',
-    aliases: ['x++'],
+    aliases: [ 'x++' ],
     keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -159,19 +180,7 @@ export default function(hljs) {
         begin: '#',
         end: '$'
       },
-      {
-        className: 'class',
-        beginKeywords: 'class interface',
-        end: /\{/,
-        excludeEnd: true,
-        illegal: ':',
-        contains: [
-          {
-            beginKeywords: 'extends implements'
-          },
-          hljs.UNDERSCORE_TITLE_MODE
-        ]
-      }
+      CLASS_DEFINITION
     ]
   };
 }

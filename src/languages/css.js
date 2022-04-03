@@ -11,9 +11,7 @@ import * as css from "./lib/css-shared.js";
 export default function(hljs) {
   const regex = hljs.regex;
   const modes = css.MODES(hljs);
-  const VENDOR_PREFIX = {
-    begin: /-(webkit|moz|ms|o)-(?=[a-z])/
-  };
+  const VENDOR_PREFIX = { begin: /-(webkit|moz|ms|o)-(?=[a-z])/ };
   const AT_MODIFIERS = "and or not only";
   const AT_PROPERTY_RE = /@-?\w[\w]*(-\w+)*/; // @-webkit-keyframes
   const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
@@ -26,14 +24,11 @@ export default function(hljs) {
     name: 'CSS',
     case_insensitive: true,
     illegal: /[=|'\$]/,
-    keywords: {
-      keyframePosition: "from to"
-    },
+    keywords: { keyframePosition: "from to" },
     classNameAliases: {
       // for visual continuity with `tag {}` and because we
       // don't have a great class for this?
-      keyframePosition: "selector-tag"
-    },
+      keyframePosition: "selector-tag" },
     contains: [
       modes.BLOCK_COMMENT,
       VENDOR_PREFIX,
@@ -54,12 +49,8 @@ export default function(hljs) {
       {
         className: 'selector-pseudo',
         variants: [
-          {
-            begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')'
-          },
-          {
-            begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'
-          }
+          { begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')' },
+          { begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' }
         ]
       },
       // we may actually need this (12/2020)
@@ -90,9 +81,7 @@ export default function(hljs) {
             begin: /(url|data-uri)\(/,
             end: /\)/,
             relevance: 0, // from keywords
-            keywords: {
-              built_in: "url data-uri"
-            },
+            keywords: { built_in: "url data-uri" },
             contains: [
               {
                 className: "string",

@@ -7,14 +7,12 @@ Category: scripting
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const BACKTICK_ESCAPE = {
-    begin: '`[\\s\\S]'
-  };
+  const BACKTICK_ESCAPE = { begin: '`[\\s\\S]' };
 
   return {
     name: 'AutoHotkey',
     case_insensitive: true,
-    aliases: ['ahk'],
+    aliases: [ 'ahk' ],
     keywords: {
       keyword: 'Break Continue Critical Exit ExitApp Gosub Goto New OnExit Pause return SetBatchLines SetTimer Suspend Thread Throw Until ahk_id ahk_class ahk_pid ahk_exe ahk_group',
       literal: 'true false NOT AND OR',
@@ -22,12 +20,8 @@ export default function(hljs) {
     },
     contains: [
       BACKTICK_ESCAPE,
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        contains: [BACKTICK_ESCAPE]
-      }),
-      hljs.COMMENT(';', '$', {
-        relevance: 0
-      }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { contains: [ BACKTICK_ESCAPE ] }),
+      hljs.COMMENT(';', '$', { relevance: 0 }),
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'number',
@@ -52,9 +46,7 @@ export default function(hljs) {
         // would fail to highlight anything
         className: 'title',
         variants: [
-          {
-            begin: '^[^\\n";]+::(?!=)'
-          },
+          { begin: '^[^\\n";]+::(?!=)' },
           {
             begin: '^[^\\n";]+:(?!=)',
             // zero relevance as it catches a lot of things
@@ -75,8 +67,7 @@ export default function(hljs) {
       },
       {
         // consecutive commas, not for highlighting but just for relevance
-        begin: ',\\s*,'
-      }
+        begin: ',\\s*,' }
     ]
   };
 }

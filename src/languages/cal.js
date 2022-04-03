@@ -7,34 +7,54 @@ Website: https://docs.microsoft.com/en-us/dynamics-nav/programming-in-c-al
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const KEYWORDS =
-    'div mod in and or not xor asserterror begin case do downto else end exit for if of repeat then to ' +
-    'until while with var';
+  const regex = hljs.regex;
+  const KEYWORDS = [
+    "div",
+    "mod",
+    "in",
+    "and",
+    "or",
+    "not",
+    "xor",
+    "asserterror",
+    "begin",
+    "case",
+    "do",
+    "downto",
+    "else",
+    "end",
+    "exit",
+    "for",
+    "local",
+    "if",
+    "of",
+    "repeat",
+    "then",
+    "to",
+    "until",
+    "while",
+    "with",
+    "var"
+  ];
   const LITERALS = 'false true';
   const COMMENT_MODES = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.COMMENT(
       /\{/,
       /\}/,
-      {
-        relevance: 0
-      }
+      { relevance: 0 }
     ),
     hljs.COMMENT(
       /\(\*/,
       /\*\)/,
-      {
-        relevance: 10
-      }
+      { relevance: 10 }
     )
   ];
   const STRING = {
     className: 'string',
     begin: /'/,
     end: /'/,
-    contains: [{
-      begin: /''/
-    }]
+    contains: [ { begin: /''/ } ]
   };
   const CHAR_STRING = {
     className: 'string',
@@ -52,12 +72,17 @@ export default function(hljs) {
   };
 
   const PROCEDURE = {
-    className: 'function',
-    beginKeywords: 'procedure',
-    end: /[:;]/,
-    keywords: 'procedure|10',
+    match: [
+      /procedure/,
+      /\s+/,
+      /[a-zA-Z_][\w@]*/,
+      /\s*/
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    },
     contains: [
-      hljs.TITLE_MODE,
       {
         className: 'params',
         begin: /\(/,
@@ -65,20 +90,49 @@ export default function(hljs) {
         keywords: KEYWORDS,
         contains: [
           STRING,
-          CHAR_STRING
+          CHAR_STRING,
+          hljs.NUMBER_MODE
         ]
-      }
-    ].concat(COMMENT_MODES)
+      },
+      ...COMMENT_MODES
+    ]
   };
 
+  const OBJECT_TYPES = [
+    "Table",
+    "Form",
+    "Report",
+    "Dataport",
+    "Codeunit",
+    "XMLport",
+    "MenuSuite",
+    "Page",
+    "Query"
+  ];
   const OBJECT = {
-    className: 'class',
-    begin: 'OBJECT (Table|Form|Report|Dataport|Codeunit|XMLport|MenuSuite|Page|Query) (\\d+) ([^\\r\\n]+)',
-    returnBegin: true,
-    contains: [
-      hljs.TITLE_MODE,
-      PROCEDURE
-    ]
+    match: [
+      /OBJECT/,
+      /\s+/,
+      regex.either(...OBJECT_TYPES),
+      /\s+/,
+      /\d+/,
+      /\s+(?=[^\s])/,
+      /.*/,
+      /$/
+    ],
+    relevance: 3,
+    scope: {
+      1: "keyword",
+      3: "type",
+      5: "number",
+      7: "title"
+    }
+  };
+
+  const PROPERTY = {
+    match: /[\w]+(?=\=)/,
+    scope: "attribute",
+    relevance: 0
   };
 
   return {
@@ -90,6 +144,7 @@ export default function(hljs) {
     },
     illegal: /\/\*/,
     contains: [
+      PROPERTY,
       STRING,
       CHAR_STRING,
       DATE,

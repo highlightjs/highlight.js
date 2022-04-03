@@ -136,12 +136,8 @@ export default function(hljs) {
   ];
   const COMMENT_MODES = [
     hljs.C_LINE_COMMENT_MODE,
-    hljs.COMMENT(/\{/, /\}/, {
-      relevance: 0
-    }),
-    hljs.COMMENT(/\(\*/, /\*\)/, {
-      relevance: 10
-    })
+    hljs.COMMENT(/\{/, /\}/, { relevance: 0 }),
+    hljs.COMMENT(/\(\*/, /\*\)/, { relevance: 10 })
   ];
   const DIRECTIVE = {
     className: 'meta',
@@ -160,9 +156,7 @@ export default function(hljs) {
     className: 'string',
     begin: /'/,
     end: /'/,
-    contains: [{
-      begin: /''/
-    }]
+    contains: [ { begin: /''/ } ]
   };
   const NUMBER = {
     className: 'number',
@@ -171,16 +165,13 @@ export default function(hljs) {
     variants: [
       {
         // Hexadecimal notation, e.g., $7F.
-        begin: '\\$[0-9A-Fa-f]+'
-      },
+        begin: '\\$[0-9A-Fa-f]+' },
       {
         // Octal notation, e.g., &42.
-        begin: '&[0-7]+'
-      },
+        begin: '&[0-7]+' },
       {
         // Binary notation, e.g., %1010.
-        begin: '%[01]+'
-      }
+        begin: '%[01]+' }
     ]
   };
   const CHAR_STRING = {
@@ -190,7 +181,7 @@ export default function(hljs) {
   const CLASS = {
     begin: hljs.IDENT_RE + '\\s*=\\s*class\\s*\\(',
     returnBegin: true,
-    contains: [hljs.TITLE_MODE]
+    contains: [ hljs.TITLE_MODE ]
   };
   const FUNCTION = {
     className: 'function',

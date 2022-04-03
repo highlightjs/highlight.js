@@ -12,8 +12,8 @@ export default function(hljs) {
   const FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
   const ERLANG_RESERVED = {
     keyword:
-      'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if ' +
-      'let not of orelse|10 query receive rem try when xor',
+      'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if '
+      + 'let not of orelse|10 query receive rem try when xor',
     literal:
       'false true'
   };
@@ -24,9 +24,7 @@ export default function(hljs) {
     begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)',
     relevance: 0
   };
-  const NAMED_FUN = {
-    begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+'
-  };
+  const NAMED_FUN = { begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+' };
   const FUNCTION_CALL = {
     begin: FUNCTION_NAME_RE + '\\(',
     end: '\\)',
@@ -87,9 +85,7 @@ export default function(hljs) {
   BLOCK_STATEMENTS.contains = [
     COMMENT,
     NAMED_FUN,
-    hljs.inherit(hljs.APOS_STRING_MODE, {
-      className: ''
-    }),
+    hljs.inherit(hljs.APOS_STRING_MODE, { className: '' }),
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
     hljs.QUOTE_STRING_MODE,
@@ -148,7 +144,7 @@ export default function(hljs) {
   };
   return {
     name: 'Erlang',
-    aliases: ['erl'],
+    aliases: [ 'erl' ],
     keywords: ERLANG_RESERVED,
     illegal: '(</|\\*=|\\+=|-=|/\\*|\\*/|\\(\\*|\\*\\))',
     contains: [
@@ -160,9 +156,7 @@ export default function(hljs) {
         illegal: '\\(|#|//|/\\*|\\\\|:|;',
         contains: [
           PARAMS,
-          hljs.inherit(hljs.TITLE_MODE, {
-            begin: BASIC_ATOM_RE
-          })
+          hljs.inherit(hljs.TITLE_MODE, { begin: BASIC_ATOM_RE })
         ],
         starts: {
           end: ';|\\.',
@@ -181,7 +175,7 @@ export default function(hljs) {
           $pattern: '-' + hljs.IDENT_RE,
           keyword: DIRECTIVES.map(x => `${x}|1.5`).join(" ")
         },
-        contains: [PARAMS]
+        contains: [ PARAMS ]
       },
       NUMBER,
       hljs.QUOTE_STRING_MODE,
@@ -189,9 +183,7 @@ export default function(hljs) {
       VAR1,
       VAR2,
       TUPLE,
-      {
-        begin: /\.$/
-      } // relevance booster
+      { begin: /\.$/ } // relevance booster
     ]
   };
 }

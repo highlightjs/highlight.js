@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?PITarget PIContent?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+Some <?Pub _font FontColor="green"?>green<?Pub /_font?> text.
+<?mso-application progid="Excel.Sheet"?>

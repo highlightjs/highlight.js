@@ -52,6 +52,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | CpcdosC+                | cpc                    | [highlightjs-cpcdos](https://github.com/SPinti-Software/highlightjs-cpcdos) |
 | Crmsh                   | crmsh, crm, pcmk       |         |
 | Crystal                 | crystal, cr            |         |
+| cURL                    | curl                   | [highlightjs-curl](https://github.com/highlightjs/highlightjs-curl) |
 | Cypher (Neo4j)          | cypher                 | [highlightjs-cypher](https://github.com/highlightjs/highlightjs-cypher) |
 | D                       | d                      |         |
 | Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
@@ -86,6 +87,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Grammatical Framework   | gf                     | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
+| GraphQL                 | graphql                |         |
 | Groovy                  | groovy                 |         |
 | GSQL                    | gsql                   | [highlightjs-gsql](https://github.com/DanBarkus/highlightjs-gsql) |
 | HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
@@ -115,6 +117,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
 | Lua                     | lua                    |         |
+| Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Makefile                | makefile, mk, mak, make |        |
 | Markdown                | markdown, md, mkdown, mkd |      |
 | Mathematica             | mathematica, mma, wl   |         |
@@ -146,6 +149,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
+| Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |

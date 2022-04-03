@@ -10,15 +10,71 @@ Category: common
 export default function(hljs) {
   const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
+  // TODO: move concepts like CAMEL_CASE into `modes.js`
+  const CLASS_NAME_RE = regex.either(
+    /\b([A-Z]+[a-z0-9]+)+/,
+    // ends in caps
+    /\b([A-Z]+[a-z0-9]+)+[A-Z]+/,
+  )
+  ;
+  const CLASS_NAME_WITH_NAMESPACE_RE = regex.concat(CLASS_NAME_RE, /(::\w+)*/)
   const RUBY_KEYWORDS = {
-    keyword:
-      'and then defined module in return redo if BEGIN retry end for self when ' +
-      'next until do begin unless END rescue else break undef not super class case ' +
-      'require yield alias while ensure elsif or include attr_reader attr_writer attr_accessor ' +
-      '__FILE__',
-    built_in: 'proc lambda',
-    literal:
-      'true false nil'
+    "variable.constant": [
+      "__FILE__",
+      "__LINE__"
+    ],
+    "variable.language": [
+      "self",
+      "super",
+    ],
+    keyword: [
+      "alias",
+      "and",
+      "attr_accessor",
+      "attr_reader",
+      "attr_writer",
+      "begin",
+      "BEGIN",
+      "break",
+      "case",
+      "class",
+      "defined",
+      "do",
+      "else",
+      "elsif",
+      "end",
+      "END",
+      "ensure",
+      "for",
+      "if",
+      "in",
+      "include",
+      "module",
+      "next",
+      "not",
+      "or",
+      "redo",
+      "require",
+      "rescue",
+      "retry",
+      "return",
+      "then",
+      "undef",
+      "unless",
+      "until",
+      "when",
+      "while",
+      "yield",
+    ],
+    built_in: [
+      "proc",
+      "lambda"
+    ],
+    literal: [
+      "true",
+      "false",
+      "nil"
+    ]
   };
   const YARDOCTAG = {
     className: 'doctag',
@@ -32,9 +88,7 @@ export default function(hljs) {
     hljs.COMMENT(
       '#',
       '$',
-      {
-        contains: [ YARDOCTAG ]
-      }
+      { contains: [ YARDOCTAG ] }
     ),
     hljs.COMMENT(
       '^=begin',
@@ -44,7 +98,7 @@ export default function(hljs) {
         relevance: 10
       }
     ),
-    hljs.COMMENT('^__END__', '\\n$')
+    hljs.COMMENT('^__END__', hljs.MATCH_NOTHING_RE)
   ];
   const SUBST = {
     className: 'subst',
@@ -105,24 +159,12 @@ export default function(hljs) {
       },
       // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
       // where ? is the last character of a preceding identifier, as in: `func?4`
-      {
-        begin: /\B\?(\\\d{1,3})/
-      },
-      {
-        begin: /\B\?(\\x[A-Fa-f0-9]{1,2})/
-      },
-      {
-        begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/
-      },
-      {
-        begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/
-      },
-      {
-        begin: /\B\?\\(c|C-)[\x20-\x7e]/
-      },
-      {
-        begin: /\B\?\\?\S/
-      },
+      { begin: /\B\?(\\\d{1,3})/ },
+      { begin: /\B\?(\\x[A-Fa-f0-9]{1,2})/ },
+      { begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/ },
+      { begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/ },
+      { begin: /\B\?\\(c|C-)[\x20-\x7e]/ },
+      { begin: /\B\?\\?\S/ },
       // heredocs
       {
         // this guard makes sure that we have an entire heredoc and not a false
@@ -155,84 +197,100 @@ export default function(hljs) {
     relevance: 0,
     variants: [
       // decimal integer/float, optionally exponential or rational, optionally imaginary
-      {
-        begin: `\\b(${decimal})(\\.(${digits}))?([eE][+-]?(${digits})|r)?i?\\b`
-      },
+      { begin: `\\b(${decimal})(\\.(${digits}))?([eE][+-]?(${digits})|r)?i?\\b` },
 
       // explicit decimal/binary/octal/hexadecimal integer,
       // optionally rational and/or imaginary
-      {
-        begin: "\\b0[dD][0-9](_?[0-9])*r?i?\\b"
-      },
-      {
-        begin: "\\b0[bB][0-1](_?[0-1])*r?i?\\b"
-      },
-      {
-        begin: "\\b0[oO][0-7](_?[0-7])*r?i?\\b"
-      },
-      {
-        begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*r?i?\\b"
-      },
+      { begin: "\\b0[dD][0-9](_?[0-9])*r?i?\\b" },
+      { begin: "\\b0[bB][0-1](_?[0-1])*r?i?\\b" },
+      { begin: "\\b0[oO][0-7](_?[0-7])*r?i?\\b" },
+      { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*r?i?\\b" },
 
       // 0-prefixed implicit octal integer, optionally rational and/or imaginary
-      {
-        begin: "\\b0(_?[0-7])+r?i?\\b"
-      }
+      { begin: "\\b0(_?[0-7])+r?i?\\b" }
     ]
   };
 
   const PARAMS = {
-    className: 'params',
-    begin: '\\(',
-    end: '\\)',
-    endsParent: true,
+    variants: [
+      {
+        match: /\(\)/,
+      },
+      {
+        className: 'params',
+        begin: /\(/,
+        end: /(?=\))/,
+        excludeBegin: true,
+        endsParent: true,
+        keywords: RUBY_KEYWORDS,
+      }
+    ]
+  };
+
+  const CLASS_DEFINITION = {
+    variants: [
+      {
+        match: [
+          /class\s+/,
+          CLASS_NAME_WITH_NAMESPACE_RE,
+          /\s+<\s+/,
+          CLASS_NAME_WITH_NAMESPACE_RE
+        ]
+      },
+      {
+        match: [
+          /class\s+/,
+          CLASS_NAME_WITH_NAMESPACE_RE
+        ]
+      }
+    ],
+    scope: {
+      2: "title.class",
+      4: "title.class.inherited"
+    },
     keywords: RUBY_KEYWORDS
+  };
+
+  const UPPER_CASE_CONSTANT = {
+    relevance: 0,
+    match: /\b[A-Z][A-Z_0-9]+\b/,
+    className: "variable.constant"
+  };
+
+  const METHOD_DEFINITION = {
+    match: [
+      /def/, /\s+/,
+      RUBY_METHOD_RE
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    },
+    contains: [
+      PARAMS
+    ]
+  };
+
+  const OBJECT_CREATION = {
+    relevance: 0,
+    match: [
+      CLASS_NAME_WITH_NAMESPACE_RE,
+      /\.new[ (]/
+    ],
+    scope: {
+      1: "title.class"
+    }
   };
 
   const RUBY_DEFAULT_CONTAINS = [
     STRING,
-    {
-      className: 'class',
-      beginKeywords: 'class module',
-      end: '$|;',
-      illegal: /=/,
-      contains: [
-        hljs.inherit(hljs.TITLE_MODE, {
-          begin: '[A-Za-z_]\\w*(::\\w+)*(\\?|!)?'
-        }),
-        {
-          begin: '<\\s*',
-          contains: [
-            {
-              begin: '(' + hljs.IDENT_RE + '::)?' + hljs.IDENT_RE,
-              // we already get points for <, we don't need poitns
-              // for the name also
-              relevance: 0
-            }
-          ]
-        }
-      ].concat(COMMENT_MODES)
-    },
-    {
-      className: 'function',
-      // def method_name(
-      // def method_name;
-      // def method_name (end of line)
-      begin: regex.concat(/def\s+/, regex.lookahead(RUBY_METHOD_RE + "\\s*(\\(|;|$)")),
-      relevance: 0, // relevance comes from kewords
-      keywords: "def",
-      end: '$|;',
-      contains: [
-        hljs.inherit(hljs.TITLE_MODE, {
-          begin: RUBY_METHOD_RE
-        }),
-        PARAMS
-      ].concat(COMMENT_MODES)
-    },
+    CLASS_DEFINITION,
+    OBJECT_CREATION,
+    UPPER_CASE_CONSTANT,
+    METHOD_DEFINITION,
     {
       // swallow namespace qualifiers before symbols
-      begin: hljs.IDENT_RE + '::'
-    },
+      begin: hljs.IDENT_RE + '::' },
     {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
@@ -243,9 +301,7 @@ export default function(hljs) {
       begin: ':(?!\\s)',
       contains: [
         STRING,
-        {
-          begin: RUBY_METHOD_RE
-        }
+        { begin: RUBY_METHOD_RE }
       ],
       relevance: 0
     },
@@ -260,6 +316,8 @@ export default function(hljs) {
       className: 'params',
       begin: /\|/,
       end: /\|/,
+      excludeBegin: true,
+      excludeEnd: true,
       relevance: 0, // this could be a lot of things (in other languages) other than params
       keywords: RUBY_KEYWORDS
     },
@@ -309,7 +367,7 @@ export default function(hljs) {
   // ?>
   const SIMPLE_PROMPT = "[>?]>";
   // irb(main):001:0>
-  const DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+>";
+  const DEFAULT_PROMPT = "[\\w#]+\\(\\w+\\):\\d+:\\d+[>*]";
   const RVM_PROMPT = "(\\w+-)?\\d+\\.\\d+\\.\\d+(p\\d+)?[^\\d][^>]+>";
 
   const IRB_DEFAULT = [
@@ -321,10 +379,11 @@ export default function(hljs) {
       }
     },
     {
-      className: 'meta',
+      className: 'meta.prompt',
       begin: '^(' + SIMPLE_PROMPT + "|" + DEFAULT_PROMPT + '|' + RVM_PROMPT + ')(?=[ ])',
       starts: {
         end: '$',
+        keywords: RUBY_KEYWORDS,
         contains: RUBY_DEFAULT_CONTAINS
       }
     }
@@ -343,11 +402,7 @@ export default function(hljs) {
     ],
     keywords: RUBY_KEYWORDS,
     illegal: /\/\*/,
-    contains: [
-      hljs.SHEBANG({
-        binary: "ruby"
-      })
-    ]
+    contains: [ hljs.SHEBANG({ binary: "ruby" }) ]
       .concat(IRB_DEFAULT)
       .concat(COMMENT_MODES)
       .concat(RUBY_DEFAULT_CONTAINS)

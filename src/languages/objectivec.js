@@ -12,11 +12,25 @@ export default function(hljs) {
     begin: '\\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\\w+'
   };
   const IDENTIFIER_RE = /[a-zA-Z@][a-zA-Z0-9_]*/;
-  const KWS = [
+  const TYPES = [
     "int",
     "float",
-    "while",
     "char",
+    "unsigned",
+    "signed",
+    "short",
+    "long",
+    "double",
+    "wchar_t",
+    "unichar",
+    "void",
+    "bool",
+    "BOOL",
+    "id|0",
+    "_Bool"
+  ];
+  const KWS = [
+    "while",
     "export",
     "sizeof",
     "typedef",
@@ -24,34 +38,25 @@ export default function(hljs) {
     "struct",
     "for",
     "union",
-    "unsigned",
-    "long",
     "volatile",
     "static",
-    "bool",
     "mutable",
     "if",
     "do",
     "return",
     "goto",
-    "void",
     "enum",
     "else",
     "break",
     "extern",
     "asm",
     "case",
-    "short",
     "default",
-    "double",
     "register",
     "explicit",
-    "signed",
     "typename",
-    "this",
     "switch",
     "continue",
-    "wchar_t",
     "inline",
     "readonly",
     "assign",
@@ -61,8 +66,6 @@ export default function(hljs) {
     "id",
     "typeof",
     "nonatomic",
-    "super",
-    "unichar",
     "IBOutlet",
     "IBAction",
     "strong",
@@ -153,7 +156,6 @@ export default function(hljs) {
     "NULL"
   ];
   const BUILT_INS = [
-    "BOOL",
     "dispatch_once_t",
     "dispatch_queue_t",
     "dispatch_sync",
@@ -161,10 +163,15 @@ export default function(hljs) {
     "dispatch_once"
   ];
   const KEYWORDS = {
+    "variable.language": [
+      "this",
+      "super"
+    ],
     $pattern: IDENTIFIER_RE,
     keyword: KWS,
     literal: LITERALS,
-    built_in: BUILT_INS
+    built_in: BUILT_INS,
+    type: TYPES
   };
   const CLASS_KEYWORDS = {
     $pattern: IDENTIFIER_RE,
@@ -208,19 +215,15 @@ export default function(hljs) {
         className: 'meta',
         begin: /#\s*[a-z]+\b/,
         end: /$/,
-        keywords: {
-          keyword:
-            'if else elif endif define undef warning error line ' +
-            'pragma ifdef ifndef include'
-        },
+        keywords: { keyword:
+            'if else elif endif define undef warning error line '
+            + 'pragma ifdef ifndef include' },
         contains: [
           {
             begin: /\\\n/,
             relevance: 0
           },
-          hljs.inherit(hljs.QUOTE_STRING_MODE, {
-            className: 'string'
-          }),
+          hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' }),
           {
             className: 'string',
             begin: /<.*?>/,

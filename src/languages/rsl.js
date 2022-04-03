@@ -7,19 +7,123 @@ Category: graphics
 */
 
 export default function(hljs) {
+  const BUILT_INS = [
+    "abs",
+    "acos",
+    "ambient",
+    "area",
+    "asin",
+    "atan",
+    "atmosphere",
+    "attribute",
+    "calculatenormal",
+    "ceil",
+    "cellnoise",
+    "clamp",
+    "comp",
+    "concat",
+    "cos",
+    "degrees",
+    "depth",
+    "Deriv",
+    "diffuse",
+    "distance",
+    "Du",
+    "Dv",
+    "environment",
+    "exp",
+    "faceforward",
+    "filterstep",
+    "floor",
+    "format",
+    "fresnel",
+    "incident",
+    "length",
+    "lightsource",
+    "log",
+    "match",
+    "max",
+    "min",
+    "mod",
+    "noise",
+    "normalize",
+    "ntransform",
+    "opposite",
+    "option",
+    "phong",
+    "pnoise",
+    "pow",
+    "printf",
+    "ptlined",
+    "radians",
+    "random",
+    "reflect",
+    "refract",
+    "renderinfo",
+    "round",
+    "setcomp",
+    "setxcomp",
+    "setycomp",
+    "setzcomp",
+    "shadow",
+    "sign",
+    "sin",
+    "smoothstep",
+    "specular",
+    "specularbrdf",
+    "spline",
+    "sqrt",
+    "step",
+    "tan",
+    "texture",
+    "textureinfo",
+    "trace",
+    "transform",
+    "vtransform",
+    "xcomp",
+    "ycomp",
+    "zcomp"
+  ];
+
+  const TYPES = [
+    "matrix",
+    "float",
+    "color",
+    "point",
+    "normal",
+    "vector"
+  ];
+
+  const KEYWORDS = [
+    "while",
+    "for",
+    "if",
+    "do",
+    "return",
+    "else",
+    "break",
+    "extern",
+    "continue"
+  ];
+
+  const CLASS_DEFINITION = {
+    match: [
+      /(surface|displacement|light|volume|imager)/,
+      /\s+/,
+      hljs.IDENT_RE,
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.class",
+    }
+  };
+
   return {
     name: 'RenderMan RSL',
     keywords: {
-      keyword:
-        'float color point normal vector matrix while for if do return else break extern continue',
-      built_in:
-        'abs acos ambient area asin atan atmosphere attribute calculatenormal ceil cellnoise ' +
-        'clamp comp concat cos degrees depth Deriv diffuse distance Du Dv environment exp ' +
-        'faceforward filterstep floor format fresnel incident length lightsource log match ' +
-        'max min mod noise normalize ntransform opposite option phong pnoise pow printf ' +
-        'ptlined radians random reflect refract renderinfo round setcomp setxcomp setycomp ' +
-        'setzcomp shadow sign sin smoothstep specular specularbrdf spline sqrt step tan ' +
-        'texture textureinfo trace transform vtransform xcomp ycomp zcomp'
+      keyword: KEYWORDS,
+      built_in: BUILT_INS,
+      type: TYPES
     },
     illegal: '</',
     contains: [
@@ -33,11 +137,7 @@ export default function(hljs) {
         begin: '#',
         end: '$'
       },
-      {
-        className: 'class',
-        beginKeywords: 'surface displacement light volume imager',
-        end: '\\('
-      },
+      CLASS_DEFINITION,
       {
         beginKeywords: 'illuminate illuminance gather',
         end: '\\('

@@ -56,14 +56,6 @@ enum Foo: string {
     case Test = 'test';
 }
 
-match ($key) {
-    1 => 'Integer 1',
-    '1' => 'String 1',
-    true => 'Bool true',
-    [] => 'Empty array',
-    [1] => 'Array [1]',
-};
-
 echo URI::ME . URI::$st1;
 
 __halt_compiler () ; datahere

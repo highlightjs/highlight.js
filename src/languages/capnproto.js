@@ -27,7 +27,7 @@ export default function(hljs) {
     "from",
     "fixed"
   ];
-  const BUILT_INS = [
+  const TYPES = [
     "Void",
     "Bool",
     "Int8",
@@ -51,12 +51,31 @@ export default function(hljs) {
     "true",
     "false"
   ];
+  const CLASS_DEFINITION = {
+    variants: [
+      { match: [
+        /(struct|enum|interface)/,
+        /\s+/,
+        hljs.IDENT_RE
+      ] },
+      { match: [
+        /extends/,
+        /\s*\(/,
+        hljs.IDENT_RE,
+        /\s*\)/
+      ] }
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.class"
+    }
+  };
   return {
     name: 'Cap’n Proto',
-    aliases: ['capnp'],
+    aliases: [ 'capnp' ],
     keywords: {
       keyword: KEYWORDS,
-      built_in: BUILT_INS,
+      type: TYPES,
       literal: LITERALS
     },
     contains: [
@@ -72,30 +91,7 @@ export default function(hljs) {
         className: 'symbol',
         begin: /@\d+\b/
       },
-      {
-        className: 'class',
-        beginKeywords: 'struct enum',
-        end: /\{/,
-        illegal: /\n/,
-        contains: [hljs.inherit(hljs.TITLE_MODE, {
-          starts: {
-            endsWithParent: true,
-            excludeEnd: true
-          } // hack: eating everything after the first title
-        })]
-      },
-      {
-        className: 'class',
-        beginKeywords: 'interface',
-        end: /\{/,
-        illegal: /\n/,
-        contains: [hljs.inherit(hljs.TITLE_MODE, {
-          starts: {
-            endsWithParent: true,
-            excludeEnd: true
-          } // hack: eating everything after the first title
-        })]
-      }
+      CLASS_DEFINITION
     ]
   };
 }

@@ -10,21 +10,15 @@ export default function(hljs) {
   // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does
   // not include such support nor can we be sure all the grammars depending
   // on it would desire this behavior
-  const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', {
-    contains: [
-      {
-        begin: /\\\n/
-      }
-    ]
-  });
+  const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', { contains: [ { begin: /\\\n/ } ] });
   const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
   const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
   const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
-  const FUNCTION_TYPE_RE = '(?!struct)(' +
-    DECLTYPE_AUTO_RE + '|' +
-    regex.optional(NAMESPACE_RE) +
-    '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE) +
-  ')';
+  const FUNCTION_TYPE_RE = '(?!struct)('
+    + DECLTYPE_AUTO_RE + '|'
+    + regex.optional(NAMESPACE_RE)
+    + '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE)
+  + ')';
 
   const CPP_PRIMITIVE_TYPES = {
     className: 'type',
@@ -58,15 +52,9 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     variants: [
-      {
-        begin: '\\b(0b[01\']+)'
-      },
-      {
-        begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)'
-      },
-      {
-        begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)'
-      }
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
     ],
     relevance: 0
   };
@@ -75,19 +63,15 @@ export default function(hljs) {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
     end: /$/,
-    keywords: {
-      keyword:
-        'if else elif endif define undef warning error line ' +
-        'pragma _Pragma ifdef ifndef include'
-    },
+    keywords: { keyword:
+        'if else elif endif define undef warning error line '
+        + 'pragma _Pragma ifdef ifndef include' },
     contains: [
       {
         begin: /\\\n/,
         relevance: 0
       },
-      hljs.inherit(STRINGS, {
-        className: 'string'
-      }),
+      hljs.inherit(STRINGS, { className: 'string' }),
       {
         className: 'string',
         begin: /<.*?>/
@@ -386,9 +370,7 @@ export default function(hljs) {
   ];
 
   // https://en.cppreference.com/w/cpp/keyword
-  const BUILT_IN = [
-    '_Pragma'
-  ];
+  const BUILT_IN = [ '_Pragma' ];
 
   const CPP_KEYWORDS = {
     type: RESERVED_TYPES,
@@ -403,8 +385,7 @@ export default function(hljs) {
     relevance: 0,
     keywords: {
       // Only for relevance, not highlighting.
-      _hint: FUNCTION_HINTS
-    },
+      _hint: FUNCTION_HINTS },
     begin: regex.concat(
       /\b/,
       /(?!decltype)/,
@@ -547,9 +528,7 @@ export default function(hljs) {
     ],
     keywords: CPP_KEYWORDS,
     illegal: '</',
-    classNameAliases: {
-      'function.dispatch': 'built_in'
-    },
+    classNameAliases: { 'function.dispatch': 'built_in' },
     contains: [].concat(
       EXPRESSION_CONTEXT,
       FUNCTION_DECLARATION,
@@ -558,7 +537,7 @@ export default function(hljs) {
       [
         PREPROCESSOR,
         { // containers: ie, `vector <int> rooms (9);`
-          begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function)\\s*<',
+          begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function)\\s*<(?!<)',
           end: '>',
           keywords: CPP_KEYWORDS,
           contains: [

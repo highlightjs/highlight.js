@@ -26,8 +26,7 @@ export default function(hljs) {
     contains: [
       {
         // double quote escape
-        begin: /""/
-      }
+        begin: /""/ }
     ]
   };
 
@@ -41,16 +40,13 @@ export default function(hljs) {
     variants: [
       {
         // #YYYY-MM-DD# (ISO-Date) or #M/D/YYYY# (US-Date)
-        begin: regex.concat(/# */, regex.either(YYYY_MM_DD, MM_DD_YYYY), / *#/)
-      },
+        begin: regex.concat(/# */, regex.either(YYYY_MM_DD, MM_DD_YYYY), / *#/) },
       {
         // #H:mm[:ss]# (24h Time)
-        begin: regex.concat(/# */, TIME_24H, / *#/)
-      },
+        begin: regex.concat(/# */, TIME_24H, / *#/) },
       {
         // #h[:mm[:ss]] A# (12h Time)
-        begin: regex.concat(/# */, TIME_12H, / *#/)
-      },
+        begin: regex.concat(/# */, TIME_12H, / *#/) },
       {
         // date plus time
         begin: regex.concat(
@@ -59,8 +55,7 @@ export default function(hljs) {
           / +/,
           regex.either(TIME_12H, TIME_24H),
           / *#/
-        )
-      }
+        ) }
     ]
   };
 
@@ -70,24 +65,19 @@ export default function(hljs) {
     variants: [
       {
         // Float
-        begin: /\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/
-      },
+        begin: /\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/ },
       {
         // Integer (base 10)
-        begin: /\b\d[\d_]*((U?[SIL])|[%&])?/
-      },
+        begin: /\b\d[\d_]*((U?[SIL])|[%&])?/ },
       {
         // Integer (base 16)
-        begin: /&H[\dA-F_]+((U?[SIL])|[%&])?/
-      },
+        begin: /&H[\dA-F_]+((U?[SIL])|[%&])?/ },
       {
         // Integer (base 8)
-        begin: /&O[0-7_]+((U?[SIL])|[%&])?/
-      },
+        begin: /&O[0-7_]+((U?[SIL])|[%&])?/ },
       {
         // Integer (base 2)
-        begin: /&B[01_]+((U?[SIL])|[%&])?/
-      }
+        begin: /&B[01_]+((U?[SIL])|[%&])?/ }
     ]
   };
 
@@ -96,37 +86,28 @@ export default function(hljs) {
     begin: /^\w+:/
   };
 
-  const DOC_COMMENT = hljs.COMMENT(/'''/, /$/, {
-    contains: [
-      {
-        className: 'doctag',
-        begin: /<\/?/,
-        end: />/
-      }
-    ]
-  });
+  const DOC_COMMENT = hljs.COMMENT(/'''/, /$/, { contains: [
+    {
+      className: 'doctag',
+      begin: /<\/?/,
+      end: />/
+    }
+  ] });
 
-  const COMMENT = hljs.COMMENT(null, /$/, {
-    variants: [
-      {
-        begin: /'/
-      },
-      {
-        // TODO: Use multi-class for leading spaces
-        begin: /([\t ]|^)REM(?=\s)/
-      }
-    ]
-  });
+  const COMMENT = hljs.COMMENT(null, /$/, { variants: [
+    { begin: /'/ },
+    {
+      // TODO: Use multi-class for leading spaces
+      begin: /([\t ]|^)REM(?=\s)/ }
+  ] });
 
   const DIRECTIVES = {
     className: 'meta',
     // TODO: Use multi-class for indentation once available
     begin: /[\t ]*#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
     end: /$/,
-    keywords: {
-      keyword:
-        'const disable else elseif enable end externalsource if region then'
-    },
+    keywords: { keyword:
+        'const disable else elseif enable end externalsource if region then' },
     contains: [ COMMENT ]
   };
 
@@ -134,27 +115,25 @@ export default function(hljs) {
     name: 'Visual Basic .NET',
     aliases: [ 'vb' ],
     case_insensitive: true,
-    classNameAliases: {
-      label: 'symbol'
-    },
+    classNameAliases: { label: 'symbol' },
     keywords: {
       keyword:
-        'addhandler alias aggregate ansi as async assembly auto binary by byref byval ' + /* a-b */
-        'call case catch class compare const continue custom declare default delegate dim distinct do ' + /* c-d */
-        'each equals else elseif end enum erase error event exit explicit finally for friend from function ' + /* e-f */
-        'get global goto group handles if implements imports in inherits interface into iterator ' + /* g-i */
-        'join key let lib loop me mid module mustinherit mustoverride mybase myclass ' + /* j-m */
-        'namespace narrowing new next notinheritable notoverridable ' + /* n */
-        'of off on operator option optional order overloads overridable overrides ' + /* o */
-        'paramarray partial preserve private property protected public ' + /* p */
-        'raiseevent readonly redim removehandler resume return ' + /* r */
-        'select set shadows shared skip static step stop structure strict sub synclock ' + /* s */
-        'take text then throw to try unicode until using when where while widening with withevents writeonly yield' /* t-y */,
+        'addhandler alias aggregate ansi as async assembly auto binary by byref byval ' /* a-b */
+        + 'call case catch class compare const continue custom declare default delegate dim distinct do ' /* c-d */
+        + 'each equals else elseif end enum erase error event exit explicit finally for friend from function ' /* e-f */
+        + 'get global goto group handles if implements imports in inherits interface into iterator ' /* g-i */
+        + 'join key let lib loop me mid module mustinherit mustoverride mybase myclass ' /* j-m */
+        + 'namespace narrowing new next notinheritable notoverridable ' /* n */
+        + 'of off on operator option optional order overloads overridable overrides ' /* o */
+        + 'paramarray partial preserve private property protected public ' /* p */
+        + 'raiseevent readonly redim removehandler resume return ' /* r */
+        + 'select set shadows shared skip static step stop structure strict sub synclock ' /* s */
+        + 'take text then throw to try unicode until using when where while widening with withevents writeonly yield' /* t-y */,
       built_in:
         // Operators https://docs.microsoft.com/dotnet/visual-basic/language-reference/operators
-        'addressof and andalso await directcast gettype getxmlnamespace is isfalse isnot istrue like mod nameof new not or orelse trycast typeof xor ' +
+        'addressof and andalso await directcast gettype getxmlnamespace is isfalse isnot istrue like mod nameof new not or orelse trycast typeof xor '
         // Type Conversion Functions https://docs.microsoft.com/dotnet/visual-basic/language-reference/functions/type-conversion-functions
-        'cbool cbyte cchar cdate cdbl cdec cint clng cobj csbyte cshort csng cstr cuint culng cushort',
+        + 'cbool cbyte cchar cdate cdbl cdec cint clng cobj csbyte cshort csng cstr cuint culng cushort',
       type:
         // Data types https://docs.microsoft.com/dotnet/visual-basic/language-reference/data-types
         'boolean byte char date decimal double integer long object sbyte short single string uinteger ulong ushort',

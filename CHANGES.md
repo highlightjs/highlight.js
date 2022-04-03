@@ -1,10 +1,94 @@
-## Version 11.3.2 (most likely)
+## Version 11.5.0
+
+Themes:
+- Added `Tokyo-Night-dark` theme [Henri Vandersleyen][]
+- Added `Tokyo-Night-light` theme [Henri Vandersleyen][]
+- Added `panda-syntax-dark` theme [Annmarie Switzer][]
+- Added `panda-syntax-light` theme [Annmarie Switzer][]
+
+New Grammars:
+
+- Added GraphQL to SUPPORTED_LANGUAGES [John Foster][]
+- Added Macaulay2 to SUPPORTED_LANGUAGES [Doug Torrance][]
 
 Grammars:
 
+- enh(ruby) lots of small Ruby cleanups/improvements [Josh Goebel][]
+- enh(objectivec) add `type` and `variable.language` scopes [Josh Goebel][]
+- enh(xml) support processing instructions (#3492) [Josh Goebel][]
+- enh(ruby ) better support multi-line IRB prompts
+- enh(bash) improved keyword `$pattern` (numbers allowed in command names) [Martin Mattel][]
+- add `meta.prompt` scope for REPL prompts, etc [Josh Goebel][]
+- fix(markdown) Handle `***Hello world***` without breaking [Josh Goebel][]
+- enh(php) add support for PHP Attributes [Wojciech Kania][]
+- fix(java) prevent false positive variable init on `else` [Josh Goebel][]
+- enh(php) named arguments [Wojciech Kania][]
+- fix(php) PHP constants [Wojciech Kania][]
+- fix(angelscript) incomplete int8, int16, int32, int64 highlighting [Melissa Geels][]
+- enh(ts) modify TypeScript-specific keywords and types list [anydonym][]
+- fix(brainfuck) fix highlighting of initial ++/-- [Christina Hanson][]
+- fix(llvm) escaping in strings and number formats [Flakebi][]
+- enh(elixir) recognize references to modules [Mark Ericksen][]
+- enh(css): add support for more properties [Nicolaos Skimas][]
+
+[Martin Mattel]: https://github.com/mmattel
+[John Foster]: https://github.com/jf990
+[Wojciech Kania]: https://github.com/wkania
+[Melissa Geels]: https://github.com/codecat
+[anydonym]: https://github.com/anydonym
+[henri Vandersleyen]: https://github.com/Vanderscycle
+[Christina Hanson]: https://github.com/LyricLy
+[Flakebi]: https://github.com/Flakebi
+[Josh Goebel]: https://github.com/joshgoebel
+[Mark Ericksen]: https://github.com/brainlid
+[Nicolaos Skimas]: https://github.com/dev-nicolaos
+[Doug Torrance]: https://github.com/d-torrance
+[Annmarie Switzer]: https://github.com/annmarie-switzer
+
+
+## Version 11.4.0
+
+New Language:
+
+- Added 3rd party Pine Script grammar to SUPPORTED_LANGUAGES [Jeylani B][]
+- Added 3rd party cURL grammar to SUPPORTED_LANGUAGES [highlightjs-curl](https://github.com/highlightjs/highlightjs-curl)
+
+Themes:
+
+- `Default` is now much closer WCAG AA (contrast) (#3402) [Josh Goebel]
+- `Dark` now meets WCAG AA (contrast) (#3402) [Josh Goebel]
+- Added `intellij-light` theme [Pegasis]
+- Added `felipec` theme [Felipe Contreras]
+
+These changes should be for the better and should not be super noticeable but if you're super picky about your colors you may want to intervene here or copy over the older themes from 11.3 or prior.
+
+Grammars:
+
+- enh(twig) update keywords list for symfony (#3453) [Matthieu Lempereur][]
+- enh(arcade) updated to ArcGIS Arcade version 1.16 [John Foster][]
+- enh(php) Left and right-side of double colon [Wojciech Kania][]
+- enh(php) add PHP constants [Wojciech Kania][]
+- enh(php) add PHP 8.1 keywords [Wojciech Kania][]
+- fix(cpp) fix `vector<<` template false positive (#3437) [Josh Goebel][]
+- enh(php) support First-class Callable Syntax (#3427) [Wojciech Kania][]
+- enh(php) support class constructor call (#3427) [Wojciech Kania][]
+- enh(php) support function invoke (#3427) [Wojciech Kania][]
+- enh(php) Switch highlighter to partially case-insensitive (#3427) [Wojciech Kania][]
+- enh(php) improve `namespace` and `use` highlighting (#3427) [Josh Goebel][]
+- enh(php) `$this` is a `variable.language` now (#3427) [Josh Goebel][]
+- enh(php) add `__COMPILER_HALT_OFFSET__` (#3427) [Josh Goebel][]
+- enh(js/ts) fix => async function title highlights (#3405) [Josh Goebel][]
+- enh(twig) update keywords list (#3415) [Matthieu Lempereur][]
+- fix(python) def, class keywords detected mid-identifier (#3381) [Josh Goebel][]
 - fix(python) Fix recognition of numeric literals followed by keywords without whitespace (#2985) [Richard Gibson][]
 - enh(swift) add SE-0290 unavailability condition (#3382) [Bradley Mackey][]
+- fix(fsharp) Highlight operators, match type names only in type annotations, support quoted identifiers, and other smaller fixes. [Melvyn Laïly][]
 - enh(java) add `sealed` and `non-sealed` keywords (#3386) [Bradley Mackey][]
+- enh(js/ts) improve `CLASS_REFERENCE` (#3411) [Josh Goebel][]
+- enh(nsis) Update defines pattern to allow `!` (#3417) [idleberg][]
+- enh(nsis) Update language strings pattern to allow `!` (#3420) [idleberg][]
+- fix(stan) Updated for Stan 2.28 and other misc. improvements (#3410)
+- enh(nsis) Update variables pattern (#3416) [idleberg][]
 - fix(clojure) Several issues with Clojure highlighting (#3397) [Björn Ebbinghaus][]
   - fix(clojure) `comment` macro catches more than it should (#3395)
   - fix(clojure) `$` in symbol breaks highlighting
@@ -14,14 +98,30 @@ Grammars:
   - enh(clojure) Add `regex` mode to regex literal
   - fix(clojure) Remove inconsistent/broken highlighting for metadata
   - enh(clojure) Add `punctuation` mode for commas.
+- fix(julia) Enable the `jldoctest` alias (#3432) [Fons van der Plas][]
 
 Developer Tools:
 
 - (chore) add gzip size compression report (#3400) [Bradley Mackey][]
 
+Themes:
+
+- Modified background color in css for Gradient Light and Gradient Dark themes [Samia Ali][]
+
+[John Foster]: https://github.com/jf990
+[Pegasis]: https://github.com/PegasisForever
+[Wojciech Kania]: https://github.com/wkania
+[Jeylani B]: https://github.com/jeyllani
 [Richard Gibson]: https://github.com/gibson042
 [Bradley Mackey]: https://github.com/bradleymackey
+[Melvyn Laïly]: https://github.com/mlaily
 [Björn Ebbinghaus]: https://github.com/MrEbbinghaus
+[Josh Goebel]: https://github.com/joshgoebel
+[Samia Ali]: https://github.com/samiaab1990
+[Matthieu Lempereur]: https://github.com/MrYamous
+[idleberg]: https://github.com/idleberg
+[Fons van der Plas]: https://github.com/fonsp
+[Felipe Contreras]: https://github.com/felipec
 
 ## Version 11.3.1
 
@@ -732,6 +832,7 @@ Parser Engine:
 
 - (fix) When ignoring a potential match highlighting can terminate early (#2649) [Josh Goebel][]
 
+
 New themes:
 
 - *Gradient Light* by [Samia Ali]()
@@ -766,7 +867,6 @@ Language Improvements:
 [idleberg]: https://github.com/idleberg
 [eytienne]: https://github.com/eytienne
 [sirosen]: https://github.com/sirosen
-
 
 ## Version 10.1.1
 

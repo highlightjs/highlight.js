@@ -290,10 +290,14 @@ export default function(hljs) {
     regex.either(
       // Hard coded exceptions
       /\bJSON/,
-      // Float32Array
-      /\b[A-Z][a-z]+([A-Z][a-z]+|\d)*/,
-      // CSSFactory
-      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+/,
+      // Float32Array, OutT
+      /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
+      // CSSFactory, CSSFactoryT
+      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*)*/,
+      // FPs, FPsT
+      /\b[A-Z]{2,}[a-z]+([A-Z][a-z]+|\d)*([A-Z][a-z]*)*/,
+      // P
+      // single letters are not highlighted
       // BLAH
       // this will be flagged as a UPPER_CASE_CONSTANT instead
     ),
@@ -406,8 +410,10 @@ export default function(hljs) {
       /const|var|let/, /\s+/,
       IDENT_RE, /\s*/,
       /=\s*/,
+      /(async\s*)?/, // async is optional
       regex.lookahead(FUNC_LEAD_IN_RE)
     ],
+    keywords: "async",
     className: {
       1: "keyword",
       3: "title.function"

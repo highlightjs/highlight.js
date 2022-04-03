@@ -437,8 +437,7 @@ export default function(hljs) {
         end: '\\w+'
       },
       { // relevance booster
-        begin: /[-=]>/
-      }
+        begin: /[-=]>/ }
     ]
   };
 }
