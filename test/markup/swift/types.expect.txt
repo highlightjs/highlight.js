@@ -33,6 +33,7 @@
 <span class="hljs-comment">// Functions</span>
 (<span class="hljs-keyword">@escaping</span> (<span class="hljs-type">String</span>) -&gt; <span class="hljs-type">Void</span>, <span class="hljs-keyword">@autoclosure</span> () -&gt; <span class="hljs-type">String</span>) -&gt; <span class="hljs-type">String</span>
 (<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>...) -&gt; <span class="hljs-keyword">some</span> <span class="hljs-type">Collection</span>
+(<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>...) -&gt; <span class="hljs-keyword">any</span> <span class="hljs-type">SomeProtocol</span>
 () <span class="hljs-keyword">throws</span> -&gt; <span class="hljs-keyword">Self</span>
 
 <span class="hljs-comment">// Generic arguments</span>

@@ -33,6 +33,7 @@ Swift.Array<Int>.Element
 // Functions
 (@escaping (String) -> Void, @autoclosure () -> String) -> String
 (Int, String...) -> some Collection
+(Int, String...) -> any SomeProtocol
 () throws -> Self
 
 // Generic arguments
