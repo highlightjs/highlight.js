@@ -1,3 +1,11 @@
+## Version 11.6.0 (maybe)
+
+Grammars:
+
+- enh(swift) add SE-0335 existential `any` (#3515) [Bradley Mackey][]
+
+[Bradley Mackey]: https://github.com/bradleymackey
+
 ## Version 11.5.0
 
 Themes:
