@@ -80,7 +80,8 @@ export default function(hljs) {
           modes.CSS_NUMBER_MODE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
-          modes.IMPORTANT
+          modes.IMPORTANT,
+          modes.FUNCTION_DISPATCH
         ]
       },
       // matching these here allows us to treat them more like regular CSS
