@@ -2,7 +2,7 @@
 
 Grammars:
 
-- enh(swift) add SE-0335 existential `any` (#3515) [Bradley Mackey][]
+- enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 
