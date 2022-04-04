@@ -73,6 +73,7 @@ export default function(hljs) {
       {
         begin: /:/,
         end: /[;}{]/,
+        relevance: 0,
         contains: [
           modes.BLOCK_COMMENT,
           VARIABLE,
