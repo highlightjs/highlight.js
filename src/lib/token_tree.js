@@ -7,8 +7,11 @@ import HTMLRenderer from './html_renderer.js';
 
 /** @returns {DataNode} */
 const newNode = (opts = {}) => {
-  return { children: [], ...opts };
-}
+  /** @type DataNode */
+  var result = { children: [] };
+  Object.assign(result, opts);
+  return result;
+};
 
 class TokenTree {
   constructor() {
@@ -31,7 +34,7 @@ class TokenTree {
   /** @param {string} scope */
   openNode(scope) {
     /** @type Node */
-    const node = newNode({scope});
+    const node = newNode({ scope });
     this.add(node);
     this.stack.push(node);
   }
