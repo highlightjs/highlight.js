@@ -1,3 +1,10 @@
+## Version 11.5.1
+
+Packaging:
+
+- (chore) explicitly set `sideEffect` for css and scss files, fixes #3504
+
+
 ## Version 11.5.0
 
 Themes:
