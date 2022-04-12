@@ -142,7 +142,7 @@ export default function(hljs) {
         end: /_{2}/
       },
       {
-        begin: /\*{2}/,
+        begin: /\*{2}(?![ ])/,
         end: /\*{2}/
       }
     ]
@@ -152,7 +152,7 @@ export default function(hljs) {
     contains: [], // defined later
     variants: [
       {
-        begin: /\*(?!\*)/,
+        begin: /\*(?![* ])/,
         end: /\*/
       },
       {
