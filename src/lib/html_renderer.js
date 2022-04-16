@@ -21,7 +21,7 @@ const SPAN_CLOSE = '</span>';
 const emitsWrappingTags = (node) => {
   // rarely we can have a sublanguage where language is undefined
   // TODO: track down why
-  return !!node.scope || (node.sublanguage && node.language) ;
+  return !!node.scope || (node.sublanguage && node.language);
 };
 
 /**
