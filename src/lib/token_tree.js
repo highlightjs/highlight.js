@@ -8,7 +8,7 @@ import HTMLRenderer from './html_renderer.js';
 /** @returns {DataNode} */
 const newNode = (opts = {}) => {
   /** @type DataNode */
-  var result = { children: [] };
+  const result = { children: [] };
   Object.assign(result, opts);
   return result;
 };
