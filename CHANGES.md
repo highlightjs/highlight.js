@@ -3,8 +3,10 @@
 Grammars:
 
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
+- enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
+[Marcus Ortiz]: https://github.com/mportiz08
 
 ## Version 11.5.0
 

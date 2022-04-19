@@ -50,6 +50,7 @@ export const keywords = [
   'defer',
   'deinit',
   'didSet', // contextual
+  'distributed',
   'do',
   'dynamic', // contextual
   'else',
