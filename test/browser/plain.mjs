@@ -1,6 +1,6 @@
 'use strict';
 
-const {newTestCase, defaultCase, buildFakeDOM } = require('./test_case')
+import {newTestCase, defaultCase, buildFakeDOM } from './test_case.mjs';
 
 describe('plain browser', function() {
 
