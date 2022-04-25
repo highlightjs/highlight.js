@@ -122,9 +122,8 @@ const HLJS = function(hljs) {
    * NEW API
    * highlight(code, {lang, ignoreIllegals})
    *
-   * @param {string} codeOrLanguageName - the language to use for highlighting
-   * @param {string | HighlightOptions} optionsOrCode - the code to highlight
-   * @param {boolean} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
+   * @param {string} code - the language to use for highlighting
+   * @param {HighlightOptions} options - the code to highlight
    *
    * @returns {HighlightResult} Result - an object that represents the result
    * @property {string} language - the language name
@@ -134,20 +133,9 @@ const HLJS = function(hljs) {
    * @property {CompiledMode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
-  function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals) {
-    let code = "";
-    let languageName = "";
-    if (typeof optionsOrCode === "object") {
-      code = codeOrLanguageName;
-      ignoreIllegals = optionsOrCode.ignoreIllegals;
-      languageName = optionsOrCode.language;
-    } else {
-      // old API
-      logger.deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
-      logger.deprecated("10.7.0", "Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277");
-      languageName = codeOrLanguageName;
-      code = optionsOrCode;
-    }
+  function highlight(code, options) {
+    let ignoreIllegals = options.ignoreIllegals;
+    const languageName = options.language;
 
     // https://github.com/highlightjs/highlight.js/issues/3149
     // eslint-disable-next-line no-undefined
