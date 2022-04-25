@@ -1,6 +1,6 @@
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 
-describe("max keyword hits", function() {
+export default function() {
   it("should count a keyword 7 times for relevance, no more", () => {
     hljs.registerLanguage('test-language', (hljs) => {
       return {
@@ -16,4 +16,4 @@ describe("max keyword hits", function() {
 
     hljs.unregisterLanguage("test-language");
   });
-});
+}

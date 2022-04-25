@@ -1,8 +1,8 @@
 'use strict';
 
-const utility = require('../utility');
+import * as utility from '../utility.js';
 
-describe('ends with parent variants', () => {
+export default function () {
   before(() => {
     const filename = utility.buildPath('fixtures', 'expect', 'endsWithParentVariants.txt'),
           testHTML = document.querySelectorAll('#ends-with-parent-variants .hljs');
@@ -16,4 +16,4 @@ describe('ends with parent variants', () => {
     actual.should.equal(this.expected);
   });
 
-});
+}

@@ -1,8 +1,8 @@
 'use strict';
 
-const utility = require('../utility');
+import * as utility from '../utility.js';
 
-describe('sub-languages', () => {
+export default function () {
   before(() => {
     this.block = document.querySelector('#sublanguages');
   });
@@ -14,4 +14,4 @@ describe('sub-languages', () => {
 
     return utility.expectedFile(filename, 'utf-8', actual);
   });
-});
+}

@@ -1,8 +1,8 @@
 'use strict';
 
-const utility = require('../utility');
+import * as utility from '../utility.js';
 
-describe('language alias', () => {
+export default function () {
   before(() => {
     const testHTML = document.querySelectorAll('#language-alias .hljs');
 
@@ -16,4 +16,4 @@ describe('language alias', () => {
 
     return utility.expectedFile(filename, 'utf-8', actual);
   });
-});
+}

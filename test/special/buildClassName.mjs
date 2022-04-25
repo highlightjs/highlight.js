@@ -1,6 +1,6 @@
 'use strict';
 
-describe('block class names',  () => {
+export default function () {
   before( () => {
     const testHTML = document.querySelectorAll('#build-classname .hljs');
 
@@ -34,4 +34,4 @@ describe('block class names',  () => {
 
     actual.should.equal(expected);
   });
-});
+}

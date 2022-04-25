@@ -1,8 +1,8 @@
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 
 // not quite ready to become a plugin yet, so these hooks
 // have been removed and we're skipping this test for now
-describe.skip("compiler extension plugins", function() {
+export default  function() {
   before(function() {
     hljs.debugMode();
     hljs.registerLanguage("extension_test", function(hljs) {
@@ -49,4 +49,4 @@ describe.skip("compiler extension plugins", function() {
       this.first.lime.should.equal(true);
     });
   });
-});
+}
