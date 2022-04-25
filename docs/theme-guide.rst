@@ -19,7 +19,7 @@ Defining a theme
 ----------------
 
 A theme is a single CSS file defining styles for the scopes listed in the
-:doc:`scopes reference </css-classes-reference>`. The general guideline is to
+:doc:`scopes reference </scope-reference>`. The general guideline is to
 style the core/common set of classes, however an author may deliberately choose
 to exclude some (for example, ``.attr`` is usually left unstyled).  Use our
 :ref:`auto-check<autocheck>` tool to provide additional guidance on this.

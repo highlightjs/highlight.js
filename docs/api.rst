@@ -62,7 +62,7 @@ or within initialization code of third-party JavaScript frameworks.
 
 The function uses language detection by default but you can specify the language
 in the ``class`` attribute of the DOM node. See the :doc:`scopes reference
-</css-classes-reference>` for all available language names and scopes.
+</scope-reference>` for all available language names and scopes.
 
 
 

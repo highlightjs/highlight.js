@@ -25,7 +25,7 @@ Highlight.js Documentation
    language-guide
    theme-guide
    mode-reference
-   css-classes-reference
+   scope-reference
    plugin-recipes
 ..   maintainers-guide
 
