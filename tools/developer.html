@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>highlight.js developer</title>
 
-  <link rel="stylesheet" href="../src/styles/default.css">
+  <link rel="stylesheet" href="../src/themes/default.css">
 
   <style>
     body { padding: 20px;
@@ -360,7 +360,7 @@
       $(".theme").change(function(e) {
         var css = e.target.value;
         var link = $("link[rel=stylesheet]")[0]
-        link.href = `../src/styles/${css}`
+        link.href = `../src/themes/${css}`
         localStorage.setItem(key_THEME, css);
       })
 
@@ -434,7 +434,7 @@
         }
 
         var link = $("link[rel=stylesheet]")[0]
-        link.href = `../src/styles/${data.theme}`
+        link.href = `../src/themes/${data.theme}`
       });
     }());
   </script>
