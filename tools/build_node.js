@@ -148,7 +148,7 @@ const CORE_FILES = [
 
 async function buildNode(options) {
   mkdir("lib/languages");
-  mkdir("styles/base16");
+  mkdir("themes/base16");
   mkdir("types");
 
 
@@ -164,18 +164,17 @@ async function buildNode(options) {
     install("./src/core.d.ts", "es/common.d.ts");
   }
 
-  log("Writing styles.");
-  // const styles = await fs.readdir("./src/styles/");
-  glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
-    const stat = fss.statSync(`./src/styles/${file}`);
+  log("Writing themes.");
+  glob.sync("**", { cwd: "./src/themes" }).forEach((file) => {
+    const stat = fss.statSync(`./src/themes/${file}`);
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `styles/${file}`, { minify: false });
-      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`, { minify: true });
+      installCleanCSS(`./src/themes/${file}`, `themes/${file}`, { minify: false });
+      installCleanCSS(`./src/themes/${file}`, `themes/${file.replace(".css", ".min.css")}`, { minify: true });
     } else {
       // images, etc.
-      install(`./src/styles/${file}`, `styles/${file}`);
+      install(`./src/themes/${file}`, `themes/${file}`);
     }
   });
 

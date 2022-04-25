@@ -33,7 +33,7 @@ async function buildCDN(options) {
   install("./README.CDN.md", "README.md");
   await installPackageJSON(options);
 
-  installStyles();
+  installThemes();
 
   // all the languages are built for the CDN and placed into `/languages`
   const languages = await getLanguages();
@@ -132,20 +132,20 @@ async function installLanguages(languages, options) {
   log("");
 }
 
-function installStyles() {
-  log("Writing style files.");
-  mkdir("styles/base16");
+function installThemes() {
+  log("Writing themes.");
+  mkdir("themes/base16");
 
-  glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
-    const stat = fss.statSync(`./src/styles/${file}`);
+  glob.sync("**", { cwd: "./src/themes" }).forEach((file) => {
+    const stat = fss.statSync(`./src/themes/${file}`);
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `styles/${file}`, { minify: false });
-      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`, { minify: true });
+      installCleanCSS(`./src/themes/${file}`, `themes/${file}`, { minify: false });
+      installCleanCSS(`./src/themes/${file}`, `themes/${file.replace(".css", ".min.css")}`, { minify: true });
     } else {
       // images, backgrounds, etc
-      install(`./src/styles/${file}`, `styles/${file}`);
+      install(`./src/themes/${file}`, `themes/${file}`);
     }
   });
 }
