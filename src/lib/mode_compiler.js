@@ -369,7 +369,7 @@ export function compileLanguage(language) {
   }
 
   // we need a null object, which inherit will guarantee
-  language.classNameAliases = inherit(language.classNameAliases || {});
+  language.scopeAliases = inherit(language.scopeAliases || {});
 
   return compileMode(/** @type Mode */ (language));
 }

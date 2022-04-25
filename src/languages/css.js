@@ -25,7 +25,7 @@ export default function(hljs) {
     case_insensitive: true,
     illegal: /[=|'\$]/,
     keywords: { keyframePosition: "from to" },
-    classNameAliases: {
+    scopeAliases: {
       // for visual continuity with `tag {}` and because we
       // don't have a great class for this?
       keyframePosition: "selector-tag" },

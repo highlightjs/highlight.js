@@ -118,7 +118,7 @@ export default function(hljs) {
       'mma',
       'wl'
     ],
-    classNameAliases: {
+    scopeAliases: {
       brace: 'punctuation',
       pattern: 'type',
       slot: 'type',

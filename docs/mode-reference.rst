@@ -68,7 +68,7 @@ aliases
 A list of additional names (besides the canonical one given by the filename) that can be used to identify a language in HTML classes and in a call to :ref:`getLanguage <getLanguage>`.
 
 
-classNameAliases
+scopeAliases
 ^^^^^^^^^^^^^^^^
 
 - **type**: object
@@ -78,7 +78,7 @@ A mapping table of any custom scope names your grammar uses and their supported 
 ::
 
   {
-    classNameAliases: {
+    scopeAliases: {
       slot: "variable",
       "message-name": "string"
     },

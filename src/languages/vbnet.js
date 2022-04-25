@@ -115,7 +115,7 @@ export default function(hljs) {
     name: 'Visual Basic .NET',
     aliases: [ 'vb' ],
     case_insensitive: true,
-    classNameAliases: { label: 'symbol' },
+    scopeAliases: { label: 'symbol' },
     keywords: {
       keyword:
         'addhandler alias aggregate ansi as async assembly auto binary by byref byval ' /* a-b */
