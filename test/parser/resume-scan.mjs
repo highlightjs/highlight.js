@@ -1,9 +1,9 @@
 'use strict';
 
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 hljs.debugMode(); // tests run in debug mode so errors are raised
 
-describe("bugs", function() {
+export default function() {
   describe("resume scan when a match is ignored", () => {
     it("should continue to highlight later matches", () => {
       const result = hljs.highlight('ImmutablePair.of(Stuff.class, "bar")', {language: 'java'});
@@ -23,4 +23,4 @@ describe("bugs", function() {
       );
     });
   });
-});
+}

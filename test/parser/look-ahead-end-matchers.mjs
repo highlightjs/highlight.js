@@ -1,6 +1,6 @@
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 
-describe("parser specifics", function () {
+export default function () {
 
   // CONTEXT: https://github.com/highlightjs/highlight.js/pull/2219
   describe("a grammar with look-ahead end matchers", () => {
@@ -28,4 +28,4 @@ describe("parser specifics", function () {
       )
     })
   })
-})
+}

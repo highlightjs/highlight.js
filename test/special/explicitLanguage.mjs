@@ -1,8 +1,8 @@
 'use strict';
 
-const utility = require('../utility');
+import * as utility from '../utility.js';
 
-describe('explicit language class', () => {
+export default function () {
   before(() => {
     const filename = utility.buildPath('fixtures', 'expect', 'explicit1.txt'),
           testHTML = document.querySelectorAll('#explicit-language .hljs');
@@ -41,4 +41,4 @@ describe('explicit language class', () => {
 
     return utility.expectedFile(filename, 'utf-8', actual);
   });
-});
+}

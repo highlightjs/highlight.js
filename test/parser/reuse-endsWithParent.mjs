@@ -1,6 +1,6 @@
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 
-describe("bugs", function () {
+export default function () {
 
   describe("modes containing 'endsWithParent'", () => {
     it("should be allowed to be reused", () => {
@@ -24,4 +24,4 @@ describe("bugs", function () {
       )
     })
   })
-})
+}

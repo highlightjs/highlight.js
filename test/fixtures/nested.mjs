@@ -1,4 +1,4 @@
-module.exports = function(hljs) {
+export default function(hljs) {
   var BODY = {
     className: 'body', endsWithParent: true
   };

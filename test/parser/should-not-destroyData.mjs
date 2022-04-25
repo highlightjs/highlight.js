@@ -1,6 +1,6 @@
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 
-describe("parser/should not destroy data", function () {
+export default function () {
 
   // CONTEXT: https://github.com/highlightjs/highlight.js/pull/2219
   describe("a grammar with a mode that makes a 0 width match", () => {
@@ -37,4 +37,4 @@ describe("parser/should not destroy data", function () {
          languageName: "test-language"})
     })
   })
-})
+}

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('no highlighting', () => {
+export default function () {
   before(() => {
     const testHTML = document.querySelectorAll('#no-highlight pre');
 
@@ -56,4 +56,4 @@ describe('no highlighting', () => {
     actual.should.equal(expected);
   });
 
-});
+}

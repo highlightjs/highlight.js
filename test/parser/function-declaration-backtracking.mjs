@@ -1,13 +1,11 @@
-'use strict';
-
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 hljs.debugMode(); // tests run in debug mode so errors are raised
 
 // While the run of type tokens in `FUNCTION_DECLARATION` was unbounded, a long
 // line of plain words took quadratic time to highlight: the engine retried the
 // function name at every token boundary of the run, at every start offset.
 // 32 KB of it took ~19s.  See #4362.
-describe("function declaration backtracking", function() {
+export default function() {
   const LANGUAGES = [
     'c',
     'cpp',
@@ -42,4 +40,4 @@ describe("function declaration backtracking", function() {
     const result = hljs.highlight(declaration, { language: 'c' });
     result.value.should.containEql('<span class="hljs-title function_">fn</span>');
   });
-});
+}
