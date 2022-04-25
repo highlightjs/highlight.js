@@ -3,9 +3,39 @@
 const fs = require("fs");
 const css = require("css");
 const wcagContrast = require("wcag-contrast");
+const { colorParsley } = require("colorparsley")
+const apcaW3 = require("apca-w3");
+global.colorParsley = colorParsley
 const Table = require('cli-table');
 const csscolors = require('css-color-names');
 require("@colors/colors");
+
+// copied from wcag-contrast
+function hexRgb(hex) {
+  hex = hex.replace(/^#/, "");
+  let alpha = 255;
+
+  if (hex.length === 8) {
+    alpha = parseInt(hex.slice(6, 8), 16);
+    hex = hex.substring(0, 6);
+  }
+
+  if (hex.length === 4) {
+    alpha = parseInt(hex.slice(3, 4).repeat(2), 16);
+    hex = hex.substring(0, 3);
+  }
+
+  if (hex.length === 3) {
+    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+  }
+
+  const num = parseInt(hex, 16);
+  const red = num >> 16;
+  const green = (num >> 8) & 255;
+  const blue = num & 255;
+
+  return [red, green, blue, alpha];
+}
 
 const CODE = {
   name: "program code",
@@ -228,6 +258,19 @@ class CSSRule {
     return ` ${this.foreground} on ${this.background}`
   }
 
+  apcaScore() {
+    const fg = [...hexRgb(this.foreground), true, "sRGB"]
+    const bg = [...hexRgb(this.background), true, "sRGB"]
+    // console.log(this.foreground, this.background)
+    // console.log(`'${this.foreground}'`, colorParsley(this.foreground))
+    // console.log(`'${this.background}'`, colorParsley(this.background))
+    const rawScore = Math.abs(apcaW3.calcAPCA(fg,bg))
+    // const rawScore = Math.abs(apcaW3.calcAPCA(this.foreground,this.background))
+    // console.log(colorParsley("#444a"))
+    // const Lc_400_weight = apcaW3.fontLookupAPCA(rawScore)[4]; 
+    return rawScore
+  }
+
   contrastRatio() {
     if (!this.foreground) return "unknown (no fg)"
     if (!this.background) return "unknown (no bg)"
@@ -242,8 +285,8 @@ function contrast_report(rules) {
   var body = new CSSRule(hljs);
   const table = new Table({
     chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
-    head: ['ratio', 'selector', 'fg', 'bg'],
-    colWidths: [7, 40, 10, 10],
+    head: ['ratio', 'apca', 'selector', 'fg', 'bg'],
+    colWidths: [7, 9, 40, 10, 10],
     style: {
       head: ['grey']
     }
@@ -254,6 +297,7 @@ function contrast_report(rules) {
     if (!color.hasColor) return;
     table.push([
       color.contrastRatio(),
+      round2(color.apcaScore()),
       rule.selectors,
       color.foreground,
       color.background
