@@ -1,12 +1,12 @@
 'use strict';
 
-const hljs = require('../../build');
-const { BFS, parseRegex, regexFor } = require('./lib/util.js');
-const { visitRegExpAST } = require('regexpp');
-const { JS, Words, NFA, CharSet } = require('refa');
-const { firstOf, underAStar, isFirstMatch, isAlwaysZeroWidth} = require('./lib/analysis.js');
-
+import hljs from "../../build/es/index.js";
 hljs.debugMode();
+
+import { BFS, parseRegex, regexFor } from './lib/util.js';
+import { visitRegExpAST }  from 'regexpp';
+import { JS, Words, NFA, CharSet } from 'refa';
+import { firstOf, underAStar, isFirstMatch, isAlwaysZeroWidth} from './lib/analysis.js';
 
 /**
  * A map for a regex pattern to whether or not it it vulnerable to exponential backtracking.
