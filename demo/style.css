@@ -31,7 +31,7 @@ pre {
 code {
   display: block;
   font-family: Consolas, Monaco, monospace;
-  font-size: 10pt;
+  font-size: 14px;
   overflow-x: auto;
   padding: 0.5em;
   scrollbar-width: thin;
@@ -61,7 +61,7 @@ aside {
   flex: 0 4 25%;
 }
 
-.styles {
+.themes {
   flex: 1 1 50%;
 }
 

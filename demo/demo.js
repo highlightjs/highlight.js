@@ -25,11 +25,11 @@ document.querySelectorAll(".categories li a").forEach((category) => {
   });
 });
 
-document.querySelectorAll(".styles li a").forEach((style) => {
+document.querySelectorAll(".themes li a").forEach((style) => {
   style.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const current = document.querySelector(".styles .current");
+    const current = document.querySelector(".themes .current");
     const currentStyle = current.textContent;
     const nextStyle = event.target.textContent;
 
