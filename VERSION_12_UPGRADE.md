@@ -27,6 +27,29 @@ Themes may include changes to improve accessibility (increase contrast).  If you
 TODO: complete
 
 
+### The older `highlight` API that was deprecated with 10.7 is no longer supported
+
+```js
+// The older v10 API
+highlight(language, code, ignore_illegals) {
+
+// The new API takes an options object literal to pass options
+highlight(code, { language, ignoreIllegals}) {
+```
+
+Your code before might have looked like:
+
+```js
+result = highlight("vbscript","your code goes here", true)
+```
+
+Where as the new API would require:
+
+```js
+result = highlight("your code goes here", 
+  {language: "vbscript", ignoreIllegals: true })
+```
+
 ### Grammar: `classNameAliases` => `scopeAliases`
 
 For clarity: `classNameAliases` key has been renamed to `scopeAliases`.  If you wish your grammar to continue to support both v11 and v12, you may as a work-around include both keys:
