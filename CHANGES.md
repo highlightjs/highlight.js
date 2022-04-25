@@ -2805,7 +2805,7 @@ Miscellaneous improvements:
 
 [API reference]: http://highlightjs.readthedocs.org/en/latest/api.html
 
-[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
+[cr]: http://highlightjs.readthedocs.org/en/latest/scope-reference.html
 [api docs]: http://highlightjs.readthedocs.org/en/latest/api.html
 [variants]: https://groups.google.com/d/topic/highlightjs/VoGC9-1p5vk/discussion
 [beginKeywords]: https://github.com/isagalaev/highlight.js/commit/6c7fdea002eb3949577a85b3f7930137c7c3038d

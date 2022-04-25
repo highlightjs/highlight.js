@@ -197,7 +197,7 @@ A classic example is an escaping sequence inside strings allowing them to contai
 For such modes, the ``scope`` attribute should be omitted so they won't generate excessive markup.
 
 For a list of all supported scope names please see the :doc:`Scopes Reference
-</css-classes-reference>`.
+</scope-reference>`.
 
 
 Mode attributes

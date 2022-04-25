@@ -93,7 +93,7 @@ A mapping table of any custom scope names your grammar uses and their supported 
 The final HTML output will render slots with a CSS class of ``hljs-variable``.  This feature exists to make it easier for grammar maintainers to think in their own language when maintaining a grammar.
 
 For a list of all supported scope names please see the :doc:`Scopes Reference
-</css-classes-reference>`.
+</scope-reference>`.
 
 
 disableAutodetect
@@ -231,7 +231,7 @@ for one thing like string in single or double quotes.
   }
 
 
-See :doc:`scopes reference</css-classes-reference>` for details on scopes and CSS classes.
+See :doc:`scopes reference</scope-reference>` for details on scopes and CSS classes.
 
 begin
 ^^^^^

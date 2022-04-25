@@ -510,7 +510,7 @@ Further in-depth documentation for the API and other topics is at
 A list of the Core Team and contributors can be found in the [CONTRIBUTORS.md][8] file.
 
 [1]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightall
-[2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
+[2]: http://highlightjs.readthedocs.io/en/latest/scope-reference.html
 [3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightelement
 [4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure
 [5]: https://highlightjs.org/download/
