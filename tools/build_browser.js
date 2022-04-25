@@ -91,7 +91,7 @@ async function buildBrowser(options) {
 async function installDemo(languages, { minify }) {
   log("Writing demo files.");
   mkdir("demo");
-  installDemoStyles();
+  installDemoThemes();
 
   const assets = await glob("./demo/*.{js,css}");
   assets.forEach((file) => install(file));
@@ -140,17 +140,17 @@ async function renderIndex(languages, minify) {
     return name;
   }
 
-  const css = await glob("styles/**/*.css", { cwd: "./src" });
-  let styles = css
+  const css = await glob("themes/**/*.css", { cwd: "./src" });
+  let themes = css
     .map((el) => ({ name: nameForStyle(el), path: el }))
-    .filter((style) => style.name !== "Default");
-  styles = sortByKey(styles, "name");
+    .filter((theme) => theme.name !== "Default");
+  themes = sortByKey(themes, "name");
 
   renderTemplate("./demo/index.html", "./demo/index.html", {
     categories,
     languages,
     minify,
-    styles
+    themes
   });
 }
 
@@ -162,20 +162,20 @@ async function installDocs() {
   docs.forEach((file) => install(file));
 }
 
-function installDemoStyles() {
-  log("Writing style files.");
-  mkdir("demo/styles");
-  mkdir("demo/styles/base16");
+function installDemoThemes() {
+  log("Writing theme files.");
+  mkdir("demo/themes");
+  mkdir("demo/themes/base16");
 
-  glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
-    const stat = fss.statSync(`./src/styles/${file}`);
+  glob.sync("**", { cwd: "./src/themes" }).forEach((file) => {
+    const stat = fss.statSync(`./src/themes/${file}`);
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
+      installCleanCSS(`./src/themes/${file}`, `demo/themes/${file}`);
     } else {
       // images, backgrounds, etc
-      install(`./src/styles/${file}`, `demo/styles/${file}`);
+      install(`./src/themes/${file}`, `demo/themes/${file}`);
     }
   });
 }

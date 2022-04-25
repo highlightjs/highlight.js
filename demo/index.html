@@ -7,8 +7,8 @@
   <link rel="shortcut icon" type="image/png" href="https://highlightjs.org/static/favicon.png">
   <link rel="stylesheet" href="style.css">
 
-  <link rel="stylesheet" title="Default" href="styles/default.css">
-  <% styles.forEach(({ name, path }) => {%>
+  <link rel="stylesheet" title="Default" href="themes/default.css">
+  <% themes.forEach(({ name, path }) => {%>
   <link rel="alternate stylesheet" title="<%= name %>" href="<%= path %>" disabled="disabled">
   <% }); %>
 
@@ -27,9 +27,9 @@
       <% }); %>
     </ul>
     <h2>Themes</h2>
-    <ul class="styles">
+    <ul class="themes">
       <li><a class="current" href="#default">Default</a></li>
-      <% styles.forEach(({name}) => {%>
+      <% themes.forEach(({name}) => {%>
       <li><a href="#<%= name %>"><%= name %></a></li>
       <% }); %>
     </ul>
