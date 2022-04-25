@@ -15,4 +15,5 @@ describe('hljs', function() {
   require('./starters');
   require('./underscoreIdent');
   require('./multiClassMatch');
+  require('./normalizeLineEncoding');
 });

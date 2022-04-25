@@ -162,6 +162,8 @@ const HLJS = function(hljs) {
     // just be changing the object it was passed
     fire("before:highlight", context);
 
+    context.code = context.code.replace(/\r\n/g,"\n");
+
     // a before plugin can usurp the result completely by providing it's own
     // in which case we don't even need to call highlight
     const result = context.result
@@ -684,8 +686,9 @@ const HLJS = function(hljs) {
   */
   function highlightAuto(code, languageSubset) {
     languageSubset = languageSubset || options.languages || Object.keys(languages);
-    const plaintext = justTextHighlightResult(code);
+    code = code.replace(/\r\n/g,"\n");
 
+    const plaintext = justTextHighlightResult(code);
     const results = languageSubset.filter(getLanguage).filter(autoDetection).map(name =>
       _highlight(name, code, false)
     );
