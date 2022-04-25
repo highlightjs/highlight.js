@@ -6,6 +6,7 @@ import reuseEndsWithParent from './reuse-endsWithParent.mjs';
 import shouldNotDestroyData from './should-not-destroyData.mjs';
 import compilerExtensions from './compiler-extensions.mjs';
 import maxKeywordHits from './max_keyword_hits.mjs';
+import beginEndScope from './beginEndScope.mjs';
 
 describe('hljs', function() {
   describe('look-ahead end matchers', lookAheadEndMatchers.bind(this));
@@ -16,4 +17,5 @@ describe('hljs', function() {
   // have been removed and we're skipping this test for now
   describe.skip('compiler extensions', compilerExtensions.bind(this));
   describe('max keyword hits', maxKeywordHits.bind(this));
+  describe('beginScope and endScope', beginEndScope.bind(this));
 });

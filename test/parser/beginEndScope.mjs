@@ -1,9 +1,9 @@
 'use strict';
 
-const hljs = require('../../build');
+import hljs from "../../build/es/index.js";
 hljs.debugMode();
 
-describe('beginScope and endScope', () => {
+export default function() {
   before(() => {
     const grammar = function() {
       return {
@@ -69,4 +69,4 @@ describe('beginScope and endScope', () => {
     result.value.should.equal(`<span class="hljs-letters">abc</span><span class="hljs-more">def</span>`);
   });
 
-});
+}
