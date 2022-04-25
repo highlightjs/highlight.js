@@ -224,7 +224,7 @@ const HLJS = function(hljs) {
             // by applying a class name
             buf += match[0];
           } else {
-            const cssClass = language.classNameAliases[kind] || kind;
+            const cssClass = language.scopeAliases[kind] || kind;
             emitKeyword(match[0], cssClass);
           }
         } else {
@@ -293,7 +293,7 @@ const HLJS = function(hljs) {
       const max = match.length - 1;
       while (i <= max) {
         if (!scope._emit[i]) { i++; continue; }
-        const klass = language.classNameAliases[scope[i]] || scope[i];
+        const klass = language.scopeAliases[scope[i]] || scope[i];
         const text = match[i];
         if (klass) {
           emitKeyword(text, klass);
@@ -312,12 +312,12 @@ const HLJS = function(hljs) {
      */
     function startNewMode(mode, match) {
       if (mode.scope && typeof mode.scope === "string") {
-        emitter.openNode(language.classNameAliases[mode.scope] || mode.scope);
+        emitter.openNode(language.scopeAliases[mode.scope] || mode.scope);
       }
       if (mode.beginScope) {
         // beginScope just wraps the begin match itself in a scope
         if (mode.beginScope._wrap) {
-          emitKeyword(modeBuffer, language.classNameAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
+          emitKeyword(modeBuffer, language.scopeAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
           modeBuffer = "";
         } else if (mode.beginScope._multi) {
           // at this point modeBuffer should just be the match

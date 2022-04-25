@@ -519,7 +519,7 @@ export default function(hljs) {
     ],
     keywords: ALL_KEYWORDS,
     illegal: /\/\*/,
-    classNameAliases: {
+    scopeAliases: {
       'computation-expression': 'keyword'
     },
     contains: [

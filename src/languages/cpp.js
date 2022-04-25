@@ -565,7 +565,7 @@ export default function(hljs) {
     ],
     keywords: CPP_KEYWORDS,
     illegal: '</',
-    classNameAliases: { 'function.dispatch': 'built_in' },
+    scopeAliases: { 'function.dispatch': 'built_in' },
     contains: [].concat(
       EXPRESSION_CONTEXT,
       FUNCTION_DECLARATION,
