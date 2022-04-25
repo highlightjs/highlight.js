@@ -1,26 +1,26 @@
 'use strict';
 
-const hljs = require('../build');
+import hljs from "../build/es/index.js";
 hljs.debugMode(); // tests run in debug mode so errors are raised
 
 // Tests specific to the API exposed inside the hljs object.
 // Right now, that only includes tests for several common regular expressions.
-require('./api');
+import './api/index.mjs';
 
 // Test weird bugs we've fixed over time
-require("./parser");
+import "./parser/index.mjs";
 
 // Tests for auto detection of languages via `highlightAuto`.
-require('./detect');
+import './detect/index.mjs';
 
 // HTML markup tests for particular languages. Usually when there is an
 // incorrect highlighting of one language, once the bug get fixed, the
 // expected markup will be added into the `test/markup` folder to keep
 // theses highlighting errors from cropping up again.
-require('./markup');
+import './markup/index.mjs';
 
 // check regex for fatal issues like exponential backtracking, etc
-require('./regex');
+import './regex/index.mjs';
 
 // Tests meant for the browser only. Using the `test/fixtures/index.html` file
 // along with `jsdom` these tests check for things like: custom markup already
@@ -28,4 +28,4 @@ require('./regex');
 // and several other cases. Do note that the `test/fixtures/index.html` file
 // isn't actually used to test inside a browser but `jsdom` acts as a virtual
 // browser inside of node.js and runs together with all the other tests.
-require('./special');
+import './special/index.mjs';
