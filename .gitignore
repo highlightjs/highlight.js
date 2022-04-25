@@ -10,7 +10,7 @@ extra/
 
 # play stuff
 quick*
-test*.*
+/test*.*
 extra*
 
 # editors
