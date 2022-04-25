@@ -25,6 +25,10 @@ export default function() {
       hljs.registerLanguage("test", grammar);
       hljs.registerLanguage("has-followup", grammarWithFollowupRule);
     });
+    after( () => {
+      hljs.unregisterLanguage("test");
+      hljs.unregisterLanguage("has-followup");
+    })
 
     it("should allow subsequence matches to still succeed", () => {
       let content = "A.class = self";
