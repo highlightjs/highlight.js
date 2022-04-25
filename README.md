@@ -59,9 +59,9 @@ detection.
 
 ---
 
-#### Upgrading to Version 11
+#### Upgrading to Version 12
 
-As always, major releases do contain breaking changes which may require action from users.  Please read [VERSION_11_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_11_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
+As always, major releases do contain breaking changes which may require action from users.  Please read [VERSION_12_UPGRADE.md](https://github.com/highlightjs/highlight.js/blob/main/VERSION_12_UPGRADE.md) for a detailed summary of breaking changes and any actions you may need to take.
 
 
 #### Support for older versions <!-- omit in toc -->
