@@ -109,7 +109,7 @@ export default function(hljs) {
              + 'DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR'
   };
 
-  const AT_COMMENT_MODE = hljs.COMMENT('@', '@');
+  const AT_COMMENT_MODE = hljs.COMMENT('@', '@', { relevance: "low" });
 
   const PREPROCESSOR =
   {
@@ -125,7 +125,6 @@ export default function(hljs) {
       {
         beginKeywords: 'include',
         end: '$',
-        keywords: { keyword: 'include' },
         contains: [
           {
             className: 'string',
@@ -180,7 +179,7 @@ export default function(hljs) {
 
   const FUNCTION_DEF =
   {
-    className: "title",
+    className: "title.function",
     begin: hljs.UNDERSCORE_IDENT_RE,
     relevance: 0
   };
@@ -188,7 +187,6 @@ export default function(hljs) {
   const DEFINITION = function(beginKeywords, end, inherits) {
     const mode = hljs.inherit(
       {
-        className: "function",
         beginKeywords: beginKeywords,
         end: end,
         excludeEnd: true,
@@ -206,6 +204,7 @@ export default function(hljs) {
   const BUILT_IN_REF =
   { // these are explicitly named internal function calls
     className: 'built_in',
+    relevance: "keyword",
     begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b'
   };
 
@@ -214,8 +213,7 @@ export default function(hljs) {
     className: 'string',
     begin: '"',
     end: '"',
-    contains: [ hljs.BACKSLASH_ESCAPE ],
-    relevance: 0
+    contains: [ hljs.BACKSLASH_ESCAPE ]
   };
 
   const FUNCTION_REF =
@@ -274,6 +272,7 @@ export default function(hljs) {
       PREPROCESSOR,
       {
         className: 'keyword',
+        relevance: "keyword",
         begin: /\bexternal (matrix|string|array|sparse matrix|struct|proc|keyword|fn)/
       },
       DEFINITION('proc keyword', ';'),

@@ -98,6 +98,7 @@ export default function(hljs) {
           /\s+/,
           PKG_NAME_RE
         ],
+        relevance: "keyword",
         className: {
           1: "keyword",
           3: "title.class"
@@ -109,6 +110,7 @@ export default function(hljs) {
           /\s+/,
           IDENT_RE
         ],
+        relevance: "keyword",
         className: {
           1: "keyword",
           3: "title.class"

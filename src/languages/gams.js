@@ -161,12 +161,11 @@ export default function(hljs) {
       },
       // Function definitions
       {
-        className: 'function',
         begin: /^[a-z][a-z0-9_,\-+' ()$]+\.{2}/,
         returnBegin: true,
         contains: [
-          { // Function title
-            className: 'title',
+          { 
+            className: 'title.function',
             begin: /^[a-z0-9_]+/
           },
           PARAMS,

@@ -13,7 +13,7 @@ export default function(hljs) {
       {
         className: 'attribute',
         match: '^dn(?=:)',
-        relevance: 9
+        relevance: "important!"
       },
       {
         className: 'attribute',

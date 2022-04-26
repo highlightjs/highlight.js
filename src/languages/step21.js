@@ -19,12 +19,12 @@ export default function(hljs) {
   const STEP21_START = {
     className: 'meta',
     begin: /^ISO-10303-21;/,
-    relevance: 9
+    relevance: "important!"
   };
   const STEP21_CLOSE = {
     className: 'meta',
     begin: /^END-ISO-10303-21;/,
-    relevance: 9
+    relevance: "important!"
   };
 
   return {

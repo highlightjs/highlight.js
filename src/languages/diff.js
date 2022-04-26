@@ -15,7 +15,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta',
-        relevance: 9,
+        relevance: "important!",
         match: regex.either(
           /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/,
           /^\*\*\* +\d+,\d+ +\*\*\*\*$/,
@@ -35,6 +35,7 @@ export default function(hljs) {
               /^\+{3}/,
               /^diff --git/
             ),
+            relevance: "minor",
             end: /$/
           },
           { match: /^\*{15}$/ }
@@ -42,16 +43,19 @@ export default function(hljs) {
       },
       {
         className: 'addition',
+        relevance: "minor",
         begin: /^\+/,
         end: /$/
       },
       {
         className: 'deletion',
+        relevance: "minor",
         begin: /^-/,
         end: /$/
       },
       {
         className: 'addition',
+        relevance: "minor",
         begin: /^!/,
         end: /$/
       }

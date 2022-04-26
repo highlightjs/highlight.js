@@ -67,6 +67,7 @@ export default function(hljs) {
       /\s+/,
       /\$[^\s)]+/
     ],
+    relevance: "keyword",
     className: {
       1: "keyword",
       3: "title.function"
@@ -94,11 +95,13 @@ export default function(hljs) {
   const TYPE = {
     // look-ahead prevents us from gobbling up opcodes
     match: /(i32|i64|f32|f64)(?!\.)/,
+    relevance: "keyword",
     className: "type"
   };
 
   const MATH_OPERATIONS = {
     className: "keyword",
+    relevance: "keyword",
     // borrowed from Prism, TODO: split out into variants
     match: /\b(f32|f64|i32|i64)(?:\.(?:abs|add|and|ceil|clz|const|convert_[su]\/i(?:32|64)|copysign|ctz|demote\/f64|div(?:_[su])?|eqz?|extend_[su]\/i32|floor|ge(?:_[su])?|gt(?:_[su])?|le(?:_[su])?|load(?:(?:8|16|32)_[su])?|lt(?:_[su])?|max|min|mul|nearest|neg?|or|popcnt|promote\/f32|reinterpret\/[fi](?:32|64)|rem_[su]|rot[lr]|shl|shr_[su]|store(?:8|16|32)?|sqrt|sub|trunc(?:_[su]\/f(?:32|64))?|wrap\/i64|xor))\b/
   };
@@ -109,6 +112,7 @@ export default function(hljs) {
       /\s*/,
       /=/
     ],
+    relevance: "keyword",
     className: {
       1: "keyword",
       3: "operator"
