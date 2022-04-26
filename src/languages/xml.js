@@ -87,6 +87,7 @@ export default function(hljs) {
       'svg'
     ],
     case_insensitive: true,
+    unicodeRegex: true,
     contains: [
       {
         className: 'meta',
