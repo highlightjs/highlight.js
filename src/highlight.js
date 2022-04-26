@@ -399,6 +399,11 @@ const HLJS = function(hljs) {
           modeBuffer = lexeme;
         }
       }
+      // modes that return to the beginning then are matched by other
+      // rules will technically never end, so we need to credit them upfront
+      if (newMode.returnBegin && newMode.relevance) {
+        relevance += newMode.relevance;
+      }
       startNewMode(newMode, match);
       return newMode.returnBegin ? 0 : lexeme.length;
     }
@@ -437,8 +442,8 @@ const HLJS = function(hljs) {
         if (top.scope) {
           emitter.closeNode();
         }
-        if (!top.skip && !top.subLanguage) {
-          relevance += top.relevance;
+        if (!top.skip) {
+          if (top.relevance) relevance += top.relevance;
         }
         top = top.parent;
       } while (top !== endMode.parent);

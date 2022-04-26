@@ -68,7 +68,7 @@ export default function(hljs) {
     + ' ellipse elliptic_e elliptic_ec elliptic_eu elliptic_f elliptic_kc elliptic_pi'
     + ' ematrix empty_graph emptyp endcons entermatrix entertensor entier equal equalp'
     + ' equiv_classes erf erfc erf_generalized erfi errcatch error errormsg errors'
-    + ' euler ev eval_string evenp every evolution evolution2d evundiff example exp'
+    + ' euler ev eval_string evenp every evolution evolution2d evundiff example|0 exp'
     + ' expand expandwrt expandwrt_factored expint expintegral_chi expintegral_ci'
     + ' expintegral_e expintegral_e1 expintegral_ei expintegral_e_simplify expintegral_li'
     + ' expintegral_shi expintegral_si explicit explose exponentialize express expt'

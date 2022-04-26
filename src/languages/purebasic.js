@@ -51,6 +51,7 @@ export default function(hljs) {
 
       { // PROCEDURES DEFINITIONS
         className: 'function',
+        relevance: 1,
         begin: '\\b(Procedure|Declare)(C|CDLL|DLL)?\\b',
         end: '\\(',
         excludeEnd: true,

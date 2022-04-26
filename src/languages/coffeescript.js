@@ -210,11 +210,11 @@ export default function(hljs) {
       },
       CLASS_DEFINITION,
       {
-        begin: JS_IDENT_RE + ':',
-        end: ':',
-        returnBegin: true,
-        returnEnd: true,
-        relevance: 0
+        relevance: 1,
+        match: /constructor(?=:)/
+      },
+      {
+        match: JS_IDENT_RE + '(?=:)',
       }
     ]
   };

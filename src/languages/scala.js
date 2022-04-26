@@ -52,7 +52,7 @@ export default function(hljs) {
         begin: '[a-z]+"""',
         end: '"""',
         contains: [ SUBST ],
-        relevance: 10
+        relevance: 2
       }
     ]
 
@@ -79,8 +79,7 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
-        beginKeywords: 'extends with',
-        relevance: 10
+        beginKeywords: 'extends with'
       },
       {
         begin: /\[/,
