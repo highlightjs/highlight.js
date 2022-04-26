@@ -163,7 +163,7 @@ export default function(hljs) {
     className: 'string',
     begin: '[rq]"',
     end: '"[cwd]?',
-    relevance: 5
+    relevance: 1
   };
 
   /**
@@ -185,7 +185,7 @@ export default function(hljs) {
   const D_HEX_STRING_MODE = {
     className: 'string',
     begin: 'x"[\\da-fA-F\\s\\n\\r]*"[cwd]?',
-    relevance: 10
+    relevance: 1
   };
 
   /**
@@ -242,8 +242,7 @@ export default function(hljs) {
     '\\/\\+',
     '\\+\\/',
     {
-      contains: [ 'self' ],
-      relevance: 10
+      contains: [ 'self' ]
     }
   );
 

@@ -215,13 +215,11 @@ export default function(hljs) {
       },
       {
         begin: /([uU]|[rR])'/,
-        end: /'/,
-        relevance: 10
+        end: /'/
       },
       {
         begin: /([uU]|[rR])"/,
-        end: /"/,
-        relevance: 10
+        end: /"/
       },
       {
         begin: /([bB]|[bB][rR]|[rR][bB])'/,

@@ -94,7 +94,7 @@ export default function(hljs) {
         className: 'meta',
         begin: /<![a-z]/,
         end: />/,
-        relevance: 10,
+        relevance: 5,
         contains: [
           XML_META_KEYWORDS,
           QUOTE_META_STRING_MODE,
@@ -122,12 +122,12 @@ export default function(hljs) {
       hljs.COMMENT(
         /<!--/,
         /-->/,
-        { relevance: 10 }
+        { relevance: 5 }
       ),
       {
         begin: /<!\[CDATA\[/,
         end: /\]\]>/,
-        relevance: 10
+        relevance: 5
       },
       XML_ENTITIES,
       // xml processing instructions
@@ -137,7 +137,7 @@ export default function(hljs) {
         variants: [
           {
             begin: /<\?xml/,
-            relevance: 10,
+            relevance: 5,
             contains: [
               QUOTE_META_STRING_MODE
             ]

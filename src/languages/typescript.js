@@ -51,7 +51,7 @@ export default function(hljs) {
   };
   const USE_STRICT = {
     className: 'meta',
-    relevance: 10,
+    relevance: 9,
     begin: /^\s*['"]use strict['"]/
   };
   const TS_SPECIFIC_KEYWORDS = [

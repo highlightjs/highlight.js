@@ -374,7 +374,7 @@ export default function(hljs) {
       {
         // className: 'built_in',
         begin: /\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b/,
-        relevance: 10
+        relevance: 9
       },
       // extract
       {
@@ -457,8 +457,7 @@ export default function(hljs) {
         className: 'string',
         begin: '(e|E|u&|U&)\'',
         end: '\'',
-        contains: [ { begin: '\\\\.' } ],
-        relevance: 10
+        contains: [ { begin: '\\\\.' } ]
       },
       hljs.END_SAME_AS_BEGIN({
         begin: DOLLAR_STRING,
@@ -504,7 +503,7 @@ export default function(hljs) {
         variants: [
           { // %TYPE, %ROWTYPE
             begin: '%(ROW)?TYPE',
-            relevance: 10
+            relevance: 1
           },
           { // $n
             begin: '\\$\\d+' },
@@ -517,8 +516,7 @@ export default function(hljs) {
       // <<labeles>>
       {
         className: 'symbol',
-        begin: LABEL,
-        relevance: 10
+        begin: LABEL
       }
     ]
   };

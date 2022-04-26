@@ -541,8 +541,7 @@ export default function(hljs) {
         begin: /^=/,
         end: /[^=]/,
         returnEnd: true,
-        illegal: /=/, /* only allow single equal sign at front of line */
-        relevance: 10
+        illegal: /=/ /* only allow single equal sign at front of line */
       },
       /* technically, there can be more than 2 letters in column names, but this prevents conflict with some keywords */
       {

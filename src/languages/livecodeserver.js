@@ -154,7 +154,7 @@ export default function(hljs) {
         variants: [
           {
             begin: '<\\?(rev|lc|livecode)',
-            relevance: 10
+            relevance: 9
           },
           { begin: '<\\?' },
           { begin: '\\?>' }

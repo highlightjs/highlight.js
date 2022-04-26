@@ -35,18 +35,15 @@ export default function(hljs) {
     contains: [
       {
         className: 'keyword',
-        begin: '^dsconfig',
-        end: /\s/,
-        excludeEnd: true,
-        relevance: 10
+        begin: /^dsconfig(?=\s)/,
+        relevance: 9
       },
       {
         className: 'built_in',
         begin: /(list|create|get|set|delete)-(\w+)/,
-        end: /\s/,
-        excludeEnd: true,
+        end: /(?=\s)/,
         illegal: '!@#$%^&*()',
-        relevance: 10
+        relevance: 1
       },
       {
         className: 'built_in',

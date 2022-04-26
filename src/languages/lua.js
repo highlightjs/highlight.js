@@ -21,7 +21,7 @@ export default function(hljs) {
       CLOSING_LONG_BRACKET,
       {
         contains: [ LONG_BRACKETS ],
-        relevance: 10
+        relevance: 2
       }
     )
   ];

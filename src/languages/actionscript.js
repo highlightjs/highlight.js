@@ -17,9 +17,7 @@ export default function(hljs) {
 
   const AS3_REST_ARG_MODE = {
     className: 'rest_arg',
-    begin: /[.]{3}/,
-    end: IDENT_RE,
-    relevance: 10
+    match: regex.concat(/[.]{3}\s*/, IDENT_RE)
   };
 
   const KEYWORDS = [
