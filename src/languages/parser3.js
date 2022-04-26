@@ -22,14 +22,14 @@ export default function(hljs) {
         /\^rem\{/,
         /\}/,
         {
-          relevance: 10,
+          relevance: 1.5,
           contains: [ CURLY_SUBCOMMENT ]
         }
       ),
       {
         className: 'meta',
         begin: '^@(?:BASE|USE|CLASS|OPTIONS)$',
-        relevance: 10
+        relevance: 5
       },
       {
         className: 'title',

@@ -293,7 +293,7 @@ export default function(_hljs) {
     className: 'comment',
     begin: /\(:/,
     end: /:\)/,
-    relevance: 10,
+    relevance: 2,
     contains: [
       {
         className: 'doctag',

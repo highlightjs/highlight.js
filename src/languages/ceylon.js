@@ -86,7 +86,8 @@ export default function(hljs) {
     begin: /``/,
     end: /``/,
     keywords: KEYWORDS,
-    relevance: 10
+    // this has a bit of a signal given that it's scope to inside of a string
+    relevance: 0.5
   };
   const EXPRESSIONS = [
     {

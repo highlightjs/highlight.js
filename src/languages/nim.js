@@ -150,7 +150,7 @@ export default function(hljs) {
         className: 'meta', // Actually pragma
         begin: /\{\./,
         end: /\.\}/,
-        relevance: 10
+        relevance: 1
       },
       {
         className: 'string',

@@ -107,7 +107,7 @@ export default function(hljs) {
   ];
   const KNOWN_SHEBANG = hljs.SHEBANG({
     binary: `(${SH_LIKE_SHELLS.join("|")})`,
-    relevance: 10
+    relevance: 9
   });
   const FUNCTION = {
     className: 'function',

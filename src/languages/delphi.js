@@ -138,7 +138,7 @@ export default function(hljs) {
   const COMMENT_MODES = [
     hljs.C_LINE_COMMENT_MODE,
     hljs.COMMENT(/\{/, /\}/, { relevance: 0 }),
-    hljs.COMMENT(/\(\*/, /\*\)/, { relevance: 10 })
+    hljs.COMMENT(/\(\*/, /\*\)/)
   ];
   const DIRECTIVE = {
     className: 'meta',

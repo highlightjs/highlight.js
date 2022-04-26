@@ -158,11 +158,12 @@ export default function(hljs) {
         begin: '\\[',
         relevance: 0
       },
+      // shebang
       {
         className: 'meta',
         begin: '^#!',
         end: 'lasso9$',
-        relevance: 10
+        relevance: 9
       }
     ].concat(LASSO_CODE)
   };

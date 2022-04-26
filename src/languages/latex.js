@@ -105,7 +105,7 @@ export default function(hljs) {
     className: 'meta',
     begin: /% ?!(T[eE]X|tex|BIB|bib)/,
     end: '$',
-    relevance: 10
+    relevance: 9
   };
   const COMMENT = hljs.COMMENT(
     '%',

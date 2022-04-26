@@ -205,13 +205,12 @@ export default function(hljs) {
         end: /"|$/,
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
-      hljs.COMMENT('REM', '$', { relevance: 10 }),
-      hljs.COMMENT('\'', '$', { relevance: 0 }),
+      hljs.COMMENT(/REM(?=\s)/, /$/, { relevance: 2 }),
+      hljs.COMMENT(/'/, /$/, { relevance: 0 }),
       {
         // Match line numbers
         className: 'symbol',
-        begin: '^[0-9]+ ',
-        relevance: 10
+        begin: '^[0-9]+ '
       },
       {
         // Match typed numeric constants (1000, 12.34!, 1.2e5, 1.5#, 1.2D2)

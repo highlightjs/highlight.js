@@ -104,7 +104,7 @@ export default function(hljs) {
   const ADMONITION = {
     className: 'symbol',
     begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
-    relevance: 10
+    relevance: 1
   };
   const BULLET_LIST = {
     className: 'bullet',
@@ -122,7 +122,7 @@ export default function(hljs) {
         // can also be done as...
         // '^/{4,}$',
         // '^/{4,}$',
-        { relevance: 10 }
+        { relevance: 2 }
       ),
       // line comment
       hljs.COMMENT(
@@ -139,12 +139,12 @@ export default function(hljs) {
       {
         begin: '^[=\\*]{4,}\\n',
         end: '\\n^[=\\*]{4,}$',
-        relevance: 10
+        relevance: 1
       },
       // headings
       {
         className: 'section',
-        relevance: 10,
+        relevance: 1,
         variants: [
           { begin: '^(={1,6})[ \t].+?([ \t]\\1)?$' },
           { begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$' }
@@ -156,7 +156,7 @@ export default function(hljs) {
         begin: '^:.+?:',
         end: '\\s',
         excludeEnd: true,
-        relevance: 10
+        relevance: 0.2
       },
       // block attributes
       {
@@ -169,14 +169,14 @@ export default function(hljs) {
         className: 'quote',
         begin: '^_{4,}\\n',
         end: '\\n_{4,}$',
-        relevance: 10
+        relevance: 1
       },
       // listing and literal blocks
       {
         className: 'code',
         begin: '^[\\-\\.]{4,}\\n',
         end: '\\n[\\-\\.]{4,}$',
-        relevance: 10
+        relevance: 1
       },
       // passthrough blocks
       {
@@ -190,7 +190,7 @@ export default function(hljs) {
             relevance: 0
           }
         ],
-        relevance: 10
+        relevance: 1
       },
 
       BULLET_LIST,
@@ -251,7 +251,7 @@ export default function(hljs) {
             relevance: 0
           }
         ],
-        relevance: 10
+        relevance: 1
       }
     ]
   };

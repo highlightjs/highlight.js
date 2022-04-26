@@ -9,8 +9,7 @@ Category: scripting
 /** @type LanguageFn */
 export default function(hljs) {
   const COMMENT = hljs.COMMENT(
-    /^\s*@?rem\b/, /$/,
-    { relevance: 10 }
+    /^\s*@?rem\b/, /$/
   );
   const LABEL = {
     className: 'symbol',
