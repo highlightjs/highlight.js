@@ -25,7 +25,7 @@ export default function(hljs) {
     className: 'string',
     begin: '"""',
     end: '"""',
-    relevance: 10
+    relevance: 2
   };
 
   const QUOTE_STRING_MODE = {

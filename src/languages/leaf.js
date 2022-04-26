@@ -50,8 +50,11 @@ export default function(hljs) {
     contains: [ PARAMS ]
   };
   PARAMS.contains.unshift(INSIDE_DISPATCH);
+
   return {
     name: 'Leaf',
+    // not enough signal
+    disableAutodetect: true,
     contains: [
       // #ident():
       {

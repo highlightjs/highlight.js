@@ -44,7 +44,7 @@ export default function(hljs) {
         className: 'string',
         begin: '"""',
         end: '"""',
-        relevance: 5
+        relevance: 2
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

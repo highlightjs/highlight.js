@@ -392,7 +392,6 @@ export default function(hljs) {
     /\/\*/,
     /\*\//,
     {
-      relevance: 0,
       contains: [
         {
           scope: 'doctag',
@@ -405,6 +404,7 @@ export default function(hljs) {
   const INCLUDE = {
     scope: 'meta',
     begin: /#include\b/,
+    relevance: 1,
     end: /$/,
     contains: [
       {
@@ -448,10 +448,12 @@ export default function(hljs) {
       },
       {
         scope: 'keyword',
+        relevance: 0,
         match: /\btarget(?=\s*\+=)/,
       },
       {
         // highlights the 'T' in T[,] for only Stan language distributrions
+        relevance: 1,
         match: [
           /~\s*/,
           regex.either(...DISTRIBUTIONS),
@@ -466,30 +468,33 @@ export default function(hljs) {
       {
         // highlights distributions that end with special endings
         scope: 'built_in',
+        relevance: 1,
         keywords: DISTRIBUTIONS,
         begin: regex.concat(/\w*/, regex.either(...DISTRIBUTIONS), /(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/)
       },
       {
+        scope: { 3: "built_in" },
+        relevance: 1,
         // highlights distributions after ~
         begin: [
           /~/,
           /\s*/,
           regex.concat(regex.either(...DISTRIBUTIONS), /(?=\s*[\(.*\)])/)
-        ],
-        scope: { 3: "built_in" }
+        ]
       },
       {
+        scope: { 2: "title.function" },
         // highlights user defined distributions after ~
         begin: [
           /~/,
           /\s*\w+(?=\s*[\(.*\)])/,
           '(?!.*/\b(' + regex.either(...DISTRIBUTIONS) + ')\b)'
-        ],
-        scope: { 2: "title.function" }
+        ]
       },
       {
         // highlights user defined distributions with special endings
         scope: 'title.function',
+        relevance: 1,
         begin: /\w*(_lpdf|_lupdf|_lpmf|_cdf|_lcdf|_lccdf|_qf)(?=\s*[\(.*\)])/
       },
       {

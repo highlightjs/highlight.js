@@ -18,6 +18,7 @@ export default function(hljs) {
       {
         begin: '<%[%=-]?',
         end: '[%-]?%>',
+        relevance: 1,
         subLanguage: 'ruby',
         excludeBegin: true,
         excludeEnd: true

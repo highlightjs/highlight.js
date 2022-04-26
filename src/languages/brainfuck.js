@@ -43,7 +43,8 @@ export default function(hljs) {
         // this mode works as the only relevance counter
         // it looks ahead to find the start of a run of literals
         // so only the runs are counted as relevant
-        begin: /(?=\+\+|--)/,
+        begin: /(?=\+\+\+|---)/,
+        relevance: 0.9,
         contains: [ LITERAL ]
       },
       LITERAL

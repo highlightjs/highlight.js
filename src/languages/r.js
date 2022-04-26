@@ -67,7 +67,7 @@ export default function(hljs) {
         + 'proc.time prod quote range Re rep retracemem return round '
         + 'seq_along seq_len seq.int sign signif sin sinh sinpi sqrt '
         + 'standardGeneric substitute sum switch tan tanh tanpi tracemem '
-        + 'trigamma trunc unclass untracemem UseMethod xtfrm',
+        + 'trigamma trunc unclass untracemem UseMethod xtfrm require',
     },
 
     contains: [
@@ -220,6 +220,7 @@ export default function(hljs) {
       // Operators/punctuation when they're not directly followed by numbers
       {
         // Relevance boost for the most common assignment form.
+        relevance: 0.5,
         scope: { 3: 'operator' },
         match: [
           IDENT_RE,

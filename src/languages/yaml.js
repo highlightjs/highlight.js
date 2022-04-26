@@ -128,8 +128,7 @@ export default function(hljs) {
     KEY,
     {
       className: 'meta',
-      begin: '^---\\s*$',
-      relevance: 10
+      begin: '^---\\s*$'
     },
     { // multi line string
       // Blocks start with a | or > followed by a newline
@@ -204,6 +203,7 @@ export default function(hljs) {
 
   return {
     name: 'YAML',
+    disableAutodetect: true,
     case_insensitive: true,
     aliases: [ 'yml' ],
     contains: MODES

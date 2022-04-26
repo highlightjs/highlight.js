@@ -19,7 +19,7 @@ export default function(hljs) {
       + 'creates cwd ogoutput refresh refreshonly tries try_sleep umask backup checksum content ctime force ignore '
       + 'links mtime purge recurse recurselimit replace selinux_ignore_defaults selrange selrole seltype seluser source '
       + 'souirce_permissions sourceselect validate_cmd validate_replacement allowdupe attribute_membership auth_membership forcelocal gid '
-      + 'ia_load_module members system host_aliases ip allowed_trunk_vlans description device_url duplex encapsulation etherchannel '
+      + 'ia_load_module members system host_aliases ip|0 allowed_trunk_vlans description device_url duplex encapsulation etherchannel '
       + 'native_vlan speed principals allow_root auth_class auth_type authenticate_user k_of_n mechanisms rule session_owner shared options '
       + 'device fstype enable hasrestart directory present absent link atboot blockdevice device dump pass remounts poller_tag use '
       + 'message withpath adminfile allow_virtual allowcdrom category configfiles flavor install_options instance package_settings platform '
@@ -106,8 +106,7 @@ export default function(hljs) {
         contains: [
           {
             className: 'keyword',
-            begin: hljs.IDENT_RE,
-            relevance: 0.2
+            begin: hljs.IDENT_RE
           },
           {
             begin: /\{/,

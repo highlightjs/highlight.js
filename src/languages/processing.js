@@ -91,13 +91,13 @@ export default function(hljs) {
     "noStroke",
     "stroke",
     "alpha",
-    "blue",
+    "blue|0",
     "brightness",
     "color",
-    "green",
+    "green|0",
     "hue",
     "lerpColor",
-    "red",
+    "red|0",
     "saturation",
     "modelX",
     "modelY",
@@ -274,6 +274,7 @@ export default function(hljs) {
   const IDENT = hljs.IDENT_RE;
   const FUNC_NAME = { variants: [
     {
+      relevance: 1,
       match: regex.concat(regex.either(...BUILT_INS), regex.lookahead(/\s*\(/)),
       className: "built_in"
     },
@@ -313,12 +314,12 @@ export default function(hljs) {
         /extends/,
         /\s+/,
         IDENT
-      ] },
+      ], relevance: 2 },
       { match: [
         /class/,
         /\s+/,
         IDENT
-      ] }
+      ], relevance: 1, }
     ],
     className: {
       1: "keyword",

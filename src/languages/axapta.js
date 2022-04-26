@@ -169,7 +169,7 @@ export default function(hljs) {
     name: 'X++',
     aliases: [ 'x++' ],
     keywords: KEYWORDS,
-    contains: [
+      contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
@@ -177,6 +177,7 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'meta',
+        relevance: 0.9,
         begin: '#',
         end: '$'
       },

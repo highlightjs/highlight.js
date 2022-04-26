@@ -48,6 +48,7 @@ export default function(hljs) {
       modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-pseudo',
+        relevance: 1,
         variants: [
           { begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')' },
           { begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' }
@@ -62,6 +63,7 @@ export default function(hljs) {
       modes.CSS_VARIABLE,
       {
         className: 'attribute',
+        relevance: 1,
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'
       },
       // attribute values

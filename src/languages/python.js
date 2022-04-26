@@ -187,7 +187,7 @@ export default function(hljs) {
           hljs.BACKSLASH_ESCAPE,
           PROMPT
         ],
-        relevance: 10
+        relevance: 2
       },
       {
         begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""/,
@@ -196,7 +196,7 @@ export default function(hljs) {
           hljs.BACKSLASH_ESCAPE,
           PROMPT
         ],
-        relevance: 10
+        relevance: 2
       },
       {
         begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'''/,

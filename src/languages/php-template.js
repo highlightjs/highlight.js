@@ -16,6 +16,7 @@ export default function(hljs) {
     contains: [
       {
         begin: /<\?(php|=)?/,
+        relevance: 1,
         end: /\?>/,
         subLanguage: 'php',
         contains: [

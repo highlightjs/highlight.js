@@ -62,7 +62,7 @@ export default function(hljs) {
     "final",
     "shared",
     "external",
-    "mixin|10",
+    "mixin",
     "enum",
     "typedef",
     "funcdef",
@@ -71,7 +71,7 @@ export default function(hljs) {
     "import",
     "from",
     "interface",
-    "abstract|0",
+    "abstract",
     "try",
     "catch",
     "protected",
@@ -163,6 +163,7 @@ export default function(hljs) {
 
       { // literals
         className: 'literal',
+        relevance: 1,
         begin: '\\b(null|true|false)'
       },
 

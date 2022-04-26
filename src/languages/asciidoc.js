@@ -11,8 +11,7 @@ Category: markup
 export default function(hljs) {
   const regex = hljs.regex;
   const HORIZONTAL_RULE = {
-    begin: '^\'{3,}[ \\t]*$',
-    relevance: 10
+    begin: '^\'{3,}[ \\t]*$'
   };
   const ESCAPED_FORMATTING = [
     // escaped constrained formatting marks (i.e., \* \_ or \`)

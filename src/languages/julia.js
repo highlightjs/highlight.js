@@ -378,7 +378,7 @@ export default function(hljs) {
       {
         begin: /\w*"""/,
         end: /"""\w*/,
-        relevance: 10
+        relevance: 2
       },
       {
         begin: /\w*"/,

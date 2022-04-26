@@ -36,6 +36,7 @@ export default function(hljs) {
   };
   const LITERALS = {
     className: 'literal',
+    relevance: 1,
     begin: /\bon|off|true|false|yes|no\b/
   };
   const STRINGS = {
@@ -96,8 +97,9 @@ export default function(hljs) {
       COMMENTS,
       {
         className: 'section',
-        begin: /\[+/,
-        end: /\]+/
+        relevance: 1,
+        begin: /^\[+/,
+        end: /\]+$/
       },
       {
         begin: DOTTED_KEY,

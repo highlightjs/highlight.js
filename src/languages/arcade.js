@@ -297,7 +297,8 @@ export default function(hljs) {
   ];
   const SYMBOL = {
     className: 'symbol',
-    begin: '\\$' + regex.either(...PROFILE_VARS)
+    begin: '\\$' + regex.either(...PROFILE_VARS),
+    relevance: 1
   };
   const NUMBER = {
     className: 'number',

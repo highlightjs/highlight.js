@@ -43,6 +43,8 @@ export default function(hljs) {
   return {
     name: 'Extended Backus-Naur Form',
     illegal: /\S/,
+    // not enough signal
+    disableAutodetect: true,
     contains: [
       commentMode,
       nonTerminalMode,
