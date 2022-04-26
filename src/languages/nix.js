@@ -262,12 +262,10 @@ export default function(hljs) {
     beforeMatch: /(^|\{|;)\s*/,
     begin: new RegExp(`${IDENTIFIER_REGEX}(\\.${IDENTIFIER_REGEX})*\\s*=(?!=)`),
     returnBegin: true,
-    relevance: 0,
     contains: [
       {
         scope: 'attr',
         match: new RegExp(`${IDENTIFIER_REGEX}(\\.${IDENTIFIER_REGEX})*(?=\\s*=)`),
-        relevance: 0.2,
       }
     ],
   };

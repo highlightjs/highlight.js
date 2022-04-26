@@ -65,7 +65,7 @@ export default function(hljs) {
         /\s*\)/
       ] }
     ],
-    relevance: 1,
+    relevance: "keyword",
     scope: {
       1: "keyword",
       3: "title.class"
@@ -85,7 +85,8 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       {
         className: 'meta',
-        begin: /@0x[\w\d]{16};/,
+        match: /^@0x[\w\d]{16};/,
+        relevance: "keyword",
         illegal: /\n/
       },
       {

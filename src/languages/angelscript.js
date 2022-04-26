@@ -9,7 +9,7 @@ Website: https://www.angelcode.com/angelscript/
 export default function(hljs) {
   const builtInTypeMode = {
     className: 'built_in',
-    relevance: 1,
+    relevance: "keyword",
     begin: '\\b(void|bool|int8|int16|int32|int64|int|uint8|uint16|uint32|uint64|uint|string|ref|array|double|float|auto|dictionary)'
   };
 
@@ -95,8 +95,7 @@ export default function(hljs) {
         begin: '\'',
         end: '\'',
         illegal: '\\n',
-        contains: [ hljs.BACKSLASH_ESCAPE ],
-        relevance: 0
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       },
 
       // """heredoc strings"""
@@ -111,8 +110,7 @@ export default function(hljs) {
         begin: '"',
         end: '"',
         illegal: '\\n',
-        contains: [ hljs.BACKSLASH_ESCAPE ],
-        relevance: 0
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       },
 
       hljs.C_LINE_COMMENT_MODE, // single-line comments
@@ -164,13 +162,14 @@ export default function(hljs) {
 
       { // literals
         className: 'literal',
-        relevance: 1,
+        relevance: "keyword",
         begin: '\\b(null|true|false)'
       },
 
       { // numbers
         className: 'number',
         relevance: 0,
+        // TODO: give low relevance to special type of numbers, hex, etc...
         begin: '(-?)(\\b0[xXbBoOdD][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?f?|\\.\\d+f?)([eE][-+]?\\d+f?)?)'
       }
     ]

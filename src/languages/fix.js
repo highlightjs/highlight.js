@@ -9,30 +9,19 @@ export default function(hljs) {
     name: 'FIX',
     contains: [
       {
-        begin: /[^\u2401\u0001]+/,
-        end: /[\u2401\u0001]/,
-        excludeEnd: true,
-        returnBegin: true,
-        returnEnd: false,
-        contains: [
-          {
-            className: 'attr',
-            relevance: 0.5,
-            begin: /([^\u2401\u0001=]+)/,
-            end: /=([^\u2401\u0001=]+)/,
-            returnEnd: true,
-            returnBegin: false
-          },
-          {
-            className: 'string',
-            relevance: 0.5,
-            begin: /=/,
-            end: /([\u2401\u0001])/,
-            excludeEnd: true,
-            excludeBegin: true
-          }
-        ]
-      }
+        match: [
+          /[^\u2401\u0001]+/,
+          /=/,
+          /[^\u2401\u0001]+/,
+          /([\u2401\u0001])/
+        ],
+        // this is weird, string signal
+        relevance: "double",
+        scope: {
+          1: "attr",
+          3: "string"
+        }
+      },
     ],
     case_insensitive: true
   };
