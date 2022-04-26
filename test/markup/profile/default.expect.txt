@@ -1,6 +1,6 @@
        <span class="hljs-number">261917242</span> function calls in <span class="hljs-number">686.251</span> CPU seconds
 
-       <span class="hljs-keyword">ncalls</span>  <span class="hljs-keyword">tottime</span>  <span class="hljs-keyword">filename</span>:lineno(function)
+       <span class="hljs-keyword">ncalls</span>  <span class="hljs-keyword">tottime</span>  <span class="hljs-keyword">filename</span><span class="hljs-punctuation">:</span><span class="hljs-keyword">lineno</span><span class="hljs-punctuation">(</span><span class="hljs-keyword">function</span><span class="hljs-punctuation">)</span>
        <span class="hljs-number">152824</span>  <span class="hljs-number">513.894</span>  {method <span class="hljs-string">&#x27;sort&#x27;</span> of <span class="hljs-string">&#x27;list&#x27;</span> objects}
     <span class="hljs-number">129590630</span>   <span class="hljs-number">83.894</span>  rrule.py:<span class="hljs-number">842</span>(<span class="hljs-string">__cmp__</span>)
     <span class="hljs-number">129590630</span>   <span class="hljs-number">82.439</span>  {cmp}

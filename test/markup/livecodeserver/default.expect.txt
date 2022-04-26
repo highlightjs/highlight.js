@@ -5,24 +5,24 @@
 <span class="hljs-built_in">put</span> <span class="hljs-string">&quot;blog,index&quot;</span> <span class="hljs-keyword">into</span> <span class="hljs-variable">gControllerHandlers</span>
 
 
-<span class="hljs-keyword">command</span> <span class="hljs-title">blog</span>
+<span class="hljs-keyword">command</span> <span class="hljs-title function_">blog</span>
   <span class="hljs-comment">-- simple comment</span>
   <span class="hljs-built_in">put</span> <span class="hljs-string">&quot;Hello World!&quot;</span> <span class="hljs-keyword">into</span> <span class="hljs-variable">sTest</span>
   <span class="hljs-comment"># ANOTHER COMMENT</span>
   <span class="hljs-built_in">put</span> <span class="hljs-string">&quot;form,url,asset&quot;</span> <span class="hljs-keyword">into</span> <span class="hljs-variable">tHelpers</span>
-  <span class="hljs-title">rigLoadHelper</span> <span class="hljs-variable">tHelpers</span>
-<span class="hljs-function"><span class="hljs-keyword">end</span> <span class="hljs-title">blog</span></span>
+  <span class="hljs-title function_">rigLoadHelper</span> <span class="hljs-variable">tHelpers</span>
+<span class="hljs-keyword">end</span> <span class="hljs-title function_">blog</span>
 
 <span class="hljs-comment">/*Hello
 block comment!*/</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span></span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">the</span> <span class="hljs-built_in">secs</span> &gt; <span class="hljs-number">2000000000</span> <span class="hljs-keyword">then</span>
     <span class="hljs-built_in">put</span> <span class="hljs-string">&quot;Welcome to the future!&quot;</span>
   <span class="hljs-keyword">else</span>
     <span class="hljs-literal">return</span> <span class="hljs-string">&quot;something&quot;</span>
-  <span class="hljs-keyword">end if</span>
-<span class="hljs-function"><span class="hljs-keyword">end</span> <span class="hljs-title">myFunction</span></span>
+  <span class="hljs-keyword"><span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span></span>
+<span class="hljs-keyword">end</span> <span class="hljs-title function_">myFunction</span>
 
 
 <span class="hljs-comment">--| END OF blog.lc</span>
