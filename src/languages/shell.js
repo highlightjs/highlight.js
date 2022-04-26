@@ -21,6 +21,7 @@ export default function(hljs) {
         // For instance, in the following example, it would match "echo /path/to/home >" as a prompt:
         // echo /path/to/home > t.exe
         begin: /^\s{0,3}[/~\w\d[\]()@-]*[>%$#][ ]?/,
+        relevance: 0.8,
         starts: {
           end: /[^\\](?=\s*$)/,
           subLanguage: 'bash'

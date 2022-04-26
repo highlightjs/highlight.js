@@ -20,7 +20,7 @@ export default function(hljs) {
         + 'find_program foreach function get_cmake_property get_directory_property '
         + 'get_filename_component get_property if include include_guard list macro '
         + 'mark_as_advanced math message option return separate_arguments '
-        + 'set_directory_properties set_property set site_name string unset variable_watch while '
+        + 'set_directory_properties set_property set|0 site_name string unset variable_watch while '
         // project commands
         + 'add_compile_definitions add_compile_options add_custom_command add_custom_target '
         + 'add_definitions add_dependencies add_executable add_library add_link_options '

@@ -229,7 +229,7 @@ export default function(hljs) {
   };
 
   const CUSTOM_TAG_RE = /[a-z_]+/;
-  const TAG = tagNamed(TAG_NAMES, { relevance: 2 });
+  const TAG = tagNamed(TAG_NAMES, { relevance: 1 });
   const CUSTOM_TAG = tagNamed([ CUSTOM_TAG_RE ], { relevance: 1 });
 
   return {

@@ -134,6 +134,7 @@ export default function(hljs) {
   };
   const HTML_TEMPLATE = {
     begin: '\.?html`',
+    relevance: 1,
     end: '',
     starts: {
       end: '`',
@@ -147,6 +148,7 @@ export default function(hljs) {
   };
   const CSS_TEMPLATE = {
     begin: '\.?css`',
+    relevance: 1,
     end: '',
     starts: {
       end: '`',
@@ -184,7 +186,6 @@ export default function(hljs) {
     /\/\*\*(?!\/)/,
     '\\*/',
     {
-      relevance: 0,
       contains: [
         {
           begin: '(?=@[A-Za-z]+)',
@@ -278,6 +279,7 @@ export default function(hljs) {
     variants: [
       // class Car extends vehicle
       {
+        relevance: 2,
         match: [
           /class/,
           /\s+/,
@@ -296,6 +298,7 @@ export default function(hljs) {
       },
       // class Car
       {
+        relevance: 1,
         match: [
           /class/,
           /\s+/,
@@ -362,6 +365,7 @@ export default function(hljs) {
         ]
       }
     ],
+    relevance: 1,
     className: {
       1: "keyword",
       3: "title.function"
@@ -412,6 +416,7 @@ export default function(hljs) {
       IDENT_RE,
       /(?=\()/
     ],
+    relevance: 1,
     className: {
       1: "keyword",
       3: "title.function"
@@ -592,6 +597,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
+        relevance: 1,
         match: [ /\bconstructor(?=\s*\()/ ],
         className: { 1: "title.function" },
         contains: [ PARAMS ]

@@ -16,7 +16,7 @@ export default function(hljs) {
       {
         className: 'meta',
         variants: [
-          { begin: '^TAP version (\\d+)$' },
+          { begin: '^TAP version (\\d+)$', relevance: 1 },
           { begin: '^1\\.\\.(\\d+)$' }
         ]
       },
@@ -35,9 +35,10 @@ export default function(hljs) {
       // testcase status and description
       {
         className: 'symbol',
+        relevance: 1,
         variants: [
-          { begin: '^ok' },
-          { begin: '^not ok' }
+          { begin: /^ok/ },
+          { begin: /^not ok/ }
         ]
       }
     ]

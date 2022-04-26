@@ -363,32 +363,32 @@ export default function(hljs) {
         {
           begin: 'q[qwxr]?\\s*\\(',
           end: '\\)',
-          relevance: 5
+          relevance: 0.1
         },
         {
           begin: 'q[qwxr]?\\s*\\[',
           end: '\\]',
-          relevance: 5
+          relevance: 0.1
         },
         {
           begin: 'q[qwxr]?\\s*\\{',
           end: '\\}',
-          relevance: 5
+          relevance: 0.1
         },
         {
           begin: 'q[qwxr]?\\s*\\|',
           end: '\\|',
-          relevance: 5
+          relevance: 0.1
         },
         {
           begin: 'q[qwxr]?\\s*<',
           end: '>',
-          relevance: 5
+          relevance: 0.1
         },
         {
           begin: 'qw\\s+q',
           end: 'q',
-          relevance: 5
+          relevance: 0.1
         },
         {
           begin: '\'',

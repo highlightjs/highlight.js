@@ -41,17 +41,19 @@ export default function(hljs) {
       },
       {
         className: 'section',
+        relevance: 1.1,
         begin: /^(Volume|Book|Part|Chapter|Section|Table)\b/,
         end: '$'
       },
       {
         // Rule definition
-        // This is here for relevance.
+        relevance: 1.2, // boost
         begin: /^(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)\b/,
-        end: ':',
+        end: /:/,
         contains: [
           {
             // Rule name
+            relevance: 0.1,
             begin: '\\(This',
             end: '\\)'
           }

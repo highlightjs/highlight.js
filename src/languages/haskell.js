@@ -42,6 +42,7 @@ export default function(hljs) {
 
   const PRAGMA = {
     className: 'meta',
+    relevance: 1,
     begin: /\{-#/,
     end: /#-\}/
   };

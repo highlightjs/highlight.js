@@ -301,7 +301,7 @@ export default function(hljs) {
     + ' gnuplot_pm3d gnuplot_png_term_command gnuplot_postamble gnuplot_preamble'
     + ' gnuplot_ps_term_command gnuplot_svg_term_command gnuplot_term gnuplot_view_args'
     + ' Gosper_in_Zeilberger gradefs grid grid2d grind halfangles head_angle head_both'
-    + ' head_length head_type height hypergeometric_representation %iargs ibase'
+    + ' head_length head_type height|0 hypergeometric_representation %iargs ibase'
     + ' icc1 icc2 icounter idummyx ieqnprint ifb ifc1 ifc2 ifg ifgi ifr iframe_bracket_form'
     + ' ifri igeowedge_flag ikt1 ikt2 imaginary inchar increasing infeval'
     + ' infinity inflag infolists inm inmc1 inmc2 intanalysis integer integervalued'
@@ -355,7 +355,7 @@ export default function(hljs) {
     + ' tr_warn_undeclared tr_warn_undefined_variable tstep ttyoff tube_extremes'
     + ' ufg ug %unitexpand unit_vectors uric uriem use_fast_arrays user_preamble'
     + ' usersetunits values vect_cross verbose vertex_color vertex_coloring vertex_partition'
-    + ' vertex_size vertex_type view warnings weyl width windowname windowtitle wired_surface'
+    + ' vertex_size vertex_type view warnings weyl width|0 windowname windowtitle wired_surface'
     + ' wireframe xaxis xaxis_color xaxis_secondary xaxis_type xaxis_width xlabel'
     + ' xlabel_secondary xlength xrange xrange_secondary xtics xtics_axis xtics_rotate'
     + ' xtics_rotate_secondary xtics_secondary xtics_secondary_axis xu_grid x_voxel'
@@ -364,7 +364,7 @@ export default function(hljs) {
     + ' ytics_rotate ytics_rotate_secondary ytics_secondary ytics_secondary_axis'
     + ' yv_grid y_voxel yx_ratio zaxis zaxis_color zaxis_type zaxis_width zeroa zerob'
     + ' zerobern zeta%pi zlabel zlabel_rotate zlength zmin zn_primroot_limit zn_primroot_pretest';
-  const SYMBOLS = '_ __ %|0 %%|0';
+  const SYMBOLS = '_|0 __|0 %|0 %%|0';
 
   return {
     name: 'Maxima',
@@ -390,11 +390,11 @@ export default function(hljs) {
           {
             // float number w/ exponent
             // hmm, I wonder if we ought to include other exponent markers?
-            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b' },
+            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b' 
+          },
           {
             // bigfloat number
-            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Bb][-+]?\\d+\\b',
-            relevance: 10
+            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Bb][-+]?\\d+\\b'
           },
           {
             // float number w/out exponent

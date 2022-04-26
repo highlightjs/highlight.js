@@ -19,6 +19,7 @@ export default function(hljs) {
   const XML_IDENT_RE = /[\p{L}0-9._:-]+/u;
   const XML_ENTITIES = {
     className: 'symbol',
+    relevance: 1,
     begin: /&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;/
   };
   const XML_META_KEYWORDS = {
@@ -149,6 +150,7 @@ export default function(hljs) {
       },
       {
         className: 'tag',
+        relevance: 1,
         /*
         The lookahead pattern (?=...) ensures that 'begin' only matches
         '<style' as a single word, followed by a whitespace or an
@@ -169,6 +171,7 @@ export default function(hljs) {
       },
       {
         className: 'tag',
+        relevance: 1,
         // See the comment in the <style tag about the lookahead pattern
         begin: /<script(?=\s|>)/,
         end: />/,
@@ -192,6 +195,7 @@ export default function(hljs) {
       // open tag
       {
         className: 'tag',
+        relevance: 1,
         begin: regex.concat(
           /</,
           regex.lookahead(regex.concat(
@@ -215,6 +219,7 @@ export default function(hljs) {
       // close tag
       {
         className: 'tag',
+        relevance: 1,
         begin: regex.concat(
           /<\//,
           regex.lookahead(regex.concat(

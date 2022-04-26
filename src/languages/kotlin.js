@@ -157,7 +157,6 @@ export default function(hljs) {
         returnBegin: true,
         excludeEnd: true,
         keywords: KEYWORDS,
-        relevance: 5,
         contains: [
           {
             begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',

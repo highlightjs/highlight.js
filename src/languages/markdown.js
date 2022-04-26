@@ -75,13 +75,8 @@ export default function(hljs) {
   };
   const URL_SCHEME = /[A-Za-z][A-Za-z0-9+.-]*/;
   const LINK = {
+    scope: "booger",
     variants: [
-      // too much like nested array access in so many languages
-      // to have any real relevance
-      {
-        begin: /\[.+?\]\[.*?\]/,
-        relevance: 0
-      },
       // popular internet URLs
       {
         begin: /\[.+?\]\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/).*?\)/,
@@ -95,6 +90,13 @@ export default function(hljs) {
       {
         begin: /\[.+?\]\([./?&#].*?\)/,
         relevance: 1
+      },
+      // too much like nested array access in so many languages
+      // to have any real relevance
+      {
+        scope:"brokengoober",
+        begin: /\[.+?\]\[.+?\]/,
+        relevance: 0
       },
       // whatever else, lower relevance (might not be a link at all)
       {
@@ -189,6 +191,7 @@ export default function(hljs) {
 
   const HEADER = {
     className: 'section',
+    relevance: 1,
     variants: [
       {
         begin: '^#{1,6}',

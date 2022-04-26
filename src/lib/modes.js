@@ -70,6 +70,7 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
   const mode = inherit(
     {
       scope: 'comment',
+      relevance: 1,
       begin,
       end,
       contains: []
@@ -121,6 +122,7 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
       // for a visual example please see:
       // https://github.com/highlightjs/highlight.js/issues/2827
 
+      relevance: 1,
       begin: regex.concat(
         /[ ]+/, // necessary to prevent us gobbling up doctags like /* @author Bob Mcgill */
         '(',

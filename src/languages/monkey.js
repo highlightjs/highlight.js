@@ -23,6 +23,7 @@ export default function(hljs) {
         hljs.UNDERSCORE_IDENT_RE,
       ] },
     ],
+    relevance: 1,
     scope: {
       1: "keyword",
       3: "title.function"
@@ -36,6 +37,7 @@ export default function(hljs) {
         hljs.UNDERSCORE_IDENT_RE,
       ] },
     ],
+    relevance: 1,
     scope: {
       1: "keyword",
       3: "title.class"
@@ -155,6 +157,7 @@ export default function(hljs) {
       CLASS_DEFINITION,
       {
         className: 'variable.language',
+        relevance: 1,
         begin: /\b(self|super)\b/
       },
       {
@@ -168,6 +171,7 @@ export default function(hljs) {
           /^\s*/,
           /strict\b/
         ],
+        relevance: 1,
         scope: { 2: "meta" }
       },
       {

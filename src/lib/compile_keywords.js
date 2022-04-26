@@ -10,7 +10,10 @@ const COMMON_KEYWORDS = [
   'then',
   'parent', // common variable name
   'list', // common variable name
-  'value' // common variable name
+  'value', // common variable name
+  'it',
+  'is',
+  'at'
 ];
 
 const DEFAULT_KEYWORD_SCOPE = "keyword";

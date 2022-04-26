@@ -81,8 +81,7 @@ export default function(hljs) {
       },
       hljs.COMMENT(
         '#',
-        '$',
-        { relevance: 0 }
+        '$'
       ),
       {
         className: 'keyword',
@@ -96,20 +95,25 @@ export default function(hljs) {
             begin: '\\s:[a-zA-Z_0-9]*',
             relevance: 0
           },
-          { begin: '\\s(' + smali_keywords.join('|') + ')' }
+          { 
+            relevance: 1,
+            begin: '\\s(' + smali_keywords.join('|') + ')' 
+          }
         ]
       },
       {
         className: 'built_in',
         variants: [
-          { begin: '\\s(' + smali_instr_low_prio.join('|') + ')\\s' },
+          { 
+            relevance: 1,
+            begin: '\\s(' + smali_instr_low_prio.join('|') + ')\\s' },
           {
             begin: '\\s(' + smali_instr_low_prio.join('|') + ')((-|/)[a-zA-Z0-9]+)+\\s',
-            relevance: 10
+            relevance: 2
           },
           {
             begin: '\\s(' + smali_instr_high_prio.join('|') + ')((-|/)[a-zA-Z0-9]+)*\\s',
-            relevance: 10
+            relevance: 2
           }
         ]
       },

@@ -66,7 +66,8 @@ export default function(hljs) {
           + '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
         relevance: 0
       },
-      { begin: /[-=]>/ // relevance booster
+      { 
+        begin: /[-=]>/ // relevance booster
       }
     ]
   };

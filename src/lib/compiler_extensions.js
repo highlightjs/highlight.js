@@ -100,5 +100,5 @@ export function compileMatch(mode, _parent) {
  */
 export function compileRelevance(mode, _parent) {
   // eslint-disable-next-line no-undefined
-  if (mode.relevance === undefined) mode.relevance = 1;
+  if (mode.relevance === undefined) mode.relevance = 0.05;
 }
