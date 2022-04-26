@@ -1,5 +1,5 @@
 <span class="hljs-comment">// A comment</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">I</span> = <span class="hljs-title">foo</span><span class="hljs-params">(dims, varargin)</span></span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">I</span> = <span class="hljs-title function_">foo</span><span class="hljs-params">(dims, varargin)</span>
   d=[<span class="hljs-number">1</span>; matrix(dims(<span class="hljs-number">1</span>:$<span class="hljs-number">-1</span>),<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>)]
   <span class="hljs-keyword">for</span> i=<span class="hljs-number">1</span>:<span class="hljs-built_in">size</span>(varargin)
     <span class="hljs-keyword">if</span> varargin(i)==[] <span class="hljs-keyword">then</span>

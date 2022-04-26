@@ -1,7 +1,7 @@
-<span class="hljs-function"><span class="hljs-keyword">proc</span> (<span class="hljs-params"><span class="hljs-number">1</span></span>) = <span class="hljs-title">foo</span>(<span class="hljs-params">if, endif, <span class="hljs-number">10</span></span>)</span>;
-<span class="hljs-function"><span class="hljs-keyword">proc</span> <span class="hljs-title">foo</span></span>;
-<span class="hljs-function"><span class="hljs-keyword">proc</span> (<span class="hljs-params"><span class="hljs-number">1</span></span>) = <span class="hljs-title">calc</span>(<span class="hljs-params">local__row, fin, <span class="hljs-literal">...</span></span>)</span>;
-<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-comment">/* inline */</span> <span class="hljs-title">twopi</span></span>=<span class="hljs-built_in">pi</span>*<span class="hljs-number">2</span>;
-<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">_n_pi</span>(<span class="hljs-params">n <span class="hljs-comment">/* inline comment */</span></span>) </span>= <span class="hljs-built_in">pi</span>*n;
-<span class="hljs-function"><span class="hljs-keyword">keyword</span> <span class="hljs-title">add</span>(<span class="hljs-params">str, <span class="hljs-keyword">struct</span> <span class="hljs-type">plotControl</span> myPlot</span>)</span>;
-<span class="hljs-function"><span class="hljs-keyword">keyword</span> <span class="hljs-title">sub</span></span>;
+<span class="hljs-keyword">proc</span> (<span class="hljs-params"><span class="hljs-number">1</span></span>) = <span class="hljs-title function_">foo</span>(<span class="hljs-params">if, endif, <span class="hljs-number">10</span></span>);
+<span class="hljs-keyword">proc</span> <span class="hljs-title function_">foo</span>;
+<span class="hljs-keyword">proc</span> (<span class="hljs-params"><span class="hljs-number">1</span></span>) = <span class="hljs-title function_">calc</span>(<span class="hljs-params">local__row, fin, <span class="hljs-literal">...</span></span>);
+<span class="hljs-keyword">fn</span> <span class="hljs-comment">/* inline */</span> <span class="hljs-title function_">twopi</span>=<span class="hljs-built_in">pi</span>*<span class="hljs-number">2</span>;
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">_n_pi</span>(<span class="hljs-params">n <span class="hljs-comment">/* inline comment */</span></span>) = <span class="hljs-built_in">pi</span>*n;
+<span class="hljs-keyword">keyword</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">str, <span class="hljs-keyword">struct</span> <span class="hljs-type">plotControl</span> myPlot</span>);
+<span class="hljs-keyword">keyword</span> <span class="hljs-title function_">sub</span>;

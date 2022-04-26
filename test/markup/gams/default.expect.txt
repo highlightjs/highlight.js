@@ -24,8 +24,8 @@
     COST        <span class="hljs-comment">define objective function</span>
     SUPPLY(I)   <span class="hljs-comment">observe supply limit at plant i</span>
     DEMAND(J)   <span class="hljs-comment">satisfy demand at market j</span> ;
-<span class="hljs-function"><span class="hljs-title">COST</span></span> ..        Z  <span class="hljs-symbol">=E=</span>  <span class="hljs-keyword">SUM</span>((I,J), C(I,J)*X(I,J)) ;
-<span class="hljs-function"><span class="hljs-title">SUPPLY</span>(<span class="hljs-params">I</span>)</span> ..   <span class="hljs-keyword">SUM</span>(J, X(I,J))  <span class="hljs-symbol">=L=</span>  A(I) ;
-<span class="hljs-function"><span class="hljs-title">DEMAND</span>(<span class="hljs-params">J</span>)</span> ..   <span class="hljs-keyword">SUM</span>(I, X(I,J))  <span class="hljs-symbol">=G=</span>  B(J) ;
+<span class="hljs-title function_">COST</span> ..        Z  <span class="hljs-symbol">=E=</span>  <span class="hljs-keyword">SUM</span>((I,J), C(I,J)*X(I,J)) ;
+<span class="hljs-title function_">SUPPLY</span>(<span class="hljs-params">I</span>) ..   <span class="hljs-keyword">SUM</span>(J, X(I,J))  <span class="hljs-symbol">=L=</span>  A(I) ;
+<span class="hljs-title function_">DEMAND</span>(<span class="hljs-params">J</span>) ..   <span class="hljs-keyword">SUM</span>(I, X(I,J))  <span class="hljs-symbol">=G=</span>  B(J) ;
 <span class="hljs-keyword">MODEL</span> TRANSPORT /<span class="hljs-keyword">ALL</span>/ ;
 <span class="hljs-keyword">SOLVE</span> TRANSPORT <span class="hljs-keyword">USING</span> LP <span class="hljs-keyword">MINIMIZING</span> Z ;
