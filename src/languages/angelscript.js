@@ -9,6 +9,7 @@ Website: https://www.angelcode.com/angelscript/
 export default function(hljs) {
   const builtInTypeMode = {
     className: 'built_in',
+    relevance: 1,
     begin: '\\b(void|bool|int8|int16|int32|int64|int|uint8|uint16|uint32|uint64|uint|string|ref|array|double|float|auto|dictionary)'
   };
 

@@ -195,7 +195,7 @@ export default function(hljs) {
       // open tag
       {
         className: 'tag',
-        relevance: 1,
+        relevance: 0.5,
         begin: regex.concat(
           /</,
           regex.lookahead(regex.concat(
@@ -219,7 +219,7 @@ export default function(hljs) {
       // close tag
       {
         className: 'tag',
-        relevance: 1,
+        relevance: 0.5,
         begin: regex.concat(
           /<\//,
           regex.lookahead(regex.concat(
