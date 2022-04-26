@@ -46,12 +46,11 @@ export default function(hljs) {
       {
         begin: "'''",
         end: "'''",
-        relevance: 10
       },
       {
         begin: '"""',
         end: '"""',
-        relevance: 10
+        relevance: 2
       },
       {
         begin: '"',

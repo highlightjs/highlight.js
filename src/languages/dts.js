@@ -99,7 +99,7 @@ export default function(hljs) {
   const ROOT_NODE = {
     className: 'title.class',
     begin: /^\/(?=\s*\{)/,
-    relevance: 10
+    relevance: 1
   };
 
   // TODO: `attribute` might be the right scope here, unsure

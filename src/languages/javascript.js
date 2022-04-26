@@ -343,7 +343,7 @@ export default function(hljs) {
   const USE_STRICT = {
     label: "use_strict",
     className: 'meta',
-    relevance: 10,
+    relevance: 9,
     begin: /^\s*['"]use (strict|asm)['"]/
   };
 

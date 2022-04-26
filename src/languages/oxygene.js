@@ -26,8 +26,7 @@ export default function(hljs) {
   );
   const PAREN_COMMENT = hljs.COMMENT(
     '\\(\\*',
-    '\\*\\)',
-    { relevance: 10 }
+    '\\*\\)'
   );
   const STRING = {
     className: 'string',
