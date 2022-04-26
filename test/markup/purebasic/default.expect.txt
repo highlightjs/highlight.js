@@ -22,8 +22,8 @@ StrangeProcedureCall (<span class="hljs-string">&quot;This command is split &quo
 
 <span class="hljs-keyword">If</span> B &gt; 3 : X$ = <span class="hljs-string">&quot;Concatenation of commands&quot;</span> : <span class="hljs-keyword">Else</span> : X$ = <span class="hljs-string">&quot;Using colons&quot;</span> : <span class="hljs-keyword">EndIf</span>
 
-<span class="hljs-function"><span class="hljs-keyword">Declare</span><span class="hljs-type">.s</span> <span class="hljs-title">Attach</span></span>(String1$, String2$)
+<span class="hljs-keyword">Declare</span><span class="hljs-type">.s</span> <span class="hljs-title function_">Attach</span>(String1$, String2$)
 
-<span class="hljs-function"><span class="hljs-keyword">Procedure</span><span class="hljs-type">.s</span> <span class="hljs-title">Attach</span></span>(String1$, String2$)
+<span class="hljs-keyword">Procedure</span><span class="hljs-type">.s</span> <span class="hljs-title function_">Attach</span>(String1$, String2$)
   <span class="hljs-keyword">ProcedureReturn</span> String1$+<span class="hljs-string">&quot; &quot;</span>+String2$
 <span class="hljs-keyword">EndProcedure</span> 

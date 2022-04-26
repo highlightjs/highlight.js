@@ -4,4 +4,4 @@
 <span class="hljs-keyword">external string</span> _olsrnam;
 <span class="hljs-keyword">external proc</span> <span class="hljs-built_in">indices2</span>,<span class="hljs-built_in">indexcat</span>;
 myPlot.axes.and.for.if.endif.text = <span class="hljs-string">&quot;hey&quot;</span>;
-<span class="hljs-keyword">local</span> f:<span class="hljs-function"><span class="hljs-keyword">proc</span></span>;
+<span class="hljs-keyword">local</span> f:<span class="hljs-keyword">proc</span>;
