@@ -1,0 +1,12 @@
+﻿<productos>
+  <producto>
+    <name>sofá</name>
+    <categoría>mueble</categoría>
+    <descripción>Asiento cómodo para dos o más personas, que tiene respaldo y brazos.</descripción>
+  </producto>
+  <producto>
+    <name>sillón</name>
+    <categoría>mueble</categoría>
+    <descripción>Silla de brazos, mayor y más cómoda que la ordinaria.</descripción>
+  </producto>
+</productos>

@@ -1,0 +1,12 @@
+﻿<span class="hljs-tag">&lt;<span class="hljs-name">productos</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">producto</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>sofá<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">categoría</span>&gt;</span>mueble<span class="hljs-tag">&lt;/<span class="hljs-name">categoría</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">descripción</span>&gt;</span>Asiento cómodo para dos o más personas, que tiene respaldo y brazos.<span class="hljs-tag">&lt;/<span class="hljs-name">descripción</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">producto</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">producto</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>sillón<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">categoría</span>&gt;</span>mueble<span class="hljs-tag">&lt;/<span class="hljs-name">categoría</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">descripción</span>&gt;</span>Silla de brazos, mayor y más cómoda que la ordinaria.<span class="hljs-tag">&lt;/<span class="hljs-name">descripción</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">producto</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">productos</span>&gt;</span>

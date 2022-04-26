@@ -1,0 +1,3 @@
+﻿<span class="hljs-tag">&lt;<span class="hljs-name">productos</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">producto</span> <span class="hljs-attr">categoría</span>=<span class="hljs-string">&quot;mueble&quot;</span> <span class="hljs-attr">descripción</span>=<span class="hljs-string">&quot;Asiento cómodo para dos o más personas, que tiene respaldo y brazos.&quot;</span>&gt;</span>sofá<span class="hljs-tag">&lt;/<span class="hljs-name">producto</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">productos</span>&gt;</span>
