@@ -36,14 +36,14 @@ export default function(hljs) {
       {
         className: 'keyword',
         begin: /^dsconfig(?=\s)/,
-        relevance: 9
+        relevance: "important!"
       },
       {
         className: 'built_in',
         begin: /(list|create|get|set|delete)-(\w+)/,
         end: /(?=\s)/,
         illegal: '!@#$%^&*()',
-        relevance: 1
+        relevance: "keyword"
       },
       {
         className: 'built_in',

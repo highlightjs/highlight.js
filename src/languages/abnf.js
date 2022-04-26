@@ -34,21 +34,26 @@ export default function(hljs) {
 
   const TERMINAL_BINARY = {
     scope: "symbol",
-    match: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+)?/
+    relevance: "low",
+    match: /%b[0-1]+(-[0-1]+|(\.[0-1]+)+)?/,
+    
   };
 
   const TERMINAL_DECIMAL = {
     scope: "symbol",
+    relevance: "low",
     match: /%d[0-9]+(-[0-9]+|(\.[0-9]+)+)?/
   };
 
   const TERMINAL_HEXADECIMAL = {
     scope: "symbol",
+    relevance: "low",
     match: /%x[0-9A-F]+(-[0-9A-F]+|(\.[0-9A-F]+)+)?/
   };
 
   const CASE_SENSITIVITY = {
     scope: "symbol",
+    relevance: "low",
     match: /%[si](?=".*")/
   };
 

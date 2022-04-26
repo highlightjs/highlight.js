@@ -46,7 +46,6 @@ export default function(hljs) {
 
   const STRING = {
     className: 'string',
-    relevance: 0,
     variants: [
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE

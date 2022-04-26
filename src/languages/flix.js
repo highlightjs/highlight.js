@@ -14,16 +14,12 @@ export default function(hljs) {
 
   const STRING = {
     className: 'string',
-    variants: [
-      {
-        begin: '"',
-        end: '"'
-      }
-    ]
+    begin: '"',
+    end: '"'
   };
 
   const NAME = {
-    className: 'title',
+    className: 'title.function',
     relevance: 0,
     begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/
   };

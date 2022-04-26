@@ -174,6 +174,7 @@ export default function(hljs) {
   };
   const FUNCTION_DEFINITION = {
     className: 'function',
+    relevance: "minor",
     begin: /[a-z][^\n]*->/,
     returnBegin: true,
     end: /->/,

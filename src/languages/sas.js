@@ -495,6 +495,7 @@ export default function(hljs) {
       {
         // Distinct highlight for proc <proc>, data, run, quit
         className: 'keyword',
+        relevance: "keyword",
         begin: /^\s*(proc [\w\d_]+|data|run|quit)[\s;]/
       },
       {
@@ -509,6 +510,7 @@ export default function(hljs) {
           /(?:.*\n)+/,
           /^\s*;\s*$/
         ],
+        relevance: "keyword",
         className: {
           2: "keyword",
           3: "string"
@@ -520,6 +522,7 @@ export default function(hljs) {
           /\s+/,
           /[a-zA-Z_&][a-zA-Z0-9_]*/
         ],
+        relevance: "keyword",
         className: {
           1: "built_in",
           3: "title.function"
@@ -527,6 +530,7 @@ export default function(hljs) {
       },
       { // Built-in macro variables
         className: 'built_in',
+        relevance: "keyword",
         begin: '%' + regex.either(...MACRO_FUNCTIONS)
       },
       {
@@ -539,6 +543,7 @@ export default function(hljs) {
         // built_in may need more nuance
         // https://github.com/highlightjs/highlight.js/issues/2521
         className: 'meta',
+        relevance: "keyword",
         begin: regex.either(...FUNCTIONS) + '(?=\\()'
       },
       {
@@ -548,7 +553,7 @@ export default function(hljs) {
           hljs.QUOTE_STRING_MODE
         ]
       },
-      hljs.COMMENT('\\*', ';'),
+      hljs.COMMENT('\\*', ';', { relevance: 0 }),
       hljs.C_BLOCK_COMMENT_MODE
     ]
   };

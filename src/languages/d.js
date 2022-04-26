@@ -207,8 +207,7 @@ export default function(hljs) {
   const D_HASHBANG_MODE = {
     className: 'meta',
     begin: '^#!',
-    end: '$',
-    relevance: 5
+    end: '$'
   };
 
   /**

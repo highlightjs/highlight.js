@@ -24,7 +24,7 @@ export default function(hljs) {
       },
       {
         match: /function calls(?=\s)/,
-        relevance: 2
+        relevance: "double"
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
@@ -37,6 +37,7 @@ export default function(hljs) {
         scope: {
           2: "string"
         },
+        // this is just a (expression) in so many other languages
         relevance: 0
       }
     ]

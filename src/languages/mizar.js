@@ -20,6 +20,8 @@ export default function(hljs) {
       + 'correctness compatibility coherence symmetry assymetry '
       + 'reflexivity irreflexivity connectedness uniqueness commutativity '
       + 'idempotence involutiveness projectivity',
-    contains: [ hljs.COMMENT('::', '$') ]
+    contains: [ 
+      hljs.COMMENT('::', '$', { relevance: 0 }) 
+    ]
   };
 }

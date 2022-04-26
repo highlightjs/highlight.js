@@ -29,7 +29,7 @@ export default function(hljs) {
       {
         className: 'number',
         begin: /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?\b/,
-        relevance: 5
+        relevance: "keyword"
       },
       // Other numbers
       {
@@ -44,11 +44,11 @@ export default function(hljs) {
         end: /"/,
         keywords: HTTP_VERBS,
         illegal: /\n/,
-        relevance: 5,
+        relevance: "keyword",
         contains: [
           {
             begin: /HTTP\/[12]\.\d'/,
-            relevance: 5
+            relevance: "high"
           }
         ]
       },
@@ -60,13 +60,14 @@ export default function(hljs) {
         // found in other languages
         begin: /\[\d[^\]\n]{8,}\]/,
         illegal: /\n/,
-        relevance: 1
+        relevance: "minor"
       },
       {
         className: 'string',
         begin: /\[/,
         end: /\]/,
         illegal: /\n/,
+        // [] is just too common for array access to give it signal
         relevance: 0
       },
       // User agent / relevance boost
@@ -75,15 +76,14 @@ export default function(hljs) {
         begin: /"Mozilla\/\d\.\d \(/,
         end: /"/,
         illegal: /\n/,
-        relevance: 3
+        relevance: "high"
       },
       // Strings
       {
         className: 'string',
         begin: /"/,
         end: /"/,
-        illegal: /\n/,
-        relevance: 0
+        illegal: /\n/
       }
     ]
   };

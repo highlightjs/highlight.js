@@ -183,7 +183,7 @@ export default function(hljs) {
     "true",
     "false",
     "null",
-    "missing|5"
+    "missing"
   ];
   // Taken from http://developer.couchbase.com/documentation/server/4.5/n1ql/n1ql-language-reference/functions.html
   const BUILT_INS = [

@@ -22,11 +22,13 @@ export default function(hljs) {
     className: 'params',
     begin: /\(/,
     end: /\)/,
+    excludeBegin: true,
+    excludeEnd: true,
     contains: [ PARAM ],
     relevance: 0
   };
   const OPERATION = {
-    className: 'function',
+    className: 'title.function',
     begin: /:[\w\-.]+/,
     relevance: 0
   };
