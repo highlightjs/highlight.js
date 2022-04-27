@@ -8,13 +8,22 @@ Category: scripting
 
 /** @type LanguageFn */
 export default function(hljs) {
-  const COMMENT = hljs.COMMENT(
-    /^\s*@?rem\b/, /$/
-  );
-  const LABEL = {
-    className: 'symbol',
-    begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
-    relevance: 0
+  const COMMENTS = [
+    hljs.COMMENT(/^\s*@?rem\b/, /$/ ),
+    hljs.COMMENT(/^::/, /$/)
+  ];
+  const LABEL_RE = /:[A-Z._?][A-Z0-9_$#@~.?]*/;
+  const LABEL_FUNCTION = {
+    className: 'title.function',
+    match: hljs.regex.concat(/^/,LABEL_RE),
+    starts: {
+      contains: [
+        {
+          scope: "comment",
+          match: /.+(?=$)/,
+        }
+      ]
+    }
   };
   const KEYWORDS = [
     "if",
@@ -127,6 +136,44 @@ export default function(hljs) {
     "ren",
     "del"
   ];
+
+  const DISPATCH = {
+    match: [
+      /call|goto/,
+      /\s*/,
+      LABEL_RE
+    ],
+    relevance: "keyword",
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    }
+  }
+
+  const VARIABLE = {
+    scope: 'variable',
+    begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
+  }
+
+  const STRINGS = [
+    {
+      scope: 'string',
+      begin: /"/, 
+      end: /"/,
+      contains: [
+        VARIABLE
+      ]
+    },
+    {
+      scope: 'string',
+      begin: /'/, 
+      end: /'/,
+      contains: [
+        VARIABLE
+      ]
+    }
+  ]
+  
   return {
     name: 'Batch file (DOS)',
     aliases: [
@@ -140,27 +187,16 @@ export default function(hljs) {
       built_in: BUILT_INS
     },
     contains: [
-      {
-        className: 'variable',
-        begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
-      },
-      {
-        begin: LABEL.begin,
-        end: 'goto:eof',
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, { 
-            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*',
-            scope: "title.function"
-           }),
-          COMMENT
-        ]
-      },
+      ...STRINGS,
+      VARIABLE,
+      LABEL_FUNCTION,
+      DISPATCH,
       {
         className: 'number',
-        begin: '\\b\\d+',
+        begin: /\b\d+/,
         relevance: 0
       },
-      COMMENT
+      ...COMMENTS
     ]
   };
 }
