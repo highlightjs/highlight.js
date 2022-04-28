@@ -11,19 +11,16 @@ export default function(hljs) {
   const VERSION = 'HTTP/([32]|1\\.[01])';
   const HEADER_NAME = /[A-Za-z][A-Za-z0-9-]*/;
   const HEADER = {
-    className: 'attribute',
-    begin: regex.concat('^', HEADER_NAME, '(?=\\:\\s)'),
-    starts: { contains: [
-      {
-        className: "punctuation",
-        begin: /: /,
-        relevance: 0,
-        starts: {
-          end: '$',
-          relevance: 0
-        }
-      }
-    ] }
+    begin: [
+      regex.concat('^', HEADER_NAME),
+      /\:/
+    ],
+    relevance: "low",
+    scope: {
+      1: "attribute",
+      2: "punctuation"
+    },
+    end: /$/
   };
   const HEADERS_AND_BODY = [
     HEADER,
@@ -44,6 +41,7 @@ export default function(hljs) {
       // response
       {
         begin: '^(?=' + VERSION + " \\d{3})",
+        relevance: "high",
         end: /$/,
         contains: [
           {
@@ -63,7 +61,8 @@ export default function(hljs) {
       },
       // request
       {
-        begin: '(?=^[A-Z]+ (.*?) ' + VERSION + '$)',
+        begin: '(?=^[A-Z]+ \/(.*?) ' + VERSION + '$)',
+        relevance: "high",
         end: /$/,
         contains: [
           {

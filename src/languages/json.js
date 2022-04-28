@@ -10,7 +10,7 @@ export default function(hljs) {
   const ATTRIBUTE = {
     className: 'attr',
     begin: /"(\\.|[^\\"\r\n])*"(?=\s*:)/,
-    relevance: 1.01
+    relevance: "keyword"
   };
   const PUNCTUATION = {
     match: /[{}[\],:]/,

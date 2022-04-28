@@ -9,19 +9,20 @@ Category: functional
 export default function(hljs) {
   const regex = hljs.regex;
   return {
+    // TODO: this should depend on/wrap the `erlang` grammar
     name: 'Erlang REPL',
     keywords: {
       built_in:
         'spawn spawn_link self',
       keyword:
-        'after and andalso|10 band begin bnot bor bsl bsr bxor case catch cond div end fun if '
-        + 'let not of or orelse|10 query receive rem try when xor'
+        'after and andalso band begin bnot bor bsl bsr bxor case catch cond div end fun if '
+        + 'let not of or orelse query receive rem try when xor'
     },
     contains: [
       {
         className: 'meta.prompt',
         begin: '^[0-9]+> ',
-        relevance: 0.5
+        relevance: "half"
       },
       hljs.COMMENT('%', '$'),
       {

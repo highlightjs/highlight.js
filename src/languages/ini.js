@@ -36,7 +36,7 @@ export default function(hljs) {
   };
   const LITERALS = {
     className: 'literal',
-    relevance: 1,
+    relevance: "keyword",
     begin: /\bon|off|true|false|yes|no\b/
   };
   const STRINGS = {
@@ -49,8 +49,7 @@ export default function(hljs) {
       },
       {
         begin: '"""',
-        end: '"""',
-        relevance: 2
+        end: '"""'
       },
       {
         begin: '"',
@@ -72,8 +71,7 @@ export default function(hljs) {
       STRINGS,
       NUMBERS,
       'self'
-    ],
-    relevance: 0
+    ]
   };
 
   const BARE_KEY = /[A-Za-z0-9_-]+/;

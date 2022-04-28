@@ -549,14 +549,12 @@ export default function(hljs) {
         className: 'symbol',
         begin: /\b[A-Z]{1,2}\d+\b/,
         end: /[^\d]/,
-        excludeEnd: true,
-        relevance: 0
+        excludeEnd: true
       },
       {
         /* matches a reference to a range of cells */
         className: 'symbol',
-        begin: /[A-Z]{0,2}\d*:[A-Z]{0,2}\d*/,
-        relevance: 0
+        begin: /[A-Z]{0,2}\d*:[A-Z]{0,2}\d*/
       },
       hljs.BACKSLASH_ESCAPE,
       hljs.QUOTE_STRING_MODE,

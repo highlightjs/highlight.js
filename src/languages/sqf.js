@@ -2612,8 +2612,7 @@ export default function(hljs) {
     keywords: 'define undef ifdef ifndef else endif include if',
     contains: [
       {
-        begin: /\\\n/,
-        relevance: 0
+        begin: /\\\n/
       },
       hljs.inherit(STRINGS, { className: 'string' }),
       {

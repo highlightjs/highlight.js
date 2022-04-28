@@ -74,8 +74,7 @@ export default function(hljs) {
   // const ESCAPES_RE = /\\["'\\abdefnrstv0]/;
   const BACKSLASH_ESCAPE = {
     match: ESCAPES_RE,
-    scope: "char.escape",
-    relevance: 0
+    scope: "char.escape"
   };
   const SIGIL_DELIMITERS = '[/|([{<"\']';
   const SIGIL_DELIMITER_MODES = [
@@ -115,8 +114,7 @@ export default function(hljs) {
   const escapeSigilEnd = (end) => {
     return {
       scope: "char.escape",
-      begin: regex.concat(/\\/, end),
-      relevance: 0
+      begin: regex.concat(/\\/, end)
     };
   };
   const LOWERCASE_SIGIL = {
@@ -243,18 +241,15 @@ export default function(hljs) {
       contains: [
         STRING,
         { begin: ELIXIR_METHOD_RE }
-      ],
-      relevance: 0
+      ]
     },
     {
       className: 'symbol',
-      begin: ELIXIR_IDENT_RE + ':(?!:)',
-      relevance: 0
+      begin: ELIXIR_IDENT_RE + ':(?!:)'
     },
     { // Usage of a module, struct, etc.
       className: 'title.class',
-      begin: /(\b[A-Z][a-zA-Z0-9_]+)/,
-      relevance: 0
+      begin: /(\b[A-Z][a-zA-Z0-9_]+)/
     },
     NUMBER,
     {

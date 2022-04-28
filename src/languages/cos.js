@@ -15,8 +15,7 @@ export default function cos(hljs) {
         end: '"',
         contains: [
           { // escaped
-            begin: "\"\"",
-            relevance: 0
+            begin: "\"\""
           }
         ]
       }
@@ -108,14 +107,16 @@ export default function cos(hljs) {
         begin: /\^%?[a-zA-Z][\w]*/
       },
       { // Some control constructions: do ##class(Package.ClassName).Method(), ##super()
-        className: "keyword",
-        begin: /##class|##super|#define|#dim/
+        scope: "keyword",
+        relevance: "keyword",
+        match: /##class|##super|#define|#dim/
       },
       // sub-languages: are not fully supported by hljs by 11/15/2015
       // left for the future implementation.
       {
         begin: /&sql\(/,
         end: /\)/,
+        relevance: "keyword",
         excludeBegin: true,
         excludeEnd: true,
         subLanguage: "sql"
@@ -123,6 +124,7 @@ export default function cos(hljs) {
       {
         begin: /&(js|jscript|javascript)</,
         end: />/,
+        relevance: "keyword",
         excludeBegin: true,
         excludeEnd: true,
         subLanguage: "javascript"
@@ -130,6 +132,7 @@ export default function cos(hljs) {
       {
         // this brakes first and last tag, but this is the only way to embed a valid html
         begin: /&html<\s*</,
+        relevance: "keyword",
         end: />\s*>/,
         subLanguage: "xml"
       }
