@@ -54,8 +54,7 @@ export default function(hljs) {
         scope: "variable",
         begin: /\$/,
         end: /\W/,
-        excludeEnd: true,
-        relevance: 0
+        excludeEnd: true
       },
       {
         scope: "meta",
@@ -64,8 +63,7 @@ export default function(hljs) {
       },
       {
         scope: "symbol",
-        begin: regex.concat(GQL_NAME, regex.lookahead(/\s*:/)),
-        relevance: 0
+        begin: regex.concat(GQL_NAME, regex.lookahead(/\s*:/))
       }
     ],
     illegal: [

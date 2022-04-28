@@ -50,7 +50,7 @@ export default function(hljs) {
     className: 'meta',
     begin: /^\.PHONY:/,
     end: /$/,
-    relevance: 2,
+    relevance: "double",
     keywords: {
       $pattern: /[\.\w]+/,
       keyword: '.PHONY'

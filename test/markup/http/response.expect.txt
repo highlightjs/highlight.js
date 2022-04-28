@@ -1,11 +1,11 @@
 <span class="hljs-meta">HTTP/2</span> <span class="hljs-number">301</span>
-<span class="hljs-attribute">location</span><span class="hljs-punctuation">: </span>https://www.google.com/
-<span class="hljs-attribute">content-type</span><span class="hljs-punctuation">: </span>text/html; charset=UTF-8
-<span class="hljs-attribute">date</span><span class="hljs-punctuation">: </span>Sat, 31 Oct 2020 22:47:14 GMT
-<span class="hljs-attribute">expires</span><span class="hljs-punctuation">: </span>Mon, 30 Nov 2020 22:47:14 GMT
-<span class="hljs-attribute">cache-control</span><span class="hljs-punctuation">: </span>public, max-age=2592000
-<span class="hljs-attribute">server</span><span class="hljs-punctuation">: </span>gws
-<span class="hljs-attribute">content-length</span><span class="hljs-punctuation">: </span>220
-<span class="hljs-attribute">x-xss-protection</span><span class="hljs-punctuation">: </span>0
-<span class="hljs-attribute">x-frame-options</span><span class="hljs-punctuation">: </span>SAMEORIGIN
-<span class="hljs-attribute">alt-svc</span><span class="hljs-punctuation">: </span>h3-Q050=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000,h3-T051=&quot;:443&quot;; ma=2592000,h3-T050=&quot;:443&quot;; ma=2592000,h3-Q046=&quot;:443&quot;; ma=2592000,h3-Q043=&quot;:443&quot;; ma=2592000,quic=&quot;:443&quot;; ma=2592000; v=&quot;46,43&quot;
+<span class="hljs-attribute">location</span><span class="hljs-punctuation">:</span> https://www.google.com/
+<span class="hljs-attribute">content-type</span><span class="hljs-punctuation">:</span> text/html; charset=UTF-8
+<span class="hljs-attribute">date</span><span class="hljs-punctuation">:</span> Sat, 31 Oct 2020 22:47:14 GMT
+<span class="hljs-attribute">expires</span><span class="hljs-punctuation">:</span> Mon, 30 Nov 2020 22:47:14 GMT
+<span class="hljs-attribute">cache-control</span><span class="hljs-punctuation">:</span> public, max-age=2592000
+<span class="hljs-attribute">server</span><span class="hljs-punctuation">:</span> gws
+<span class="hljs-attribute">content-length</span><span class="hljs-punctuation">:</span> 220
+<span class="hljs-attribute">x-xss-protection</span><span class="hljs-punctuation">:</span> 0
+<span class="hljs-attribute">x-frame-options</span><span class="hljs-punctuation">:</span> SAMEORIGIN
+<span class="hljs-attribute">alt-svc</span><span class="hljs-punctuation">:</span> h3-Q050=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000,h3-T051=&quot;:443&quot;; ma=2592000,h3-T050=&quot;:443&quot;; ma=2592000,h3-Q046=&quot;:443&quot;; ma=2592000,h3-Q043=&quot;:443&quot;; ma=2592000,quic=&quot;:443&quot;; ma=2592000; v=&quot;46,43&quot;

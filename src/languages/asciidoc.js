@@ -40,8 +40,7 @@ export default function(hljs) {
         /((\*(?!\*)|\\[^\n]|[^*\n\\])+\n)+/,
         /(\*(?!\*)|\\[^\n]|[^*\n\\])*/,
         /\*\*/
-      ),
-      relevance: 0
+      )
     },
     // inline constrained strong (single line)
     {
@@ -70,8 +69,7 @@ export default function(hljs) {
         /((_(?!_)|\\[^\n]|[^_\n\\])+\n)+/,
         /(_(?!_)|\\[^\n]|[^_\n\\])*/,
         /__/
-      ),
-      relevance: 0
+      )
     },
     // inline constrained emphasis (single line)
     {
@@ -94,17 +92,15 @@ export default function(hljs) {
       // allow escaped single quote followed by word char
       contains: [
         {
-          begin: '\\\\\'\\w',
-          relevance: 0
+          begin: '\\\\\'\\w'
         }
-      ],
-      relevance: 0
+      ]
     }
   ];
   const ADMONITION = {
     className: 'symbol',
     begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
-    relevance: 1
+    relevance: "keyword"
   };
   const BULLET_LIST = {
     className: 'bullet',
@@ -122,13 +118,12 @@ export default function(hljs) {
         // can also be done as...
         // '^/{4,}$',
         // '^/{4,}$',
-        { relevance: 2 }
+        { relevance: "double" }
       ),
       // line comment
       hljs.COMMENT(
         '^//',
-        '$',
-        { relevance: 0 }
+        '$'
       ),
       // title
       {
@@ -138,13 +133,12 @@ export default function(hljs) {
       // example, admonition & sidebar blocks
       {
         begin: '^[=\\*]{4,}\\n',
-        end: '\\n^[=\\*]{4,}$',
-        relevance: 1
+        end: '\\n^[=\\*]{4,}$'
       },
       // headings
       {
         className: 'section',
-        relevance: 1,
+        relevance: "half",
         variants: [
           { begin: '^(={1,6})[ \t].+?([ \t]\\1)?$' },
           { begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$' }
@@ -155,28 +149,26 @@ export default function(hljs) {
         className: 'meta',
         begin: '^:.+?:',
         end: '\\s',
-        excludeEnd: true,
-        relevance: 0.2
+        excludeEnd: true
       },
       // block attributes
       {
         className: 'meta',
-        begin: '^\\[.+?\\]$',
-        relevance: 0
+        begin: '^\\[.+?\\]$'
       },
       // quoteblocks
       {
         className: 'quote',
         begin: '^_{4,}\\n',
         end: '\\n_{4,}$',
-        relevance: 1
+        relevance: "low"
       },
       // listing and literal blocks
       {
         className: 'code',
         begin: '^[\\-\\.]{4,}\\n',
         end: '\\n[\\-\\.]{4,}$',
-        relevance: 1
+        relevance: "low"
       },
       // passthrough blocks
       {
@@ -189,8 +181,7 @@ export default function(hljs) {
             subLanguage: 'xml',
             relevance: 0
           }
-        ],
-        relevance: 1
+        ]
       },
 
       BULLET_LIST,
@@ -216,8 +207,7 @@ export default function(hljs) {
       // inline code snippets (TODO should get same treatment as strong and emphasis)
       {
         className: 'code',
-        begin: '(`.+?`|\\+.+?\\+)',
-        relevance: 0
+        begin: '(`.+?`|\\+.+?\\+)'
       },
       // indented literal block
       {
@@ -233,25 +223,22 @@ export default function(hljs) {
         returnBegin: true,
         contains: [
           {
-            begin: '(link|image:?):',
-            relevance: 0
+            begin: '(link|image:?):'
           },
           {
             className: 'link',
             begin: '\\w',
-            end: '[^\\[]+',
-            relevance: 0
+            end: '[^\\[]+'
           },
           {
             className: 'string',
             begin: '\\[',
             end: '\\]',
             excludeBegin: true,
-            excludeEnd: true,
-            relevance: 0
+            excludeEnd: true
           }
         ],
-        relevance: 1
+        relevance: "keyword"
       }
     ]
   };

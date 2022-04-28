@@ -24,6 +24,7 @@ export default function(hljs) {
   const KEYWORDS_WITH_LABEL = {
     className: 'keyword',
     begin: /\b(break|continue|return|this)\b/,
+    relevance: "keyword",
     starts: { contains: [
       {
         className: 'symbol',
@@ -83,6 +84,7 @@ export default function(hljs) {
 
   const ANNOTATION_USE_SITE = {
     className: 'meta',
+    relevance: "keyword",
     begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
   };
   const ANNOTATION = {
@@ -137,7 +139,6 @@ export default function(hljs) {
         '/\\*\\*',
         '\\*/',
         {
-          relevance: 0,
           contains: [
             {
               className: 'doctag',
@@ -153,7 +154,6 @@ export default function(hljs) {
       ANNOTATION_USE_SITE,
       ANNOTATION,
       {
-        className: 'function',
         beginKeywords: 'fun',
         end: '[(]|$',
         returnBegin: true,
@@ -163,15 +163,15 @@ export default function(hljs) {
           {
             begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
             returnBegin: true,
-            relevance: 0,
-            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+            contains: [ 
+              hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {scope: "title.function"})
+            ]
           },
           {
             className: 'type',
             begin: /</,
             end: />/,
             keywords: 'reified',
-            relevance: 0
           },
           {
             className: 'params',
@@ -179,7 +179,6 @@ export default function(hljs) {
             end: /\)/,
             endsParent: true,
             keywords: KEYWORDS,
-            relevance: 0,
             contains: [
               {
                 begin: /:/,
@@ -190,7 +189,6 @@ export default function(hljs) {
                   hljs.C_LINE_COMMENT_MODE,
                   KOTLIN_NESTED_COMMENT
                 ],
-                relevance: 0
               },
               hljs.C_LINE_COMMENT_MODE,
               KOTLIN_NESTED_COMMENT,
@@ -218,14 +216,13 @@ export default function(hljs) {
         illegal: 'extends implements',
         contains: [
           { beginKeywords: 'public protected internal private constructor' },
-          hljs.UNDERSCORE_TITLE_MODE,
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { scope: "title.class" }),
           {
             className: 'type',
             begin: /</,
             end: />/,
             excludeBegin: true,
-            excludeEnd: true,
-            relevance: 0
+            excludeEnd: true
           },
           {
             className: 'type',
@@ -239,12 +236,7 @@ export default function(hljs) {
         ]
       },
       STRING,
-      {
-        className: 'meta',
-        begin: "^#!/usr/bin/env",
-        end: '$',
-        illegal: '\n'
-      },
+      hljs.SHEBANG(),
       KOTLIN_NUMBER_MODE
     ]
   };

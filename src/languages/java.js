@@ -142,7 +142,6 @@ export default function(hljs) {
     begin: /\(/,
     end: /\)/,
     keywords: KEYWORDS,
-    relevance: 0,
     contains: [ hljs.C_BLOCK_COMMENT_MODE ],
     endsParent: true
   };
@@ -157,12 +156,10 @@ export default function(hljs) {
         '/\\*\\*',
         '\\*/',
         {
-          relevance: 0,
           contains: [
             {
               // eat up @'s in emails to prevent them to be recognized as doctags
-              begin: /\w+@/,
-              relevance: 0
+              begin: /\w+@/
             },
             {
               className: 'doctag',
@@ -193,7 +190,7 @@ export default function(hljs) {
           /\s+/,
           JAVA_IDENT_RE
         ],
-        relevance: 1, // keyword
+        relevance: "keyword",
         className: {
           1: "keyword",
           3: "title.class"
@@ -203,7 +200,7 @@ export default function(hljs) {
         // Exceptions for hyphenated keywords
         match: /non-sealed/,
         scope: "keyword",
-        relevance: 1
+        relevance: "keyword"
       },
       {
         // Expression keywords prevent keyword-led expressions from being
@@ -220,6 +217,7 @@ export default function(hljs) {
           /\s*/,
           /=(?!=)/
         ],
+        relevance: "low",
         className: {
           1: "type",
           3: "variable",
@@ -232,7 +230,7 @@ export default function(hljs) {
           /\s+/,
           JAVA_IDENT_RE
         ],
-        relevance: 1, // record
+        relevance: "keyword",
         className: {
           1: "keyword",
           3: "title.class"
@@ -261,7 +259,6 @@ export default function(hljs) {
             begin: /\(/,
             end: /\)/,
             keywords: KEYWORDS,
-            relevance: 0,
             contains: [
               ANNOTATION,
               hljs.APOS_STRING_MODE,

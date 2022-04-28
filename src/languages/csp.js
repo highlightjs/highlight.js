@@ -49,13 +49,13 @@ export default function(hljs) {
     contains: [
       {
         className: 'string',
-        begin: "'",
-        end: "'"
+        begin: /'/,
+        end: /'/
       },
       {
         className: 'attribute',
-        begin: '^Content',
-        end: ':',
+        begin: /^Content/,
+        end: /:/,
         excludeEnd: true
       }
     ]

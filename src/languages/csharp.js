@@ -170,11 +170,10 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b0[bB]_*[01](_*[01])*' + INTEGER_SUFFIX },
-      { begin: '(-?)\\b0[xX]_*[a-fA-F0-9](_*[a-fA-F0-9])*' + INTEGER_SUFFIX },
+      { begin: '\\b0[bB]_*[01](_*[01])*' + INTEGER_SUFFIX, relevance: "low" },
+      { begin: '(-?)\\b0[xX]_*[a-fA-F0-9](_*[a-fA-F0-9])*' + INTEGER_SUFFIX, relevance: "low" },
       { begin: '(-?)(\\b' + DIGITS + '(\\.(' + DIGITS + ')?)?|\\.' + DIGITS + ')([eE][-+]?' + DIGITS + ')?' + REAL_SUFFIX }
-    ],
-    relevance: 0
+    ]
   };
   const RAW_STRING = {
     className: 'string',
@@ -266,8 +265,7 @@ export default function(hljs) {
   const AT_IDENTIFIER = {
     // prevents expressions like `@class` from incorrect flagging
     // `class` as a keyword
-    begin: "@" + hljs.IDENT_RE,
-    relevance: 0
+    begin: "@" + hljs.IDENT_RE
   };
 
   return {
@@ -289,8 +287,7 @@ export default function(hljs) {
               className: 'doctag',
               variants: [
                 {
-                  begin: '///',
-                  relevance: 0
+                  begin: '///'
                 },
                 { begin: '<!--|-->' },
                 {
@@ -314,7 +311,6 @@ export default function(hljs) {
       NUMBERS,
       {
         beginKeywords: 'class interface',
-        relevance: 0,
         end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
@@ -327,7 +323,6 @@ export default function(hljs) {
       },
       {
         beginKeywords: 'namespace',
-        relevance: 0,
         end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
@@ -338,7 +333,6 @@ export default function(hljs) {
       },
       {
         beginKeywords: 'record',
-        relevance: 0,
         end: /[{;=]/,
         illegal: /[^\s:]/,
         contains: [
@@ -366,8 +360,7 @@ export default function(hljs) {
       {
         // Expression keywords prevent 'keyword Name(...)' from being
         // recognized as a function definition
-        beginKeywords: 'new return throw await else',
-        relevance: 0
+        beginKeywords: 'new return throw await else'
       },
       {
         className: 'function',
@@ -379,8 +372,7 @@ export default function(hljs) {
         contains: [
           // prevents these from being highlighted `title`
           {
-            beginKeywords: FUNCTION_MODIFIERS.join(" "),
-            relevance: 0
+            beginKeywords: FUNCTION_MODIFIERS.join(" ")
           },
           {
             begin: hljs.IDENT_RE + '\\s*(<[^=]+>\\s*)?\\(',
@@ -388,8 +380,7 @@ export default function(hljs) {
             contains: [
               hljs.TITLE_MODE,
               GENERIC_MODIFIER
-            ],
-            relevance: 0
+            ]
           },
           { match: /\(\)/ },
           {
@@ -399,7 +390,6 @@ export default function(hljs) {
             excludeBegin: true,
             excludeEnd: true,
             keywords: KEYWORDS,
-            relevance: 0,
             contains: [
               STRING,
               NUMBERS,

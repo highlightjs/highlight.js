@@ -10,8 +10,13 @@ import { EXTENDED_NUMBER_MODE } from "./lib/ecmascript";
 export default function(hljs) {
   const ATTRIBUTE = {
     className: 'attr',
+<<<<<<< HEAD
     begin: /(("(\\.|[^\\"\r\n])*")|('(\\.|[^\\'\r\n])*'))(?=\s*:)/,
     relevance: 1.01
+=======
+    begin: /"(\\.|[^\\"\r\n])*"(?=\s*:)/,
+    relevance: "keyword"
+>>>>>>> 5688b627 (great relevance reworking)
   };
   const PUNCTUATION = {
     match: /[{}[\],:]/,

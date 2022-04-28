@@ -12,8 +12,8 @@ export default function(hljs) {
   const FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
   const ERLANG_RESERVED = {
     keyword:
-      'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if '
-      + 'let not of orelse|10 query receive rem try when xor maybe else',
+      'after and andalso band begin bnot bor bsl bzr bxor case catch cond div end fun if '
+      + 'let not of orelse query receive rem try when xor',
     literal:
       'false true'
   };
@@ -29,26 +29,22 @@ export default function(hljs) {
     begin: FUNCTION_NAME_RE + '\\(',
     end: '\\)',
     returnBegin: true,
-    relevance: 0,
     contains: [
       {
-        begin: FUNCTION_NAME_RE,
-        relevance: 0
+        begin: FUNCTION_NAME_RE
       },
       {
         begin: '\\(',
         end: '\\)',
         endsWithParent: true,
-        returnEnd: true,
-        relevance: 0
+        returnEnd: true
         // "contains" defined later
       }
     ]
   };
   const TUPLE = {
     begin: /\{/,
-    end: /\}/,
-    relevance: 0
+    end: /\}/
     // "contains" defined later
   };
   const VAR1 = {
@@ -61,17 +57,14 @@ export default function(hljs) {
   };
   const RECORD_ACCESS = {
     begin: '#' + hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0,
     returnBegin: true,
     contains: [
       {
-        begin: '#' + hljs.UNDERSCORE_IDENT_RE,
-        relevance: 0
+        begin: '#' + hljs.UNDERSCORE_IDENT_RE
       },
       {
         begin: /\{/,
         end: /\}/,
-        relevance: 0
         // "contains" defined later
       }
     ]
@@ -185,14 +178,13 @@ export default function(hljs) {
     illegal: '(</|\\*=|\\+=|-=|/\\*|\\*/|\\(\\*|\\*\\))',
     contains: [
       {
-        className: 'function',
         begin: '^' + BASIC_ATOM_RE + '\\s*\\(',
         end: '->',
         returnBegin: true,
         illegal: '\\(|#|//|/\\*|\\\\|:|;',
         contains: [
           PARAMS,
-          hljs.inherit(hljs.TITLE_MODE, { begin: BASIC_ATOM_RE })
+          hljs.inherit(hljs.TITLE_MODE, { begin: BASIC_ATOM_RE, scope: "title.function" })
         ],
         starts: {
           end: ';|\\.',
@@ -204,7 +196,6 @@ export default function(hljs) {
       {
         begin: '^-',
         end: '\\.',
-        relevance: 0,
         excludeEnd: true,
         returnBegin: true,
         keywords: {

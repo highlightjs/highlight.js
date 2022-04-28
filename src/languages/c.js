@@ -67,7 +67,7 @@ export default function(hljs) {
     className: 'type',
     variants: [
       { begin: '\\b[a-z\\d_]*_t\\b' },
-      { match: ATOMIC_TYPES }
+      { match: ATOMIC_TYPES, relevance: "half" }
     ]
 
   };
@@ -103,11 +103,11 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     variants: [
-      { match: /\b(0b[01']+)/ },  
-      { match: /(-?)\b([\d']+(\.[\d']*)?|\.[\d']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)/ },  
-      { match: /(-?)\b(0[xX][a-fA-F0-9]+(?:'[a-fA-F0-9]+)*(?:\.[a-fA-F0-9]*(?:'[a-fA-F0-9]*)*)?(?:[pP][-+]?[0-9]+)?(l|L)?(u|U)?)/ },  
-      { match: /(-?)\b\d+(?:'\d+)*(?:\.\d*(?:'\d*)*)?(?:[eE][-+]?\d+)?/ }  
-  ],
+      { match: /\b(0b[01']+)/ },
+      { match: /(-?)\b([\d']+(\.[\d']*)?|\.[\d']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)/ },
+      { match: /(-?)\b(0[xX][a-fA-F0-9]+(?:'[a-fA-F0-9]+)*(?:\.[a-fA-F0-9]*(?:'[a-fA-F0-9]*)*)?(?:[pP][-+]?[0-9]+)?(l|L)?(u|U)?)/ },
+      { match: /(-?)\b\d+(?:'\d+)*(?:\.\d*(?:'\d*)*)?(?:[eE][-+]?\d+)?/ }
+    ],
     relevance: 0
   };  
   
@@ -146,8 +146,7 @@ export default function(hljs) {
         + 'pragma _Pragma ifdef ifndef elifdef elifndef include' },
     contains: [
       {
-        begin: /\\\n/,
-        relevance: 0
+        begin: /\\\n/
       },
       hljs.inherit(STRINGS, { className: 'string' }),
       C_LINE_COMMENT_MODE,
@@ -162,8 +161,7 @@ export default function(hljs) {
 
   const TITLE_MODE = {
     className: 'title',
-    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
-    relevance: 0
+    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE
   };
 
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
@@ -304,11 +302,9 @@ export default function(hljs) {
         begin: /\(/,
         end: /\)/,
         keywords: KEYWORDS,
-        contains: EXPRESSION_CONTAINS.concat([ 'self' ]),
-        relevance: 0
+        contains: EXPRESSION_CONTAINS.concat([ 'self' ])
       }
-    ]),
-    relevance: 0
+    ])
   };
 
   const FUNCTION_DECLARATION = {
@@ -321,19 +317,16 @@ export default function(hljs) {
     contains: [
       { // to prevent it from being confused as the function title
         begin: DECLTYPE_AUTO_RE,
-        keywords: KEYWORDS,
-        relevance: 0
+        keywords: KEYWORDS
       },
       {
         begin: FUNCTION_TITLE,
         returnBegin: true,
-        contains: [ hljs.inherit(TITLE_MODE, { className: "title.function" }) ],
-        relevance: 0
+        contains: [ hljs.inherit(TITLE_MODE, { className: "title.function" }) ]
       },
       // allow for multiple declarations, e.g.:
       // extern void f(int), g(char);
       {
-        relevance: 0,
         match: /,/
       },
       {
@@ -341,7 +334,6 @@ export default function(hljs) {
         begin: /\(/,
         end: /\)/,
         keywords: KEYWORDS,
-        relevance: 0,
         contains: [
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
@@ -353,7 +345,6 @@ export default function(hljs) {
             begin: /\(/,
             end: /\)/,
             keywords: KEYWORDS,
-            relevance: 0,
             contains: [
               'self',
               C_LINE_COMMENT_MODE,
@@ -391,12 +382,11 @@ export default function(hljs) {
           keywords: KEYWORDS
         },
         {
-          className: 'class',
           beginKeywords: 'enum class struct union',
           end: /[{;:<>=]/,
           contains: [
             { beginKeywords: "final class struct" },
-            hljs.TITLE_MODE
+            hljs.inherit(hljs.TITLE_MODE, { scope: "title.class" })
           ]
         }
       ]),

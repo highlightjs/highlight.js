@@ -1,7 +1,7 @@
 <span class="hljs-keyword">POST</span> <span class="hljs-string">/task?id=1</span> <span class="hljs-meta">HTTP/1.1</span>
-<span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.org
-<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/json; charset=utf-8
-<span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">: </span>19
+<span class="hljs-attribute">Host</span><span class="hljs-punctuation">:</span> example.org
+<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">:</span> application/json; charset=utf-8
+<span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">:</span> 19
 
 <span class="language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ok&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;extended&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">}</span>
 </span>

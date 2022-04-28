@@ -15,7 +15,8 @@ export default function(hljs) {
       {
         begin: '(u8?|U)?R"',
         end: '"',
-        contains: [ hljs.BACKSLASH_ESCAPE ]
+        contains: [ hljs.BACKSLASH_ESCAPE ],
+        relevance: "low"
       },
       {
         begin: '\'\\\\?.',
@@ -27,11 +28,11 @@ export default function(hljs) {
 
   const NUMBERS = {
     className: 'number',
+    relevance: 0,
     variants: [
-      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
+      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)', relevance: "low" },
       { begin: hljs.C_NUMBER_RE }
-    ],
-    relevance: 0
+    ]
   };
 
   const PREPROCESSOR = {
@@ -41,8 +42,7 @@ export default function(hljs) {
     keywords: { keyword: 'if else elif endif define undef ifdef ifndef' },
     contains: [
       {
-        begin: /\\\n/,
-        relevance: 0
+        begin: /\\\n/
       },
       {
         beginKeywords: 'include',
@@ -81,7 +81,6 @@ export default function(hljs) {
 
   const CELL_PROPERTY = {
     className: 'params',
-    relevance: 0,
     begin: '<',
     end: '>',
     contains: [
@@ -92,14 +91,13 @@ export default function(hljs) {
 
   const NODE = {
     className: 'title.class',
-    begin: /[a-zA-Z_][a-zA-Z\d_@-]*(?=\s\{)/,
-    relevance: 0.2
+    begin: /[a-zA-Z_][a-zA-Z\d_@-]*(?=\s\{)/
   };
 
   const ROOT_NODE = {
     className: 'title.class',
     begin: /^\/(?=\s*\{)/,
-    relevance: 1
+    relevance: "half"
   };
 
   // TODO: `attribute` might be the right scope here, unsure
@@ -147,8 +145,7 @@ export default function(hljs) {
       PREPROCESSOR,
       PUNC,
       {
-        begin: hljs.IDENT_RE + '::',
-        keywords: ""
+        begin: hljs.IDENT_RE + '::'
       }
     ]
   };

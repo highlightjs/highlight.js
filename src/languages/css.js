@@ -37,18 +37,16 @@ export default function(hljs) {
       modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
-        begin: /#[A-Za-z0-9_-]+/,
-        relevance: 0
+        begin: /#[A-Za-z0-9_-]+/
       },
       {
         className: 'selector-class',
-        begin: '\\.' + IDENT_RE,
-        relevance: 0
+        begin: '\\.' + IDENT_RE
       },
       modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-pseudo',
-        relevance: 1,
+        relevance: "keyword",
         variants: [
           { begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')' },
           { begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' }
@@ -63,7 +61,7 @@ export default function(hljs) {
       modes.CSS_VARIABLE,
       {
         className: 'attribute',
-        relevance: 1,
+        relevance: "keyword",
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'
       },
       // attribute values
@@ -83,7 +81,6 @@ export default function(hljs) {
           {
             begin: /(url|data-uri)\(/,
             end: /\)/,
-            relevance: 0, // from keywords
             keywords: { built_in: "url data-uri" },
             contains: [
               ...STRINGS,
@@ -103,18 +100,17 @@ export default function(hljs) {
       {
         begin: regex.lookahead(/@/),
         end: '[{;]',
-        relevance: 0,
         illegal: /:/, // break on Less variables @var: ...
         contains: [
           {
             className: 'keyword',
+            relevance: "keyword",
             begin: AT_PROPERTY_RE
           },
           {
             begin: /\s/,
             endsWithParent: true,
             excludeEnd: true,
-            relevance: 0,
             keywords: {
               $pattern: /[a-z-]+/,
               keyword: AT_MODIFIERS,
@@ -133,6 +129,7 @@ export default function(hljs) {
       },
       {
         className: 'selector-tag',
+        relevance: "keyword",
         begin: '\\b(' + css.TAGS.join('|') + ')\\b'
       }
     ]

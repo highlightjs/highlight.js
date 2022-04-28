@@ -119,8 +119,7 @@ export default function(hljs) {
     keywords: { keyword: 'define definecs|10 undef ifdef ifndef iflight ifdllcall ifmac ifos2win ifunix else endif lineson linesoff srcfile srcline' },
     contains: [
       {
-        begin: /\\\n/,
-        relevance: 0
+        begin: /\\\n/
       },
       {
         beginKeywords: 'include',

@@ -1,3 +1,3 @@
-<span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.org
-<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/json; charset=utf-8
-<span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">: </span>19
+<span class="hljs-attribute">Host</span><span class="hljs-punctuation">:</span> example.org
+<span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">:</span> application/json; charset=utf-8
+<span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">:</span> 19
