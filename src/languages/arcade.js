@@ -359,39 +359,6 @@ export default function(hljs) {
           }
         ]
       },
-      { // "value" container
-        begin: '(' + hljs.RE_STARTERS_RE + '|\\b(return)\\b)\\s*',
-        keywords: 'return',
-        contains: [
-          hljs.C_LINE_COMMENT_MODE,
-          hljs.C_BLOCK_COMMENT_MODE,
-          hljs.REGEXP_MODE,
-          {
-            className: 'function',
-            begin: '(\\(.*?\\)|' + IDENT_RE + ')\\s*=>',
-            returnBegin: true,
-            end: '\\s*=>',
-            contains: [
-              {
-                className: 'params',
-                variants: [
-                  { begin: IDENT_RE },
-                  { begin: /\(\s*\)/ },
-                  {
-                    begin: /\(/,
-                    end: /\)/,
-                    excludeBegin: true,
-                    excludeEnd: true,
-                    keywords: KEYWORDS,
-                    contains: PARAMS_CONTAINS
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        relevance: 0
-      },
       {
         beginKeywords: 'function',
         end: /\{/,
@@ -411,8 +378,7 @@ export default function(hljs) {
           }
         ],
         illegal: /\[|%/
-      },
-      { begin: /\$[(.]/ }
+      }
     ],
     illegal: /#(?!!)/
   };
