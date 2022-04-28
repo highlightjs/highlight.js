@@ -46,31 +46,32 @@ export default function(hljs) {
   };
 
   const SYMBOL = {
-    begin: SYMBOL_RE,
-    relevance: 0
+    begin: SYMBOL_RE
   };
   const NUMBER = {
     scope: 'number',
-    relevance: 0,
+    relevance: "low",
     variants: [
       { match: /[-+]?0[xX][0-9a-fA-F]+N?/ }, // hexadecimal                 // 0x2a
       { match: /[-+]?0[0-7]+N?/ }, // octal                       // 052
       { match: /[-+]?[1-9][0-9]?[rR][0-9a-zA-Z]+N?/ }, // variable radix from 2 to 36 // 2r101010, 8r52, 36r16
       { match: /[-+]?[0-9]+\/[0-9]+N?/ }, // ratio                       // 1/2
       { match: /[-+]?[0-9]+((\.[0-9]*([eE][+-]?[0-9]+)?M?)|([eE][+-]?[0-9]+M?|M))/ }, // float        // 0.42 4.2E-1M 42E1 42M
-      { match: /[-+]?([1-9][0-9]*|0)N?/ }, // int (don't match leading 0) // 42 42N
+      { match: /[-+]?([1-9][0-9]*|0)N?/, relevance: 0 }, // int (don't match leading 0) // 42 42N
     ]
   };
   const CHARACTER = {
     scope: 'character',
+    relevance: "low",
     variants: [
       { match: /\\o[0-3]?[0-7]{1,2}/ }, // Unicode Octal 0 - 377
       { match: /\\u[0-9a-fA-F]{4}/ }, // Unicode Hex 0000 - FFFF
-      { match: /\\(newline|space|tab|formfeed|backspace|return)/ }, // special characters
+      { match: /\\(newline|space|tab|formfeed|backspace|return)/, relevance: "keyword" }, // special characters
       {
+        // any non-whitespace char
         match: /\\\S/,
         relevance: 0
-      } // any non-whitespace char
+      }
     ]
   };
   const REGEX = {
@@ -92,6 +93,7 @@ export default function(hljs) {
   );
   const LITERAL = {
     className: 'literal',
+    relevance: "keyword",
     begin: /\b(true|false|nil)\b/
   };
   const COLLECTION = {
@@ -115,7 +117,6 @@ export default function(hljs) {
     keywords: keywords,
     className: 'name',
     begin: SYMBOL_RE,
-    relevance: 0,
     starts: BODY
   };
   const DEFAULT_CONTAINS = [
@@ -143,7 +144,6 @@ export default function(hljs) {
       {
         className: 'title',
         begin: SYMBOL_RE,
-        relevance: 0,
         excludeEnd: true,
         // we can only have a single title
         endsParent: true

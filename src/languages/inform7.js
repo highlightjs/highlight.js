@@ -30,7 +30,6 @@ export default function(hljs) {
         className: 'string',
         begin: '"',
         end: '"',
-        relevance: 0,
         contains: [
           {
             className: 'subst',
@@ -41,19 +40,18 @@ export default function(hljs) {
       },
       {
         className: 'section',
-        relevance: 1.1,
+        relevance: "keyword",
         begin: /^(Volume|Book|Part|Chapter|Section|Table)\b/,
         end: '$'
       },
       {
         // Rule definition
-        relevance: 1.2, // boost
+        relevance: "keyword",
         begin: /^(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)\b/,
         end: /:/,
         contains: [
           {
             // Rule name
-            relevance: 0.1,
             begin: '\\(This',
             end: '\\)'
           }

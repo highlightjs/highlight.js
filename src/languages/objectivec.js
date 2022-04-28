@@ -220,8 +220,7 @@ export default function(hljs) {
             + 'pragma ifdef ifndef include' },
         contains: [
           {
-            begin: /\\\n/,
-            relevance: 0
+            begin: /\\\n/
           },
           hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' }),
           {

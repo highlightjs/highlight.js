@@ -8,8 +8,7 @@ Website: https://esolangs.org/wiki/Brainfuck
 export default function(hljs) {
   const LITERAL = {
     className: 'literal',
-    begin: /[+-]+/,
-    relevance: 0
+    begin: /[+-]+/
   };
   return {
     name: 'Brainfuck',
@@ -21,30 +20,26 @@ export default function(hljs) {
         {
           contains: [
             {
-              match: /[ ]+[^\[\]\.,\+\-<> \r\n]/,
-              relevance: 0
+              match: /[ ]+[^\[\]\.,\+\-<> \r\n]/
             }
           ],
-          returnEnd: true,
-          relevance: 0
+          returnEnd: true
         }
       ),
       {
         className: 'title',
-        begin: '[\\[\\]]',
-        relevance: 0
+        begin: '[\\[\\]]'
       },
       {
         className: 'string',
-        begin: '[\\.,]',
-        relevance: 0
+        begin: '[\\.,]'
       },
       {
-        // this mode works as the only relevance counter
+        // this mode works as the only real relevance counter
         // it looks ahead to find the start of a run of literals
         // so only the runs are counted as relevant
         begin: /(?=\+\+\+|---)/,
-        relevance: 0.9,
+        relevance: "keyword",
         contains: [ LITERAL ]
       },
       LITERAL
