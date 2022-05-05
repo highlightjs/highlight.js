@@ -5,10 +5,12 @@ Grammars:
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
 - enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
 - enh(xml) recognize Unicode letters instead of only ASCII letters in XML element and attribute names (#3256)[Martin Honnen][]
+- Added 3rd party Toit grammar to SUPPORTED_LANGUAGES [Serzhan Nasredin][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 [Marcus Ortiz]: https://github.com/mportiz08
 [Martin Honnen]: https://github.com/martin-honnen
+[Serzhan Nasredin]: https://github.com/snxx-lppxx
 
 ## Version 11.5.0
 

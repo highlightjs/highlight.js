@@ -203,6 +203,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
 | Test Anything Protocol  | tap                    |         |
 | Thrift                  | thrift                 |         |
+| Toit                    | toit                   | [toit-highlight](https://github.com/snxx-lppxx/toit-highlight) |
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |
