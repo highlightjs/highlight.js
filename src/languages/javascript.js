@@ -68,7 +68,7 @@ export default function(hljs) {
       // `<From extends string>`
       // technically this could be HTML, but it smells like a type
       let m;
-      const afterMatch = match.input.substr(afterMatchIndex);
+      const afterMatch = match.input.substring(afterMatchIndex);
       // NOTE: This is ugh, but added specifically for https://github.com/highlightjs/highlight.js/issues/3276
       if ((m = afterMatch.match(/^\s+extends\s+/))) {
         if (m.index === 0) {
