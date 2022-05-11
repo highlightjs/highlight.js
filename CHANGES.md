@@ -6,11 +6,13 @@ Grammars:
 - enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
 - enh(xml) recognize Unicode letters instead of only ASCII letters in XML element and attribute names (#3256)[Martin Honnen][]
 - Added 3rd party Toit grammar to SUPPORTED_LANGUAGES [Serzhan Nasredin][]
+- Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 [Marcus Ortiz]: https://github.com/mportiz08
 [Martin Honnen]: https://github.com/martin-honnen
 [Serzhan Nasredin]: https://github.com/snxx-lppxx
+[Tim Smith]: https://github.com/timlabs
 
 ## Version 11.5.0
 
