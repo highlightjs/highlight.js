@@ -232,7 +232,7 @@ const HLJS = function(hljs) {
         lastIndex = top.keywordPatternRe.lastIndex;
         match = top.keywordPatternRe.exec(modeBuffer);
       }
-      buf += modeBuffer.substr(lastIndex);
+      buf += modeBuffer.substring(lastIndex);
       emitter.addText(buf);
     }
 
@@ -407,7 +407,7 @@ const HLJS = function(hljs) {
      */
     function doEndMatch(match) {
       const lexeme = match[0];
-      const matchPlusRemainder = codeToHighlight.substr(match.index);
+      const matchPlusRemainder = codeToHighlight.substring(match.index);
 
       const endMode = endOfMode(top, match, matchPlusRemainder);
       if (!endMode) { return NO_MATCH; }
@@ -580,7 +580,7 @@ const HLJS = function(hljs) {
         const processedCount = processLexeme(beforeMatch, match);
         index = match.index + processedCount;
       }
-      processLexeme(codeToHighlight.substr(index));
+      processLexeme(codeToHighlight.substring(index));
       emitter.closeAllNodes();
       emitter.finalize();
       result = emitter.toHTML();
