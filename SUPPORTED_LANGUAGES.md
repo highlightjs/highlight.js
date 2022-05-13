@@ -137,6 +137,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Nginx                   | nginx, nginxconf       |         |
 | Nim                     | nim, nimrod            |         |
 | Nix                     | nix                    |         |
+| Oak                     | oak                    | [highlightjs-oak](https://github.com/timlabs/highlightjs-oak) |
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
