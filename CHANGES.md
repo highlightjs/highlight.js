@@ -8,6 +8,7 @@ Grammars:
 - Added 3rd party Toit grammar to SUPPORTED_LANGUAGES [Serzhan Nasredin][]
 - Use substring() instead of deprecated substr() [Tobias Buschor][]
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
+- enh(python) add `match` and `case` keywords [Avrumy Lunger][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 [Marcus Ortiz]: https://github.com/mportiz08
@@ -15,6 +16,7 @@ Grammars:
 [Serzhan Nasredin]: https://github.com/snxx-lppxx
 [Tobias Buschor]: https://github.com/nuxodin/
 [Tim Smith]: https://github.com/timlabs
+[Avrumy Lunger]: https://github.com/vrumger
 
 ## Version 11.5.0
 
