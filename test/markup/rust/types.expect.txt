@@ -2,3 +2,6 @@
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">A</span>;
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">A</span> = B;
 <span class="hljs-keyword">type</span> <span class="hljs-title class_">R</span>&lt;T&gt; = m::R&lt;T, ConcreteError&gt;
+
+<span class="hljs-keyword">let</span> <span class="hljs-variable">vec</span>: <span class="hljs-type">Vec</span>&lt;<span class="hljs-type">isize</span>&gt; = <span class="hljs-type">Vec</span>::<span class="hljs-title function_ invoke__">new</span>();
+<span class="hljs-keyword">if</span> <span class="hljs-number">100</span> &gt; <span class="hljs-type">i32</span>::MAX {}

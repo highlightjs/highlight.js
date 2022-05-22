@@ -2,3 +2,6 @@ type A: Trait;
 type A;
 type A = B;
 type R<T> = m::R<T, ConcreteError>
+
+let vec: Vec<isize> = Vec::new();
+if 100 > i32::MAX {}
