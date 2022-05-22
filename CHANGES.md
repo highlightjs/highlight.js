@@ -2,6 +2,7 @@
 
 Grammars:
 
+- fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][] 
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
 - enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
 - enh(xml) recognize Unicode letters instead of only ASCII letters in XML element and attribute names (#3256)[Martin Honnen][]
