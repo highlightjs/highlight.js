@@ -127,7 +127,7 @@ export default function(hljs) {
     "file!",
     "format!",
     "format_args!",
-    "include_bin!",
+    "include_bytes!",
     "include_str!",
     "line!",
     "local_data_key!",
