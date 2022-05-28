@@ -1,0 +1,21 @@
+<span class="hljs-keyword">from</span> employees                                <span class="hljs-comment"># Each line transforms the previous result.</span>
+<span class="hljs-keyword">filter</span> start_date &gt; <span class="hljs-literal">@2021-01-01 </span>              <span class="hljs-comment"># Clear date syntax.</span>
+<span class="hljs-keyword">derive</span> [                                      <span class="hljs-comment"># `derive` adds columns / variables.</span>
+  <span class="hljs-variable">gross_salary </span>= salary + payroll_tax,
+  <span class="hljs-variable">gross_cost </span>= gross_salary + benefits_cost   <span class="hljs-comment"># Variables can use other variables.</span>
+]
+<span class="hljs-keyword">filter</span> gross_cost &gt; 0
+<span class="hljs-keyword">group</span> [title, country] (                      <span class="hljs-comment"># `group` runs a pipeline over each group.</span>
+  <span class="hljs-keyword">aggregate</span> [                                 <span class="hljs-comment"># `aggregate` reduces each group to a row.</span>
+    average salary,
+    sum     salary,
+    average gross_salary,
+    sum     gross_salary,
+    average gross_cost,
+    <span class="hljs-variable">sum_gross_cost </span>= sum gross_cost,          <span class="hljs-comment"># `=` sets a column name.</span>
+    <span class="hljs-variable">ct </span>= count,
+  ]
+)
+<span class="hljs-keyword">sort</span> [sum_gross_cost, -country]               <span class="hljs-comment"># `-country` means descending order.</span>
+<span class="hljs-keyword">filter</span> ct &gt; 200
+<span class="hljs-keyword">take</span> 20
