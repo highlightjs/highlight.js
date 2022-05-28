@@ -10,6 +10,7 @@ Grammars:
 - Use substring() instead of deprecated substr() [Tobias Buschor][]
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 - enh(python) add `match` and `case` keywords [Avrumy Lunger][]
+- Added PRQL language [Maximilian Roos]
 
 [Serial-ATA]: https://github.com/Serial-ATA
 [Bradley Mackey]: https://github.com/bradleymackey
@@ -19,6 +20,7 @@ Grammars:
 [Tobias Buschor]: https://github.com/nuxodin/
 [Tim Smith]: https://github.com/timlabs
 [Avrumy Lunger]: https://github.com/vrumger
+[Maximilian Roos]: https://github.com/max-sixty
 
 ## Version 11.5.0
 
