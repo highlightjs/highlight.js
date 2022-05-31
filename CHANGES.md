@@ -2,6 +2,7 @@
 
 Grammars:
 
+- Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach](https://github.com/dschach)
 - fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
 - enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
