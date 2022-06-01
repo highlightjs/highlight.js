@@ -2,7 +2,7 @@
 
 Grammars:
 
-- Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach](https://github.com/dschach)
+- Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach][]
 - fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
 - enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
@@ -12,6 +12,7 @@ Grammars:
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 - enh(python) add `match` and `case` keywords [Avrumy Lunger][]
 
+[David Schach]: https://github.com/dschach
 [Serial-ATA]: https://github.com/Serial-ATA
 [Bradley Mackey]: https://github.com/bradleymackey
 [Marcus Ortiz]: https://github.com/mportiz08
