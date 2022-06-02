@@ -119,20 +119,18 @@ export default function(hljs) {
     beginScope: { 2: "keyword", }
   };
 
-  const END = [
-    {
-      begin: [
-        /^\s*/, // Is first token on the line
-        /end/,
-        /\s+/,
-        /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
-      ],
-      beginScope: {
-        2: "keyword",
-        4: "keyword",
-      }
+  const END = {
+    begin: [
+      /^\s*/, // Is first token on the line
+      /end/,
+      /\s+/,
+      /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
+    ],
+    beginScope: {
+      2: "keyword",
+      4: "keyword",
     }
-  ];
+  };
 
   // TODO: use negative look-behind in future
   //       /(?<!\.)\binline(?=\s)/
