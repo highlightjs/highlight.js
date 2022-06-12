@@ -43,7 +43,7 @@ jobs:
           TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
 
       - name: Use Node.js 15.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 15.x
       - name: Build Node.js package
