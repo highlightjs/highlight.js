@@ -38,7 +38,7 @@ jobs:
           echo "RELEASING=stable" >> $GITHUB_ENV
 
       - name: match-tag-to-package-version
-        uses: geritol/match-tag-to-package-version@0.0.2
+        uses: geritol/match-tag-to-package-version@0.2.0
         env:
           TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
 
