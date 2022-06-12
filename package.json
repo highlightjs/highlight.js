@@ -75,7 +75,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
-    "glob": "^8.0.3",
+    "glob": "^7.2.3",
     "glob-promise": "^4.2.2",
     "handlebars": "^4.7.6",
     "jsdom": "^19.0.0",
