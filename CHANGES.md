@@ -3,6 +3,7 @@
 Grammars:
 
 - fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
+- fix(java) do not intepret `==` as a variable declaration [Mousetail][]
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
 - enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
 - enh(xml) recognize Unicode letters instead of only ASCII letters in XML element and attribute names (#3256)[Martin Honnen][]
@@ -19,6 +20,7 @@ Grammars:
 [Tobias Buschor]: https://github.com/nuxodin/
 [Tim Smith]: https://github.com/timlabs
 [Avrumy Lunger]: https://github.com/vrumger
+[Mousetail]: https://github.com/mousetail
 
 ## Version 11.5.0
 
