@@ -92,7 +92,10 @@ export default function(hljs) {
       {
         begin: /\(/,
         end: /\)/,
-        contains: [ hljs.inherit(STRING, { className: 'string' }) ]
+        contains: [
+          hljs.inherit(STRING, { className: 'string' }),
+          "self"
+        ]
       }
     ]
   };
