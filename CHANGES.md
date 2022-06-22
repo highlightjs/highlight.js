@@ -2,6 +2,7 @@
 
 Grammars:
 
+- fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][] 
 - Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach][]
 - fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
 - fix(java) do not intepret `==` as a variable declaration [Mousetail][]
