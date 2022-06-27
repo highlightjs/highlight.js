@@ -13,6 +13,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
+| Apex                    | apex                   | [highlightjs-apex](https://github.com/highlightjs/highlightjs-apex/)   |
 | Arduino (C++ w/Arduino libs) | arduino, ino           |         |
 | ARM assembler           | armasm, arm            |         |
 | AVR assembler           | avrasm                 |         |
@@ -128,6 +129,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
 | MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
+| MLIR                    | mlir                   | [highlightjs-mlir](https://github.com/highlightjs/highlightjs-mlir) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
