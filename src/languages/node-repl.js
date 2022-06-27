@@ -2,7 +2,7 @@
 Language: Node REPL
 Requires: javascript.js
 Author: Marat Nagayev <nagaevmt@yandex.ru>
-Category: scripting
+Category: common, scripting
 */
 
 /** @type LanguageFn */
