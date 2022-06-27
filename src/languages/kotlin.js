@@ -229,7 +229,7 @@ export default function(hljs) {
           {
             className: 'type',
             begin: /[,:]\s*/,
-            end: /[<\(,)]|$/,
+            end: /[<\(,){\s]|$/,
             excludeBegin: true,
             returnEnd: true
           },
