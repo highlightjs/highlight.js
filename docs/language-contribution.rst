@@ -111,8 +111,9 @@ distribute your own custom theme.
 *This is optional.*  
 Of course you are free to host your repository anywhere you would like.
 
-`Request a new 3rd party grammar repository hosted in highlightjs 
-<https://github.com/highlightjs/highlight.js/issues/new>`_
+Request a new 3rd party grammar repository hosted in highlightjs with Issue Type 
+`**Issue: Request a new 3rd party grammar repository** 
+<https://github.com/highlightjs/highlight.js/issues/new/choose>`_
 
 8. Create a pull request
 ------------------------
