@@ -117,4 +117,4 @@ Of course you are free to host your repository anywhere you would like.
 8. Create a pull request
 ------------------------
 
-Submit a PR to add your language to `SUPPORTED_LANGUAGES.md <../SUPPORTED_LANGUAGES.md>`_.
+Submit a PR to add your language to `SUPPORTED_LANGUAGES.md <https://github.com/highlightjs/highlight.js/SUPPORTED_LANGUAGES.md>`_.
