@@ -108,11 +108,13 @@ distribute your own custom theme.
 7. Request a repository at the ``highlightjs`` organization
 -----------------------------------------------------------
 
-*This is optional.*  Of course you are free to host your repository anywhere
-you would like.
+*This is optional.*  
+Of course you are free to host your repository anywhere you would like.
 
+`Request a new 3rd party grammar repository hosted in highlightjs 
+<https://github.com/highlightjs/highlight.js/issues/new>`_
 
 8. Create a pull request
 ------------------------
 
-Submit a PR to add your language to `SUPPORTED_LANGUAGES.md`.
+Submit a PR to add your language to `SUPPORTED_LANGUAGES.md <../SUPPORTED_LANGUAGES.md>`_.
