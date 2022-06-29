@@ -1,5 +1,5 @@
 <span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pow</span></span>(<span class="hljs-keyword">inline</span> x: <span class="hljs-type">Int</span>, <span class="hljs-keyword">inline</span> n: <span class="hljs-type">Int</span>) = ???
-transparent <span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span> = ???
+<span class="hljs-keyword">transparent</span> <span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span></span>: <span class="hljs-type">Int</span> = ???
 <span class="hljs-keyword">inline</span> <span class="hljs-keyword">val</span> a: <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
 <span class="hljs-keyword">inline</span> <span class="hljs-keyword">given</span> <span class="hljs-type">Int</span> = <span class="hljs-number">9</span>
 
