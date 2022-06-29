@@ -2,6 +2,7 @@
 
 Grammars:
 
+- enh(scala) add `transparent` keyword [Matt Bovel][]
 - fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][] 
 - Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach][]
 - fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
@@ -14,6 +15,7 @@ Grammars:
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 - enh(python) add `match` and `case` keywords [Avrumy Lunger][]
 
+[Matt Bovel]: https://github.com/mbovel
 [David Schach]: https://github.com/dschach
 [Serial-ATA]: https://github.com/Serial-ATA
 [Bradley Mackey]: https://github.com/bradleymackey
