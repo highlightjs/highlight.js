@@ -118,4 +118,4 @@ Request a new 3rd party grammar repository hosted in highlightjs with Issue Type
 8. Create a pull request
 ------------------------
 
-Submit a PR to add your language to `SUPPORTED_LANGUAGES.md <https://github.com/highlightjs/highlight.js/SUPPORTED_LANGUAGES.md>`_.
+Submit a PR to add your language to `SUPPORTED_LANGUAGES.md <https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md>`_.
