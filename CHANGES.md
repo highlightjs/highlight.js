@@ -2,6 +2,7 @@
 
 Grammars:
 
+- enh(csharp) Added support for the new `scoped` keyword in C# (#3571) [David Pine][]
 - enh(scala) add `transparent` keyword [Matt Bovel][]
 - fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][] 
 - Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach][]

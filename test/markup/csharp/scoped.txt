@@ -1,0 +1,1 @@
+public static ref T AsRef<T>(scoped in T source);
