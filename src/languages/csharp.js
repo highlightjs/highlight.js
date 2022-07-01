@@ -2,7 +2,7 @@
 Language: C#
 Author: Jason Diamond <jason@diamond.name>
 Contributor: Nicolas LLOBERA <nllobera@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, David Pine <david.pine@microsoft.com>
-Website: https://docs.microsoft.com/en-us/dotnet/csharp/
+Website: https://docs.microsoft.com/dotnet/csharp/
 Category: common
 */
 
@@ -93,6 +93,7 @@ export default function(hljs) {
     'record',
     'ref',
     'return',
+    'scoped',
     'sealed',
     'sizeof',
     'stackalloc',
