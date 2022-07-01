@@ -8,7 +8,7 @@ Website: https://en.wikipedia.org/wiki/Batch_file
 /** @type LanguageFn */
 export default function(hljs) {
   const COMMENT = hljs.COMMENT(
-    /^\s*@?rem\b/, /$/,
+    /^\s*(@?rem\b|::)/, /$/,
     { relevance: 10 }
   );
   const LABEL = {
