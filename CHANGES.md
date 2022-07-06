@@ -2,6 +2,7 @@
 
 Grammars:
 
+- enh(gml) Add additional keywords [Bluecoreg][]
 - enh(csharp) Added support for the new `scoped` keyword in C# (#3571) [David Pine][]
 - enh(scala) add `transparent` keyword [Matt Bovel][]
 - fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][] 
@@ -16,6 +17,7 @@ Grammars:
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 - enh(python) add `match` and `case` keywords [Avrumy Lunger][]
 
+[Bluecoreg]: https://github.com/Bluecoreg
 [Matt Bovel]: https://github.com/mbovel
 [David Schach]: https://github.com/dschach
 [Serial-ATA]: https://github.com/Serial-ATA
