@@ -92,7 +92,10 @@ export default function(hljs) {
       {
         begin: /\(/,
         end: /\)/,
-        contains: [ hljs.inherit(STRING, { className: 'string' }) ]
+        contains: [
+          hljs.inherit(STRING, { className: 'string' }),
+          "self"
+        ]
       }
     ]
   };
@@ -200,8 +203,15 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'class',
-        beginKeywords: 'class interface trait', // remove 'trait' when removed from KEYWORDS
+        begin: [
+          /class|interface|trait/,
+          /\s+/,
+          hljs.UNDERSCORE_IDENT_RE
+        ],
+        beginScope: {
+          3: "title.class"
+        },
+        keywords: 'class interface trait',
         end: /[:\{(]|$/,
         excludeEnd: true,
         illegal: 'extends implements',
@@ -219,7 +229,7 @@ export default function(hljs) {
           {
             className: 'type',
             begin: /[,:]\s*/,
-            end: /[<\(,]|$/,
+            end: /[<\(,){\s]|$/,
             excludeBegin: true,
             returnEnd: true
           },

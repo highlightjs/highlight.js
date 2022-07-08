@@ -1,0 +1,3 @@
+﻿<productos>
+  <producto categoría="mueble" descripción="Asiento cómodo para dos o más personas, que tiene respaldo y brazos.">sofá</producto>
+</productos>

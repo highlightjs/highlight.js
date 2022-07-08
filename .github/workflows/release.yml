@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout highlight.js
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Tag is ${{ github.ref }}.
         # we have to repeat ourselves here since the environment is not actually updated
@@ -38,12 +38,12 @@ jobs:
           echo "RELEASING=stable" >> $GITHUB_ENV
 
       - name: match-tag-to-package-version
-        uses: geritol/match-tag-to-package-version@0.0.2
+        uses: geritol/match-tag-to-package-version@0.2.0
         env:
           TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
 
       - name: Use Node.js 15.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 15.x
       - name: Build Node.js package
@@ -80,7 +80,7 @@ jobs:
           false
 
       - name: Checkout cdn-release
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: 'highlightjs/cdn-release'
           path: 'cdn-release'

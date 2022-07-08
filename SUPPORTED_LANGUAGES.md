@@ -13,6 +13,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
+| Apex                    | apex                   | [highlightjs-apex](https://github.com/highlightjs/highlightjs-apex/)   |
 | Arduino (C++ w/Arduino libs) | arduino, ino           |         |
 | ARM assembler           | armasm, arm            |         |
 | AVR assembler           | avrasm                 |         |
@@ -128,6 +129,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
 | MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
+| MLIR                    | mlir                   | [highlightjs-mlir](https://github.com/highlightjs/highlightjs-mlir) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
@@ -137,6 +139,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Nginx                   | nginx, nginxconf       |         |
 | Nim                     | nim, nimrod            |         |
 | Nix                     | nix                    |         |
+| Oak                     | oak                    | [highlightjs-oak](https://github.com/timlabs/highlightjs-oak) |
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
@@ -203,6 +206,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
 | Test Anything Protocol  | tap                    |         |
 | Thrift                  | thrift                 |         |
+| Toit                    | toit                   | [toit-highlight](https://github.com/snxx-lppxx/toit-highlight) |
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |

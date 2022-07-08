@@ -127,7 +127,7 @@ export default function(hljs) {
     "file!",
     "format!",
     "format_args!",
-    "include_bin!",
+    "include_bytes!",
     "include_str!",
     "line!",
     "local_data_key!",
@@ -288,7 +288,8 @@ export default function(hljs) {
         begin: hljs.IDENT_RE + '::',
         keywords: {
           keyword: "Self",
-          built_in: BUILTINS
+          built_in: BUILTINS,
+          type: TYPES
         }
       },
       {

@@ -2,9 +2,31 @@
 
 Grammars:
 
+- enh(csharp) Added support for the new `scoped` keyword in C# (#3571) [David Pine][]
+- enh(scala) add `transparent` keyword [Matt Bovel][]
+- fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][] 
+- Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach][]
+- fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
+- fix(java) do not intepret `==` as a variable declaration [Mousetail][]
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
+- enh(swift) add support for `distributed` keyword [Marcus Ortiz][]
+- enh(xml) recognize Unicode letters instead of only ASCII letters in XML element and attribute names (#3256)[Martin Honnen][]
+- Added 3rd party Toit grammar to SUPPORTED_LANGUAGES [Serzhan Nasredin][]
+- Use substring() instead of deprecated substr() [Tobias Buschor][]
+- Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
+- enh(python) add `match` and `case` keywords [Avrumy Lunger][]
 
+[Matt Bovel]: https://github.com/mbovel
+[David Schach]: https://github.com/dschach
+[Serial-ATA]: https://github.com/Serial-ATA
 [Bradley Mackey]: https://github.com/bradleymackey
+[Marcus Ortiz]: https://github.com/mportiz08
+[Martin Honnen]: https://github.com/martin-honnen
+[Serzhan Nasredin]: https://github.com/snxx-lppxx
+[Tobias Buschor]: https://github.com/nuxodin/
+[Tim Smith]: https://github.com/timlabs
+[Avrumy Lunger]: https://github.com/vrumger
+[Mousetail]: https://github.com/mousetail
 
 ## Version 11.5.0
 

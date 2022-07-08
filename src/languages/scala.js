@@ -119,20 +119,18 @@ export default function(hljs) {
     beginScope: { 2: "keyword", }
   };
 
-  const END = [
-    {
-      begin: [
-        /^\s*/, // Is first token on the line
-        /end/,
-        /\s+/,
-        /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
-      ],
-      beginScope: {
-        2: "keyword",
-        4: "keyword",
-      }
+  const END = {
+    begin: [
+      /^\s*/, // Is first token on the line
+      /end/,
+      /\s+/,
+      /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
+    ],
+    beginScope: {
+      2: "keyword",
+      4: "keyword",
     }
-  ];
+  };
 
   // TODO: use negative look-behind in future
   //       /(?<!\.)\binline(?=\s)/
@@ -157,7 +155,7 @@ export default function(hljs) {
     name: 'Scala',
     keywords: {
       literal: 'true false null',
-      keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit export enum given'
+      keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit export enum given transparent'
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
