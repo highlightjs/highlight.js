@@ -173,7 +173,8 @@ export default function(hljs) {
             hljs.QUOTE_STRING_MODE,
             modes.CSS_NUMBER_MODE,
             hljs.C_BLOCK_COMMENT_MODE,
-            modes.IMPORTANT
+            modes.IMPORTANT,
+            modes.FUNCTION_DISPATCH
           ],
           illegal: /\./,
           relevance: 0

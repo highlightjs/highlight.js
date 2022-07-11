@@ -2,7 +2,7 @@
 
 <span class="hljs-comment">// variables</span>
 <span class="hljs-variable">$colorGreen</span>: <span class="hljs-number">#008000</span>;
-<span class="hljs-variable">$colorGreenDark</span>: darken(<span class="hljs-variable">$colorGreen</span>, <span class="hljs-number">10</span>);
+<span class="hljs-variable">$colorGreenDark</span>: <span class="hljs-built_in">darken</span>(<span class="hljs-variable">$colorGreen</span>, <span class="hljs-number">10</span>);
 
 <span class="hljs-keyword">@mixin</span> container {
     <span class="hljs-attribute">max-width</span>: <span class="hljs-number">980px</span>;
@@ -45,7 +45,7 @@
   <span class="hljs-selector-tag">li</span> {
       <span class="hljs-attribute">float</span>: left; <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">10px</span>;
       <span class="hljs-selector-class">.home</span> {
-          <span class="hljs-attribute">background</span>: url(<span class="hljs-string">&#x27;http://placehold.it/20&#x27;</span>) scroll no-repeat <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
+          <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&#x27;http://placehold.it/20&#x27;</span>) scroll no-repeat <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
     }
   }
 }
