@@ -27,6 +27,7 @@ Grammars:
 - Use substring() instead of deprecated substr() [Tobias Buschor][]
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 - enh(python) add `match` and `case` keywords [Avrumy Lunger][]
+- Added 3rd party COBOL grammar to SUPPORTED_LANGUAGES [Gabriel Gonçalves][]
 
 [shikhar13012001]: https://github.com/shikhar13012001
 [Bluecoreg]: https://github.com/Bluecoreg
@@ -41,6 +42,7 @@ Grammars:
 [Tim Smith]: https://github.com/timlabs
 [Avrumy Lunger]: https://github.com/vrumger
 [Mousetail]: https://github.com/mousetail
+[Gabriel Gonçalves]: https://github.com/KTSnowy
 
 ## Version 11.5.0
 
