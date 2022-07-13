@@ -1,11 +1,16 @@
 ## Version 11.6.0 (maybe)
 
+Supported Node.js versions:
+
+- (chore) Drops support for Node 12.x, which is no longer supported by Node.js.
+
+
 Grammars:
 - fix(json) changed null/booleans from `keyword` to `literal` [shikhar13012001][]
 - enh(gml) reorganized and added additional keywords [Bluecoreg][]
 - enh(csharp) Added support for the new `scoped` keyword in C# (#3571) [David Pine][]
 - enh(scala) add `transparent` keyword [Matt Bovel][]
-- fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][] 
+- fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][]
 - Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach][]
 - fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
 - fix(java) do not intepret `==` as a variable declaration [Mousetail][]
