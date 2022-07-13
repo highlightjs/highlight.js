@@ -1,4 +1,4 @@
-## Version 11.6.0 (maybe)
+## Version 11.6.0
 
 Supported Node.js versions:
 
