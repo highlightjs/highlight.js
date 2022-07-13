@@ -5,6 +5,12 @@ Supported Node.js versions:
 - (chore) Drops support for Node 12.x, which is no longer supported by Node.js.
 
 
+Default build changes:
+
+- add `wasm` to default `:common` build (#3526) [Josh Goebel][]
+- add `graphql` to default `:common` build (#3526) [Josh Goebel][]
+
+
 Grammars:
 - fix(json) changed null/booleans from `keyword` to `literal` [shikhar13012001][]
 - enh(gml) reorganized and added additional keywords [Bluecoreg][]
