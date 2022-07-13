@@ -1,7 +1,7 @@
 ## Version 11.6.0 (maybe)
 
 Grammars:
-- fix(json) changed null/booleans from keywords to literals
+- fix(json) changed null/booleans from `keyword` to `literal` [shikhar13012001][]
 - enh(gml) reorganized and added additional keywords [Bluecoreg][]
 - enh(csharp) Added support for the new `scoped` keyword in C# (#3571) [David Pine][]
 - enh(scala) add `transparent` keyword [Matt Bovel][]
@@ -17,6 +17,7 @@ Grammars:
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 - enh(python) add `match` and `case` keywords [Avrumy Lunger][]
 
+[shikhar13012001]: https://github.com/shikhar13012001
 [Bluecoreg]: https://github.com/Bluecoreg
 [Matt Bovel]: https://github.com/mbovel
 [David Schach]: https://github.com/dschach
