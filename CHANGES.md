@@ -1,7 +1,7 @@
 ## Version 11.6.0 (maybe)
 
 Grammars:
-
+- fix(json) changed null/booleans from keywords to literals
 - enh(gml) reorganized and added additional keywords [Bluecoreg][]
 - enh(csharp) Added support for the new `scoped` keyword in C# (#3571) [David Pine][]
 - enh(scala) add `transparent` keyword [Matt Bovel][]
