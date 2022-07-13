@@ -4,7 +4,6 @@
 ### Core Team
 
 - Josh Goebel <hello@joshgoebel.com> (maintainer)
-- Egor Rogov <e.rogov@postgrespro.ru>
 - Vladimir Jimenez <me@allejo.io>
 
 ### Former Maintainers
@@ -15,6 +14,7 @@
 
 ### Former Core Team
 
+- Egor Rogov <e.rogov@postgrespro.ru>
 - Gidi Meir Morris <gidi@gidi.io>
 - Jan T. Sott <git@idleberg.com>
 - Li Xuanji <xuanji@gmail.com>
