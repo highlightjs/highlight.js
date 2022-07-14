@@ -41,6 +41,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
 | CMake                   | cmake, cmake.in        |         |
+| COBOL                   | cobol, standard-cobol   | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
 | Coq                     | coq                    |         |
 | CSP                     | csp                    |         |
 | CSS                     | css                    |         |
