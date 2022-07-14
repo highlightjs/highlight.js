@@ -15,8 +15,20 @@ export default function(hljs) {
   // const XML_IDENT_RE = /[A-Z_a-z:\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]+/;
   // const TAG_NAME_RE = regex.concat(/[A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]/, regex.optional(/[A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*:/), /[A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*/);
   // however, to cater for performance and more Unicode support rely simply on the Unicode letter class
-  const TAG_NAME_RE = regex.concat(/[\p{L}_]/u, regex.optional(/[\p{L}0-9_.-]*:/u), /[\p{L}0-9_.-]*/u);
-  const XML_IDENT_RE = /[\p{L}0-9._:-]+/u;
+  // It should be used as RegExp('…', 'u'), instead of regular expression literals: https://github.com/mathiasbynens/regexpu#known-limitations 
+  const NON_ALPHA_NUM_Uni_0 = new RegExp(String.raw`[\p{L}_]`, 'u');
+  const NON_ALPHA_NUM_Uni_1 = new RegExp(String.raw`[\p{L}0-9_.-]*:`, 'u');
+  const NON_ALPHA_NUM_Uni_2 = new RegExp(String.raw`[\p{L}0-9_.-]*`, 'u');
+  const TAG_NAME_RE = regex.concat(
+    NON_ALPHA_NUM_Uni_0, 
+    regex.optional(
+      NON_ALPHA_NUM_Uni_1,
+      NON_ALPHA_NUM_Uni_2
+    )
+  );
+  
+  const XML_IDENT_RE = new RegExp(String.raw`[\p{L}0-9._:-]+`, 'u');
+
   const XML_ENTITIES = {
     className: 'symbol',
     begin: /&[a-z]+;|&#[0-9]+;|&#x[a-f0-9]+;/
