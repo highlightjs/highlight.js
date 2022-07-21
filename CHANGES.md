@@ -1,3 +1,8 @@
+## Version 11.6.1
+
+Grammars:
+- added `import` operator to the JavaScript language definition
+
 ## Version 11.6.0
 
 Supported Node.js versions:
