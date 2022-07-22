@@ -593,7 +593,11 @@ export default function(hljs) {
     "nulls first",
     "nulls last",
     "depth first",
-    "breadth first"
+    "breadth first",
+    "create role",
+    "alter role",
+    "drop role",
+    "drop table"
   ];
 
   const FUNCTIONS = RESERVED_FUNCTIONS;
