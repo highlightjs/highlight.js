@@ -31,7 +31,7 @@ export default function(hljs) {
   // to avoid some special cases inside isTrulyOpeningTag
   const XML_SELF_CLOSING = /<[A-Za-z0-9\\._:-]+\s*\/>/;
   const XML_TAG = {
-    begin: /<[A-Za-z0-9\\._:-]+/,
+    begin: /<[A-Za-z0-9\\._:-]+\s*/,
     end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
     /**
      * @param {RegExpMatchArray} match
@@ -47,7 +47,11 @@ export default function(hljs) {
         nextChar === "<" ||
         // the , gives away that this is not HTML
         // `<T, A extends keyof T, V>`
-        nextChar === ",") {
+        nextChar === "," ||
+        // some more template typing stuff
+        //  <T = any>(key?: string) => Modify<
+        nextChar === "="
+        ) {
         response.ignoreMatch();
         return;
       }
