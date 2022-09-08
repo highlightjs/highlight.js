@@ -1,0 +1,37 @@
+<span class="hljs-comment">; line comment</span>
+
+	<span class="hljs-meta">NAME</span> <span class="hljs-string">&#x27;string&#x27;</span>
+
+<span class="hljs-variable">VAR1</span> <span class="hljs-meta">EQU</span> <span class="hljs-number">1</span>
+<span class="hljs-variable">VAR2</span> <span class="hljs-meta">SET</span> <span class="hljs-string">&#x27;str&#x27;</span>
+<span class="hljs-meta">DEFINE</span> VAR3 <span class="hljs-string">&#x27;why&#x27;</span>
+
+<span class="hljs-title function_">TEST_MACRO1</span> <span class="hljs-meta">MACRO</span>
+	<span class="hljs-keyword">LD</span> <span class="hljs-variable language_">br</span>,<span class="hljs-number">#020h</span>
+	<span class="hljs-keyword">LD</span> <span class="hljs-operator">[</span><span class="hljs-variable language_">br</span><span class="hljs-operator">:</span><span class="hljs-number">0feh</span><span class="hljs-operator">]</span>,<span class="hljs-number">#0e0h</span>
+	<span class="hljs-meta">ENDM</span>
+
+<span class="hljs-title function_">TEST_MACRO2</span> <span class="hljs-meta">MACRO</span> <span class="hljs-params">PARAM1</span>, <span class="hljs-params">PARAM2</span>,<span class="hljs-params">PARAM3</span>
+	<span class="hljs-keyword">ld</span> <span class="hljs-variable language_">a</span>,<span class="hljs-operator">[</span>i<span class="hljs-variable">\PARAM1</span><span class="hljs-operator">]</span>
+	<span class="hljs-keyword">ld</span> <span class="hljs-operator">[</span>target<span class="hljs-variable">\?PARAM2</span><span class="hljs-operator">]</span>,<span class="hljs-variable language_">a</span>
+	<span class="hljs-meta">msg</span> <span class="hljs-string">&quot;hello PARAM3&quot;</span>
+	<span class="hljs-meta">ENDM</span>
+
+
+	<span class="hljs-meta">DEFSECT</span> <span class="hljs-string">&quot;.text&quot;</span>, <span class="hljs-literal">CODE</span>
+	<span class="hljs-meta">SECT</span>    <span class="hljs-string">&quot;.text&quot;</span>
+	<span class="hljs-meta">GLOBAL</span>  <span class="hljs-symbol">_MAIN</span>
+<span class="hljs-symbol">_MAIN:</span>
+	<span class="hljs-keyword">PUSH</span> <span class="hljs-variable language_">a</span>
+	<span class="hljs-keyword">LD</span>   <span class="hljs-variable language_">a</span>,<span class="hljs-number">#0</span>
+	<span class="hljs-keyword">OR</span>   <span class="hljs-variable language_">a</span>,<span class="hljs-number">#0f0h</span>
+	<span class="hljs-keyword">OR</span>   <span class="hljs-variable language_">a</span>,<span class="hljs-number">#1b</span>
+	<span class="hljs-keyword">OR</span>   <span class="hljs-variable language_">a</span>,<span class="hljs-number">#4o</span>
+	<span class="hljs-keyword">AND</span>  <span class="hljs-variable language_">a</span>,<span class="hljs-number">#4q</span>
+	<span class="hljs-title function_ invoke__">TEST_MACRO1</span>
+
+<span class="hljs-symbol">LOOP:</span>
+	<span class="hljs-keyword">ld</span> <span class="hljs-variable language_">hl</span>, <span class="hljs-built_in">*</span><span class="hljs-operator">*</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">@DPAG</span><span class="hljs-punctuation">(</span>_MAIN<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span>
+	<span class="hljs-keyword">add</span> <span class="hljs-variable language_">a</span>, <span class="hljs-operator">[</span><span class="hljs-variable language_">hl</span><span class="hljs-operator">]</span>
+	<span class="hljs-keyword">JRS</span> <span class="hljs-built_in">NZ</span>, <span class="hljs-symbol">LOOP</span>
+	<span class="hljs-keyword">RET</span>

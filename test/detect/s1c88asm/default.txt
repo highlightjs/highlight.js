@@ -1,0 +1,37 @@
+; line comment
+
+	NAME 'string'
+
+VAR1 EQU 1
+VAR2 SET 'str'
+DEFINE VAR3 'why'
+
+TEST_MACRO1 MACRO
+	LD br,#020h
+	LD [br:0feh],#0e0h
+	ENDM
+
+TEST_MACRO2 MACRO PARAM1, PARAM2,PARAM3
+	ld a,[i\PARAM1]
+	ld [target\?PARAM2],a
+	msg "hello PARAM3"
+	ENDM
+
+
+	DEFSECT ".text", CODE
+	SECT    ".text"
+	GLOBAL  _MAIN
+_MAIN:
+	PUSH a
+	LD   a,#0
+	OR   a,#0f0h
+	OR   a,#1b
+	OR   a,#4o
+	AND  a,#4q
+	TEST_MACRO1
+
+LOOP:
+	ld hl, **(@DPAG(_MAIN) + 1)
+	add a, [hl]
+	JRS NZ, LOOP
+	RET
