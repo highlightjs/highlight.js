@@ -118,6 +118,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
+| LookML                  | lookml                 | [highlightjs-lookml](https://github.com/spectacles-ci/highlightjs-lookml) |
 | Lua                     | lua                    |         |
 | Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Makefile                | makefile, mk, mak, make |        |

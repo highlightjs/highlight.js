@@ -1,7 +1,11 @@
-## Version 11.6.1
+## Version 11.7.0
 
 Grammars:
-- added `import` operator to the JavaScript language definition
+- enh(js) added `import` operator 
+- added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+
+[Josh Temple]: https://github.com/joshtemple
+
 
 ## Version 11.6.0
 
