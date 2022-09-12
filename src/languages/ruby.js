@@ -27,9 +27,6 @@ export default function(hljs) {
     "private",
     "protected",
     "private_constant",
-    "attr_accessor",
-    "attr_reader",
-    "attr_writer",
   ];
   const RUBY_KEYWORDS = {
     "variable.constant": [
@@ -79,7 +76,10 @@ export default function(hljs) {
     ],
     built_in: [
       "proc",
-      "lambda"
+      "lambda",
+      "attr_accessor",
+      "attr_reader",
+      "attr_writer",
     ],
     literal: [
       "true",
