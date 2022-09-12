@@ -1,7 +1,9 @@
 ## Version 11.6.1
 
 Grammars:
-- added `import` operator to the JavaScript language definition
+- added `import` operator to the JavaScript language definition [nathnolt][]
+
+[nathnolt]: https://github.com/nathnolt
 
 ## Version 11.6.0
 
