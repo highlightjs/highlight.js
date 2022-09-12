@@ -23,10 +23,12 @@ export default function(hljs) {
   const PSEUDO_KWS = [
     "include",
     "extend",
+    "prepend",
     "public",
     "private",
     "protected",
-    "private_constant",
+    "raise",
+    "throw"
   ];
   const RUBY_KEYWORDS = {
     "variable.constant": [
@@ -80,6 +82,9 @@ export default function(hljs) {
       "attr_accessor",
       "attr_reader",
       "attr_writer",
+      "define_method",
+      "private_constant",
+      "module_function"
     ],
     literal: [
       "true",
