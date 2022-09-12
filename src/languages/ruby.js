@@ -18,10 +18,24 @@ export default function(hljs) {
   )
   ;
   const CLASS_NAME_WITH_NAMESPACE_RE = regex.concat(CLASS_NAME_RE, /(::\w+)*/)
+  // very popular ruby built-ins that one might even assume
+  // are actual keywords (despite that not being the case)
+  const PSEUDO_KWS = [
+    "include",
+    "extend",
+    "public",
+    "private",
+    "protected",
+    "private_constant",
+    "attr_accessor",
+    "attr_reader",
+    "attr_writer",
+  ];
   const RUBY_KEYWORDS = {
     "variable.constant": [
       "__FILE__",
-      "__LINE__"
+      "__LINE__",
+      "__ENCODING__"
     ],
     "variable.language": [
       "self",
@@ -30,9 +44,6 @@ export default function(hljs) {
     keyword: [
       "alias",
       "and",
-      "attr_accessor",
-      "attr_reader",
-      "attr_writer",
       "begin",
       "BEGIN",
       "break",
@@ -48,7 +59,6 @@ export default function(hljs) {
       "for",
       "if",
       "in",
-      "include",
       "module",
       "next",
       "not",
@@ -65,6 +75,7 @@ export default function(hljs) {
       "when",
       "while",
       "yield",
+      ...PSEUDO_KWS
     ],
     built_in: [
       "proc",
@@ -227,6 +238,17 @@ export default function(hljs) {
     ]
   };
 
+  const INCLUDE_EXTEND = {
+    match: [
+      /(include|extend)\s+/,
+      CLASS_NAME_WITH_NAMESPACE_RE
+    ],
+    scope: {
+      2: "title.class"
+    },
+    keywords: RUBY_KEYWORDS
+  };
+
   const CLASS_DEFINITION = {
     variants: [
       {
@@ -239,7 +261,7 @@ export default function(hljs) {
       },
       {
         match: [
-          /class\s+/,
+          /(class|module)\s+/,
           CLASS_NAME_WITH_NAMESPACE_RE
         ]
       }
@@ -275,18 +297,27 @@ export default function(hljs) {
     relevance: 0,
     match: [
       CLASS_NAME_WITH_NAMESPACE_RE,
-      /\.new[ (]/
+      /\.new[. (]/
     ],
     scope: {
       1: "title.class"
     }
   };
 
+  // CamelCase
+  const CLASS_REFERENCE = {
+    relevance: 0,
+    match: CLASS_NAME_RE,
+    scope: "title.class"
+  };
+
   const RUBY_DEFAULT_CONTAINS = [
     STRING,
     CLASS_DEFINITION,
+    INCLUDE_EXTEND,
     OBJECT_CREATION,
     UPPER_CASE_CONSTANT,
+    CLASS_REFERENCE,
     METHOD_DEFINITION,
     {
       // swallow namespace qualifiers before symbols
