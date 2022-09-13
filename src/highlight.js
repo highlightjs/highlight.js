@@ -558,29 +558,35 @@ const HLJS = function(hljs) {
     let resumeScanAtSamePosition = false;
 
     try {
-      top.matcher.considerAll();
 
-      for (;;) {
-        iterations++;
-        if (resumeScanAtSamePosition) {
-          // only regexes not matched previously will now be
-          // considered for a potential match
-          resumeScanAtSamePosition = false;
-        } else {
-          top.matcher.considerAll();
+      if (!language.__emitTokens) {
+        top.matcher.considerAll();
+
+        for (;;) {
+          iterations++;
+          if (resumeScanAtSamePosition) {
+            // only regexes not matched previously will now be
+            // considered for a potential match
+            resumeScanAtSamePosition = false;
+          } else {
+            top.matcher.considerAll();
+          }
+          top.matcher.lastIndex = index;
+
+          const match = top.matcher.exec(codeToHighlight);
+          // console.log("match", match[0], match.rule && match.rule.begin)
+
+          if (!match) break;
+
+          const beforeMatch = codeToHighlight.substring(index, match.index);
+          const processedCount = processLexeme(beforeMatch, match);
+          index = match.index + processedCount;
         }
-        top.matcher.lastIndex = index;
-
-        const match = top.matcher.exec(codeToHighlight);
-        // console.log("match", match[0], match.rule && match.rule.begin)
-
-        if (!match) break;
-
-        const beforeMatch = codeToHighlight.substring(index, match.index);
-        const processedCount = processLexeme(beforeMatch, match);
-        index = match.index + processedCount;
+        processLexeme(codeToHighlight.substring(index));
+      } else {
+        language.__emitTokens(codeToHighlight, emitter)
       }
-      processLexeme(codeToHighlight.substring(index));
+
       emitter.closeAllNodes();
       emitter.finalize();
       result = emitter.toHTML();
