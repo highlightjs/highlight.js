@@ -224,7 +224,7 @@ const HLJS = function(hljs) {
             buf += match[0];
           } else {
             const cssClass = language.classNameAliases[kind] || kind;
-            emitter.addKeyword(match[0], cssClass);
+            emitKeyword(match[0], cssClass);
           }
         } else {
           buf += match[0];
@@ -272,6 +272,18 @@ const HLJS = function(hljs) {
     }
 
     /**
+     * @param {string} text
+     * @param {string} scope
+     */
+    function emitKeyword(keyword, scope) {
+      if (keyword === "") return;
+
+      emitter.startScope(scope);
+      emitter.addText(keyword);
+      emitter.endScope();
+    }
+
+    /**
      * @param {CompiledScope} scope
      * @param {RegExpMatchArray} match
      */
@@ -283,7 +295,7 @@ const HLJS = function(hljs) {
         const klass = language.classNameAliases[scope[i]] || scope[i];
         const text = match[i];
         if (klass) {
-          emitter.addKeyword(text, klass);
+          emitKeyword(text, klass);
         } else {
           modeBuffer = text;
           processKeywords();
@@ -304,7 +316,7 @@ const HLJS = function(hljs) {
       if (mode.beginScope) {
         // beginScope just wraps the begin match itself in a scope
         if (mode.beginScope._wrap) {
-          emitter.addKeyword(modeBuffer, language.classNameAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
+          emitKeyword(modeBuffer, language.classNameAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
           modeBuffer = "";
         } else if (mode.beginScope._multi) {
           // at this point modeBuffer should just be the match
@@ -415,7 +427,7 @@ const HLJS = function(hljs) {
       const origin = top;
       if (top.endScope && top.endScope._wrap) {
         processBuffer();
-        emitter.addKeyword(lexeme, top.endScope._wrap);
+        emitKeyword(lexeme, top.endScope._wrap);
       } else if (top.endScope && top.endScope._multi) {
         processBuffer();
         emitMultiClass(top.endScope, match);
@@ -587,7 +599,6 @@ const HLJS = function(hljs) {
         language.__emitTokens(codeToHighlight, emitter)
       }
 
-      emitter.closeAllNodes();
       emitter.finalize();
       result = emitter.toHTML();
 
