@@ -1,3 +1,10 @@
+## Version 11.7.0
+
+Grammars:
+- Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+
+[Josh Temple]: https://github.com/joshtemple
+
 ## Version 11.6.0
 
 Supported Node.js versions:
