@@ -266,7 +266,7 @@ export default function(hljs) {
       },
       {
         match: [
-          /(class|module)\s+/,
+          /\b(class|module)\s+/,
           CLASS_NAME_WITH_NAMESPACE_RE
         ]
       }
