@@ -6,3 +6,11 @@ echo $(( 16#$yumi / 1003 ))
 B=20
 yumi=deadbeef
 echo $(( $B#$yumi / 1003 ))
+
+# test that << within an expression doesn't false positively as a heredoc...
+(( 19 << 42 ))
+printf 'Line 1\n'
+printf 'Line 2\n'
+
+fubar=42
+(( x = 19 * fubar / 2 ))

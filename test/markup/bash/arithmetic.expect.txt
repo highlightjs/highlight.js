@@ -6,3 +6,11 @@ yumi=deadbeef
 B=20
 yumi=deadbeef
 <span class="hljs-built_in">echo</span> $(( <span class="hljs-variable">$B</span>#<span class="hljs-variable">$yumi</span> / <span class="hljs-number">1003</span> ))
+
+<span class="hljs-comment"># test that &lt;&lt; within an expression doesn&#x27;t false positively as a heredoc...</span>
+(( <span class="hljs-number">19</span> &lt;&lt; <span class="hljs-number">42</span> ))
+<span class="hljs-built_in">printf</span> <span class="hljs-string">&#x27;Line 1\n&#x27;</span>
+<span class="hljs-built_in">printf</span> <span class="hljs-string">&#x27;Line 2\n&#x27;</span>
+
+fubar=42
+(( x = <span class="hljs-number">19</span> * fubar / <span class="hljs-number">2</span> ))

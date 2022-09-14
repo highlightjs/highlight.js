@@ -2,8 +2,13 @@
 
 - enh(Ruby) misc improvements (kws, class names, etc)  [Josh Goebel][]
 
-[Josh Goebel]: https://github.com/joshgoebel
+Grammars:
+- Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+- fix(bash) recognize the `((` keyword [Nick Chambers][]
 
+[Josh Goebel]: https://github.com/joshgoebel
+[Josh Temple]: https://github.com/joshtemple
+[Nick Chambers]: https://github.com/uplime
 
 ## Version 11.6.0
 
