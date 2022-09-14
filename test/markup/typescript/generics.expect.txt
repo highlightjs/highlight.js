@@ -1,0 +1,10 @@
+<span class="hljs-keyword">import</span> { useWeb3React <span class="hljs-keyword">as</span> useWeb3React_ } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@web3-react/core&#x27;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">useWeb3React</span>: &lt;T = <span class="hljs-built_in">any</span>&gt;<span class="hljs-function">(<span class="hljs-params">key?: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-title class_">Modify</span>&lt;
+  <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-keyword">typeof</span> useWeb3React_&lt;T&gt;&gt;,
+  { <span class="hljs-attr">chainId</span>: <span class="hljs-title class_">SupportedChainIds</span> }
+&gt; = useWeb3React_ <span class="hljs-keyword">as</span> <span class="hljs-built_in">any</span>
+
+<span class="hljs-keyword">declare</span> <span class="hljs-variable language_">global</span> {
+  <span class="hljs-keyword">type</span> <span class="hljs-title class_">SupportedChainIds</span> = <span class="hljs-number">1</span> | <span class="hljs-number">4</span>
+}
