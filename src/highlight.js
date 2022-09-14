@@ -259,7 +259,7 @@ const HLJS = function(hljs) {
       if (top.relevance > 0) {
         relevance += result.relevance;
       }
-      emitter.addSublanguage(result._emitter, result.language);
+      emitter.__addSublanguage(result._emitter, result.language);
     }
 
     function processBuffer() {

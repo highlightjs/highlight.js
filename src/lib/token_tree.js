@@ -107,7 +107,7 @@ class TokenTree {
   Minimal interface:
 
   - addText(text)
-  - addSublanguage(emitter, subLanguageName)
+  - __addSublanguage(emitter, subLanguageName)
   - startScope(scope)
   - endScope()
   - finalize()
@@ -149,11 +149,11 @@ export default class TokenTreeEmitter extends TokenTree {
    * @param {Emitter & {root: DataNode}} emitter
    * @param {string} name
    */
-  addSublanguage(emitter, name) {
+  __addSublanguage(emitter, name) {
     /** @type DataNode */
     const node = emitter.root;
-    node.sublanguage = true;
-    node.language = name;
+    if (name) node.scope = `language:${name}`
+
     this.add(node);
   }
 
