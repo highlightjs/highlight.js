@@ -4,9 +4,11 @@ Grammars:
 - enh(js) added `import` operator 
 - added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added `import` operator to the JavaScript language definition [nathnolt][]
+- fix(bash) recognize the `((` keyword [Nick Chambers][]
 
 [Josh Temple]: https://github.com/joshtemple
 [nathnolt]: https://github.com/nathnolt
+[Nick Chambers]: https://github.com/uplime
 
 ## Version 11.6.0
 

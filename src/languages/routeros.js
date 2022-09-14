@@ -1,5 +1,5 @@
 /*
-Language: Microtik RouterOS script
+Language: MikroTik RouterOS script
 Author: Ivan Dementev <ivan_div@mail.ru>
 Description: Scripting host provides a way to automate some router maintenance tasks by means of executing user-defined scripts bounded to some event occurrence
 Website: https://wiki.mikrotik.com/wiki/Manual:Scripting
@@ -67,7 +67,7 @@ export default function(hljs) {
   const IPADDR_wBITMASK = IPADDR + '/(3[0-2]|[1-2][0-9]|\\d)';
 
   return {
-    name: 'Microtik RouterOS script',
+    name: 'MikroTik RouterOS script',
     aliases: [ 'mikrotik' ],
     case_insensitive: true,
     keywords: {
