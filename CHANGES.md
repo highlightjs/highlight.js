@@ -1,3 +1,12 @@
+## Version 11.7.0
+
+Parser:
+
+- fix(typescript) patterns like `<T =` are not JSX [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 11.6.0
 
 Supported Node.js versions:
