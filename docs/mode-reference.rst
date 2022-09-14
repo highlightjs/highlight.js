@@ -105,6 +105,52 @@ Disables autodetection for this language.
 (defaults to false, meaning auto-detect is enabled)
 
 
+__emitTokens
+^^^^^^^^^^^^
+
+.. warning::
+
+  **This is currently still private/beta API**, though it's expected to be fairly stable.
+
+  It should land in version 12.0.
+
+Allows grammars to bundle custom parsers - bypassing the default parser and grammar mode definitions.  This should be a function that accepts the raw source code as the first argument and an "Emitter" object as the second.
+
+A custom parser may parse the source as it sees fit - making calls to the Emitter along the way - allowing Highlight.js to generate and theme the final HTML.
+
+The **Emitter** API is trivial:
+
+- ``addText(text)``
+- ``startScope(name)``
+- ``endScope()``
+
+Given:
+
+::
+
+  hello beautiful world!
+
+
+Assuming beautiful is a keyword our Emitter calls might look something like:
+
+::
+
+  addText("hello ")
+  startScope("keyword")
+  addText("beautiful")
+  endScope()
+  addText(" world!")
+
+Resulting in the following generated HTML:
+
+.. code-block:: html
+
+  hello <span class="hljs-keyword">beautiful</span> world!
+
+.. note::
+
+  The intended use of ``addText`` is larger chunks of plain text, not individual characters.  Custom parsers should buffer plain text output into complete strings rather than sending output one character at a time.
+
 compilerExtensions
 ^^^^^^^^^^^^^^^^^^
 
