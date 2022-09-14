@@ -1,3 +1,10 @@
+## Version 11.7.0
+
+- enh(Ruby) misc improvements (kws, class names, etc)  [Josh Goebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 11.6.0
 
 Supported Node.js versions:
