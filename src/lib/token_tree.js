@@ -142,7 +142,7 @@ export default class TokenTreeEmitter extends TokenTree {
   }
 
   endScope() {
-    this.closeNode()
+    this.closeNode();
   }
 
   /**
@@ -152,7 +152,7 @@ export default class TokenTreeEmitter extends TokenTree {
   __addSublanguage(emitter, name) {
     /** @type DataNode */
     const node = emitter.root;
-    if (name) node.scope = `language:${name}`
+    if (name) node.scope = `language:${name}`;
 
     this.add(node);
   }
@@ -163,7 +163,7 @@ export default class TokenTreeEmitter extends TokenTree {
   }
 
   finalize() {
-    this.closeAllNodes()
+    this.closeAllNodes();
     return true;
   }
 }

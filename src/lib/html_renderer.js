@@ -32,7 +32,7 @@ const emitsWrappingTags = (node) => {
 const scopeToCSSClass = (name, { prefix }) => {
   // sub-language
   if (name.startsWith("language:")) {
-    return name.replace("language:","language-")
+    return name.replace("language:", "language-");
   }
   // tiered scope: comment.line
   if (name.includes(".")) {
@@ -76,7 +76,7 @@ export default class HTMLRenderer {
     if (!emitsWrappingTags(node)) return;
 
     const className = scopeToCSSClass(node.scope,
-        { prefix: this.classPrefix });
+      { prefix: this.classPrefix });
     this.span(className);
   }
 

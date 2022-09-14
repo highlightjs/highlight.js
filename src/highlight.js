@@ -15,6 +15,7 @@ import * as packageJSON from '../package.json';
 import * as logger from "./lib/logger.js";
 import HTMLInjectionError from "./lib/html_injection_error.js";
 
+
 /**
 @typedef {import('highlight.js').Mode} Mode
 @typedef {import('highlight.js').CompiledMode} CompiledMode
@@ -570,7 +571,6 @@ const HLJS = function(hljs) {
     let resumeScanAtSamePosition = false;
 
     try {
-
       if (!language.__emitTokens) {
         top.matcher.considerAll();
 
@@ -596,7 +596,7 @@ const HLJS = function(hljs) {
         }
         processLexeme(codeToHighlight.substring(index));
       } else {
-        language.__emitTokens(codeToHighlight, emitter)
+        language.__emitTokens(codeToHighlight, emitter);
       }
 
       emitter.finalize();
