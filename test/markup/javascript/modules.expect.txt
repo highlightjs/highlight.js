@@ -6,3 +6,5 @@
 
 <span class="hljs-comment">//------ main.js ------</span>
 <span class="hljs-keyword">import</span> _, { each, something <span class="hljs-keyword">as</span> otherthing } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;underscore&#x27;</span>;
+
+<span class="hljs-keyword">const</span> file = <span class="hljs-keyword">import</span>(<span class="hljs-string">&quot;https://file.io/file.js&quot;</span>)

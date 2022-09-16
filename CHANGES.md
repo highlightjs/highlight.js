@@ -1,9 +1,10 @@
 ## Version 11.7.0
 
-Grammars:
-- enh(js) added `import` operator 
+New Grammars:
 - added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
-- added `import` operator to the JavaScript language definition [nathnolt][]
+
+Grammars:
+- fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 
 [Josh Temple]: https://github.com/joshtemple

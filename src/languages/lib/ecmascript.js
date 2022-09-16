@@ -141,7 +141,6 @@ export const BUILT_IN_VARIABLES = [
   "arguments",
   "this",
   "super",
-  "import",
   "console",
   "window",
   "document",
