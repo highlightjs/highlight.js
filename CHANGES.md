@@ -1,10 +1,14 @@
 ## Version 11.7.0
 
+New Grammars:
+- added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+
 Grammars:
-- Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+- fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 
 [Josh Temple]: https://github.com/joshtemple
+[nathnolt]: https://github.com/nathnolt
 [Nick Chambers]: https://github.com/uplime
 
 ## Version 11.6.0
