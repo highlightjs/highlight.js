@@ -360,8 +360,7 @@ export default function(hljs) {
       /\b/,
       noneOf([
         ...ECMAScript.BUILT_IN_GLOBALS,
-        "super",
-        "import"
+        "super"
       ]),
       IDENT_RE, regex.lookahead(/\(/)),
     className: "title.function",
