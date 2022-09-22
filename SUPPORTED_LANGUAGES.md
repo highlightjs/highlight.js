@@ -78,7 +78,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | F#                      | fsharp, fs             |         |
 | FIX                     | fix                    |         |
 | Fortran                 | fortran, f90, f95      |         |
-| FunC                    | func, Func             | [highlightjs-func](https://github.com/sobolevn/highlightjs-func) |
+| FunC                    | func                   | [highlightjs-func](https://github.com/highlightjs/highlightjs-func) |
 | G-Code                  | gcode, nc              |         |
 | Gams                    | gams, gms              |         |
 | GAUSS                   | gauss, gss             |         |
