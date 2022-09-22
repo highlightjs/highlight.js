@@ -2,6 +2,7 @@
 
 New Grammars:
 - added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+- added 3rd party FunC grammar to SUPPORTED_LANGUAGES [Nikita Sobolev][]
 
 Grammars:
 - fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
@@ -56,6 +57,7 @@ Grammars:
 [Avrumy Lunger]: https://github.com/vrumger
 [Mousetail]: https://github.com/mousetail
 [Gabriel Gonçalves]: https://github.com/KTSnowy
+[Nikita Sobolev]: https://github.com/sobolevn
 
 ## Version 11.5.0
 
