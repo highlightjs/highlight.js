@@ -4,3 +4,6 @@ div { background: url(foo/bar/baz.jpg) }
 div { background-image: url(data:image/png;base64,TWFuIGlzIGRpc3=) }
 div { background-image: url("data:image/png;base64,TWFuIGlzIGRpc3=") }
 div { background-image: url('data:image/png;base64,TWFuIGlzIGRpc3=') }
+
+// https://github.com/highlightjs/highlight.js/issues/3514
+div { --custom-background-image-1: url('/appearance/themes/Dark+/image/background (01).jpg'); }

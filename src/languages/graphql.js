@@ -1,8 +1,8 @@
 /*
- Language: graphql
- Category: scripting, protocols, web
+ Language: GraphQL
  Author: John Foster (GH jf990), and others
- Description: Highlight GraphQL queries with highlight.js.
+ Description: GraphQL is a query language for APIs
+ Category: web, common
 */
 
 /** @type LanguageFn */

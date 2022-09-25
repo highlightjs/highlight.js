@@ -70,7 +70,7 @@ export default function(hljs) {
     end: /'/
   };
   const ARITHMETIC = {
-    begin: /\$\(\(/,
+    begin: /\$?\(\(/,
     end: /\)\)/,
     contains: [
       {

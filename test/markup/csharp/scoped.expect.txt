@@ -1,0 +1,1 @@
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">ref</span> T <span class="hljs-title">AsRef</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-keyword">scoped</span> <span class="hljs-keyword">in</span> T source</span>)</span>;

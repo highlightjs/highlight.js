@@ -6,3 +6,5 @@ export function something() {};
 
 //------ main.js ------
 import _, { each, something as otherthing } from 'underscore';
+
+const file = import("https://file.io/file.js")

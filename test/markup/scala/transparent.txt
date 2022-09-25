@@ -1,0 +1,2 @@
+transparent inline def f() = 42
+transparent trait S

@@ -6,7 +6,7 @@ const hljs = require('../build/lib/index.js');
 const path = require('path');
 const utility = require('../test/utility.js');
 const Table = require('cli-table');
-const colors = require('colors/safe.js');
+const colors = require('@colors/colors/safe.js');
 
 const resultTable = new Table({
   head: ['expected', 'actual', 'score', '2nd best', 'score', 'info'],

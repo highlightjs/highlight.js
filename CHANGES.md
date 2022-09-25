@@ -1,7 +1,37 @@
-## Version 11.6.0 (maybe)
+## Version 11.7.0
+
+New Grammars:
+- added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+- added 3rd party FunC grammar to SUPPORTED_LANGUAGES [Nikita Sobolev][]
 
 Grammars:
+- fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
+- fix(bash) recognize the `((` keyword [Nick Chambers][]
 
+[Josh Temple]: https://github.com/joshtemple
+[nathnolt]: https://github.com/nathnolt
+[Nick Chambers]: https://github.com/uplime
+
+## Version 11.6.0
+
+Supported Node.js versions:
+
+- (chore) Drops support for Node 12.x, which is no longer supported by Node.js.
+
+
+Default build changes:
+
+- add `wasm` to default `:common` build (#3526) [Josh Goebel][]
+- add `graphql` to default `:common` build (#3526) [Josh Goebel][]
+
+
+Grammars:
+- fix(json) changed null/booleans from `keyword` to `literal` [shikhar13012001][]
+- enh(gml) reorganized and added additional keywords [Bluecoreg][]
+- enh(csharp) Added support for the new `scoped` keyword in C# (#3571) [David Pine][]
+- enh(scala) add `transparent` keyword [Matt Bovel][]
+- fix(rust) highlight types immediately preceeding `::` (#3540) [Josh Goebel][]
+- Added 3rd party Apex grammar to SUPPORTED_LANGUAGES (#3546) [David Schach][]
 - fix(rust) recognize `include_bytes!` macro (#3541) [Serial-ATA][]
 - fix(java) do not intepret `==` as a variable declaration [Mousetail][]
 - enh(swift) add SE-0335 existential `any` keyword (#3515) [Bradley Mackey][]
@@ -11,7 +41,12 @@ Grammars:
 - Use substring() instead of deprecated substr() [Tobias Buschor][]
 - Added 3rd party Oak grammar to SUPPORTED_LANGUAGES [Tim Smith][]
 - enh(python) add `match` and `case` keywords [Avrumy Lunger][]
+- Added 3rd party COBOL grammar to SUPPORTED_LANGUAGES [Gabriel Gonçalves][]
 
+[shikhar13012001]: https://github.com/shikhar13012001
+[Bluecoreg]: https://github.com/Bluecoreg
+[Matt Bovel]: https://github.com/mbovel
+[David Schach]: https://github.com/dschach
 [Serial-ATA]: https://github.com/Serial-ATA
 [Bradley Mackey]: https://github.com/bradleymackey
 [Marcus Ortiz]: https://github.com/mportiz08
@@ -21,6 +56,8 @@ Grammars:
 [Tim Smith]: https://github.com/timlabs
 [Avrumy Lunger]: https://github.com/vrumger
 [Mousetail]: https://github.com/mousetail
+[Gabriel Gonçalves]: https://github.com/KTSnowy
+[Nikita Sobolev]: https://github.com/sobolevn
 
 ## Version 11.5.0
 

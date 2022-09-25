@@ -13,6 +13,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
+| Apex                    | apex                   | [highlightjs-apex](https://github.com/highlightjs/highlightjs-apex/)   |
 | Arduino (C++ w/Arduino libs) | arduino, ino           |         |
 | ARM assembler           | armasm, arm            |         |
 | AVR assembler           | avrasm                 |         |
@@ -40,6 +41,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
 | CMake                   | cmake, cmake.in        |         |
+| COBOL                   | cobol, standard-cobol   | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
 | Coq                     | coq                    |         |
 | CSP                     | csp                    |         |
 | CSS                     | css                    |         |
@@ -76,6 +78,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | F#                      | fsharp, fs             |         |
 | FIX                     | fix                    |         |
 | Fortran                 | fortran, f90, f95      |         |
+| FunC                    | func                   | [highlightjs-func](https://github.com/highlightjs/highlightjs-func) |
 | G-Code                  | gcode, nc              |         |
 | Gams                    | gams, gms              |         |
 | GAUSS                   | gauss, gss             |         |
@@ -116,6 +119,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
+| LookML                  | lookml                 | [highlightjs-lookml](https://github.com/spectacles-ci/highlightjs-lookml) |
 | Lua                     | lua                    |         |
 | Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Makefile                | makefile, mk, mak, make |        |
@@ -128,6 +132,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
 | MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
+| MLIR                    | mlir                   | [highlightjs-mlir](https://github.com/highlightjs/highlightjs-mlir) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
