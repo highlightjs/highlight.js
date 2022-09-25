@@ -1819,6 +1819,10 @@ export default function(hljs) {
 
   return {
     name: '1C:Enterprise',
+    aliases: [
+      '1c',
+      'bsl'
+    ],
     case_insensitive: true,
     keywords: {
       $pattern: UNDERSCORE_IDENT_RE,
