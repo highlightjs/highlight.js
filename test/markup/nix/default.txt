@@ -16,6 +16,7 @@ in stdenv.mkDerivation rec {
 
   postInstall = ''
     ${ if true then "--${test}" else false }
+    ''${ escaped }
   '';
 
   meta = with stdenv.lib; {

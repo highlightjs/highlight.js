@@ -7,10 +7,12 @@ New Grammars:
 Grammars:
 - fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
+- fix(nix) support escaped dollar signs in strings [h7x4][]
 
 [Josh Temple]: https://github.com/joshtemple
 [nathnolt]: https://github.com/nathnolt
 [Nick Chambers]: https://github.com/uplime
+[h7x4]: https://github.com/h7x4
 
 ## Version 11.6.0
 

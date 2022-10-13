@@ -16,6 +16,7 @@
 
   <span class="hljs-attr">postInstall</span> = <span class="hljs-string">&#x27;&#x27;
     <span class="hljs-subst">${ <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">then</span> <span class="hljs-string">&quot;--<span class="hljs-subst">${test}</span>&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">false</span> }</span>
+    <span class="hljs-char escape_">&#x27;&#x27;${</span> escaped }
   &#x27;&#x27;</span>;
 
   <span class="hljs-attr">meta</span> = <span class="hljs-keyword">with</span> stdenv.lib; {
