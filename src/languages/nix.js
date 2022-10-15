@@ -47,7 +47,7 @@ export default function(hljs) {
   };
   const ESCAPED_DOLLAR = {
     className: 'char.escape',
-    begin: /''\$\{/,
+    begin: /''\$/,
   };
   const ATTRS = {
     begin: /[a-zA-Z0-9-_]+(\s*=)/,
