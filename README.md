@@ -7,7 +7,7 @@
 [![NPM downloads weekly](https://badgen.net/npm/dw/highlight.js?label=npm+downloads&color=purple)](https://www.npmjs.com/package/highlight.js)
 [![jsDelivr CDN downloads](https://badgen.net/jsdelivr/hits/gh/highlightjs/cdn-release?label=jsDelivr+CDN&color=purple)](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release)
 
-[![ci status](https://github.com/highlightjs/highlight.js/actions/workflows/tests.js.yml/badge.svg?event=push)](https://github.com/highlightjs/highlight.js/actions/workflows/tests.js.yml)
+[![ci status](https://badgen.net/github/checks/highlightjs/highlight.js/main?label=build)](https://github.com/highlightjs/highlight.js/actions/workflows/tests.js.yml)
 [![code quality](https://badgen.net/lgtm/grade/g/highlightjs/highlight.js/js?label=code+quality)](https://lgtm.com/projects/g/highlightjs/highlight.js/?mode=list)
 [![vulnerabilities](https://badgen.net/snyk/highlightjs/highlight.js)](https://snyk.io/test/github/highlightjs/highlight.js?targetFile=package.json)
 ![dev deps](https://badgen.net/david/dev/highlightjs/highlight.js?label=dev+deps)
