@@ -11,4 +11,4 @@
     =<span class="language-ruby">variable2</span>
     ~ variable3
     ~variable4
-    The current year is #{<span class="language-ruby">DataTime.now.year</span>}.
+    The current year is #{<span class="language-ruby"><span class="hljs-title class_">DataTime</span>.now.year</span>}.
