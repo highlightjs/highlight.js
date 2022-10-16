@@ -47,7 +47,8 @@ export default function(hljs) {
         nextChar === "<" ||
         // the , gives away that this is not HTML
         // `<T, A extends keyof T, V>`
-        nextChar === ",") {
+        nextChar === ","
+        ) {
         response.ignoreMatch();
         return;
       }
@@ -65,10 +66,18 @@ export default function(hljs) {
       // `<blah />` (self-closing)
       // handled by simpleSelfClosing rule
 
-      // `<From extends string>`
-      // technically this could be HTML, but it smells like a type
       let m;
       const afterMatch = match.input.substring(afterMatchIndex);
+
+      // some more template typing stuff
+      //  <T = any>(key?: string) => Modify<
+      if ((m = afterMatch.match(/^\s*=/))) {
+        response.ignoreMatch();
+        return;
+      }
+
+      // `<From extends string>`
+      // technically this could be HTML, but it smells like a type
       // NOTE: This is ugh, but added specifically for https://github.com/highlightjs/highlight.js/issues/3276
       if ((m = afterMatch.match(/^\s+extends\s+/))) {
         if (m.index === 0) {

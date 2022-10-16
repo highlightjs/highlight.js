@@ -1,0 +1,10 @@
+import { useWeb3React as useWeb3React_ } from '@web3-react/core'
+
+export const useWeb3React: <T = any>(key?: string) => Modify<
+  ReturnType<typeof useWeb3React_<T>>,
+  { chainId: SupportedChainIds }
+> = useWeb3React_ as any
+
+declare global {
+  type SupportedChainIds = 1 | 4
+}

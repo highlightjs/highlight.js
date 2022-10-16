@@ -2,11 +2,14 @@
 
 New Grammars:
 
+- Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party FunC grammar to SUPPORTED_LANGUAGES [Nikita Sobolev][]
 
 Grammars:
 
+- fix(typescript) patterns like `<T =` are not JSX [Josh Goebel][]
+- fix(bash) recognize the `((` keyword [Nick Chambers][]
 - enh(Ruby) misc improvements (kws, class names, etc)  [Josh Goebel][]
 - fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
