@@ -77,6 +77,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Extempore               | extempore, xtlang, xtm | [highlightjs-xtlang](https://github.com/highlightjs/highlightjs-xtlang) |
 | F#                      | fsharp, fs             |         |
 | FIX                     | fix                    |         |
+| Flix                    | flix                   | [highlightjs-flix](https://github.com/flix/highlight.js) |
 | Fortran                 | fortran, f90, f95      |         |
 | FunC                    | func                   | [highlightjs-func](https://github.com/highlightjs/highlightjs-func) |
 | G-Code                  | gcode, nc              |         |
