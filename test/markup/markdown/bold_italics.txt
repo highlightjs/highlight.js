@@ -19,3 +19,15 @@ __Bold *then italic*__
 
 ***This is bold and italic***
 ___This is bold and italic___
+
+** i shouldn't be italic**
+
+* and I shouldn't be italic either*
+
+__ not really bold__
+
+_ not italic_
+
+> * One (this point is italic)
+> * Two
+> * Three

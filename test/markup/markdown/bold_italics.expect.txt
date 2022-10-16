@@ -19,3 +19,15 @@
 
 <span class="hljs-strong">**<span class="hljs-emphasis">*This is bold and italic*</span>**</span>
 <span class="hljs-strong">__<span class="hljs-emphasis">_This is bold and italic_</span>__</span>
+
+** i shouldn&#x27;t be italic**
+
+<span class="hljs-bullet">*</span> and I shouldn&#x27;t be italic either*
+
+__ not really bold__
+
+_ not italic_
+
+<span class="hljs-quote">&gt; * One (this point is italic)</span>
+<span class="hljs-quote">&gt; * Two</span>
+<span class="hljs-quote">&gt; * Three</span>
