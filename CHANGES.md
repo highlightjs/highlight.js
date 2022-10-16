@@ -1,15 +1,25 @@
 ## Version 11.7.0
 
-Parser:
-- fix(typescript) patterns like `<T =` are not JSX [Josh Goebel][]
-- fix(bash) recognize the `((` keyword [Nick Chambers][]
+New Grammars:
+
+- Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+- added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+- added 3rd party FunC grammar to SUPPORTED_LANGUAGES [Nikita Sobolev][]
 
 Grammars:
-- Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
+
+- fix(typescript) patterns like `<T =` are not JSX [Josh Goebel][]
+- fix(bash) recognize the `((` keyword [Nick Chambers][]
+- enh(Ruby) misc improvements (kws, class names, etc)  [Josh Goebel][]
+- fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
+- fix(bash) recognize the `((` keyword [Nick Chambers][]
+- fix(nix) support escaped dollar signs in strings [h7x4][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
+[nathnolt]: https://github.com/nathnolt
 [Nick Chambers]: https://github.com/uplime
+[h7x4]: https://github.com/h7x4
 
 
 ## Version 11.6.0
@@ -57,6 +67,7 @@ Grammars:
 [Avrumy Lunger]: https://github.com/vrumger
 [Mousetail]: https://github.com/mousetail
 [Gabriel Gonçalves]: https://github.com/KTSnowy
+[Nikita Sobolev]: https://github.com/sobolevn
 
 ## Version 11.5.0
 
