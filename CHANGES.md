@@ -5,6 +5,7 @@ New Grammars:
 - Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party FunC grammar to SUPPORTED_LANGUAGES [Nikita Sobolev][]
+- Added 3rd party Flix grammar to SUPPORTED_LANGUAGES [The Flix Team][]
 
 Grammars:
 
