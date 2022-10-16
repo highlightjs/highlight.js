@@ -71,7 +71,7 @@ export default function(hljs) {
 
       // some more template typing stuff
       //  <T = any>(key?: string) => Modify<
-      if ((m = afterMatch.match(/^\s+=/))) {
+      if ((m = afterMatch.match(/^\s*=/))) {
         response.ignoreMatch();
         return;
       }
