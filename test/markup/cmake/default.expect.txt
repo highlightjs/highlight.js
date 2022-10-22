@@ -17,3 +17,7 @@
 
 <span class="hljs-keyword">add_executable</span>(myproject main.cpp mainwindow.cpp)
 <span class="hljs-keyword">qt5_use_modules</span>(myproject Widgets)
+
+<span class="hljs-comment">#[[This is a bracket comment.
+It runs until the close bracket.]]</span>
+<span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;First Argument\n&quot;</span> <span class="hljs-comment">#[[Bracket Comment]]</span> <span class="hljs-string">&quot;Second Argument&quot;</span>)

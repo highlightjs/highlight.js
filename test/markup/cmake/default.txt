@@ -17,3 +17,7 @@ find_package(Qt5Widgets REQUIRED)
 
 add_executable(myproject main.cpp mainwindow.cpp)
 qt5_use_modules(myproject Widgets)
+
+#[[This is a bracket comment.
+It runs until the close bracket.]]
+message("First Argument\n" #[[Bracket Comment]] "Second Argument")
