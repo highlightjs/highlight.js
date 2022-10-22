@@ -9,10 +9,24 @@ export default function(hljs) {
   return {
     name: 'Gherkin',
     aliases: [ 'feature' ],
-    keywords: 'Feature Background Ability Business\ Need Scenario Scenarios Scenario\ Outline Scenario\ Template Examples Given And Then But When',
+    keywords: {
+      // Custom pattern to support keywords with spaces and those ending with a colon
+      $pattern: /[A-Z][a-z]+(?: [A-Z][a-z]+)?:?/,
+      // Add positive lookbehind to ensure keywords are at the beginning of a line
+      // $pattern: /(?<=^[ \t]*)[A-Z][a-z]+(?: [A-Z][a-z]+)?:?/,
+      keyword: [
+        'Feature:',
+        'Rule:',
+        'Example:', 'Scenario:',
+        'Given', 'When', 'Then', 'And', 'But',
+        'Background:',
+        'Scenario Outline:', 'Scenario Template:',
+        'Examples:', 'Scenarios:'
+      ]
+    },
     contains: [
       {
-        className: 'symbol',
+        className: 'keyword',
         begin: '\\*',
         relevance: 0
       },
@@ -32,16 +46,25 @@ export default function(hljs) {
       },
       {
         className: 'variable',
-        begin: '<',
-        end: '>'
+        begin: /<[^>\s]+>/
       },
-      hljs.HASH_COMMENT_MODE,
+      // Comments can only start at the beginning of a line
+      hljs.COMMENT(/^[ \t]*#/, /$/),
+      // Use positive lookbehind (once available) to exclude leading spaces from comment
+      // hljs.COMMENT(/(?<=^[ \t]*)#/, /$/),
       {
         className: 'string',
-        begin: '"""',
-        end: '"""'
-      },
-      hljs.QUOTE_STRING_MODE
+        variants: [
+          {
+            begin: /"""/,
+            end: /"""/
+          },
+          {
+            begin: /```/,
+            end: /```/
+          }
+        ]
+      }
     ]
   };
 }

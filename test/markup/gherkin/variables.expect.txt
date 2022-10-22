@@ -1,0 +1,5 @@
+<span class="hljs-keyword">Scenario Outline:</span> Add two numbers
+  <span class="hljs-keyword">Given</span> I have entered <span class="hljs-variable">&lt;input_1&gt;</span> into the calculator
+  <span class="hljs-keyword">And</span> I have entered <span class="hljs-variable">&lt;input_2&gt;</span> into the calculator
+  <span class="hljs-keyword">And</span> first &lt; second and second &gt; first
+  <span class="hljs-keyword">Then</span> second &lt;- first

@@ -2,7 +2,6 @@
 
 New Grammars:
 
-- Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party FunC grammar to SUPPORTED_LANGUAGES [Nikita Sobolev][]
 
@@ -14,12 +13,16 @@ Grammars:
 - fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 - fix(nix) support escaped dollar signs in strings [h7x4][]
+- fix(gherkin) update keyword list [Hirse][]
+- fix(gherkin) variables can't contain whitespace [Hirse][]
+- ehn(gherkin) docstrings can use backticks [Hirse][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
 [nathnolt]: https://github.com/nathnolt
 [Nick Chambers]: https://github.com/uplime
 [h7x4]: https://github.com/h7x4
+[Hirse]: https://github.com/Hirse
 
 
 ## Version 11.6.0
