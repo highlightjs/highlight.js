@@ -14,6 +14,7 @@ Grammars:
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 - fix(nix) support escaped dollar signs in strings [h7x4][]
 - enh(cmake) support bracket comments [Hirse][]
+- fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
@@ -21,6 +22,7 @@ Grammars:
 [Nick Chambers]: https://github.com/uplime
 [h7x4]: https://github.com/h7x4
 [Hirse]: https://github.com/Hirse
+[Lachlan Heywood]: https://github.com/lachieh
 
 
 ## Version 11.6.0
