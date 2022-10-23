@@ -75,3 +75,17 @@ x0.<span class="hljs-property">e1</span>
 0b1e1
 0N
 <span class="hljs-number">00</span>.
+
+<span class="hljs-comment">// numbers in identifiers</span>
+<span class="hljs-keyword">const</span> num = $1
+<span class="hljs-keyword">const</span> num = $0n9
+<span class="hljs-keyword">const</span> num = $0x9
+<span class="hljs-keyword">const</span> num = $0o0
+<span class="hljs-keyword">const</span> num = $09
+<span class="hljs-keyword">const</span> num = $9<span class="hljs-number">.09</span>
+<span class="hljs-keyword">const</span> num = <span class="hljs-number">1</span>
+<span class="hljs-keyword">const</span> num = 0n9
+<span class="hljs-keyword">const</span> num = <span class="hljs-number">0x9</span>
+<span class="hljs-keyword">const</span> num = <span class="hljs-number">0o0</span>
+<span class="hljs-keyword">const</span> num = <span class="hljs-number">09</span>
+<span class="hljs-keyword">const</span> num = <span class="hljs-number">9.09</span>
