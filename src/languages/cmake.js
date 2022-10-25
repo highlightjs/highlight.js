@@ -52,6 +52,7 @@ export default function(hljs) {
         begin: /\$\{/,
         end: /\}/
       },
+      hljs.COMMENT(/#\[\[/, /]]/),
       hljs.HASH_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE
