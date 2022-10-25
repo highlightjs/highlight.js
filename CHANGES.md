@@ -5,7 +5,7 @@ New Grammars:
 - Added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party LookML grammar to SUPPORTED_LANGUAGES [Josh Temple][]
 - added 3rd party FunC grammar to SUPPORTED_LANGUAGES [Nikita Sobolev][]
-- Added 3rd party Flix grammar to SUPPORTED_LANGUAGES [The Flix Team][]
+- Added 3rd party Flix grammar to SUPPORTED_LANGUAGES [The Flix Organisation][]
 
 Grammars:
 
@@ -21,7 +21,7 @@ Grammars:
 [nathnolt]: https://github.com/nathnolt
 [Nick Chambers]: https://github.com/uplime
 [h7x4]: https://github.com/h7x4
-
+[The Flix Organisation]: https://github.com/flix
 
 ## Version 11.6.0
 
