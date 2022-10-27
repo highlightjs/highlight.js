@@ -1,11 +1,11 @@
 <span class="hljs-comment"># language: en</span>
-<span class="hljs-keyword">Feature:</span> Addition
+<span class="hljs-keyword">Feature</span><span class="hljs-punctuation">:</span> Addition
   In order to avoid silly mistakes
   As a math idiot
   I want to be told the sum of two numbers
 
   <span class="hljs-meta">@this_is_a_tag</span>
-  <span class="hljs-keyword">Scenario Outline:</span> Add two numbers
+  <span class="hljs-keyword">Scenario Outline</span><span class="hljs-punctuation">:</span> Add two numbers
     <span class="hljs-keyword">*</span> I have a calculator
     <span class="hljs-keyword">Given</span> I have entered <span class="hljs-variable">&lt;input_1&gt;</span> into the calculator
     <span class="hljs-keyword">And</span> I have entered <span class="hljs-variable">&lt;input_2&gt;</span> into the calculator
@@ -18,8 +18,8 @@
     multiline text
     &quot;&quot;&quot;</span>
 
-  <span class="hljs-keyword">Examples:</span>
-    |<span class="hljs-string"> input_1 </span>|<span class="hljs-string"> input_2 </span>|<span class="hljs-string"> button </span>|<span class="hljs-string"> output </span>|
-    |<span class="hljs-string"> 20      </span>|<span class="hljs-string"> 30      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 50     </span>|
-    |<span class="hljs-string"> 2       </span>|<span class="hljs-string"> 5       </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 7      </span>|
-    |<span class="hljs-string"> 0       </span>|<span class="hljs-string"> 40      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 40     </span>|
+  <span class="hljs-keyword">Examples</span><span class="hljs-punctuation">:</span>
+    <span class="hljs-string">| input_1 | input_2 | button | output |</span>
+    <span class="hljs-string">| 20      | 30      | add    | 50     |</span>
+    <span class="hljs-string">| 2       | 5       | add    | 7      |</span>
+    <span class="hljs-string">| 0       | 40      | add    | 40     |</span>

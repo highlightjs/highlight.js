@@ -5,66 +5,146 @@
  Website: https://cucumber.io/docs/gherkin/
  */
 
-export default function(hljs) {
+export default function() {
   return {
     name: 'Gherkin',
     aliases: [ 'feature' ],
-    keywords: {
-      // Custom pattern to support keywords with spaces and those ending with a colon
-      $pattern: /[A-Z][a-z]+(?: [A-Z][a-z]+)?:?/,
-      // Add positive lookbehind to ensure keywords are at the beginning of a line
-      // $pattern: /(?<=^[ \t]*)[A-Z][a-z]+(?: [A-Z][a-z]+)?:?/,
-      keyword: [
-        'Feature:',
-        'Rule:',
-        'Example:', 'Scenario:',
-        'Given', 'When', 'Then', 'And', 'But',
-        'Background:',
-        'Scenario Outline:', 'Scenario Template:',
-        'Examples:', 'Scenarios:'
-      ]
-    },
     contains: [
       {
-        className: 'keyword',
-        begin: '\\*',
-        relevance: 0
+        begin: [
+          /^(Feature|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
+          /:/
+        ],
+        beginScope: {
+          1: 'keyword',
+          2: 'punctuation',
+        },
+        end: /$/,
+        contains: [
+          {
+            scope: 'variable',
+            begin: /<[^>\s]+>/
+          },
+        ]
       },
       {
-        className: 'meta',
+        begin: /^(?:Given|When|Then|And|But)\b/,
+        beginScope: 'keyword',
+        end: /$/,
+        contains: [
+          {
+            scope: 'variable',
+            begin: /<[^>\s]+>/
+          },
+        ]
+      },
+      {
+        begin: /^\*(?=[ \t])/,
+        relevance: 0,
+        beginScope: 'keyword',
+        end: /$/,
+        contains: [
+          {
+            scope: 'variable',
+            begin: /<[^>\s]+>/
+          },
+        ]
+      },
+      {
+        scope: 'meta',
         begin: '@[^@\\s]+'
       },
       {
-        begin: '\\|',
-        end: '\\|\\w*$',
-        contains: [
-          {
-            className: 'string',
-            begin: '[^|]+'
-          }
-        ]
+        scope: 'comment',
+        begin: /^#/,
+        end: /$/
       },
       {
-        className: 'variable',
-        begin: /<[^>\s]+>/
-      },
-      // Comments can only start at the beginning of a line
-      hljs.COMMENT(/^[ \t]*#/, /$/),
-      // Use positive lookbehind (once available) to exclude leading spaces from comment
-      // hljs.COMMENT(/(?<=^[ \t]*)#/, /$/),
-      {
-        className: 'string',
+        scope: 'string',
         variants: [
           {
-            begin: /"""/,
+            begin: /^"""/,
             end: /"""/
           },
           {
-            begin: /```/,
+            begin: /^```/,
             end: /```/
           }
+        ],
+      },
+      {
+        begin: /^\|.*\|$/,
+        scope: 'string'
+      },
+      {
+        begin: /^[ \t]+/,
+        relevance: 0,
+        contains: [
+          {
+            begin: [
+              /(Feature|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
+              /:/
+            ],
+            beginScope: {
+              1: 'keyword',
+              2: 'punctuation',
+            },
+            end: /$/,
+            relevance: 10,
+            contains: [
+              {
+                scope: 'variable',
+                begin: /<[^>\s]+>/
+              },
+            ]
+          },
+          {
+            begin: /(?:Given|When|Then|And|But)\b/,
+            beginScope: 'keyword',
+            end: /$/,
+            contains: [
+              {
+                scope: 'variable',
+                begin: /<[^>\s]+>/
+              },
+            ]
+          },
+          {
+            begin: /\*(?=[ \t])/,
+            relevance: 0,
+            beginScope: 'keyword',
+            end: /$/,
+            contains: [
+              {
+                scope: 'variable',
+                begin: /<[^>\s]+>/
+              },
+            ]
+          },
+          {
+            scope: 'comment',
+            begin: /#/,
+            end: /$/
+          },
+          {
+            scope: 'string',
+            variants: [
+              {
+                begin: /"""/,
+                end: /"""/
+              },
+              {
+                begin: /```/,
+                end: /```/
+              }
+            ]
+          },
+          {
+            begin: /\|.*\|$/,
+            scope: 'string'
+          },
         ]
-      }
+      },
     ]
   };
 }

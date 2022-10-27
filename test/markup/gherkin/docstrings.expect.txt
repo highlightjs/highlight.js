@@ -15,7 +15,7 @@
   ```</span>
 
 <span class="hljs-keyword">Given</span> the following users exist:
-  |<span class="hljs-string"> name   </span>|<span class="hljs-string"> email              </span>|<span class="hljs-string"> twitter         </span>|
-  |<span class="hljs-string"> Aslak  </span>|<span class="hljs-string"> aslak@cucumber.io  </span>|<span class="hljs-string"> @aslak_hellesoy </span>|
-  |<span class="hljs-string"> Julien </span>|<span class="hljs-string"> julien@cucumber.io </span>|<span class="hljs-string"> @jbpros         </span>|
-  |<span class="hljs-string"> Matt   </span>|<span class="hljs-string"> matt@cucumber.io   </span>|<span class="hljs-string"> @mattwynne      </span>|
+  <span class="hljs-string">| name   | email              | twitter         |</span>
+  <span class="hljs-string">| Aslak  | aslak@cucumber.io  | @aslak_hellesoy |</span>
+  <span class="hljs-string">| Julien | julien@cucumber.io | @jbpros         |</span>
+  <span class="hljs-string">| Matt   | matt@cucumber.io   | @mattwynne      |</span>
