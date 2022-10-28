@@ -13,6 +13,7 @@ Grammars:
 - fix(js) do not flag `import()` as a function, rather a keyword [nathnolt][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 - fix(nix) support escaped dollar signs in strings [h7x4][]
+- enh(cmake) support bracket comments [Hirse][]
 - fix(gherkin) update keyword list [Hirse][]
 - fix(gherkin) variables can't contain whitespace [Hirse][]
 - ehn(gherkin) docstrings can use backticks [Hirse][]
