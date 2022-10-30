@@ -17,8 +17,10 @@ export default function() {
         relevance: 0,
       },
       {
+        // "Business Need" and "Ability" are not part of the spec above, but are included in the English "translation"
+        // https://cucumber.io/docs/gherkin/languages/#gherkin-dialect-en-content
         begin: [
-          /(Feature|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
+          /(Feature|Business Need|Ability|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
           /:/
         ],
         beginScope: {
