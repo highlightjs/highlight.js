@@ -74,6 +74,7 @@ export default function(hljs) {
     'do',
     'sealed',
     'yield'
+    'permits'
   ];
 
   const BUILT_INS = [
