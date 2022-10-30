@@ -73,6 +73,7 @@ export default function(hljs) {
     'exports',
     'do',
     'sealed',
+    'yield',
     'permits'
   ];
 
