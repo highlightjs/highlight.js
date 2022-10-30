@@ -9,10 +9,16 @@ export default function() {
   return {
     name: 'Gherkin',
     aliases: [ 'feature' ],
+    // No global keywords since they're all situational
     contains: [
       {
+        // Eat whitespace at the start of the line
+        begin: /^[ \t]+/,
+        relevance: 0,
+      },
+      {
         begin: [
-          /^(Feature|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
+          /(Feature|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
           /:/
         ],
         beginScope: {
@@ -20,6 +26,7 @@ export default function() {
           2: 'punctuation',
         },
         end: /$/,
+        relevance: 10,
         contains: [
           {
             scope: 'variable',
@@ -28,7 +35,7 @@ export default function() {
         ]
       },
       {
-        begin: /^(?:Given|When|Then|And|But)\b/,
+        begin: /(?:Given|When|Then|And|But)\b/,
         beginScope: 'keyword',
         end: /$/,
         contains: [
@@ -39,7 +46,7 @@ export default function() {
         ]
       },
       {
-        begin: /^\*(?=[ \t])/,
+        begin: /\*(?=[ \t])/,
         relevance: 0,
         beginScope: 'keyword',
         end: /$/,
@@ -56,94 +63,25 @@ export default function() {
       },
       {
         scope: 'comment',
-        begin: /^#/,
+        begin: /#/,
         end: /$/
       },
       {
         scope: 'string',
         variants: [
           {
-            begin: /^"""/,
+            begin: /"""/,
             end: /"""/
           },
           {
-            begin: /^```/,
+            begin: /```/,
             end: /```/
           }
-        ],
-      },
-      {
-        begin: /^\|.*\|$/,
-        scope: 'string'
-      },
-      {
-        begin: /^[ \t]+/,
-        relevance: 0,
-        contains: [
-          {
-            begin: [
-              /(Feature|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
-              /:/
-            ],
-            beginScope: {
-              1: 'keyword',
-              2: 'punctuation',
-            },
-            end: /$/,
-            relevance: 10,
-            contains: [
-              {
-                scope: 'variable',
-                begin: /<[^>\s]+>/
-              },
-            ]
-          },
-          {
-            begin: /(?:Given|When|Then|And|But)\b/,
-            beginScope: 'keyword',
-            end: /$/,
-            contains: [
-              {
-                scope: 'variable',
-                begin: /<[^>\s]+>/
-              },
-            ]
-          },
-          {
-            begin: /\*(?=[ \t])/,
-            relevance: 0,
-            beginScope: 'keyword',
-            end: /$/,
-            contains: [
-              {
-                scope: 'variable',
-                begin: /<[^>\s]+>/
-              },
-            ]
-          },
-          {
-            scope: 'comment',
-            begin: /#/,
-            end: /$/
-          },
-          {
-            scope: 'string',
-            variants: [
-              {
-                begin: /"""/,
-                end: /"""/
-              },
-              {
-                begin: /```/,
-                end: /```/
-              }
-            ]
-          },
-          {
-            begin: /\|.*\|$/,
-            scope: 'string'
-          },
         ]
+      },
+      {
+        begin: /\|.*\|$/,
+        scope: 'string'
       },
     ]
   };
