@@ -5,7 +5,12 @@
  Website: https://cucumber.io/docs/gherkin/
  */
 
-export default function() {
+const VARIABLE = {
+  scope: 'variable',
+  begin: /<[^>\s]+>/
+};
+
+export default function(hljs) {
   return {
     name: 'Gherkin',
     aliases: [ 'feature' ],
@@ -29,45 +34,26 @@ export default function() {
         },
         end: /$/,
         relevance: 10,
-        contains: [
-          {
-            scope: 'variable',
-            begin: /<[^>\s]+>/
-          },
-        ]
+        contains: [ VARIABLE ]
       },
       {
         begin: /(?:Given|When|Then|And|But)\b/,
         beginScope: 'keyword',
         end: /$/,
-        contains: [
-          {
-            scope: 'variable',
-            begin: /<[^>\s]+>/
-          },
-        ]
+        contains: [ VARIABLE ]
       },
       {
         begin: /\*(?=[ \t])/,
         relevance: 0,
         beginScope: 'keyword',
         end: /$/,
-        contains: [
-          {
-            scope: 'variable',
-            begin: /<[^>\s]+>/
-          },
-        ]
+        contains: [ VARIABLE ]
       },
       {
         scope: 'meta',
-        begin: '@[^@\\s]+'
+        begin: /@[^@\s]+/
       },
-      {
-        scope: 'comment',
-        begin: /#/,
-        end: /$/
-      },
+      hljs.HASH_COMMENT_MODE,
       {
         scope: 'string',
         variants: [
