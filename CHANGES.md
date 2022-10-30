@@ -14,6 +14,8 @@ Grammars:
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 - fix(nix) support escaped dollar signs in strings [h7x4][]
 - enh(cmake) support bracket comments [Hirse][]
+- enh(java) add yield keyword to java [MBoegers][]
+- enh(java) add permits keyword to java [MBoegers][]
 - fix(gherkin) update keyword list [Hirse][]
 - fix(gherkin) variables can't contain whitespace [Hirse][]
 - ehn(gherkin) docstrings can use backticks [Hirse][]
@@ -24,6 +26,7 @@ Grammars:
 [Nick Chambers]: https://github.com/uplime
 [h7x4]: https://github.com/h7x4
 [Hirse]: https://github.com/Hirse
+[MBoegers]: https://github.com/MBoegers
 
 
 ## Version 11.6.0
