@@ -102,26 +102,27 @@ export default function(hljs) {
   // DecimalIntegerLiteral, including Annex B NonOctalDecimalIntegerLiteral
   // https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals
   const decimalInteger = `0|[1-9](_?[0-9])*|0[0-7]*[89][0-9]*`;
-  const numberStart = '\\b(?<![\$])'
   const NUMBER = {
     className: 'number',
     variants: [
+      // Skip numbers when they are part of a variable name
+      { begin: /[$][a-z\d]*/, className: "", skip: true },
       // DecimalLiteral
-      { begin: `(${numberStart}(${decimalInteger})((${frac})|\\.)?|(${frac}))` +
+      { begin: `(\\b(${decimalInteger})((${frac})|\\.)?|(${frac}))` +
         `[eE][+-]?(${decimalDigits})\\b` },
-      { begin: `${numberStart}(${decimalInteger})\\b((${frac})\\b|\\.)?|(${frac})\\b` },
+      { begin: `\\b(${decimalInteger})\\b((${frac})\\b|\\.)?|(${frac})\\b` },
 
       // DecimalBigIntegerLiteral
-      { begin: `${numberStart}(0|[1-9](_?[0-9])*)n\\b` },
+      { begin: `\\b(0|[1-9](_?[0-9])*)n\\b` },
 
       // NonDecimalIntegerLiteral
-      { begin: `${numberStart}0[xX][0-9a-fA-F](_?[0-9a-fA-F])*n?\\b` },
-      { begin: `${numberStart}0[bB][0-1](_?[0-1])*n?\\b` },
-      { begin: `${numberStart}0[oO][0-7](_?[0-7])*n?\\b` },
+      { begin: "\\b0[xX][0-9a-fA-F](_?[0-9a-fA-F])*n?\\b" },
+      { begin: "\\b0[bB][0-1](_?[0-1])*n?\\b" },
+      { begin: "\\b0[oO][0-7](_?[0-7])*n?\\b" },
 
       // LegacyOctalIntegerLiteral (does not include underscore separators)
       // https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals
-      { begin: `${numberStart}0[0-7]+n?\\b` },
+      { begin: "\\b0[0-7]+n?\\b" },
     ],
     relevance: 0
   };

@@ -79,6 +79,7 @@ x0.<span class="hljs-property">e1</span>
 <span class="hljs-comment">// numbers in identifiers</span>
 <span class="hljs-keyword">const</span> num = $1
 <span class="hljs-keyword">const</span> num = $0n9
+<span class="hljs-keyword">const</span> num = $abc012
 <span class="hljs-keyword">const</span> num = $0x9
 <span class="hljs-keyword">const</span> num = $0o0
 <span class="hljs-keyword">const</span> num = $09

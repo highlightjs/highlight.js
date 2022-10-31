@@ -79,6 +79,7 @@ x0.e1
 // numbers in identifiers
 const num = $1
 const num = $0n9
+const num = $abc012
 const num = $0x9
 const num = $0o0
 const num = $09
