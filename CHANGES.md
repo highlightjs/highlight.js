@@ -15,6 +15,8 @@ Grammars:
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 - fix(nix) support escaped dollar signs in strings [h7x4][]
 - enh(cmake) support bracket comments [Hirse][]
+- enh(java) add yield keyword to java [MBoegers][]
+- enh(java) add permits keyword to java [MBoegers][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
@@ -23,6 +25,7 @@ Grammars:
 [h7x4]: https://github.com/h7x4
 [Hirse]: https://github.com/Hirse
 [The Flix Organisation]: https://github.com/flix
+[MBoegers]: https://github.com/MBoegers
 
 ## Version 11.6.0
 
