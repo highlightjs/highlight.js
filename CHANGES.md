@@ -14,6 +14,8 @@ Grammars:
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 - fix(nix) support escaped dollar signs in strings [h7x4][]
 - enh(cmake) support bracket comments [Hirse][]
+- enh(java) add yield keyword to java [MBoegers][]
+- enh(java) add permits keyword to java [MBoegers][]
 - fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
 
 [Josh Goebel]: https://github.com/joshgoebel
@@ -22,6 +24,7 @@ Grammars:
 [Nick Chambers]: https://github.com/uplime
 [h7x4]: https://github.com/h7x4
 [Hirse]: https://github.com/Hirse
+[MBoegers]: https://github.com/MBoegers
 [Lachlan Heywood]: https://github.com/lachieh
 
 

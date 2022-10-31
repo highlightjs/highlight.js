@@ -1,0 +1,13 @@
+switch(a) {
+ case null -> yield "n";
+ case String s -> yield "s";
+ case Object o -> yield "o";
+ default: yield "d",
+}
+
+switch(a) {
+ case null: return "n";
+ case "s": return "s";
+ case "o": return "o";
+ default: return "d";
+}

@@ -1,0 +1,13 @@
+<span class="hljs-keyword">switch</span>(a) {
+ <span class="hljs-keyword">case</span> <span class="hljs-literal">null</span> -&gt; <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;n&quot;</span>;
+ <span class="hljs-keyword">case</span> String s -&gt; <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;s&quot;</span>;
+ <span class="hljs-keyword">case</span> Object o -&gt; <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;o&quot;</span>;
+ <span class="hljs-keyword">default</span>: <span class="hljs-keyword">yield</span> <span class="hljs-string">&quot;d&quot;</span>,
+}
+
+<span class="hljs-keyword">switch</span>(a) {
+ <span class="hljs-keyword">case</span> <span class="hljs-literal">null</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;n&quot;</span>;
+ <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;s&quot;</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;s&quot;</span>;
+ <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;o&quot;</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;o&quot;</span>;
+ <span class="hljs-keyword">default</span>: <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;d&quot;</span>;
+}

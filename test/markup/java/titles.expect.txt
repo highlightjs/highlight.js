@@ -9,7 +9,7 @@
     }
 }
 
-<span class="hljs-keyword">sealed</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Command</span> permits LoginCommand {
+<span class="hljs-keyword">sealed</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Command</span> <span class="hljs-keyword">permits</span> LoginCommand {
     <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span>;
 }
 
