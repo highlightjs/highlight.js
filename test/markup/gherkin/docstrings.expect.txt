@@ -1,0 +1,21 @@
+<span class="hljs-keyword">Given</span> a blog post named &quot;Random&quot; with Markdown body
+  <span class="hljs-string">&quot;&quot;&quot;
+  Some Title, Eh?
+  ===============
+  Here is the first paragraph of my blog post. Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit.
+  &quot;&quot;&quot;</span>
+
+<span class="hljs-keyword">Given</span> a blog post named &quot;Random&quot; with Markdown body
+  <span class="hljs-string">```
+  Some Title, Eh?
+  ===============
+  Here is the first paragraph of my blog post. Lorem ipsum dolor sit amet,
+  consectetur adipiscing elit.
+  ```</span>
+
+<span class="hljs-keyword">Given</span> the following users exist:
+  <span class="hljs-string">| name   | email              | twitter         |</span>
+  <span class="hljs-string">| Aslak  | aslak@cucumber.io  | @aslak_hellesoy |</span>
+  <span class="hljs-string">| Julien | julien@cucumber.io | @jbpros         |</span>
+  <span class="hljs-string">| Matt   | matt@cucumber.io   | @mattwynne      |</span>

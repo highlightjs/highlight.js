@@ -17,6 +17,9 @@ Grammars:
 - enh(cmake) support bracket comments [Hirse][]
 - enh(java) add yield keyword to java [MBoegers][]
 - enh(java) add permits keyword to java [MBoegers][]
+- fix(gherkin) update keyword list [Hirse][]
+- fix(gherkin) variables can't contain whitespace [Hirse][]
+- ehn(gherkin) docstrings can use backticks [Hirse][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple

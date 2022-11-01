@@ -1,0 +1,34 @@
+<span class="hljs-keyword">Feature</span><span class="hljs-punctuation">:</span> some feature
+
+  <span class="hljs-keyword">Rule</span><span class="hljs-punctuation">:</span> some rule
+
+    <span class="hljs-keyword">Background</span><span class="hljs-punctuation">:</span>
+      <span class="hljs-keyword">Given</span> some background
+
+    <span class="hljs-keyword">Example</span><span class="hljs-punctuation">:</span> an example
+      <span class="hljs-keyword">Given</span> the conditions
+      <span class="hljs-keyword">And</span> some other conditions
+      <span class="hljs-keyword">*</span> same as and
+      <span class="hljs-keyword">But</span> not these conditions
+      <span class="hljs-keyword">When</span> something happens
+      <span class="hljs-keyword">And</span> something else
+      <span class="hljs-keyword">Then</span> I do this
+
+    <span class="hljs-keyword">Scenario</span><span class="hljs-punctuation">:</span> same as example
+      <span class="hljs-keyword">Given</span> the conditions
+      <span class="hljs-keyword">And</span> some other conditions
+      <span class="hljs-keyword">*</span> same as and
+      <span class="hljs-keyword">But</span> not these conditions
+      <span class="hljs-keyword">When</span> something happens
+      <span class="hljs-keyword">And</span> something else
+      <span class="hljs-keyword">Then</span> I do this
+
+  <span class="hljs-keyword">Scenario Outline</span><span class="hljs-punctuation">:</span> some outline
+    <span class="hljs-keyword">Examples</span><span class="hljs-punctuation">:</span> part of outline
+      <span class="hljs-keyword">When</span> a
+      <span class="hljs-keyword">Then</span> b
+
+  <span class="hljs-keyword">Scenario Template</span><span class="hljs-punctuation">:</span> same as scenario outline
+    <span class="hljs-keyword">Scenarios</span><span class="hljs-punctuation">:</span> same as examples
+      <span class="hljs-keyword">When</span> a
+      <span class="hljs-keyword">Then</span> b
