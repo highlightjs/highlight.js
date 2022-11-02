@@ -18,6 +18,10 @@ Grammars:
 - enh(java) add yield keyword to java [MBoegers][]
 - enh(java) add permits keyword to java [MBoegers][]
 
+Developer Tools:
+
+- (fix) make metadata parsing less fragile and prone to error [Vladimir Jimenez]
+
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
 [nathnolt]: https://github.com/nathnolt
@@ -26,6 +30,7 @@ Grammars:
 [Hirse]: https://github.com/Hirse
 [The Flix Organisation]: https://github.com/flix
 [MBoegers]: https://github.com/MBoegers
+[Vladimir Jimenez]: https://github.com/allejo
 
 ## Version 11.6.0
 

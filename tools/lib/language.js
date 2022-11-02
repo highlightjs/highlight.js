@@ -5,9 +5,9 @@ const path = require("path");
 const build_config = require("../build_config.js");
 
 const packageJSON = require("../../package.json");
-const REQUIRES_REGEX = /\/\*.*?Requires: (.*?)\r?\n/s;
-const CATEGORY_REGEX = /\/\*.*?Category: (.*?)\r?\n/s;
-const LANGUAGE_REGEX = /\/\*.*?Language: (.*?)\r?\n/s;
+const REQUIRES_REGEX = /^Requires: (.+?)$/m;
+const CATEGORY_REGEX = /^Category: (.+?)$/m;
+const LANGUAGE_REGEX = /^Language: (.+?)$/m;
 const { rollupCode } = require("./bundling.js");
 const { getThirdPartyPackages } = require("./external_language.js");
 
