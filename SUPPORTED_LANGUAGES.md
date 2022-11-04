@@ -77,6 +77,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Extempore               | extempore, xtlang, xtm | [highlightjs-xtlang](https://github.com/highlightjs/highlightjs-xtlang) |
 | F#                      | fsharp, fs             |         |
 | FIX                     | fix                    |         |
+| Flix                    | flix                   | [highlightjs-flix](https://github.com/flix/highlightjs-flix) |
 | Fortran                 | fortran, f90, f95      |         |
 | FunC                    | func                   | [highlightjs-func](https://github.com/highlightjs/highlightjs-func) |
 | G-Code                  | gcode, nc              |         |
@@ -213,7 +214,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |
-| TypeScript              | typescript, ts         |         |
+| TypeScript              | typescript, ts, tsx    |         |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
 | VB.Net                  | vbnet, vb              |         |
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |
