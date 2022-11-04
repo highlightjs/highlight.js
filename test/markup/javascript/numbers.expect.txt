@@ -92,3 +92,7 @@ x0.<span class="hljs-property">e1</span>
 <span class="hljs-keyword">const</span> num = <span class="hljs-number">09</span>
 <span class="hljs-keyword">const</span> num = <span class="hljs-number">9.09</span>
 <span class="hljs-keyword">const</span> num = a9
+
+<span class="hljs-comment">// numbers in identifiers in template strings</span>
+cosnt string = <span class="hljs-string">`<span class="hljs-subst">${$0}</span>`</span>
+cosnt string = <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-number">0</span>}</span>`</span>

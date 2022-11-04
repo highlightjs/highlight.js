@@ -92,3 +92,7 @@ const num = 0o0
 const num = 09
 const num = 9.09
 const num = a9
+
+// numbers in identifiers in template strings
+cosnt string = `${$0}`
+cosnt string = `${0}`
