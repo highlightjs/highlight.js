@@ -105,8 +105,6 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     variants: [
-      // Skip numbers when they are part of a variable name
-      { match: /\$\d+/ },
       // DecimalLiteral
       { begin: `(\\b(${decimalInteger})((${frac})|\\.)?|(${frac}))` +
         `[eE][+-]?(${decimalDigits})\\b` },
@@ -455,6 +453,8 @@ export default function(hljs) {
       CSS_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
+      // Skip numbers when they are part of a variable name
+      { match: /\$\d+/ },
       NUMBER,
       CLASS_REFERENCE,
       {
