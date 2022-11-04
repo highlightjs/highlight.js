@@ -220,6 +220,8 @@ export default function(hljs) {
     HTML_TEMPLATE,
     CSS_TEMPLATE,
     TEMPLATE_STRING,
+    // Skip numbers when they are part of a variable name
+    { match: /\$\d+/ },
     NUMBER,
     // This is intentional:
     // See https://github.com/highlightjs/highlight.js/issues/3288
@@ -453,6 +455,8 @@ export default function(hljs) {
       CSS_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
+      // Skip numbers when they are part of a variable name
+      { match: /\$\d+/ },
       NUMBER,
       CLASS_REFERENCE,
       {

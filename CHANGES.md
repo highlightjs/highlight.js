@@ -17,6 +17,7 @@ Grammars:
 - enh(cmake) support bracket comments [Hirse][]
 - enh(java) add yield keyword to java [MBoegers][]
 - enh(java) add permits keyword to java [MBoegers][]
+- fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
 
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
@@ -26,6 +27,7 @@ Grammars:
 [Hirse]: https://github.com/Hirse
 [The Flix Organisation]: https://github.com/flix
 [MBoegers]: https://github.com/MBoegers
+[Lachlan Heywood]: https://github.com/lachieh
 
 ## Version 11.6.0
 
