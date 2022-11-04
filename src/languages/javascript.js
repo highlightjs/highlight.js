@@ -106,7 +106,7 @@ export default function(hljs) {
     className: 'number',
     variants: [
       // Skip numbers when they are part of a variable name
-      { begin: /[$][a-z\d]*/, className: "", skip: true },
+      { begin: /\$\d+/, className: "", skip: true },
       // DecimalLiteral
       { begin: `(\\b(${decimalInteger})((${frac})|\\.)?|(${frac}))` +
         `[eE][+-]?(${decimalDigits})\\b` },
