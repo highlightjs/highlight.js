@@ -7,7 +7,7 @@ New Grammars:
 - Added 3rd party Flix grammar to SUPPORTED_LANGUAGES [The Flix Organisation][]
 
 Grammars:
-
+- enh(scheme) add `scm` alias for Scheme [matyklug18][]
 - fix(typescript) patterns like `<T =` are not JSX [Josh Goebel][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
 - enh(Ruby) misc improvements (kws, class names, etc)  [Josh Goebel][]
@@ -19,6 +19,7 @@ Grammars:
 - enh(java) add permits keyword to java [MBoegers][]
 - fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
 
+[matyklug18]: https://github.com/matyklug18
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
 [nathnolt]: https://github.com/nathnolt
