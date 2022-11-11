@@ -72,7 +72,7 @@ export default function(hljs) {
 
   const CLASS = {
     className: 'class',
-    beginKeywords: 'class object trait type',
+    beginKeywords: 'class object trait type enum',
     end: /[:={\[\n;]/,
     excludeEnd: true,
     contains: [
@@ -80,6 +80,11 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       {
         beginKeywords: 'extends with',
+        relevance: 10
+      },
+      {
+        beginKeywords: 'derives',
+        contains: [ TYPE ],
         relevance: 10
       },
       {
@@ -99,7 +104,7 @@ export default function(hljs) {
         relevance: 0,
         contains: [ TYPE ]
       },
-      NAME
+      NAME,
     ]
   };
 

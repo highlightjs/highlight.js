@@ -1,6 +1,10 @@
-<span class="hljs-keyword">enum</span> <span class="hljs-type">Color</span>:
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Color</span></span>:
   <span class="hljs-keyword">case</span> <span class="hljs-type">Red</span>, <span class="hljs-type">Green</span>, <span class="hljs-type">Blue</span>
 
-<span class="hljs-keyword">enum</span> <span class="hljs-type">State</span>:
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">State</span></span>:
   <span class="hljs-keyword">case</span> <span class="hljs-type">On</span>
   <span class="hljs-keyword">case</span> <span class="hljs-type">Off</span>
+
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Tree</span>[<span class="hljs-type">T</span>] <span class="hljs-keyword">derives</span> <span class="hljs-title">Eq</span>, <span class="hljs-title">Show</span></span>:
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Branch</span>(left: <span class="hljs-type">Tree</span>[<span class="hljs-type">T</span>], right: <span class="hljs-type">Tree</span>[<span class="hljs-type">T</span>])
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Leaf</span>(elem: <span class="hljs-type">T</span>)

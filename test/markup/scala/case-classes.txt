@@ -1,3 +1,6 @@
 abstract class Vertical extends CaseJeu
 case class Haut(name: String) extends Vertical
 case class Bas(name: String) extends Vertical
+
+case class Foo derives Eq
+val derives = 1

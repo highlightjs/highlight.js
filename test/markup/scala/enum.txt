@@ -4,3 +4,7 @@ enum Color:
 enum State:
   case On
   case Off
+
+enum Tree[T] derives Eq, Show:
+  case Branch(left: Tree[T], right: Tree[T])
+  case Leaf(elem: T)

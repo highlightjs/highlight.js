@@ -28,6 +28,7 @@ Grammars:
 - enh(java) add yield keyword to java [MBoegers][]
 - enh(java) add permits keyword to java [MBoegers][]
 - fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
+- enh(scala) add Scala 3 `derives` soft keyword [Jisoo Park][]
 
 Improvements:
 
@@ -45,7 +46,7 @@ Improvements:
 [Lachlan Heywood]: https://github.com/lachieh
 [Eddymens]: https://github.com/eddymens
 [Sopitive]: https://github.com/Sopitive
-
+[Jisoo Park]: https://github.com/guersam
 
 ## Version 11.6.0
 

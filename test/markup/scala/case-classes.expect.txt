@@ -1,3 +1,6 @@
 <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vertical</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CaseJeu</span></span>
 <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Haut</span>(<span class="hljs-params">name: <span class="hljs-type">String</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Vertical</span></span>
 <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bas</span>(<span class="hljs-params">name: <span class="hljs-type">String</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Vertical</span></span>
+
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span> <span class="hljs-keyword">derives</span> <span class="hljs-title">Eq</span></span>
+<span class="hljs-keyword">val</span> derives = <span class="hljs-number">1</span>
