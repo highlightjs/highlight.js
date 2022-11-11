@@ -156,11 +156,23 @@ export default function(hljs) {
     beginScope: { 2: "keyword", }
   };
 
+  const SOFT_MODIFIER = {
+    begin: [
+      /\b(?<!\.)(infix|inline|opaque|open|transparent)\b/,
+      /\s+/,
+      /(?=object|def|val|var|type|given|class|trait|object|enum|case class|case object|infix|inline|opaque|open|transparent)/,
+    ],
+    beginScope: {
+      1: 'keyword',
+    },
+    contains: [ 'self' ],
+  };
+
   return {
     name: 'Scala',
     keywords: {
       literal: 'true false null',
-      keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit export enum given transparent'
+      keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit export enum given'
     },
     contains: [
       hljs.C_LINE_COMMENT_MODE,
@@ -174,7 +186,8 @@ export default function(hljs) {
       END,
       ...INLINE_MODES,
       USING_PARAM_CLAUSE,
-      ANNOTATION
+      ANNOTATION,
+      SOFT_MODIFIER,
     ]
   };
 }

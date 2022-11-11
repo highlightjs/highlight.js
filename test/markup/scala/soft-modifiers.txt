@@ -1,0 +1,16 @@
+infix def +(that: Int) = ???
+a.infix == b.infix
+
+opaque type MyInt = Int
+c opaque d
+
+open class A
+def open = 1
+
+transparent inline def f() = 42
+transparent trait S
+
+val transparent = 43
+
+transparent
+trait T
