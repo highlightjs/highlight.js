@@ -28,8 +28,7 @@ Grammars:
 - enh(java) add yield keyword to java [MBoegers][]
 - enh(java) add permits keyword to java [MBoegers][]
 - fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
-- enh(scala) add Scala 3 `derives` soft keyword [Jisoo Park][]
-- enh(scala) add Scala 3 soft modifiers (`infix`, `opaque`, `open`) [Jisoo Park][]
+- enh(scala) add Scala 3 soft keywords (`derives`, `infix`, `opaque`, `open`, and `as`) [Jisoo Park][]
 
 Improvements:
 

@@ -137,6 +137,25 @@ export default function(hljs) {
     }
   };
 
+  const IMPORT_EXPORT = {
+    beginKeywords: 'import export',
+    end: /[;\n]/,
+    excludeEnd: true,
+    contains: [
+      { beginKeywords: 'as' },
+      {
+        begin: '{',
+        end: '}',
+        excludeBegin: true,
+        excludeEnd: true,
+        contains: [
+          TYPE,
+          { beginKeywords: 'as' },
+        ]
+      }
+    ],
+  };
+
   // TODO: use negative look-behind in future
   //       /(?<!\.)\binline(?=\s)/
   const INLINE_MODES = [
@@ -184,6 +203,7 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       EXTENSION,
       END,
+      IMPORT_EXPORT,
       ...INLINE_MODES,
       USING_PARAM_CLAUSE,
       ANNOTATION,
