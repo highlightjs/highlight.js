@@ -15,7 +15,7 @@ highlight
 Core highlighting function.  Accepts the code to highlight (string) and a list of options (object).
 The ``language`` parameter must be present and specify the language name or alias
 of the grammar to be used for highlighting.
-The ``ignoreIllegals`` is an optional parameter than when true forces highlighting
+The ``ignoreIllegals`` is an optional parameter that when ``true`` forces highlighting
 to finish even in case of detecting illegal syntax for the
 language instead of throwing an exception.
 

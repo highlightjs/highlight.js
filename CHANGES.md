@@ -19,6 +19,10 @@ Grammars:
 - enh(java) add permits keyword to java [MBoegers][]
 - fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
 
+Improvements:
+
+- Documentation typo fix by [Eddymens][]
+
 [matyklug18]: https://github.com/matyklug18
 [Josh Goebel]: https://github.com/joshgoebel
 [Josh Temple]: https://github.com/joshtemple
@@ -29,6 +33,7 @@ Grammars:
 [The Flix Organisation]: https://github.com/flix
 [MBoegers]: https://github.com/MBoegers
 [Lachlan Heywood]: https://github.com/lachieh
+[Eddymens]: https://github.com/eddymens
 
 ## Version 11.6.0
 
