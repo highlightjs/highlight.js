@@ -85,7 +85,6 @@ export default function(hljs) {
       {
         beginKeywords: 'derives',
         contains: [ TYPE ],
-        relevance: 10
       },
       {
         begin: /\[/,
