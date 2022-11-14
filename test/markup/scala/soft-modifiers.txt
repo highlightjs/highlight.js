@@ -14,3 +14,5 @@ val transparent = 43
 
 transparent
 trait T
+
+transparent infix inline def g(a: Int) = 42

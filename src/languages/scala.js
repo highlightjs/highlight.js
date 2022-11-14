@@ -174,17 +174,18 @@ export default function(hljs) {
     beginScope: { 2: "keyword", }
   };
 
-  const SOFT_MODIFIER = {
-    begin: [
-      /(?=^|;)\s*/,
-      /\b(infix|inline|opaque|open|transparent)\b/,
+  const SOFT_MODIFIERS = [ 'infix', 'inline', 'opaque', 'open', 'transparent' ];
+  const SOFT_MODIFIER_RE = regex.either(...SOFT_MODIFIERS);
+
+  const SOFT_MODIFIER_MODE = {
+    begin: regex.concat(
+      /(^|;)\s*/,
+      SOFT_MODIFIER_RE,
       /\s+/,
-      /(?=object|def|val|var|type|given|class|trait|object|enum|case class|case object|infix|inline|opaque|open|transparent)/,
-    ],
-    beginScope: {
-      2: 'keyword',
-    },
-    contains: [ 'self' ],
+      regex.anyNumberOfTimes(regex.concat(SOFT_MODIFIER_RE, /\s+/)),
+      regex.lookahead(/(object|def|val|var|type|given|class|trait|object|enum|case class|case object)/),
+    ),
+    keywords: SOFT_MODIFIERS,
   };
 
   return {
@@ -207,7 +208,7 @@ export default function(hljs) {
       ...INLINE_MODES,
       USING_PARAM_CLAUSE,
       ANNOTATION,
-      SOFT_MODIFIER,
+      SOFT_MODIFIER_MODE,
     ]
   };
 }
