@@ -176,12 +176,13 @@ export default function(hljs) {
 
   const SOFT_MODIFIER = {
     begin: [
-      /\b(?<!\.)(infix|inline|opaque|open|transparent)\b/,
+      /(?=^|;)\s*/,
+      /\b(infix|inline|opaque|open|transparent)\b/,
       /\s+/,
       /(?=object|def|val|var|type|given|class|trait|object|enum|case class|case object|infix|inline|opaque|open|transparent)/,
     ],
     beginScope: {
-      1: 'keyword',
+      2: 'keyword',
     },
     contains: [ 'self' ],
   };
