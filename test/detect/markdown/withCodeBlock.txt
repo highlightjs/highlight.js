@@ -1,0 +1,9 @@
+# Hello World
+
+```js
+console.log("just because there's a code block doesn't mean it's a js file");
+
+for (let i=0; i < 10; i++) {
+	console.log(i);
+}
+```

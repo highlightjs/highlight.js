@@ -21,17 +21,19 @@ export default function(hljs) {
   const CODE = {
     className: 'code',
     variants: [
-      // TODO: fix to allow these to work with sublanguage also
-      { begin: '(`{3,})[^`](.|\\n)*?\\1`*[ ]*' },
-      { begin: '(~{3,})[^~](.|\\n)*?\\1~*[ ]*' },
-      // needed to allow markdown as a sublanguage to work
       {
-        begin: '```',
-        end: '```+[ ]*$'
+        begin: '```[a-z0-9]*',
+        end: '```+[ ]*$',
+        excludeBegin: true,
+        excludeEnd: true,
+        subLanguage: []
       },
       {
-        begin: '~~~',
-        end: '~~~+[ ]*$'
+        begin: '~~~[a-z0-9]*',
+        end: '~~~+[ ]*$',
+        excludeBegin: true,
+        excludeEnd: true,
+        subLanguage: []
       },
       { begin: '`.+?`' },
       {
