@@ -184,6 +184,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |
 | Ruby                    | ruby, rb, gemspec, podspec, thor, irb | |
 | Rust                    | rust, rs               |         |
+| RVT Script              | rvt, rvt-script        | [highlightjs-rvt-script](https://github.com/Sopitive/highlightjs-rvt-script) |
 | SAS                     | SAS, sas               |         |
 | SCSS                    | scss                   |         |
 | SQL                     | sql                    |         |
