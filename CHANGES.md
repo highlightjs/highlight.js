@@ -8,6 +8,7 @@ New Grammars:
 - Added 3rd party RVT grammar to SUPPORTED_LANGUAGES [Sopitive][]
 
 Grammars:
+
 - enh(scheme) add `scm` alias for Scheme [matyklug18][]
 - fix(typescript) patterns like `<T =` are not JSX [Josh Goebel][]
 - fix(bash) recognize the `((` keyword [Nick Chambers][]
@@ -36,6 +37,7 @@ Improvements:
 [Lachlan Heywood]: https://github.com/lachieh
 [Eddymens]: https://github.com/eddymens
 [Sopitive]: https://github.com/Sopitive
+
 
 ## Version 11.6.0
 
