@@ -84,7 +84,6 @@ export default function(hljs) {
       },
       {
         beginKeywords: 'derives',
-        contains: [ TYPE ],
       },
       {
         begin: /\[/,
@@ -139,14 +138,11 @@ export default function(hljs) {
   const IMPORT_EXPORT = {
     beginKeywords: 'import export',
     end: /[;\n]/,
-    excludeEnd: true,
     contains: [
       { beginKeywords: 'as' },
       {
         begin: '{',
         end: '}',
-        excludeBegin: true,
-        excludeEnd: true,
         contains: [
           TYPE,
           { beginKeywords: 'as' },
