@@ -1,0 +1,16 @@
+import scanUnit.scan
+import printUnit.{status => _, *}
+
+import foo as bar
+import foo.{bar as baz, *}
+
+export scanUnit.scan
+export printUnit.{status => _, *}
+
+export foo as bar
+export foo.{
+  Bar,
+  bar as baz
+}
+
+val as = 1

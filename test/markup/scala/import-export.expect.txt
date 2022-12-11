@@ -1,0 +1,16 @@
+<span class="hljs-keyword">import</span> scanUnit.scan
+<span class="hljs-keyword">import</span> printUnit.{status =&gt; _, *}
+
+<span class="hljs-keyword">import</span> foo <span class="hljs-keyword">as</span> bar
+<span class="hljs-keyword">import</span> foo.{bar <span class="hljs-keyword">as</span> baz, *}
+
+<span class="hljs-keyword">export</span> scanUnit.scan
+<span class="hljs-keyword">export</span> printUnit.{status =&gt; _, *}
+
+<span class="hljs-keyword">export</span> foo <span class="hljs-keyword">as</span> bar
+<span class="hljs-keyword">export</span> foo.{
+  <span class="hljs-type">Bar</span>,
+  bar <span class="hljs-keyword">as</span> baz
+}
+
+<span class="hljs-keyword">val</span> as = <span class="hljs-number">1</span>
