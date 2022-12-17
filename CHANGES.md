@@ -4,7 +4,12 @@ Grammars:
 
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
 
+Grammars:
+
+- enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
+
 [Jeroen van Vianen]: https://github.com/morinel
+[Timur Kamaev]: https://github.com/doiftrue
 
 ## Version 11.7.0
 
