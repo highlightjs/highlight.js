@@ -49,3 +49,29 @@
     <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;foo&#x27;</span>,
     <span class="hljs-attr">time</span>:<span class="hljs-title function_ invoke__">time</span>() + <span class="hljs-keyword">array</span>(<span class="hljs-number">5</span>)[<span class="hljs-number">0</span>] + <span class="hljs-title class_">Foo</span>::<span class="hljs-variable constant_">HOUR</span>,
 );
+
+<span class="hljs-comment">/**
+ * Comments inside function declaration
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">
+    <span class="hljs-comment">// line comment</span>
+    <span class="hljs-variable">$foo</span>,
+    <span class="hljs-comment">/* block comment */</span>
+    <span class="hljs-variable">$bar</span> = <span class="hljs-string">&#x27;str//foo&#x27;</span>,
+    <span class="hljs-comment"># hash comment</span>
+    <span class="hljs-variable">$yoo</span> = <span class="hljs-number">123</span>
+</span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>;
+}
+
+<span class="hljs-comment">/**
+ * Comments inside function invoke
+ */</span>
+<span class="hljs-title function_ invoke__">foo</span>(
+    <span class="hljs-string">&#x27;string&#x27;</span>,
+    [
+        <span class="hljs-comment"># hash comment</span>
+        <span class="hljs-comment">// line comment</span>
+        <span class="hljs-comment">/* block comment */</span>
+    ]
+);

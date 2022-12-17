@@ -411,6 +411,8 @@ export default function(hljs) {
       VARIABLE,
       LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
       hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.HASH_COMMENT_MODE,
       STRING,
       NUMBER,
       CONSTRUCTOR_CALL,
@@ -528,6 +530,7 @@ export default function(hljs) {
         },
       },
       CONSTRUCTOR_CALL,
+      // FUNCTION DECLARATION
       {
         scope: 'function',
         relevance: 0,
@@ -554,6 +557,8 @@ export default function(hljs) {
               VARIABLE,
               LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
               hljs.C_BLOCK_COMMENT_MODE,
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.HASH_COMMENT_MODE,
               STRING,
               NUMBER
             ]

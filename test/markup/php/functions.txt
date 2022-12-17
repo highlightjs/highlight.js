@@ -49,3 +49,29 @@ setAlarm(
     label: 'foo',
     time:time() + array(5)[0] + Foo::HOUR,
 );
+
+/**
+ * Comments inside function declaration
+ */
+function foo(
+    // line comment
+    $foo,
+    /* block comment */
+    $bar = 'str//foo',
+    # hash comment
+    $yoo = 123
+){
+    return '';
+}
+
+/**
+ * Comments inside function invoke
+ */
+foo(
+    'string',
+    [
+        # hash comment
+        // line comment
+        /* block comment */
+    ]
+);
