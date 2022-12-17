@@ -21,3 +21,13 @@ var_dump(<<<SQL
     SELECT *
     FROM table
     SQL);
+
+// nowdoc syntax
+
+$var = <<<'TEXT'
+    Hello {$person->name}! Welcome to $company!
+TEXT;
+
+var_dump(<<<'TEXT'
+    Hello {$person->name}! Welcome to $company!
+    TEXT);

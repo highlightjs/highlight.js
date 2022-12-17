@@ -56,6 +56,10 @@ export default function(hljs) {
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
+  const NOWDOC = hljs.END_SAME_AS_BEGIN({
+    begin: /<<<[ \t']*(\w+)'?\n/,
+    end: /[ \t]*(\w+)\b/,
+  });
   // list of valid whitespaces because non-breaking space might be part of a IDENT_RE
   const WHITESPACE = '[ \t\n]';
   const STRING = {
@@ -63,7 +67,8 @@ export default function(hljs) {
     variants: [
       DOUBLE_QUOTED,
       SINGLE_QUOTED,
-      HEREDOC
+      HEREDOC,
+      NOWDOC
     ]
   };
   const NUMBER = {
