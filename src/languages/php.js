@@ -484,7 +484,7 @@ export default function(hljs) {
     contains: [
       ATTRIBUTES,
       hljs.HASH_COMMENT_MODE,
-      hljs.COMMENT('//', '$'),
+      hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(
         '/\\*',
         '\\*/',
