@@ -17,7 +17,7 @@ MSG</span>);
     FROM table
 SQL</span>);
 
-<span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;SQL
+<span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;&quot;SQL&quot;
     SELECT *
     FROM table
     SQL</span>);

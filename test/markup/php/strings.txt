@@ -17,7 +17,7 @@ var_dump(<<<SQL
     FROM table
 SQL);
 
-var_dump(<<<SQL
+var_dump(<<<"SQL"
     SELECT *
     FROM table
     SQL);

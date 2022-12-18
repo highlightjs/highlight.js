@@ -52,12 +52,12 @@ export default function(hljs) {
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
   const HEREDOC = hljs.END_SAME_AS_BEGIN({
-    begin: /<<<[ \t]*(\w+)\n/,
+    begin: /<<<[ \t]*"?(\w+)"?\n/,
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
   const NOWDOC = hljs.END_SAME_AS_BEGIN({
-    begin: /<<<[ \t']*(\w+)'?\n/,
+    begin: /<<<[ \t]*'(\w+)'\n/,
     end: /[ \t]*(\w+)\b/,
   });
   // list of valid whitespaces because non-breaking space might be part of a IDENT_RE
