@@ -51,11 +51,15 @@ export default function(hljs) {
     illegal: null,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
-  const HEREDOC = hljs.END_SAME_AS_BEGIN({
-    begin: /<<<[ \t]*"?(\w+)"?\n/,
+
+  const HEREDOC = {
+    begin: /<<<[ \t]*(?:(\w+)|"(\w+)")\n/,
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
-  });
+    'on:begin': (m, resp) => { resp.data._beginMatch = m[1] || m[2]; },
+    'on:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch(); },
+  };
+
   const NOWDOC = hljs.END_SAME_AS_BEGIN({
     begin: /<<<[ \t]*'(\w+)'\n/,
     end: /[ \t]*(\w+)\b/,
