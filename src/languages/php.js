@@ -433,6 +433,41 @@ export default function(hljs) {
   };
   PARAMS_MODE.contains.push(FUNCTION_INVOKE);
 
+  const FUNCTION_DECLARATION = {
+    scope: 'function',
+    relevance: 0,
+    beginKeywords: 'fn function',
+    end: /[;{]/,
+    excludeEnd: true,
+    illegal: '[$%\\[]',
+    contains: [
+      { beginKeywords: 'use', },
+      hljs.UNDERSCORE_TITLE_MODE,
+      {
+        begin: '=>', // No markup, just a relevance booster
+        endsParent: true
+      },
+      {
+        scope: 'params',
+        begin: '\\(',
+        end: '\\)',
+        excludeBegin: true,
+        excludeEnd: true,
+        keywords: KEYWORDS,
+        contains: [
+          'self',
+          VARIABLE,
+          LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+          hljs.C_BLOCK_COMMENT_MODE,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.HASH_COMMENT_MODE,
+          STRING,
+          NUMBER
+        ]
+      },
+    ]
+  };
+
   const ATTRIBUTE_CONTAINS = [
     NAMED_ARGUMENT,
     LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
@@ -530,41 +565,7 @@ export default function(hljs) {
         },
       },
       CONSTRUCTOR_CALL,
-      // FUNCTION DECLARATION
-      {
-        scope: 'function',
-        relevance: 0,
-        beginKeywords: 'fn function',
-        end: /[;{]/,
-        excludeEnd: true,
-        illegal: '[$%\\[]',
-        contains: [
-          { beginKeywords: 'use', },
-          hljs.UNDERSCORE_TITLE_MODE,
-          {
-            begin: '=>', // No markup, just a relevance booster
-            endsParent: true
-          },
-          {
-            scope: 'params',
-            begin: '\\(',
-            end: '\\)',
-            excludeBegin: true,
-            excludeEnd: true,
-            keywords: KEYWORDS,
-            contains: [
-              'self',
-              VARIABLE,
-              LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
-              hljs.C_BLOCK_COMMENT_MODE,
-              hljs.C_LINE_COMMENT_MODE,
-              hljs.HASH_COMMENT_MODE,
-              STRING,
-              NUMBER
-            ]
-          },
-        ]
-      },
+      FUNCTION_DECLARATION,
       {
         scope: 'class',
         variants: [
