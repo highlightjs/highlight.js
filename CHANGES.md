@@ -3,8 +3,10 @@
 Grammars:
 
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
+- enh(gml) updated to latest language version [gnysek][]
 
 [Jeroen van Vianen]: https://github.com/morinel
+[gnysek]: https://github.com/gnysek
 
 ## Version 11.7.0
 
