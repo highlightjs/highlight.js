@@ -1,3 +1,11 @@
+## Version 11.9.0
+
+New Grammars:
+
+- added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
+
+[AdamRaichu]: https://github.com/AdamRaichu
+
 ## Version 11.8.0
 
 Grammars:

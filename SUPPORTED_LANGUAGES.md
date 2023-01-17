@@ -112,6 +112,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
 | Julia                   | julia, julia-repl      |         |
 | Kotlin                  | kotlin, kt             |         |
+| Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
 | LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
 | Lean                    | lean                   | [highlightjs-lean](https://github.com/leanprover-community/highlightjs-lean) |
