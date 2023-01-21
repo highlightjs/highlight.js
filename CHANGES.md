@@ -11,8 +11,10 @@ New Grammars:
 Grammars:
 
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
+- enh(http) Add support for HTTP/3 [Rijenkii][]
 
 [Jeroen van Vianen]: https://github.com/morinel
+[Rijenkii]: https://github.com/rijenkii
 
 ## Version 11.7.0
 
