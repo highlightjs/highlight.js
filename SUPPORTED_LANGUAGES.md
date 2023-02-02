@@ -217,7 +217,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |
-| TypeScript              | typescript, ts, tsx    |         |
+| TypeScript              | typescript, ts, tsx, mts, cts |         |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
 | VB.Net                  | vbnet, vb              |         |
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |
