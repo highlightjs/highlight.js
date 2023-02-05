@@ -223,6 +223,10 @@ export default function(hljs) {
       })
     ]
   };
+  const OPERATOR = {
+    scope: 'operator',
+    begin: /([-\|<]>)|(([\+\-\&\|]){2})|(<>)|([<>]=?)|([!=]==?)/,
+  };
   const CLASS = hljs.inherit(FUNCTION, {
     className: 'class',
     beginKeywords: 'defimpl defmodule defprotocol defrecord',
@@ -236,6 +240,7 @@ export default function(hljs) {
     hljs.HASH_COMMENT_MODE,
     CLASS,
     FUNCTION,
+    OPERATOR,
     { begin: '::' },
     {
       className: 'symbol',
