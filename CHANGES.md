@@ -4,7 +4,12 @@ New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
 
+Grammars:
+
+- Added support for highlighting GraphQL tagged template strings in JS/TS code [Ali Ukani][]
+
 [AdamRaichu]: https://github.com/AdamRaichu
+[Ali Ukani]: https://github.com/ali
 
 ## Version 11.8.0
 
