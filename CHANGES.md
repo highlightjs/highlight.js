@@ -1,4 +1,4 @@
-## Version 11.9.0
+## Version 11.8.0
 
 New Grammars:
 
@@ -6,20 +6,15 @@ New Grammars:
 
 Grammars:
 
-- Added support for highlighting GraphQL tagged template strings in JS/TS code [Ali Ukani][]
-
-[AdamRaichu]: https://github.com/AdamRaichu
-[Ali Ukani]: https://github.com/ali
-
-## Version 11.8.0
-
-Grammars:
-
+- enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
 - enh(http) Add support for HTTP/3 [Rijenkii][]
 
+[AdamRaichu]: https://github.com/AdamRaichu
+[Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
 [Rijenkii]: https://github.com/rijenkii
+
 
 ## Version 11.7.0
 
