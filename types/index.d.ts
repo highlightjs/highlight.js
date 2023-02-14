@@ -45,6 +45,7 @@ declare module 'highlight.js' {
         autoDetection: (languageName: string) => boolean
         inherit: <T>(original: T, ...args: Record<string, any>[]) => T
         addPlugin: (plugin: HLJSPlugin) => void
+        removePlugin: (plugin: HLJSPlugin) => void
         debugMode: () => void
         safeMode: () => void
         versionString: string

@@ -929,6 +929,16 @@ const HLJS = function(hljs) {
   }
 
   /**
+   * @param {HLJSPlugin} plugin
+   */
+  function removePlugin(plugin){
+    const index = plugins.indexOf(plugin)
+    if (index > -1){
+      plugins.splice(index, 1)
+    }
+  }
+
+  /**
    *
    * @param {PluginEvent} event
    * @param {any} args
@@ -971,7 +981,8 @@ const HLJS = function(hljs) {
     registerAliases,
     autoDetection,
     inherit,
-    addPlugin
+    addPlugin,
+    removePlugin
   });
 
   hljs.debugMode = function() { SAFE_MODE = false; };
