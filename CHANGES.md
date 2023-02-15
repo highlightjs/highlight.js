@@ -10,11 +10,15 @@ Grammars:
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
 - enh(http) Add support for HTTP/3 [Rijenkii][]
 
+Parser:
+
+- add removePlugin api [faga295][]
+
 [AdamRaichu]: https://github.com/AdamRaichu
 [Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
 [Rijenkii]: https://github.com/rijenkii
-
+[faga295]: https://github.com/faga295
 
 ## Version 11.7.0
 
