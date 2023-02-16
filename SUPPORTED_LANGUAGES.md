@@ -41,6 +41,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | C++                     | cpp, hpp, cc, hh, c++, h++, cxx, hxx |   |
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
+| Candid                  | candid, did            | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | CMake                   | cmake, cmake.in        |         |
 | COBOL                   | cobol, standard-cobol   | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
 | Coq                     | coq                    |         |
@@ -139,6 +140,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
+| Motoko                  | motoko, mo             | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | N1QL                    | n1ql                   |         |
 | NSIS                    | nsis                   |         |
 | Never                   | never                  | [highlightjs-never](https://github.com/never-lang/highlightjs-never) |
