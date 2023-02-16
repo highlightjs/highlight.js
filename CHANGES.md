@@ -9,11 +9,14 @@ Grammars:
 - enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
 - enh(http) Add support for HTTP/3 [Rijenkii][]
+- added 3rd party Motoko grammar to SUPPORTED_LANGUAGES [rvanasa][]
+- added 3rd party Candid grammar to SUPPORTED_LANGUAGES [rvanasa][]
 
 [AdamRaichu]: https://github.com/AdamRaichu
 [Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
 [Rijenkii]: https://github.com/rijenkii
+[rvanasa]: https://github.com/rvanasa
 
 
 ## Version 11.7.0
