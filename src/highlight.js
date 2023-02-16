@@ -588,7 +588,7 @@ const HLJS = function(hljs) {
       return {
         language: languageName,
         value: result,
-        relevance,
+        relevance: relevance,
         illegal: false,
         _emitter: emitter,
         _top: top
@@ -602,7 +602,7 @@ const HLJS = function(hljs) {
           relevance: 0,
           _illegalBy: {
             message: err.message,
-            index,
+            index: index,
             context: codeToHighlight.slice(index - 100, index + 100),
             mode: err.mode,
             resultSoFar: result
@@ -724,7 +724,7 @@ const HLJS = function(hljs) {
     if (shouldNotHighlight(language)) return;
 
     fire("before:highlightElement",
-      { el: element, language });
+      { el: element, language: language });
 
     // we should be all text, no child nodes (unescaped HTML) - this is possibly
     // an HTML injection attack - it's likely too late if this is already in
@@ -933,7 +933,7 @@ const HLJS = function(hljs) {
    */
   function removePlugin(plugin) {
     const index = plugins.indexOf(plugin);
-    if (index > -1) {
+    if (index !== -1) {
       plugins.splice(index, 1);
     }
   }
