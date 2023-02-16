@@ -2,7 +2,7 @@
 
 const {promisify} = require('util');
 
-const {newTestCase, defaultCase, buildFakeDOM} = require('./test_case')
+const {newTestCase, defaultCase, buildFakeDOM } = require('./test_case')
 
 class ContentAdder {
   constructor(params) {
@@ -48,6 +48,7 @@ describe('callback system', function() {
     this.hljs.highlightElement(this.block);
     const actual = this.block.innerHTML;
     actual.should.equal(testCase.expect);
+
   })
 })
 
@@ -82,6 +83,7 @@ describe('before:highlightElement', function() {
     actual.should.equal(
       `<span class="hljs-keyword">var</span> a;`);
   });
+
 })
 
 describe('after:highlightElement', function() {
@@ -124,6 +126,7 @@ describe('after:highlightElement', function() {
 
     this.hljs.highlightElement(this.block);
     should(this.block.className).equal(`hljs language-basic`);
+    
   })
   it('can modify element after render', async function() {
     var test = newTestCase({
