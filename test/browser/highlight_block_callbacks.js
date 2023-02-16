@@ -126,7 +126,7 @@ describe('after:highlightElement', function() {
 
     this.hljs.highlightElement(this.block);
     should(this.block.className).equal(`hljs language-basic`);
-    
+
   })
   it('can modify element after render', async function() {
     var test = newTestCase({
