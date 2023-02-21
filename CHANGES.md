@@ -1,5 +1,9 @@
 ## Version 11.8.0
 
+Improvements:
+
+- added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
+
 New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
@@ -12,6 +16,7 @@ Grammars:
 - added 3rd party Motoko grammar to SUPPORTED_LANGUAGES [rvanasa][]
 - added 3rd party Candid grammar to SUPPORTED_LANGUAGES [rvanasa][]
 
+[WisamMechano]: https://github.com/wisammechano
 [AdamRaichu]: https://github.com/AdamRaichu
 [Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel

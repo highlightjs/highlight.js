@@ -1000,5 +1000,12 @@ const HLJS = function(hljs) {
   return hljs;
 };
 
+// Other names for the variable may break build script
+const highlight = HLJS({});
+
+// returns a new instance of the highlighter to be used for extensions
+// check https://github.com/wooorm/lowlight/issues/47
+highlight.newInstance = () => HLJS({});
+
 // export an "instance" of the highlighter
-export default HLJS({});
+export default highlight;

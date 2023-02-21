@@ -56,6 +56,7 @@ declare module 'highlight.js' {
             optional: (re: RegExp | string) => string,
             anyNumberOfTimes: (re: RegExp | string) => string
         }
+        newInstance: () => HLJSApi
     }
 
     interface ModesAPI {
