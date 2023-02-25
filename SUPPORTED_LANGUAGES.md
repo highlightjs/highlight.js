@@ -133,6 +133,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Maxima                  | maxima                 |         |
 | Maya Embedded Language  | mel                    |         |
 | Mercury                 | mercury                |         |
+| MIPS Assembler          | mips, mipsasm          |         |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
 | MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
