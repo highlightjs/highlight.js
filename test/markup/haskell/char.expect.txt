@@ -1,0 +1,19 @@
+<span class="hljs-comment">-- simple string</span>
+<span class="hljs-title">t1</span> = <span class="hljs-string">&quot;starscout&quot;</span>
+
+<span class="hljs-comment">-- simple char</span>
+<span class="hljs-title">t2</span> = <span class="hljs-string">&#x27;m&#x27;</span>
+
+<span class="hljs-comment">-- char and string</span>
+<span class="hljs-title">t3</span> = <span class="hljs-string">&#x27;m&#x27;</span> : <span class="hljs-string">&quot;oonbow&quot;</span>
+
+<span class="hljs-comment">-- escaping</span>
+<span class="hljs-title">t4</span> = <span class="hljs-string">&#x27;<span class="hljs-char escape_">\&quot;</span>&#x27;</span> : <span class="hljs-string">&#x27;x&#x27;</span> : <span class="hljs-string">&quot;y&quot;</span>
+<span class="hljs-title">t5</span> = <span class="hljs-string">&#x27;<span class="hljs-char escape_">\&#x27;</span>&#x27;</span> : <span class="hljs-string">&#x27;x&#x27;</span> : <span class="hljs-string">&quot;y&quot;</span>
+
+<span class="hljs-comment">-- should not parse as chars or strings</span>
+<span class="hljs-title">t6</span> = &#x27;&#x27;
+<span class="hljs-title">t7</span> = &#x27;a
+<span class="hljs-title">t8</span> = &#x27;&#x27;a
+<span class="hljs-title">t9</span> = a&#x27;
+<span class="hljs-title">t10</span> = a&#x27;&#x27;
