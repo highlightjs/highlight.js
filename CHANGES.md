@@ -3,6 +3,7 @@
 New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
+- added 3rd party Phix grammar to SUPPORTED_LANGUAGES [PeteLomax][]
 
 Grammars:
 
@@ -13,6 +14,7 @@ Grammars:
 - added 3rd party Candid grammar to SUPPORTED_LANGUAGES [rvanasa][]
 
 [AdamRaichu]: https://github.com/AdamRaichu
+[PeteLomax]: https://github.com/petelomax
 [Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
 [Rijenkii]: https://github.com/rijenkii
