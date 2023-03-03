@@ -20,6 +20,7 @@ Grammars:
 [Rijenkii]: https://github.com/rijenkii
 [rvanasa]: https://github.com/rvanasa
 [CrystalSplitter]: https://github.com/CrystalSplitter
+[Sam Rawlins]: https://github.com/srawlins
 
 
 ## Version 11.7.0
