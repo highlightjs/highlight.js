@@ -12,6 +12,7 @@ Grammars:
 - enh(http) Add support for HTTP/3 [Rijenkii][]
 - added 3rd party Motoko grammar to SUPPORTED_LANGUAGES [rvanasa][]
 - added 3rd party Candid grammar to SUPPORTED_LANGUAGES [rvanasa][]
+- fix(haskell) Added support for characters [CrystalSplitter][]
 
 [AdamRaichu]: https://github.com/AdamRaichu
 [PeteLomax]: https://github.com/petelomax
@@ -19,6 +20,7 @@ Grammars:
 [Jeroen van Vianen]: https://github.com/morinel
 [Rijenkii]: https://github.com/rijenkii
 [rvanasa]: https://github.com/rvanasa
+[CrystalSplitter]: https://github.com/CrystalSplitter
 
 
 ## Version 11.7.0
