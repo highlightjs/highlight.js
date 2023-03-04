@@ -12,6 +12,7 @@ Grammars:
 - added 3rd party Motoko grammar to SUPPORTED_LANGUAGES [rvanasa][]
 - added 3rd party Candid grammar to SUPPORTED_LANGUAGES [rvanasa][]
 - fix(haskell) Added support for characters [CrystalSplitter][]
+- enh(dart) Add `base`, `interface`, `sealed`, and `when` keywords [Sam Rawlins][]
 
 [AdamRaichu]: https://github.com/AdamRaichu
 [Ali Ukani]: https://github.com/ali
@@ -19,6 +20,7 @@ Grammars:
 [Rijenkii]: https://github.com/rijenkii
 [rvanasa]: https://github.com/rvanasa
 [CrystalSplitter]: https://github.com/CrystalSplitter
+[Sam Rawlins]: https://github.com/srawlins
 
 
 ## Version 11.7.0
