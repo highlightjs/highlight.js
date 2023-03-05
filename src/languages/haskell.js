@@ -177,7 +177,18 @@ export default function(hljs) {
 
       // Literals and names.
 
-      // TODO: characters.
+      // Single characters.
+      {
+        scope: 'string',
+        begin: /'(?=\\?.')/,
+        end: /'/,
+        contains: [
+          {
+            scope: 'char.escape',
+            match: /\\./,
+          },
+        ]
+      },
       hljs.QUOTE_STRING_MODE,
       NUMBER,
       CONSTRUCTOR,
