@@ -75,6 +75,12 @@ The default ``cssSelector`` value is ``'pre code'``, which highlights all code b
 This can be called before or after the page's ``onload`` event has fired.
 
 
+newInstance
+-----------
+
+Returns a new instance of the highlighter with default configuration.
+
+
 configure
 ---------
 
