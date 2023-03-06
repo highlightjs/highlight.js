@@ -209,6 +209,24 @@ For example, if a new version suddenly had a serious bug (or breaking change) th
 * **In Safe Mode** all other languages would continue to highlight just fine. The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
 * **In Debug Mode** all highlighting would stop and a JavaScript error would be thrown.
 
+addPlugin
+---------
+
+::
+
+  addPlugin(plugin)
+
+Add a plugin for hljs.See the :doc:`plugin api </plugin-api>` for more plugin information.
+
+removePlugin
+---------
+
+::
+
+  removePlugin(plugin)
+
+Remove a specified plugin for hljs.
+
 
 Deprecated API
 --------------
