@@ -217,6 +217,8 @@ addPlugin
   addPlugin(plugin)
 
 Add a plugin to this instance of Highlight.js.  See the :doc:`plugin api </plugin-api>` for additional plugin information.
+
+
 removePlugin
 ---------
 
