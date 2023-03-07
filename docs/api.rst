@@ -216,8 +216,7 @@ addPlugin
 
   addPlugin(plugin)
 
-Add a plugin for hljs.See the :doc:`plugin api </plugin-api>` for more plugin information.
-
+Add a plugin to this instance of Highlight.js.  See the :doc:`plugin api </plugin-api>` for additional plugin information.
 removePlugin
 ---------
 
@@ -225,7 +224,7 @@ removePlugin
 
   removePlugin(plugin)
 
-Remove a specified plugin for hljs.
+Remove the specified plugin from this instance.  ``plugin`` must be exactly the same object that was passed to 
 
 
 Deprecated API
