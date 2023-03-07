@@ -18,11 +18,17 @@ Grammars:
 - fix(haskell) Added support for characters [CrystalSplitter][]
 - enh(dart) Add `base`, `interface`, `sealed`, and `when` keywords [Sam Rawlins][]
 
+Parser:
+
+- add removePlugin api [faga295][]
+
 [WisamMechano]: https://github.com/wisammechano
+[faga295]: https://github.com/faga295
 [AdamRaichu]: https://github.com/AdamRaichu
 [Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
 [Rijenkii]: https://github.com/rijenkii
+[faga295]: https://github.com/faga295
 [rvanasa]: https://github.com/rvanasa
 [CrystalSplitter]: https://github.com/CrystalSplitter
 [Sam Rawlins]: https://github.com/srawlins
