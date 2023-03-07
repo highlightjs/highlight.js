@@ -224,7 +224,7 @@ removePlugin
 
   removePlugin(plugin)
 
-Remove the specified plugin from this instance.  ``plugin`` must be exactly the same object that was passed to 
+Remove the specified plugin from this instance.  ``plugin`` must be exactly the same object that was passed to ``addPlugin``.
 
 
 Deprecated API
