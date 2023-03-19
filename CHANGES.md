@@ -17,11 +17,13 @@ Grammars:
 - added 3rd party Candid grammar to SUPPORTED_LANGUAGES [rvanasa][]
 - fix(haskell) Added support for characters [CrystalSplitter][]
 - enh(dart) Add `base`, `interface`, `sealed`, and `when` keywords [Sam Rawlins][]
+- enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
 
 Parser:
 
 - add removePlugin api [faga295][]
 
+[Timur Kamaev]: https://github.com/doiftrue
 [WisamMechano]: https://github.com/wisammechano
 [faga295]: https://github.com/faga295
 [AdamRaichu]: https://github.com/AdamRaichu
