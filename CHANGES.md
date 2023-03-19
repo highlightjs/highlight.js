@@ -3,6 +3,7 @@
 Improvements:
 
 - added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
+- added BETA `__emitTokens` key to grammars to allow then to direct their own parsing, only using Highlight.js for the HTML rendering [Josh Goebel][]
 
 New Grammars:
 
@@ -24,6 +25,7 @@ Parser:
 
 - add removePlugin api [faga295][]
 
+[Josh Goebel]: https://github.com/joshgoebel
 [Timur Kamaev]: https://github.com/doiftrue
 [Leopard20]: https://github.com/Leopard20/
 [WisamMechano]: https://github.com/wisammechano
