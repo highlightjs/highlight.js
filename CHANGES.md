@@ -1,12 +1,46 @@
 ## Version 11.8.0
 
+Improvements:
+
+- added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
+- added BETA `__emitTokens` key to grammars to allow then to direct their own parsing, only using Highlight.js for the HTML rendering [Josh Goebel][]
+
+New Grammars:
+
+- added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
+
 Grammars:
 
+- enh(sqf)  latest changes in Arma 3 v2.11 [Leopard20][]
+- enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
 - enh(gml) updated to latest language version [gnysek][]
+- enh(http) Add support for HTTP/3 [Rijenkii][]
+- added 3rd party Motoko grammar to SUPPORTED_LANGUAGES [rvanasa][]
+- added 3rd party Candid grammar to SUPPORTED_LANGUAGES [rvanasa][]
+- fix(haskell) Added support for characters [CrystalSplitter][]
+- enh(dart) Add `base`, `interface`, `sealed`, and `when` keywords [Sam Rawlins][]
+- enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
 
+Parser:
+
+- add removePlugin api [faga295][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Timur Kamaev]: https://github.com/doiftrue
+[Leopard20]: https://github.com/Leopard20/
+[WisamMechano]: https://github.com/wisammechano
+[faga295]: https://github.com/faga295
+[AdamRaichu]: https://github.com/AdamRaichu
+[Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
 [gnysek]: https://github.com/gnysek
+[Rijenkii]: https://github.com/rijenkii
+[faga295]: https://github.com/faga295
+[rvanasa]: https://github.com/rvanasa
+[CrystalSplitter]: https://github.com/CrystalSplitter
+[Sam Rawlins]: https://github.com/srawlins
+
 
 ## Version 11.7.0
 

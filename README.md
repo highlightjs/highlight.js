@@ -327,20 +327,20 @@ see [DIGESTS.md](https://github.com/highlightjs/cdn-release/blob/main/DIGESTS.md
 ##### Common JS <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
 ```
 
 ##### ES6 Modules <!-- omit in toc -->
 
 ````html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/dark.min.css">
 <script type="module">
-import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/es/highlight.min.js';
+import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js';
 //  and it's easy to individually load additional languages
-import go from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/es/languages/go.min.js';
+import go from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/go.min.js';
 hljs.registerLanguage('go', go);
 </script>
 
@@ -352,20 +352,20 @@ hljs.registerLanguage('go', go);
 ##### Common JS <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/languages/go.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/languages/go.min.js"></script>
 ```
 
 ##### ES6 Modules <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/default.min.css">
 <script type="module">
-import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/es/highlight.min.js';
+import hljs from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/es/highlight.min.js';
 //  and it's easy to individually load additional languages
-import go from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/es/languages/go.min.js';
+import go from 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/es/languages/go.min.js';
 hljs.registerLanguage('go', go);
 </script>
 ```
@@ -375,20 +375,20 @@ hljs.registerLanguage('go', go);
 ##### Common JS <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css">
-<script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css">
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/highlight.min.js"></script>
 <!-- and it's easy to individually load additional languages -->
-<script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/go.min.js"></script>
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/languages/go.min.js"></script>
 ```
 
 ##### ES6 Modules <!-- omit in toc -->
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/default.min.css">
 <script type="module">
-import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/es/highlight.min.js';
+import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.8.0/es/highlight.min.js';
 //  and it's easy to individually load & register additional languages
-import go from 'https://unpkg.com/@highlightjs/cdn-assets@11.7.0/es/languages/go.min.js';
+import go from 'https://unpkg.com/@highlightjs/cdn-assets@11.8.0/es/languages/go.min.js';
 hljs.registerLanguage('go', go);
 </script>
 ```

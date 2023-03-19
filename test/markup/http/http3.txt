@@ -1,0 +1,13 @@
+HTTP/3 200
+content-encoding: gzip
+accept-ranges: bytes
+age: 361798
+cache-control: max-age=604800
+content-type: text/html; charset=UTF-8
+date: Sat, 21 Jan 2023 12:31:21 GMT
+etag: "3147526947+ident"
+expires: Sat, 28 Jan 2023 12:31:21 GMT
+last-modified: Thu, 17 Oct 2019 07:18:26 GMT
+server: ECS (dcb/7ECB)
+x-cache: HIT
+content-length: 648

@@ -105,7 +105,9 @@ export default function(hljs) {
     name: 'TypeScript',
     aliases: [
       'ts',
-      'tsx'
+      'tsx',
+      'mts',
+      'cts'
     ]
   });
 
