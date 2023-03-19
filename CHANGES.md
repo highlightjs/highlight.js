@@ -10,6 +10,7 @@ New Grammars:
 
 Grammars:
 
+- enh(sqf)  latest changes in Arma 3 v2.11 [Leopard20][]
 - enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
 - enh(http) Add support for HTTP/3 [Rijenkii][]
@@ -24,6 +25,7 @@ Parser:
 - add removePlugin api [faga295][]
 
 [Timur Kamaev]: https://github.com/doiftrue
+[Leopard20]: https://github.com/Leopard20/
 [WisamMechano]: https://github.com/wisammechano
 [faga295]: https://github.com/faga295
 [AdamRaichu]: https://github.com/AdamRaichu
