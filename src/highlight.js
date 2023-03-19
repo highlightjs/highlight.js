@@ -15,6 +15,7 @@ import * as packageJSON from '../package.json';
 import * as logger from "./lib/logger.js";
 import HTMLInjectionError from "./lib/html_injection_error.js";
 
+
 /**
 @typedef {import('highlight.js').Mode} Mode
 @typedef {import('highlight.js').CompiledMode} CompiledMode
@@ -224,7 +225,7 @@ const HLJS = function(hljs) {
             buf += match[0];
           } else {
             const cssClass = language.classNameAliases[kind] || kind;
-            emitter.addKeyword(match[0], cssClass);
+            emitKeyword(match[0], cssClass);
           }
         } else {
           buf += match[0];
@@ -259,7 +260,7 @@ const HLJS = function(hljs) {
       if (top.relevance > 0) {
         relevance += result.relevance;
       }
-      emitter.addSublanguage(result._emitter, result.language);
+      emitter.__addSublanguage(result._emitter, result.language);
     }
 
     function processBuffer() {
@@ -269,6 +270,18 @@ const HLJS = function(hljs) {
         processKeywords();
       }
       modeBuffer = '';
+    }
+
+    /**
+     * @param {string} text
+     * @param {string} scope
+     */
+    function emitKeyword(keyword, scope) {
+      if (keyword === "") return;
+
+      emitter.startScope(scope);
+      emitter.addText(keyword);
+      emitter.endScope();
     }
 
     /**
@@ -283,7 +296,7 @@ const HLJS = function(hljs) {
         const klass = language.classNameAliases[scope[i]] || scope[i];
         const text = match[i];
         if (klass) {
-          emitter.addKeyword(text, klass);
+          emitKeyword(text, klass);
         } else {
           modeBuffer = text;
           processKeywords();
@@ -304,7 +317,7 @@ const HLJS = function(hljs) {
       if (mode.beginScope) {
         // beginScope just wraps the begin match itself in a scope
         if (mode.beginScope._wrap) {
-          emitter.addKeyword(modeBuffer, language.classNameAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
+          emitKeyword(modeBuffer, language.classNameAliases[mode.beginScope._wrap] || mode.beginScope._wrap);
           modeBuffer = "";
         } else if (mode.beginScope._multi) {
           // at this point modeBuffer should just be the match
@@ -415,7 +428,7 @@ const HLJS = function(hljs) {
       const origin = top;
       if (top.endScope && top.endScope._wrap) {
         processBuffer();
-        emitter.addKeyword(lexeme, top.endScope._wrap);
+        emitKeyword(lexeme, top.endScope._wrap);
       } else if (top.endScope && top.endScope._multi) {
         processBuffer();
         emitMultiClass(top.endScope, match);
@@ -558,30 +571,34 @@ const HLJS = function(hljs) {
     let resumeScanAtSamePosition = false;
 
     try {
-      top.matcher.considerAll();
+      if (!language.__emitTokens) {
+        top.matcher.considerAll();
 
-      for (;;) {
-        iterations++;
-        if (resumeScanAtSamePosition) {
-          // only regexes not matched previously will now be
-          // considered for a potential match
-          resumeScanAtSamePosition = false;
-        } else {
-          top.matcher.considerAll();
+        for (;;) {
+          iterations++;
+          if (resumeScanAtSamePosition) {
+            // only regexes not matched previously will now be
+            // considered for a potential match
+            resumeScanAtSamePosition = false;
+          } else {
+            top.matcher.considerAll();
+          }
+          top.matcher.lastIndex = index;
+
+          const match = top.matcher.exec(codeToHighlight);
+          // console.log("match", match[0], match.rule && match.rule.begin)
+
+          if (!match) break;
+
+          const beforeMatch = codeToHighlight.substring(index, match.index);
+          const processedCount = processLexeme(beforeMatch, match);
+          index = match.index + processedCount;
         }
-        top.matcher.lastIndex = index;
-
-        const match = top.matcher.exec(codeToHighlight);
-        // console.log("match", match[0], match.rule && match.rule.begin)
-
-        if (!match) break;
-
-        const beforeMatch = codeToHighlight.substring(index, match.index);
-        const processedCount = processLexeme(beforeMatch, match);
-        index = match.index + processedCount;
+        processLexeme(codeToHighlight.substring(index));
+      } else {
+        language.__emitTokens(codeToHighlight, emitter);
       }
-      processLexeme(codeToHighlight.substring(index));
-      emitter.closeAllNodes();
+
       emitter.finalize();
       result = emitter.toHTML();
 
