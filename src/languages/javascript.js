@@ -158,6 +158,19 @@ export default function(hljs) {
       subLanguage: 'css'
     }
   };
+  const GRAPHQL_TEMPLATE = {
+    begin: 'gql`',
+    end: '',
+    starts: {
+      end: '`',
+      returnEnd: false,
+      contains: [
+        hljs.BACKSLASH_ESCAPE,
+        SUBST
+      ],
+      subLanguage: 'graphql'
+    }
+  };
   const TEMPLATE_STRING = {
     className: 'string',
     begin: '`',
@@ -219,6 +232,7 @@ export default function(hljs) {
     hljs.QUOTE_STRING_MODE,
     HTML_TEMPLATE,
     CSS_TEMPLATE,
+    GRAPHQL_TEMPLATE,
     TEMPLATE_STRING,
     // Skip numbers when they are part of a variable name
     { match: /\$\d+/ },
@@ -453,6 +467,7 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,
       CSS_TEMPLATE,
+      GRAPHQL_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
       // Skip numbers when they are part of a variable name

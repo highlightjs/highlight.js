@@ -20,5 +20,15 @@ css`<span class="language-css">
   }
 `</span>;
 
+gql`<span class="language-graphql"><span class="hljs-keyword">query</span> <span class="hljs-punctuation">{</span> viewer <span class="hljs-punctuation">{</span> id <span class="hljs-punctuation">}</span> <span class="hljs-punctuation">}</span>`</span>;
+
+gql`<span class="language-graphql">
+  <span class="hljs-keyword">type</span> Project <span class="hljs-punctuation">{</span>
+    <span class="hljs-symbol">name</span><span class="hljs-punctuation">:</span> String
+    <span class="hljs-symbol">tagline</span><span class="hljs-punctuation">:</span> String
+    <span class="hljs-symbol">contributors</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>User<span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+`</span>;
+
 <span class="hljs-comment">// Ensure that we&#x27;re back in JavaScript mode.</span>
 <span class="hljs-keyword">var</span> foo = <span class="hljs-number">10</span>;

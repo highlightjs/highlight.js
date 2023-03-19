@@ -34,12 +34,14 @@ The table below shows the full list of languages (and corresponding classes/alia
 | BBCode                  | bbcode                 | [highlightjs-bbcode](https://github.com/RedGuy12/highlightjs-bbcode) |
 | Blade (Laravel)         | blade                  | [highlightjs-blade](https://github.com/miken32/highlightjs-blade) |
 | BNF                     | bnf                    |         |
+| BQN                     | bqn                    | [highlightjs-bqn](https://github.com/razetime/highlightjs-bqn) |
 | Brainfuck               | brainfuck, bf          |         |
 | C#                      | csharp, cs             |         |
 | C                       | c, h                   |         |
 | C++                     | cpp, hpp, cc, hh, c++, h++, cxx, hxx |   |
 | C/AL                    | cal                    |         |
 | Cache Object Script     | cos, cls               |         |
+| Candid                  | candid, did            | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | CMake                   | cmake, cmake.in        |         |
 | COBOL                   | cobol, standard-cobol   | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
 | Coq                     | coq                    |         |
@@ -111,6 +113,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
 | Julia                   | julia, julia-repl      |         |
 | Kotlin                  | kotlin, kt             |         |
+| Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
 | LaTeX                   | tex                    |         |
 | Leaf                    | leaf                   |         |
 | Lean                    | lean                   | [highlightjs-lean](https://github.com/leanprover-community/highlightjs-lean) |
@@ -130,6 +133,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Maxima                  | maxima                 |         |
 | Maya Embedded Language  | mel                    |         |
 | Mercury                 | mercury                |         |
+| MIPS Assembler          | mips, mipsasm          |         |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
 | MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
@@ -137,6 +141,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
 | Moonscript              | moonscript, moon       |         |
+| Motoko                  | motoko, mo             | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | N1QL                    | n1ql                   |         |
 | NSIS                    | nsis                   |         |
 | Never                   | never                  | [highlightjs-never](https://github.com/never-lang/highlightjs-never) |
@@ -215,7 +220,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | Twig                    | twig, craftcms         |         |
-| TypeScript              | typescript, ts, tsx    |         |
+| TypeScript              | typescript, ts, tsx, mts, cts |         |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
 | VB.Net                  | vbnet, vb              |         |
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |

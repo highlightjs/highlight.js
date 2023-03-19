@@ -56,7 +56,12 @@ class Language {
     const categoryMatch = CATEGORY_REGEX.exec(this.data);
     const languageMatch = LANGUAGE_REGEX.exec(this.data);
 
-    if (requiresMatch) { this.requires = requiresMatch[1].split(", ").map((n) => n.replace(".js", "")); }
+    if (requiresMatch) {
+      this.requires = requiresMatch[1]
+        .split(", ")
+        .map((n) => n.replace(".js", ""))
+        .filter(n => n.trim() !== "");
+    }
 
     if (categoryMatch) { this.categories = categoryMatch[1].split(/,\s?/); }
 
