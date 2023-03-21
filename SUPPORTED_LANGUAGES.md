@@ -161,6 +161,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
+| Phix                    | phix                   | [highlightjs-phix](https://github.com/highlightjs/highlightjs-phix) |
 | Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |

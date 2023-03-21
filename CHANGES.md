@@ -8,6 +8,7 @@ Improvements:
 New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
+- added 3rd party Phix grammar to SUPPORTED_LANGUAGES [PeteLomax][]
 
 Grammars:
 
@@ -33,6 +34,7 @@ Parser:
 [WisamMechano]: https://github.com/wisammechano
 [faga295]: https://github.com/faga295
 [AdamRaichu]: https://github.com/AdamRaichu
+[PeteLomax]: https://github.com/petelomax
 [Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
 [Rijenkii]: https://github.com/rijenkii
