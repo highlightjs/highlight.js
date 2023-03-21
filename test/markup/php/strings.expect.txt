@@ -31,4 +31,3 @@ TEXT</span>;
 <span class="hljs-title function_ invoke__">var_dump</span>(<span class="hljs-string">&lt;&lt;&lt;&#x27;TEXT&#x27;
     Hello {$person-&gt;name}! Welcome to $company!
     TEXT</span>);
-
