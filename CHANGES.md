@@ -21,6 +21,7 @@ Grammars:
 - fix(haskell) Added support for characters [CrystalSplitter][]
 - enh(dart) Add `base`, `interface`, `sealed`, and `when` keywords [Sam Rawlins][]
 - enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
+- enh(python) improve autodetection of code with type hinting any function's return type (making the `->` operator legal) [Keyacom][]
 
 Parser:
 
@@ -39,6 +40,7 @@ Parser:
 [rvanasa]: https://github.com/rvanasa
 [CrystalSplitter]: https://github.com/CrystalSplitter
 [Sam Rawlins]: https://github.com/srawlins
+[Keyacom]: https://github.com/Keyacom
 
 
 ## Version 11.7.0
