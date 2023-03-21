@@ -11,6 +11,7 @@ New Grammars:
 
 Grammars:
 
+- enh(protobuf) add `proto` alias for Protobuf [dimitropoulos][]
 - enh(sqf)  latest changes in Arma 3 v2.11 [Leopard20][]
 - enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
 - enh(javascript) add sessionStorage to list of built-in variables [Jeroen van Vianen][]
