@@ -6,7 +6,7 @@ const fs = _fs.promises
 import glob from 'glob';
 import path from 'path';
 import * as utility from '../utility.js';
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 
 hljs.debugMode();
 

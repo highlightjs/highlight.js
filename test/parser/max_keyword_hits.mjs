@@ -1,4 +1,4 @@
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 
 export default function() {
   it("should count a keyword 7 times for relevance, no more", () => {

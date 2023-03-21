@@ -9,25 +9,36 @@ const { rollupWrite } = require("./lib/bundling.js");
 const log = (...args) => console.log(...args);
 
 // https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards
-async function buildESMStub(name) {
-  const code =
-    `// https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards\n`
-    + `import HighlightJS from '../lib/${name}.js';\n`
-    + `export { HighlightJS };\n`
-    + `export default HighlightJS;\n`;
-  await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, code);
+// async function buildESMStub(name) {
+//   const code =
+//     `// https://nodejs.org/api/packages.html#packages_writing_dual_packages_while_avoiding_or_minimizing_hazards\n`
+//     + `import HighlightJS from '../lib/${name}.js';\n`
+//     + `export { HighlightJS };\n`
+//     + `export default HighlightJS;\n`;
+//   await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, code);
+// }
+
+function cleanName(raw_name) {
+  let name = raw_name.replace("-","_");
+  if (name == "1c") {
+    name = "onec";
+  }
+  return name;
 }
 
-async function buildCJSIndex(name, languages) {
-  const header = "var hljs = require('./core');";
-  const footer =
-    `hljs.HighlightJS = hljs\n`
-    + `hljs.default = hljs\n`
-    + `module.exports = hljs;`;
+async function buildESMIndex(name, languages) {
+  const header = "import { HighlightJS } from './core.js';\n" +
+    "const hljs = new HighlightJS();\n";
+  // const footer =
+  //   `hljs.HighlightJS = hljs\n`
+  //   + `hljs.default = hljs\n`
+  //   + `module.exports = hljs;`;
+  const footer = "export { HighlightJS, hljs };";
 
   const registration = languages.map((lang) => {
-    const require = `require('./languages/${lang.name}')`;
-    return `hljs.registerLanguage('${lang.name}', ${require});`;
+    const lang_id = cleanName(lang.name);
+    const require = `import ${lang_id}  from './languages/${lang.name}.js';`;
+    return `${require}\nhljs.registerLanguage('${lang.name}', ${lang_id});\n`;
   });
 
   const index = `${header}\n\n${registration.join("\n")}\n\n${footer}`;
@@ -44,25 +55,25 @@ async function buildNodeLanguage(language, options) {
     }
   }
   emitWarning();`;
-  const CJS_STUB = `${EMIT}
-    module.exports = require('./%%%%.js');`;
+  // const CJS_STUB = `${EMIT}
+  //   module.exports = require('./%%%%.js');`;
   const ES_STUB = `${EMIT}
     import lang from './%%%%.js';
     export default lang;`;
   const input = { ...config.rollup.core.input, input: language.path };
   const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/languages/${language.name}.js` };
-  await rollupWrite(input, output);
-  await fs.writeFile(`${process.env.BUILD_DIR}/lib/languages/${language.name}.js.js`,
-    CJS_STUB.replace(/%%%%/g, language.name));
-  if (options.esm) {
-    await fs.writeFile(`${process.env.BUILD_DIR}/es/languages/${language.name}.js.js`,
+  // await rollupWrite(input, output);
+  // await fs.writeFile(`${process.env.BUILD_DIR}/lib/languages/${language.name}.js.js`,
+    // CJS_STUB.replace(/%%%%/g, language.name));
+  // if (options.esm) {
+    await fs.writeFile(`${process.env.BUILD_DIR}/lib/languages/${language.name}.js.js`,
       ES_STUB.replace(/%%%%/g, language.name));
     await rollupWrite(input, {
       ...output,
       format: "es",
-      file: output.file.replace("/lib/", "/es/")
+      file: output.file
     });
-  }
+  // }
 }
 
 const EXCLUDE = ["join"];
@@ -80,37 +91,38 @@ async function buildESMUtils() {
   await rollupWrite(input, {
     ...config.rollup.node.output,
     format: "es",
-    file: `${process.env.BUILD_DIR}/es/utils/regex.js`
+    file: `${process.env.BUILD_DIR}/lib/util/regex.js`
   });
 }
 
 async function buildNodeHighlightJS(options) {
   const input = { ...config.rollup.core.input, input: `src/highlight.js` };
-  const output = { ...config.rollup.node.output, file: `${process.env.BUILD_DIR}/lib/core.js` };
-  output.footer = "highlight.HighlightJS = highlight;\nhighlight.default = highlight;";
+  const output = { ...config.rollup.node.output, format: "es", file: `${process.env.BUILD_DIR}/lib/core.js` };
+  // output.footer = "highlight.HighlightJS = highlight;\nhighlight.default = highlight;";
   await rollupWrite(input, output);
-  if (options.esm) {
-    buildESMStub("core");
-  }
+  // if (options.esm) {
+  //   buildESMStub("core");
+  // }
 }
 
-function dual(file) {
-  return {
-    require: file,
-    import: file.replace("/lib/", "/es/")
-  };
-}
+// function dual(file) {
+//   return {
+//     require: file,
+//     import: file.replace("/lib/", "/es/")
+//   };
+// }
 
 const generatePackageExports = () => ({
   ".": {
     "types": "./types/index.d.ts",
-    ...dual("./lib/index.js"),
+    "import": "./lib/index.js",
   },
   "./package.json": "./package.json",
-  "./lib/common": dual("./lib/common.js"),
-  "./lib/core": dual("./lib/core.js"),
-  "./lib/languages/*": dual("./lib/languages/*.js"),
-  "./styles/*": "./styles/*",
+  "./lib/all": "./lib/all.js",
+  "./lib/common": "./lib/common.js",
+  "./lib/core": "./lib/core.js",
+  "./lib/languages/*": "./lib/languages/*.js",
+  "./themes/*": "./themes/*",
   "./types/*": "./types/*"
 });
 function buildPackageJSON(options) {
@@ -138,8 +150,8 @@ async function buildLanguages(languages, options) {
 const CORE_FILES = [
   "LICENSE",
   "README.md",
-  "VERSION_10_UPGRADE.md",
   "VERSION_11_UPGRADE.md",
+  "VERSION_12_UPGRADE.md",
   "SUPPORTED_LANGUAGES.md",
   "SECURITY.md",
   "CHANGES.md",
@@ -151,18 +163,12 @@ async function buildNode(options) {
   mkdir("themes/base16");
   mkdir("types");
 
-
   CORE_FILES.forEach(file => {
     install(`./${file}`, file);
   });
   install("./src/core.d.ts", "lib/core.d.ts");
   install("./src/core.d.ts", "lib/common.d.ts");
-
-  if (options.esm) {
-    mkdir("es/languages");
-    install("./src/core.d.ts", "es/core.d.ts");
-    install("./src/core.d.ts", "es/common.d.ts");
-  }
+  install("./src/core.d.ts", "lib/all.d.ts");
 
   log("Writing themes.");
   glob.sync("**", { cwd: "./src/themes" }).forEach((file) => {
@@ -186,14 +192,16 @@ async function buildNode(options) {
   log("Writing package.json.");
   await writePackageJSON(buildPackageJSON(options));
 
-  if (options.esm) {
-    await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
-    await buildESMStub("index");
-    await buildESMStub("common");
-    await buildESMUtils();
-  }
-  await buildCJSIndex("index", languages);
-  await buildCJSIndex("common", common);
+  // if (options.esm) {
+  //   // await fs.writeFile(`${process.env.BUILD_DIR}/es/package.json`, `{ "type": "module" }`);
+  //   await buildESMStub("index");
+  //   await buildESMStub("common");
+    
+  // }
+  await buildESMIndex("all", languages);
+  await buildESMIndex("common", common);
+  await buildESMIndex("index", []);
+  await buildESMUtils();
   await buildLanguages(languages, options);
 
   log("Writing highlight.js");

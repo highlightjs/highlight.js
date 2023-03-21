@@ -1,8 +1,8 @@
-import HighlightJS from "./highlight.js";
+import { HighlightJS } from "./highlight.js";
 // @ts-ignore
 import * as builtIns from "builtInLanguages";
 
-const hljs = HighlightJS;
+const hljs = new HighlightJS();
 
 for (const key of Object.keys(builtIns)) {
   // our builtInLanguages Rollup plugin has to use `_` to allow identifiers to be
@@ -14,4 +14,4 @@ for (const key of Object.keys(builtIns)) {
 }
 // console.log(hljs.listLanguages());
 
-export default hljs;
+export { HighlightJS, hljs };

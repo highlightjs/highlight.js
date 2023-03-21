@@ -47,7 +47,9 @@ const MAX_KEYWORD_HITS = 7;
  * @param {any} hljs - object that is extended (legacy)
  * @returns {HLJSApi}
  */
-const HLJS = function(hljs) {
+const HighlightJS = function() {
+  let hljs = {};
+
   // Global internal variables used within the highlight.js library.
   /** @type {Record<string, Language>} */
   const languages = Object.create(null);
@@ -1036,12 +1038,5 @@ const HLJS = function(hljs) {
   return hljs;
 };
 
-// Other names for the variable may break build script
-const highlight = HLJS({});
-
-// returns a new instance of the highlighter to be used for extensions
-// check https://github.com/wooorm/lowlight/issues/47
-highlight.newInstance = () => HLJS({});
-
-// export an "instance" of the highlighter
-export default highlight;
+// export the entire highlighter
+export { HighlightJS };

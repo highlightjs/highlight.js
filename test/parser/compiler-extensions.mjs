@@ -1,4 +1,4 @@
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 
 // not quite ready to become a plugin yet, so these hooks
 // have been removed and we're skipping this test for now
