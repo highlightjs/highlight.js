@@ -29,7 +29,7 @@
     "type": "git",
     "url": "git://github.com/highlightjs/highlight.js.git"
   },
-  "type": "commonjs",
+  "type": "module",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "sideEffects": [
