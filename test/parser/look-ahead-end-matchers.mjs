@@ -1,4 +1,4 @@
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 
 export default function () {
 

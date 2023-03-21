@@ -336,9 +336,11 @@
     </div>
   </div>
 
-  <script src="../build/highlight.js"></script>
+  <!-- <script src="../build/highlight.js"></script> -->
   <script src="vendor/jquery-2.1.1.min.js"></script>
   <script>
+    import { HighlightJS } from "../build/highlight.js";
+    let hljs = new HighlightJS();
     hljs.debugMode();
 
     function saveSettings() {
