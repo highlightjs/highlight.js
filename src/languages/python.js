@@ -367,7 +367,7 @@ export default function(hljs) {
     ],
     unicodeRegex: true,
     keywords: KEYWORDS,
-    illegal: /(<\/|->|\?)|=>/,
+    illegal: /(<\/|\?)|=>/,
     contains: [
       PROMPT,
       NUMBER,
