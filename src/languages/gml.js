@@ -1982,6 +1982,7 @@ export default function(hljs) {
     "winphone_tile_background_color",
     "winphone_tile_background_colour",
     "zip_unzip"
+  ];
   const SYMBOLS = [
     "GM_build_date",
     "GM_build_type",
@@ -2774,7 +2775,8 @@ export default function(hljs) {
     "vk_subtract",
     "vk_tab",
     "vk_up"
-  const LANGUAGE_VARIABLES = [];
+  ];
+  const LANGUAGE_VARIABLES = [
     "alarm",
     "application_surface",
     "argument",
@@ -2964,7 +2966,7 @@ export default function(hljs) {
     "y",
     "yprevious",
     "ystart"
-
+  ];
   return {
     name: 'GML',
     case_insensitive: false, // language is case-insensitive
