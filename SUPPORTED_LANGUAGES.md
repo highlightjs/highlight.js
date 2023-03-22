@@ -169,7 +169,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Processing              | processing             |         |
 | Prolog                  | prolog                 |         |
 | Properties              | properties             |         |
-| Protocol Buffers        | protobuf               |         |
+| Protocol Buffers        | proto, protobuf        |         |
 | Puppet                  | puppet, pp             |         |
 | Python                  | python, py, gyp        |         |
 | Python profiler results | profile                |         |
