@@ -1,0 +1,7 @@
+import std::io;
+
+fn void main()
+{
+	/* C3 supports /* nested */ comments */
+	io::printfn("hello, world");
+}
