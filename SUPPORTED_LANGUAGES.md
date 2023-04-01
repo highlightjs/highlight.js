@@ -40,6 +40,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | C                       | c, h                   |         |
 | C++                     | cpp, hpp, cc, hh, c++, h++, cxx, hxx |   |
 | C/AL                    | cal                    |         |
+| C3                      | c3                     | [highlightjs-c3](https://github.com/highlightjs/highlightjs-c3) |
 | Cache Object Script     | cos, cls               |         |
 | Candid                  | candid, did            | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | CMake                   | cmake, cmake.in        |         |
