@@ -28,6 +28,7 @@ Parser:
 
 - add removePlugin api [faga295][]
 
+[aliaegik]: https://github.com/aliaegik
 [Josh Goebel]: https://github.com/joshgoebel
 [Timur Kamaev]: https://github.com/doiftrue
 [Leopard20]: https://github.com/Leopard20/
