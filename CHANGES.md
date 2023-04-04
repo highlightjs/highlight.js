@@ -4,6 +4,7 @@ Improvements:
 
 - added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
 - added BETA `__emitTokens` key to grammars to allow then to direct their own parsing, only using Highlight.js for the HTML rendering [Josh Goebel][]
+- update Wolfram Language system symbols list to version 13.2.1
 
 New Grammars:
 
