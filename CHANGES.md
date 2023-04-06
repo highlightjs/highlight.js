@@ -12,6 +12,7 @@ New Grammars:
 
 Grammars:
 
+- enh(mathematica) update keywords list to 13.2.1 [arnoudbuzing][]
 - enh(protobuf) add `proto` alias for Protobuf [dimitropoulos][]
 - enh(sqf)  latest changes in Arma 3 v2.11 [Leopard20][]
 - enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
@@ -28,6 +29,7 @@ Parser:
 
 - add removePlugin api [faga295][]
 
+[arnoudbuzing]: https://github.com/arnoudbuzing
 [aliaegik]: https://github.com/aliaegik
 [Josh Goebel]: https://github.com/joshgoebel
 [Timur Kamaev]: https://github.com/doiftrue
