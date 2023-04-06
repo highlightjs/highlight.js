@@ -4,7 +4,6 @@ Improvements:
 
 - added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
 - added BETA `__emitTokens` key to grammars to allow then to direct their own parsing, only using Highlight.js for the HTML rendering [Josh Goebel][]
-- update Wolfram Language system symbols list to version 13.2.1
 
 New Grammars:
 
@@ -13,6 +12,7 @@ New Grammars:
 
 Grammars:
 
+- enh(wolfram) update keywords list to 13.2.1 [arnoudbuzing][]
 - enh(protobuf) add `proto` alias for Protobuf [dimitropoulos][]
 - enh(sqf)  latest changes in Arma 3 v2.11 [Leopard20][]
 - enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
@@ -29,6 +29,7 @@ Parser:
 
 - add removePlugin api [faga295][]
 
+[arnoudbuzing]: https://github.com/arnoudbuzing
 [aliaegik]: https://github.com/aliaegik
 [Josh Goebel]: https://github.com/joshgoebel
 [Timur Kamaev]: https://github.com/doiftrue
