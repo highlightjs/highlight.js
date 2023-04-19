@@ -29,6 +29,7 @@ Grammars:
 Parser:
 
 - add removePlugin api [faga295][]
+- fix typo in language name of JavaScript [Cyrus Kao][]
 
 [arnoudbuzing]: https://github.com/arnoudbuzing
 [aliaegik]: https://github.com/aliaegik
@@ -47,7 +48,7 @@ Parser:
 [Sam Rawlins]: https://github.com/srawlins
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
-
+[Cyrus Kao]: https://github.com/CyrusKao
 
 ## Version 11.7.0
 
