@@ -450,7 +450,7 @@ export default function(hljs) {
   };
 
   return {
-    name: 'Javascript',
+    name: 'JavaScript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     // this will be extended by TypeScript
