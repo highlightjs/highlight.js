@@ -24,6 +24,7 @@ Grammars:
 - enh(dart) Add `base`, `interface`, `sealed`, and `when` keywords [Sam Rawlins][]
 - enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
 - enh(python) improve autodetection of code with type hinting any function's return type (making the `->` operator legal) [Keyacom][]
+- enh(bash) add `select` and `until` as keywords
 
 Parser:
 
@@ -45,6 +46,7 @@ Parser:
 [CrystalSplitter]: https://github.com/CrystalSplitter
 [Sam Rawlins]: https://github.com/srawlins
 [Keyacom]: https://github.com/Keyacom
+[Boris Verkhovskiy]: https://github.com/verhovsky
 
 
 ## Version 11.7.0

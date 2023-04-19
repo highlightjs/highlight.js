@@ -112,12 +112,14 @@ export default function(hljs) {
     "fi",
     "for",
     "while",
+    "until",
     "in",
     "do",
     "done",
     "case",
     "esac",
-    "function"
+    "function",
+    "select"
   ];
 
   const LITERALS = [
