@@ -135,6 +135,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Maya Embedded Language  | mel                    |         |
 | Mercury                 | mercury                |         |
 | MIPS Assembler          | mips, mipsasm          |         |
+| Mint                    | mint                   | [highlightjs-mint](https://github.com/mint-lang/highlightjs-mint) |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
 | MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
