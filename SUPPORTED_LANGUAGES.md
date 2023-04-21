@@ -198,6 +198,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Scala                   | scala                  |         |
 | Scheme                  | scheme                 |         |
 | Scilab                  | scilab, sci            |         |
+| SFZ                     | sfz                    | [highlightjs-sfz](https://github.com/sfz/highlight.js) |
 | Shape Expressions       | shexc                  | [highlightjs-shexc](https://github.com/highlightjs/highlightjs-shexc) |
 | Shell                   | shell, console         |         |
 | Smali                   | smali                  |         |
