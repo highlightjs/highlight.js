@@ -7,6 +7,7 @@ Improvements:
 
 New Grammars:
 
+- added 3rd party ECL grammar to SUPPORTED_LANGUAGES [dehilsterlexis](https://github.com/dehilsterlexis)
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
 - added 3rd party C3 grammar to SUPPORTED_LANGUAGES [aliaegik][]
 

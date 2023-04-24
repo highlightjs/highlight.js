@@ -73,6 +73,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Dust                    | dust, dst              |         |
 | Dylan                   | dylan                  | [highlightjs-dylan](https://github.com/highlightjs/highlightjs-dylan) |
 | EBNF                    | ebnf                   |         |
+| ECL                     | ecl                    |         |
 | Elixir                  | elixir                 |         |
 | Elm                     | elm                    |         |
 | Erlang                  | erlang, erl            |         |
