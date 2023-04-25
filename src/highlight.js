@@ -70,7 +70,7 @@ const HLJS = function(hljs) {
     ignoreUnescapedHTML: false,
     throwUnescapedHTML: false,
     noHighlightRe: /^(no-?highlight)$/i,
-    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
+    languageDetectRe: /\blang(?:uage)?-(\w[\w+-]*)/i,
     classPrefix: 'hljs-',
     cssSelector: 'pre code',
     languages: null,
