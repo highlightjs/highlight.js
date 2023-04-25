@@ -30,6 +30,7 @@ Parser:
 
 - add removePlugin api [faga295][]
 - fix typo in language name of JavaScript [Cyrus Kao][]
+- fix "+" characters not being matched because of language detection regex [Aldo Santiago]
 
 [arnoudbuzing]: https://github.com/arnoudbuzing
 [aliaegik]: https://github.com/aliaegik
@@ -49,6 +50,7 @@ Parser:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Aldo Santiago]: https://github.com/santi4o
 
 ## Version 11.7.0
 
