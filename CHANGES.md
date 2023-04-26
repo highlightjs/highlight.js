@@ -9,6 +9,7 @@ New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
 - added 3rd party C3 grammar to SUPPORTED_LANGUAGES [aliaegik][]
+- added iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 
 Grammars:
 
@@ -49,6 +50,7 @@ Parser:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Checconio]: https://github.com/Checconio
 
 ## Version 11.7.0
 
