@@ -1,6 +1,7 @@
 /*
 Language: DNS Zone
 Author: Tim Schumacher <tim@datenknoten.me>
+Contributors: Dorian CHECCONI <contact@dorianchecconi.fr>
 Category: config
 Website: https://en.wikipedia.org/wiki/Zone_file
 */
@@ -8,7 +9,6 @@ Website: https://en.wikipedia.org/wiki/Zone_file
 /** @type LanguageFn */
 export default function(hljs) {
   const KEYWORDS = [
-    "IN",
     "A",
     "AAAA",
     "AFSDB",
@@ -57,8 +57,17 @@ export default function(hljs) {
     contains: [
       hljs.COMMENT(';', '$', { relevance: 0 }),
       {
+        // Character strings
+        scope: 'string',
+        begin: '"', end: '"'
+      },
+      {
         className: 'meta',
         begin: /^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b/
+      },
+      {
+        className: 'type',
+        begin: /IN|CH/
       },
       // IPv6
       {
