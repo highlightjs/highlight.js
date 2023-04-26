@@ -53,7 +53,7 @@ Core Grammars:
 - enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
 - enh(python) improve autodetection of code with type hinting any function's return type (making the `->` operator legal) [Keyacom][]
 - enh(bash) add `select` and `until` as keywords
-- enh(dns) add support for character strings and modification of DNS registration type recognition 
+- enh(dns) add support for character strings and modification of DNS registration type recognition [Checconio][]
 
 [arnoudbuzing]: https://github.com/arnoudbuzing
 [aliaegik]: https://github.com/aliaegik
@@ -73,6 +73,7 @@ Core Grammars:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Checconio]: https://github.com/Checconio
 
 ## Version 11.7.0
 
