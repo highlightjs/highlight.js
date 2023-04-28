@@ -31,6 +31,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'dsconfig',
     keywords: 'dsconfig',
     contains: [
       {

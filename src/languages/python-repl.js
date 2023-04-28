@@ -7,6 +7,7 @@ Category: common
 
 export default function(hljs) {
   return {
+    name: 'Python REPL',
     aliases: [ 'pycon' ],
     contains: [
       {

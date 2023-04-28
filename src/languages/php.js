@@ -477,6 +477,7 @@ export default function(hljs) {
   };
 
   return {
+    name: 'PHP',
     case_insensitive: false,
     keywords: KEYWORDS,
     contains: [
