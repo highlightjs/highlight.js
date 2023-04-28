@@ -1,7 +1,6 @@
 /*
 Language: DNS Zone
 Author: Tim Schumacher <tim@datenknoten.me>
-Contributors: Dorian CHECCONI <contact@dorianchecconi.fr>
 Category: config
 Website: https://en.wikipedia.org/wiki/Zone_file
 */
@@ -62,12 +61,21 @@ export default function(hljs) {
         begin: '"', end: '"'
       },
       {
+        scope: 'string',
+        begin: /TXT.+/,
+        keywords: KEYWORDS
+      },
+      {
         className: 'meta',
         begin: /^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b/
       },
       {
-        className: 'type',
-        begin: /IN|CH/
+        scope: 'punctuation',
+        match: /\(|\)/
+      },
+      {
+        scope: 'type',
+        match: /IN|CH/
       },
       // IPv6
       {
