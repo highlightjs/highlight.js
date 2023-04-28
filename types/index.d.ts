@@ -162,7 +162,7 @@ declare module 'highlight.js' {
     export interface Mode extends ModeCallbacks, ModeDetails {}
 
     export interface LanguageDetail {
-        name?: string
+        name: string
         unicodeRegex?: boolean
         rawDefinition?: () => Language
         aliases?: string[]

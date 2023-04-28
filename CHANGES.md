@@ -4,6 +4,7 @@ Improvements:
 
 - added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
 - added BETA `__emitTokens` key to grammars to allow then to direct their own parsing, only using Highlight.js for the HTML rendering [Josh Goebel][]
+- added explicit `name` to all languages, verifiable by a test [Alexey Inkin][]
 
 New Grammars:
 
@@ -49,6 +50,7 @@ Parser:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Alexey Inkin]: https://github.com/alexeyinkin
 
 ## Version 11.7.0
 

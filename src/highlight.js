@@ -853,8 +853,6 @@ const HLJS = function(hljs) {
       // entire highlighter
       lang = PLAINTEXT_LANGUAGE;
     }
-    // give it a temporary name if it doesn't have one in the meta-data
-    if (!lang.name) lang.name = languageName;
     languages[languageName] = lang;
     lang.rawDefinition = languageDefinition.bind(null, hljs);
 
