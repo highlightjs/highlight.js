@@ -61,7 +61,7 @@
   </style>
 </head>
 <body>
-  <div class="editor" id="app">
+  <div class="editor">
     <h3>Code</h3>
     <div>
       <textarea>Put code here…</textarea>
@@ -328,7 +328,7 @@
     </div>
     <div>
       <h3>Rendered in <span class="rendering_time">...</span> ms [<span class="rendering_stats">...</span>]</h3>
-      <highlightjs :language="language" :code="code" />
+      <pre><code class="hljs">...</code></pre>
     </div>
     <div>
       <h3>Markup</h3>
@@ -338,9 +338,6 @@
 
   <script src="../build/highlight.js"></script>
   <script src="vendor/jquery-2.1.1.min.js"></script>
-  <script src="vendor/vue.js"></script>
-  <script src="vendor/highlight-vue.min.js"></script>
-
   <script>
     hljs.debugMode();
 
@@ -374,9 +371,10 @@
         var start_time = +new Date();
         var result = hljs.getLanguage(language) ? hljs.highlight(language, source, true) : hljs.highlightAuto(source);
         var rendering_time = +new Date() - start_time;
-        vue.code = source;
-        vue.language = hljs.getLanguage(language) ? language : '';
-
+        editor.find('.hljs').html(result.value);
+        $(".hljs span").each((_,el) => {
+          $(el).attr("data-klass", el.className.replace("hljs-",""))
+        })
         var rendering_stats = result.language + ': relevance ' + (result.relevance );
         if (result.secondBest) {
             rendering_stats += ', ' + result.secondBest.language + ': ' + (result.secondBest.relevance || result.secondBest.r);
@@ -435,30 +433,6 @@
         link.href = `../src/styles/${data.theme}`
       });
     }());
-
-    Vue.use(hljsVuePlugin);
-    let vue = new Vue({
-      el: '#app',
-      data: { code: "", language: "" },
-      methods: {
-        refreshKlass: function() {
-          // update data-klass post-render for cool class previews
-          this.$nextTick(() => {
-            $(".hljs span").each((_,el) => {
-              $(el).attr("data-klass", el.className.replace(/hljs-/g,""))
-            })
-          })
-        }
-      },
-      watch: {
-        code: function(){
-          this.refreshKlass();
-        },
-        language: function(){
-          this.refreshKlass();
-        }
-      }
-    });
   </script>
 </body>
 </html>
