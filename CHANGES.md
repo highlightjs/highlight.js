@@ -12,6 +12,7 @@ New Grammars:
 
 Grammars:
 
+- enh(sql) support `_` in variable names [joshgoebel][]
 - enh(mathematica) update keywords list to 13.2.1 [arnoudbuzing][]
 - enh(protobuf) add `proto` alias for Protobuf [dimitropoulos][]
 - enh(sqf)  latest changes in Arma 3 v2.11 [Leopard20][]
