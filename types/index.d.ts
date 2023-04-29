@@ -180,14 +180,12 @@ declare module 'highlight.js' {
     // technically private, but exported for convenience as this has
     // been a pretty stable API and is quite useful
     export interface Emitter {
-        addKeyword(text: string, kind: string): void
+        startScope(name: string): void
+        endScope(): void
         addText(text: string): void
         toHTML(): string
         finalize(): void
-        closeAllNodes(): void
-        openNode(kind: string): void
-        closeNode(): void
-        addSublanguage(emitter: Emitter, subLanguageName: string): void
+        __addSublanguage(emitter: Emitter, subLanguageName: string): void
     }
 
     export type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
