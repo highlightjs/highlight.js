@@ -1,16 +1,18 @@
 ## Version 11.8.0
 
-Improvements:
+Parser engine:
 
 - added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
 - added BETA `__emitTokens` key to grammars to allow then to direct their own parsing, only using Highlight.js for the HTML rendering [Josh Goebel][]
+- (enh) add `removePlugin` api [faga295][]
+- (fix) typo in language name of `JavaScript` [Cyrus Kao][]
 
 New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
 - added 3rd party C3 grammar to SUPPORTED_LANGUAGES [aliaegik][]
 
-Grammars:
+Core Grammars:
 
 - enh(sql) support `_` in variable names [joshgoebel][]
 - enh(mathematica) update keywords list to 13.2.1 [arnoudbuzing][]
@@ -26,11 +28,6 @@ Grammars:
 - enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
 - enh(python) improve autodetection of code with type hinting any function's return type (making the `->` operator legal) [Keyacom][]
 - enh(bash) add `select` and `until` as keywords
-
-Parser:
-
-- add removePlugin api [faga295][]
-- fix typo in language name of JavaScript [Cyrus Kao][]
 
 [arnoudbuzing]: https://github.com/arnoudbuzing
 [aliaegik]: https://github.com/aliaegik
