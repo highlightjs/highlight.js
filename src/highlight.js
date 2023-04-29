@@ -743,6 +743,11 @@ const HLJS = function(hljs) {
     fire("before:highlightElement",
       { el: element, language });
 
+    if (element.dataset.highlighted) {
+      console.log("Element previously highlighted. To highlight again, first unset `dataset.highlighted`.", element);
+      return;
+    }
+
     // we should be all text, no child nodes (unescaped HTML) - this is possibly
     // an HTML injection attack - it's likely too late if this is already in
     // production (the code has likely already done its damage by the time
@@ -769,6 +774,7 @@ const HLJS = function(hljs) {
     const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
 
     element.innerHTML = result.value;
+    element.dataset.highlighted = "yes";
     updateClassName(element, language, result.language);
     element.result = {
       language: result.language,

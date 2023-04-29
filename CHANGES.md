@@ -1,3 +1,12 @@
+## Version 11.9.0
+
+Parser:
+
+- (enh) prevent rehighlighting of an element [joshgoebel][]
+
+[Josh Goebel]: https://github.com/joshgoebel
+
+
 ## Version 11.8.0
 
 Parser engine:
