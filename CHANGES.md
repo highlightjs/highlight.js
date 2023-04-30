@@ -3,8 +3,10 @@
 Parser:
 
 - (enh) prevent rehighlighting of an element [joshgoebel][]
+- added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 
 [Josh Goebel]: https://github.com/joshgoebel
+[Checconio]: https://github.com/Checconio
 
 
 ## Version 11.8.0

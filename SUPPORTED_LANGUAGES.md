@@ -108,6 +108,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Ini, TOML               | ini, toml              |         |
 | Inform7                 | inform7, i7            |         |
 | IRPF90                  | irpf90                 |         |
+| Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
 | JSON                    | json                   |         |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
