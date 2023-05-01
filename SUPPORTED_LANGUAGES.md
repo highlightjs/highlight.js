@@ -74,6 +74,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Dylan                   | dylan                  | [highlightjs-dylan](https://github.com/highlightjs/highlightjs-dylan) |
 | EBNF                    | ebnf                   |         |
 | Elixir                  | elixir                 |         |
+| Ellie                   | ellie, ei              |         |
 | Elm                     | elm                    |         |
 | Erlang                  | erlang, erl            |         |
 | Excel                   | excel, xls, xlsx       |         |

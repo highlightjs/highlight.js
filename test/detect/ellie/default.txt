@@ -1,0 +1,25 @@
+class Age {
+    co(age);
+    pub v age: int;
+}
+
+class Human {
+    co(name, age);
+
+    pub v name: string;
+    pub v age: Age;
+
+    pub fn greet() : string {
+        if self.age.age > 18 {
+            ret "Hello, my name is " + self.name + " and I am " + self.age.age + " years old. I am an adult.";
+        } else {
+            ret "Hello, my name is " + self.name + " and I am " + self.age.age + " years old. I am not an adult.";
+        }
+    }
+}
+
+fn main() {
+    v age = new Age(22);
+    v human = new Human("Ahmet", age);
+    println(human.greet());
+}
