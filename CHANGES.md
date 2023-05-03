@@ -1,3 +1,13 @@
+## Version 11.10.0
+
+Parser:
+
+- Replaced the old `hljs.highlight()` function call with the new one, as per the suggestion in the GitHub issue #3729.[Shah Shabbir Ahmmed][]
+- Removed the click event binding for the `#update-highlighting` button and replaced it with a new `update()` function.[Shah Shabbir Ahmmed][]
+- Added a `change` event listener for the `.languages` element that also triggers the `update()` function.[Shah Shabbir Ahmmed][]
+
+[Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
+
 ## Version 11.9.0
 
 Parser:
