@@ -1,10 +1,16 @@
-## Version 11.9.0
+## Version 11.9.0 (next release)
 
 Parser:
 
 - (enh) prevent rehighlighting of an element [joshgoebel][]
 - added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 
+Dev tool: 
+
+- (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
+- (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
+
+[Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 

@@ -364,12 +364,12 @@
         localStorage.setItem(key_THEME, css);
       })
 
-      $('.editor button#update-highlighting').click(function(e) {
+      function update() {
         var editor = $(this).parents('.editor');
         var language = editor.find('.languages').val();
         var source = editor.find('textarea').val();
         var start_time = +new Date();
-        var result = hljs.getLanguage(language) ? hljs.highlight(language, source, true) : hljs.highlightAuto(source);
+        var result = hljs.getLanguage(language) ? hljs.highlight(source, { language, ignoreIllegals: true}) : hljs.highlightAuto(source);
         var rendering_time = +new Date() - start_time;
         editor.find('.hljs').html(result.value);
         $(".hljs span").each((_,el) => {
@@ -383,7 +383,11 @@
         editor.find('.rendering_time').text(rendering_time);
         editor.find('output').text(result.value);
         saveSettings();
-      });
+      
+      };
+
+      $('.editor button#update-highlighting').click(update);
+      $(".languages").change(update);
 
       $('.editor button#show-structure').click(function(e) {
         var editor = $(this).parents('.editor');
