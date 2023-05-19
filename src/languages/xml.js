@@ -82,6 +82,7 @@ export default function(hljs) {
       'xjb',
       'xsd',
       'xsl',
+      'RDF/XML',
       'plist',
       'wsf',
       'svg'
