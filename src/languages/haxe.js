@@ -10,6 +10,9 @@ export default function(hljs) {
   const IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
   const IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
 
+  // C_NUMBER_RE with underscores and literal suffixes
+  const HAXE_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9_]+|(\\b\\d+(\\.[\\d_]*)?|\\.[\\d_]+)(([eE][-+]?\\d+)|i32|u32|i64|f64)?)'
+
   const HAXE_BASIC_TYPES = 'Int Float String Bool Dynamic Void Array ';
 
   return {
@@ -47,7 +50,11 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_NUMBER_MODE,
+      {
+        className: 'number',
+        begin: HAXE_NUMBER_RE,
+        relevance: 0
+      },
       {
         className: 'meta', // compiler meta
         begin: '@:?',
