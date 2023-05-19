@@ -50,8 +50,9 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'meta', // compiler meta
-        begin: '@:',
-        end: '$'
+        begin: '@:?',
+        end: /\(|$/,
+        excludeEnd: true,
       },
       {
         className: 'meta', // compiler conditionals
