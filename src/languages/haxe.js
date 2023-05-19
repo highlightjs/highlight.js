@@ -20,7 +20,7 @@ export default function(hljs) {
     aliases: [ 'hx' ],
     keywords: {
       keyword: 'abstract break case cast catch continue default do dynamic else enum extern '
-               + 'final for function here if import in inline is never new override package private get set '
+               + 'final for function here if import in inline is macro never new override package private get set '
                + 'public return static super switch this throw trace try typedef untyped using var while '
                + HAXE_BASIC_TYPES,
       built_in:
@@ -54,6 +54,10 @@ export default function(hljs) {
         className: 'number',
         begin: HAXE_NUMBER_RE,
         relevance: 0
+      },
+      {
+        className: 'built_in',
+        begin: "\\$" + IDENT_RE,
       },
       {
         className: 'meta', // compiler meta
