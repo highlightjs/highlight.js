@@ -16,7 +16,7 @@ export default function(hljs) {
     name: 'Haxe',
     aliases: [ 'hx' ],
     keywords: {
-      keyword: 'break case cast catch continue default do dynamic else enum extern '
+      keyword: 'abstract break case cast catch continue default do dynamic else enum extern '
                + 'final for function here if import in inline is never new override package private get set '
                + 'public return static super switch this throw trace try typedef untyped using var while '
                + HAXE_BASIC_TYPES,
@@ -90,7 +90,7 @@ export default function(hljs) {
       },
       {
         className: 'class', // abstracts
-        beginKeywords: 'abstract',
+        begin: '\\babstract\\b(?=\\s*' + hljs.IDENT_RE + '\\s*\\()',
         end: '[\\{$]',
         contains: [
           {
