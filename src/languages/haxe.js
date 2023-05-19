@@ -56,7 +56,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'built_in',
+        className: 'variable',
         begin: "\\$" + IDENT_RE,
       },
       {
