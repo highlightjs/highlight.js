@@ -16,6 +16,10 @@
     <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">floor</span></span>(v:<span class="hljs-type">Float</span>):<span class="hljs-type">Int</span>;
 }
 
+<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">talk</span></span>(): <span class="hljs-type">String</span>;
+}
+
 <span class="hljs-comment">/**
  * Abstract forwarding
  */</span>
@@ -24,7 +28,7 @@
         <span class="hljs-built_in">this</span> = i;
     }
 
-    <span class="hljs-meta">@:op(A * B)</span>
+    <span class="hljs-meta">@:op</span>(A * B)
     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span></span>(rhs:<span class="hljs-type">MyAbstract</span>) {
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span> * rhs;
     }
@@ -36,6 +40,30 @@
     Green;
     Blue;
     Rgb(r:<span class="hljs-type">Int</span>, g:<span class="hljs-type">Int</span>, b:<span class="hljs-type">Int</span>);
+}
+
+<span class="hljs-meta">@author</span>(<span class="hljs-string">&quot;Santa&quot;</span>, <span class="hljs-number">24</span> - <span class="hljs-number">12</span>)
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">makeWinter</span></span>(callback: <span class="hljs-type"></span>() -&gt; <span class="hljs-keyword">Void</span>) {
+    <span class="hljs-built_in">trace</span>(<span class="hljs-string">&#x27;it is winter.&#x27;</span>);
+    callback();
+}
+
+<span class="hljs-keyword">macro</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compiletime</span></span>(expr: <span class="hljs-type">haxe</span>.<span class="hljs-keyword">macro</span>.Expr): <span class="hljs-type">haxe</span>.<span class="hljs-keyword">macro</span>.Expr {
+    <span class="hljs-keyword">final</span> ident = <span class="hljs-string">&quot;length&quot;</span>;
+    <span class="hljs-keyword">final</span> ct: <span class="hljs-type">haxe</span>.<span class="hljs-keyword">macro</span>.ComplexType = <span class="hljs-keyword">macro</span> : <span class="hljs-type">Map</span>&lt;<span class="hljs-keyword">String</span>, <span class="hljs-keyword">Int</span>&gt;;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">macro</span> {
+        <span class="hljs-keyword">final</span> s = <span class="hljs-string">&quot;string&quot;</span>;
+        <span class="hljs-built_in">trace</span>(s.<span class="hljs-built_in">$ident</span>);
+
+        <span class="hljs-keyword">final</span> m = ([<span class="hljs-string">&quot;a&quot;</span> =&gt; <span class="hljs-number">1</span>] : <span class="hljs-type"></span>$ct);
+
+        <span class="hljs-keyword">final</span> arr = <span class="hljs-built_in">$a</span>{[<span class="hljs-keyword">macro</span> <span class="hljs-number">0</span>, <span class="hljs-keyword">macro</span> <span class="hljs-number">1</span>, <span class="hljs-keyword">macro</span> <span class="hljs-number">2</span>]};
+        <span class="hljs-keyword">final</span> field = <span class="hljs-built_in">$p</span>{[<span class="hljs-string">&quot;String&quot;</span>, <span class="hljs-string">&quot;fromCharCode&quot;</span>]};
+        <span class="hljs-keyword">final</span> str = <span class="hljs-built_in">$v</span>{ident};
+
+        <span class="hljs-built_in">$expr</span>;
+    }
 }
 
 <span class="hljs-meta">@:generic</span>
@@ -114,10 +142,18 @@
             x: <span class="hljs-type">0</span>,
             y: <span class="hljs-type">true</span>,
             z: <span class="hljs-type">false</span>,
+
             a: <span class="hljs-type">1</span>.<span class="hljs-number">53</span>,
             b: <span class="hljs-type">5e10</span>,
             c: <span class="hljs-type">-12</span>,
-            h: <span class="hljs-type">null</span>
+            d: <span class="hljs-type">1_0_0_0_0</span>,
+
+            i: <span class="hljs-type">10000i32</span>,
+            u: <span class="hljs-type">2147483648u32</span>,
+            l: <span class="hljs-type">10000000000i64</span>,
+            f: <span class="hljs-type">5f64</span>,
+
+            n: <span class="hljs-type">null</span>,
         };
     }
 
