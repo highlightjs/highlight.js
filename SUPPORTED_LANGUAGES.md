@@ -97,7 +97,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | GraphQL                 | graphql                |         |
 | Groovy                  | groovy                 |         |
 | GSQL                    | gsql                   | [highlightjs-gsql](https://github.com/DanBarkus/highlightjs-gsql) |
-| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
+| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, RDF/XML, plist, svg | |
 | HTTP                    | http, https            |         |
 | Haml                    | haml                   |         |
 | Handlebars              | handlebars, hbs, html.hbs, html.handlebars        | |
