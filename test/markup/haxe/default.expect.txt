@@ -54,15 +54,15 @@
 
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">macro</span> {
         <span class="hljs-keyword">final</span> s = <span class="hljs-string">&quot;string&quot;</span>;
-        <span class="hljs-built_in">trace</span>(s.<span class="hljs-built_in">$ident</span>);
+        <span class="hljs-built_in">trace</span>(s.<span class="hljs-variable">$ident</span>);
 
         <span class="hljs-keyword">final</span> m = ([<span class="hljs-string">&quot;a&quot;</span> =&gt; <span class="hljs-number">1</span>] : <span class="hljs-type"></span>$ct);
 
-        <span class="hljs-keyword">final</span> arr = <span class="hljs-built_in">$a</span>{[<span class="hljs-keyword">macro</span> <span class="hljs-number">0</span>, <span class="hljs-keyword">macro</span> <span class="hljs-number">1</span>, <span class="hljs-keyword">macro</span> <span class="hljs-number">2</span>]};
-        <span class="hljs-keyword">final</span> field = <span class="hljs-built_in">$p</span>{[<span class="hljs-string">&quot;String&quot;</span>, <span class="hljs-string">&quot;fromCharCode&quot;</span>]};
-        <span class="hljs-keyword">final</span> str = <span class="hljs-built_in">$v</span>{ident};
+        <span class="hljs-keyword">final</span> arr = <span class="hljs-variable">$a</span>{[<span class="hljs-keyword">macro</span> <span class="hljs-number">0</span>, <span class="hljs-keyword">macro</span> <span class="hljs-number">1</span>, <span class="hljs-keyword">macro</span> <span class="hljs-number">2</span>]};
+        <span class="hljs-keyword">final</span> field = <span class="hljs-variable">$p</span>{[<span class="hljs-string">&quot;String&quot;</span>, <span class="hljs-string">&quot;fromCharCode&quot;</span>]};
+        <span class="hljs-keyword">final</span> str = <span class="hljs-variable">$v</span>{ident};
 
-        <span class="hljs-built_in">$expr</span>;
+        <span class="hljs-variable">$expr</span>;
     }
 }
 
