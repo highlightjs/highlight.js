@@ -8,7 +8,8 @@ Parser:
 Core Grammars:
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
-- fix(haxe) fixed metadata and `abstract` [Robert Borghese][]
+- fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
+- fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
 
 Dev tool: 
 
