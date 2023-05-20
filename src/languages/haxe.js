@@ -94,13 +94,13 @@ export default function(hljs) {
         excludeEnd: true
       },
       {
-        className: 'class', // enums
+        className: 'title.class', // enums
         beginKeywords: 'enum',
         end: /\{/,
         contains: [ hljs.TITLE_MODE ]
       },
       {
-        className: 'class', // abstracts
+        className: 'title.class', // abstracts
         begin: '\\babstract\\b(?=\\s*' + hljs.IDENT_RE + '\\s*\\()',
         end: /[\{$]/,
         contains: [
@@ -130,7 +130,7 @@ export default function(hljs) {
         keywords: { keyword: 'abstract from to' }
       },
       {
-        className: 'class', // classes
+        className: 'title.class', // classes
         begin: /\b(class|interface) +/,
         end: /[\{$]/,
         excludeEnd: true,
@@ -152,7 +152,7 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'function',
+        className: 'title.function',
         beginKeywords: 'function',
         end: /\(/,
         excludeEnd: true,
