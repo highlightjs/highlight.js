@@ -141,7 +141,7 @@ describe('after:highlightElement', function() {
     });
 
     this.hljs.highlightElement(this.block);
-    this.block.outerHTML.should.equal(`<code class="language-javascript hljs">redacted</code>`);
+    this.block.outerHTML.should.equal(`<code class="language-javascript hljs" data-highlighted="yes">redacted</code>`);
   })
 })
 
