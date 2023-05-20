@@ -69,6 +69,11 @@ export default function(hljs) {
     begin: /'/,
     end: /'/
   };
+  const ESCAPED_APOS = {
+    className: '',
+    begin: /\\'/
+
+  };
   const ARITHMETIC = {
     begin: /\$?\(\(/,
     end: /\)\)/,
@@ -381,6 +386,7 @@ export default function(hljs) {
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,
+      ESCAPED_APOS,
       VAR
     ]
   };
