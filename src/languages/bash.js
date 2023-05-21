@@ -60,9 +60,7 @@ export default function(hljs) {
   };
   SUBST.contains.push(QUOTE_STRING);
   const ESCAPED_QUOTE = {
-    className: '',
-    begin: /\\"/
-
+    match: /\\"/
   };
   const APOS_STRING = {
     className: 'string',
