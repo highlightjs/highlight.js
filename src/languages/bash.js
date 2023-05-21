@@ -70,9 +70,7 @@ export default function(hljs) {
     end: /'/
   };
   const ESCAPED_APOS = {
-    className: '',
-    begin: /\\'/
-
+    match: /\\'/
   };
   const ARITHMETIC = {
     begin: /\$?\(\(/,
