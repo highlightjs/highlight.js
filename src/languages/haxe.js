@@ -8,7 +8,10 @@ Website: https://haxe.org
 
 export default function(hljs) {
   const IDENT_RE = '[a-zA-Z_$][a-zA-Z0-9_$]*';
-  const IDENT_FUNC_RETURN_TYPE_RE = '([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)';
+  const IDENT_FUNC_RETURN_TYPE_RE = /([*]|[a-zA-Z_$][a-zA-Z0-9_$]*)/;
+
+  // C_NUMBER_RE with underscores and literal suffixes
+  const HAXE_NUMBER_RE = /(-?)(\b0[xX][a-fA-F0-9_]+|(\b\d+(\.[\d_]*)?|\.[\d_]+)(([eE][-+]?\d+)|i32|u32|i64|f64)?)/;
 
   const HAXE_BASIC_TYPES = 'Int Float String Bool Dynamic Void Array ';
 
@@ -16,8 +19,8 @@ export default function(hljs) {
     name: 'Haxe',
     aliases: [ 'hx' ],
     keywords: {
-      keyword: 'break case cast catch continue default do dynamic else enum extern '
-               + 'for function here if import in inline never new override package private get set '
+      keyword: 'abstract break case cast catch continue default do dynamic else enum extern '
+               + 'final for function here if import in inline is macro never new override package private get set '
                + 'public return static super switch this throw trace try typedef untyped using var while '
                + HAXE_BASIC_TYPES,
       built_in:
@@ -34,12 +37,12 @@ export default function(hljs) {
           hljs.BACKSLASH_ESCAPE,
           {
             className: 'subst', // interpolation
-            begin: '\\$\\{',
-            end: '\\}'
+            begin: /\$\{/,
+            end: /\}/
           },
           {
             className: 'subst', // interpolation
-            begin: '\\$',
+            begin: /\$/,
             end: /\W\}/
           }
         ]
@@ -47,11 +50,20 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_NUMBER_MODE,
+      {
+        className: 'number',
+        begin: HAXE_NUMBER_RE,
+        relevance: 0
+      },
+      {
+        className: 'variable',
+        begin: "\\$" + IDENT_RE,
+      },
       {
         className: 'meta', // compiler meta
-        begin: '@:',
-        end: '$'
+        begin: /@:?/,
+        end: /\(|$/,
+        excludeEnd: true,
       },
       {
         className: 'meta', // compiler conditionals
@@ -61,55 +73,55 @@ export default function(hljs) {
       },
       {
         className: 'type', // function types
-        begin: ':[ \t]*',
-        end: '[^A-Za-z0-9_ \t\\->]',
+        begin: /:[ \t]*/,
+        end: /[^A-Za-z0-9_ \t\->]/,
         excludeBegin: true,
         excludeEnd: true,
         relevance: 0
       },
       {
         className: 'type', // types
-        begin: ':[ \t]*',
-        end: '\\W',
+        begin: /:[ \t]*/,
+        end: /\W/,
         excludeBegin: true,
         excludeEnd: true
       },
       {
         className: 'type', // instantiation
-        begin: 'new *',
-        end: '\\W',
+        begin: /new */,
+        end: /\W/,
         excludeBegin: true,
         excludeEnd: true
       },
       {
-        className: 'class', // enums
+        className: 'title.class', // enums
         beginKeywords: 'enum',
-        end: '\\{',
+        end: /\{/,
         contains: [ hljs.TITLE_MODE ]
       },
       {
-        className: 'class', // abstracts
-        beginKeywords: 'abstract',
-        end: '[\\{$]',
+        className: 'title.class', // abstracts
+        begin: '\\babstract\\b(?=\\s*' + hljs.IDENT_RE + '\\s*\\()',
+        end: /[\{$]/,
         contains: [
           {
             className: 'type',
-            begin: '\\(',
-            end: '\\)',
+            begin: /\(/,
+            end: /\)/,
             excludeBegin: true,
             excludeEnd: true
           },
           {
             className: 'type',
-            begin: 'from +',
-            end: '\\W',
+            begin: /from +/,
+            end: /\W/,
             excludeBegin: true,
             excludeEnd: true
           },
           {
             className: 'type',
-            begin: 'to +',
-            end: '\\W',
+            begin: /to +/,
+            end: /\W/,
             excludeBegin: true,
             excludeEnd: true
           },
@@ -118,15 +130,15 @@ export default function(hljs) {
         keywords: { keyword: 'abstract from to' }
       },
       {
-        className: 'class', // classes
-        begin: '\\b(class|interface) +',
-        end: '[\\{$]',
+        className: 'title.class', // classes
+        begin: /\b(class|interface) +/,
+        end: /[\{$]/,
         excludeEnd: true,
         keywords: 'class interface',
         contains: [
           {
             className: 'keyword',
-            begin: '\\b(extends|implements) +',
+            begin: /\b(extends|implements) +/,
             keywords: 'extends implements',
             contains: [
               {
@@ -140,11 +152,11 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'function',
+        className: 'title.function',
         beginKeywords: 'function',
-        end: '\\(',
+        end: /\(/,
         excludeEnd: true,
-        illegal: '\\S',
+        illegal: /\S/,
         contains: [ hljs.TITLE_MODE ]
       }
     ],

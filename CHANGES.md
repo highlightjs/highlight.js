@@ -5,11 +5,18 @@ Parser:
 - (enh) prevent rehighlighting of an element [joshgoebel][]
 - added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 
+Core Grammars:
+- enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
+- enh(haxe) support numeric separators and suffixes [Robert Borghese][]
+- fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
+- fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
+
 Dev tool: 
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
 
+[Robert Borghese]: https://github.com/RobertBorghese
 [Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio

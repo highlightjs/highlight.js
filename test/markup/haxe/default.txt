@@ -16,6 +16,10 @@ extern class Math {
     static function floor(v:Float):Int;
 }
 
+abstract class Animal {
+    public abstract function talk(): String;
+}
+
 /**
  * Abstract forwarding
  */
@@ -36,6 +40,30 @@ enum Color {
     Green;
     Blue;
     Rgb(r:Int, g:Int, b:Int);
+}
+
+@author("Santa", 24 - 12)
+function makeWinter(callback: () -> Void) {
+    trace('it is winter.');
+    callback();
+}
+
+macro function compiletime(expr: haxe.macro.Expr): haxe.macro.Expr {
+    final ident = "length";
+    final ct: haxe.macro.ComplexType = macro : Map<String, Int>;
+
+    return macro {
+        final s = "string";
+        trace(s.$ident);
+
+        final m = (["a" => 1] : $ct);
+
+        final arr = $a{[macro 0, macro 1, macro 2]};
+        final field = $p{["String", "fromCharCode"]};
+        final str = $v{ident};
+
+        $expr;
+    }
 }
 
 @:generic
@@ -114,10 +142,18 @@ class Main extends BaseClass implements SomeFunctionality {
             x: 0,
             y: true,
             z: false,
+
             a: 1.53,
             b: 5e10,
             c: -12,
-            h: null
+            d: 1_0_0_0_0,
+
+            i: 10000i32,
+            u: 2147483648u32,
+            l: 10000000000i64,
+            f: 5f64,
+
+            n: null,
         };
     }
 
