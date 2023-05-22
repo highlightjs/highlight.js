@@ -60,14 +60,15 @@ export default function(hljs) {
   };
   SUBST.contains.push(QUOTE_STRING);
   const ESCAPED_QUOTE = {
-    className: '',
-    begin: /\\"/
-
+    match: /\\"/
   };
   const APOS_STRING = {
     className: 'string',
     begin: /'/,
     end: /'/
+  };
+  const ESCAPED_APOS = {
+    match: /\\'/
   };
   const ARITHMETIC = {
     begin: /\$?\(\(/,
@@ -381,6 +382,7 @@ export default function(hljs) {
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,
+      ESCAPED_APOS,
       VAR
     ]
   };

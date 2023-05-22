@@ -1,0 +1,2 @@
+# Escaped apostrophe is not a string
+echo \'not-a-highlighted-string\'

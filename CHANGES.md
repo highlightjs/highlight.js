@@ -10,6 +10,7 @@ Core Grammars:
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
 - fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
+- fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
 
 Dev tool: 
 
