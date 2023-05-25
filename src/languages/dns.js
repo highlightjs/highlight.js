@@ -46,6 +46,16 @@ export default function(hljs) {
     "TSIG",
     "TXT"
   ];
+
+  const PUNCTUATION = {
+    scope: 'punctuation',
+    match: /\(|\)/
+  };
+  const STRING = {
+    scope: 'string',
+    begin: '"', end: '"'
+  };
+
   return {
     name: 'DNS Zone',
     aliases: [
@@ -55,24 +65,24 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       hljs.COMMENT(';', '$', { relevance: 0 }),
+      STRING,
       {
-        // Character strings
-        scope: 'string',
-        begin: '"', end: '"'
-      },
-      {
-        scope: 'string',
-        begin: /TXT.+/,
-        keywords: KEYWORDS
+        match: /TXT\s+/,
+        keywords: KEYWORDS,
+        contains: [
+          STRING,
+          PUNCTUATION,
+          {
+            match: /\S+/,            
+            scope: "string"
+          }
+        ]
       },
       {
         className: 'meta',
         begin: /^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b/
       },
-      {
-        scope: 'punctuation',
-        match: /\(|\)/
-      },
+      PUNCTUATION,
       {
         scope: 'type',
         match: /IN|CH/
