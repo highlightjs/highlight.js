@@ -1,13 +1,14 @@
-<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-params">(<span class="hljs-variable">variable</span>)</span></span>
-<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">extend</span><span class="hljs-params">(<span class="hljs-string">&quot;template&quot;</span>):</span></span>I&#x27;m added to a base template! <span class="hljs-keyword"><span class="hljs-keyword">#</span><span class="hljs-title">endextend</span></span>
-<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">import</span><span class="hljs-params">(<span class="hljs-string">&quot;body&quot;</span>)</span></span>
-<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">count</span><span class="hljs-params">(<span class="hljs-variable">friends</span>)</span></span>
+<span class="hljs-punctuation">#</span><span class="hljs-params">(<span class="hljs-variable">variable</span>)</span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">extend</span><span class="hljs-params">(<span class="hljs-string">&quot;template&quot;</span>)</span><span class="hljs-punctuation">:</span> I&#x27;m added to a base template! <span class="hljs-punctuation">#</span><span class="hljs-keyword">endextend</span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">import</span><span class="hljs-params">(<span class="hljs-string">&quot;body&quot;</span>)</span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">count</span><span class="hljs-params">(<span class="hljs-variable">friends</span>)</span>
 
-<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">for</span><span class="hljs-params">(<span class="hljs-variable">friend</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">friends</span>):</span></span> &lt;li&gt;<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-params">(<span class="hljs-variable">friend</span>.<span class="hljs-variable">name</span>)</span></span>&lt;/li&gt; <span class="hljs-keyword"><span class="hljs-keyword">#</span><span class="hljs-title">endfor</span></span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">for</span><span class="hljs-params">(<span class="hljs-variable">friend</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">friends</span>)</span><span class="hljs-punctuation">:</span> &lt;li&gt;<span class="hljs-punctuation">#</span><span class="hljs-params">(<span class="hljs-variable">friend</span>.<span class="hljs-variable">name</span>)</span>&lt;/li&gt; <span class="hljs-punctuation">#</span><span class="hljs-keyword">endfor</span>
 
-<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">if</span><span class="hljs-params">(<span class="hljs-variable">title</span> <span class="hljs-operator">=</span><span class="hljs-operator">=</span> <span class="hljs-string">&quot;Welcome&quot;</span>):</span></span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">if</span><span class="hljs-params">(<span class="hljs-keyword">count</span><span class="hljs-params">(<span class="hljs-variable">visit</span>)</span> <span class="hljs-operator">==</span> <span class="hljs-variable">1</span>)</span>:
     Hello new user!
-<span class="hljs-function"><span class="hljs-keyword">#</span><span class="hljs-title">elseif</span><span class="hljs-params">(<span class="hljs-variable">title</span> <span class="hljs-operator">=</span><span class="hljs-operator">=</span> <span class="hljs-string">&quot;Welcome back!&quot;</span>):</span></span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">elseif</span><span class="hljs-params">(<span class="hljs-variable">title</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;Welcome back!&quot;</span>)</span><span class="hljs-punctuation">:</span>
     Hello old user
-<span class="hljs-keyword"><span class="hljs-keyword">#</span><span class="hljs-title">else</span><span class="hljs-params">:</span></span> Unexpected page!
-<span class="hljs-keyword"><span class="hljs-keyword">#</span><span class="hljs-title">endif</span></span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">else</span><span class="hljs-punctuation">:</span>
+    Unexpected page!
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">endif</span>
