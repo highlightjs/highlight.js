@@ -20,3 +20,9 @@
   <span class="hljs-pattern-match">| <span class="hljs-constructor">Some(<span class="hljs-params">data</span>)</span> =&gt;</span>
     data<span class="hljs-operator"> |&gt; </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Js</span>.</span><span class="hljs-module"><span class="hljs-identifier">Dict</span>.</span></span>map(<span class="hljs-function">(. json) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">CachingServiceConfig</span>.</span></span>decode(json))
   };
+
+<span class="hljs-keyword">let</span> ofSyntax =<span class="hljs-function"> <span class="hljs-params">s</span> =&gt;</span>
+  switch (s) {
+  <span class="hljs-pattern-match">| <span class="hljs-constructor">OCaml</span> =&gt;</span> <span class="hljs-string">&quot;OCaml&quot;</span>
+  <span class="hljs-pattern-match">| <span class="hljs-constructor">Reason</span> =&gt;</span> <span class="hljs-string">&quot;Reason&quot;</span>
+  };

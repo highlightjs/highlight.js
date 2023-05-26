@@ -1,0 +1,11 @@
+<span class="hljs-keyword">let</span> t = <span class="hljs-number">2</span>; <span class="hljs-comment">// Line comment</span>
+
+<span class="hljs-comment">/* Regular comment */</span>
+<span class="hljs-keyword">let</span> t = <span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">type</span> t =
+  <span class="hljs-pattern-match">| <span class="hljs-constructor">A(<span class="hljs-params">string</span>)</span>
+  | <span class="hljs-constructor">B(<span class="hljs-params">int</span>)</span>;
+<span class="hljs-operator">/</span><span class="hljs-operator">*</span> <span class="hljs-constructor">A(<span class="hljs-string">&quot;foo&quot;</span>)</span> -&gt; { <span class="hljs-constructor">TAG</span>: 0, <span class="hljs-constructor">_0</span>: &quot;<span class="hljs-constructor">Foo</span>&quot; } <span class="hljs-operator">*</span><span class="hljs-operator">/</span>
+<span class="hljs-operator">/</span><span class="hljs-operator">*</span> <span class="hljs-constructor">B(2)</span> -&gt; { <span class="hljs-constructor">TAG</span>: 1, <span class="hljs-constructor">_0</span>: 2 } <span class="hljs-operator">*</span><span class="hljs-operator">/</span>
+</span>
