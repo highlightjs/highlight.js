@@ -7,75 +7,77 @@ Category: template
 */
 
 export default function(hljs) {
+  const IDENT = /([A-Za-z_][A-Za-z_0-9]*)?/;
+  const LITERALS = [
+    'true',
+    'false',
+    'in'
+  ];
   return {
     name: 'Leaf',
     contains: [
+      // #ident():
       {
-        className: 'function',
-        begin: '#' + '[A-Za-z_0-9]*' + '\\(',
-        returnBegin: true,
+        match: [
+          /#+/,
+          IDENT,
+          /(?=\()/,
+        ],
+        scope: {
+          1: "punctuation",
+          2: "keyword"
+        },
+        // will start up after the ending `)` match from line ~44
+        // just to grab the trailing `:` if we can match it
+        starts: {
+          contains: [
+            {
+              match: /\:/,
+              scope: "punctuation"
+            }
+          ]
+        },
         contains: [
           {
-            className: 'keyword',
-            begin: '#'
-          },
-          {
-            className: 'title',
-            begin: '[A-Za-z_][A-Za-z_0-9]*'
-          },
-          {
-            className: 'params',
-            begin: '\\(',
-            end: '\\)\\:?',
+            scope: 'params',
+            begin: /\(/,
+            end: /\)(?=\:?)/,
             endsParent: true,
             relevance: 7,
             contains: [
               {
-                className: 'string',
+                scope: 'string',
                 begin: '"',
                 end: '"'
               },
               {
-                className: 'keyword',
-                begin: 'true|false|in',
+                scope: 'keyword',
+                match: LITERALS.join("|"),
               },
               {
-                className: 'variable',
-                begin: '[A-Za-z_][A-Za-z_0-9]*'
+                scope: 'variable',
+                match: /[A-Za-z_][A-Za-z_0-9]*/
               },
               {
-                className: 'operator',
-                begin: '[\\+|\\-|\\*|\\/|\\%|\\=|\\!|\\>|\\<|\\&\\&|\\|\\|]'
-              },
+                scope: 'operator',
+                match: /\+|\-|\*|\/|\%|\=\=|\=|\!|\>|\<|\&\&|\|\|/
+              }
             ]
           }
-        ]
+        ],
       },
+      // #ident or #ident:
       {
-        className: 'keyword',
-        begin: '#' + '[A-Za-z_0-9]*',
-        end: '\\s|\\:',
-        returnBegin: true,
-        excludeEnd: true,
-        relevance: 0,
-        contains: [
-          {
-            className: 'keyword',
-            begin: '#',
-            relevance: 0,
-          },
-          {
-            className: 'title',
-            begin: '[A-Za-z_][A-Za-z_0-9]*',
-            relevance: 0,
-          },
-          {
-            className: 'params',
-            begin: '\\:',
-            endsParent: true,
-            relevance: 3,
-          }
-        ]
+        match: [
+          /#+/,
+          IDENT,
+          /:?/,
+        ],
+        scope: {
+          1: "punctuation",
+          2: "keyword",
+          3: "punctuation"
+        }
       },
     ]
   };
