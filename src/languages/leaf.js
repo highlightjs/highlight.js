@@ -6,7 +6,7 @@ Website: https://docs.vapor.codes/leaf/overview
 Category: template
 */
 
-export default function leaf(hljs) {
+export default function(hljs) {
   return {
     name: 'Leaf',
     contains: [
