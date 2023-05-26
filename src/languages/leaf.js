@@ -1,23 +1,23 @@
 /*
 Language: Leaf
-Author: Hale Chan <halechan@qq.com>
-Description: Based on the Leaf reference from https://vapor.github.io/documentation/guide/leaf.html.
+Author: Samuel Bishop <sambobjr@gmail.com>
+Description: A Swift-based templating language created for the Vapor project.
+Website: https://docs.vapor.codes/leaf/overview
+Category: template
 */
 
-export default function(hljs) {
+export default function leaf(hljs) {
   return {
     name: 'Leaf',
     contains: [
       {
         className: 'function',
-        begin: '#+' + '[A-Za-z_0-9]*' + '\\(',
-        end: / \{/,
+        begin: '#' + '[A-Za-z_0-9]*' + '\\(',
         returnBegin: true,
-        excludeEnd: true,
         contains: [
           {
             className: 'keyword',
-            begin: '#+'
+            begin: '#'
           },
           {
             className: 'title',
@@ -26,8 +26,9 @@ export default function(hljs) {
           {
             className: 'params',
             begin: '\\(',
-            end: '\\)',
+            end: '\\)\\:?',
             endsParent: true,
+            relevance: 7,
             contains: [
               {
                 className: 'string',
@@ -35,13 +36,47 @@ export default function(hljs) {
                 end: '"'
               },
               {
+                className: 'keyword',
+                begin: 'true|false|in',
+              },
+              {
                 className: 'variable',
                 begin: '[A-Za-z_][A-Za-z_0-9]*'
-              }
+              },
+              {
+                className: 'operator',
+                begin: '[\\+|\\-|\\*|\\/|\\%|\\=|\\!|\\>|\\<|\\&\\&|\\|\\|]'
+              },
             ]
           }
         ]
-      }
+      },
+      {
+        className: 'keyword',
+        begin: '#' + '[A-Za-z_0-9]*',
+        end: '\\s|\\:',
+        returnBegin: true,
+        excludeEnd: true,
+        relevance: 0,
+        contains: [
+          {
+            className: 'keyword',
+            begin: '#',
+            relevance: 0,
+          },
+          {
+            className: 'title',
+            begin: '[A-Za-z_][A-Za-z_0-9]*',
+            relevance: 0,
+          },
+          {
+            className: 'params',
+            begin: '\\:',
+            endsParent: true,
+            relevance: 3,
+          }
+        ]
+      },
     ]
   };
 }
