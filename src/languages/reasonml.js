@@ -6,6 +6,23 @@ Author: Gidi Meir Morris <oss@gidi.io>
 Category: functional
 */
 export default function(hljs) {
+  const BUILT_IN_TYPES = [
+    "array",
+    "bool",
+    "bytes",
+    "char",
+    "exn|5",
+    "float",
+    "int",
+    "int32",
+    "int64",
+    "list",
+    "lazy_t|5",
+    "nativeint|5",
+    "ref",
+    "string",
+    "unit",
+  ];
   return {
     name: 'ReasonML',
     aliases: [ 're' ],
@@ -68,23 +85,7 @@ export default function(hljs) {
         "while",
         "with",
       ],
-      built_in: [
-        "array",
-        "bool",
-        "bytes",
-        "char",
-        "exn|5",
-        "float",
-        "int",
-        "int32",
-        "int64",
-        "list",
-        "lazy_t|5",
-        "nativeint|5",
-        "ref",
-        "string",
-        "unit",
-      ],
+      built_in: BUILT_IN_TYPES,
       literal: ["true", "false"],
     },
     illegal: /(:-|:=|\$\{|\+=)/,
