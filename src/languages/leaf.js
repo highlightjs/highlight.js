@@ -13,6 +13,43 @@ export default function(hljs) {
     'false',
     'in'
   ];
+  const PARAMS = {
+    scope: 'params',
+    begin: /\(/,
+    end: /\)(?=\:?)/,
+    endsParent: true,
+    relevance: 7,
+    contains: [
+      {
+        scope: 'string',
+        begin: '"',
+        end: '"'
+      },
+      {
+        scope: 'keyword',
+        match: LITERALS.join("|"),
+      },
+      {
+        scope: 'variable',
+        match: /[A-Za-z_][A-Za-z_0-9]*/
+      },
+      {
+        scope: 'operator',
+        match: /\+|\-|\*|\/|\%|\=\=|\=|\!|\>|\<|\&\&|\|\|/
+      }
+    ]
+  };
+  const INSIDE_DISPATCH = {
+    match: [
+      IDENT,
+      /(?=\()/,
+    ],
+    scope: {
+      1: "keyword"
+    },
+    contains: [ PARAMS ]
+  };
+  PARAMS.contains.unshift(INSIDE_DISPATCH);
   return {
     name: 'Leaf',
     contains: [
@@ -38,32 +75,7 @@ export default function(hljs) {
           ]
         },
         contains: [
-          {
-            scope: 'params',
-            begin: /\(/,
-            end: /\)(?=\:?)/,
-            endsParent: true,
-            relevance: 7,
-            contains: [
-              {
-                scope: 'string',
-                begin: '"',
-                end: '"'
-              },
-              {
-                scope: 'keyword',
-                match: LITERALS.join("|"),
-              },
-              {
-                scope: 'variable',
-                match: /[A-Za-z_][A-Za-z_0-9]*/
-              },
-              {
-                scope: 'operator',
-                match: /\+|\-|\*|\/|\%|\=\=|\=|\!|\>|\<|\&\&|\|\|/
-              }
-            ]
-          }
+          PARAMS
         ],
       },
       // #ident or #ident:
