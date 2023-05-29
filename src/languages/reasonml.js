@@ -10,7 +10,7 @@ export default function(hljs) {
     name: 'ReasonML',
     aliases: [ 're' ],
     keywords: {
-      $pattern: '[a-z_]\\w*!?',
+      $pattern:  /[a-z_]\w*!?/,
       keyword:
         'and as asr assert begin class constraint do done downto else end esfun '
         + 'exception external for fun function functor if in include inherit '
@@ -22,31 +22,31 @@ export default function(hljs) {
       literal:
         'true false'
     },
-    illegal: '(:-|:=|\\$\\{|\\+=)',
+    illegal: /(:-|:=|\$\{|\+=)/,
     contains: [
       {
         className: 'literal',
-        begin: '\\[(\\|\\|)?\\]|\\(\\)',
+        begin: /\[(\|\|)?\]|\(\)/,
         relevance: 0
       },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT('/\\*', '\\*/', { illegal: '^(#,\\/\\/)' }),
+      hljs.COMMENT(/\/\*/, /\*\//, { illegal: /^(#,\/\/)/ }),
       { /* type variable */
         className: 'symbol',
-        begin: '\'[A-Za-z_](?!\')[\\w\']*'
+        begin: /\'[A-Za-z_](?!\')[\w\']*/
         /* the grammar is ambiguous on how 'a'b should be interpreted but not the compiler */
       },
       { /* polymorphic variant */
         className: 'type',
-        begin: '`[A-Z][\\w\']*'
+        begin: /`[A-Z][\w\']*/
       },
       { /* module or constructor */
         className: 'type',
-        begin: '\\b[A-Z][\\w\']*',
+        begin: /\b[A-Z][\w\']*/,
         relevance: 0
       },
       { /* don't color identifiers, but safely catch all identifiers with ' */
-        begin: '[a-z_]\\w*\'[\\w\']*',
+        begin: /[a-z_]\w*\'[\w\']*/,
         relevance: 0
       },
       hljs.inherit(hljs.APOS_STRING_MODE, {
