@@ -122,11 +122,12 @@ export default function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
         scope: 'number',
-        match:
-          '\\b(0[xX][a-fA-F0-9_]+[Lln]?|'
-          + '0[oO][0-7_]+[Lln]?|'
-          + '0[bB][01_]+[Lln]?|'
-          + '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
+        variants: [
+          { match: /\b0[xX][a-fA-F0-9_]+[Lln]?/ },
+          { match: /\b0[oO][0-7_]+[Lln]?/ },
+          { match: /\b0[bB][01_]+[Lln]?/ },
+          { match: /\b[0-9][0-9_]*([Lln]|(\.[0-9_]*)?([eE][-+]?[0-9_]+)?)/ },
+        ],
         relevance: 0
       },
     ]
