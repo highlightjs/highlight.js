@@ -1,6 +1,5 @@
 /*
 Language: Leaf
-Author: Samuel Bishop <sambobjr@gmail.com>
 Description: A Swift-based templating language created for the Vapor project.
 Website: https://docs.vapor.codes/leaf/overview
 Category: template
