@@ -92,27 +92,27 @@ export default function(hljs) {
     contains: [
       {
         scope: 'literal',
-        begin: /\[(\|\|)?\]|\(\)/,
+        match: /\[(\|\|)?\]|\(\)/,
         relevance: 0
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(/\/\*/, /\*\//, { illegal: /^(#,\/\/)/ }),
       { /* type variable */
         scope: 'symbol',
-        begin: /\'[A-Za-z_](?!\')[\w\']*/
+        match: /\'[A-Za-z_](?!\')[\w\']*/
         /* the grammar is ambiguous on how 'a'b should be interpreted but not the compiler */
       },
       { /* polymorphic variant */
         scope: 'type',
-        begin: /`[A-Z][\w\']*/
+        match: /`[A-Z][\w\']*/
       },
       { /* module or constructor */
         scope: 'type',
-        begin: /\b[A-Z][\w\']*/,
+        match: /\b[A-Z][\w\']*/,
         relevance: 0
       },
       { /* don't color identifiers, but safely catch all identifiers with ' */
-        begin: /[a-z_]\w*\'[\w\']*/,
+      match: /[a-z_]\w*\'[\w\']*/,
         relevance: 0
       },
       hljs.inherit(hljs.APOS_STRING_MODE, {
@@ -122,7 +122,7 @@ export default function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
         scope: 'number',
-        begin:
+        match:
           '\\b(0[xX][a-fA-F0-9_]+[Lln]?|'
           + '0[oO][0-7_]+[Lln]?|'
           + '0[bB][01_]+[Lln]?|'
