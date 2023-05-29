@@ -1,7 +1,7 @@
 <span class="hljs-comment">/* This is a simple function */</span>
 <span class="hljs-keyword">let</span> greet = (name) =&gt; <span class="hljs-string">&quot;Hello World&quot;</span>;
 
-<span class="hljs-keyword">let</span> body = <span class="hljs-type">`Plain</span>(<span class="hljs-string">&quot;uploaded &quot;</span> ++ cacheServiceConfig.desc ++ <span class="hljs-string">&quot;configuration data into cache on S3&quot;</span>);
+<span class="hljs-keyword">let</span> body = <span class="hljs-type">`Plain</span>(<span class="hljs-string">&quot;uploaded &quot;</span> <span class="hljs-operator">++</span> cacheServiceConfig.desc <span class="hljs-operator">++</span> <span class="hljs-string">&quot;configuration data into cache on S3&quot;</span>);
 
 <span class="hljs-keyword">let</span> getCacheConfigByEnv =
     (
@@ -15,10 +15,10 @@
   };
 
 <span class="hljs-keyword">let</span> readCacheServiceConfigAndDecode = (configJson) =&gt;
-  <span class="hljs-keyword">switch</span> (configJson |&gt; <span class="hljs-type">Js</span>.<span class="hljs-type">Json</span>.decodeObject) {
+  <span class="hljs-keyword">switch</span> (configJson <span class="hljs-operator">|&gt;</span> <span class="hljs-type">Js</span>.<span class="hljs-type">Json</span>.decodeObject) {
   | <span class="hljs-type">None</span> =&gt; raise(<span class="hljs-type">Json</span>.<span class="hljs-type">Decode</span>.<span class="hljs-type">DecodeError</span>(<span class="hljs-string">&quot;Invalid Cache Config&quot;</span>))
   | <span class="hljs-type">Some</span>(data) =&gt;
-    data |&gt; <span class="hljs-type">Js</span>.<span class="hljs-type">Dict</span>.map((. json) =&gt; <span class="hljs-type">CachingServiceConfig</span>.decode(json))
+    data <span class="hljs-operator">|&gt;</span> <span class="hljs-type">Js</span>.<span class="hljs-type">Dict</span>.map((. json) =&gt; <span class="hljs-type">CachingServiceConfig</span>.decode(json))
   };
 
 <span class="hljs-keyword">let</span> ofSyntax = s =&gt;

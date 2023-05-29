@@ -115,6 +115,11 @@ export default function(hljs) {
       match: /[a-z_]\w*\'[\w\']*/,
         relevance: 0
       },
+      {
+        scope: 'operator',
+        match: /\s+\|\||\+[\+\.]?|\*[\*\/\.]?|\/[\.]?|\.\.\.|\|>|&&|===?\s+/,
+        relevance: 0
+      },      
       hljs.inherit(hljs.APOS_STRING_MODE, {
         scope: 'string',
         relevance: 0

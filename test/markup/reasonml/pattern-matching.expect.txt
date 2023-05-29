@@ -13,8 +13,8 @@
   );
 
 <span class="hljs-keyword">let</span> readCacheServiceConfigAndDecode = (configJson) =&gt;
-  <span class="hljs-keyword">switch</span> (configJson |&gt; <span class="hljs-type">Js</span>.<span class="hljs-type">Json</span>.decodeObject) {
+  <span class="hljs-keyword">switch</span> (configJson <span class="hljs-operator">|&gt;</span> <span class="hljs-type">Js</span>.<span class="hljs-type">Json</span>.decodeObject) {
   | <span class="hljs-type">None</span> =&gt; raise(<span class="hljs-type">Json</span>.<span class="hljs-type">Decode</span>.<span class="hljs-type">DecodeError</span>(<span class="hljs-string">&quot;Invalid Cache Config&quot;</span>))
   | <span class="hljs-type">Some</span>(data) =&gt;
-    data |&gt; <span class="hljs-type">Js</span>.<span class="hljs-type">Dict</span>.map((. json) =&gt; <span class="hljs-type">CachingServiceConfig</span>.decode(json))
+    data <span class="hljs-operator">|&gt;</span> <span class="hljs-type">Js</span>.<span class="hljs-type">Dict</span>.map((. json) =&gt; <span class="hljs-type">CachingServiceConfig</span>.decode(json))
   };
