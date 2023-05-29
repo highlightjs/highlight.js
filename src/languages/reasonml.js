@@ -91,23 +91,23 @@ export default function(hljs) {
     illegal: /(:-|:=|\$\{|\+=)/,
     contains: [
       {
-        className: 'literal',
+        scope: 'literal',
         begin: /\[(\|\|)?\]|\(\)/,
         relevance: 0
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(/\/\*/, /\*\//, { illegal: /^(#,\/\/)/ }),
       { /* type variable */
-        className: 'symbol',
+        scope: 'symbol',
         begin: /\'[A-Za-z_](?!\')[\w\']*/
         /* the grammar is ambiguous on how 'a'b should be interpreted but not the compiler */
       },
       { /* polymorphic variant */
-        className: 'type',
+        scope: 'type',
         begin: /`[A-Z][\w\']*/
       },
       { /* module or constructor */
-        className: 'type',
+        scope: 'type',
         begin: /\b[A-Z][\w\']*/,
         relevance: 0
       },
@@ -116,12 +116,12 @@ export default function(hljs) {
         relevance: 0
       },
       hljs.inherit(hljs.APOS_STRING_MODE, {
-        className: 'string',
+        scope: 'string',
         relevance: 0
       }),
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
-        className: 'number',
+        scope: 'number',
         begin:
           '\\b(0[xX][a-fA-F0-9_]+[Lln]?|'
           + '0[oO][0-7_]+[Lln]?|'
