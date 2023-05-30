@@ -117,7 +117,7 @@ export default function(hljs) {
       },
       {
         scope: 'operator',
-        match: /\s+\|\||\+[\+\.]?|\*[\*\/\.]?|\/[\.]?|\.\.\.|\|>|&&|===?\s+/,
+        match: /\s+(\|\||\+[\+\.]?|\*[\*\/\.]?|\/[\.]?|\.\.\.|\|>|&&|===?)\s+/,
         relevance: 0
       },      
       hljs.inherit(hljs.APOS_STRING_MODE, {
