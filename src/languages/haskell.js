@@ -7,8 +7,26 @@ Category: functional
 */
 
 export default function(hljs) {
+
+  /* See:
+     - https://www.haskell.org/onlinereport/lexemes.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/binary_literals.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/numeric_underscores.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/hex_float_literals.html
+  */
+  const decimalDigits = '([0-9]_*)+';
+  const hexDigits = '([0-9a-fA-F]_*)+';
+  const binaryDigits = '([01]_*)+';
+  const octalDigits = '([0-7]_*)+';
+  const ascSymbol = '[!#$%&*+.\\/<=>?@\\\\^~-]';
+  const uniSymbol = '(\\p{S}|\\p{P})' // Symbol or Punctuation
+  const special = '[(),;\\[\\]`|{}]';
+  const symbol = `(${ascSymbol}|(?!(${special}|[_:"']))${uniSymbol})`;
+
   const COMMENT = { variants: [
-    hljs.COMMENT('--', '$'),
+    // Double dash forms a valid comment only if it's not part of legal lexeme.
+    // See: Haskell 98 report: https://www.haskell.org/onlinereport/lexemes.html
+    hljs.COMMENT(`(?<!${symbol})--+(?!${symbol})`, '$'),
     hljs.COMMENT(
       /\{-/,
       /-\}/,
@@ -56,19 +74,6 @@ export default function(hljs) {
     contains: LIST.contains
   };
 
-  /* See:
-
-     - https://www.haskell.org/onlinereport/lexemes.html
-     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/binary_literals.html
-     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/numeric_underscores.html
-     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/hex_float_literals.html
-
-  */
-  const decimalDigits = '([0-9]_*)+';
-  const hexDigits = '([0-9a-fA-F]_*)+';
-  const binaryDigits = '([01]_*)+';
-  const octalDigits = '([0-7]_*)+';
-
   const NUMBER = {
     className: 'number',
     relevance: 0,
@@ -92,6 +97,7 @@ export default function(hljs) {
       + 'qualified type data newtype deriving class instance as default '
       + 'infix infixl infixr foreign export ccall stdcall cplusplus '
       + 'jvm dotnet safe unsafe family forall mdo proc rec',
+    unicodeRegex: true,
     contains: [
       // Top-level constructions.
       {

@@ -11,8 +11,9 @@ Core Grammars:
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
 - fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
 - fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
+- fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 
-Dev tool: 
+Dev tool:
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
@@ -72,6 +73,7 @@ Core Grammars:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Zlondrej]: https://github.com/zlondrej
 
 ## Version 11.7.0
 
