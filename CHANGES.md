@@ -11,6 +11,7 @@ Core Grammars:
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
 - fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
 - fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
+- enh(dns) add support for character strings and updates to DNS registration types [Checconio][]
 
 Dev tool: 
 
