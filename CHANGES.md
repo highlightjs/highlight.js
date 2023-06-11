@@ -11,6 +11,7 @@ Core Grammars:
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
 - fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
 - fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
+- enh(swift) support `macro` keyword [Bradley Mackey][]
 
 Dev tool: 
 
@@ -21,7 +22,7 @@ Dev tool:
 [Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
-
+[Bradley Mackey]: https://github.com/bradleymackey
 
 ## Version 11.8.0
 
