@@ -12,6 +12,7 @@ Core Grammars:
 - fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
 - fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
 - enh(swift) support `macro` keyword [Bradley Mackey][]
+- enh(swift) support parameter pack keywords [Bradley Mackey][]
 
 Dev tool: 
 
@@ -23,6 +24,7 @@ Dev tool:
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
+
 
 ## Version 11.8.0
 
