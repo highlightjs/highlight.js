@@ -342,9 +342,10 @@ export default function(hljs) {
     illegal: /["']/
   };
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
-  const FUNCTION = {
+  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#Macro-Declaration
+  const FUNCTION_OR_MACRO = {
     match: [
-      /func/,
+      /(func|macro)/,
       /\s+/,
       either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator)
     ],
@@ -441,7 +442,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       ...COMMENTS,
-      FUNCTION,
+      FUNCTION_OR_MACRO,
       INIT_SUBSCRIPT,
       {
         beginKeywords: 'struct protocol class extension enum actor',
