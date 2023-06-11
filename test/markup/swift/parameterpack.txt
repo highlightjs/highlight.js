@@ -1,6 +1,6 @@
-func variadic<each T, each U, repeat each X>() {}
-
-func foo<each T>(values: repeat each T) -> Bool {}
+func expand<each T, repeat each U>(value: (repeat each T), other: each U, another: repeat each T) -> (repeat (each T)?) {
+  return (repeat each value, each value)
+}
 
 let x: (repeat each T) -> Bool = { }
 
