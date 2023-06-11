@@ -302,7 +302,11 @@ export default function(hljs) {
     end: />/,
     contains: [
       ...COMMENTS,
-      TYPE
+      TYPE,
+      {
+        match: /(repeat|each)/,
+        className: "keyword"
+      }
     ]
   };
   const FUNCTION_PARAMETER_NAME = {

@@ -53,6 +53,7 @@ export const keywords = [
   'distributed',
   'do',
   'dynamic', // contextual
+  'each',
   'else',
   'enum',
   'extension',

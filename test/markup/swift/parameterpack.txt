@@ -1,0 +1,7 @@
+func variadic<each T, each U, repeat each X>() {}
+
+func foo<each T>(values: repeat each T) -> Bool {}
+
+let x: (repeat each T) -> Bool = { }
+
+(each U, repeat each T)
