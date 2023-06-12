@@ -212,23 +212,18 @@ export default function(hljs) {
 
   // Adapted from hljs.REGEXP_MODE
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
-  const EXTENDED_REGEXP_LITERAL = (rawDelimiter, outerRule) => ({
-    begin: outerRule,
-    contains: [
-      {
-        begin: concat(rawDelimiter, /\//),
-        end: concat(/\//, rawDelimiter),
-        contains: REGEXP_CONTENTS,
-      },
-    ],
+  const EXTENDED_REGEXP_LITERAL = (rawDelimiter) => ({
+    begin: concat(rawDelimiter, /\//),
+    end: concat(/\//, rawDelimiter),
+    contains: REGEXP_CONTENTS,
   });
 
   const REGEXP = {
     scope: "regexp",
     variants: [
-      EXTENDED_REGEXP_LITERAL('###', /(?=###\/[\s\S]*\/###)/),
-      EXTENDED_REGEXP_LITERAL('##', /(?=##\/[\s\S]*\/##)/),
-      EXTENDED_REGEXP_LITERAL('#', /(?=#\/[\s\S]*\/#)/),
+      EXTENDED_REGEXP_LITERAL('###'),
+      EXTENDED_REGEXP_LITERAL('##'),
+      EXTENDED_REGEXP_LITERAL('#'),
       BARE_REGEXP_LITERAL,
     ],
   };
