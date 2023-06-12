@@ -71,6 +71,8 @@ let regex = #/
 2 / 2 / 2     // not a regex
 2 /     2    / 2     // not a regex
 2 /2/ 2       // is a regex
+2 /2 / 2      // is a regex
+2 / 2/ 2      // not a regex
 2 #/ 2 /# 2   // is a regex
 /\ escaped leading whitespace/ // is a regex
 x+/y/ // infix operator, not a regex
