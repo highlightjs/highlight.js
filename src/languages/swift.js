@@ -31,10 +31,6 @@ export default function(hljs) {
     BLOCK_COMMENT
   ];
 
-  const REGEXP_MODES = [
-    hljs.REGEXP_MODE
-  ];
-
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
   const DOT_KEYWORD = {
@@ -184,6 +180,44 @@ export default function(hljs) {
     ]
   };
 
+  // Adapted from hljs.REGEXP_MODE
+  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
+  const REGEXP_LITERAL = (rawDelimiter = "", outerRule) => ({
+    // this outer rule makes sure we actually have a WHOLE regex and not simply
+    // an expression such as:
+    //
+    //     3 / something
+    //
+    // (which will then blow up when regex's `illegal` sees the newline)
+    begin: outerRule,
+    contains: [
+      {
+        begin: concat(rawDelimiter, /\//),
+        end: concat(/\//, rawDelimiter),
+        illegal: rawDelimiter === "" ? /\n/ : "",
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          {
+            begin: /\[/,
+            end: /\]/,
+            relevance: 0,
+            contains: [ hljs.BACKSLASH_ESCAPE ],
+          },
+        ],
+      },
+    ],
+  });
+
+  const REGEXP = {
+    scope: "regexp",
+    variants: [
+      REGEXP_LITERAL("###", /(?=###\/[\s\S]*\/###)/),
+      REGEXP_LITERAL("##", /(?=##\/[\s\S]*\/##)/),
+      REGEXP_LITERAL("#", /(?=#\/[\s\S]*\/#)/),
+      REGEXP_LITERAL("", /(?=\/[^/\n]*\/)/),
+    ],
+  };
+
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID412
   const QUOTED_IDENTIFIER = { match: concat(/`/, Swift.identifier, /`/) };
   const IMPLICIT_PARAMETER = {
@@ -290,7 +324,7 @@ export default function(hljs) {
       'self',
       TUPLE_ELEMENT_NAME,
       ...COMMENTS,
-      ...REGEXP_MODES,
+      REGEXP,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,
@@ -471,7 +505,7 @@ export default function(hljs) {
         contains: [ ...COMMENTS ],
         relevance: 0
       },
-      ...REGEXP_MODES,
+      REGEXP,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,
