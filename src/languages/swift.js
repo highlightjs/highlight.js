@@ -180,9 +180,39 @@ export default function(hljs) {
     ]
   };
 
+  const REGEXP_CONTENTS = [
+    hljs.BACKSLASH_ESCAPE,
+    {
+      begin: /\[/,
+      end: /\]/,
+      relevance: 0,
+      contains: [ hljs.BACKSLASH_ESCAPE ],
+    },
+  ];
+
   // Adapted from hljs.REGEXP_MODE
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
-  const REGEXP_LITERAL = (rawDelimiter = "", outerRule) => ({
+  const BARE_REGEXP_LITERAL = {
+    // this outer rule makes sure we actually have a WHOLE regex and not simply
+    // an expression such as:
+    //
+    //     3 / something
+    //
+    // (which will then blow up when regex's `illegal` sees the newline)
+    begin: /(?=\/[^\s][^/\n]*\/)/,
+    contains: [
+      {
+        begin: /\/[^\s]/,
+        end: /\//,
+        illegal: /\n/,
+        contains: REGEXP_CONTENTS,
+      },
+    ],
+  };
+
+  // Adapted from hljs.REGEXP_MODE
+  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
+  const EXTENDED_REGEXP_LITERAL = (rawDelimiter, outerRule) => ({
     // this outer rule makes sure we actually have a WHOLE regex and not simply
     // an expression such as:
     //
@@ -192,23 +222,9 @@ export default function(hljs) {
     begin: outerRule,
     contains: [
       {
-        begin: concat(
-          rawDelimiter,
-          // bare regexps cannot start with whitespace
-          rawDelimiter === "" ? /\/[^\s]/ : /\//
-        ),
+        begin: concat(rawDelimiter, /\//),
         end: concat(/\//, rawDelimiter),
-        // newlines are only allowed for extended regexps
-        illegal: rawDelimiter === "" ? /\n/ : "",
-        contains: [
-          hljs.BACKSLASH_ESCAPE,
-          {
-            begin: /\[/,
-            end: /\]/,
-            relevance: 0,
-            contains: [ hljs.BACKSLASH_ESCAPE ],
-          },
-        ],
+        contains: REGEXP_CONTENTS,
       },
     ],
   });
@@ -216,10 +232,10 @@ export default function(hljs) {
   const REGEXP = {
     scope: "regexp",
     variants: [
-      REGEXP_LITERAL("###", /(?=###\/[\s\S]*\/###)/),
-      REGEXP_LITERAL("##", /(?=##\/[\s\S]*\/##)/),
-      REGEXP_LITERAL("#", /(?=#\/[\s\S]*\/#)/),
-      REGEXP_LITERAL("", /(?=\/[^\s][^/\n]*\/)/),
+      EXTENDED_REGEXP_LITERAL('###', /(?=###\/[\s\S]*\/###)/),
+      EXTENDED_REGEXP_LITERAL('##', /(?=##\/[\s\S]*\/##)/),
+      EXTENDED_REGEXP_LITERAL('#', /(?=#\/[\s\S]*\/#)/),
+      BARE_REGEXP_LITERAL,
     ],
   };
 
