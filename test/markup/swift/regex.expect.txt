@@ -63,3 +63,6 @@ method(<span class="hljs-regexp">#/hello/#</span>, <span class="hljs-regexp">#/w
 <span class="hljs-number">2</span> <span class="hljs-regexp">/2/</span> <span class="hljs-number">2</span>       <span class="hljs-comment">// is a regex</span>
 <span class="hljs-number">2</span> <span class="hljs-regexp">#/ 2 /#</span> <span class="hljs-number">2</span>   <span class="hljs-comment">// is a regex</span>
 <span class="hljs-regexp">/\ escaped leading whitespace/</span> <span class="hljs-comment">// is a regex</span>
+x<span class="hljs-operator">+/</span>y<span class="hljs-operator">/</span> <span class="hljs-comment">// infix operator, not a regex</span>
+x <span class="hljs-operator">+</span> <span class="hljs-regexp">/y/</span> <span class="hljs-comment">// is a regex</span>
+x<span class="hljs-operator">+</span><span class="hljs-regexp">#/y/#</span> <span class="hljs-comment">// is a regex</span>
