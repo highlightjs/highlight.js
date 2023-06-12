@@ -194,6 +194,7 @@ export default function(hljs) {
       {
         begin: concat(
           rawDelimiter,
+          // bare regexps cannot start with whitespace
           rawDelimiter === "" ? /\/[^\s]/ : /\//
         ),
         end: concat(/\//, rawDelimiter),
