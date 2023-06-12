@@ -52,3 +52,8 @@ let regex = #/
   newline explicit\n
   nice
 /#
+
+// operator collisions
+2 / 2 / 2     // not a regex
+2 /2/ 2       // is a regex
+2 #/ 2 /# 2   // is a regex

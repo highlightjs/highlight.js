@@ -192,7 +192,10 @@ export default function(hljs) {
     begin: outerRule,
     contains: [
       {
-        begin: concat(rawDelimiter, /\//),
+        begin: concat(
+          rawDelimiter,
+          rawDelimiter === "" ? /\/[^\s]/ : /\//
+        ),
         end: concat(/\//, rawDelimiter),
         // newlines are only allowed for extended regexps
         illegal: rawDelimiter === "" ? /\n/ : "",
@@ -215,7 +218,7 @@ export default function(hljs) {
       REGEXP_LITERAL("###", /(?=###\/[\s\S]*\/###)/),
       REGEXP_LITERAL("##", /(?=##\/[\s\S]*\/##)/),
       REGEXP_LITERAL("#", /(?=#\/[\s\S]*\/#)/),
-      REGEXP_LITERAL("", /(?=\/[^/\n]*\/)/),
+      REGEXP_LITERAL("", /(?=\/[^\s][^/\n]*\/)/),
     ],
   };
 

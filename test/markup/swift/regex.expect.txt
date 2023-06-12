@@ -52,3 +52,8 @@ qux(<span class="hljs-regexp">/,/</span>)    <span class="hljs-comment">// Will 
   newline explicit\n
   nice
 /#</span>
+
+<span class="hljs-comment">// operator collisions</span>
+<span class="hljs-number">2</span> <span class="hljs-operator">/</span> <span class="hljs-number">2</span> <span class="hljs-operator">/</span> <span class="hljs-number">2</span>     <span class="hljs-comment">// not a regex</span>
+<span class="hljs-number">2</span> <span class="hljs-regexp">/2/</span> <span class="hljs-number">2</span>       <span class="hljs-comment">// is a regex</span>
+<span class="hljs-number">2</span> <span class="hljs-regexp">#/ 2 /#</span> <span class="hljs-number">2</span>   <span class="hljs-comment">// is a regex</span>
