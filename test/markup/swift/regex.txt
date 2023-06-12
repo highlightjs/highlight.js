@@ -41,3 +41,14 @@ let regex = #/
   (?<account> (?: (?!\s\s) . )+)  \s\s+ # Note that account names may contain spaces.
   (?<amount>  .*)
 /#
+#/
+  this is another extended regex literal
+  /this is still in the regex/
+  123
+  12 / 2
+  (/hello/)
+  # regex comment
+  backslash escape literal newline\
+  newline explicit\n
+  nice
+/#

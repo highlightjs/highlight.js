@@ -41,3 +41,14 @@ qux(<span class="hljs-regexp">/,/</span>)    <span class="hljs-comment">// Will 
   (?&lt;account&gt; (?: (?!\s\s) . )+)  \s\s+ # Note that account names may contain spaces.
   (?&lt;amount&gt;  .*)
 /#</span>
+<span class="hljs-regexp">#/
+  this is another extended regex literal
+  /this is still in the regex/
+  123
+  12 / 2
+  (/hello/)
+  # regex comment
+  backslash escape literal newline\
+  newline explicit\n
+  nice
+/#</span>
