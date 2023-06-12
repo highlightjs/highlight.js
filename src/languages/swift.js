@@ -213,12 +213,6 @@ export default function(hljs) {
   // Adapted from hljs.REGEXP_MODE
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
   const EXTENDED_REGEXP_LITERAL = (rawDelimiter, outerRule) => ({
-    // this outer rule makes sure we actually have a WHOLE regex and not simply
-    // an expression such as:
-    //
-    //     3 / something
-    //
-    // (which will then blow up when regex's `illegal` sees the newline)
     begin: outerRule,
     contains: [
       {
