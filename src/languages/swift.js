@@ -305,7 +305,7 @@ export default function(hljs) {
       TYPE,
       {
         match: /(repeat|each)/,
-        className: "keyword"
+        scope: 'keyword'
       }
     ]
   };
