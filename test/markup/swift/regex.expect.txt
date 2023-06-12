@@ -56,6 +56,12 @@ method(<span class="hljs-regexp">#/hello/#</span>, <span class="hljs-regexp">#/w
   newline explicit\n
   nice
 /#</span>
+<span class="hljs-regexp">##/
+  multiline
+/##</span>
+<span class="hljs-regexp">###/
+  multiline
+/###</span>
 
 <span class="hljs-comment">// whitespace</span>
 <span class="hljs-number">2</span> <span class="hljs-operator">/</span> <span class="hljs-number">2</span> <span class="hljs-operator">/</span> <span class="hljs-number">2</span>     <span class="hljs-comment">// not a regex</span>

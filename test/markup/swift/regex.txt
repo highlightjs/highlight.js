@@ -56,6 +56,12 @@ let regex = #/
   newline explicit\n
   nice
 /#
+##/
+  multiline
+/##
+###/
+  multiline
+/###
 
 // whitespace
 2 / 2 / 2     // not a regex
