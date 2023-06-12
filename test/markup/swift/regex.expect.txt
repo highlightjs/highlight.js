@@ -66,3 +66,12 @@ method(<span class="hljs-regexp">#/hello/#</span>, <span class="hljs-regexp">#/w
 x<span class="hljs-operator">+/</span>y<span class="hljs-operator">/</span> <span class="hljs-comment">// infix operator, not a regex</span>
 x <span class="hljs-operator">+</span> <span class="hljs-regexp">/y/</span> <span class="hljs-comment">// is a regex</span>
 x<span class="hljs-operator">+</span><span class="hljs-regexp">#/y/#</span> <span class="hljs-comment">// is a regex</span>
+
+<span class="hljs-comment">// structural</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Planet</span> {
+  <span class="hljs-keyword">var</span> d <span class="hljs-operator">=</span> <span class="hljs-regexp">/test/</span>
+  <span class="hljs-keyword">var</span> e <span class="hljs-operator">=</span> <span class="hljs-regexp">#/test/#</span>
+  <span class="hljs-keyword">var</span> n: <span class="hljs-keyword">Any</span> {
+    <span class="hljs-regexp">/test/</span> <span class="hljs-operator">+</span> <span class="hljs-regexp">#/test/#</span>
+  }
+}

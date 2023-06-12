@@ -66,3 +66,12 @@ let regex = #/
 x+/y/ // infix operator, not a regex
 x + /y/ // is a regex
 x+#/y/# // is a regex
+
+// structural
+struct Planet {
+  var d = /test/
+  var e = #/test/#
+  var n: Any {
+    /test/ + #/test/#
+  }
+}
