@@ -31,6 +31,10 @@ export default function(hljs) {
     BLOCK_COMMENT
   ];
 
+  const REGEXP_MODES = [
+    hljs.REGEXP_MODE
+  ];
+
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413
   // https://docs.swift.org/swift-book/ReferenceManual/zzSummaryOfTheGrammar.html
   const DOT_KEYWORD = {
@@ -286,6 +290,7 @@ export default function(hljs) {
       'self',
       TUPLE_ELEMENT_NAME,
       ...COMMENTS,
+      ...REGEXP_MODES,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,
@@ -466,6 +471,7 @@ export default function(hljs) {
         contains: [ ...COMMENTS ],
         relevance: 0
       },
+      ...REGEXP_MODES,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,

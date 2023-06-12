@@ -1,0 +1,11 @@
+/hello/
+/hello world/
+/\w+\s+(\d+)\s+\w+/
+/(.+?): (.+)/
+let p = /hello/
+let n = /hello/ + /world/ - /nice/
+let q = /hello/ / 2
+(/hello/)
+method(value: /hello/)
+method(/hello/, world)
+method(/hello/, /world/)
