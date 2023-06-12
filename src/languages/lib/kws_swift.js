@@ -79,6 +79,7 @@ export const keywords = [
   'nonisolated', // contextual
   'lazy', // contextual
   'let',
+  'macro',
   'mutating', // contextual
   'nonmutating', // contextual
   /open\(set\)/, // contextual
