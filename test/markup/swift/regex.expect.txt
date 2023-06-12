@@ -1,3 +1,5 @@
+<span class="hljs-regexp">/escape\/slash/</span>
+<span class="hljs-regexp">/escape \/ slash \/ /</span>
 <span class="hljs-regexp">/hello/</span>
 <span class="hljs-regexp">/hello world/</span>
 <span class="hljs-regexp">/\w+\s+(\d+)\s+\w+/</span>
@@ -18,6 +20,8 @@ qux(<span class="hljs-regexp">/,/</span>)    <span class="hljs-comment">// Will 
 <span class="hljs-keyword">let</span> i <span class="hljs-operator">=</span> <span class="hljs-regexp">/^x/</span>           <span class="hljs-comment">// Will become the regex literal &#x27;/^x/&#x27;</span>
 
 <span class="hljs-comment">// extended literals</span>
+<span class="hljs-regexp">#/raw\/slashes/#</span>
+<span class="hljs-regexp">#/raw \/ slashes \/ /#</span>
 <span class="hljs-regexp">#/hello/#</span>
 <span class="hljs-regexp">#/he/llo/#</span>
 <span class="hljs-regexp">##/hello/##</span>
