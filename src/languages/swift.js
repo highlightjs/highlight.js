@@ -194,6 +194,7 @@ export default function(hljs) {
       {
         begin: concat(rawDelimiter, /\//),
         end: concat(/\//, rawDelimiter),
+        // newlines are only allowed for extended regexps
         illegal: rawDelimiter === "" ? /\n/ : "",
         contains: [
           hljs.BACKSLASH_ESCAPE,
