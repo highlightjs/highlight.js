@@ -9,8 +9,22 @@
 method(value: <span class="hljs-regexp">/hello/</span>)
 method(<span class="hljs-regexp">/hello/</span>, world)
 method(<span class="hljs-regexp">/hello/</span>, <span class="hljs-regexp">/world/</span>)
+foo(<span class="hljs-regexp">/a, b/</span>) <span class="hljs-comment">// Will become regex literal &#x27;/a, b/&#x27;</span>
+qux(<span class="hljs-regexp">/, !/</span>)  <span class="hljs-comment">// Will become regex literal &#x27;/, !/&#x27;</span>
+qux(<span class="hljs-regexp">/,/</span>)    <span class="hljs-comment">// Will become regex literal &#x27;/,/&#x27;</span>
+<span class="hljs-keyword">let</span> g <span class="hljs-operator">=</span> hasSubscript[<span class="hljs-regexp">/]/</span><span class="hljs-number">2</span> <span class="hljs-comment">// Will become regex literal &#x27;/]/&#x27;</span>
+<span class="hljs-keyword">let</span> h <span class="hljs-operator">=</span> <span class="hljs-regexp">/0; let f = 1/</span> <span class="hljs-comment">// Will become the regex literal &#x27;/0; let y = 1/&#x27;</span>
+<span class="hljs-keyword">let</span> i <span class="hljs-operator">=</span> <span class="hljs-regexp">/^x/</span>           <span class="hljs-comment">// Will become the regex literal &#x27;/^x/&#x27;</span>
 
+<span class="hljs-comment">// extended literals</span>
 <span class="hljs-regexp">#/hello/#</span>
+<span class="hljs-regexp">#/he/llo/#</span>
+<span class="hljs-regexp">##/hello/##</span>
+<span class="hljs-regexp">##/he/llo/##</span>
+<span class="hljs-regexp">###/hello/###</span>
+<span class="hljs-regexp">###/he/llo/###</span>
+#<span class="hljs-regexp">###/hello/###</span>#
+#<span class="hljs-regexp">###/he/llo/###</span>#
 <span class="hljs-regexp">#/hello world/#</span>
 <span class="hljs-regexp">#/\w+\s+(\d+)\s+\w+/#</span>
 <span class="hljs-regexp">#/(.+?): (.+)/#</span>
@@ -22,18 +36,7 @@ method(value: <span class="hljs-regexp">#/hello/#</span>)
 method(<span class="hljs-regexp">#/hello/#</span>, world)
 method(<span class="hljs-regexp">#/hello/#</span>, <span class="hljs-regexp">#/world/#</span>)
 
-<span class="hljs-regexp">#/he/llo/#</span>
-<span class="hljs-regexp">##/hello/##</span>
-<span class="hljs-regexp">###/hello/###</span>
-#<span class="hljs-regexp">###/hello/###</span>#
-
-foo(<span class="hljs-regexp">/a, b/</span>) <span class="hljs-comment">// Will become regex literal &#x27;/a, b/&#x27;</span>
-qux(<span class="hljs-regexp">/, !/</span>)  <span class="hljs-comment">// Will become regex literal &#x27;/, !/&#x27;</span>
-qux(<span class="hljs-regexp">/,/</span>)    <span class="hljs-comment">// Will become regex literal &#x27;/,/&#x27;</span>
-<span class="hljs-keyword">let</span> g <span class="hljs-operator">=</span> hasSubscript[<span class="hljs-regexp">/]/</span><span class="hljs-number">2</span> <span class="hljs-comment">// Will become regex literal &#x27;/]/&#x27;</span>
-<span class="hljs-keyword">let</span> h <span class="hljs-operator">=</span> <span class="hljs-regexp">/0; let f = 1/</span> <span class="hljs-comment">// Will become the regex literal &#x27;/0; let y = 1/&#x27;</span>
-<span class="hljs-keyword">let</span> i <span class="hljs-operator">=</span> <span class="hljs-regexp">/^x/</span>           <span class="hljs-comment">// Will become the regex literal &#x27;/^x/&#x27;</span>
-
+<span class="hljs-comment">// multiline extended literals</span>
 <span class="hljs-keyword">let</span> regex <span class="hljs-operator">=</span> <span class="hljs-regexp">#/
   # Match a line of the format e.g &quot;DEBIT  03/03/2022  Totally Legit Shell Corp  $2,000,000.00&quot;
   (?&lt;kind&gt;    \w+)                \s\s+
@@ -53,7 +56,9 @@ qux(<span class="hljs-regexp">/,/</span>)    <span class="hljs-comment">// Will 
   nice
 /#</span>
 
-<span class="hljs-comment">// operator collisions</span>
+<span class="hljs-comment">// whitespace</span>
 <span class="hljs-number">2</span> <span class="hljs-operator">/</span> <span class="hljs-number">2</span> <span class="hljs-operator">/</span> <span class="hljs-number">2</span>     <span class="hljs-comment">// not a regex</span>
+<span class="hljs-number">2</span> <span class="hljs-operator">/</span>     <span class="hljs-number">2</span>    <span class="hljs-operator">/</span> <span class="hljs-number">2</span>     <span class="hljs-comment">// not a regex</span>
 <span class="hljs-number">2</span> <span class="hljs-regexp">/2/</span> <span class="hljs-number">2</span>       <span class="hljs-comment">// is a regex</span>
 <span class="hljs-number">2</span> <span class="hljs-regexp">#/ 2 /#</span> <span class="hljs-number">2</span>   <span class="hljs-comment">// is a regex</span>
+<span class="hljs-regexp">/\ escaped leading whitespace/</span> <span class="hljs-comment">// is a regex</span>

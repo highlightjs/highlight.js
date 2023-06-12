@@ -9,8 +9,22 @@ let q = /hello/ / 2
 method(value: /hello/)
 method(/hello/, world)
 method(/hello/, /world/)
+foo(/a, b/) // Will become regex literal '/a, b/'
+qux(/, !/)  // Will become regex literal '/, !/'
+qux(/,/)    // Will become regex literal '/,/'
+let g = hasSubscript[/]/2 // Will become regex literal '/]/'
+let h = /0; let f = 1/ // Will become the regex literal '/0; let y = 1/'
+let i = /^x/           // Will become the regex literal '/^x/'
 
+// extended literals
 #/hello/#
+#/he/llo/#
+##/hello/##
+##/he/llo/##
+###/hello/###
+###/he/llo/###
+####/hello/####
+####/he/llo/####
 #/hello world/#
 #/\w+\s+(\d+)\s+\w+/#
 #/(.+?): (.+)/#
@@ -22,18 +36,7 @@ method(value: #/hello/#)
 method(#/hello/#, world)
 method(#/hello/#, #/world/#)
 
-#/he/llo/#
-##/hello/##
-###/hello/###
-####/hello/####
-
-foo(/a, b/) // Will become regex literal '/a, b/'
-qux(/, !/)  // Will become regex literal '/, !/'
-qux(/,/)    // Will become regex literal '/,/'
-let g = hasSubscript[/]/2 // Will become regex literal '/]/'
-let h = /0; let f = 1/ // Will become the regex literal '/0; let y = 1/'
-let i = /^x/           // Will become the regex literal '/^x/'
-
+// multiline extended literals
 let regex = #/
   # Match a line of the format e.g "DEBIT  03/03/2022  Totally Legit Shell Corp  $2,000,000.00"
   (?<kind>    \w+)                \s\s+
@@ -53,7 +56,9 @@ let regex = #/
   nice
 /#
 
-// operator collisions
+// whitespace
 2 / 2 / 2     // not a regex
+2 /     2    / 2     // not a regex
 2 /2/ 2       // is a regex
 2 #/ 2 /# 2   // is a regex
+/\ escaped leading whitespace/ // is a regex
