@@ -2,6 +2,7 @@
 /hello world/
 /\w+\s+(\d+)\s+\w+/
 /(.+?): (.+)/
+/(?<identifier>[[:alpha:]]\w*) = (?<hex>[0-9A-F]+)/
 let p = /hello/
 let n = /hello/ + /world/ - /nice/
 let q = /hello/ / 2

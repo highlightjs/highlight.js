@@ -2,6 +2,7 @@
 <span class="hljs-regexp">/hello world/</span>
 <span class="hljs-regexp">/\w+\s+(\d+)\s+\w+/</span>
 <span class="hljs-regexp">/(.+?): (.+)/</span>
+<span class="hljs-regexp">/(?&lt;identifier&gt;[[:alpha:]]\w*) = (?&lt;hex&gt;[0-9A-F]+)/</span>
 <span class="hljs-keyword">let</span> p <span class="hljs-operator">=</span> <span class="hljs-regexp">/hello/</span>
 <span class="hljs-keyword">let</span> n <span class="hljs-operator">=</span> <span class="hljs-regexp">/hello/</span> <span class="hljs-operator">+</span> <span class="hljs-regexp">/world/</span> <span class="hljs-operator">-</span> <span class="hljs-regexp">/nice/</span>
 <span class="hljs-keyword">let</span> q <span class="hljs-operator">=</span> <span class="hljs-regexp">/hello/</span> <span class="hljs-operator">/</span> <span class="hljs-number">2</span>
