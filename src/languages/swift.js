@@ -186,8 +186,8 @@ export default function(hljs) {
       begin: /\[/,
       end: /\]/,
       relevance: 0,
-      contains: [ hljs.BACKSLASH_ESCAPE ],
-    },
+      contains: [ hljs.BACKSLASH_ESCAPE ]
+    }
   ];
 
   // Adapted from hljs.REGEXP_MODE
@@ -203,9 +203,9 @@ export default function(hljs) {
       {
         begin: /\/[^\s]/,
         end: /\//,
-        contains: REGEXP_CONTENTS,
-      },
-    ],
+        contains: REGEXP_CONTENTS
+      }
+    ]
   };
 
   // Adapted from hljs.REGEXP_MODE
@@ -218,7 +218,7 @@ export default function(hljs) {
       {
         scope: 'comment',
         begin: /#/,
-        end: /$/,
+        end: /$/
       }
     ]
   });
@@ -229,8 +229,8 @@ export default function(hljs) {
       EXTENDED_REGEXP_LITERAL('###'),
       EXTENDED_REGEXP_LITERAL('##'),
       EXTENDED_REGEXP_LITERAL('#'),
-      BARE_REGEXP_LITERAL,
-    ],
+      BARE_REGEXP_LITERAL
+    ]
   };
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID412
