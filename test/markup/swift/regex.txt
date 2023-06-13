@@ -87,3 +87,8 @@ struct Planet {
     /test/ + #/test/#
   }
 }
+
+// unterminated
+/something
+another line
+/

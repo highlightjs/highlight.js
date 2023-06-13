@@ -87,3 +87,8 @@ x<span class="hljs-operator">+</span><span class="hljs-regexp">#/y/#</span> <spa
     <span class="hljs-regexp">/test/</span> <span class="hljs-operator">+</span> <span class="hljs-regexp">#/test/#</span>
   }
 }
+
+<span class="hljs-comment">// unterminated</span>
+<span class="hljs-operator">/</span>something
+another line
+<span class="hljs-operator">/</span>
