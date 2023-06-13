@@ -204,7 +204,6 @@ export default function(hljs) {
       {
         begin: /\/[^\s]/,
         end: /\//,
-        illegal: /\n/,
         contains: REGEXP_CONTENTS,
       },
     ],
