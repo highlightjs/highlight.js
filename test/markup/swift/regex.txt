@@ -50,20 +50,28 @@ let regex = #/
   (?<amount>  .*)
 /#
 #/
+  #regex comment
+  # regex comment
+  ## regex comment
   this is another extended regex literal
   /this is still in the regex/
   123
   12 / 2
   (/hello/)
-  # regex comment
   backslash escape literal newline\
   newline explicit\n
   nice
 /#
 ##/
+  #regex comment
+  # regex comment
+  #/ regex comment
   multiline
 /##
 ###/
+  #regex comment
+  # regex comment
+  #/ regex comment
   multiline
 /###
 

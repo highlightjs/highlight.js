@@ -208,12 +208,21 @@ export default function(hljs) {
     ],
   };
 
+  const EXTENDED_REGEXP_COMMENT = {
+    scope: 'comment',
+    begin: /#/,
+    end: /$/,
+  };
+
   // Adapted from hljs.REGEXP_MODE
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
   const EXTENDED_REGEXP_LITERAL = (rawDelimiter) => ({
     begin: concat(rawDelimiter, /\//),
     end: concat(/\//, rawDelimiter),
-    contains: REGEXP_CONTENTS,
+    contains: [
+      ...REGEXP_CONTENTS,
+      EXTENDED_REGEXP_COMMENT
+    ]
   });
 
   const REGEXP = {

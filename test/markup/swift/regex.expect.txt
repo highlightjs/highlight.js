@@ -43,27 +43,35 @@ method(<span class="hljs-regexp">#/hello/#</span>, <span class="hljs-regexp">#/w
 
 <span class="hljs-comment">// multiline extended literals</span>
 <span class="hljs-keyword">let</span> regex <span class="hljs-operator">=</span> <span class="hljs-regexp">#/
-  # Match a line of the format e.g &quot;DEBIT  03/03/2022  Totally Legit Shell Corp  $2,000,000.00&quot;
+  <span class="hljs-comment"># Match a line of the format e.g &quot;DEBIT  03/03/2022  Totally Legit Shell Corp  $2,000,000.00&quot;</span>
   (?&lt;kind&gt;    \w+)                \s\s+
   (?&lt;date&gt;    \S+)                \s\s+
-  (?&lt;account&gt; (?: (?!\s\s) . )+)  \s\s+ # Note that account names may contain spaces.
+  (?&lt;account&gt; (?: (?!\s\s) . )+)  \s\s+ <span class="hljs-comment"># Note that account names may contain spaces.</span>
   (?&lt;amount&gt;  .*)
 /#</span>
 <span class="hljs-regexp">#/
+  <span class="hljs-comment">#regex comment</span>
+  <span class="hljs-comment"># regex comment</span>
+  <span class="hljs-comment">## regex comment</span>
   this is another extended regex literal
   /this is still in the regex/
   123
   12 / 2
   (/hello/)
-  # regex comment
   backslash escape literal newline\
   newline explicit\n
   nice
 /#</span>
 <span class="hljs-regexp">##/
+  <span class="hljs-comment">#regex comment</span>
+  <span class="hljs-comment"># regex comment</span>
+  <span class="hljs-comment">#/ regex comment</span>
   multiline
 /##</span>
 <span class="hljs-regexp">###/
+  <span class="hljs-comment">#regex comment</span>
+  <span class="hljs-comment"># regex comment</span>
+  <span class="hljs-comment">#/ regex comment</span>
   multiline
 /###</span>
 
