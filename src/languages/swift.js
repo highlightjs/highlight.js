@@ -300,13 +300,10 @@ export default function(hljs) {
   const GENERIC_PARAMETERS = {
     begin: /</,
     end: />/,
+    keywords: 'repeat each',
     contains: [
       ...COMMENTS,
-      TYPE,
-      {
-        match: /(repeat|each)/,
-        scope: 'keyword'
-      }
+      TYPE
     ]
   };
   const FUNCTION_PARAMETER_NAME = {
