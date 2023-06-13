@@ -198,7 +198,6 @@ export default function(hljs) {
     //
     //     3 / something
     //
-    // (which will then blow up when regex's `illegal` sees the newline)
     begin: /(?=\/[^\s][^/\n]*\/)/,
     contains: [
       {
