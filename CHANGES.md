@@ -13,6 +13,7 @@ Core Grammars:
 - fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
 - enh(swift) support `macro` keyword [Bradley Mackey][]
 - enh(swift) support parameter pack keywords [Bradley Mackey][]
+- enh(swift) regex literal support [Bradley Mackey][]
 
 Dev tool: 
 

@@ -180,6 +180,50 @@ export default function(hljs) {
     ]
   };
 
+  const REGEXP_CONTENTS = [
+    hljs.BACKSLASH_ESCAPE,
+    {
+      begin: /\[/,
+      end: /\]/,
+      relevance: 0,
+      contains: [ hljs.BACKSLASH_ESCAPE ]
+    }
+  ];
+
+  const BARE_REGEXP_LITERAL = {
+    begin: /\/[^\s](?=[^/\n]*\/)/,
+    end: /\//,
+    contains: REGEXP_CONTENTS
+  };
+
+  const EXTENDED_REGEXP_LITERAL = (rawDelimiter) => {
+    const begin = concat(rawDelimiter, /\//);
+    const end = concat(/\//, rawDelimiter);
+    return {
+      begin,
+      end,
+      contains: [
+        ...REGEXP_CONTENTS,
+        {
+          scope: "comment",
+          begin: `#(?!.*${end})`,
+          end: /$/,
+        },
+      ],
+    };
+  };
+
+  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
+  const REGEXP = {
+    scope: "regexp",
+    variants: [
+      EXTENDED_REGEXP_LITERAL('###'),
+      EXTENDED_REGEXP_LITERAL('##'),
+      EXTENDED_REGEXP_LITERAL('#'),
+      BARE_REGEXP_LITERAL
+    ]
+  };
+
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID412
   const QUOTED_IDENTIFIER = { match: concat(/`/, Swift.identifier, /`/) };
   const IMPLICIT_PARAMETER = {
@@ -286,6 +330,7 @@ export default function(hljs) {
       'self',
       TUPLE_ELEMENT_NAME,
       ...COMMENTS,
+      REGEXP,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,
@@ -466,6 +511,7 @@ export default function(hljs) {
         contains: [ ...COMMENTS ],
         relevance: 0
       },
+      REGEXP,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,

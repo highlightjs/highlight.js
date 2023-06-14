@@ -14,3 +14,4 @@
 )
 (<span class="hljs-keyword">let</span> x, <span class="hljs-keyword">var</span> y)
 ([key: value, key: value])
+(<span class="hljs-regexp">/my regex/</span>)
