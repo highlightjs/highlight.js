@@ -190,16 +190,12 @@ export default function(hljs) {
     }
   ];
 
-  // Adapted from hljs.REGEXP_MODE
-  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
   const BARE_REGEXP_LITERAL = {
     begin: /\/[^\s](?=[^/\n]*\/)/,
     end: /\//,
     contains: REGEXP_CONTENTS
   };
 
-  // Adapted from hljs.REGEXP_MODE
-  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
   const EXTENDED_REGEXP_LITERAL = (rawDelimiter) => ({
     begin: concat(rawDelimiter, /\//),
     end: concat(/\//, rawDelimiter),
@@ -213,6 +209,7 @@ export default function(hljs) {
     ]
   });
 
+  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
   const REGEXP = {
     scope: "regexp",
     variants: [
