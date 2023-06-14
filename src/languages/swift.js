@@ -196,18 +196,22 @@ export default function(hljs) {
     contains: REGEXP_CONTENTS
   };
 
-  const EXTENDED_REGEXP_LITERAL = (rawDelimiter) => ({
-    begin: concat(rawDelimiter, /\//),
-    end: concat(/\//, rawDelimiter),
-    contains: [
-      ...REGEXP_CONTENTS,
-      {
-        scope: 'comment',
-        begin: /#/,
-        end: /$/
-      }
-    ]
-  });
+  const EXTENDED_REGEXP_LITERAL = (rawDelimiter) => {
+    const begin = concat(rawDelimiter, /\//);
+    const end = concat(/\//, rawDelimiter);
+    return {
+      begin,
+      end,
+      contains: [
+        ...REGEXP_CONTENTS,
+        {
+          scope: "comment",
+          begin: `#(?!.*${end})`,
+          end: /$/,
+        },
+      ],
+    };
+  };
 
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
   const REGEXP = {

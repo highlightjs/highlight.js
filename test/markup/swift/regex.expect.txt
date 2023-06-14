@@ -40,6 +40,7 @@ qux(<span class="hljs-regexp">/,/</span>)    <span class="hljs-comment">// Will 
 method(value: <span class="hljs-regexp">#/hello/#</span>)
 method(<span class="hljs-regexp">#/hello/#</span>, world)
 method(<span class="hljs-regexp">#/hello/#</span>, <span class="hljs-regexp">#/world/#</span>)
+<span class="hljs-regexp">#/regex with #not a comment/#</span>
 
 <span class="hljs-comment">// multiline extended literals</span>
 <span class="hljs-keyword">let</span> regex <span class="hljs-operator">=</span> <span class="hljs-regexp">#/
