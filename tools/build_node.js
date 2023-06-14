@@ -173,8 +173,9 @@ async function buildNode(options) {
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `styles/${file}`);
-      installCleanCSS(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
+      installCleanCSS(`./src/styles/${file}`, `styles/${file}`, false);
+      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`, true);
+      installCleanCSS(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`, false);
     } else {
       // images, etc.
       install(`./src/styles/${file}`, `styles/${file}`);

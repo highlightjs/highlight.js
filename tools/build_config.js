@@ -8,6 +8,10 @@ module.exports = {
   clean_css: {
     level: 2
   },
+  clean_css_beautify: {
+    level: 0,
+    format: 'beautify'
+  },
   rollup: {
     core: {
       input: {

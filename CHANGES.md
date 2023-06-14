@@ -20,12 +20,14 @@ Dev tool:
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
+- (enh) Build non-minified CSS files for node & CDN. [mvorisek][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
 [Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
+[mvorisek]: https://github.com/mvorisek
 
 
 ## Version 11.8.0

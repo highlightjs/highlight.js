@@ -141,7 +141,8 @@ function installStyles() {
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`);
+      installCleanCSS(`./src/styles/${file}`, `styles/${file}`, false);
+      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`, true);
     } else {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `styles/${file}`);

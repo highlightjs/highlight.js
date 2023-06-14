@@ -26,10 +26,10 @@ code.hljs {
 }
 `.trim();
 
-function installCleanCSS(file, dest) {
+function installCleanCSS(file, dest, minify) {
   const theme = fs.readFileSync(file, { encoding: "utf8" });
   const content = DEFAULT_CSS + "\n" + theme;
-  const out = new CleanCSS(config.clean_css).minify(content).styles;
+  const out = new CleanCSS(minify ? config.clean_css : config.clean_css_beautify).minify(content).styles;
   fs.writeFileSync(`${process.env.BUILD_DIR}/${dest}`, out);
 }
 
