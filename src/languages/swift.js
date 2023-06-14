@@ -193,19 +193,9 @@ export default function(hljs) {
   // Adapted from hljs.REGEXP_MODE
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
   const BARE_REGEXP_LITERAL = {
-    // this outer rule makes sure we actually have a WHOLE regex and not simply
-    // an expression such as:
-    //
-    //     3 / something
-    //
-    begin: /(?=\/[^\s][^/\n]*\/)/,
-    contains: [
-      {
-        begin: /\/[^\s]/,
-        end: /\//,
-        contains: REGEXP_CONTENTS
-      }
-    ]
+    begin: /\/[^\s](?=[^/\n]*\/)/,
+    end: /\//,
+    contains: REGEXP_CONTENTS
   };
 
   // Adapted from hljs.REGEXP_MODE
