@@ -161,7 +161,6 @@ export const REGEXP_MODE = {
     scope: 'regexp',
     begin: /\//,
     end: /\/[gimuy]*/,
-    illegal: /\n/,
     contains: [
       BACKSLASH_ESCAPE,
       {
