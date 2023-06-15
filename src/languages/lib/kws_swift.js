@@ -278,9 +278,7 @@ export const identifier = concat(identifierHead, identifierCharacter, '*');
 export const typeIdentifier = concat(/[A-Z]/, identifierCharacter, '*');
 
 // Built-in attributes, which are highlighted as keywords.
-// Handled separately:
-//  - @available
-//  - @unchecked
+// @available is handled separately.
 export const keywordAttributes = [
   'autoclosure',
   concat(/convention\(/, either('swift', 'block', 'c'), /\)/),

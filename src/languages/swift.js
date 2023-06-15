@@ -243,7 +243,7 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE_ATTRIBUTE = {
     match: /(@|#(un)?)available/,
-    scope: "keyword",
+    scope: 'keyword',
     starts: { contains: [
       {
         begin: /\(/,

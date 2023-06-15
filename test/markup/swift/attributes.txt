@@ -6,7 +6,6 @@
 @SomeWrapper(value: 1.0, other: "string", bool: false)
 @resultBuilder
 @Sendable
-
 @unchecked
-@unchecked Sendable
+
 @ notAnAttribute
