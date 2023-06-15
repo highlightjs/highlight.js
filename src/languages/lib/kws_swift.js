@@ -310,6 +310,7 @@ export const keywordAttributes = [
   'Sendable',
   'testable',
   'UIApplicationMain',
+  'unchecked',
   'unknown',
   'usableFromInline'
 ];
