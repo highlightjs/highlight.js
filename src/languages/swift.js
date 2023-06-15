@@ -243,7 +243,7 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE_ATTRIBUTE = {
     match: /(@|#(un)?)available/,
-    className: "keyword",
+    scope: "keyword",
     starts: { contains: [
       {
         begin: /\(/,
@@ -262,11 +262,11 @@ export default function(hljs) {
     match: /@unchecked(?=\s+Sendable)/
   };
   const KEYWORD_ATTRIBUTE = {
-    className: 'keyword',
+    scope: 'keyword',
     match: concat(/@/, either(...Swift.keywordAttributes))
   };
   const USER_DEFINED_ATTRIBUTE = {
-    className: 'meta',
+    scope: 'meta',
     match: concat(/@/, Swift.identifier)
   };
   const ATTRIBUTES = [
