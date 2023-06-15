@@ -257,6 +257,10 @@ export default function(hljs) {
       }
     ] }
   };
+  const UNCHECKED_ATTRIBUTE = {
+    scope: 'keyword',
+    match: /@unchecked(?=\s+Sendable)/
+  };
   const KEYWORD_ATTRIBUTE = {
     className: 'keyword',
     match: concat(/@/, either(...Swift.keywordAttributes))
@@ -267,6 +271,7 @@ export default function(hljs) {
   };
   const ATTRIBUTES = [
     AVAILABLE_ATTRIBUTE,
+    UNCHECKED_ATTRIBUTE,
     KEYWORD_ATTRIBUTE,
     USER_DEFINED_ATTRIBUTE
   ];

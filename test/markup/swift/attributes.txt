@@ -7,4 +7,6 @@
 @resultBuilder
 @Sendable
 
+@unchecked
+@unchecked Sendable
 @ notAnAttribute
