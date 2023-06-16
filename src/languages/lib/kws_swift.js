@@ -305,8 +305,10 @@ export const keywordAttributes = [
   'propertyWrapper',
   'requires_stored_property_inits',
   'resultBuilder',
+  'Sendable',
   'testable',
   'UIApplicationMain',
+  'unchecked',
   'unknown',
   'usableFromInline'
 ];
