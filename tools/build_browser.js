@@ -172,7 +172,7 @@ function installDemoStyles() {
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`, { minify: false });
+      installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
     } else {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `demo/styles/${file}`);
