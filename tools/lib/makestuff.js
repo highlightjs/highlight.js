@@ -26,7 +26,9 @@ code.hljs {
 }
 `.trim();
 
-function installCleanCSS(file, dest, minify) {
+function installCleanCSS(file, dest, opts = {}) {
+  const minify = opts.minify ?? true; // default is to minify
+
   const theme = fs.readFileSync(file, { encoding: "utf8" });
   const content = DEFAULT_CSS + "\n" + theme;
   const out = new CleanCSS(minify ? config.clean_css : config.clean_css_beautify).minify(content).styles;
