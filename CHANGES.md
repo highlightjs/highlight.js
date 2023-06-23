@@ -15,8 +15,9 @@ Core Grammars:
 - enh(swift) support parameter pack keywords [Bradley Mackey][]
 - enh(swift) regex literal support [Bradley Mackey][]
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
+- enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
 
-Dev tool: 
+Dev tool:
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
