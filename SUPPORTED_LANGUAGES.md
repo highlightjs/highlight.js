@@ -237,7 +237,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | X++                     | axapta, x++            |         |
 | x86 Assembly            | x86asm                 |         |
 | XL                      | xl, tao                |         |
-| XQuery                  | xquery, xpath, xq      |         |
+| XQuery                  | xquery, xpath, xq, xqm |         |
 | YAML                    | yml, yaml              |         |
 | ZenScript               | zenscript, zs          |[highlightjs-zenscript](https://github.com/highlightjs/highlightjs-zenscript) |
 | Zephir                  | zephir, zep            |         |
