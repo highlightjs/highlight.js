@@ -1,5 +1,23 @@
 consume x
 _ = consume y
 doStuffUniquely(with: consume x)
+copy x
+_ = copy x
+doStuff(with: copy x)
 
 struct MoveOnly: ~Copyable {}
+
+struct B: P {
+  func foo(x: borrowing Foo, y: consuming Foo)
+}
+func foo(_: borrowing Foo)
+func foo(_: consuming Foo)
+func foo(_: inout Foo)
+let f: (borrowing Foo) -> Void = { a in a.foo() }
+let f: (consuming Foo) -> Void = { a in a.foo() }
+let f: (inout Foo) -> Void = { a in a.foo() }
+struct Foo {
+  consuming func foo()
+  borrowing func foo()
+  mutating func foo()
+}

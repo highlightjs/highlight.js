@@ -40,13 +40,16 @@ export const keywords = [
   /as\?/, // operator
   /as!/, // operator
   'as', // operator
+  'borrowing', // contextual
   'break',
   'case',
   'catch',
   'class',
   'consume', // contextual
+  'consuming', // contextual
   'continue',
   'convenience', // contextual
+  'copy', // contextual
   'default',
   'defer',
   'deinit',
