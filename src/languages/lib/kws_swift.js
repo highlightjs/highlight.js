@@ -44,6 +44,7 @@ export const keywords = [
   'case',
   'catch',
   'class',
+  'consume', // contextual
   'continue',
   'convenience', // contextual
   'default',
