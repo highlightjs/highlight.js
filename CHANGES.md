@@ -15,6 +15,7 @@ Core Grammars:
 - enh(swift) support parameter pack keywords [Bradley Mackey][]
 - enh(swift) regex literal support [Bradley Mackey][]
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
+- enh(swift) ownership modifiers support [Bradley Mackey][]
 
 Dev tool: 
 
