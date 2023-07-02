@@ -1,3 +1,5 @@
 consume x
 _ = consume y
 doStuffUniquely(with: consume x)
+
+struct MoveOnly: ~Copyable {}
