@@ -21,8 +21,9 @@ Core Grammars:
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
 - enh(swift) ownership modifiers support [Bradley Mackey][]
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
+- fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 
-Dev tool: 
+Dev tool:
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
@@ -83,6 +84,7 @@ Core Grammars:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Zlondrej]: https://github.com/zlondrej
 
 ## Version 11.7.0
 
