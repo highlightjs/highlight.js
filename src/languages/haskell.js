@@ -26,7 +26,13 @@ export default function(hljs) {
   const COMMENT = { variants: [
     // Double dash forms a valid comment only if it's not part of legal lexeme.
     // See: Haskell 98 report: https://www.haskell.org/onlinereport/lexemes.html
-    hljs.COMMENT(`(?<!${symbol})--+(?!${symbol})`, '$'),
+    //
+    // The commented code does the job, but we can't use negative lookbehind,
+    // due to poor support by Safari browser.
+    // > hljs.COMMENT(`(?<!${symbol})--+(?!${symbol})`, '$'),
+    // So instead, we'll add a no-markup rule before the COMMENT rule in the rules list
+    // to match the problematic infix operators that contain double dash.
+    hljs.COMMENT('--+', '$'),
     hljs.COMMENT(
       /\{-/,
       /-\}/,
@@ -199,6 +205,8 @@ export default function(hljs) {
       NUMBER,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, { begin: '^[_a-z][\\w\']*' }),
+      // No markup, prevents infix operators from being recognized as comments.
+      { begin: `(?!-)${symbol}--+|--+(?!-)${symbol}`},
       COMMENT,
       { // No markup, relevance booster
         begin: '->|<-' }
