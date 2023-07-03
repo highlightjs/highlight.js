@@ -1,5 +1,9 @@
 ## Version 11.9.0 (next release)
 
+Supported Node.js versions:
+
+- (chore) Drops support for Node 14.x, which is no longer supported by Node.js.
+
 Parser:
 
 - (enh) prevent rehighlighting of an element [joshgoebel][]
