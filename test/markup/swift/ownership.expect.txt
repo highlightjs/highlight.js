@@ -1,0 +1,23 @@
+<span class="hljs-keyword">consume</span> x
+<span class="hljs-keyword">_</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">consume</span> y
+doStuffUniquely(with: <span class="hljs-keyword">consume</span> x)
+<span class="hljs-keyword">copy</span> x
+<span class="hljs-keyword">_</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">copy</span> x
+doStuff(with: <span class="hljs-keyword">copy</span> x)
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">MoveOnly</span>: ~<span class="hljs-title class_">Copyable</span> {}
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">B</span>: <span class="hljs-title class_">P</span> {
+  <span class="hljs-keyword">func</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">x</span>: <span class="hljs-keyword">borrowing</span> <span class="hljs-type">Foo</span>, <span class="hljs-params">y</span>: <span class="hljs-keyword">consuming</span> <span class="hljs-type">Foo</span>)
+}
+<span class="hljs-keyword">func</span> <span class="hljs-title function_">foo</span>(<span class="hljs-keyword">_</span>: <span class="hljs-keyword">borrowing</span> <span class="hljs-type">Foo</span>)
+<span class="hljs-keyword">func</span> <span class="hljs-title function_">foo</span>(<span class="hljs-keyword">_</span>: <span class="hljs-keyword">consuming</span> <span class="hljs-type">Foo</span>)
+<span class="hljs-keyword">func</span> <span class="hljs-title function_">foo</span>(<span class="hljs-keyword">_</span>: <span class="hljs-keyword">inout</span> <span class="hljs-type">Foo</span>)
+<span class="hljs-keyword">let</span> f: (<span class="hljs-keyword">borrowing</span> <span class="hljs-type">Foo</span>) -&gt; <span class="hljs-type">Void</span> <span class="hljs-operator">=</span> { a <span class="hljs-keyword">in</span> a.foo() }
+<span class="hljs-keyword">let</span> f: (<span class="hljs-keyword">consuming</span> <span class="hljs-type">Foo</span>) -&gt; <span class="hljs-type">Void</span> <span class="hljs-operator">=</span> { a <span class="hljs-keyword">in</span> a.foo() }
+<span class="hljs-keyword">let</span> f: (<span class="hljs-keyword">inout</span> <span class="hljs-type">Foo</span>) -&gt; <span class="hljs-type">Void</span> <span class="hljs-operator">=</span> { a <span class="hljs-keyword">in</span> a.foo() }
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Foo</span> {
+  <span class="hljs-keyword">consuming</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">foo</span>()
+  <span class="hljs-keyword">borrowing</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">foo</span>()
+  <span class="hljs-keyword">mutating</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">foo</span>()
+}
