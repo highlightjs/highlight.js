@@ -114,6 +114,7 @@ export default function(hljs) {
     "addincludedir",
     "addplugindir",
     "appendfile",
+    "assert",
     "cd",
     "define",
     "delfile",
