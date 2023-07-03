@@ -3,6 +3,8 @@
   for highlight.js
 */
 
+!assert ${NSIS_CHAR_SIZE} = 2 "Unicode required"
+
 ; Includes
 !include MUI2.nsh
 

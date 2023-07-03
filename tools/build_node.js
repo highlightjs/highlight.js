@@ -103,8 +103,8 @@ function dual(file) {
 
 const generatePackageExports = () => ({
   ".": {
-    ...dual("./lib/index.js"),
     "types": "./types/index.d.ts",
+    ...dual("./lib/index.js"),
   },
   "./package.json": "./package.json",
   "./lib/common": dual("./lib/common.js"),
