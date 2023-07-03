@@ -1,5 +1,9 @@
 ## Version 11.9.0 (next release)
 
+Supported Node.js versions:
+
+- (chore) Drops support for Node 14.x, which is no longer supported by Node.js.
+
 Parser:
 
 - (enh) prevent rehighlighting of an element [joshgoebel][]
@@ -16,6 +20,8 @@ Core Grammars:
 - enh(swift) regex literal support [Bradley Mackey][]
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
 - enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
+- enh(swift) ownership modifiers support [Bradley Mackey][]
+- enh(nsis) Add `!assert` compiler flag [idleberg][]
 
 Dev tool:
 
