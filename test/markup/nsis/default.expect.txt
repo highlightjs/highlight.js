@@ -3,6 +3,8 @@
   for highlight.js
 */</span>
 
+<span class="hljs-keyword">!assert</span> <span class="hljs-variable">${NSIS_CHAR_SIZE}</span> = <span class="hljs-number">2</span> <span class="hljs-string">&quot;Unicode required&quot;</span>
+
 <span class="hljs-comment">; Includes</span>
 <span class="hljs-keyword">!include</span> MUI2.nsh
 
