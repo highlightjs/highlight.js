@@ -22,6 +22,8 @@ Core Grammars:
 - enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
 - enh(swift) ownership modifiers support [Bradley Mackey][]
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
+- fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
+- enh(rust) added `eprintln!` macro [qoheniac][]
 
 Dev tool:
 
@@ -33,6 +35,7 @@ Dev tool:
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
+[qoheniac]: https://github.com/qoheniac
 
 
 ## Version 11.8.0
@@ -84,6 +87,7 @@ Core Grammars:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Zlondrej]: https://github.com/zlondrej
 
 ## Version 11.7.0
 
