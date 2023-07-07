@@ -22,6 +22,7 @@ Core Grammars:
 - enh(swift) ownership modifiers support [Bradley Mackey][]
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
+- enh(rust) added `eprintln!` macro [qoheniac][]
 
 Dev tool:
 
@@ -33,6 +34,7 @@ Dev tool:
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
+[qoheniac]: https://github.com/qoheniac
 
 
 ## Version 11.8.0
