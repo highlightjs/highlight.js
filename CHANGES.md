@@ -19,6 +19,7 @@ Core Grammars:
 - enh(swift) support parameter pack keywords [Bradley Mackey][]
 - enh(swift) regex literal support [Bradley Mackey][]
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
+- enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
 - enh(swift) ownership modifiers support [Bradley Mackey][]
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
