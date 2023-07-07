@@ -122,6 +122,7 @@ export default function(hljs) {
     "concat_idents!",
     "debug_assert!",
     "debug_assert_eq!",
+    "eprintln!",
     "env!",
     "panic!",
     "file!",
