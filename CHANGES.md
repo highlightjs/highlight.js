@@ -24,6 +24,7 @@ Core Grammars:
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 - enh(rust) added `eprintln!` macro [qoheniac][]
+- enh(sql) `limit`, `ilike` keyword support [ErNie][]
 
 Dev tool:
 
@@ -36,6 +37,7 @@ Dev tool:
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
 [qoheniac]: https://github.com/qoheniac
+[ErNie]: https://github.com/erikn69
 
 
 ## Version 11.8.0
