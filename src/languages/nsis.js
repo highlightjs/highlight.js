@@ -107,7 +107,8 @@ export default function(hljs) {
     "READONLY",
     "SHCTX",
     "SHELL_CONTEXT",
-    "SYSTEM|TEMPORARY",
+    "SYSTEM",
+    "TEMPORARY",
   ];
 
   const COMPILER_FLAGS = [
@@ -348,7 +349,7 @@ export default function(hljs) {
     "ManifestSupportedOS",
     "MessageBox",
     "MiscButtonText",
-    "Name|0",
+    "Name",
     "Nop",
     "OutFile",
     "Page",
