@@ -5,8 +5,6 @@ Author: Jan T. Sott <jan.sott@gmail.com>
 Website: https://nsis.sourceforge.io/Main_Page
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
   const regex = hljs.regex;
   const LANGUAGE_CONSTANTS = [
