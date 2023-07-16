@@ -16,6 +16,11 @@
   DetailPrint "Hello ${Name}"
 !macroend
 
+; Runtime Condition
+!if true == false
+  !error
+!endif
+
 ; Settings
 Name "installer_name"
 OutFile "installer_name.exe"

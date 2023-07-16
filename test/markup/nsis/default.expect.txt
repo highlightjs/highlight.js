@@ -16,6 +16,11 @@
   <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">&quot;Hello <span class="hljs-variable">${Name}</span>&quot;</span>
 <span class="hljs-keyword">!macroend</span>
 
+<span class="hljs-comment">; Runtime Condition</span>
+<span class="hljs-keyword">!if</span> <span class="hljs-literal">true</span> == <span class="hljs-literal">false</span>
+<span class="hljs-keyword">!error</span>
+<span class="hljs-keyword">!endif</span>
+
 <span class="hljs-comment">; Settings</span>
 <span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;installer_name&quot;</span>
 <span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;installer_name.exe&quot;</span>
