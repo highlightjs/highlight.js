@@ -27,7 +27,7 @@
 <span class="hljs-keyword">RequestExecutionLevel</span> <span class="hljs-literal">user</span>
 <span class="hljs-keyword">CRCCheck</span> <span class="hljs-literal">on</span>
 
-<span class="hljs-keyword">!if</span>def <span class="hljs-variable">${x64}</span>
+<span class="hljs-keyword">!ifdef</span> <span class="hljs-variable">${x64}</span>
   <span class="hljs-keyword">InstallDir</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$PROGRAMFILES64</span>\installer_name&quot;</span>
 <span class="hljs-keyword">!else</span>
   <span class="hljs-keyword">InstallDir</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$PROGRAMFILES</span>\installer_name&quot;</span>
