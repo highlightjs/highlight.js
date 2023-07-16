@@ -11,6 +11,11 @@
 ; Defines
 !define x64 "true"
 
+; Macros
+!macro Greeter Name
+  DetailPrint "Hello ${Name}"
+!macroend
+
 ; Settings
 Name "installer_name"
 OutFile "installer_name.exe"

@@ -11,6 +11,11 @@
 <span class="hljs-comment">; Defines</span>
 <span class="hljs-keyword">!define</span> x64 <span class="hljs-string">&quot;true&quot;</span>
 
+<span class="hljs-comment">; Macros</span>
+<span class="hljs-keyword">!macro</span> Greeter Name
+  <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">&quot;Hello <span class="hljs-variable">${Name}</span>&quot;</span>
+<span class="hljs-keyword">!macroend</span>
+
 <span class="hljs-comment">; Settings</span>
 <span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;installer_name&quot;</span>
 <span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;installer_name.exe&quot;</span>
