@@ -14,3 +14,4 @@
 )
 (let x, var y)
 ([key: value, key: value])
+(/my regex/)

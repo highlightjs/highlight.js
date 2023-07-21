@@ -123,6 +123,7 @@ export default function(hljs) {
     "debug_assert!",
     "debug_assert_eq!",
     "env!",
+    "eprintln!",
     "panic!",
     "file!",
     "format!",

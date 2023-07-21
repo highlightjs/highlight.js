@@ -180,6 +180,50 @@ export default function(hljs) {
     ]
   };
 
+  const REGEXP_CONTENTS = [
+    hljs.BACKSLASH_ESCAPE,
+    {
+      begin: /\[/,
+      end: /\]/,
+      relevance: 0,
+      contains: [ hljs.BACKSLASH_ESCAPE ]
+    }
+  ];
+
+  const BARE_REGEXP_LITERAL = {
+    begin: /\/[^\s](?=[^/\n]*\/)/,
+    end: /\//,
+    contains: REGEXP_CONTENTS
+  };
+
+  const EXTENDED_REGEXP_LITERAL = (rawDelimiter) => {
+    const begin = concat(rawDelimiter, /\//);
+    const end = concat(/\//, rawDelimiter);
+    return {
+      begin,
+      end,
+      contains: [
+        ...REGEXP_CONTENTS,
+        {
+          scope: "comment",
+          begin: `#(?!.*${end})`,
+          end: /$/,
+        },
+      ],
+    };
+  };
+
+  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/lexicalstructure/#Regular-Expression-Literals
+  const REGEXP = {
+    scope: "regexp",
+    variants: [
+      EXTENDED_REGEXP_LITERAL('###'),
+      EXTENDED_REGEXP_LITERAL('##'),
+      EXTENDED_REGEXP_LITERAL('#'),
+      BARE_REGEXP_LITERAL
+    ]
+  };
+
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID412
   const QUOTED_IDENTIFIER = { match: concat(/`/, Swift.identifier, /`/) };
   const IMPLICIT_PARAMETER = {
@@ -199,7 +243,7 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Attributes.html
   const AVAILABLE_ATTRIBUTE = {
     match: /(@|#(un)?)available/,
-    className: "keyword",
+    scope: 'keyword',
     starts: { contains: [
       {
         begin: /\(/,
@@ -214,11 +258,11 @@ export default function(hljs) {
     ] }
   };
   const KEYWORD_ATTRIBUTE = {
-    className: 'keyword',
+    scope: 'keyword',
     match: concat(/@/, either(...Swift.keywordAttributes))
   };
   const USER_DEFINED_ATTRIBUTE = {
-    className: 'meta',
+    scope: 'meta',
     match: concat(/@/, Swift.identifier)
   };
   const ATTRIBUTES = [
@@ -286,6 +330,7 @@ export default function(hljs) {
       'self',
       TUPLE_ELEMENT_NAME,
       ...COMMENTS,
+      REGEXP,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,
@@ -300,6 +345,7 @@ export default function(hljs) {
   const GENERIC_PARAMETERS = {
     begin: /</,
     end: />/,
+    keywords: 'repeat each',
     contains: [
       ...COMMENTS,
       TYPE
@@ -342,9 +388,10 @@ export default function(hljs) {
     illegal: /["']/
   };
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
-  const FUNCTION = {
+  // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#Macro-Declaration
+  const FUNCTION_OR_MACRO = {
     match: [
-      /func/,
+      /(func|macro)/,
       /\s+/,
       either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator)
     ],
@@ -441,7 +488,7 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       ...COMMENTS,
-      FUNCTION,
+      FUNCTION_OR_MACRO,
       INIT_SUBSCRIPT,
       {
         beginKeywords: 'struct protocol class extension enum actor',
@@ -464,6 +511,7 @@ export default function(hljs) {
         contains: [ ...COMMENTS ],
         relevance: 0
       },
+      REGEXP,
       ...KEYWORD_MODES,
       ...BUILT_INS,
       ...OPERATORS,

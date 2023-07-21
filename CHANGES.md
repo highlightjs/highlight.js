@@ -1,5 +1,9 @@
 ## Version 11.9.0 (next release)
 
+Supported Node.js versions:
+
+- (chore) Drops support for Node 14.x, which is no longer supported by Node.js.
+
 Parser:
 
 - (enh) prevent rehighlighting of an element [joshgoebel][]
@@ -11,8 +15,17 @@ Core Grammars:
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
 - fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
 - fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
+- enh(swift) support `macro` keyword [Bradley Mackey][]
+- enh(swift) support parameter pack keywords [Bradley Mackey][]
+- enh(swift) regex literal support [Bradley Mackey][]
+- enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
+- enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
+- enh(swift) ownership modifiers support [Bradley Mackey][]
+- enh(nsis) Add `!assert` compiler flag [idleberg][]
+- fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
+- enh(rust) added `eprintln!` macro [qoheniac][]
 
-Dev tool: 
+Dev tool:
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
@@ -21,6 +34,8 @@ Dev tool:
 [Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
+[Bradley Mackey]: https://github.com/bradleymackey
+[qoheniac]: https://github.com/qoheniac
 
 
 ## Version 11.8.0
@@ -72,6 +87,7 @@ Core Grammars:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Zlondrej]: https://github.com/zlondrej
 
 ## Version 11.7.0
 
