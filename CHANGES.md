@@ -24,6 +24,7 @@ Core Grammars:
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 - enh(rust) added `eprintln!` macro [qoheniac][]
+- enh(leaf) update syntax to 4.0 [Samuel Bishop][]
 
 Dev tool:
 
@@ -36,6 +37,7 @@ Dev tool:
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
 [qoheniac]: https://github.com/qoheniac
+[Samuel Bishop]: https://github.com/dannflor
 
 
 ## Version 11.8.0
