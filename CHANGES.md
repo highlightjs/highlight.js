@@ -25,6 +25,7 @@ Core Grammars:
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 - enh(rust) added `eprintln!` macro [qoheniac][]
 - enh(leaf) update syntax to 4.0 [Samuel Bishop][]
+- enh(sql) add `limit` keyword [CoffeelessProgrammer][]
 
 Dev tool:
 
@@ -38,6 +39,7 @@ Dev tool:
 [Bradley Mackey]: https://github.com/bradleymackey
 [qoheniac]: https://github.com/qoheniac
 [Samuel Bishop]: https://github.com/dannflor
+[CoffeelessProgrammer]: https://github.com/CoffeelessProgrammer
 
 
 ## Version 11.8.0
