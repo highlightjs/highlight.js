@@ -1,1 +1,1 @@
-select * from t where t.select is null;
+select * from t where t.select is null limit 5;
