@@ -276,6 +276,7 @@ export default function(hljs) {
     "left",
     "like",
     "like_regex",
+    "limit",
     "listagg",
     "ln",
     "local",
