@@ -9,6 +9,10 @@ Parser:
 - (enh) prevent rehighlighting of an element [joshgoebel][]
 - added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 
+New Grammars:
+
+- added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
+
 Core Grammars:
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
