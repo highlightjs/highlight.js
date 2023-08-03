@@ -1,0 +1,13 @@
+<span class="hljs-comment"># add5.s</span>
+    <span class="hljs-built_in">.text</span>
+    <span class="hljs-built_in">.globl</span> add5
+    <span class="hljs-built_in">.type</span> add5, <span class="hljs-name">@function</span>
+<span class="hljs-string">add5:</span>
+    <span class="hljs-keyword">pushq</span> <span class="hljs-title">%rbp</span>
+    <span class="hljs-keyword">movq</span>  <span class="hljs-title">%rsp</span>, <span class="hljs-title">%rbp</span>
+    <span class="hljs-keyword">movl</span>  <span class="hljs-title">%edi</span>,<span class="hljs-name"> -4</span>(<span class="hljs-title">%rbp</span>)
+    <span class="hljs-keyword">movl</span> <span class="hljs-name"> -4</span>(<span class="hljs-title">%rbp</span>), <span class="hljs-title">%eax</span>
+    <span class="hljs-keyword">addl</span>  <span class="hljs-name">$5</span>, <span class="hljs-title">%eax</span>
+    <span class="hljs-keyword">popq</span>  <span class="hljs-title">%rbp</span>
+    <span class="hljs-keyword">ret</span>
+    <span class="hljs-built_in">.size</span>  add5, .-add5
