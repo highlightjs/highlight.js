@@ -20,6 +20,7 @@ Core Grammars:
 - enh(swift) regex literal support [Bradley Mackey][]
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
 - enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
+- fix(scala) fixed comments in constructor arguments not being properly highlighted [Isaac Nonato][]
 - enh(swift) ownership modifiers support [Bradley Mackey][]
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
@@ -32,6 +33,7 @@ Dev tool:
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
+[Isaac Nonato]: https://github.com/isaacnonato
 [Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
