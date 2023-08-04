@@ -88,7 +88,11 @@ export default function(hljs) {
         excludeBegin: true,
         excludeEnd: true,
         relevance: 0,
-        contains: [ TYPE ]
+        contains: [ 
+          TYPE, 
+          hljs.C_LINE_COMMENT_MODE, 
+          hljs.C_BLOCK_COMMENT_MODE, 
+        ]
       },
       {
         className: 'params',
@@ -97,7 +101,11 @@ export default function(hljs) {
         excludeBegin: true,
         excludeEnd: true,
         relevance: 0,
-        contains: [ TYPE ]
+        contains: [ 
+          TYPE, 
+          hljs.C_LINE_COMMENT_MODE, 
+          hljs.C_BLOCK_COMMENT_MODE, 
+        ]
       },
       NAME
     ]
