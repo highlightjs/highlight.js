@@ -27,8 +27,9 @@ code.hljs {
 `.trim();
 
 function installCleanCSS(file, dest, opts = {}) {
-   // default is to minify
-  const minify = opts.minify == undefined ? true : opts.minify;
+  // default is to minify
+  // eslint-disable-next-line no-undefined
+  const minify = opts.minify === undefined ? true : opts.minify;
 
   const theme = fs.readFileSync(file, { encoding: "utf8" });
   const content = DEFAULT_CSS + "\n" + theme;
