@@ -1,12 +1,11 @@
 ## Version 11.9.0 (next release)
 
-Supported Node.js versions:
+CAVEATS / POTENTIALLY BREAKING CHANGES
 
-- (chore) Drops support for Node 14.x, which is no longer supported by Node.js.
-
-Packaging: 
-
-- (enh) Build non-minified CSS files for node & CDN. [mvorisek][]
+- Drops support for Node 14.x, which is no longer supported by Node.js.
+- In the `node` build `styles/*.css` files now ship un-minified 
+  with minified counterparts as: `styles/*.min.css` [mvorisek][]
+  (this makes things consistent with our `cdn` builds) 
 
 Parser:
 
@@ -14,6 +13,7 @@ Parser:
 - added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 
 Core Grammars:
+
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
