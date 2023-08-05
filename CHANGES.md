@@ -1,5 +1,13 @@
 ## Version 11.9.0 (next release)
 
+Supported Node.js versions:
+
+- (chore) Drops support for Node 14.x, which is no longer supported by Node.js.
+
+Packaging: 
+
+- (enh) Build non-minified CSS files for node & CDN. [mvorisek][]
+
 Parser:
 
 - (enh) prevent rehighlighting of an element [joshgoebel][]
@@ -15,19 +23,28 @@ Core Grammars:
 - enh(swift) support parameter pack keywords [Bradley Mackey][]
 - enh(swift) regex literal support [Bradley Mackey][]
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
+- enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
+- fix(scala) fixed comments in constructor arguments not being properly highlighted [Isaac Nonato][]
+- enh(swift) ownership modifiers support [Bradley Mackey][]
+- enh(nsis) Add `!assert` compiler flag [idleberg][]
+- fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
+- enh(rust) added `eprintln!` macro [qoheniac][]
+- enh(leaf) update syntax to 4.0 [Samuel Bishop][]
 
-Dev tool: 
+Dev tool:
 
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
-- (enh) Build non-minified CSS files for node & CDN. [mvorisek][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
+[Isaac Nonato]: https://github.com/isaacnonato
 [Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
 [mvorisek]: https://github.com/mvorisek
+[qoheniac]: https://github.com/qoheniac
+[Samuel Bishop]: https://github.com/dannflor
 
 
 ## Version 11.8.0
@@ -79,6 +96,7 @@ Core Grammars:
 [Keyacom]: https://github.com/Keyacom
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
+[Zlondrej]: https://github.com/zlondrej
 
 ## Version 11.7.0
 

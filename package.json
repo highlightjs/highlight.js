@@ -33,6 +33,8 @@
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "sideEffects": [
+    "./es/common.js",
+    "./lib/common.js",
     "*.css",
     "*.scss"
   ],
