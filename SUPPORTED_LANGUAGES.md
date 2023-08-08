@@ -236,6 +236,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | X#                      | xsharp, xs, prg        | [highlightjs-xsharp](https://github.com/InfomindsAg/highlightjs-xsharp) |
 | X++                     | axapta, x++            |         |
 | x86 Assembly            | x86asm                 |         |
+| x86 Assembly (AT&T)     | x86asmatt              | [highlightjs-x86asmatt](https://github.com/gondow/highlightjs-x86asmatt)  |
 | XL                      | xl, tao                |         |
 | XQuery                  | xquery, xpath, xq, xqm |         |
 | YAML                    | yml, yaml              |         |
