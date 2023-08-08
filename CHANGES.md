@@ -42,7 +42,7 @@ Dev tool:
 [Bradley Mackey]: https://github.com/bradleymackey
 [qoheniac]: https://github.com/qoheniac
 [Samuel Bishop]: https://github.com/dannflor
-
+[gondow]: https://github.com/gondow
 
 ## Version 11.8.0
 
