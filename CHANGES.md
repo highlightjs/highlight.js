@@ -34,6 +34,7 @@ Core Grammars:
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 - enh(rust) added `eprintln!` macro [qoheniac][]
 - enh(leaf) update syntax to 4.0 [Samuel Bishop][]
+- enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
 
 Dev tool:
 
