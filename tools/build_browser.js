@@ -169,9 +169,11 @@ function installDemoStyles() {
 
   glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
     const stat = fss.statSync(`./src/styles/${file}`);
+    if (stat.isDirectory()) return;
+
     if (file.endsWith(".css")) {
       installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
-    } else if (!stat.isDirectory) {
+    } else {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `demo/styles/${file}`);
     }

@@ -1,8 +1,11 @@
 ## Version 11.9.0 (next release)
 
-Supported Node.js versions:
+CAVEATS / POTENTIALLY BREAKING CHANGES
 
-- (chore) Drops support for Node 14.x, which is no longer supported by Node.js.
+- Drops support for Node 14.x, which is no longer supported by Node.js.
+- In the `node` build `styles/*.css` files now ship un-minified 
+  with minified counterparts as: `styles/*.min.css` [mvorisek][]
+  (this makes things consistent with our `cdn` builds) 
 
 Parser:
 
@@ -14,6 +17,7 @@ New Grammars:
 - added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
 
 Core Grammars:
+
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
@@ -24,6 +28,7 @@ Core Grammars:
 - enh(swift) regex literal support [Bradley Mackey][]
 - enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
 - enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
+- fix(scala) fixed comments in constructor arguments not being properly highlighted [Isaac Nonato][]
 - enh(swift) ownership modifiers support [Bradley Mackey][]
 - enh(nsis) Add `!assert` compiler flag [idleberg][]
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
@@ -36,10 +41,12 @@ Dev tool:
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
+[Isaac Nonato]: https://github.com/isaacnonato
 [Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
 [Josh Goebel]: https://github.com/joshgoebel
 [Checconio]: https://github.com/Checconio
 [Bradley Mackey]: https://github.com/bradleymackey
+[mvorisek]: https://github.com/mvorisek
 [qoheniac]: https://github.com/qoheniac
 [Samuel Bishop]: https://github.com/dannflor
 [gondow]: https://github.com/gondow

@@ -26,10 +26,14 @@ code.hljs {
 }
 `.trim();
 
-function installCleanCSS(file, dest) {
+function installCleanCSS(file, dest, opts = {}) {
+  // default is to minify
+  // eslint-disable-next-line no-undefined
+  const minify = opts.minify === undefined ? true : opts.minify;
+
   const theme = fs.readFileSync(file, { encoding: "utf8" });
   const content = DEFAULT_CSS + "\n" + theme;
-  const out = new CleanCSS(config.clean_css).minify(content).styles;
+  const out = new CleanCSS(minify ? config.clean_css : config.clean_css_beautify).minify(content).styles;
   fs.writeFileSync(`${process.env.BUILD_DIR}/${dest}`, out);
 }
 
