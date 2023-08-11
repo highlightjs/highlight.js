@@ -40,12 +40,16 @@ export const keywords = [
   /as\?/, // operator
   /as!/, // operator
   'as', // operator
+  'borrowing', // contextual
   'break',
   'case',
   'catch',
   'class',
+  'consume', // contextual
+  'consuming', // contextual
   'continue',
   'convenience', // contextual
+  'copy', // contextual
   'default',
   'defer',
   'deinit',
@@ -53,6 +57,7 @@ export const keywords = [
   'distributed',
   'do',
   'dynamic', // contextual
+  'each',
   'else',
   'enum',
   'extension',
@@ -79,6 +84,7 @@ export const keywords = [
   'nonisolated', // contextual
   'lazy', // contextual
   'let',
+  'macro',
   'mutating', // contextual
   'nonmutating', // contextual
   /open\(set\)/, // contextual
@@ -303,8 +309,10 @@ export const keywordAttributes = [
   'propertyWrapper',
   'requires_stored_property_inits',
   'resultBuilder',
+  'Sendable',
   'testable',
   'UIApplicationMain',
+  'unchecked',
   'unknown',
   'usableFromInline'
 ];
