@@ -36,7 +36,7 @@ jobs:
         run: |
           mkdir size_report
           echo ${{ github.event.number }} > size_report/pull_req_nr
-          REPORT=$(./base/tools/buildSizeReport.js ./base/build ./pr/build)
+          REPORT=$(./pr/tools/buildSizeReport.js ./base/build ./pr/build)
           echo "$REPORT" > size_report/report.md
 
       - name: Save Size Report
