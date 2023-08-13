@@ -1,0 +1,46 @@
+name: Compute Size
+
+on:
+  pull_request:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Base
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          path: base
+
+      - name: Checkout PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+
+      - name: Build CDN (Base)
+        run: |
+          npm ci
+          npm run build-cdn
+        working-directory: ./base
+
+      - name: Build CDN (PR)
+        run: |
+          npm ci
+          npm run build-cdn
+        working-directory: ./pr
+
+      - name: Create Size Report Folder
+        run: |
+          mkdir size_report
+          echo ${{ github.event.number }} > size_report/pull_req_nr
+          REPORT=$(./base/tools/buildSizeReport.js ./base/build ./pr/build)
+          echo "$REPORT" > size_report/report.md
+
+      - name: Save Size Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: size_report
+          path: ./size_report
