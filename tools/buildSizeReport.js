@@ -39,7 +39,7 @@ function computedFile(dir, filePath) {
  */
 async function minifiedFiles(dir) {
   return await new Promise((res, rej) => {
-    glob(dir + "/**/*.min.js", {}, (err, files) => {
+    glob(dir + "/**/*.min.{js,css}", {}, (err, files) => {
       if (err) {
         rej(err);
       } else {
