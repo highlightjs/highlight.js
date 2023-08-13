@@ -32,14 +32,14 @@ jobs:
           npm run build-cdn
         working-directory: ./pr
 
-      - name: Create Size Report Folder
+      - name: Create Size Report
         run: |
           mkdir size_report
           echo ${{ github.event.number }} > size_report/pull_req_nr
           REPORT=$(./pr/tools/buildSizeReport.js ./base/build ./pr/build)
           echo "$REPORT" > size_report/report.md
 
-      - name: Save Size Report
+      - name: Save Size Report as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: size_report

@@ -7,13 +7,13 @@ on:
       - completed
 
 jobs:
-  upload:
+  comment_report:
     runs-on: ubuntu-latest
     if: >
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success'
     steps:
-      - name: "Download artifact"
+      - name: "Download size report artifact"
         uses: actions/github-script@v3.1.0
         with:
           script: |
