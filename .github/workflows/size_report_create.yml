@@ -1,4 +1,4 @@
-name: Compute Size
+name: Create Build Size Report
 
 on:
   pull_request:

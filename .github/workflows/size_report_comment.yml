@@ -1,8 +1,8 @@
-name: Comment Size
+name: Comment Build Size Report
 
 on:
   workflow_run:
-    workflows: ["Compute Size"]
+    workflows: ["Create Build Size Report"]
     types:
       - completed
 
