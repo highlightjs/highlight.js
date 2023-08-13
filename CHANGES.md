@@ -15,6 +15,7 @@ Parser:
 New Grammars:
 
 - added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
+- added 3rd party riscv64 grammar to SUPPORTED_LANGUAGES [aana-h2][]
 
 Core Grammars:
 
@@ -50,6 +51,7 @@ Dev tool:
 [qoheniac]: https://github.com/qoheniac
 [Samuel Bishop]: https://github.com/dannflor
 [gondow]: https://github.com/gondow
+[aana-h2]: https://github.com/aana-h2
 
 ## Version 11.8.0
 
