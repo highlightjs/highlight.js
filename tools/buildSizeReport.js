@@ -111,8 +111,8 @@ async function run() {
     md += "\n";
   }
 
-  let fileSizeChanges = 0;
-  let combinedChangeSize = 0;
+  let numFilesChanged = 0;
+  let combinedSizeChange = 0;
   let sizeChangeMd = "| file | base | pr | diff |\n";
   sizeChangeMd += "| --- | --- | --- | --- |\n";
   for (const file of changedFiles) {
@@ -120,8 +120,8 @@ async function run() {
     const computedPR = computedFile(pr, file);
     const diff = computedPR - computedBase;
     if (diff !== 0) {
-      combinedChangeSize += diff;
-      fileSizeChanges += 1;
+      combinedSizeChange += diff;
+      numFilesChanged += 1;
       const sign = diff >= 0 ? "+" : "";
       sizeChangeMd += `| ${file} | ${formatBytes(computedBase)} | ${formatBytes(
         computedPR
@@ -129,11 +129,11 @@ async function run() {
     }
   }
 
-  if (fileSizeChanges > 0) {
-    const maybeS = fileSizeChanges === 1 ? "" : "s";
-    const sign = combinedChangeSize >= 0 ? "+" : "";
-    md += `## ${fileSizeChanges} file${maybeS} changed\n`;
-    md += `Totalling ${sign}${formatBytes(combinedChangeSize)}\n\n`;
+  if (numFilesChanged > 0) {
+    const maybeS = numFilesChanged === 1 ? "" : "s";
+    const sign = combinedSizeChange >= 0 ? "+" : "";
+    md += `## ${numFilesChanged} file${maybeS} changed\n`;
+    md += `Totalling ${sign}${formatBytes(combinedSizeChange)}\n\n`;
     md += "<details>\n";
     md += "<summary>View Changes</summary>\n\n";
     md += sizeChangeMd;
