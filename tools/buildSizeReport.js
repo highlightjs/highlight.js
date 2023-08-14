@@ -77,7 +77,9 @@ async function run() {
     }
   }
 
-  let md = "# Build Size Report (gzip)\n\n";
+  let md = "# Build Size Report\n\n";
+  md +=
+    "Changes to minified artifacts in `/build`, after gzip compression.\n\n";
 
   if (addedFiles.length > 0) {
     const maybeS = addedFiles.length === 1 ? "" : "s";
@@ -140,7 +142,7 @@ async function run() {
     md += "\n";
   } else {
     md += "## No changes\n";
-    md += "No existing build file changes.\n";
+    md += "No existing files changed.\n";
   }
 
   return md;
