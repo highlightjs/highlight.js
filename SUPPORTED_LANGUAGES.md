@@ -186,6 +186,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Rebol & Red             | redbol, rebol, red, red-system | [highlightjs-redbol](https://github.com/oldes/highlightjs-redbol) |
 | RenderMan RIB           | rib                    |         |
 | RenderMan RSL           | rsl                    |         |
+| Rexx                    | TRL, TRL-2             | [highlightjs-rexx](https://github.com/EmmasBox/highlightjs-rexx) |
 | RiScript                | risc, riscript         | [highlightjs-riscript](https://github.com/highlightjs/highlightjs-riscript) |
 | Roboconf                | graph, instances       |         |
 | Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
