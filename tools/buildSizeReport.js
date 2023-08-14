@@ -133,7 +133,7 @@ async function run() {
     const maybeS = numFilesChanged === 1 ? "" : "s";
     const sign = combinedSizeChange >= 0 ? "+" : "";
     md += `## ${numFilesChanged} file${maybeS} changed\n`;
-    md += `Totalling ${sign}${formatBytes(combinedSizeChange)}\n\n`;
+    md += `Total change ${sign}${formatBytes(combinedSizeChange)}\n\n`;
     md += "<details>\n";
     md += "<summary>View Changes</summary>\n\n";
     md += sizeChangeMd;
