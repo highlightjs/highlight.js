@@ -79,7 +79,7 @@ async function run() {
 
   let md = "# Build Size Report\n\n";
   md +=
-    "Changes to minified artifacts in `/build`, after gzip compression.\n\n";
+    "Changes to minified artifacts in `/build`, after **gzip** compression.\n\n";
 
   if (addedFiles.length > 0) {
     const maybeS = addedFiles.length === 1 ? "" : "s";
