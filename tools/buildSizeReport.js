@@ -90,6 +90,7 @@ function reportAddedFilesSection(_base, pr, addedFiles) {
   md += "<details>\n";
   md += "<summary>View Changes</summary>\n\n";
   md += "| file | size |\n";
+  md += "| --- | --- |\n";
   for (const file of addedFiles) {
     const computedSize = computedFile(pr, file);
     md += `| ${file} | +${formatBytes(computedSize)} |\n`;
@@ -106,6 +107,7 @@ function reportRemovedFilesSection(base, _pr, removedFiles) {
   md += "<details>\n";
   md += "<summary>View Changes</summary>\n\n";
   md += "| file | size |\n";
+  md += "| --- | --- |\n";
   for (const file of removedFiles) {
     const computedSize = computedFile(base, file);
     md += `| ${file} | -${formatBytes(computedSize)} |\n`;
