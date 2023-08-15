@@ -76,54 +76,47 @@ function itemChanges(baseList, newList) {
   };
 }
 
-/**
- * Returns markdown report of size differences.
- */
-async function run() {
-  const [base, pr] = process.argv.slice(2);
-  const baseFiles = await minifiedFiles(base);
-  const prFiles = await minifiedFiles(pr);
+function reportHeader() {
+  return (
+    "# Build Size Report\n\n" +
+    "Changes to minified artifacts in `/build`, after **gzip** compression."
+  );
+}
 
-  const {
-    added: addedFiles,
-    removed: removedFiles,
-    changed: changedFiles,
-  } = itemChanges(baseFiles, prFiles);
-
-  let md = "# Build Size Report\n\n";
-  md +=
-    "Changes to minified artifacts in `/build`, after **gzip** compression.\n\n";
-
-  if (addedFiles.length > 0) {
-    const maybeS = addedFiles.length === 1 ? "" : "s";
-    md += `## ${addedFiles.length} Added File${maybeS}\n\n`;
-    md += "<details>\n";
-    md += "<summary>View Changes</summary>\n\n";
-    md += "| file | size |\n";
-    for (const file of addedFiles) {
-      const computedSize = computedFile(pr, file);
-      md += `| ${file} | +${formatBytes(computedSize)} |\n`;
-    }
-    md += "\n";
-    md += "</details>\n";
-    md += "\n";
+function reportAddedFilesSection(_base, pr, addedFiles) {
+  let md = "";
+  const maybeS = addedFiles.length === 1 ? "" : "s";
+  md += `## ${addedFiles.length} Added File${maybeS}\n\n`;
+  md += "<details>\n";
+  md += "<summary>View Changes</summary>\n\n";
+  md += "| file | size |\n";
+  for (const file of addedFiles) {
+    const computedSize = computedFile(pr, file);
+    md += `| ${file} | +${formatBytes(computedSize)} |\n`;
   }
+  md += "\n";
+  md += "</details>\n";
+  return md;
+}
 
-  if (removedFiles.length > 0) {
-    const maybeS = removedFiles.length === 1 ? "" : "s";
-    md += `## ${removedFiles.length} Removed File${maybeS}\n\n`;
-    md += "<details>\n";
-    md += "<summary>View Changes</summary>\n\n";
-    md += "| file | size |\n";
-    for (const file of removedFiles) {
-      const computedSize = computedFile(base, file);
-      md += `| ${file} | -${formatBytes(computedSize)} |\n`;
-    }
-    md += "\n";
-    md += "</details>\n";
-    md += "\n";
+function reportRemovedFilesSection(base, _pr, removedFiles) {
+  let md = "";
+  const maybeS = removedFiles.length === 1 ? "" : "s";
+  md += `## ${removedFiles.length} Removed File${maybeS}\n\n`;
+  md += "<details>\n";
+  md += "<summary>View Changes</summary>\n\n";
+  md += "| file | size |\n";
+  for (const file of removedFiles) {
+    const computedSize = computedFile(base, file);
+    md += `| ${file} | -${formatBytes(computedSize)} |\n`;
   }
+  md += "\n";
+  md += "</details>\n";
+  return md;
+}
 
+function reportChangedFilesSection(base, pr, changedFiles) {
+  let md = "";
   let numFilesChanged = 0;
   let combinedSizeChange = 0;
   let sizeChangeMd = "| file | base | pr | diff |\n";
@@ -152,7 +145,6 @@ async function run() {
     md += sizeChangeMd;
     md += "\n";
     md += "</details>\n";
-    md += "\n";
   } else {
     md += "## No changes\n";
     md += "No existing files changed.\n";
@@ -161,6 +153,38 @@ async function run() {
   return md;
 }
 
+/**
+ * Returns markdown report of size differences.
+ */
+async function createReport() {
+  const [base, pr] = process.argv.slice(2);
+  const baseFiles = await minifiedFiles(base);
+  const prFiles = await minifiedFiles(pr);
+
+  const {
+    added: addedFiles,
+    removed: removedFiles,
+    changed: changedFiles,
+  } = itemChanges(baseFiles, prFiles);
+
+  let md = reportHeader();
+  md += "\n\n";
+
+  if (addedFiles.length > 0) {
+    md += reportAddedFilesSection(base, pr, addedFiles);
+    md += "\n";
+  }
+
+  if (removedFiles.length > 0) {
+    md += reportRemovedFilesSection(base, pr, removedFiles);
+    md += "\n";
+  }
+
+  md += reportChangedFilesSection(base, pr, changedFiles);
+
+  return md;
+}
+
 (async () => {
-  console.log(await run());
+  console.log(await createReport());
 })();
