@@ -8,6 +8,7 @@
 [![jsDelivr CDN downloads](https://badgen.net/jsdelivr/hits/gh/highlightjs/cdn-release?label=jsDelivr+CDN&color=purple)](https://www.jsdelivr.com/package/gh/highlightjs/cdn-release)
 
 [![ci status](https://badgen.net/github/checks/highlightjs/highlight.js/main?label=build)](https://github.com/highlightjs/highlight.js/actions/workflows/tests.js.yml)
+[![CodeQL](https://github.com/highlightjs/highlight.js/workflows/CodeQL/badge.svg)](https://github.com/highlightjs/highlight.js/actions/workflows/github-code-scanning/codeql)
 [![vulnerabilities](https://badgen.net/snyk/highlightjs/highlight.js)](https://snyk.io/test/github/highlightjs/highlight.js?targetFile=package.json)
 
 [![discord](https://badgen.net/badge/icon/discord?icon=discord&label&color=pink)](https://discord.gg/M24EbU7ja9)
