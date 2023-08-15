@@ -50,6 +50,33 @@ async function minifiedFiles(dir) {
 }
 
 /**
+ * Returns object of changes between the given lists of strings.
+ */
+function itemChanges(baseList, newList) {
+  const baseSet = new Set(baseList);
+  const newSet = new Set(newList);
+
+  let added = [];
+  for (const str of newList) {
+    if (!baseSet.has(str)) {
+      added.push(str);
+    }
+  }
+
+  let changed = [];
+  let removed = [];
+  for (const str of baseList) {
+    newSet.has(str) ? changed.push(str) : removed.push(str);
+  }
+
+  return {
+    added,
+    changed,
+    removed,
+  };
+}
+
+/**
  * Returns markdown report of size differences.
  */
 async function run() {
@@ -57,25 +84,11 @@ async function run() {
   const baseFiles = await minifiedFiles(base);
   const prFiles = await minifiedFiles(pr);
 
-  const baseFilesSet = new Set(baseFiles);
-  const prFilesSet = new Set(prFiles);
-
-  let addedFiles = [];
-  for (const file of prFiles) {
-    if (!baseFilesSet.has(file)) {
-      addedFiles.push(file);
-    }
-  }
-
-  let changedFiles = [];
-  let removedFiles = [];
-  for (const file of baseFiles) {
-    if (prFilesSet.has(file)) {
-      changedFiles.push(file);
-    } else {
-      removedFiles.push(file);
-    }
-  }
+  const {
+    added: addedFiles,
+    removed: removedFiles,
+    changed: changedFiles,
+  } = itemChanges(baseFiles, prFiles);
 
   let md = "# Build Size Report\n\n";
   md +=
