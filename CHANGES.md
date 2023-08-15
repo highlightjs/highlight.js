@@ -18,7 +18,7 @@ New Grammars:
 
 Core Grammars:
 
-- enh(armasm) added `x0-x30` and `r0-r30` ARMv8 registers [Nicholas Thompson][]
+- enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
