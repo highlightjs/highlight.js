@@ -38,6 +38,7 @@ Core Grammars:
 
 Dev tool:
 
+- (chore) Remove discontinued badges from README [Bradley Mackey][]
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
 
