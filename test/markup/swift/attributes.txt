@@ -7,5 +7,6 @@
 @resultBuilder
 @Sendable
 @unchecked
+@warn_unqualified_access
 
 @ notAnAttribute

@@ -169,7 +169,6 @@ export const numberSignKeywords = [
   '#line',
   '#selector',
   '#sourceLocation',
-  '#warn_unqualified_access',
   '#warning'
 ];
 
@@ -314,7 +313,8 @@ export const keywordAttributes = [
   'UIApplicationMain',
   'unchecked',
   'unknown',
-  'usableFromInline'
+  'usableFromInline',
+  'warn_unqualified_access'
 ];
 
 // Contextual keywords used in @available and #(un)available.

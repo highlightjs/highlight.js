@@ -35,6 +35,7 @@ Core Grammars:
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 - enh(rust) added `eprintln!` macro [qoheniac][]
 - enh(leaf) update syntax to 4.0 [Samuel Bishop][]
+- fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
 
 Dev tool:
 
