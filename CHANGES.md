@@ -36,6 +36,7 @@ Core Grammars:
 - enh(rust) added `eprintln!` macro [qoheniac][]
 - enh(leaf) update syntax to 4.0 [Samuel Bishop][]
 - fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
+- enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 
 Dev tool:
 
