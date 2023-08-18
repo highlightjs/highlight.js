@@ -187,6 +187,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | RenderMan RIB           | rib                    |         |
 | RenderMan RSL           | rsl                    |         |
 | RiScript                | risc, riscript         | [highlightjs-riscript](https://github.com/highlightjs/highlightjs-riscript) |
+| Riscv                   | riscv, riscvasm        | [highlightjs-riscvasm](https://github.com/highlightjs/highlightjs-riscvasm) |
 | Roboconf                | graph, instances       |         |
 | Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
 | RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |

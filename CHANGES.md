@@ -15,9 +15,11 @@ Parser:
 New Grammars:
 
 - added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
+- added 3rd party riscv64 grammar to SUPPORTED_LANGUAGES [aana-h2][]
 
 Core Grammars:
 
+- enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
@@ -35,11 +37,15 @@ Core Grammars:
 - enh(rust) added `eprintln!` macro [qoheniac][]
 - enh(leaf) update syntax to 4.0 [Samuel Bishop][]
 - fix(reasonml) simplify syntax and align it with ocaml [jchavarri][]
+- fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
+- enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 
 Dev tool:
 
+- (chore) Remove discontinued badges from README [Bradley Mackey][]
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
+- (chore) Fix build size report [Bradley Mackey][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
 [Isaac Nonato]: https://github.com/isaacnonato
@@ -52,6 +58,9 @@ Dev tool:
 [Samuel Bishop]: https://github.com/dannflor
 [gondow]: https://github.com/gondow
 [jchavarri]: https://github.com/jchavarri
+[aana-h2]: https://github.com/aana-h2
+[Nicholas Thompson]: https://github.com/NAThompson
+
 
 ## Version 11.8.0
 
