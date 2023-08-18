@@ -19,6 +19,7 @@ New Grammars:
 
 Core Grammars:
 
+- enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
@@ -35,11 +36,15 @@ Core Grammars:
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 - enh(rust) added `eprintln!` macro [qoheniac][]
 - enh(leaf) update syntax to 4.0 [Samuel Bishop][]
+- fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
+- enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 
 Dev tool:
 
+- (chore) Remove discontinued badges from README [Bradley Mackey][]
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
+- (chore) Fix build size report [Bradley Mackey][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
 [Isaac Nonato]: https://github.com/isaacnonato
@@ -52,6 +57,8 @@ Dev tool:
 [Samuel Bishop]: https://github.com/dannflor
 [gondow]: https://github.com/gondow
 [aana-h2]: https://github.com/aana-h2
+[Nicholas Thompson]: https://github.com/NAThompson
+
 
 ## Version 11.8.0
 

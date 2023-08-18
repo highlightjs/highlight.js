@@ -1,0 +1,45 @@
+name: Create Build Size Report
+
+on:
+  pull_request:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Base
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          path: base
+
+      - name: Checkout PR
+        uses: actions/checkout@v3
+        with:
+          path: pr
+
+      - name: Build CDN (Base)
+        run: |
+          npm ci
+          npm run build-cdn
+        working-directory: ./base
+
+      - name: Build CDN (PR)
+        run: |
+          npm ci
+          npm run build-cdn
+        working-directory: ./pr
+
+      - name: Create Size Report
+        run: |
+          mkdir size_report
+          echo ${{ github.event.number }} > size_report/pull_req_nr
+          REPORT=$(./pr/tools/buildSizeReport.js ./base/build ./pr/build)
+          echo "$REPORT" > size_report/report.md
+
+      - name: Save Size Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: size_report
+          path: ./size_report

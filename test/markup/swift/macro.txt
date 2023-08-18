@@ -3,4 +3,7 @@ macro warning(_ message: String) = #externalMacro(module: "MyMacros", type: "War
 @freestanding(declaration)
 macro error(_ message: String) = #externalMacro(module: "MyMacros", type: "ErrorMacro")
 
+@attached(member)
+macro OptionSetMembers()
+
 #myMacro()
