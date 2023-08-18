@@ -36,6 +36,7 @@ Core Grammars:
 - fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
 - enh(rust) added `eprintln!` macro [qoheniac][]
 - enh(leaf) update syntax to 4.0 [Samuel Bishop][]
+- fix(reasonml) simplify syntax and align it with ocaml [jchavarri][]
 - fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 
@@ -56,6 +57,7 @@ Dev tool:
 [qoheniac]: https://github.com/qoheniac
 [Samuel Bishop]: https://github.com/dannflor
 [gondow]: https://github.com/gondow
+[jchavarri]: https://github.com/jchavarri
 [aana-h2]: https://github.com/aana-h2
 [Nicholas Thompson]: https://github.com/NAThompson
 
