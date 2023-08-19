@@ -20,6 +20,7 @@ New Grammars:
 Core Grammars:
 
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
+- fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
@@ -60,6 +61,7 @@ Dev tool:
 [jchavarri]: https://github.com/jchavarri
 [aana-h2]: https://github.com/aana-h2
 [Nicholas Thompson]: https://github.com/NAThompson
+[Lê Duy Quang]: https://github.com/leduyquang753
 
 
 ## Version 11.8.0
