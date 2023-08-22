@@ -1,0 +1,66 @@
+<span class="hljs-keyword">import</span> ballerina/io;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">main</span>() <span class="hljs-keyword">returns</span> <span class="hljs-type">error</span>? {
+    <span class="hljs-comment">// An XML element. There can be only one root element.</span>
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">x1</span> <span class="hljs-operator">=</span> <span class="hljs-type">xml</span> `<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">book</span>&gt;</span>The Lost World<span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span></span>`;
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">x1</span>);
+
+    <span class="hljs-comment">// An XML processing instruction.</span>
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">x2</span> <span class="hljs-operator">=</span> <span class="hljs-type">xml</span> `<span class="language-xml"><span class="hljs-meta">&lt;?target data?&gt;</span></span>`;
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">x2</span>);
+
+    <span class="hljs-comment">// An XML comment.</span>
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">x3</span> <span class="hljs-operator">=</span> <span class="hljs-type">xml</span> `<span class="language-xml"><span class="hljs-comment">&lt;!--I am a comment--&gt;</span></span>`;
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">x3</span>);
+
+    <span class="hljs-comment">// An XML text.</span>
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">x4</span> <span class="hljs-operator">=</span> <span class="hljs-type">xml</span> `<span class="language-xml">Hello, world!</span>`;
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">x4</span>);
+
+    <span class="hljs-comment">// `xml:createText` can be used to convert a string to `xmlText`.</span>
+    <span class="hljs-keyword">string</span> <span class="hljs-variable">hello</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello&quot;</span>;
+    <span class="hljs-keyword">string</span> <span class="hljs-variable">world</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;World&quot;</span>;
+    <span class="hljs-type">xml</span>:Text xmlString <span class="hljs-operator">=</span> <span class="hljs-type">xml</span><span class="hljs-keyword">:</span><span class="hljs-title function_">createText</span>(<span class="hljs-params">hello</span> <span class="hljs-operator">+</span> <span class="hljs-string">&quot; &quot;</span> <span class="hljs-operator">+</span> <span class="hljs-params">world</span>);
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">xmlString</span>);
+
+    <span class="hljs-comment">// Creates an XML value.</span>
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">xmlValue</span> <span class="hljs-operator">=</span> <span class="hljs-type">xml</span> `<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Sherlock Holmes<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
+                          <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Sir Arthur Conan Doyle<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+                          <span class="hljs-tag">&lt;<span class="hljs-name">language</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">language</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span></span>`;
+
+    <span class="hljs-comment">// `x[i]` or `x.get(i)` gives the `i`-th item.</span>
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">xmlValue</span>[<span class="hljs-number">0</span>]);
+
+    <span class="hljs-comment">// `x.id` accesses a required attribute named `id`. The result is an `error` if there is no such</span>
+    <span class="hljs-comment">// attribute or if `x` is not a singleton.</span>
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">xmlHello</span> <span class="hljs-operator">=</span> <span class="hljs-type">xml</span> `<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">para</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;greeting&quot;</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">para</span>&gt;</span></span>`;
+    <span class="hljs-keyword">string</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">check</span> xmlHello.id;
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">id</span>);
+
+    <span class="hljs-comment">// `x?.id` accesses an optional attribute named `id`. The result is `()` if there is no such</span>
+    <span class="hljs-comment">// attribute.</span>
+    <span class="hljs-type">string</span>? name <span class="hljs-operator">=</span> <span class="hljs-keyword">check</span> xmlHello?.name;
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">name</span>);
+
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">xmlItems</span> <span class="hljs-operator">=</span> <span class="hljs-type">xml</span>
+        `<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">items</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--Contents--&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">book</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>A Study in Scarlet<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Arthur Conan Doyle<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">planner</span>&gt;</span>Daily Planner<span class="hljs-tag">&lt;<span class="hljs-name">kind</span>&gt;</span>day<span class="hljs-tag">&lt;/<span class="hljs-name">kind</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">pages</span>&gt;</span>365<span class="hljs-tag">&lt;/<span class="hljs-name">pages</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">planner</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">book</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>The Sign of Four<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Arthur Conan Doyle<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">pen</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">kind</span>&gt;</span>marker<span class="hljs-tag">&lt;/<span class="hljs-name">kind</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">color</span>&gt;</span>blue<span class="hljs-tag">&lt;/<span class="hljs-name">color</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pen</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">items</span>&gt;</span></span>`;
+
+    <span class="hljs-comment">// `x.&lt;items&gt;` - retrieves every element in `x` named `items`.</span>
+    <span class="hljs-keyword">xml</span> <span class="hljs-variable">items</span> <span class="hljs-operator">=</span> xmlItems.<span class="hljs-operator">&lt;</span>items<span class="hljs-operator">&gt;</span>;
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">items</span>);
+
+}
