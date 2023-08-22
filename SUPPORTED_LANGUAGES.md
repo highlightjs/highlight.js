@@ -29,6 +29,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | AutoHotkey              | autohotkey             |         |
 | AutoIt                  | autoit                 |         |
 | Awk                     | awk, mawk, nawk, gawk  |         |
+| Ballerina               | ballerina, bal         | [highlightjs-ballerina](https://github.com/YasithD/highlightjs-ballerina) |
 | Bash                    | bash, sh, zsh          |         |
 | Basic                   | basic                  |         |
 | BBCode                  | bbcode                 | [highlightjs-bbcode](https://github.com/RedGuy12/highlightjs-bbcode) |
