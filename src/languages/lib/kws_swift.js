@@ -1,213 +1,199 @@
-import {
-  concat,
-  either
-} from '../../lib/regex.js';
+import { concat, either } from "../../lib/regex.js";
 
-export const keywordWrapper = keyword => concat(
-  /\b/,
-  keyword,
-  /\w$/.test(keyword) ? /\b/ : /\B/
-);
+export const keywordWrapper = (keyword) =>
+  concat(/\b/, keyword, /\w$/.test(keyword) ? /\b/ : /\B/);
 
 // Keywords that require a leading dot.
 export const dotKeywords = [
-  'Protocol', // contextual
-  'Type' // contextual
+  "Protocol", // contextual
+  "Type", // contextual
 ].map(keywordWrapper);
 
 // Keywords that may have a leading dot.
-export const optionalDotKeywords = [
-  'init',
-  'self'
-].map(keywordWrapper);
+export const optionalDotKeywords = ["init", "self"].map(keywordWrapper);
 
 // should register as keyword, not type
-export const keywordTypes = [
-  'Any',
-  'Self'
-];
+export const keywordTypes = ["Any", "Self"];
 
 // Regular keywords and literals.
 export const keywords = [
   // strings below will be fed into the regular `keywords` engine while regex
   // will result in additional modes being created to scan for those keywords to
   // avoid conflicts with other rules
-  'actor',
-  'any', // contextual
-  'associatedtype',
-  'async',
-  'await',
+  "actor",
+  "any", // contextual
+  "associatedtype",
+  "async",
+  "await",
   /as\?/, // operator
   /as!/, // operator
-  'as', // operator
-  'borrowing', // contextual
-  'break',
-  'case',
-  'catch',
-  'class',
-  'consume', // contextual
-  'consuming', // contextual
-  'continue',
-  'convenience', // contextual
-  'copy', // contextual
-  'default',
-  'defer',
-  'deinit',
-  'didSet', // contextual
-  'distributed',
-  'do',
-  'dynamic', // contextual
-  'each',
-  'else',
-  'enum',
-  'extension',
-  'fallthrough',
+  "as", // operator
+  "borrowing", // contextual
+  "break",
+  "case",
+  "catch",
+  "class",
+  "consume", // contextual
+  "consuming", // contextual
+  "continue",
+  "convenience", // contextual
+  "copy", // contextual
+  "default",
+  "defer",
+  "deinit",
+  "didSet", // contextual
+  "distributed",
+  "do",
+  "dynamic", // contextual
+  "each",
+  "else",
+  "enum",
+  "extension",
+  "fallthrough",
   /fileprivate\(set\)/,
-  'fileprivate',
-  'final', // contextual
-  'for',
-  'func',
-  'get', // contextual
-  'guard',
-  'if',
-  'import',
-  'indirect', // contextual
-  'infix', // contextual
+  "fileprivate",
+  "final", // contextual
+  "for",
+  "func",
+  "get", // contextual
+  "guard",
+  "if",
+  "import",
+  "indirect", // contextual
+  "infix", // contextual
   /init\?/,
   /init!/,
-  'inout',
+  "inout",
   /internal\(set\)/,
-  'internal',
-  'in',
-  'is', // operator
-  'isolated', // contextual
-  'nonisolated', // contextual
-  'lazy', // contextual
-  'let',
-  'macro',
-  'mutating', // contextual
-  'nonmutating', // contextual
+  "internal",
+  "in",
+  "is", // operator
+  "isolated", // contextual
+  "nonisolated", // contextual
+  "lazy", // contextual
+  "let",
+  "macro",
+  "mutating", // contextual
+  "nonmutating", // contextual
   /open\(set\)/, // contextual
-  'open', // contextual
-  'operator',
-  'optional', // contextual
-  'override', // contextual
-  'postfix', // contextual
-  'precedencegroup',
-  'prefix', // contextual
+  "open", // contextual
+  "operator",
+  "optional", // contextual
+  "override", // contextual
+  "postfix", // contextual
+  "precedencegroup",
+  "prefix", // contextual
   /private\(set\)/,
-  'private',
-  'protocol',
+  "private",
+  "protocol",
   /public\(set\)/,
-  'public',
-  'repeat',
-  'required', // contextual
-  'rethrows',
-  'return',
-  'set', // contextual
-  'some', // contextual
-  'static',
-  'struct',
-  'subscript',
-  'super',
-  'switch',
-  'throws',
-  'throw',
+  "public",
+  "repeat",
+  "required", // contextual
+  "rethrows",
+  "return",
+  "set", // contextual
+  "some", // contextual
+  "static",
+  "struct",
+  "subscript",
+  "super",
+  "switch",
+  "throws",
+  "throw",
   /try\?/, // operator
   /try!/, // operator
-  'try', // operator
-  'typealias',
+  "try", // operator
+  "typealias",
   /unowned\(safe\)/, // contextual
   /unowned\(unsafe\)/, // contextual
-  'unowned', // contextual
-  'var',
-  'weak', // contextual
-  'where',
-  'while',
-  'willSet' // contextual
+  "unowned", // contextual
+  "var",
+  "weak", // contextual
+  "where",
+  "while",
+  "willSet", // contextual
 ];
 
 // NOTE: Contextual keywords are reserved only in specific contexts.
 // Ideally, these should be matched using modes to avoid false positives.
 
 // Literals.
-export const literals = [
-  'false',
-  'nil',
-  'true'
-];
+export const literals = ["false", "nil", "true"];
 
 // Keywords used in precedence groups.
 export const precedencegroupKeywords = [
-  'assignment',
-  'associativity',
-  'higherThan',
-  'left',
-  'lowerThan',
-  'none',
-  'right'
+  "assignment",
+  "associativity",
+  "higherThan",
+  "left",
+  "lowerThan",
+  "none",
+  "right",
 ];
 
 // Keywords that start with a number sign (#).
 // #(un)available is handled separately.
 export const numberSignKeywords = [
-  '#colorLiteral',
-  '#column',
-  '#dsohandle',
-  '#else',
-  '#elseif',
-  '#endif',
-  '#error',
-  '#file',
-  '#fileID',
-  '#fileLiteral',
-  '#filePath',
-  '#function',
-  '#if',
-  '#imageLiteral',
-  '#keyPath',
-  '#line',
-  '#selector',
-  '#sourceLocation',
-  '#warning'
+  "#colorLiteral",
+  "#column",
+  "#dsohandle",
+  "#else",
+  "#elseif",
+  "#endif",
+  "#error",
+  "#file",
+  "#fileID",
+  "#fileLiteral",
+  "#filePath",
+  "#function",
+  "#if",
+  "#imageLiteral",
+  "#keyPath",
+  "#line",
+  "#selector",
+  "#sourceLocation",
+  "#warning",
 ];
 
 // Global functions in the Standard Library.
 export const builtIns = [
-  'abs',
-  'all',
-  'any',
-  'assert',
-  'assertionFailure',
-  'debugPrint',
-  'dump',
-  'fatalError',
-  'getVaList',
-  'isKnownUniquelyReferenced',
-  'max',
-  'min',
-  'numericCast',
-  'pointwiseMax',
-  'pointwiseMin',
-  'precondition',
-  'preconditionFailure',
-  'print',
-  'readLine',
-  'repeatElement',
-  'sequence',
-  'stride',
-  'swap',
-  'swift_unboxFromSwiftValueWithType',
-  'transcode',
-  'type',
-  'unsafeBitCast',
-  'unsafeDowncast',
-  'withExtendedLifetime',
-  'withUnsafeMutablePointer',
-  'withUnsafePointer',
-  'withVaList',
-  'withoutActuallyEscaping',
-  'zip'
+  "abs",
+  "all",
+  "any",
+  "assert",
+  "assertionFailure",
+  "debugPrint",
+  "dump",
+  "fatalError",
+  "getVaList",
+  "isKnownUniquelyReferenced",
+  "max",
+  "min",
+  "numericCast",
+  "pointwiseMax",
+  "pointwiseMin",
+  "precondition",
+  "preconditionFailure",
+  "print",
+  "readLine",
+  "repeatElement",
+  "sequence",
+  "stride",
+  "swap",
+  "swift_unboxFromSwiftValueWithType",
+  "transcode",
+  "type",
+  "unsafeBitCast",
+  "unsafeDowncast",
+  "withExtendedLifetime",
+  "withUnsafeMutablePointer",
+  "withUnsafePointer",
+  "withVaList",
+  "withoutActuallyEscaping",
+  "zip",
+  "another",
+  "sdfisaufhpisafy b9awbeyfhlasiudhlasidgh",
 ];
 
 // Valid first characters for operators.
@@ -245,7 +231,7 @@ export const operatorCharacter = either(
 );
 
 // Valid operator.
-export const operator = concat(operatorHead, operatorCharacter, '*');
+export const operator = concat(operatorHead, operatorCharacter, "*");
 
 // Valid first characters for identifiers.
 export const identifierHead = either(
@@ -275,62 +261,62 @@ export const identifierCharacter = either(
 );
 
 // Valid identifier.
-export const identifier = concat(identifierHead, identifierCharacter, '*');
+export const identifier = concat(identifierHead, identifierCharacter, "*");
 
 // Valid type identifier.
-export const typeIdentifier = concat(/[A-Z]/, identifierCharacter, '*');
+export const typeIdentifier = concat(/[A-Z]/, identifierCharacter, "*");
 
 // Built-in attributes, which are highlighted as keywords.
 // @available is handled separately.
 // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/attributes
 export const keywordAttributes = [
-  'attached',
-  'autoclosure',
-  concat(/convention\(/, either('swift', 'block', 'c'), /\)/),
-  'discardableResult',
-  'dynamicCallable',
-  'dynamicMemberLookup',
-  'escaping',
-  'freestanding',
-  'frozen',
-  'GKInspectable',
-  'IBAction',
-  'IBDesignable',
-  'IBInspectable',
-  'IBOutlet',
-  'IBSegueAction',
-  'inlinable',
-  'main',
-  'nonobjc',
-  'NSApplicationMain',
-  'NSCopying',
-  'NSManaged',
+  "attached",
+  "autoclosure",
+  concat(/convention\(/, either("swift", "block", "c"), /\)/),
+  "discardableResult",
+  "dynamicCallable",
+  "dynamicMemberLookup",
+  "escaping",
+  "freestanding",
+  "frozen",
+  "GKInspectable",
+  "IBAction",
+  "IBDesignable",
+  "IBInspectable",
+  "IBOutlet",
+  "IBSegueAction",
+  "inlinable",
+  "main",
+  "nonobjc",
+  "NSApplicationMain",
+  "NSCopying",
+  "NSManaged",
   concat(/objc\(/, identifier, /\)/),
-  'objc',
-  'objcMembers',
-  'propertyWrapper',
-  'requires_stored_property_inits',
-  'resultBuilder',
-  'Sendable',
-  'testable',
-  'UIApplicationMain',
-  'unchecked',
-  'unknown',
-  'usableFromInline',
-  'warn_unqualified_access'
+  "objc",
+  "objcMembers",
+  "propertyWrapper",
+  "requires_stored_property_inits",
+  "resultBuilder",
+  "Sendable",
+  "testable",
+  "UIApplicationMain",
+  "unchecked",
+  "unknown",
+  "usableFromInline",
+  "warn_unqualified_access",
 ];
 
 // Contextual keywords used in @available and #(un)available.
 export const availabilityKeywords = [
-  'iOS',
-  'iOSApplicationExtension',
-  'macOS',
-  'macOSApplicationExtension',
-  'macCatalyst',
-  'macCatalystApplicationExtension',
-  'watchOS',
-  'watchOSApplicationExtension',
-  'tvOS',
-  'tvOSApplicationExtension',
-  'swift'
+  "iOS",
+  "iOSApplicationExtension",
+  "macOS",
+  "macOSApplicationExtension",
+  "macCatalyst",
+  "macCatalystApplicationExtension",
+  "watchOS",
+  "watchOSApplicationExtension",
+  "tvOS",
+  "tvOSApplicationExtension",
+  "swift",
 ];
