@@ -39,6 +39,7 @@ Core Grammars:
 - fix(reasonml) simplify syntax and align it with ocaml [jchavarri][]
 - fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
+- fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 
 Dev tool:
 
