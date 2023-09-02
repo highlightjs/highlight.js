@@ -1,0 +1,12 @@
+<span class="hljs-keyword">import</span> ballerina/io;
+
+<span class="hljs-comment">// Modules and functions can declare variables. You can see both in this example.</span>
+<span class="hljs-comment">// Here we declare a variable `greeting` of type `string` and initialize it to `&quot;Hello&quot;`.</span>
+<span class="hljs-keyword">string</span> <span class="hljs-variable">greeting</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello&quot;</span>;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">main</span>() {
+    <span class="hljs-comment">// Assignments are statements not expressions.</span>
+    <span class="hljs-keyword">string</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Ballerina&quot;</span>;
+
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">greeting</span>, <span class="hljs-string">&quot; &quot;</span>, <span class="hljs-params">name</span>);
+}

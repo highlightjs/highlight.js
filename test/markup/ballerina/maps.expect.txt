@@ -1,0 +1,32 @@
+<span class="hljs-keyword">import</span> ballerina/io;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">main</span>() {
+    <span class="hljs-comment">// Creates a `map` constrained by the `int` type.</span>
+    <span class="hljs-type">map</span><span class="hljs-operator">&lt;</span><span class="hljs-type">int</span><span class="hljs-operator">&gt;</span> ages <span class="hljs-operator">=</span> {
+        <span class="hljs-string">&quot;Tom&quot;</span><span class="hljs-keyword">:</span> <span class="hljs-number">23</span>,
+        <span class="hljs-string">&quot;Jack&quot;</span><span class="hljs-keyword">:</span> <span class="hljs-number">34</span>
+    };
+
+    <span class="hljs-comment">// Gets the entry for `Tom`.</span>
+    <span class="hljs-type">int</span>? v <span class="hljs-operator">=</span> ages[<span class="hljs-string">&quot;Tom&quot;</span>];
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">v</span>);
+
+    <span class="hljs-comment">// As there exists an entry for `Tom`, it can be accessed using the `map:get()` method. </span>
+    <span class="hljs-comment">// Using `ages[&quot;Tom&quot;]` wouldn&#x27;t work here because its type would be `int?` and  not `int`.</span>
+    <span class="hljs-keyword">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> ages.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;Tom&quot;</span>);
+    io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">age</span>);
+
+    <span class="hljs-comment">// Adds a new entry for `Anne`.</span>
+    ages[<span class="hljs-string">&quot;Anne&quot;</span>] <span class="hljs-operator">=</span> <span class="hljs-number">19</span>;
+
+    <span class="hljs-comment">// The `map:hasKey()` method checks whether the map `age` has a member with `Jack` as the key.</span>
+    <span class="hljs-keyword">if</span> ages.<span class="hljs-title function_">hasKey</span>(<span class="hljs-string">&quot;Jack&quot;</span>) {
+        <span class="hljs-comment">// The member with the key `Jack` can be removed using `map:remove()`.</span>
+        _ <span class="hljs-operator">=</span> ages.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&quot;Jack&quot;</span>);
+    }
+
+    <span class="hljs-comment">// `map:keys()` returns the keys as an array of strings.</span>
+    <span class="hljs-keyword">foreach</span> <span class="hljs-keyword">string</span> <span class="hljs-variable">name</span> <span class="hljs-keyword">in</span> ages.<span class="hljs-title function_">keys</span>() {
+        io<span class="hljs-keyword">:</span><span class="hljs-title function_">println</span>(<span class="hljs-params">name</span>, <span class="hljs-string">&quot; : &quot;</span>, <span class="hljs-params">ages</span>[<span class="hljs-params">name</span>]);
+    }
+}

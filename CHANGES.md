@@ -16,6 +16,7 @@ New Grammars:
 
 - added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
 - added 3rd party riscv64 grammar to SUPPORTED_LANGUAGES [aana-h2][]
+- added 3rd party Ballerina grammar to SUPPORTED_LANGUAGES [Yasith Deelaka][]
 
 Core Grammars:
 
@@ -60,6 +61,7 @@ Dev tool:
 [jchavarri]: https://github.com/jchavarri
 [aana-h2]: https://github.com/aana-h2
 [Nicholas Thompson]: https://github.com/NAThompson
+[Yasith Deelaka]: https://github.com/YasithD
 
 
 ## Version 11.8.0
