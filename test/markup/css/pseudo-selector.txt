@@ -1,2 +1,18 @@
 li:not(.red){}
 li:not(.red):not(.green){}
+
+:first-child {
+  padding: 0;
+}
+
+:first-of-type {
+  padding: 0;
+}
+
+:last-child {
+  padding: 0;
+}
+
+:last-of-type {
+  padding: 0;
+}

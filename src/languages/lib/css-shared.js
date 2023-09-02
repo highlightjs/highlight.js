@@ -153,7 +153,7 @@ export const MEDIA_FEATURES = [
   'max-width',
   'min-height',
   'max-height'
-];
+].sort().reverse();
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 export const PSEUDO_CLASSES = [
@@ -216,7 +216,7 @@ export const PSEUDO_CLASSES = [
   'valid',
   'visited',
   'where' // where()
-];
+].sort().reverse();
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
 export const PSEUDO_ELEMENTS = [
@@ -234,7 +234,7 @@ export const PSEUDO_ELEMENTS = [
   'selection',
   'slotted',
   'spelling-error'
-];
+].sort().reverse();
 
 export const ATTRIBUTES = [
   'align-content',
@@ -597,7 +597,7 @@ export const ATTRIBUTES = [
   'z-index'
   // reverse makes sure longer attributes `font-weight` are matched fully
   // instead of getting false positives on say `font`
-].reverse();
+].sort().reverse();
 
 // some grammars use them all as a single group
 export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS);
