@@ -118,6 +118,9 @@ export const TAGS = [
   'video'
 ];
 
+// Sorting, then reversing makes sure longer attributes/elements like
+// `font-weight` are matched fully instead of getting false positives on say `font`
+
 export const MEDIA_FEATURES = [
   'any-hover',
   'any-pointer',
@@ -595,8 +598,6 @@ export const ATTRIBUTES = [
   'word-wrap',
   'writing-mode',
   'z-index'
-  // reverse makes sure longer attributes `font-weight` are matched fully
-  // instead of getting false positives on say `font`
 ].sort().reverse();
 
 // some grammars use them all as a single group
