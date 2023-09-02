@@ -601,4 +601,4 @@ export const ATTRIBUTES = [
 ].sort().reverse();
 
 // some grammars use them all as a single group
-export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS);
+export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS).sort().reverse();
