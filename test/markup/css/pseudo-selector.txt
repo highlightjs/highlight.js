@@ -16,3 +16,9 @@ li:not(.red):not(.green){}
 :last-of-type {
   padding: 0;
 }
+
+p::first-letter {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: brown;
+}
