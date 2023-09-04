@@ -26,6 +26,7 @@ export default function(hljs) {
     'chown',
     'chr',
     'chroot',
+    'class',
     'close',
     'closedir',
     'connect',
@@ -55,6 +56,7 @@ export default function(hljs) {
     'exit',
     'exp',
     'fcntl',
+    'field',
     'fileno',
     'flock',
     'for',
@@ -114,6 +116,7 @@ export default function(hljs) {
     'lt',
     'ma',
     'map',
+    'method',
     'mkdir',
     'msgctl',
     'msgget',
@@ -258,19 +261,27 @@ export default function(hljs) {
     end: /\}/
     // contains defined later
   };
-  const VAR = { variants: [
-    { begin: /\$\d/ },
-    { begin: regex.concat(
-      /[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
-      // negative look-ahead tries to avoid matching patterns that are not
-      // Perl at all like $ident$, @ident@, etc.
-      `(?![A-Za-z])(?![@$%])`
-    ) },
-    {
-      begin: /[$%@][^\s\w{]/,
-      relevance: 0
-    }
-  ] };
+  const ATTR = {
+    scope: 'attr',
+    match: /\s+:\s*\w+(\s*\(.*?\))?/,
+  };
+  const VAR = {
+    variants: [
+      { begin: /\$\d/ },
+      { begin: regex.concat(
+        /[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
+        // negative look-ahead tries to avoid matching patterns that are not
+        // Perl at all like $ident$, @ident@, etc.
+        `(?![A-Za-z])(?![@$%])`
+        )
+      },
+      {
+        begin: /[$%@][^\s\w{]/,
+        relevance: 0
+      }
+    ],
+    contains: [ ATTR ],
+  };
   const NUMBER = {
     className: 'number',
     variants: [
@@ -443,11 +454,19 @@ export default function(hljs) {
     },
     {
       className: 'function',
-      beginKeywords: 'sub',
+      beginKeywords: 'sub method',
       end: '(\\s*\\(.*?\\))?[;{]',
       excludeEnd: true,
       relevance: 5,
-      contains: [ hljs.TITLE_MODE ]
+      contains: [ hljs.TITLE_MODE, ATTR ]
+    },
+    {
+      className: 'class',
+      beginKeywords: 'class',
+      end: '[;{]',
+      excludeEnd: true,
+      relevance: 5,
+      contains: [ hljs.TITLE_MODE, ATTR, NUMBER ]
     },
     {
       begin: '-\\w\\b',
