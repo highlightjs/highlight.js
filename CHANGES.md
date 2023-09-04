@@ -57,6 +57,7 @@ Core Grammars:
 - enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
 - fix(css) added '_'  css variable detection [Md Saad Akhtar][]
 - enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
+- enh(perl) add support for the new class system [Bruno Meneguele][]
 
 
 Developer Tool:
@@ -81,6 +82,7 @@ Developer Tool:
 [Brian Ward]: https://github.com/WardBrian
 [Md Saad Akhtar]: https://github.com/akhtarmdsaad
 [Guillaume Laforge]: https://github.com/glaforge
+[Bruno Meneguele]: https://github.com/bmeneg
 
 
 ## Version 11.8.0
