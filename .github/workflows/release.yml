@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout highlight.js
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Tag is ${{ github.ref }}.
         # we have to repeat ourselves here since the environment is not actually updated
@@ -86,7 +86,7 @@ jobs:
           false
 
       - name: Checkout cdn-release
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: 'highlightjs/cdn-release'
           path: 'cdn-release'
