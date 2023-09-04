@@ -271,6 +271,22 @@ export default function(hljs) {
       relevance: 0
     }
   ] };
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      // decimal numbers:
+      // include the case where a number starts with a dot (eg. .9), and
+      // the leading 0? avoids mixing the first and second match on 0.x cases
+      { match: /0?\.[0-9][0-9_]+\b/ },
+      // include the special versioned number (eg. v5.38)
+      { match: /\bv?(0|[1-9][0-9_]*(\.[0-9_]+)?|[1-9][0-9_]*)\b/ },
+      // non-decimal numbers:
+      { match: /\b0[0-7][0-7_]*\b/ },
+      { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*\b/ },
+      { match: /\b0b[0-1][0-1_]*\b/ },
+    ],
+    relevance: 0
+  }
   const STRING_CONTAINS = [
     hljs.BACKSLASH_ESCAPE,
     SUBST,
@@ -385,11 +401,7 @@ export default function(hljs) {
         }
       ]
     },
-    {
-      className: 'number',
-      begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
-      relevance: 0
-    },
+    NUMBER,
     { // regexp container
       begin: '(\\/\\/|' + hljs.RE_STARTERS_RE + '|\\b(split|return|print|reverse|grep)\\b)\\s*',
       keywords: 'split return print reverse grep',
