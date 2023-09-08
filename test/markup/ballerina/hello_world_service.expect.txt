@@ -1,9 +1,0 @@
-<span class="hljs-keyword">import</span> ballerina/http;
-
-<span class="hljs-keyword">service</span> / <span class="hljs-keyword">on</span> <span class="hljs-keyword">new</span> http<span class="hljs-keyword">:</span><span class="hljs-title function_">Listener</span>(<span class="hljs-number">9090</span>) {
-
-    <span class="hljs-comment">// This function responds with `string` value `Hello, World!` to HTTP GET requests.</span>
-    <span class="hljs-keyword">resource</span> <span class="hljs-keyword">function</span> get <span class="hljs-title function_">greeting</span>() <span class="hljs-keyword">returns</span> <span class="hljs-type">string</span> {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, World!&quot;</span>;
-    }
-}
