@@ -40,6 +40,7 @@ Core Grammars:
 - fix(reasonml) simplify syntax and align it with ocaml [jchavarri][]
 - fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
+- enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
 
 Dev tool:
 
@@ -62,6 +63,7 @@ Dev tool:
 [aana-h2]: https://github.com/aana-h2
 [Nicholas Thompson]: https://github.com/NAThompson
 [Yasith Deelaka]: https://github.com/YasithD
+[Brian Ward]: https://github.com/WardBrian
 
 
 ## Version 11.8.0
