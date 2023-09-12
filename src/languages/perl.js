@@ -277,7 +277,8 @@ export default function(hljs) {
         )
       },
       {
-        begin: /[$%@][^\s\w{]/,
+        // Only $= is a special Perl variable and one can't declare @= or %=.
+        begin: /[$%@][^\s\w{=]|\$=/,
         relevance: 0
       }
     ],
