@@ -266,6 +266,7 @@ export default function(hljs) {
     match: /\s+:\s*\w+(\s*\(.*?\))?/,
   };
   const VAR = {
+    scope: 'variable',
     variants: [
       { begin: /\$\d/ },
       { begin: regex.concat(

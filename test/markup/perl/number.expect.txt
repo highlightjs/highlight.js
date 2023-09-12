@@ -1,23 +1,21 @@
-
-
 <span class="hljs-keyword">use</span> <span class="hljs-number">v5.38</span>;
 <span class="hljs-keyword">use</span> <span class="hljs-number">5.0020</span>;
 
-<span class="hljs-keyword">my</span> $number = <span class="hljs-number">9</span>;
-$number = <span class="hljs-number">0</span>;
-$number = 0_;
-$number = <span class="hljs-number">00</span>;
-$number = <span class="hljs-number">0.99</span>;
-$number = <span class="hljs-number">99</span>;
-$number = <span class="hljs-number">99.9</span>;
-$number = <span class="hljs-number">99.99</span>;
-$number = ._99;
-$number = <span class="hljs-number">0x99FF</span>;
-$number = <span class="hljs-number">0x99_EE_FF</span>;
-$number = 0x_99_FF;
-$number = <span class="hljs-number">0b00101011</span>;
-$number = <span class="hljs-number">0b0010_1011</span>;
-$number = 0b_0010_1011;
-$number = <span class="hljs-number">0777</span>;
-$number = <span class="hljs-number">07_7_7</span>;
-$number = 0_777;
+<span class="hljs-keyword">my</span> <span class="hljs-variable">$number</span> = <span class="hljs-number">9</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">0</span>;
+<span class="hljs-variable">$number</span> = 0_;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">00</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">0.99</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">99</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">99.9</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">99.99</span>;
+<span class="hljs-variable">$number</span> = ._99;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">0x99FF</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">0x99_EE_FF</span>;
+<span class="hljs-variable">$number</span> = 0x_99_FF;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">0b00101011</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">0b0010_1011</span>;
+<span class="hljs-variable">$number</span> = 0b_0010_1011;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">0777</span>;
+<span class="hljs-variable">$number</span> = <span class="hljs-number">07_7_7</span>;
+<span class="hljs-variable">$number</span> = 0_777;
