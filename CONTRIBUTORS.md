@@ -25,3 +25,4 @@
 ### Individual Contributors
 
 Highlight.js has also been greatly improved over the years thanks to the help of [many other contributors](https://github.com/highlightjs/highlight.js/graphs/contributors).  A big thank you to everyone who has helped make this project what it is today!
+- Md Saad Akhtar <akhtarmdsaad@gmail.com>
