@@ -62,7 +62,7 @@ export default function(hljs) {
   const PREPROCESSOR = {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
-    end: /$/,
+    end: /\s/,
     keywords: { keyword:
         'if else elif endif define undef warning error line '
         + 'pragma _Pragma ifdef ifndef include' },
