@@ -28,6 +28,17 @@ if (p) {
 #endif
 }
 
+#include <iostream>
+#include<iostream>
+#define what do{ cout << "Hello"; } while(0);
+#define PI 3.14;
+#pragma warning(disable : 1234) 
+#if !defined(CONFIG_OPTION)
+#error "CONFIG_OPTION is not defined."
+#endif
+#line 42 "mycode.cpp"
+#undef PI
+
 // this is a continued\
 comment.
 end

@@ -27,7 +27,34 @@
     <span class="hljs-built_in">anotherthing</span>();
 <span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
 }
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> </span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span>
+</span><span class="hljs-meta">#<span class="hljs-keyword">define</span> </span>what <span class="hljs-keyword">do</span>{ cout &lt;&lt; <span class="hljs-string">"Hello"</span>; } <span class="hljs-keyword">while</span>(<span class="hljs-number">0</span>);
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> </span>PI <span class="hljs-number">3.14</span>;
+<span class="hljs-meta">#<span class="hljs-keyword">pragma</span> </span><span class="hljs-built_in">warning</span>(disable : <span class="hljs-number">1234</span>) <span class="hljs-comment">// Disable a specific warning</span>
+<span class="hljs-meta">#<span class="hljs-keyword">if</span> </span>!<span class="hljs-built_in">defined</span>(CONFIG_OPTION)
+<span class="hljs-meta">#<span class="hljs-keyword">error</span> </span><span class="hljs-string">"CONFIG_OPTION is not defined."</span>
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span>
+</span><span class="hljs-meta">#<span class="hljs-keyword">line</span> </span><span class="hljs-number">42</span> <span class="hljs-string">"mycode.cpp"</span>
+<span class="hljs-meta">#<span class="hljs-keyword">undef</span> </span><span class="hljs-function">PI
 
+<span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+	<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+	<span class="hljs-type">int</span> num = <span class="hljs-number">4</span>;
+	cout &lt;&lt; <span class="hljs-string">"Hello"</span>;
+	cout &lt;&lt; <span class="hljs-number">123456</span>;
+	cout &lt;&lt; <span class="hljs-number">15.965</span>;
+	
+	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Hello"</span>);
+	
+	
+	
+	<span class="hljs-keyword">struct</span> <span class="hljs-title class_">saad</span> obj;
+	<span class="hljs-keyword">do</span>{ cout &lt;&lt; <span class="hljs-string">"Hello"</span>; } <span class="hljs-keyword">while</span>(<span class="hljs-number">0</span>);
+	<span class="hljs-built_in">call</span>();
+	<span class="hljs-type">int</span> x=<span class="hljs-number">5</span>;
+}
 <span class="hljs-comment">// this is a continued\
 comment.</span>
 end
