@@ -83,7 +83,7 @@ library along with one of the themes and calling [`highlightAll`][1]:
 
 This will find and highlight code inside of `<pre><code>` tags; it tries
 to detect the language automatically. If automatic detection doesn’t
-work for you, or you simply prefer to be explicit, you can specify the language manually in the using the `class` attribute:
+work for you, or you simply prefer to be explicit, you can specify the language manually in using the `class` attribute:
 
 
 ```html
