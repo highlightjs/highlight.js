@@ -384,7 +384,7 @@ export default function(hljs) {
     match: regex.concat(
       /\b/,
       noneOf([
-        ...ECMAScript.BUILT_IN_GLOBALS,
+        ...ECMAScript.BUILT_IN_GLOBALS.map((x) => x + '\\('),
         "super",
         "import"
       ]),
