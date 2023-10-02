@@ -13,7 +13,7 @@ export default function(hljs) {
   const IDENT_RE = /([-a-zA-Z$._][\w$.-]*)/;
   const TYPE = {
     className: 'type',
-    begin: /\bi\d+(?=\s|\b)/
+    begin: /\b(?:void|i\d+|half|bfloat|float|double|fp128|x86_fp80|ppc_fp128|x86_amx|x86_mmx|ptr|label|token|metadata|opaque)(?=\s|\b)/
   };
   const OPERATOR = {
     className: 'operator',
@@ -100,7 +100,7 @@ export default function(hljs) {
       + 'malloc alloca free load store getelementptr '
       + 'extractelement insertelement shufflevector getresult '
       + 'extractvalue insertvalue atomicrmw cmpxchg fence '
-      + 'argmemonly double',
+      + 'argmemonly',
     contains: [
       TYPE,
       // this matches "empty comments"...
