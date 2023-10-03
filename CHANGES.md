@@ -41,6 +41,7 @@ Core Grammars:
 - fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 - enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
+- enh(llvm) match additional types [wtz][]
 
 Dev tool:
 
@@ -64,7 +65,7 @@ Dev tool:
 [Nicholas Thompson]: https://github.com/NAThompson
 [Yasith Deelaka]: https://github.com/YasithD
 [Brian Ward]: https://github.com/WardBrian
-
+[wtz]: https://github.com/wangtz0607
 
 ## Version 11.8.0
 
