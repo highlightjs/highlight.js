@@ -67,6 +67,8 @@ Dev tool:
 [Yasith Deelaka]: https://github.com/YasithD
 [Brian Ward]: https://github.com/WardBrian
 [Md Saad Akhtar]: https://github.com/akhtarmdsaad
+[Guillaume Laforge]: https://github.com/glaforge
+
 
 ## Version 11.8.0
 
@@ -118,7 +120,7 @@ Core Grammars:
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
 [Zlondrej]: https://github.com/zlondrej
-[Guillaume Laforge]: https://github.com/glaforge
+
 
 ## Version 11.7.0
 
