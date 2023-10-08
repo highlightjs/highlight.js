@@ -42,6 +42,7 @@ Core Grammars:
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 - enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
 - fix(css) added '_'  css variable detection [Md Saad Akhtar][]
+- enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
 
 Dev tool:
 
@@ -97,7 +98,6 @@ Core Grammars:
 - enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
 - enh(python) improve autodetection of code with type hinting any function's return type (making the `->` operator legal) [Keyacom][]
 - enh(bash) add `select` and `until` as keywords
-- enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
 
 [arnoudbuzing]: https://github.com/arnoudbuzing
 [aliaegik]: https://github.com/aliaegik
@@ -118,6 +118,7 @@ Core Grammars:
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
 [Zlondrej]: https://github.com/zlondrej
+[Guillaume Laforge]: https://github.com/glaforge
 
 ## Version 11.7.0
 
