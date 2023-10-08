@@ -1,0 +1,9 @@
+if (true) {}
+if true {}
+else if (true) {}
+while (true) {}
+while true {}
+for (a, b) in (0..10).enumerate() {}
+for a in 0..10 {}
+match str {}
+match (str) {}
