@@ -42,6 +42,7 @@ Core Grammars:
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 - enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
 - fix(css) added '_'  css variable detection [Md Saad Akhtar][]
+- enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
 
 Dev tool:
 
@@ -66,6 +67,8 @@ Dev tool:
 [Yasith Deelaka]: https://github.com/YasithD
 [Brian Ward]: https://github.com/WardBrian
 [Md Saad Akhtar]: https://github.com/akhtarmdsaad
+[Guillaume Laforge]: https://github.com/glaforge
+
 
 ## Version 11.8.0
 
@@ -117,6 +120,7 @@ Core Grammars:
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
 [Zlondrej]: https://github.com/zlondrej
+
 
 ## Version 11.7.0
 
