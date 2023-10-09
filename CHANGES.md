@@ -1,4 +1,4 @@
-## Version 11.9.0 (next release)
+## Version 11.9.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
 
@@ -9,11 +9,13 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Parser:
 
-- (enh) prevent rehighlighting of an element [joshgoebel][]
-- added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
+- (enh) prevent re-highlighting of an element [joshgoebel][]
+- (chore) Remove discontinued badges from README [Bradley Mackey][]
+- (chore) Fix build size report [Bradley Mackey][]
 
 New Grammars:
 
+- added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 - added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
 - added 3rd party riscv64 grammar to SUPPORTED_LANGUAGES [aana-h2][]
 - added 3rd party Ballerina grammar to SUPPORTED_LANGUAGES [Yasith Deelaka][]
@@ -45,12 +47,10 @@ Core Grammars:
 - fix(css) added '_'  css variable detection [Md Saad Akhtar][]
 - enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
 
-Dev tool:
+Developer Tool:
 
-- (chore) Remove discontinued badges from README [Bradley Mackey][]
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
-- (chore) Fix build size report [Bradley Mackey][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
 [Isaac Nonato]: https://github.com/isaacnonato
