@@ -1,3 +1,12 @@
+## Version 11.10.0 (Next Release)
+
+Core Grammars:
+
+- fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
+
+[Bradley Mackey]: https://github.com/bradleymackey
+
+
 ## Version 11.9.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
@@ -46,6 +55,7 @@ Core Grammars:
 - enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
 - fix(css) added '_'  css variable detection [Md Saad Akhtar][]
 - enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
+
 
 Developer Tool:
 
