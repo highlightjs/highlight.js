@@ -114,7 +114,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
-| Julia                   | julia                  |         |   
+| Julia                   | jl                     |         |   
 | Julia-REPL              | julia-repl             |         |
 | Kotlin                  | kotlin, kt             |         |
 | Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
