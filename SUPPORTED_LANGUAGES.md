@@ -79,7 +79,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Erlang                  | erlang, erl            |         |
 | Excel                   | excel, xls, xlsx       |         |
 | Extempore               | extempore, xtlang, xtm | [highlightjs-xtlang](https://github.com/highlightjs/highlightjs-xtlang) |
-| F#                      | fsharp, fs             |         |
+| F#                      | fsharp, fs, fsx, fsi, fsscript   |         |
 | FIX                     | fix                    |         |
 | Flix                    | flix                   | [highlightjs-flix](https://github.com/flix/highlightjs-flix) |
 | Fortran                 | fortran, f90, f95      |         |
@@ -114,7 +114,8 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
-| Julia                   | julia, julia-repl      |         |
+| Julia                   | julia                  |         |   
+| Julia-REPL              | julia-repl             |         |
 | Kotlin                  | kotlin, kt             |         |
 | Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
 | LaTeX                   | tex                    |         |
