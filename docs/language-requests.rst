@@ -7,8 +7,8 @@ time to time in the Highlight.js issue tracker and discussion group.
     Highlight.js does not have a fundamental plan for implementing new languages
     - i.e., the core team doesn't usually develop new languages. The core team
     instead focuses on parser development, bugs, and supporting the existing
-    languages. They also do not have time to review, merge, and
-    maintain additional languages (fixing bugs, dealing with issues, etc).
+    languages. They also do not have time to review, merge, and maintain
+    additional languages (fixing bugs, dealing with issues, etc).
 
     Instead, the project works by encouraging 3rd party language grammars from
     contributors willing to help develop and maintain them. We're also happy to
