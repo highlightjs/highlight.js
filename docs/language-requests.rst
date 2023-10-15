@@ -19,8 +19,8 @@ time to time in the Highlight.js issue tracker and discussion group.
     This means that *there's no point in requesting a new language without also
     providing a 3rd party implementation* (we'll simply close "Please support
     language Xyz" issues with a link to this explanation). If you'd like to see
-    a particular language available that you cannot implement yourself, the best way to
-    make it happen is to find another developer interested in doing so.
+    a particular language supported, the best way forward is to build the grammar
+    yourself, or find a developer interested in doing so.
 
     For more info on actually developing a language see our :doc:`language-guide`,
     and for information on how to properly package your 3rd party language module
