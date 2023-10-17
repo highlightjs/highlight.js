@@ -9,7 +9,7 @@ Category: common, css, web
 import * as css from "./lib/css-shared.js";
 
 /** @type LanguageFn */
-export default function(hljs) {
+export default function (hljs) {
   const modes = css.MODES(hljs);
   const PSEUDO_ELEMENTS = css.PSEUDO_ELEMENTS;
   const PSEUDO_CLASSES = css.PSEUDO_CLASSES;
@@ -62,7 +62,7 @@ export default function(hljs) {
       { // pseudo-selector params
         begin: /\(/,
         end: /\)/,
-        contains: [ modes.CSS_NUMBER_MODE ]
+        contains: [modes.CSS_NUMBER_MODE]
       },
       modes.CSS_VARIABLE,
       {

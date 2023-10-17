@@ -7,10 +7,9 @@ Audit: 2020
 */
 
 /** @type LanguageFn */
-export default function(hljs) {
+export default function (hljs) {
   const regex = hljs.regex;
-  const STRING = hljs.inherit(
-    hljs.QUOTE_STRING_MODE, { illegal: null });
+  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const PARAMS = {
     className: 'params',
     begin: /\(/,
@@ -25,10 +24,12 @@ export default function(hljs) {
   const COMMENT_MODE_2 = hljs.COMMENT(
     /\(\*/,
     /\*\)/,
-    { contains: [
-      'self', // allow nesting
-      COMMENT_MODE_1
-    ] }
+    {
+      contains: [
+        'self', // allow nesting
+        COMMENT_MODE_1
+      ]
+    }
   );
   const COMMENTS = [
     COMMENT_MODE_1,
@@ -80,7 +81,7 @@ export default function(hljs) {
 
   return {
     name: 'AppleScript',
-    aliases: [ 'osascript' ],
+    aliases: ['osascript'],
     keywords: {
       keyword:
         'about above after against and around as at back before beginning '

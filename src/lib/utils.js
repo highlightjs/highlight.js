@@ -19,6 +19,7 @@ export function escapeHTML(value) {
  * @param {Record<string,any>[]} objects
  * @returns {T} a single new object
  */
+
 export function inherit(original, ...objects) {
   /** @type Record<string,any> */
   const result = Object.create(null);
