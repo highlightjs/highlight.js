@@ -38,7 +38,7 @@ export const MODES = (hljs) => {
     },
     CSS_VARIABLE: {
       className: "attr",
-      begin: /--[A-Za-z][A-Za-z0-9_-]*/
+      begin: /--[A-Za-z_][A-Za-z0-9_-]*/
     }
   };
 };
@@ -118,6 +118,9 @@ export const TAGS = [
   'video'
 ];
 
+// Sorting, then reversing makes sure longer attributes/elements like
+// `font-weight` are matched fully instead of getting false positives on say `font`
+
 export const MEDIA_FEATURES = [
   'any-hover',
   'any-pointer',
@@ -153,7 +156,7 @@ export const MEDIA_FEATURES = [
   'max-width',
   'min-height',
   'max-height'
-];
+].sort().reverse();
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 export const PSEUDO_CLASSES = [
@@ -216,7 +219,7 @@ export const PSEUDO_CLASSES = [
   'valid',
   'visited',
   'where' // where()
-];
+].sort().reverse();
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
 export const PSEUDO_ELEMENTS = [
@@ -234,7 +237,7 @@ export const PSEUDO_ELEMENTS = [
   'selection',
   'slotted',
   'spelling-error'
-];
+].sort().reverse();
 
 export const ATTRIBUTES = [
   'align-content',
@@ -595,9 +598,7 @@ export const ATTRIBUTES = [
   'word-wrap',
   'writing-mode',
   'z-index'
-  // reverse makes sure longer attributes `font-weight` are matched fully
-  // instead of getting false positives on say `font`
-].reverse();
+].sort().reverse();
 
 // some grammars use them all as a single group
-export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS);
+export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS).sort().reverse();
