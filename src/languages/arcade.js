@@ -8,6 +8,7 @@
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT_RE = '[A-Za-z_][0-9A-Za-z_]*';
   const KEYWORDS = {
     keyword: [
@@ -251,9 +252,41 @@ export default function(hljs) {
       "Year|0",
     ]
   };
+  const PROFILE_VARS = [
+    "datastore",
+    "feature",
+    "layer",
+    "map",
+    "measure",
+    "sourcefeature",
+    "sourcelayer",
+    "targetfeature",
+    "targetlayer",
+    "value",
+    "view",
+    "editcontext",
+    "originalFeature",
+    "featureSet",
+    "datapoint",
+    "reference",
+    "rowindex",
+    "record",
+    "config",
+    "sourcedatastore",
+    "targetdatastore",
+    "feedfeature",
+    "fencefeature",
+    "fencenotificationtype",
+    "locationupdate",
+    "measure",
+    "aggregatedFeatures",
+    "target",
+    "join",
+    "analytic"
+  ];
   const SYMBOL = {
     className: 'symbol',
-    begin: '\\$[datastore|feature|layer|map|measure|sourcefeature|sourcelayer|targetfeature|targetlayer|value|view|editcontext|originalFeature|featureSet|datapoint|reference|rowindex|record|config|sourcedatastore|targetdatastore|feedfeature|fencefeature|fencenotificationtype|locationupdate|measure|aggregatedFeatures|target|join|analytic]+'
+    begin: '\\$' + regex.either(...PROFILE_VARS)
   };
   const NUMBER = {
     className: 'number',
