@@ -12,9 +12,9 @@ Core Grammars:
 CAVEATS / POTENTIALLY BREAKING CHANGES
 
 - Drops support for Node 14.x, which is no longer supported by Node.js.
-- In the `node` build `styles/*.css` files now ship un-minified 
+- In the `node` build `styles/*.css` files now ship un-minified
   with minified counterparts as: `styles/*.min.css` [mvorisek][]
-  (this makes things consistent with our `cdn` builds) 
+  (this makes things consistent with our `cdn` builds)
 
 Parser:
 
@@ -53,6 +53,7 @@ Core Grammars:
 - fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
 - enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
+- enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
 - fix(css) added '_'  css variable detection [Md Saad Akhtar][]
 - enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
 
@@ -77,6 +78,7 @@ Developer Tool:
 [Nicholas Thompson]: https://github.com/NAThompson
 [Yasith Deelaka]: https://github.com/YasithD
 [Brian Ward]: https://github.com/WardBrian
+[Kristian Ekenes]: https://github.com/ekenes
 [Md Saad Akhtar]: https://github.com/akhtarmdsaad
 [Guillaume Laforge]: https://github.com/glaforge
 
