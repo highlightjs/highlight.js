@@ -7,3 +7,23 @@
    <span class="hljs-keyword">var</span> myLayer = <span class="hljs-built_in">FeatureSet</span>(<span class="hljs-symbol">$map</span>, [<span class="hljs-string">&quot;POPULATION&quot;</span>, <span class="hljs-string">&quot;ELECTION-DATA&quot;</span>]);
    <span class="hljs-keyword">return</span> popDensity;
 }
+
+<span class="hljs-built_in">Distance</span>(<span class="hljs-symbol">$feedfeature</span>, <span class="hljs-symbol">$originalFeature</span>);
+
+<span class="hljs-keyword">var</span> startDate = <span class="hljs-built_in">DateOnly</span>(<span class="hljs-number">1996</span>,<span class="hljs-number">11</span>,<span class="hljs-number">10</span>);
+<span class="hljs-keyword">var</span> endDate = <span class="hljs-built_in">DateOnly</span>();
+<span class="hljs-keyword">var</span> age = <span class="hljs-built_in">DateDiff</span>(endDate, startDate, <span class="hljs-string">&#x27;years&#x27;</span>);
+<span class="hljs-built_in">Floor</span>(age);
+
+<span class="hljs-keyword">var</span> natlPizzaDay = <span class="hljs-built_in">Date</span>(<span class="hljs-number">2024</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;America/Los_Angeles&quot;</span>);
+<span class="hljs-built_in">TimeZone</span>(natlPizzaDay);
+
+<span class="hljs-keyword">var</span> n = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">1</span>; i&lt;<span class="hljs-number">100</span>; i++) {
+  <span class="hljs-keyword">if</span> (i % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">continue</span>;
+  }
+  n+=i;
+}
+
+<span class="hljs-keyword">return</span> n;
