@@ -3,8 +3,10 @@
 Core Grammars:
 
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
+- enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
+[Kristian Ekenes]: https://github.com/ekenes
 
 
 ## Version 11.9.0
@@ -12,9 +14,9 @@ Core Grammars:
 CAVEATS / POTENTIALLY BREAKING CHANGES
 
 - Drops support for Node 14.x, which is no longer supported by Node.js.
-- In the `node` build `styles/*.css` files now ship un-minified 
+- In the `node` build `styles/*.css` files now ship un-minified
   with minified counterparts as: `styles/*.min.css` [mvorisek][]
-  (this makes things consistent with our `cdn` builds) 
+  (this makes things consistent with our `cdn` builds)
 
 Parser:
 
