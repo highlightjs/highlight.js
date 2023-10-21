@@ -43,7 +43,7 @@ export const MODES = (hljs) => {
   };
 };
 
-export const TAGS = [
+const HTML_TAGS = [
   'a',
   'abbr',
   'address',
@@ -115,7 +115,10 @@ export const TAGS = [
   'tr',
   'ul',
   'var',
-  'video',
+  'video'
+];
+
+const SVG_TAGS = [
   'defs',
   'g',
   'marker',
@@ -157,6 +160,11 @@ export const TAGS = [
   'tspan',
   'foreignObject',
   'clipPath'
+];
+
+export const TAGS = [
+  ...HTML_TAGS,
+  ...SVG_TAGS,
 ];
 
 // Sorting, then reversing makes sure longer attributes/elements like
