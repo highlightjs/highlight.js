@@ -4,9 +4,11 @@ Core Grammars:
 
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
+- fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
+[Aneesh Kulkarni]: https://github.com/aneesh98
 
 
 ## Version 11.9.0
