@@ -60,7 +60,7 @@ jobs:
 
       - name: Publish highlight.js to NPM
         id: publish
-        uses: JS-DevTools/npm-publish@v2
+        uses: JS-DevTools/npm-publish@v3
         with:
           check-version: true
           token: ${{ secrets.NPM_TOKEN }}
@@ -112,7 +112,7 @@ jobs:
 
       - name: Publish cdn-assets to NPM
         id: publish_cdn
-        uses: JS-DevTools/npm-publish@v2
+        uses: JS-DevTools/npm-publish@v3
         with:
           check-version: true
           token: ${{ secrets.NPM_TOKEN }}
