@@ -256,7 +256,7 @@ export default function(hljs) {
   const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
     {
-      begin: /\(/,
+      begin: /(\s*)\(/,
       end: /\)/,
       keywords: KEYWORDS,
       contains: ["self"].concat(SUBST_AND_COMMENTS)
@@ -264,7 +264,7 @@ export default function(hljs) {
   ]);
   const PARAMS = {
     className: 'params',
-    begin: /\(/,
+    begin: /(\s*)\(/, // to match the parms with 
     end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
@@ -509,7 +509,7 @@ export default function(hljs) {
                     skip: true
                   },
                   {
-                    begin: /\(/,
+                    begin: /(\s*)\(/,
                     end: /\)/,
                     excludeBegin: true,
                     excludeEnd: true,
