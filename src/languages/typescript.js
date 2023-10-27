@@ -101,6 +101,9 @@ export default function(hljs) {
   const functionDeclaration = tsLanguage.contains.find(m => m.label === "func.def");
   functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
 
+  const CLASS_REFERENCE = tsLanguage.contains.find(c => c.className === "title.class");
+  const ATTRIBUTE_HIGHLIGHT = tsLanguage.contains.find(c => c.className === "attr");
+
   Object.assign(tsLanguage, {
     name: 'TypeScript',
     aliases: [
@@ -108,7 +111,31 @@ export default function(hljs) {
       'tsx',
       'mts',
       'cts'
-    ]
+    ],
+    contains: tsLanguage.contains.map(c => {
+      const { contains } = c;
+      if (
+        contains
+      ) {
+        const params = contains.find(cc => cc.scope === 'params' || cc.className === 'params');
+
+        const PROPERTY_TYPE = [
+          CLASS_REFERENCE,
+          ATTRIBUTE_HIGHLIGHT
+        ];
+
+        if (params) {
+          params.contains = params.contains.concat(PROPERTY_TYPE)
+        }
+
+        const returnedFuncParams = contains.find(cc => cc.scope === 'function' || cc.className === 'function')?.contains?.find(cc => cc.scope === 'params' || cc.className === 'params').variants[2];
+        if (returnedFuncParams) {
+          returnedFuncParams.contains = returnedFuncParams.contains.concat(PROPERTY_TYPE);
+        }
+      }
+
+      return c;
+    }),
   });
 
   return tsLanguage;
