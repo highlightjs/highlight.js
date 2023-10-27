@@ -5,10 +5,12 @@ Core Grammars:
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
 - enh(perl) add support for the new class system [Bruno Meneguele][]
+- enh(sql) added `tables` keyword [Murat Motz][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
 [Bruno Meneguele]: https://github.com/bmeneg
+[Murat Motz]: https://github.com/ztomm
 
 
 ## Version 11.9.0

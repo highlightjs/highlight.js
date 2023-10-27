@@ -417,6 +417,7 @@ export default function(hljs) {
     "system_time",
     "system_user",
     "table",
+    "tables",
     "tablesample",
     "tan",
     "tanh",
