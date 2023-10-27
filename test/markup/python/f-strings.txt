@@ -27,10 +27,8 @@ rff"hello"
 ...
 """
 br"https://"
-orbr"https://"
 or br"https://"
 rb"https://"
-orrb"https://"
 or rb"https://"
 test()or""
 
