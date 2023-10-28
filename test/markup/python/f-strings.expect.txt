@@ -13,20 +13,10 @@
     <span class="hljs-string">&quot;good&quot;</span>
 
 <span class="hljs-string">rf&quot;https://www.<span class="hljs-subst">{domain}</span>.com&quot;</span>
-rrf<span class="hljs-string">&quot;hello, from {&#x27;https://www.{domain}.com&#x27;}&quot;</span>
-rff<span class="hljs-string">&quot;hello&quot;</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>rrf<span class="hljs-string">&#x27;&#x27;</span><span class="hljs-string">&#x27;
-... hello, 
-... from {&#x27;</span>https://www.{domain}.com<span class="hljs-string">&#x27;}
-&#x27;</span><span class="hljs-string">&#x27;&#x27;</span>
 <span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">fr&quot;&quot;&quot;
 <span class="hljs-meta">... </span>https://www.example.com/{{age}/360}
 ...
 &quot;&quot;&quot;</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span>ffr<span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;
-... https://www.example.com/{{age}/360}
-...
-&quot;</span><span class="hljs-string">&quot;&quot;/span>
 <span class="hljs-string">br&quot;https://&quot;</span>
 <span class="hljs-keyword">or</span> <span class="hljs-string">br&quot;https://&quot;</span>
 <span class="hljs-string">rb&quot;https://&quot;</span>
