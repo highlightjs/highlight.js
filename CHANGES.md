@@ -9,6 +9,7 @@ Core Grammars:
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
 [Aneesh Kulkarni]: https://github.com/aneesh98
+[Bruno Meneguele]: https://github.com/bmeneg
 
 
 ## Version 11.9.0

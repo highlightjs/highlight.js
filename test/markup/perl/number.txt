@@ -1,0 +1,21 @@
+use v5.38;
+use 5.0020;
+
+my $number = 9;
+$number = 0;
+$number = 0_;
+$number = 00;
+$number = 0.99;
+$number = 99;
+$number = 99.9;
+$number = 99.99;
+$number = ._99;
+$number = 0x99FF;
+$number = 0x99_EE_FF;
+$number = 0x_99_FF;
+$number = 0b00101011;
+$number = 0b0010_1011;
+$number = 0b_0010_1011;
+$number = 0777;
+$number = 07_7_7;
+$number = 0_777;
