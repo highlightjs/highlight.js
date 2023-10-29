@@ -15,8 +15,7 @@ export default function(hljs) {
     relevance: 0
   };
   const HORIZONTAL_RULE = {
-    begin: '^[-\\*]{3,}',
-    end: '$'
+    begin: '^[ ]{0,3}([-]{3,}|[\*]{3,})[ \t]*$'
   };
   const CODE = {
     className: 'code',
