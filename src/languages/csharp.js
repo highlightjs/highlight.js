@@ -164,6 +164,11 @@ export default function(hljs) {
     ],
     relevance: 0
   };
+  const RAW_STRING = {
+    className: 'string',
+    begin: /"""("*)(?!")(.|\n)*?"""\1/,
+    relevance: -1
+  };
   const VERBATIM_STRING = {
     className: 'string',
     begin: '@"',
@@ -229,6 +234,7 @@ export default function(hljs) {
     hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, { illegal: /\n/ })
   ];
   const STRING = { variants: [
+    RAW_STRING,
     INTERPOLATED_VERBATIM_STRING,
     INTERPOLATED_STRING,
     VERBATIM_STRING,
