@@ -1,0 +1,10 @@
+start
+
+***
+horizontal <span class="hljs-emphasis">*bold*</span> lines.
+***
+
+<span class="hljs-strong">**<span class="hljs-emphasis">*but not this.
+*</span>**</span>
+
+end

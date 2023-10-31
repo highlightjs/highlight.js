@@ -1,0 +1,10 @@
+start
+
+***
+horizontal *bold* lines.
+***
+
+***but not this.
+***
+
+end
