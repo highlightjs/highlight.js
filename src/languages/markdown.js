@@ -224,13 +224,13 @@ export default function(hljs) {
     ],
     contains: [
       HEADER,
+      HORIZONTAL_RULE,
       INLINE_HTML,
       LIST,
       BOLD,
       ITALIC,
       BLOCKQUOTE,
       CODE,
-      HORIZONTAL_RULE,
       LINK,
       LINK_REFERENCE
     ]
