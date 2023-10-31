@@ -216,6 +216,11 @@ export default function(hljs) {
     end: '$'
   };
 
+  const LINEBREAK = {
+    className: 'addition',
+    begin: /(  |\\)$/
+  };
+
   return {
     name: 'Markdown',
     aliases: [
@@ -233,7 +238,8 @@ export default function(hljs) {
       CODE,
       HORIZONTAL_RULE,
       LINK,
-      LINK_REFERENCE
+      LINK_REFERENCE,
+      LINEBREAK
     ]
   };
 }
