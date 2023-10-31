@@ -216,6 +216,11 @@ export default function(hljs) {
     end: '$'
   };
 
+  const ENTITY = {
+    className: 'literal',
+    begin: /&([a-zA-Z0-9]+|#[0-9]{1,8}|#[Xx][0-9a-fA-F]{1,8});/
+  };
+
   return {
     name: 'Markdown',
     aliases: [
@@ -233,7 +238,8 @@ export default function(hljs) {
       CODE,
       HORIZONTAL_RULE,
       LINK,
-      LINK_REFERENCE
+      LINK_REFERENCE,
+      ENTITY
     ]
   };
 }
