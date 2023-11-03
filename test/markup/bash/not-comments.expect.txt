@@ -1,0 +1,3 @@
+<span class="hljs-built_in">echo</span> asdf#qwert yuiop
+
+<span class="hljs-built_in">echo</span> asdf <span class="hljs-comment">#qwert yuiop</span>
