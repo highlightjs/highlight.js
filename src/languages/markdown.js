@@ -217,8 +217,8 @@ export default function(hljs) {
   };
 
   const ENTITY = {
-    className: 'literal',
-    begin: /&([a-zA-Z0-9]+|#[0-9]{1,8}|#[Xx][0-9a-fA-F]{1,8});/
+    scope: 'literal',
+    match: /&([a-zA-Z0-9]+|#[0-9]{1,8}|#[Xx][0-9a-fA-F]{1,8});/
   };
 
   return {
