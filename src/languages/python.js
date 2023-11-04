@@ -176,7 +176,7 @@ export default function(hljs) {
     contains: [ hljs.BACKSLASH_ESCAPE ],
     variants: [
       {
-        begin: /((?<!\w)|^)([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?'''/,
+        begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?'''/,
         end: /'''/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -185,7 +185,7 @@ export default function(hljs) {
         relevance: 10
       },
       {
-        begin: /((?<!\w)|^)([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""/,
+        begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""/,
         end: /"""/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -194,7 +194,7 @@ export default function(hljs) {
         relevance: 10
       },
       {
-        begin: /((?<!\w)|^)([fF][rR]|[rR][fF]|[fF])'''/,
+        begin: /([fF][rR]|[rR][fF]|[fF])'''/,
         end: /'''/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -204,7 +204,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /((?<!\w)|^)([fF][rR]|[rR][fF]|[fF])"""/,
+        begin: /([fF][rR]|[rR][fF]|[fF])"""/,
         end: /"""/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -214,25 +214,25 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /(((?<!\w)|^)([uU]|[rR]))'/,
+        begin: /(([uU]|[rR]))'/,
         end: /'/,
         relevance: 10
       },
       {
-        begin: /((?<!\w)|^)([uU]|[rR])"/,
+        begin: /([uU]|[rR])"/,
         end: /"/,
         relevance: 10
       },
       {
-        begin: /((?<!\w)|^)([bB]|[bB][rR]|[rR][bB])'/,
+        begin: /([bB]|[bB][rR]|[rR][bB])'/,
         end: /'/
       },
       {
-        begin: /((?<!\w)|^)([bB]|[bB][rR]|[rR][bB])"/,
+        begin: /([bB]|[bB][rR]|[rR][bB])"/,
         end: /"/
       },
       {
-        begin: /((?<!\w)|^)([fF][rR]|[rR][fF]|[fF])'/,
+        begin: /([fF][rR]|[rR][fF]|[fF])'/,
         end: /'/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -241,7 +241,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /((?<!\w)|^)([fF][rR]|[rR][fF]|[fF])"/,
+        begin: /([fF][rR]|[rR][fF]|[fF])"/,
         end: /"/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -381,6 +381,7 @@ export default function(hljs) {
         beginKeywords: "if",
         relevance: 0
       },
+      { match: /\bor\b/, scope: "keyword" },
       STRING,
       COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,
