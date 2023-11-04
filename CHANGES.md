@@ -7,6 +7,10 @@ Core Grammars:
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 
+New Grammars:
+
+- added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
+
 Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
@@ -16,6 +20,7 @@ Developer Tool:
 [Aneesh Kulkarni]: https://github.com/aneesh98
 [Bruno Meneguele]: https://github.com/bmeneg
 [Felix Uhl]: https://github.com/iFreilicht
+[nataliia-radina]: https://github.com/Nataliia-Radina
 
 
 ## Version 11.9.0
