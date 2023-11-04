@@ -193,19 +193,9 @@ export default function(hljs) {
       {
         className: 'string',
         variants: [
-          {
-            begin: /b?r(#*)"(.|\n)*?"\1(?!#)/,
-            contains: [
-              hljs.BACKSLASH_ESCAPE
-            ]
-          },
-          {
-            begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/,
-            contains: [
-              hljs.BACKSLASH_ESCAPE
-            ]
-          },
-        ],
+          { begin: /b?r(#*)"(.|\n)*?"\1(?!#)/ },
+          { begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ }
+        ]
       },
       {
         className: 'symbol',
