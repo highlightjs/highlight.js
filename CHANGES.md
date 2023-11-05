@@ -4,24 +4,10 @@ Core Grammars:
 
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
-- fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
-- fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
-- fix(rust) fix escape double quotes in string attr [Mohamed Ali][]
-
-New Grammars:
-
-- added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
-
-Developer Tool:
-
-- enh(tools): order CSS options picklist [David Schach][]
+- fix(rust) fix escape double quotes in string  [Mohamed Ali][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
-[Aneesh Kulkarni]: https://github.com/aneesh98
-[Bruno Meneguele]: https://github.com/bmeneg
-[Felix Uhl]: https://github.com/iFreilicht
-[nataliia-radina]: https://github.com/Nataliia-Radina
 [Mohamed Ali]: https://github.com/MohamedAli00949
 
 
