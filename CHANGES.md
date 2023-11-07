@@ -4,6 +4,7 @@ Core Grammars:
 
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
+- fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 
@@ -15,6 +16,7 @@ Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
 
+[Mohamed Ali]: https://github.com/MohamedAli00949
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
 [Aneesh Kulkarni]: https://github.com/aneesh98
