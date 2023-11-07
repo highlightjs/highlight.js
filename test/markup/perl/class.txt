@@ -1,0 +1,10 @@
+use v5.38;
+
+class Example::Subclass :isa(Example::Base 2.345) {
+    field $_config :param :param :param;
+    field $_name : param = 'Test';
+
+    method test() {
+        $_name == 'Test' ? 'y' : 'n';
+    }
+}

@@ -45,7 +45,8 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Cache Object Script     | cos, cls               |         |
 | Candid                  | candid, did            | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | CMake                   | cmake, cmake.in        |         |
-| COBOL                   | cobol, standard-cobol   | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
+| COBOL                   | cobol, standard-cobol  | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
+| CODEOWNERS              | codeowners             | [highlightjs-codeowners](https://github.com/highlightjs/highlightjs-codeowners) |
 | Coq                     | coq                    |         |
 | CSP                     | csp                    |         |
 | CSS                     | css                    |         |
