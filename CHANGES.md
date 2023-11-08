@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
 - fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
@@ -17,6 +18,7 @@ Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
 
+[Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
