@@ -38,12 +38,12 @@ export const MODES = (hljs) => {
     },
     CSS_VARIABLE: {
       className: "attr",
-      begin: /--[A-Za-z][A-Za-z0-9_-]*/
+      begin: /--[A-Za-z_][A-Za-z0-9_-]*/
     }
   };
 };
 
-export const TAGS = [
+const HTML_TAGS = [
   'a',
   'abbr',
   'address',
@@ -118,6 +118,58 @@ export const TAGS = [
   'video'
 ];
 
+const SVG_TAGS = [
+  'defs',
+  'g',
+  'marker',
+  'mask',
+  'pattern',
+  'svg',
+  'switch',
+  'symbol',
+  'feBlend',
+  'feColorMatrix',
+  'feComponentTransfer',
+  'feComposite',
+  'feConvolveMatrix',
+  'feDiffuseLighting',
+  'feDisplacementMap',
+  'feFlood',
+  'feGaussianBlur',
+  'feImage',
+  'feMerge',
+  'feMorphology',
+  'feOffset',
+  'feSpecularLighting',
+  'feTile',
+  'feTurbulence',
+  'linearGradient',
+  'radialGradient',
+  'stop',
+  'circle',
+  'ellipse',
+  'image',
+  'line',
+  'path',
+  'polygon',
+  'polyline',
+  'rect',
+  'text',
+  'use',
+  'textPath',
+  'tspan',
+  'foreignObject',
+  'clipPath'
+];
+
+export const TAGS = [
+  ...HTML_TAGS,
+  ...SVG_TAGS,
+];
+
+// Sorting, then reversing makes sure longer attributes/elements like
+// `font-weight` are matched fully instead of getting false positives on say `font`
+
 export const MEDIA_FEATURES = [
   'any-hover',
   'any-pointer',
@@ -153,7 +205,7 @@ export const MEDIA_FEATURES = [
   'max-width',
   'min-height',
   'max-height'
-];
+].sort().reverse();
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 export const PSEUDO_CLASSES = [
@@ -216,7 +268,7 @@ export const PSEUDO_CLASSES = [
   'valid',
   'visited',
   'where' // where()
-];
+].sort().reverse();
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
 export const PSEUDO_ELEMENTS = [
@@ -234,12 +286,13 @@ export const PSEUDO_ELEMENTS = [
   'selection',
   'slotted',
   'spelling-error'
-];
+].sort().reverse();
 
 export const ATTRIBUTES = [
   'align-content',
   'align-items',
   'align-self',
+  'alignment-baseline',
   'all',
   'animation',
   'animation-delay',
@@ -261,6 +314,7 @@ export const ATTRIBUTES = [
   'background-position',
   'background-repeat',
   'background-size',
+  'baseline-shift',
   'block-size',
   'border',
   'border-block',
@@ -326,6 +380,8 @@ export const ATTRIBUTES = [
   'break-after',
   'break-before',
   'break-inside',
+  'cx',
+  'cy',
   'caption-side',
   'caret-color',
   'clear',
@@ -333,6 +389,10 @@ export const ATTRIBUTES = [
   'clip-path',
   'clip-rule',
   'color',
+  'color-interpolation',
+  'color-interpolation-filters',
+  'color-profile',
+  'color-rendering',
   'column-count',
   'column-fill',
   'column-gap',
@@ -354,7 +414,12 @@ export const ATTRIBUTES = [
   'cursor',
   'direction',
   'display',
+  'dominant-baseline',
   'empty-cells',
+  'enable-background',
+  'fill',
+  'fill-opacity',
+  'fill-rule',
   'filter',
   'flex',
   'flex-basis',
@@ -365,6 +430,8 @@ export const ATTRIBUTES = [
   'flex-wrap',
   'float',
   'flow',
+  'flood-color',
+  'flood-opacity',
   'font',
   'font-display',
   'font-family',
@@ -386,6 +453,7 @@ export const ATTRIBUTES = [
   'font-variation-settings',
   'font-weight',
   'gap',
+  'glyph-orientation-horizontal',
   'glyph-orientation-vertical',
   'grid',
   'grid-area',
@@ -413,15 +481,22 @@ export const ATTRIBUTES = [
   'ime-mode',
   'inline-size',
   'isolation',
+  'kerning',
   'justify-content',
   'left',
   'letter-spacing',
+  'lighting-color',
   'line-break',
   'line-height',
   'list-style',
   'list-style-image',
   'list-style-position',
   'list-style-type',
+  'marker',
+  'marker-end',
+  'marker-mid',
+  'marker-start',
+  'mask',
   'margin',
   'margin-block',
   'margin-block-end',
@@ -503,6 +578,7 @@ export const ATTRIBUTES = [
   'pointer-events',
   'position',
   'quotes',
+  'r',
   'resize',
   'rest',
   'rest-after',
@@ -540,11 +616,23 @@ export const ATTRIBUTES = [
   'shape-image-threshold',
   'shape-margin',
   'shape-outside',
+  'shape-rendering',
+  'stop-color',
+  'stop-opacity',
+  'stroke',
+  'stroke-dasharray',
+  'stroke-dashoffset',
+  'stroke-linecap',
+  'stroke-linejoin',
+  'stroke-miterlimit',
+  'stroke-opacity',
+  'stroke-width',
   'speak',
   'speak-as',
   'src', // @font-face
   'tab-size',
   'table-layout',
+  'text-anchor',
   'text-align',
   'text-align-all',
   'text-align-last',
@@ -576,6 +664,7 @@ export const ATTRIBUTES = [
   'transition-property',
   'transition-timing-function',
   'unicode-bidi',
+  'vector-effect',
   'vertical-align',
   'visibility',
   'voice-balance',
@@ -594,10 +683,10 @@ export const ATTRIBUTES = [
   'word-spacing',
   'word-wrap',
   'writing-mode',
+  'x',
+  'y',
   'z-index'
-  // reverse makes sure longer attributes `font-weight` are matched fully
-  // instead of getting false positives on say `font`
-].reverse();
+].sort().reverse();
 
 // some grammars use them all as a single group
-export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS);
+export const PSEUDO_SELECTORS = PSEUDO_CLASSES.concat(PSEUDO_ELEMENTS).sort().reverse();

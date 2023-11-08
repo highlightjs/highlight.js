@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout highlight.js
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Tag is ${{ github.ref }}.
         # we have to repeat ourselves here since the environment is not actually updated
@@ -48,10 +48,10 @@ jobs:
         env:
           TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
 
-      - name: Use Node.js 15.x
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v3
         with:
-          node-version: 15.x
+          node-version: 20.x
       - name: Build Node.js package
         run: |
           npm install
@@ -60,7 +60,7 @@ jobs:
 
       - name: Publish highlight.js to NPM
         id: publish
-        uses: JS-DevTools/npm-publish@v2
+        uses: JS-DevTools/npm-publish@v3
         with:
           check-version: true
           token: ${{ secrets.NPM_TOKEN }}
@@ -86,7 +86,7 @@ jobs:
           false
 
       - name: Checkout cdn-release
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: 'highlightjs/cdn-release'
           path: 'cdn-release'
@@ -112,7 +112,7 @@ jobs:
 
       - name: Publish cdn-assets to NPM
         id: publish_cdn
-        uses: JS-DevTools/npm-publish@v2
+        uses: JS-DevTools/npm-publish@v3
         with:
           check-version: true
           token: ${{ secrets.NPM_TOKEN }}

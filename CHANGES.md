@@ -1,26 +1,59 @@
-## Version 11.9.0 (next release)
+## Version 11.10.0 (Next Release)
+
+Core Grammars:
+
+- fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
+- fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
+- enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
+- fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
+- fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
+- fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
+- fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
+
+New Grammars:
+
+- added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
+
+Developer Tool:
+
+- enh(tools): order CSS options picklist [David Schach][]
+
+[Lê Duy Quang]: https://github.com/leduyquang753
+[Mohamed Ali]: https://github.com/MohamedAli00949
+[Bradley Mackey]: https://github.com/bradleymackey
+[Kristian Ekenes]: https://github.com/ekenes
+[Aneesh Kulkarni]: https://github.com/aneesh98
+[Bruno Meneguele]: https://github.com/bmeneg
+[Felix Uhl]: https://github.com/iFreilicht
+[nataliia-radina]: https://github.com/Nataliia-Radina
+
+
+## Version 11.9.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
 
 - Drops support for Node 14.x, which is no longer supported by Node.js.
-- In the `node` build `styles/*.css` files now ship un-minified 
+- In the `node` build `styles/*.css` files now ship un-minified
   with minified counterparts as: `styles/*.min.css` [mvorisek][]
-  (this makes things consistent with our `cdn` builds) 
+  (this makes things consistent with our `cdn` builds)
 
 Parser:
 
-- (enh) prevent rehighlighting of an element [joshgoebel][]
-- added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
+- (enh) prevent re-highlighting of an element [joshgoebel][]
+- (chore) Remove discontinued badges from README [Bradley Mackey][]
+- (chore) Fix build size report [Bradley Mackey][]
 
 New Grammars:
 
+- added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
 - added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
 - added 3rd party riscv64 grammar to SUPPORTED_LANGUAGES [aana-h2][]
+- added 3rd party Ballerina grammar to SUPPORTED_LANGUAGES [Yasith Deelaka][]
 
 Core Grammars:
 
+- fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
-- fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
 - enh(haxe) support numeric separators and suffixes [Robert Borghese][]
 - fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
@@ -40,13 +73,15 @@ Core Grammars:
 - fix(reasonml) simplify syntax and align it with ocaml [jchavarri][]
 - fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
 - enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
+- enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
+- fix(css) added '_'  css variable detection [Md Saad Akhtar][]
+- enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
 
-Dev tool:
 
-- (chore) Remove discontinued badges from README [Bradley Mackey][]
+Developer Tool:
+
 - (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
 - (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
-- (chore) Fix build size report [Bradley Mackey][]
 
 [Robert Borghese]: https://github.com/RobertBorghese
 [Isaac Nonato]: https://github.com/isaacnonato
@@ -62,6 +97,10 @@ Dev tool:
 [aana-h2]: https://github.com/aana-h2
 [Nicholas Thompson]: https://github.com/NAThompson
 [Lê Duy Quang]: https://github.com/leduyquang753
+[Yasith Deelaka]: https://github.com/YasithD
+[Brian Ward]: https://github.com/WardBrian
+[Md Saad Akhtar]: https://github.com/akhtarmdsaad
+[Guillaume Laforge]: https://github.com/glaforge
 
 
 ## Version 11.8.0
@@ -114,6 +153,7 @@ Core Grammars:
 [Boris Verkhovskiy]: https://github.com/verhovsky
 [Cyrus Kao]: https://github.com/CyrusKao
 [Zlondrej]: https://github.com/zlondrej
+
 
 ## Version 11.7.0
 

@@ -66,7 +66,7 @@ export default function(hljs) {
 
   const CLASS_DEFINITION = {
     match: [
-      /(class|interface|trait|enum|extends|implements)/,
+      /(class|interface|trait|enum|record|extends|implements)/,
       /\s+/,
       hljs.UNDERSCORE_IDENT_RE
     ],
@@ -126,7 +126,8 @@ export default function(hljs) {
     "import",
     "package",
     "return",
-    "instanceof"
+    "instanceof",
+    "var"
   ];
 
   return {
