@@ -7,6 +7,7 @@ Core Grammars:
 - fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
+- fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
 
 New Grammars:
 
