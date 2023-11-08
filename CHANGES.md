@@ -96,7 +96,6 @@ Developer Tool:
 [jchavarri]: https://github.com/jchavarri
 [aana-h2]: https://github.com/aana-h2
 [Nicholas Thompson]: https://github.com/NAThompson
-[Lê Duy Quang]: https://github.com/leduyquang753
 [Yasith Deelaka]: https://github.com/YasithD
 [Brian Ward]: https://github.com/WardBrian
 [Md Saad Akhtar]: https://github.com/akhtarmdsaad
