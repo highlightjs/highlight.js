@@ -214,7 +214,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /(([uU]|[rR]))'/,
+        begin: /([uU]|[rR])'/,
         end: /'/,
         relevance: 10
       },
