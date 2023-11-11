@@ -13,6 +13,7 @@ Core Grammars:
 New Grammars:
 
 - added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
+- added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
 
 Developer Tool:
 
@@ -26,6 +27,7 @@ Developer Tool:
 [Bruno Meneguele]: https://github.com/bmeneg
 [Felix Uhl]: https://github.com/iFreilicht
 [nataliia-radina]: https://github.com/Nataliia-Radina
+[Robloxian Demo]: https://github.com/RobloxianDemo
 
 
 ## Version 11.9.0
