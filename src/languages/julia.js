@@ -4,6 +4,7 @@ Description: Julia is a high-level, high-performance, dynamic programming langua
 Author: Kenta Sato <bicycle1885@gmail.com>
 Contributors: Alex Arslan <ararslan@comcast.net>, Fredrik Ekre <ekrefredrik@gmail.com>
 Website: https://julialang.org
+Category: system
 */
 
 export default function(hljs) {
