@@ -231,7 +231,10 @@ export default function(hljs) {
           {
             className: 'string',
             begin: /"/,
-            end: /"/
+            end: /"/,
+            contains: [
+              hljs.BACKSLASH_ESCAPE
+            ]
           }
         ]
       },

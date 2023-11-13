@@ -1,11 +1,55 @@
-/* digit separators */
-int number = 2'555'555'555; // digit separators
-float exponentFloat = .123'456e3'000; // digit separators in floats
-float suffixed = 3.000'001'234f // digit separators in suffixed numbers
-char word[] = { '3', '\0' }; // make sure digit separators don't mess up chars
-float negative = -123.0f; // negative floating point numbers
+/* Floating-point literals. */
+// Decimal.
+1.
++12.
+-1'234.
+1.2
+1.234'5
+1'234.567'8
+1'234.567'8e-9
+1'234.567'8E9'0
+1234e56
+1'234e5'6
+// Hexadecimal.
+0x1p2
++0x1.p2
+-0X1A.P2
+0x1A'2B3C.p4
+0x1.Ap2
+0x1A.2B3C'4Dp+5
+0x1A'2b3C.4D5e'6Fp7'8
+// Literal suffixes.
+1.F 1.F16 1.F32 1.f64 1.f128
+2.BF16 2.bf16
+0X3'4.P5L 0x3'4.p5l
 
-/* literal suffixes: these are to be highlighted as numbers */
-90ll 90LL 90u 90U 90l 90L
-90ul 90ul 90Ul 90UL 90lu 90lU 90Lu 90LU
-90ull 90uLL 90Ull 90ULL 90llu 90llU 90LLu 90LLU
+/* Integer literals. */
+// Binary.
++0b1
+0B01
+-0b10'1011
+// Hexadecimal.
++0x1
+0X1A
+-0x1A'2b3C
+// Octal.
++01
+012
+-0123'4567
+// Decimal.
+0
++1
+12
+-123'456'789
+// Literal suffixes.
+0B1U 0b1u
+0X2L 0x2l
+03LL 03ll
+4UL 4Ul 4uL 4ul
+5LU 5Lu 5lU 5lu
+6ULL 6Ull 6uLL 6ull
+7LLU 7LLu 7llU 7llu
+8ZU 8Zu 8zU 8zu
+9'0UZ 9'0Uz 9'0uZ 9'0uz
+
+char word[] = { '3', '\0' }; // Make sure digit separators don't mess up chars.
