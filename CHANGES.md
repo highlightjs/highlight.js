@@ -18,6 +18,7 @@ New Grammars:
 Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
+- enh(tools): remove duplicate CSS options [David Schach][]
 
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
