@@ -14,6 +14,7 @@ New Grammars:
 
 - added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
 - added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
+- added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
 
 Developer Tool:
 
@@ -29,6 +30,7 @@ Developer Tool:
 [Felix Uhl]: https://github.com/iFreilicht
 [nataliia-radina]: https://github.com/Nataliia-Radina
 [Robloxian Demo]: https://github.com/RobloxianDemo
+[Paul Tsnobiladzé]: https://github.com/tsnobip
 
 
 ## Version 11.9.0
