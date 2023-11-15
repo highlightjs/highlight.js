@@ -11,7 +11,7 @@ import * as ECMAScript from "./lib/ecmascript.js";
 import javascript from "./javascript.js";
 
 /** @type LanguageFn */
-export default function (hljs) {
+export default function(hljs) {
   const tsLanguage = javascript(hljs);
 
   const IDENT_RE = ECMAScript.IDENT_RE;
@@ -31,7 +31,7 @@ export default function (hljs) {
     beginKeywords: 'namespace',
     end: /\{/,
     excludeEnd: true,
-    contains: [tsLanguage.exports.CLASS_REFERENCE]
+    contains: [ tsLanguage.exports.CLASS_REFERENCE ]
   };
   const INTERFACE = {
     beginKeywords: 'interface',
@@ -41,7 +41,7 @@ export default function (hljs) {
       keyword: 'interface extends',
       built_in: TYPES
     },
-    contains: [tsLanguage.exports.CLASS_REFERENCE]
+    contains: [ tsLanguage.exports.CLASS_REFERENCE ]
   };
   const USE_STRICT = {
     className: 'meta',
