@@ -4,7 +4,7 @@ Description: Julia REPL sessions
 Author: Morten Piibeleht <morten.piibeleht@gmail.com>
 Website: https://julialang.org
 Requires: julia.js
-Category: system
+Category: scientific
 
 The Julia REPL code blocks look something like the following:
 
