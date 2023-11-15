@@ -4,9 +4,11 @@ Core Grammars:
 
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
+- fix(typescript): params types [Mohamed Ali][]
 
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
+[Mohamed Ali]: https://github.com/MohamedAli00949
 
 
 ## Version 11.9.0
