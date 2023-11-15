@@ -2,13 +2,36 @@
 
 Core Grammars:
 
+- fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
 - fix(typescript): params types [Mohamed Ali][]
+- fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
+- fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
+- fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
+- fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
 
+New Grammars:
+
+- added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
+- added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
+- added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
+
+Developer Tool:
+
+- enh(tools): order CSS options picklist [David Schach][]
+- enh(tools): remove duplicate CSS options [David Schach][]
+
+[Lê Duy Quang]: https://github.com/leduyquang753
+[Mohamed Ali]: https://github.com/MohamedAli00949
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
-[Mohamed Ali]: https://github.com/MohamedAli00949
+[Aneesh Kulkarni]: https://github.com/aneesh98
+[Bruno Meneguele]: https://github.com/bmeneg
+[Felix Uhl]: https://github.com/iFreilicht
+[nataliia-radina]: https://github.com/Nataliia-Radina
+[Robloxian Demo]: https://github.com/RobloxianDemo
+[Paul Tsnobiladzé]: https://github.com/tsnobip
 
 
 ## Version 11.9.0

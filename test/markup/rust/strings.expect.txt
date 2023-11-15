@@ -16,3 +16,5 @@
 <span class="hljs-string">br&quot; &quot;</span>;
 <span class="hljs-string">br#&quot;hello&quot;#</span>;
 <span class="hljs-string">br##&quot;foo&quot;##</span>;
+
+<span class="hljs-meta">#[error(<span class="hljs-string">&quot;\&quot; appears in a string&quot;</span>)]</span>
