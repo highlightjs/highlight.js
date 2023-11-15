@@ -264,6 +264,7 @@ export default function(hljs) {
   ]);
   const PARAMS = {
     className: 'params',
+    // convert this to negative lookbehind in v12
     begin: /(\s*)\(/, // to match the parms with 
     end: /\)/,
     excludeBegin: true,
