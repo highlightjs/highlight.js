@@ -3,6 +3,7 @@ Language: C/AL
 Author: Kenneth Fuglsang Christensen <kfuglsang@gmail.com>
 Description: Provides highlighting of Microsoft Dynamics NAV C/AL code files
 Website: https://docs.microsoft.com/en-us/dynamics-nav/programming-in-c-al
+Category: enterprise
 */
 
 /** @type LanguageFn */
