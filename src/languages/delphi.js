@@ -1,6 +1,7 @@
 /*
 Language: Delphi
 Website: https://www.embarcadero.com/products/delphi
+Category: system
 */
 
 /** @type LanguageFn */

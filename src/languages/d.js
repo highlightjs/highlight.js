@@ -4,6 +4,7 @@ Author: Aleksandar Ruzicic <aleksandar@ruzicic.info>
 Description: D is a language with C-like syntax and static typing. It pragmatically combines efficiency, control, and modeling power, with safety and programmer productivity.
 Version: 1.0a
 Website: https://dlang.org
+Category: system
 Date: 2012-04-08
 */
 
