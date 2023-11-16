@@ -5,6 +5,7 @@ Core Grammars:
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
+- fix(typescript): params types [Mohamed Ali][]
 - fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
