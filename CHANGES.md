@@ -10,6 +10,7 @@ Core Grammars:
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
+- enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
 
 New Grammars:
 
@@ -32,6 +33,7 @@ Developer Tool:
 [nataliia-radina]: https://github.com/Nataliia-Radina
 [Robloxian Demo]: https://github.com/RobloxianDemo
 [Paul Tsnobiladzé]: https://github.com/tsnobip
+[Jonah Jeleniewski]: https://github.com/cirras
 
 
 ## Version 11.9.0

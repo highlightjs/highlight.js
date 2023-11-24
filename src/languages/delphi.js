@@ -168,11 +168,19 @@ export default function(hljs) {
         // Hexadecimal notation, e.g., $7F.
         begin: '\\$[0-9A-Fa-f]+' },
       {
+        // Hexadecimal literal with no digits
+        begin: '\\$',
+        relevance: 0 },
+      {
         // Octal notation, e.g., &42.
         begin: '&[0-7]+' },
       {
         // Binary notation, e.g., %1010.
-        begin: '%[01]+' }
+        begin: '%[01]*' },
+      {
+        // Binary literal with no digits
+        begin: '%',
+        relevance: 0 }
     ]
   };
   const CHAR_STRING = {
