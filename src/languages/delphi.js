@@ -188,7 +188,12 @@ export default function(hljs) {
   };
   const CHAR_STRING = {
     className: 'string',
-    begin: /(#\d+)+/
+    variants: [
+      { begin: /#\d[\d_]*/ },
+      { begin: /#\$[\dA-Fa-f][\dA-Fa-f_]*/ },
+      { begin: /#&[0-7][0-7_]*/ },
+      { begin: /#%[01][01_]*/ }
+    ]
   };
   const CLASS = {
     begin: hljs.IDENT_RE + '\\s*=\\s*class\\s*\\(',

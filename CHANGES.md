@@ -12,6 +12,7 @@ Core Grammars:
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
 - enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
 - enh(delphi) add support for digit separators [Jonah Jeleniewski][]
+- enh(delphi) add support for character strings with non-decimal numerics [Jonah Jeleniewski][]
 
 New Grammars:
 
