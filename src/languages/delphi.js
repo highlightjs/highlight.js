@@ -165,21 +165,24 @@ export default function(hljs) {
     // Source: https://www.freepascal.org/docs-html/ref/refse6.html
     variants: [
       {
+        // Regular numbers, e.g., 123, 123.456.
+        begin: /\b\d[\d_]*(\.\d[\d_]*)?/ },
+      {
         // Hexadecimal notation, e.g., $7F.
-        begin: '\\$[\\dA-Fa-f]+' },
+        begin: /\$[\dA-Fa-f_]+/ },
       {
         // Hexadecimal literal with no digits
-        begin: '\\$',
+        begin: /\$/,
         relevance: 0 },
       {
         // Octal notation, e.g., &42.
-        begin: '&[0-7]+' },
+        begin: /&[0-7][0-7_]*/ },
       {
         // Binary notation, e.g., %1010.
-        begin: '%[01]*' },
+        begin: /%[01_]+/ },
       {
         // Binary literal with no digits
-        begin: '%',
+        begin: /%/,
         relevance: 0 }
     ]
   };
@@ -227,7 +230,6 @@ export default function(hljs) {
     contains: [
       STRING,
       CHAR_STRING,
-      hljs.NUMBER_MODE,
       NUMBER,
       CLASS,
       FUNCTION,

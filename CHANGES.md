@@ -11,6 +11,7 @@ Core Grammars:
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
 - enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
+- enh(delphi) add support for digit separators [Jonah Jeleniewski][]
 
 New Grammars:
 
