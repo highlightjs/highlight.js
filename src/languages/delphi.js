@@ -166,33 +166,33 @@ export default function(hljs) {
     variants: [
       {
         // Regular numbers, e.g., 123, 123.456.
-        begin: /\b\d[\d_]*(\.\d[\d_]*)?/ },
+        match: /\b\d[\d_]*(\.\d[\d_]*)?/ },
       {
         // Hexadecimal notation, e.g., $7F.
-        begin: /\$[\dA-Fa-f_]+/ },
+        match: /\$[\dA-Fa-f_]+/ },
       {
         // Hexadecimal literal with no digits
-        begin: /\$/,
+        match: /\$/,
         relevance: 0 },
       {
         // Octal notation, e.g., &42.
-        begin: /&[0-7][0-7_]*/ },
+        match: /&[0-7][0-7_]*/ },
       {
         // Binary notation, e.g., %1010.
-        begin: /%[01_]+/ },
+        match: /%[01_]+/ },
       {
         // Binary literal with no digits
-        begin: /%/,
+        match: /%/,
         relevance: 0 }
     ]
   };
   const CHAR_STRING = {
     className: 'string',
     variants: [
-      { begin: /#\d[\d_]*/ },
-      { begin: /#\$[\dA-Fa-f][\dA-Fa-f_]*/ },
-      { begin: /#&[0-7][0-7_]*/ },
-      { begin: /#%[01][01_]*/ }
+      { match: /#\d[\d_]*/ },
+      { match: /#\$[\dA-Fa-f][\dA-Fa-f_]*/ },
+      { match: /#&[0-7][0-7_]*/ },
+      { match: /#%[01][01_]*/ }
     ]
   };
   const CLASS = {
