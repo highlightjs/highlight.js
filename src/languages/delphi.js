@@ -166,7 +166,7 @@ export default function(hljs) {
     variants: [
       {
         // Hexadecimal notation, e.g., $7F.
-        begin: '\\$[0-9A-Fa-f]+' },
+        begin: '\\$[\\dA-Fa-f]+' },
       {
         // Hexadecimal literal with no digits
         begin: '\\$',
