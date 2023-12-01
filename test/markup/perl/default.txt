@@ -25,6 +25,10 @@ sub load
   # GH-117
   my $g = glob("/usr/bin/*");
 
+  # GH-3934
+  print "@";
+  print;
+
   return $o;
 }
 
