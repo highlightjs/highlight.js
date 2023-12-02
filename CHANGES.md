@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- enh(perl) fix false-positive variable match at end of string
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
@@ -22,6 +23,7 @@ Developer Tool:
 - enh(tools): order CSS options picklist [David Schach][]
 - enh(tools): remove duplicate CSS options [David Schach][]
 
+[Josh Goebel]: https://github.com/joshgoebel
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
 [Bradley Mackey]: https://github.com/bradleymackey
