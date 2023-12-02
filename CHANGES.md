@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
@@ -36,6 +37,7 @@ Developer Tool:
 [Robloxian Demo]: https://github.com/RobloxianDemo
 [Paul Tsnobiladzé]: https://github.com/tsnobip
 [Jonah Jeleniewski]: https://github.com/cirras
+[Josh Goebel]: https://github.com/joshgoebel
 
 
 ## Version 11.9.0
