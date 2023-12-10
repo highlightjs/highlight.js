@@ -1,6 +1,8 @@
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span> {}
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">GenericClass</span>&lt;<span class="hljs-type">T</span>&gt; {}
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">GenericClassConstraint</span>&lt;<span class="hljs-type">T</span>&gt; <span class="hljs-keyword">where</span> <span class="hljs-type">T</span>: <span class="hljs-type">Equatable</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-type">T</span>&gt; {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-keyword">repeat</span> <span class="hljs-keyword">each</span> <span class="hljs-type">T</span>&gt; {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-type">T</span>&gt; <span class="hljs-keyword">where</span> <span class="hljs-type">T</span>: <span class="hljs-type">Equatable</span> {}
 
 <span class="hljs-keyword">class</span>
 <span class="hljs-title class_">MoreThanOneLine</span>
@@ -13,7 +15,16 @@
 {}
 
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">TestStruct</span> {}
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">TestStruct</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
+
 <span class="hljs-keyword">enum</span> <span class="hljs-title class_">TestEnum</span> {}
+<span class="hljs-keyword">enum</span> <span class="hljs-title class_">TestEnum</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
+
 <span class="hljs-keyword">actor</span> <span class="hljs-title class_">TestActor</span> {}
+<span class="hljs-keyword">actor</span> <span class="hljs-title class_">TestActor</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
+
 <span class="hljs-keyword">extension</span> <span class="hljs-title class_">TestExtension</span> {}
+<span class="hljs-keyword">extension</span> <span class="hljs-title class_">TestExtension</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
+
 <span class="hljs-keyword">protocol</span> <span class="hljs-title class_">TestProtocol</span> {}
+<span class="hljs-keyword">protocol</span> <span class="hljs-title class_">TestProtocol</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}

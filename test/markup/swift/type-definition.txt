@@ -1,6 +1,8 @@
 class TestClass {}
-class GenericClass<T> {}
-class GenericClassConstraint<T> where T: Equatable {}
+class TestClass<T> {}
+class TestClass<T, U> {}
+class TestClass<repeat each T> {}
+class TestClass<T> where T: Equatable {}
 
 class
 MoreThanOneLine
@@ -13,7 +15,16 @@ T: Param
 {}
 
 struct TestStruct {}
+struct TestStruct<T, U> {}
+
 enum TestEnum {}
+enum TestEnum<T, U> {}
+
 actor TestActor {}
+actor TestActor<T, U> {}
+
 extension TestExtension {}
+extension TestExtension<T, U> {}
+
 protocol TestProtocol {}
+protocol TestProtocol<T, U> {}
