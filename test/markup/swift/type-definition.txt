@@ -1,4 +1,7 @@
 class TestClass {}
+class GenericClass<T> {}
+class GenericClassConstraint<T> where T: Equatable {}
+
 struct TestStruct {}
 enum TestEnum {}
 actor TestActor {}
