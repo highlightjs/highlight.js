@@ -1,8 +1,11 @@
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>: <span class="hljs-type">Superclass</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>: <span class="hljs-type">Superclass</span>, <span class="hljs-type">Conform1</span>, <span class="hljs-type">Conform2</span> {}
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-type">T</span>&gt; {}
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-keyword">repeat</span> <span class="hljs-keyword">each</span> <span class="hljs-type">T</span>&gt; {}
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-type">T</span>&gt; <span class="hljs-keyword">where</span> <span class="hljs-type">T</span>: <span class="hljs-type">Equatable</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">TestClass</span>&lt;<span class="hljs-type">T</span>&gt;: <span class="hljs-type">Superclass</span> <span class="hljs-keyword">where</span> <span class="hljs-type">T</span>: <span class="hljs-type">Equatable</span> {}
 
 <span class="hljs-keyword">class</span>
 <span class="hljs-title class_">MoreThanOneLine</span>

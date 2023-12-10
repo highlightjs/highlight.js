@@ -1,8 +1,11 @@
 class TestClass {}
+class TestClass: Superclass {}
+class TestClass: Superclass, Conform1, Conform2 {}
 class TestClass<T> {}
 class TestClass<T, U> {}
 class TestClass<repeat each T> {}
 class TestClass<T> where T: Equatable {}
+class TestClass<T>: Superclass where T: Equatable {}
 
 class
 MoreThanOneLine
