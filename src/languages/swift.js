@@ -491,16 +491,19 @@ export default function(hljs) {
       FUNCTION_OR_MACRO,
       INIT_SUBSCRIPT,
       {
-        beginKeywords: 'struct protocol class extension enum actor',
-        end: '\\{',
-        excludeEnd: true,
+        match: [
+          /(struct|protocol|class|extension|enum|actor)/,
+          /\s+/,
+          /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
+        ],
+        scope: {
+          1: "keyword",
+          3: "title.class"
+        },
         keywords: KEYWORDS,
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
-            className: "title.class",
-            begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
-          }),
-          ...KEYWORD_MODES
+          GENERIC_PARAMETERS,
+          ...KEYWORD_MODES,
         ]
       },
       OPERATOR_DECLARATION,
