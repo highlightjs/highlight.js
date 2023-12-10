@@ -2,6 +2,16 @@
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">GenericClass</span>&lt;<span class="hljs-type">T</span>&gt; {}
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">GenericClassConstraint</span>&lt;<span class="hljs-type">T</span>&gt; <span class="hljs-keyword">where</span> <span class="hljs-type">T</span>: <span class="hljs-type">Equatable</span> {}
 
+<span class="hljs-keyword">class</span>
+<span class="hljs-title class_">MoreThanOneLine</span>
+{}
+
+<span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span>
+<span class="hljs-title class_">MoreThanOneLineGeneric</span>&lt;<span class="hljs-type">T</span>&gt;
+<span class="hljs-keyword">where</span>
+<span class="hljs-type">T</span>: <span class="hljs-type">Param</span>
+{}
+
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">TestStruct</span> {}
 <span class="hljs-keyword">enum</span> <span class="hljs-title class_">TestEnum</span> {}
 <span class="hljs-keyword">actor</span> <span class="hljs-title class_">TestActor</span> {}

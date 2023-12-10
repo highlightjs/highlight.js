@@ -2,6 +2,16 @@ class TestClass {}
 class GenericClass<T> {}
 class GenericClassConstraint<T> where T: Equatable {}
 
+class
+MoreThanOneLine
+{}
+
+final class
+MoreThanOneLineGeneric<T>
+where
+T: Param
+{}
+
 struct TestStruct {}
 enum TestEnum {}
 actor TestActor {}
