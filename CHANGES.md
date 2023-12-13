@@ -13,6 +13,7 @@ Core Grammars:
 - enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
 - enh(delphi) add support for digit separators [Jonah Jeleniewski][]
 - enh(delphi) add support for character strings with non-decimal numerics [Jonah Jeleniewski][]
+- fix(javascript) incorrect function name highlighting [CY Fung][]
 
 New Grammars:
 
@@ -36,6 +37,7 @@ Developer Tool:
 [Robloxian Demo]: https://github.com/RobloxianDemo
 [Paul Tsnobiladzé]: https://github.com/tsnobip
 [Jonah Jeleniewski]: https://github.com/cirras
+[CY Fung]: https://github.com/cyfung1031
 
 
 ## Version 11.9.0
