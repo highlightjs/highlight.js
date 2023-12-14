@@ -4,27 +4,27 @@
 	<span class="hljs-function">Функция <span class="hljs-title">ТолстыйКлиентОбычноеПриложение</span>(<span class="hljs-params"><span class="hljs-keyword">Знач</span> Параметр<span class="hljs-number">1</span> = <span class="hljs-literal">Неопределено</span></span>, <span class="hljs-comment">// комментарий</span>
 		<span class="hljs-params">Параметр2 = <span class="hljs-string">&quot;&quot;</span></span>, <span class="hljs-params">ПараметрN = <span class="hljs-number">123.45</span></span>, <span class="hljs-params">ПарамNN</span></span>) <span class="hljs-keyword">Экспорт</span> <span class="hljs-comment">// еще комментарий</span>
 		<span class="hljs-keyword">Попытка</span>
-			Результат_Булевы_Значения = <span class="hljs-keyword">Новый</span> <span class="hljs-type">Структура</span>(<span class="hljs-string">&quot;П1, П2&quot;</span>, <span class="hljs-literal">Истина</span>, <span class="hljs-literal">Ложь</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">Неопределено</span>);
+			Результат_Булевы_Значения <span class="hljs-punctuation">=</span> <span class="hljs-keyword">Новый</span> <span class="hljs-type">Структура</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;П1, П2&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">Истина</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">Ложь</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span> <span class="hljs-literal">Неопределено</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span>
 			<span class="hljs-keyword">Перейти</span> <span class="hljs-symbol">~МеткаGOTO</span>; <span class="hljs-comment">// комментарий</span>
-			РезультатТаблицаДат = <span class="hljs-keyword">Новый</span> <span class="hljs-type">ТаблицаЗначений</span>;
-			РезультатТаблицаДат.Колонки.Добавить(<span class="hljs-string">&quot;Колонка1&quot;</span>, 
-			<span class="hljs-keyword">Новый</span> <span class="hljs-type">ОписаниеТипов</span>(<span class="hljs-string">&quot;Дата&quot;</span>, , ,
-			<span class="hljs-keyword">Новый</span> <span class="hljs-type">КвалификаторыДаты</span>(<span class="hljs-class">ЧастиДаты</span>.ДатаВремя));
-			НС = РезультатТаблицаДат.Добавить(); НС[<span class="hljs-string">&quot;Колонка1&quot;</span>] = &#x27;<span class="hljs-number">20170101120000</span>&#x27;);
+			РезультатТаблицаДат <span class="hljs-punctuation">=</span> <span class="hljs-keyword">Новый</span> <span class="hljs-type">ТаблицаЗначений</span><span class="hljs-punctuation">;</span>
+			РезультатТаблицаДат.Колонки.Добавить<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Колонка1&quot;</span><span class="hljs-punctuation">,</span> 
+			<span class="hljs-keyword">Новый</span> <span class="hljs-type">ОписаниеТипов</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Дата&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">,</span> <span class="hljs-punctuation">,</span>
+			<span class="hljs-keyword">Новый</span> <span class="hljs-type">КвалификаторыДаты</span><span class="hljs-punctuation">(</span><span class="hljs-class">ЧастиДаты</span>.ДатаВремя<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span>
+			НС <span class="hljs-punctuation">=</span> РезультатТаблицаДат.Добавить<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span> НС[<span class="hljs-string">&quot;Колонка1&quot;</span>] <span class="hljs-punctuation">=</span> &#x27;<span class="hljs-number">20170101120000</span>&#x27;<span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span>
 		<span class="hljs-keyword">Исключение</span>
-			<span class="hljs-built_in">ОписаниеОшибки</span> = <span class="hljs-built_in">ОписаниеОшибки</span>(); <span class="hljs-comment">// встроенная функция</span>
-			Масс = <span class="hljs-keyword">Новый</span> <span class="hljs-type">Массив</span>; <span class="hljs-comment">// встроенный тип</span>
+			<span class="hljs-built_in">ОписаниеОшибки</span> <span class="hljs-punctuation">=</span> <span class="hljs-built_in">ОписаниеОшибки</span><span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span> <span class="hljs-comment">// встроенная функция</span>
+			Масс <span class="hljs-punctuation">=</span> <span class="hljs-keyword">Новый</span> <span class="hljs-type">Массив</span><span class="hljs-punctuation">;</span> <span class="hljs-comment">// встроенный тип</span>
 			<span class="hljs-keyword">Для</span> <span class="hljs-keyword">Каждого</span> Значение <span class="hljs-keyword">Из</span> Масс <span class="hljs-keyword">Цикл</span>
-				<span class="hljs-built_in">Сообщить</span>(Значение + <span class="hljs-class">Символы</span>.ПС + <span class="hljs-string">&quot;</span>
-				<span class="hljs-string">|продолжение строки&quot;</span>); <span class="hljs-comment">// продолжение многострочной строки</span>
-				<span class="hljs-keyword">Продолжить</span>; <span class="hljs-keyword">Прервать</span>;
-			<span class="hljs-keyword">КонецЦикла</span>;
-			СправочникСсылка   = <span class="hljs-built_in">Справочники</span>.Языки.НайтиПоНаименованию(<span class="hljs-string">&quot;ru&quot;</span>); <span class="hljs-comment">// встроенные типы</span>
-			СправочникОбъект   = СправочникСсылка.ПолучитьОбъект();
-			ПеречислениеСсылка = <span class="hljs-built_in">Перечисления</span>.ВидыМодификацииДанных.Изменен;
-			<span class="hljs-keyword">ВызватьИсключение</span> <span class="hljs-built_in">ОписаниеОшибки</span>;
-		<span class="hljs-keyword">КонецПопытки</span>;
+				<span class="hljs-built_in">Сообщить</span><span class="hljs-punctuation">(</span>Значение <span class="hljs-punctuation">+</span> <span class="hljs-class">Символы</span>.ПС <span class="hljs-punctuation">+</span> <span class="hljs-string">&quot;</span>
+				<span class="hljs-string">|продолжение строки&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span> <span class="hljs-comment">// продолжение многострочной строки</span>
+				<span class="hljs-keyword">Продолжить</span><span class="hljs-punctuation">;</span> <span class="hljs-keyword">Прервать</span><span class="hljs-punctuation">;</span>
+			<span class="hljs-keyword">КонецЦикла</span><span class="hljs-punctuation">;</span>
+			СправочникСсылка   <span class="hljs-punctuation">=</span> <span class="hljs-built_in">Справочники</span>.Языки.НайтиПоНаименованию<span class="hljs-punctuation">(</span><span class="hljs-string">&quot;ru&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span> <span class="hljs-comment">// встроенные типы</span>
+			СправочникОбъект   <span class="hljs-punctuation">=</span> СправочникСсылка.ПолучитьОбъект<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">;</span>
+			ПеречислениеСсылка <span class="hljs-punctuation">=</span> <span class="hljs-built_in">Перечисления</span>.ВидыМодификацииДанных.Изменен<span class="hljs-punctuation">;</span>
+			<span class="hljs-keyword">ВызватьИсключение</span> <span class="hljs-built_in">ОписаниеОшибки</span><span class="hljs-punctuation">;</span>
+		<span class="hljs-keyword">КонецПопытки</span><span class="hljs-punctuation">;</span>
 		<span class="hljs-symbol">~МеткаGOTO</span>: <span class="hljs-comment">// еще комментарий</span>
-		ВД = <span class="hljs-class">ВидДвиженияБухгалтерии</span>.Дебет;
+		ВД <span class="hljs-punctuation">=</span> <span class="hljs-class">ВидДвиженияБухгалтерии</span>.Дебет<span class="hljs-punctuation">;</span>
 	<span class="hljs-function">КонецФункции</span> <span class="hljs-comment">// ТолстыйКлиентОбычноеПриложение()</span>
 <span class="hljs-meta">#<span class="hljs-keyword">КонецЕсли</span></span>
