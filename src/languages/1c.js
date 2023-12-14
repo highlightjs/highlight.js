@@ -443,6 +443,12 @@ export default function(hljs) {
     ]
   };
 
+  const PUNCTUATION = {
+    match: /[;|(|)|:|=|,]/,
+    className: "punctuation",
+    relevance: 0
+  };
+
   // comment : комментарии
   const COMMENTS = hljs.inherit(hljs.C_LINE_COMMENT_MODE);
 
@@ -529,7 +535,8 @@ export default function(hljs) {
       SYMBOL,
       NUMBERS,
       STRINGS,
-      DATE
+      DATE,
+      PUNCTUATION
     ]
   };
 }
