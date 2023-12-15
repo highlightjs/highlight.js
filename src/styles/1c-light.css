@@ -7,24 +7,12 @@
   License: see project LICENSE
   Touched: 2023
 */
-
-pre code.hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 1em;
-  }
   
-  code.hljs {
-    padding: 3px 5px;
-  }
   /* end baseline CSS */
   
   .hljs {
-    font-family: "Courier New", monospace; /* This font is used in IDE the 1C:Enterprise 8 */
     color: #0000ff;
     background: #ffffff;
-    font-weight: normal;
-    font-style: normal;
   }
   
   /* Base color: saturation 0; */
