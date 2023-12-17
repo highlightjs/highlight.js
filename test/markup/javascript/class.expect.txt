@@ -51,16 +51,16 @@
       <span class="hljs-subst">${speed}</span>.`</span>;
   }
 
-  join () {
+  <span class="hljs-title function_">join</span> () {
   }
 
-  other (a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ) ) {
+  <span class="hljs-title function_">other</span> (a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ) ) {
     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a)
   }
 
-  something (a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ), b = <span class="hljs-number">1</span> ) {
+  <span class="hljs-title function_">something</span> (a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ), b = <span class="hljs-number">1</span> ) {
     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a)
   }
 
-  onemore (a=(<span class="hljs-number">3</span>+<span class="hljs-number">2</span>, b=(<span class="hljs-number">5</span>*<span class="hljs-number">9</span>))) {}
+  <span class="hljs-title function_">onemore</span> (a=(<span class="hljs-number">3</span>+<span class="hljs-number">2</span>, b=(<span class="hljs-number">5</span>*<span class="hljs-number">9</span>))) {}
 }
