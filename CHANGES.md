@@ -14,6 +14,7 @@ Core Grammars:
 - enh(delphi) add support for digit separators [Jonah Jeleniewski][]
 - enh(delphi) add support for character strings with non-decimal numerics [Jonah Jeleniewski][]
 - fix(javascript) incorrect function name highlighting [CY Fung][]
+- fix(1c) fix escaped symbols "+-;():=,[]" literals [Vitaly Barilko][]
 
 New Grammars:
 
@@ -25,6 +26,10 @@ Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
 - enh(tools): remove duplicate CSS options [David Schach][]
+
+Themes:
+
+- Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
@@ -38,6 +43,7 @@ Developer Tool:
 [Paul Tsnobiladzé]: https://github.com/tsnobip
 [Jonah Jeleniewski]: https://github.com/cirras
 [CY Fung]: https://github.com/cyfung1031
+[Vitaly Barilko]: https://github.com/Diversus23
 
 
 ## Version 11.9.0
