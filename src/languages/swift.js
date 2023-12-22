@@ -457,6 +457,23 @@ export default function(hljs) {
     end: /}/
   };
 
+  const TYPE_DECLARATION = {
+    match: [
+      /(struct|protocol|class|extension|enum|actor)/,
+      /\s+/,
+      /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.class"
+    },
+    keywords: KEYWORDS,
+    contains: [
+      GENERIC_PARAMETERS,
+      ...KEYWORD_MODES,
+    ]
+  };
+
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
     const interpolation = variant.contains.find(mode => mode.label === "interpol");
@@ -490,22 +507,7 @@ export default function(hljs) {
       ...COMMENTS,
       FUNCTION_OR_MACRO,
       INIT_SUBSCRIPT,
-      {
-        match: [
-          /(struct|protocol|class|extension|enum|actor)/,
-          /\s+/,
-          /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
-        ],
-        scope: {
-          1: "keyword",
-          3: "title.class"
-        },
-        keywords: KEYWORDS,
-        contains: [
-          GENERIC_PARAMETERS,
-          ...KEYWORD_MODES,
-        ]
-      },
+      TYPE_DECLARATION,
       OPERATOR_DECLARATION,
       PRECEDENCEGROUP,
       {
