@@ -35,6 +35,11 @@ where
 T: Param
 {}
 
+class Outer {
+  class Inner<T> {}
+  class InnerInherit: Superclass {}
+}
+
 struct TestStruct {}
 struct TestStruct: Conform {}
 struct TestStruct<T, U> {}

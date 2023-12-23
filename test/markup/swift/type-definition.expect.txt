@@ -35,6 +35,11 @@
 <span class="hljs-type">T</span>: <span class="hljs-type">Param</span>
 {}
 
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Outer</span> {
+  <span class="hljs-keyword">class</span> <span class="hljs-title class_">Inner</span>&lt;<span class="hljs-type">T</span>&gt; {}
+  <span class="hljs-keyword">class</span> <span class="hljs-title class_">InnerInherit</span>: <span class="hljs-title class_ inherited__">Superclass</span> {}
+}
+
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">TestStruct</span> {}
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">TestStruct</span>: <span class="hljs-title class_ inherited__">Conform</span> {}
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">TestStruct</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
