@@ -461,7 +461,8 @@ export default function(hljs) {
     match: [
       /(struct|protocol|class|extension|enum|actor)/,
       /\s+/,
-      /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
+      /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/,
+      /\s*/,
     ],
     scope: {
       1: "keyword",
@@ -471,6 +472,19 @@ export default function(hljs) {
     contains: [
       GENERIC_PARAMETERS,
       ...KEYWORD_MODES,
+      {
+        begin: /:/,
+        end: /[{]/,
+        keywords: KEYWORDS,
+        contains: [
+          {
+            scope: "title.class.inherited",
+            match: Swift.typeIdentifier,
+          },
+          ...KEYWORD_MODES,
+        ],
+        relevance: 0,
+      },
     ]
   };
 

@@ -11,6 +11,12 @@ class
 MoreThanOneLine
 {}
 
+class
+MoreThanOneLineInherit
+:
+Superclass
+{}
+
 final class
 MoreThanOneLineGeneric<T>
 where
