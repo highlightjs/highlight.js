@@ -17,6 +17,18 @@ MoreThanOneLineInherit
 Superclass
 {}
 
+class
+MoreThanOneLineInherit
+:
+Superclass1,
+Superclass2
+{}
+
+class
+MoreThanOneLineInherit:
+Superclass
+{}
+
 final class
 MoreThanOneLineGeneric<T>
 where
@@ -24,16 +36,21 @@ T: Param
 {}
 
 struct TestStruct {}
+struct TestStruct: Conform {}
 struct TestStruct<T, U> {}
 
 enum TestEnum {}
+enum TestEnum: Conform {}
 enum TestEnum<T, U> {}
 
 actor TestActor {}
+actor TestActor: Conform {}
 actor TestActor<T, U> {}
 
 extension TestExtension {}
+extension TestExtension: Conform {}
 extension TestExtension<T, U> {}
 
 protocol TestProtocol {}
+protocol TestProtocol: Conform {}
 protocol TestProtocol<T, U> {}
