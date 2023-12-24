@@ -473,8 +473,8 @@ export default function(hljs) {
       GENERIC_PARAMETERS,
       ...KEYWORD_MODES,
       {
-        begin: /:/,
-        end: /[{]/,
+        begin: ":",
+        end: "{",
         keywords: KEYWORDS,
         contains: [
           {
