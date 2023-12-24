@@ -461,7 +461,7 @@ export default function(hljs) {
     match: [
       /(struct|protocol|class|extension|enum|actor)/,
       /\s+/,
-      /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/,
+      Swift.identifier,
       /\s*/,
     ],
     scope: {
