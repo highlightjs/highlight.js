@@ -368,7 +368,10 @@ export default function(hljs) {
 
   return {
     name: 'Bash',
-    aliases: [ 'sh' ],
+    aliases: [
+      'sh',
+      'zsh'
+    ],
     keywords: {
       $pattern: /\b[a-z][a-z0-9._-]+\b/,
       keyword: KEYWORDS,
