@@ -464,7 +464,7 @@ export default function(hljs) {
       Swift.identifier,
       /\s*/,
     ],
-    scope: {
+    beginScope: {
       1: "keyword",
       3: "title.class"
     },
