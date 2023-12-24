@@ -7,6 +7,7 @@ Core Grammars:
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
 - fix(typescript): params types [Mohamed Ali][]
 - fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
+- fix(rust) fix for r# raw identifier not being highlighted correctly. [JaeBaek Lee][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
@@ -33,6 +34,7 @@ Themes:
 
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
+[JaeBaek Lee]: https://github.com/ThinkingVincent
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
 [Aneesh Kulkarni]: https://github.com/aneesh98

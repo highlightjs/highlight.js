@@ -7,6 +7,13 @@ Category: common, system
 */
 
 /** @type LanguageFn */
+
+// ============================================
+// Added to support the r# keyword, which is a raw identifier in Rust.
+const UNDERSCORE_IDENT_RE = '(r#)?[a-zA-Z_]\\w*';
+const IDENT_RE = '(r#)?[a-zA-Z]\\w*';
+// ============================================
+
 export default function(hljs) {
   const regex = hljs.regex;
   const FUNCTION_INVOKE = {
@@ -15,7 +22,7 @@ export default function(hljs) {
     begin: regex.concat(
       /\b/,
       /(?!let|for|while|if|else|match\b)/,
-      hljs.IDENT_RE,
+      IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
   const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
@@ -176,7 +183,7 @@ export default function(hljs) {
     name: 'Rust',
     aliases: [ 'rs' ],
     keywords: {
-      $pattern: hljs.IDENT_RE + '!?',
+      $pattern: IDENT_RE + '!?',
       type: TYPES,
       keyword: KEYWORDS,
       literal: LITERALS,
@@ -216,7 +223,7 @@ export default function(hljs) {
         begin: [
           /fn/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
@@ -243,7 +250,7 @@ export default function(hljs) {
           /let/,
           /\s+/,
           /(?:mut\s+)?/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
@@ -256,7 +263,7 @@ export default function(hljs) {
         begin: [
           /for/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE,
+          UNDERSCORE_IDENT_RE,
           /\s+/,
           /in/
         ],
@@ -270,7 +277,7 @@ export default function(hljs) {
         begin: [
           /type/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
@@ -281,7 +288,7 @@ export default function(hljs) {
         begin: [
           /(?:trait|enum|struct|union|impl|for)/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
@@ -289,7 +296,7 @@ export default function(hljs) {
         }
       },
       {
-        begin: hljs.IDENT_RE + '::',
+        begin: IDENT_RE + '::',
         keywords: {
           keyword: "Self",
           built_in: BUILTINS,
