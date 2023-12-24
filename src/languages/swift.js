@@ -458,7 +458,7 @@ export default function(hljs) {
   };
 
   const TYPE_DECLARATION = {
-    match: [
+    begin: [
       /(struct|protocol|class|extension|enum|actor)/,
       /\s+/,
       Swift.identifier,
