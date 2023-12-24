@@ -15,6 +15,7 @@ Core Grammars:
 - enh(delphi) add support for character strings with non-decimal numerics [Jonah Jeleniewski][]
 - fix(javascript) incorrect function name highlighting [CY Fung][]
 - fix(1c) fix escaped symbols "+-;():=,[]" literals [Vitaly Barilko][]
+- fix(swift) correctly highlight generics and conformances in type definitions [Bradley Mackey][]
 
 New Grammars:
 
