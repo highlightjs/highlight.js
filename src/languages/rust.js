@@ -183,7 +183,7 @@ export default function(hljs) {
     name: 'Rust',
     aliases: [ 'rs' ],
     keywords: {
-      $pattern: IDENT_RE + '!?',
+      $pattern: hljs.IDENT_RE + '!?',
       type: TYPES,
       keyword: KEYWORDS,
       literal: LITERALS,
