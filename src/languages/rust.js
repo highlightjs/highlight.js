@@ -296,7 +296,7 @@ export default function(hljs) {
         }
       },
       {
-        begin: IDENT_RE + '::',
+        begin: hljs.IDENT_RE + '::',
         keywords: {
           keyword: "Self",
           built_in: BUILTINS,
