@@ -8,13 +8,13 @@ Category: common, system
 
 /** @type LanguageFn */
 
-// ============================================
-// Added to support the r# keyword, which is a raw identifier in Rust.
-const UNDERSCORE_IDENT_RE = '(r#)?[a-zA-Z_]\\w*';
-const IDENT_RE = '(r#)?[a-zA-Z]\\w*';
-// ============================================
-
 export default function(hljs) {
+  // ============================================
+  // Added to support the r# keyword, which is a raw identifier in Rust.
+  const RAW_IDENTIFIER = '(r#)?';
+  const UNDERSCORE_IDENT_RE = RAW_IDENTIFIER + hljs.UNDERSCORE_IDENT_RE;
+  const IDENT_RE = RAW_IDENTIFIER + hljs.IDENT_RE;
+  // ============================================
   const regex = hljs.regex;
   const FUNCTION_INVOKE = {
     className: "title.function.invoke",
