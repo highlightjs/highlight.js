@@ -457,6 +457,37 @@ export default function(hljs) {
     end: /}/
   };
 
+  const TYPE_DECLARATION = {
+    begin: [
+      /(struct|protocol|class|extension|enum|actor)/,
+      /\s+/,
+      Swift.identifier,
+      /\s*/,
+    ],
+    beginScope: {
+      1: "keyword",
+      3: "title.class"
+    },
+    keywords: KEYWORDS,
+    contains: [
+      GENERIC_PARAMETERS,
+      ...KEYWORD_MODES,
+      {
+        begin: /:/,
+        end: /\{/,
+        keywords: KEYWORDS,
+        contains: [
+          {
+            scope: "title.class.inherited",
+            match: Swift.typeIdentifier,
+          },
+          ...KEYWORD_MODES,
+        ],
+        relevance: 0,
+      },
+    ]
+  };
+
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
     const interpolation = variant.contains.find(mode => mode.label === "interpol");
@@ -490,19 +521,7 @@ export default function(hljs) {
       ...COMMENTS,
       FUNCTION_OR_MACRO,
       INIT_SUBSCRIPT,
-      {
-        beginKeywords: 'struct protocol class extension enum actor',
-        end: '\\{',
-        excludeEnd: true,
-        keywords: KEYWORDS,
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, {
-            className: "title.class",
-            begin: /[A-Za-z$_][\u00C0-\u02B80-9A-Za-z$_]*/
-          }),
-          ...KEYWORD_MODES
-        ]
-      },
+      TYPE_DECLARATION,
       OPERATOR_DECLARATION,
       PRECEDENCEGROUP,
       {
