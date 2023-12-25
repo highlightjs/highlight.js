@@ -9,13 +9,13 @@ Category: common, system
 /** @type LanguageFn */
 
 export default function(hljs) {
+  const regex = hljs.regex;
   // ============================================
   // Added to support the r# keyword, which is a raw identifier in Rust.
-  const RAW_IDENTIFIER = '(r#)?';
-  const UNDERSCORE_IDENT_RE = RAW_IDENTIFIER + hljs.UNDERSCORE_IDENT_RE;
-  const IDENT_RE = RAW_IDENTIFIER + hljs.IDENT_RE;
+  const RAW_IDENTIFIER = /(r#)?/;
+  const UNDERSCORE_IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.UNDERSCORE_IDENT_RE);
+  const IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.IDENT_RE);
   // ============================================
-  const regex = hljs.regex;
   const FUNCTION_INVOKE = {
     className: "title.function.invoke",
     relevance: 0,
