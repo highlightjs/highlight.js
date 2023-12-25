@@ -388,8 +388,8 @@ export default function(hljs) {
         ...ECMAScript.BUILT_IN_GLOBALS,
         "super",
         "import"
-      ]),
-      IDENT_RE, regex.lookahead(/\(/)),
+      ].map(x => `${x}\\s*\\(`)),
+      IDENT_RE, regex.lookahead(/\s*\(/)),
     className: "title.function",
     relevance: 0
   };
