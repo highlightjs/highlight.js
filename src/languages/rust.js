@@ -71,6 +71,7 @@ export default function(hljs) {
     "try",
     "type",
     "typeof",
+    "union",
     "unsafe",
     "unsized",
     "use",
