@@ -24,6 +24,7 @@ New Grammars:
 - added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
 - added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
 - added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
+- added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
 
 Developer Tool:
 
