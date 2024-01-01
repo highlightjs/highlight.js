@@ -248,6 +248,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | YAML                    | yml, yaml              |         |
 | ZenScript               | zenscript, zs          |[highlightjs-zenscript](https://github.com/highlightjs/highlightjs-zenscript) |
 | Zephir                  | zephir, zep            |         |
+| Zig                     | zig                    |[highlightjs-zig](https://github.com/fwx5618177/highlightjs-zig) |
 <!-- LANGLIST_END -->
 
 <!-- document it until we can fix it -->
