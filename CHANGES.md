@@ -9,6 +9,7 @@ Core Grammars:
 - fix(typescript): params types [Mohamed Ali][]
 - fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
 - fix(rust) fix for r# raw identifier not being highlighted correctly. [JaeBaek Lee][]
+- enh(rust) Adding union to be recognized as a keyword in Rust. [JaeBaek Lee][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
