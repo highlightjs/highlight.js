@@ -5,8 +5,13 @@
 <span class="hljs-keyword">@propertyWrapper</span>
 <span class="hljs-meta">@SomeWrapper</span>(value: <span class="hljs-number">1.0</span>, other: <span class="hljs-string">&quot;string&quot;</span>, bool: <span class="hljs-literal">false</span>)
 <span class="hljs-keyword">@resultBuilder</span>
-<span class="hljs-keyword">@Sendable</span>
 <span class="hljs-keyword">@unchecked</span>
 <span class="hljs-keyword">@warn_unqualified_access</span>
+
+<span class="hljs-keyword">@objc</span>
+<span class="hljs-keyword">@objcMembers</span>
+<span class="hljs-meta">@CustomAttribute</span>
+<span class="hljs-keyword">@Sendable</span>
+<span class="hljs-meta">@SendableCustom</span>
 
 @ notAnAttribute

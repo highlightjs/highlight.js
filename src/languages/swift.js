@@ -257,14 +257,17 @@ export default function(hljs) {
       }
     ] }
   };
+
   const KEYWORD_ATTRIBUTE = {
     scope: 'keyword',
-    match: concat(/@/, either(...Swift.keywordAttributes))
+    match: concat(/@/, either(...Swift.keywordAttributes), lookahead(either(/\(/, /\s+/))),
   };
+
   const USER_DEFINED_ATTRIBUTE = {
     scope: 'meta',
     match: concat(/@/, Swift.identifier)
   };
+
   const ATTRIBUTES = [
     AVAILABLE_ATTRIBUTE,
     KEYWORD_ATTRIBUTE,
