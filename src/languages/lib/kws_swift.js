@@ -92,6 +92,7 @@ export const keywords = [
   'operator',
   'optional', // contextual
   'override', // contextual
+  'package',
   'postfix', // contextual
   'precedencegroup',
   'prefix', // contextual

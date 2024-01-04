@@ -17,6 +17,7 @@ x <span class="hljs-keyword">is</span> <span class="hljs-type">String</span>
 <span class="hljs-keyword">unowned(safe)</span> <span class="hljs-keyword">unowned(unsafe)</span>
 <span class="hljs-keyword">async</span> <span class="hljs-keyword">await</span>
 <span class="hljs-keyword">isolated</span> <span class="hljs-keyword">nonisolated</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">package</span> <span class="hljs-keyword">internal</span> <span class="hljs-keyword">open</span>
 
 <span class="hljs-keyword">#if</span>
 <span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
