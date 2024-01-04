@@ -17,7 +17,7 @@ fileprivate(set) internal(set) open(set) private(set) public(set)
 unowned(safe) unowned(unsafe)
 async await
 isolated nonisolated
-public private package internal open
+public private fileprivate package internal open
 
 #if
 #error("Error")
