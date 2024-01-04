@@ -1,5 +1,9 @@
 ## Version 11.10.0 (Next Release)
 
+CAVEATS / POTENTIALLY BREAKING CHANGES
+
+- Drops support for Node 16.x, which is no longer supported by Node.js.
+
 Core Grammars:
 
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
