@@ -19,6 +19,7 @@ Core Grammars:
 - fix(javascript) incorrect function name highlighting [CY Fung][]
 - fix(1c) fix escaped symbols "+-;():=,[]" literals [Vitaly Barilko][]
 - fix(swift) correctly highlight generics and conformances in type definitions [Bradley Mackey][]
+- enh(swift) add package keyword [Bradley Mackey][]
 
 New Grammars:
 
