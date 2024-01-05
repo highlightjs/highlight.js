@@ -20,6 +20,7 @@ Core Grammars:
 - fix(1c) fix escaped symbols "+-;():=,[]" literals [Vitaly Barilko][]
 - fix(swift) correctly highlight generics and conformances in type definitions [Bradley Mackey][]
 - enh(swift) add package keyword [Bradley Mackey][]
+- fix(swift) ensure keyword attributes highlight correctly [Bradley Mackey][]
 
 New Grammars:
 
