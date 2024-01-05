@@ -1,6 +1,6 @@
 /// A generic stack for equatable items.
 public struct Stack<T>: Equatable where T: Equatable {
-  private(set) var items = [T]()
+  private(set) var items: [T]
 
   public init(items: [T] = []) {
     self.items = items
