@@ -8,7 +8,7 @@ public struct Stack<T>: Equatable where T: Equatable {
 
   public mutating func push(item: T) { /* /* ... */ */ }
 
-  fileprivate func description() -> String {
+  fileprivate var description: String {
     if items.isEmpty {
       "The stack is empty"
     } else {
