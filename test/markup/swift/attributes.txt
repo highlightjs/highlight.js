@@ -15,3 +15,13 @@
 @SendableCustom
 
 @ notAnAttribute
+
+// keywords delimited by whitespace
+@objc @objcMembers @Custom @Custom(param: "test")
+class Something {}
+
+@objc
+@objcMembers
+@Custom
+@Custom(param: "test")
+class Something {}

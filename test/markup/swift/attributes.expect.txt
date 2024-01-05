@@ -15,3 +15,13 @@
 <span class="hljs-meta">@SendableCustom</span>
 
 @ notAnAttribute
+
+<span class="hljs-comment">// keywords delimited by whitespace</span>
+<span class="hljs-keyword">@objc</span> <span class="hljs-keyword">@objcMembers</span> <span class="hljs-meta">@Custom</span> <span class="hljs-meta">@Custom</span>(param: <span class="hljs-string">&quot;test&quot;</span>)
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Something</span> {}
+
+<span class="hljs-keyword">@objc</span>
+<span class="hljs-keyword">@objcMembers</span>
+<span class="hljs-meta">@Custom</span>
+<span class="hljs-meta">@Custom</span>(param: <span class="hljs-string">&quot;test&quot;</span>)
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Something</span> {}
