@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        # All 'LTS' and 'Current' versions
+        # All 'LTS' and 'Current' versions (https://nodejs.org/en/about/previous-releases)
         node-version: [18.x, 20.x, 21.x]
         build-how: ["node", "browser", "browser -n", "cdn :common"]
 
