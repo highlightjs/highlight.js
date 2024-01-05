@@ -6,11 +6,9 @@ public struct Stack<T>: Equatable where T: Equatable {
     self.items = items
   }
 
-  fileprivate var count: Int { items.count }
+  public mutating func push(item: T) { /* /* ... */ */ }
 
-  public mutating func push(item: T) { /* ... */ }
-
-  package func description() -> String {
+  fileprivate func description() -> String {
     if items.isEmpty {
       "The stack is empty"
     } else {
