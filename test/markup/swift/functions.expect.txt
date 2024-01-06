@@ -30,3 +30,25 @@
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">&gt;</span> (<span class="hljs-params">lhs</span>: <span class="hljs-keyword">Self</span>, <span class="hljs-params">rhs</span>: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-type">Bool</span>
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">&gt;=</span> (<span class="hljs-params">lhs</span>: <span class="hljs-keyword">Self</span>, <span class="hljs-params">rhs</span>: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-type">Bool</span>
 }
+
+<span class="hljs-comment">// builtins</span>
+<span class="hljs-built_in">abs</span>(<span class="hljs-number">1</span>)
+<span class="hljs-built_in">swap</span>(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
+<span class="hljs-built_in">zip</span>(a, b)
+obj.abs(<span class="hljs-number">1</span>)
+obj.swap(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
+obj.zip(a, b)
+
+<span class="hljs-comment">// methods</span>
+<span class="hljs-title function_">method</span>()
+<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
+<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">method</span>()
+obj.<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
+obj.prop.<span class="hljs-title function_">method</span>()
+obj.prop.<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
+obj.prop.<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
+
+`if`()
+obj.`if`()

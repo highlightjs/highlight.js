@@ -30,3 +30,25 @@ protocol Comparable: Equatable {
   static func > (lhs: Self, rhs: Self) -> Bool
   static func >= (lhs: Self, rhs: Self) -> Bool
 }
+
+// builtins
+abs(1)
+swap(&a, &b)
+zip(a, b)
+obj.abs(1)
+obj.swap(&a, &b)
+obj.zip(a, b)
+
+// methods
+method()
+method(1)
+method(param: 1)
+obj.method()
+obj.method(1)
+obj.method(param: 1)
+obj.prop.method()
+obj.prop.method(1)
+obj.prop.method(param: 1)
+
+`if`()
+obj.`if`()
