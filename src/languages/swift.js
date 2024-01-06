@@ -390,13 +390,16 @@ export default function(hljs) {
     endsParent: true,
     illegal: /["']/
   };
+
+  const FUNCTION_IDENT = either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator);
+
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#Macro-Declaration
   const FUNCTION_OR_MACRO = {
     match: [
       /(func|macro)/,
       /\s+/,
-      either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator)
+      FUNCTION_IDENT,
     ],
     className: {
       1: "keyword",
@@ -491,6 +494,25 @@ export default function(hljs) {
     ]
   };
 
+  function noneOf(list) {
+    return concat("(?!", list.join("|"), ")");
+  }
+
+  const FUNCTION_CALL = {
+    match: concat(
+      either(/\b/, /#/),
+      noneOf([
+        ...Swift.keywords,
+        ...Swift.numberSignKeywordsRaw,
+        ...Swift.builtIns,
+      ].map(x => `${x}\\s*\\(`)),
+      FUNCTION_IDENT,
+      lookahead(/\s*\(/),
+    ),
+    scope: "title.function",
+    relevance: 0,
+  };
+
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
     const interpolation = variant.contains.find(mode => mode.label === "interpol");
@@ -542,7 +564,8 @@ export default function(hljs) {
       ...IDENTIFIERS,
       ...ATTRIBUTES,
       TYPE,
-      TUPLE
+      TUPLE,
+      FUNCTION_CALL
     ]
   };
 }
