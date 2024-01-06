@@ -6,7 +6,9 @@ public struct Stack<T>: Equatable where T: Equatable {
     self.items = items
   }
 
-  public mutating func push(item: T) { /* /* ... */ */ }
+  public mutating func push(item: T) { items.append(item) }
+
+  /* /* ... */ */
 
   fileprivate var description: String {
     if items.isEmpty {
