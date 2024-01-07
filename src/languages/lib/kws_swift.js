@@ -151,29 +151,27 @@ export const precedencegroupKeywords = [
 
 // Keywords that start with a number sign (#).
 // #(un)available is handled separately.
-export const numberSignKeywordsRaw = [
-  'colorLiteral',
-  'column',
-  'dsohandle',
-  'else',
-  'elseif',
-  'endif',
-  'error',
-  'file',
-  'fileID',
-  'fileLiteral',
-  'filePath',
-  'function',
-  'if',
-  'imageLiteral',
-  'keyPath',
-  'line',
-  'selector',
-  'sourceLocation',
-  'warning'
+export const numberSignKeywords = [
+  '#colorLiteral',
+  '#column',
+  '#dsohandle',
+  '#else',
+  '#elseif',
+  '#endif',
+  '#error',
+  '#file',
+  '#fileID',
+  '#fileLiteral',
+  '#filePath',
+  '#function',
+  '#if',
+  '#imageLiteral',
+  '#keyPath',
+  '#line',
+  '#selector',
+  '#sourceLocation',
+  '#warning'
 ];
-
-export const numberSignKeywords = numberSignKeywordsRaw.map(x => `#${x}`);
 
 // Global functions in the Standard Library.
 export const builtIns = [
