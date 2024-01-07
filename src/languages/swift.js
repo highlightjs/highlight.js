@@ -11,11 +11,14 @@ import * as Swift from './lib/kws_swift.js';
 import {
   concat,
   either,
-  lookahead
+  lookahead,
+  negativeLookahead
 } from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const TRAILING_PAREN_REGEX = /[^\S\r\n]*\(/;
+
   const WHITESPACE = {
     match: /\s+/,
     relevance: 0
@@ -74,18 +77,12 @@ export default function(hljs) {
     KEYWORD
   ];
 
-  const BUILT_IN_PROP_GUARD = {
-    // Consumes .built_in to prevent highlighting properties as built-ins.
-    match: concat(/\./, either(...Swift.builtIns), noneOf(["\\("])),
-    relevance: 0,
-  };
-
   const BUILT_IN_METHOD_GUARD = {
     // .built_in(...) is actually a custom method being called.
     match: [
       /\./,
       either(...Swift.builtIns),
-      /\(/,
+      TRAILING_PAREN_REGEX,
     ],
     scope: {
       2: 'title.function',
@@ -94,11 +91,10 @@ export default function(hljs) {
 
   const BUILT_IN = {
     scope: 'built_in',
-    match: concat(/\b/, either(...Swift.builtIns), lookahead(/\(/))
+    match: concat(/\b/, either(...Swift.builtIns), lookahead(TRAILING_PAREN_REGEX)),
   };
 
   const BUILT_INS = [
-    BUILT_IN_PROP_GUARD,
     BUILT_IN_METHOD_GUARD,
     BUILT_IN
   ];
@@ -519,9 +515,9 @@ export default function(hljs) {
         ...Swift.keywords,
         ...Swift.numberSignKeywordsRaw,
         ...Swift.builtIns,
-      ].map(x => `${x}\\s*\\(`)),
+      ].map(x => concat(x, TRAILING_PAREN_REGEX))),
       FUNCTION_IDENT,
-      lookahead(/\s*\(/),
+      lookahead(TRAILING_PAREN_REGEX),
     ),
     scope: "title.function",
     relevance: 0,

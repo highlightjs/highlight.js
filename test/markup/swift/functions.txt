@@ -31,6 +31,12 @@ protocol Comparable: Equatable {
   static func >= (lhs: Self, rhs: Self) -> Bool
 }
 
+// paren spacing
+obj.fn(1)
+obj.fn (1)
+obj.prop
+(1) // newline break, this is no longer a function
+
 // builtins
 abs(1)
 swap(&a, &b)
@@ -38,6 +44,9 @@ zip(a, b)
 obj.abs(1)
 obj.swap(&a, &b)
 obj.zip(a, b)
+obj.abs  (1)
+obj.abs
+(1)
 
 // methods
 method()
@@ -49,6 +58,11 @@ obj.method(param: 1)
 obj.prop.method()
 obj.prop.method(1)
 obj.prop.method(param: 1)
+obj.prop.method(
+  param: 1
+)
+obj.prop
+  .method()
 
 `if`()
 obj.`if`()
