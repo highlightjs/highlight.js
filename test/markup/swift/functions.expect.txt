@@ -31,6 +31,12 @@
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">&gt;=</span> (<span class="hljs-params">lhs</span>: <span class="hljs-keyword">Self</span>, <span class="hljs-params">rhs</span>: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-type">Bool</span>
 }
 
+<span class="hljs-comment">// paren spacing</span>
+obj.<span class="hljs-title function_">fn</span>(<span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">fn</span> (<span class="hljs-number">1</span>)
+obj.prop
+(<span class="hljs-number">1</span>) <span class="hljs-comment">// newline break, this is no longer a function</span>
+
 <span class="hljs-comment">// builtins</span>
 <span class="hljs-built_in">abs</span>(<span class="hljs-number">1</span>)
 <span class="hljs-built_in">swap</span>(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
@@ -38,6 +44,9 @@
 obj.<span class="hljs-title function_">abs</span>(<span class="hljs-number">1</span>)
 obj.<span class="hljs-title function_">swap</span>(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
 obj.<span class="hljs-title function_">zip</span>(a, b)
+obj.<span class="hljs-title function_">abs</span>  (<span class="hljs-number">1</span>)
+obj.abs
+(<span class="hljs-number">1</span>)
 
 <span class="hljs-comment">// methods</span>
 <span class="hljs-title function_">method</span>()
@@ -49,6 +58,11 @@ obj.<span class="hljs-title function_">method</span>(param: <span class="hljs-nu
 obj.prop.<span class="hljs-title function_">method</span>()
 obj.prop.<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
 obj.prop.<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
+obj.prop.<span class="hljs-title function_">method</span>(
+  param: <span class="hljs-number">1</span>
+)
+obj.prop
+  .<span class="hljs-title function_">method</span>()
 
 `if`()
 obj.`if`()
