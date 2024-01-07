@@ -491,7 +491,7 @@ export default function(hljs) {
   };
 
   function noneOf(list) {
-    return concat("(?!", list.join("|"), ")");
+    return negativeLookahead(either(...list));
   }
 
   const METHODS_ONLY = [...Swift.keywords, ...Swift.builtIns];
@@ -504,7 +504,7 @@ export default function(hljs) {
         keywords: KEYWORDS,
         match: concat(
           either(/\b/, /#/),
-          noneOf([...METHODS_ONLY].map(x => concat(x, TRAILING_PAREN_REGEX))),
+          noneOf(METHODS_ONLY.map(x => concat(x, TRAILING_PAREN_REGEX))),
           FUNCTION_IDENT,
           lookahead(TRAILING_PAREN_REGEX),
         ),
