@@ -64,5 +64,9 @@ obj.prop.<span class="hljs-title function_">method</span>(
 obj.prop
   .<span class="hljs-title function_">method</span>()
 
-`if`()
-obj.`if`()
+<span class="hljs-comment">// keywords</span>
+obj.<span class="hljs-title function_">if</span>(condition: <span class="hljs-literal">true</span>)
+<span class="hljs-title function_">`if`</span>()
+obj.<span class="hljs-title function_">`if`</span>()
+<span class="hljs-title function_">`notKeyword`</span>()
+obj.<span class="hljs-title function_">`notKeyword`</span>()
