@@ -64,5 +64,9 @@ obj.prop.method(
 obj.prop
   .method()
 
+// keywords
+obj.if(condition: true)
 `if`()
 obj.`if`()
+`notKeyword`()
+obj.`notKeyword`()

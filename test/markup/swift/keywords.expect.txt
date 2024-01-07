@@ -23,6 +23,6 @@ x <span class="hljs-keyword">is</span> <span class="hljs-type">String</span>
 <span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
 <span class="hljs-keyword">#endif</span>
 
-x.as(y)
-x.for(y)
+x.<span class="hljs-title function_">as</span>(y)
+x.<span class="hljs-title function_">for</span>(y)
 #notAKeyword

@@ -17,6 +17,9 @@ import {
 
 /** @type LanguageFn */
 export default function(hljs) {
+  /**
+   * Regex for detecting a function call following an identifier.
+   */
   const TRAILING_PAREN_REGEX = /[^\S\r\n]*\(/;
 
   const WHITESPACE = {
@@ -43,11 +46,6 @@ export default function(hljs) {
     ],
     className: { 2: "keyword" }
   };
-  const KEYWORD_GUARD = {
-    // Consume .keyword to prevent highlighting properties and methods as keywords.
-    match: concat(/\./, either(...Swift.keywords)),
-    relevance: 0
-  };
   const PLAIN_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw === 'string')
     .concat([ "_|0" ]); // seems common, so 0 relevance
@@ -73,31 +71,13 @@ export default function(hljs) {
   };
   const KEYWORD_MODES = [
     DOT_KEYWORD,
-    KEYWORD_GUARD,
     KEYWORD
   ];
-
-  const BUILT_IN_METHOD_GUARD = {
-    // .built_in(...) is actually a custom method being called.
-    match: [
-      /\./,
-      either(...Swift.builtIns),
-      TRAILING_PAREN_REGEX,
-    ],
-    scope: {
-      2: 'title.function',
-    },
-  };
 
   const BUILT_IN = {
     scope: 'built_in',
     match: concat(/\b/, either(...Swift.builtIns), lookahead(TRAILING_PAREN_REGEX)),
   };
-
-  const BUILT_INS = [
-    BUILT_IN_METHOD_GUARD,
-    BUILT_IN
-  ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
   const OPERATOR_GUARD = {
@@ -345,7 +325,7 @@ export default function(hljs) {
       ...COMMENTS,
       REGEXP,
       ...KEYWORD_MODES,
-      ...BUILT_INS,
+      BUILT_IN,
       ...OPERATORS,
       NUMBER,
       STRING,
@@ -508,19 +488,37 @@ export default function(hljs) {
     return concat("(?!", list.join("|"), ")");
   }
 
+  const METHODS_ONLY = [...Swift.keywords, ...Swift.numberSignKeywordsRaw, ...Swift.builtIns];
   const FUNCTION_CALL = {
-    match: concat(
-      either(/\b/, /#/),
-      noneOf([
-        ...Swift.keywords,
-        ...Swift.numberSignKeywordsRaw,
-        ...Swift.builtIns,
-      ].map(x => concat(x, TRAILING_PAREN_REGEX))),
-      FUNCTION_IDENT,
-      lookahead(TRAILING_PAREN_REGEX),
-    ),
-    scope: "title.function",
     relevance: 0,
+    variants: [
+      {
+        scope: "title.function",
+        match: concat(
+          either(/#/, /\b/),
+          noneOf(METHODS_ONLY.map(x => concat(x, TRAILING_PAREN_REGEX))),
+          FUNCTION_IDENT,
+          lookahead(TRAILING_PAREN_REGEX),
+        ),
+      },
+      {
+        match: [
+          /\./,
+          either(...METHODS_ONLY),
+          TRAILING_PAREN_REGEX,
+        ],
+        scope: {
+          2: "title.function",
+        }
+      },
+      {
+        scope: "title.function",
+        match: concat(
+          QUOTED_IDENTIFIER.match,
+          lookahead(TRAILING_PAREN_REGEX),
+        )
+      }
+    ]
   };
 
   // Add supported submodes to string interpolation.
@@ -530,7 +528,7 @@ export default function(hljs) {
     interpolation.keywords = KEYWORDS;
     const submodes = [
       ...KEYWORD_MODES,
-      ...BUILT_INS,
+      BUILT_IN,
       ...OPERATORS,
       NUMBER,
       STRING,
@@ -567,15 +565,15 @@ export default function(hljs) {
       },
       REGEXP,
       ...KEYWORD_MODES,
-      ...BUILT_INS,
+      BUILT_IN,
       ...OPERATORS,
       NUMBER,
       STRING,
-      ...IDENTIFIERS,
       ...ATTRIBUTES,
       TYPE,
       TUPLE,
-      FUNCTION_CALL
+      FUNCTION_CALL,
+      ...IDENTIFIERS,
     ]
   };
 }
