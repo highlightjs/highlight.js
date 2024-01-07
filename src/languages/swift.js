@@ -494,20 +494,24 @@ export default function(hljs) {
     return concat("(?!", list.join("|"), ")");
   }
 
-  const METHODS_ONLY = [...Swift.keywords, ...Swift.numberSignKeywordsRaw, ...Swift.builtIns];
+  const METHODS_ONLY = [...Swift.keywords, ...Swift.builtIns];
   const FUNCTION_CALL = {
     relevance: 0,
     variants: [
       {
+        // Functions and macro calls
         scope: "title.function",
+        keywords: KEYWORDS,
         match: concat(
-          either(/#/, /\b/),
-          noneOf(METHODS_ONLY.map(x => concat(x, TRAILING_PAREN_REGEX))),
+          either(/\b/, /#/),
+          noneOf([...METHODS_ONLY].map(x => concat(x, TRAILING_PAREN_REGEX))),
           FUNCTION_IDENT,
           lookahead(TRAILING_PAREN_REGEX),
         ),
       },
       {
+        // Keywords/built-ins that only can appear as a method call
+        // e.g. foo.if()
         match: [
           /\./,
           either(...METHODS_ONLY),
@@ -518,6 +522,7 @@ export default function(hljs) {
         }
       },
       {
+        // Quoted methods calls, e.g. `foo`()
         scope: "title.function",
         match: concat(
           QUOTED_IDENTIFIER.match,

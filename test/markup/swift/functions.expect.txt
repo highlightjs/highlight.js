@@ -79,3 +79,18 @@ obj.<span class="hljs-title function_">`if`</span> ()
 <span class="hljs-title function_">`notKeyword`</span>()
 obj.<span class="hljs-title function_">`notKeyword`</span>()
 obj.<span class="hljs-title function_">`notKeyword`</span> ()
+
+<span class="hljs-comment">// number sign keywords are fine</span>
+<span class="hljs-title function_">column</span>()
+<span class="hljs-title function_">keyPath</span>()
+<span class="hljs-title function_">sourceLocation</span>()
+obj.<span class="hljs-title function_">column</span>()
+obj.<span class="hljs-title function_">keyPath</span>()
+obj.<span class="hljs-title function_">sourceLocation</span>()
+
+<span class="hljs-comment">// attribute keywords are fine</span>
+<span class="hljs-title function_">frozen</span>()
+<span class="hljs-title function_">discardableResult</span>()
+obj.<span class="hljs-title function_">frozen</span>()
+obj.<span class="hljs-title function_">discardableResult</span>()
+
