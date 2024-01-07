@@ -66,6 +66,7 @@ obj.prop
 
 // keywords
 obj.if(condition: true)
+obj.if // variable
 `if`()
 obj.`if`()
 `notKeyword`()

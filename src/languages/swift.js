@@ -46,6 +46,11 @@ export default function(hljs) {
     ],
     className: { 2: "keyword" }
   };
+  const KEYWORD_PROP_GUARD = {
+    // Consume .keyword to prevent highlighting properties as keywords. .methods are highlighted seperately
+    match: concat(/\./, either(...Swift.keywords), negativeLookahead(TRAILING_PAREN_REGEX)),
+    relevance: 0
+  };
   const PLAIN_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw === 'string')
     .concat([ "_|0" ]); // seems common, so 0 relevance
@@ -71,6 +76,7 @@ export default function(hljs) {
   };
   const KEYWORD_MODES = [
     DOT_KEYWORD,
+    KEYWORD_PROP_GUARD,
     KEYWORD
   ];
 
