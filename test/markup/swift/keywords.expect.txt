@@ -19,9 +19,22 @@ x <span class="hljs-keyword">is</span> <span class="hljs-type">String</span>
 <span class="hljs-keyword">isolated</span> <span class="hljs-keyword">nonisolated</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">fileprivate</span> <span class="hljs-keyword">package</span> <span class="hljs-keyword">internal</span> <span class="hljs-keyword">open</span>
 
-<span class="hljs-keyword">#if</span>
+<span class="hljs-keyword">#if</span> <span class="hljs-type">DEBUG</span>
+<span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
+<span class="hljs-keyword">#elseif</span> <span class="hljs-title function_">os</span>(macOS)
+<span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
+<span class="hljs-keyword">#elseif</span> <span class="hljs-title function_">arch</span>(arm64)
+<span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
+<span class="hljs-keyword">#elseif</span> <span class="hljs-title function_">compiler</span>(<span class="hljs-operator">&gt;=</span><span class="hljs-number">5.0</span>)
+<span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
+<span class="hljs-keyword">#elseif</span> <span class="hljs-title function_">canImport</span>(<span class="hljs-type">UIKit</span>)
+<span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
+<span class="hljs-keyword">#elseif</span> <span class="hljs-title function_">targetEnvironment</span>(simulator)
 <span class="hljs-keyword">#error</span>(<span class="hljs-string">&quot;Error&quot;</span>)
 <span class="hljs-keyword">#endif</span>
+
+<span class="hljs-keyword">#imageLiteral</span>(resourceName: expression)
+<span class="hljs-keyword">#fileLiteral</span>(resourceName: expression)
 
 x.<span class="hljs-title function_">as</span>(y)
 x.<span class="hljs-title function_">for</span>(y)

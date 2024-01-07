@@ -19,9 +19,22 @@ async await
 isolated nonisolated
 public private fileprivate package internal open
 
-#if
+#if DEBUG
+#error("Error")
+#elseif os(macOS)
+#error("Error")
+#elseif arch(arm64)
+#error("Error")
+#elseif compiler(>=5.0)
+#error("Error")
+#elseif canImport(UIKit)
+#error("Error")
+#elseif targetEnvironment(simulator)
 #error("Error")
 #endif
+
+#imageLiteral(resourceName: expression)
+#fileLiteral(resourceName: expression)
 
 x.as(y)
 x.for(y)
