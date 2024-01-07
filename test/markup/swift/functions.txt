@@ -79,3 +79,18 @@ obj.`if` ()
 `notKeyword`()
 obj.`notKeyword`()
 obj.`notKeyword` ()
+
+// number sign keywords are fine
+column()
+keyPath()
+sourceLocation()
+obj.column()
+obj.keyPath()
+obj.sourceLocation()
+
+// attribute keywords are fine
+frozen()
+discardableResult()
+obj.frozen()
+obj.discardableResult()
+
