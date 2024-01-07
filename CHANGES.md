@@ -25,6 +25,7 @@ Core Grammars:
 - fix(swift) correctly highlight generics and conformances in type definitions [Bradley Mackey][]
 - enh(swift) add package keyword [Bradley Mackey][]
 - fix(swift) ensure keyword attributes highlight correctly [Bradley Mackey][]
+- fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 
 New Grammars:
 
@@ -57,6 +58,7 @@ Themes:
 [Josh Goebel]: https://github.com/joshgoebel
 [CY Fung]: https://github.com/cyfung1031
 [Vitaly Barilko]: https://github.com/Diversus23
+[Patrick Chiu]: https://github.com/patrick-kw-chiu
 
 
 ## Version 11.9.0
