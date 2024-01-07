@@ -35,9 +35,9 @@
 <span class="hljs-built_in">abs</span>(<span class="hljs-number">1</span>)
 <span class="hljs-built_in">swap</span>(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
 <span class="hljs-built_in">zip</span>(a, b)
-obj.abs(<span class="hljs-number">1</span>)
-obj.swap(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
-obj.zip(a, b)
+obj.<span class="hljs-title function_">abs</span>(<span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">swap</span>(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
+obj.<span class="hljs-title function_">zip</span>(a, b)
 
 <span class="hljs-comment">// methods</span>
 <span class="hljs-title function_">method</span>()
