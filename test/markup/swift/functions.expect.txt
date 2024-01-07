@@ -17,6 +17,9 @@
   <span class="hljs-params">p5</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-type">String</span>? <span class="hljs-operator">=</span> <span class="hljs-string">&quot;text&quot;</span>
 ) { }
 
+<span class="hljs-keyword">func</span> <span class="hljs-title function_">`escaped`</span>() {}
+<span class="hljs-keyword">func</span> <span class="hljs-title function_">`if`</span>() {}
+
 <span class="hljs-keyword">init</span>&lt;<span class="hljs-type">X</span>: <span class="hljs-type">A</span>&gt;(<span class="hljs-keyword">_</span> <span class="hljs-params">p</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-keyword">inout</span> (x: <span class="hljs-type">Int</span>, var: <span class="hljs-type">Int</span>) <span class="hljs-operator">=</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) { }
 <span class="hljs-keyword">init?</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">p</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-keyword">inout</span> (x: <span class="hljs-type">Int</span>, var: <span class="hljs-type">Int</span>) <span class="hljs-operator">=</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) { }
 <span class="hljs-keyword">init!</span> (<span class="hljs-keyword">_</span> <span class="hljs-params">p</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-keyword">inout</span> (x: <span class="hljs-type">Int</span>, var: <span class="hljs-type">Int</span>) <span class="hljs-operator">=</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) { }
@@ -53,9 +56,11 @@ obj.abs
 <span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
 <span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
 obj.<span class="hljs-title function_">method</span>()
+obj .<span class="hljs-title function_">method</span>()
 obj.<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
 obj.<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
 obj.prop.<span class="hljs-title function_">method</span>()
+obj.prop .<span class="hljs-title function_">method</span>()
 obj.prop.<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
 obj.prop.<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
 obj.prop.<span class="hljs-title function_">method</span>(
@@ -67,7 +72,10 @@ obj.prop
 <span class="hljs-comment">// keywords</span>
 obj.<span class="hljs-title function_">if</span>(condition: <span class="hljs-literal">true</span>)
 obj.if <span class="hljs-comment">// variable</span>
+obj .if <span class="hljs-comment">// variable</span>
 <span class="hljs-title function_">`if`</span>()
 obj.<span class="hljs-title function_">`if`</span>()
+obj.<span class="hljs-title function_">`if`</span> ()
 <span class="hljs-title function_">`notKeyword`</span>()
 obj.<span class="hljs-title function_">`notKeyword`</span>()
+obj.<span class="hljs-title function_">`notKeyword`</span> ()

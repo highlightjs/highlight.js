@@ -17,6 +17,9 @@ func f3(
   p5: @attribute String? = "text"
 ) { }
 
+func `escaped`() {}
+func `if`() {}
+
 init<X: A>(_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
 init?(_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
 init! (_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
@@ -53,9 +56,11 @@ method()
 method(1)
 method(param: 1)
 obj.method()
+obj .method()
 obj.method(1)
 obj.method(param: 1)
 obj.prop.method()
+obj.prop .method()
 obj.prop.method(1)
 obj.prop.method(param: 1)
 obj.prop.method(
@@ -67,7 +72,10 @@ obj.prop
 // keywords
 obj.if(condition: true)
 obj.if // variable
+obj .if // variable
 `if`()
 obj.`if`()
+obj.`if` ()
 `notKeyword`()
 obj.`notKeyword`()
+obj.`notKeyword` ()
