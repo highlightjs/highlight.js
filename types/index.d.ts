@@ -169,7 +169,7 @@ declare module 'highlight.js' {
         disableAutodetect?: boolean
         contains: (Mode)[]
         case_insensitive?: boolean
-        keywords?: string | string[] | Record<string, string | string[]>
+        keywords?: string | string[] | Record<string, string | string[] | RegExp>
         isCompiled?: boolean,
         exports?: any,
         classNameAliases?: Record<string, string>
