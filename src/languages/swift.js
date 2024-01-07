@@ -74,18 +74,32 @@ export default function(hljs) {
     KEYWORD
   ];
 
-  // https://github.com/apple/swift/tree/main/stdlib/public/core
-  const BUILT_IN_GUARD = {
-    // Consume .built_in to prevent highlighting properties and methods.
-    match: concat(/\./, either(...Swift.builtIns)),
-    relevance: 0
+  const BUILT_IN_PROP_GUARD = {
+    // Consumes .built_in to prevent highlighting properties as built-ins.
+    match: concat(/\./, either(...Swift.builtIns), noneOf(["\\("])),
+    relevance: 0,
   };
+
+  const BUILT_IN_METHOD_GUARD = {
+    // .built_in(...) is actually a custom method being called.
+    match: [
+      /\./,
+      either(...Swift.builtIns),
+      /\(/,
+    ],
+    scope: {
+      2: 'title.function',
+    },
+  };
+
   const BUILT_IN = {
-    className: 'built_in',
-    match: concat(/\b/, either(...Swift.builtIns), /(?=\()/)
+    scope: 'built_in',
+    match: concat(/\b/, either(...Swift.builtIns), lookahead(/\(/))
   };
+
   const BUILT_INS = [
-    BUILT_IN_GUARD,
+    BUILT_IN_PROP_GUARD,
+    BUILT_IN_METHOD_GUARD,
     BUILT_IN
   ];
 
