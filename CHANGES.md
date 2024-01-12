@@ -26,6 +26,7 @@ Core Grammars:
 - enh(swift) add package keyword [Bradley Mackey][]
 - fix(swift) ensure keyword attributes highlight correctly [Bradley Mackey][]
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
+- enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]\
 
 New Grammars:
 
@@ -59,6 +60,7 @@ Themes:
 [CY Fung]: https://github.com/cyfung1031
 [Vitaly Barilko]: https://github.com/Diversus23
 [Patrick Chiu]: https://github.com/patrick-kw-chiu
+[Alvin Joy]: https://github.com/alvinsjoy
 
 
 ## Version 11.9.0
