@@ -475,7 +475,7 @@ export default function(hljs) {
         keywords: CPP_KEYWORDS,
         contains: EXPRESSION_CONTAINS.concat([ 'self' ]),
         relevance: 0
-      },
+      }
     ]),
     relevance: 0
   };
