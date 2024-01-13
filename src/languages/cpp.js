@@ -54,7 +54,7 @@ export default function(hljs) {
     variants: [
       // Floating-point literal.
       { begin:
-        "[+-]?(?:" // Leading sign.
+        "[-]?(?:" // Leading sign.
           // Decimal.
           + "(?:"
             +"[0-9](?:'?[0-9])*\\.(?:[0-9](?:'?[0-9])*)?"
@@ -75,7 +75,7 @@ export default function(hljs) {
       },
       // Integer literal.
       { begin:
-        "[+-]?\\b(?:" // Leading sign.
+        "[-]?\\b(?:" // Leading sign.
           + "0[Bb][01](?:'?[01])*" // Binary.
           + "|0[Xx][0-9A-Fa-f](?:'?[0-9A-Fa-f])*" // Hexadecimal.
           + "|0(?:'?[0-7])*" // Octal or just a lone zero.
@@ -404,6 +404,11 @@ export default function(hljs) {
     'true'
   ];
 
+  const SYMBOL = {
+    className: 'symbol',
+    begin: /~|\!|\@|\#|\$|\%|\^|\&|\*|<|>|\/|-|\+|\?|=|\|/
+  };
+
   // https://en.cppreference.com/w/cpp/keyword
   const BUILT_IN = [ '_Pragma' ];
 
@@ -438,6 +443,7 @@ export default function(hljs) {
     CPP_PRIMITIVE_TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
+    SYMBOL,
     NUMBERS,
     STRINGS
   ];
@@ -468,7 +474,8 @@ export default function(hljs) {
         keywords: CPP_KEYWORDS,
         contains: EXPRESSION_CONTAINS.concat([ 'self' ]),
         relevance: 0
-      }
+      },
+      SYMBOL,
     ]),
     relevance: 0
   };
@@ -521,6 +528,7 @@ export default function(hljs) {
         keywords: CPP_KEYWORDS,
         relevance: 0,
         contains: [
+          SYMBOL,
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
           STRINGS,
