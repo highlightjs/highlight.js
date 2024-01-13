@@ -54,7 +54,7 @@ export default function(hljs) {
     variants: [
       // Floating-point literal.
       { begin:
-        "[-]?(?:" // Leading sign.
+        "[+-]?(?:" // Leading sign.
           // Decimal.
           + "(?:"
             +"[0-9](?:'?[0-9])*\\.(?:[0-9](?:'?[0-9])*)?"
@@ -75,7 +75,7 @@ export default function(hljs) {
       },
       // Integer literal.
       { begin:
-        "[-]?\\b(?:" // Leading sign.
+        "[+-]?\\b(?:" // Leading sign.
           + "0[Bb][01](?:'?[01])*" // Binary.
           + "|0[Xx][0-9A-Fa-f](?:'?[0-9A-Fa-f])*" // Hexadecimal.
           + "|0(?:'?[0-7])*" // Octal or just a lone zero.
@@ -453,6 +453,7 @@ export default function(hljs) {
     // definition and shouldn't highlight anything that looks like one:
     // `return some()`, `else if()`, `(x*sum(1, 2))`
     variants: [
+      SYMBOL,
       {
         begin: /=/,
         end: /;/
@@ -475,7 +476,6 @@ export default function(hljs) {
         contains: EXPRESSION_CONTAINS.concat([ 'self' ]),
         relevance: 0
       },
-      SYMBOL,
     ]),
     relevance: 0
   };
