@@ -139,7 +139,7 @@ export default function(hljs) {
 
   const FUNCTION_TITLE = regex.either(
     regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(',
-    'operator' + OPERATOR_RE
+    'operator\\s*' + OPERATOR_RE
   );
 
   // https://en.cppreference.com/w/cpp/keyword
