@@ -94,18 +94,48 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const OPERATOR_RE = regex.either(
-    '\\+=','\\-=','\\*=','\\/=','\\%=','\\&=','\\|=','\\^=','\\<\\<=','\\>\\>=',
-    '\\+\\+','\\-\\-',
-    '\\<\\<','\\>\\>',
-    '\\&\\&','\\|\\|',
-    '\\<=\\>','==','\\!=','\\<=','\\>=',
-    '\\~','\\!','\\$','\\^','\\&','\\*','\\<','\\>','\\/','\\-','\\+',
-    '\\?','\\:','=','\\|',
-  );
+  const OPERATORS = [
+    '+=',
+    '-=',
+    '*=',
+    '/=',
+    '%=',
+    '&=',
+    '|=',
+    '^=',
+    '<<=',
+    '>>=',
+    '++',
+    '--',
+    '<<',
+    '>>',
+    '&&',
+    '||',
+    '<=>',
+    '==',
+    '!=',
+    '<=',
+    '>=',
+    '~',
+    '!',
+    '$',
+    '^',
+    '&',
+    '*',
+    '<',
+    '>',
+    '/',
+    '-',
+    '+',
+    '?',
+    ':',
+    '=',
+    '|',
+  ];
+  const OPERATOR_RE = regex.either(...OPERATORS.map(x => regex.escape(x)));
 
-  const SYMBOL = {
-    className: 'symbol',
+  const OPERATOR = {
+    scope: 'operator',
     match: OPERATOR_RE
   };
 
@@ -456,7 +486,7 @@ export default function(hljs) {
     CPP_PRIMITIVE_TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
-    SYMBOL,
+    OPERATOR,
     NUMBERS,
     STRINGS
   ];
@@ -481,7 +511,7 @@ export default function(hljs) {
     ],
     keywords: CPP_KEYWORDS,
     contains: EXPRESSION_CONTAINS.concat([
-      SYMBOL,
+      OPERATOR,
       {
         begin: /\(/,
         end: /\)/,
@@ -541,7 +571,7 @@ export default function(hljs) {
         keywords: CPP_KEYWORDS,
         relevance: 0,
         contains: [
-          SYMBOL,
+          OPERATOR,
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
           STRINGS,
