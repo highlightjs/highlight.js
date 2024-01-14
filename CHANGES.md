@@ -27,7 +27,7 @@ Core Grammars:
 - fix(swift) ensure keyword attributes highlight correctly [Bradley Mackey][]
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
-- enh(cpp) add symbol detecting [TOMWT-qwq][]
+- enh(cpp) add symbol detecting [TOMWT][]
 
 New Grammars:
 
