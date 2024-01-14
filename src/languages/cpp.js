@@ -406,7 +406,14 @@ export default function(hljs) {
 
   const SYMBOL = {
     className: 'symbol',
-    begin: /~|\!|\@|\#|\$|\%|\^|\&|\*|<|>|\/|-|\+|\?|=|\|/
+    match: regex.either(
+      '\\+=','\\-=','\\*=','\\/=','\\%=','\\&=','\\|=','\\^=','\\<\\<=','\\>\\>=',
+      '\\+\\+','\\-\\-',
+      '\\<\\<','\\>\\>',
+      '\\&\\&','\\|\\|',
+      '\\<=\\>','==','\\!=','\\<=','\\>=',
+      '\\~','\\!','\\$','\\^','\\&','\\*','\\<','\\>','\\/','\\-','\\+','\\?','\\:','=','\\|',
+    )
   };
 
   // https://en.cppreference.com/w/cpp/keyword
@@ -453,7 +460,6 @@ export default function(hljs) {
     // definition and shouldn't highlight anything that looks like one:
     // `return some()`, `else if()`, `(x*sum(1, 2))`
     variants: [
-      SYMBOL,
       {
         begin: /=/,
         end: /;/
@@ -469,6 +475,7 @@ export default function(hljs) {
     ],
     keywords: CPP_KEYWORDS,
     contains: EXPRESSION_CONTAINS.concat([
+      SYMBOL,
       {
         begin: /\(/,
         end: /\)/,
