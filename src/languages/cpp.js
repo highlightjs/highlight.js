@@ -94,6 +94,21 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const OPERATOR_RE = regex.either(
+    '\\+=','\\-=','\\*=','\\/=','\\%=','\\&=','\\|=','\\^=','\\<\\<=','\\>\\>=',
+    '\\+\\+','\\-\\-',
+    '\\<\\<','\\>\\>',
+    '\\&\\&','\\|\\|',
+    '\\<=\\>','==','\\!=','\\<=','\\>=',
+    '\\~','\\!','\\$','\\^','\\&','\\*','\\<','\\>','\\/','\\-','\\+',
+    '\\?','\\:','=','\\|',
+  );
+
+  const SYMBOL = {
+    className: 'symbol',
+    match: OPERATOR_RE
+  };
+
   const PREPROCESSOR = {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
@@ -122,7 +137,10 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+  const FUNCTION_TITLE = regex.either(
+    regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(',
+    'operator' + OPERATOR_RE
+  );
 
   // https://en.cppreference.com/w/cpp/keyword
   const RESERVED_KEYWORDS = [
@@ -403,18 +421,6 @@ export default function(hljs) {
     'nullptr',
     'true'
   ];
-
-  const SYMBOL = {
-    className: 'symbol',
-    match: regex.either(
-      '\\+=','\\-=','\\*=','\\/=','\\%=','\\&=','\\|=','\\^=','\\<\\<=','\\>\\>=',
-      '\\+\\+','\\-\\-',
-      '\\<\\<','\\>\\>',
-      '\\&\\&','\\|\\|',
-      '\\<=\\>','==','\\!=','\\<=','\\>=',
-      '\\~','\\!','\\$','\\^','\\&','\\*','\\<','\\>','\\/','\\-','\\+','\\?','\\:','=','\\|',
-    )
-  };
 
   // https://en.cppreference.com/w/cpp/keyword
   const BUILT_IN = [ '_Pragma' ];
