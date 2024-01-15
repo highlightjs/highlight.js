@@ -151,6 +151,7 @@ export default function(hljs) {
         begin: /\\\n/,
         relevance: 0
       },
+      OPERATOR,
       hljs.inherit(STRINGS, { className: 'string' }),
       {
         className: 'string',
