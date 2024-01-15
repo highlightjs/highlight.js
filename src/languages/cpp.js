@@ -497,7 +497,8 @@ export default function(hljs) {
     // `return some()`, `else if()`, `(x*sum(1, 2))`
     variants: [
       {
-        begin: /(?==)/,
+        returnBegin: true,
+        begin: /=/,
         end: /;/
       },
       {
