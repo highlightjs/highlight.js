@@ -512,7 +512,6 @@ export default function(hljs) {
     ],
     keywords: CPP_KEYWORDS,
     contains: EXPRESSION_CONTAINS.concat([
-      OPERATOR,
       {
         begin: /\(/,
         end: /\)/,
