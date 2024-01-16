@@ -572,9 +572,9 @@ export default function(hljs) {
         keywords: CPP_KEYWORDS,
         relevance: 0,
         contains: [
-          OPERATOR,
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
+          OPERATOR,
           STRINGS,
           NUMBERS,
           CPP_PRIMITIVE_TYPES,
