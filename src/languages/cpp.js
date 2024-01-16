@@ -151,14 +151,14 @@ export default function(hljs) {
         begin: /\\\n/,
         relevance: 0
       },
-      OPERATOR,
       hljs.inherit(STRINGS, { className: 'string' }),
       {
         className: 'string',
         begin: /<.*?>/
       },
       C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      OPERATOR,
     ]
   };
 
