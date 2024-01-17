@@ -671,7 +671,21 @@ export default function(hljs) {
         },
         {
           match: 'template<[^<>]*>',
-          keywords: CPP_KEYWORDS
+          keywords: CPP_KEYWORDS,
+          contains: [
+            {
+              match: [
+                // extra complexity to deal with `enum class` and `enum struct`
+                /\b(?:enum(?:\s+(?:class|struct))?|class|struct|union)/,
+                /\s+/,
+                /\w+/
+              ],
+              className: {
+                1: 'keyword',
+                3: 'title.class'
+              }
+            },
+          ]
         }
       ])
   };
