@@ -491,11 +491,13 @@ export default function(hljs) {
           /(?!switch)/,
           /(?!while)/,
           hljs.IDENT_RE,
-          regex.lookahead(/(<[^<>]+>|)\s*\(/))
+          regex.lookahead(/(<[^<>]+>|)\s*\(/)),
+        relevance: 0,
       },
       {
         begin:/<[^<>]+>/,
-        keywords:CPP_KEYWORDS
+        keywords:CPP_KEYWORDS,
+        relevance: 0,
       }
     ]
   };
