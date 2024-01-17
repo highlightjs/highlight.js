@@ -23,3 +23,9 @@ void A(): a(10) {}
 explicit A(): a(10) {}
 
 extern void f(int), g(char);
+
+struct test{
+	int a,b;
+	inline bool operator+(const test&kkk)const{return a+kkk.b;}
+};
+inline void operator*=(test*lll,test qqq){;;;*lll+qqq;}
