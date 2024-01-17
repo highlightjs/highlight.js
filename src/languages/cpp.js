@@ -136,7 +136,8 @@ export default function(hljs) {
 
   const OPERATOR = {
     scope: 'operator',
-    match: OPERATOR_RE
+    match: OPERATOR_RE,
+    relevance: 0
   };
 
   const PREPROCESSOR = {
