@@ -1,8 +1,8 @@
 <span class="hljs-comment">/* Floating-point literals. */</span>
 <span class="hljs-comment">// Decimal.</span>
 <span class="hljs-number">1.</span>
-<span class="hljs-number">+12.</span>
-<span class="hljs-number">-1&#x27;234.</span>
+<span class="hljs-operator">+</span><span class="hljs-number">12.</span>
+<span class="hljs-operator">-</span><span class="hljs-number">1&#x27;234.</span>
 <span class="hljs-number">1.2</span>
 <span class="hljs-number">1.234&#x27;5</span>
 <span class="hljs-number">1&#x27;234.567&#x27;8</span>
@@ -12,8 +12,8 @@
 <span class="hljs-number">1&#x27;234e5&#x27;6</span>
 <span class="hljs-comment">// Hexadecimal.</span>
 <span class="hljs-number">0x1p2</span>
-<span class="hljs-number">+0x1.p2</span>
-<span class="hljs-number">-0X1A.P2</span>
+<span class="hljs-operator">+</span><span class="hljs-number">0x1.p2</span>
+<span class="hljs-operator">-</span><span class="hljs-number">0X1A.P2</span>
 <span class="hljs-number">0x1A&#x27;2B3C.p4</span>
 <span class="hljs-number">0x1.Ap2</span>
 <span class="hljs-number">0x1A.2B3C&#x27;4Dp+5</span>
@@ -25,22 +25,22 @@
 
 <span class="hljs-comment">/* Integer literals. */</span>
 <span class="hljs-comment">// Binary.</span>
-<span class="hljs-number">+0b1</span>
+<span class="hljs-operator">+</span><span class="hljs-number">0b1</span>
 <span class="hljs-number">0B01</span>
-<span class="hljs-number">-0b10&#x27;1011</span>
+<span class="hljs-operator">-</span><span class="hljs-number">0b10&#x27;1011</span>
 <span class="hljs-comment">// Hexadecimal.</span>
-<span class="hljs-number">+0x1</span>
+<span class="hljs-operator">+</span><span class="hljs-number">0x1</span>
 <span class="hljs-number">0X1A</span>
-<span class="hljs-number">-0x1A&#x27;2b3C</span>
+<span class="hljs-operator">-</span><span class="hljs-number">0x1A&#x27;2b3C</span>
 <span class="hljs-comment">// Octal.</span>
-<span class="hljs-number">+01</span>
+<span class="hljs-operator">+</span><span class="hljs-number">01</span>
 <span class="hljs-number">012</span>
-<span class="hljs-number">-0123&#x27;4567</span>
+<span class="hljs-operator">-</span><span class="hljs-number">0123&#x27;4567</span>
 <span class="hljs-comment">// Decimal.</span>
 <span class="hljs-number">0</span>
-<span class="hljs-number">+1</span>
+<span class="hljs-operator">+</span><span class="hljs-number">1</span>
 <span class="hljs-number">12</span>
-<span class="hljs-number">-123&#x27;456&#x27;789</span>
+<span class="hljs-operator">-</span><span class="hljs-number">123&#x27;456&#x27;789</span>
 <span class="hljs-comment">// Literal suffixes.</span>
 <span class="hljs-number">0B1U</span> <span class="hljs-number">0b1u</span>
 <span class="hljs-number">0X2L</span> <span class="hljs-number">0x2l</span>
@@ -52,4 +52,4 @@
 <span class="hljs-number">8ZU</span> <span class="hljs-number">8Zu</span> <span class="hljs-number">8zU</span> <span class="hljs-number">8zu</span>
 <span class="hljs-number">9&#x27;0UZ</span> <span class="hljs-number">9&#x27;0Uz</span> <span class="hljs-number">9&#x27;0uZ</span> <span class="hljs-number">9&#x27;0uz</span>
 
-<span class="hljs-type">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> }; <span class="hljs-comment">// Make sure digit separators don&#x27;t mess up chars.</span>
+<span class="hljs-type">char</span> word[] <span class="hljs-operator">=</span> { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> }; <span class="hljs-comment">// Make sure digit separators don&#x27;t mess up chars.</span>
