@@ -668,6 +668,10 @@ export default function(hljs) {
             1: 'keyword',
             3: 'title.class'
           }
+        },
+        {
+          match: 'template<[^<>]*>',
+          keywords: CPP_KEYWORDS
         }
       ])
   };
