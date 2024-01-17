@@ -7,7 +7,7 @@
 
 <span class="hljs-comment">// Pin 13 has an LED connected on most Arduino boards.</span>
 <span class="hljs-comment">// give it a name:</span>
-<span class="hljs-type">int</span> led = <span class="hljs-number">13</span>;
+<span class="hljs-type">int</span> led <span class="hljs-operator">=</span> <span class="hljs-number">13</span>;
 
 <span class="hljs-comment">// the setup routine runs once when you press reset:</span>
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
