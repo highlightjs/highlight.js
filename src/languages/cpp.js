@@ -670,7 +670,8 @@ export default function(hljs) {
           }
         },
         {
-          match: 'template<[^<>]*>',
+          begin: 'template<',
+          end: '>',
           keywords: CPP_KEYWORDS,
           contains: [
             {
