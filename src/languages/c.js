@@ -63,6 +63,52 @@ export default function(hljs) {
     ],
     relevance: 0
   };
+  
+  const OPERATORS = [
+    '+=',
+    '-=',
+    '*=',
+    '/=',
+    '%=',
+    '&=',
+    '|=',
+    '^=',
+    '<<=',
+    '>>=',
+    '++',
+    '--',
+    '<<',
+    '>>',
+    '&&',
+    '||',
+    '<=>',
+    '==',
+    '!=',
+    '<=',
+    '>=',
+    '~',
+    '!',
+    '%',
+    '^',
+    '&',
+    '*',
+    '<',
+    '>',
+    '/',
+    '-',
+    '+',
+    '?',
+    ':(?!:)',
+    '=',
+    '|',
+  ];
+  const OPERATOR_RE = regex.either(...OPERATORS.map(x => regex.escape(x)));
+
+  const OPERATOR = {
+    scope: 'operator',
+    match: OPERATOR_RE,
+    relevance: 0
+  };
 
   const PREPROCESSOR = {
     className: 'meta',
@@ -82,7 +128,8 @@ export default function(hljs) {
         begin: /<.*?>/
       },
       C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      OPERATOR,
     ]
   };
 
@@ -183,6 +230,7 @@ export default function(hljs) {
     TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
+    OPERATOR,
     NUMBERS,
     STRINGS
   ];
@@ -252,6 +300,7 @@ export default function(hljs) {
         contains: [
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
+          OPERATOR,
           STRINGS,
           NUMBERS,
           TYPES,
