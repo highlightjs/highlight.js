@@ -11,3 +11,6 @@ Backslash = <span class="hljs-string">$\\</span>
 ListStart = <span class="hljs-string">$[</span>
 ListEnd = <span class="hljs-string">$]</span>
 SpaceChar = <span class="hljs-string">$ </span> <span class="hljs-comment">% yes, that works</span>
+<span class="hljs-function"><span class="hljs-title">fun_takes_literal</span><span class="hljs-params">(<span class="hljs-string">$a</span>)</span> -&gt;</span> ok.
+<span class="hljs-function"><span class="hljs-title">fun_takes_literal_list</span><span class="hljs-params">([<span class="hljs-string">$a</span>|Rest])</span> -&gt;</span> ok.
+<span class="hljs-function"><span class="hljs-title">fun_takes_literal_binary</span><span class="hljs-params">(&lt;&lt;<span class="hljs-string">$a</span>, Rest/binary&gt;&gt;)</span> -&gt;</span> ok.

@@ -76,6 +76,10 @@ export default function(hljs) {
       }
     ]
   };
+  const CHAR_LITERAL = {
+    className: 'string',
+    begin: '\\$(\\\\([^0-9]|[0-9]{1,3}|)|.)',
+  };
 
   const BLOCK_STATEMENTS = {
     beginKeywords: 'fun receive if try case',
@@ -93,7 +97,8 @@ export default function(hljs) {
     TUPLE,
     VAR1,
     VAR2,
-    RECORD_ACCESS
+    RECORD_ACCESS,
+    CHAR_LITERAL
   ];
 
   const BASIC_MODES = [
@@ -106,7 +111,8 @@ export default function(hljs) {
     TUPLE,
     VAR1,
     VAR2,
-    RECORD_ACCESS
+    RECORD_ACCESS,
+    CHAR_LITERAL
   ];
   FUNCTION_CALL.contains[1].contains = BASIC_MODES;
   TUPLE.contains = BASIC_MODES;
@@ -141,11 +147,6 @@ export default function(hljs) {
     begin: '\\(',
     end: '\\)',
     contains: BASIC_MODES
-  };
-
-  const CHAR_LITERAL = {
-    className: 'string',
-    begin: '\\$(\\\\([^0-9]|[0-9]{1,3}|)|.)',
   };
 
   return {

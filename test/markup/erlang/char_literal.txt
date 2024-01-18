@@ -11,3 +11,6 @@ Backslash = $\\
 ListStart = $[
 ListEnd = $]
 SpaceChar = $  % yes, that works
+fun_takes_literal($a) -> ok.
+fun_takes_literal_list([$a|Rest]) -> ok.
+fun_takes_literal_binary(<<$a, Rest/binary>>) -> ok.
