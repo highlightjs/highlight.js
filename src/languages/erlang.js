@@ -142,6 +142,12 @@ export default function(hljs) {
     end: '\\)',
     contains: BASIC_MODES
   };
+
+  const CHAR_LITERAL = {
+    className: 'string',
+    begin: '\\$\\\\?([a-zA-Z]|[0-9]{1,3})',
+  };
+
   return {
     name: 'Erlang',
     aliases: [ 'erl' ],
@@ -183,6 +189,7 @@ export default function(hljs) {
       VAR1,
       VAR2,
       TUPLE,
+      CHAR_LITERAL,
       { begin: /\.$/ } // relevance booster
     ]
   };

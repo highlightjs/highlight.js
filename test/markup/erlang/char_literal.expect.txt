@@ -1,0 +1,7 @@
+Character = <span class="hljs-string">$a</span>
+TabCharacter = <span class="hljs-string">$\t</span>
+TabCharacterDecimal = <span class="hljs-string">$\011</span>
+IncorrectMixed = <span class="hljs-string">$a</span>85
+IncorrectTooLongChar = <span class="hljs-string">$a</span>a
+IncorrectTooLongNumber = <span class="hljs-string">$\123</span>4
+TextWithDollar = <span class="hljs-string">&quot;This is just a normal text with a $ in the middle&quot;</span>
