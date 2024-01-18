@@ -145,7 +145,7 @@ export default function(hljs) {
 
   const CHAR_LITERAL = {
     className: 'string',
-    begin: '\\$\\\\?([a-zA-Z]|[0-9]{1,3})',
+    begin: '\\$\\\\?([^0-9]|[0-9]{1,3}|)',
   };
 
   return {
