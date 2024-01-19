@@ -77,8 +77,8 @@ export default function(hljs) {
     ]
   };
   const CHAR_LITERAL = {
-    className: 'string',
-    begin: '\\$(\\\\([^0-9]|[0-9]{1,3}|)|.)',
+    scope: 'string',
+    match: /\$(\\([^0-9]|[0-9]{1,3}|)|.)/,
   };
 
   const BLOCK_STATEMENTS = {
