@@ -1,10 +1,6 @@
 Character = $a
 TabCharacter = $\t
 TabCharacterDecimal = $\011
-IncorrectMixed = $a85
-IncorrectTooLongChar = $aa
-IncorrectTooLongNumber = $123
-IncorrectTooLongEscapeNumber = $\1234
 TextWithDollar = "This is just a normal text with a $ in the middle"
 StringStart = $"
 Backslash = $\\
@@ -14,3 +10,14 @@ SpaceChar = $  % yes, that works
 fun_takes_literal($a) -> ok.
 fun_takes_literal_list([$a|Rest]) -> ok.
 fun_takes_literal_binary(<<$a, Rest/binary>>) -> ok.
+convert_escape_sequence(<<$\\, Escaped, Rest/binary>>) ->
+    C = case Escaped of
+        $b -> $\b;
+        $f -> $\f;
+        $n -> $\n;
+        $r -> $\r;
+        $t -> $\t;
+        $" -> $";
+        $\\ -> $\\;
+        _  -> error
+    end
