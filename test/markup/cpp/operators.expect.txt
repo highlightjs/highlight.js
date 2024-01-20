@@ -1,1 +1,56 @@
+<span class="hljs-type">int</span> a,b;
+a<span class="hljs-operator">+=</span>b; a <span class="hljs-operator">+=</span> b ;
+a<span class="hljs-operator">-=</span>b; a <span class="hljs-operator">-=</span> b ;
+a<span class="hljs-operator">*=</span>b; a <span class="hljs-operator">*=</span> b ;
+a<span class="hljs-operator">/=</span>b; a <span class="hljs-operator">/=</span> b ;
+a<span class="hljs-operator">%=</span>b; a <span class="hljs-operator">%=</span> b ;
+a<span class="hljs-operator">&amp;=</span>b; a <span class="hljs-operator">&amp;=</span> b ;
+a<span class="hljs-operator">|=</span>b; a <span class="hljs-operator">|=</span> b ;
+a<span class="hljs-operator">^=</span>b; a <span class="hljs-operator">^=</span> b ;
+a<span class="hljs-operator">&lt;&lt;=</span>b; a <span class="hljs-operator">&lt;&lt;=</span> b ;
+a<span class="hljs-operator">&gt;&gt;=</span>b; a <span class="hljs-operator">&gt;&gt;=</span> b ;
+a<span class="hljs-operator">++</span>; a <span class="hljs-operator">++</span> ;
+<span class="hljs-operator">++</span>a; <span class="hljs-operator">++</span> a ;
+a<span class="hljs-operator">--</span>; a <span class="hljs-operator">--</span> ;
+<span class="hljs-operator">--</span>a; <span class="hljs-operator">--</span> a ;
+a<span class="hljs-operator">&lt;&lt;</span>b; a <span class="hljs-operator">&lt;&lt;</span> b ;
+a<span class="hljs-operator">&gt;&gt;</span>b; a <span class="hljs-operator">&gt;&gt;</span> b ;
+a<span class="hljs-operator">&amp;&amp;</span>b; a <span class="hljs-operator">&amp;&amp;</span> b ;
+a<span class="hljs-operator">||</span>b; a <span class="hljs-operator">||</span> b ;
+a<span class="hljs-operator">&lt;=&gt;</span>b; a <span class="hljs-operator">&lt;=&gt;</span> b ;
+a<span class="hljs-operator">==</span>b; a <span class="hljs-operator">==</span> b ;
+a<span class="hljs-operator">!=</span>b; a <span class="hljs-operator">!=</span> b ;
+a<span class="hljs-operator">&lt;=</span>b; a <span class="hljs-operator">&lt;=</span> b ;
+a<span class="hljs-operator">&gt;=</span>b; a <span class="hljs-operator">&gt;=</span> b ;
+<span class="hljs-operator">~</span>a; <span class="hljs-operator">~</span> a ;
+<span class="hljs-operator">!</span>a; <span class="hljs-operator">!</span> a ;
+a<span class="hljs-operator">%</span>b; a <span class="hljs-operator">%</span> b ;
+a<span class="hljs-operator">^</span>b; a <span class="hljs-operator">^</span> b ;
+a<span class="hljs-operator">&amp;</span>b; a <span class="hljs-operator">&amp;</span> b ;
+<span class="hljs-operator">&amp;</span>a; <span class="hljs-operator">&amp;</span> a ;
+a<span class="hljs-operator">|</span>b; a <span class="hljs-operator">|</span> b ;
+a<span class="hljs-operator">*</span>b; a <span class="hljs-operator">*</span> b ;
+<span class="hljs-operator">*</span>a; <span class="hljs-operator">*</span> a ;
+a<span class="hljs-operator">&lt;</span>b; a <span class="hljs-operator">&lt;</span> b ;
+a<span class="hljs-operator">&gt;</span>b; a <span class="hljs-operator">&gt;</span> b ;
+a<span class="hljs-operator">/</span>b; a <span class="hljs-operator">/</span> b ;
+a<span class="hljs-operator">-</span>b; a <span class="hljs-operator">-</span> b ;
+<span class="hljs-operator">-</span>a; <span class="hljs-operator">-</span> a ;
+a<span class="hljs-operator">+</span>b; a <span class="hljs-operator">+</span> b ;
+a<span class="hljs-operator">?</span>a<span class="hljs-operator">:</span>b; a <span class="hljs-operator">?</span> a <span class="hljs-operator">:</span> b ;
+a<span class="hljs-operator">=</span>b; a <span class="hljs-operator">=</span> b ;
 
+<span class="hljs-keyword">template</span><span class="hljs-operator">&lt;</span><span class="hljs-keyword">typename</span> typ<span class="hljs-operator">&gt;</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">toohard</span>
+{
+  typ a,b;
+  <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">operator</span>+</span>=(<span class="hljs-type">const</span> toohard<span class="hljs-operator">&amp;</span>c){a<span class="hljs-operator">+=</span>c.b;}
+  <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">operator</span>-<span class="hljs-params">(<span class="hljs-type">const</span> typ<span class="hljs-operator">&amp;</span>c)</span></span>{a<span class="hljs-operator">-=</span>c;}
+};
+<span class="hljs-keyword">template</span><span class="hljs-operator">&lt;</span><span class="hljs-keyword">typename</span> typ<span class="hljs-operator">&gt;</span>
+toohard<span class="hljs-operator">&lt;</span>typ<span class="hljs-operator">&gt;</span><span class="hljs-keyword">operator</span><span class="hljs-operator">*</span>(toohard<span class="hljs-operator">&lt;</span>typ<span class="hljs-operator">&gt;</span>p,toohard<span class="hljs-operator">&lt;</span>typ<span class="hljs-operator">&gt;</span>q){<span class="hljs-keyword">return</span> toohard<span class="hljs-operator">&lt;</span>typ<span class="hljs-operator">&gt;</span>{p.a<span class="hljs-operator">*</span>q.b,p.b<span class="hljs-operator">*</span>q.a};}
+toohard<span class="hljs-operator">&lt;</span><span class="hljs-type">unsigned</span> __int128<span class="hljs-operator">&gt;</span><span class="hljs-operator">*</span>u<span class="hljs-operator">=</span><span class="hljs-keyword">new</span> toohard<span class="hljs-operator">&lt;</span><span class="hljs-type">unsigned</span> __int128<span class="hljs-operator">&gt;</span>,<span class="hljs-operator">*</span>v;
+v<span class="hljs-operator">=</span><span class="hljs-keyword">new</span> toohard<span class="hljs-operator">&lt;</span><span class="hljs-type">unsigned</span> __int128<span class="hljs-operator">&gt;</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>};
+<span class="hljs-operator">*</span>u<span class="hljs-operator">*</span><span class="hljs-operator">*</span>v;
+<span class="hljs-operator">*</span>u<span class="hljs-operator">+=</span><span class="hljs-operator">*</span>v;
+<span class="hljs-operator">*</span>u<span class="hljs-operator">-</span>v<span class="hljs-operator">-&gt;</span>a;
