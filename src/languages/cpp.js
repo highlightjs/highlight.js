@@ -123,6 +123,7 @@ export default function(hljs) {
     '%',
     '^',
     '&',
+    '|',
     '*',
     '<',
     '>',
@@ -132,7 +133,6 @@ export default function(hljs) {
     '?',
     ':',
     '=',
-    '|',
   ];
   const OPERATOR_RE = regex.either(...OPERATORS.map(x => regex.escape(x)));
 
