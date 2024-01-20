@@ -1,4 +1,4 @@
-<span class="hljs-function"><span class="hljs-title">greek_quote</span><span class="hljs-params">()</span> -&gt;</span>
+<span class="hljs-title function_">greek_quote</span><span class="hljs-params">()</span> -&gt;
     S = <span class="hljs-string">~B[&quot;Know thyself&quot; (Greek: Γνῶθι σαυτόν)]</span>,
     io:format(<span class="hljs-string">&quot;~ts\n&quot;</span>, [S]).
 
@@ -15,7 +15,7 @@
         &quot;\µA&quot;
         &quot;&quot;&quot;</span> = <span class="hljs-string">~&quot;\&quot;\\µA\&quot;&quot;</span> = <span class="hljs-string">~/&quot;\\µA&quot;/</span>
 
-<span class="hljs-function"><span class="hljs-title">quotes</span><span class="hljs-params">()</span> -&gt;</span>
+<span class="hljs-title function_">quotes</span><span class="hljs-params">()</span> -&gt;
     S = <span class="hljs-string">~&quot;&quot;&quot;
          &quot;I always have a quotation for everything -
          it saves original thinking.&quot; - Dorothy L. Sayers

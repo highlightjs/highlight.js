@@ -17,7 +17,7 @@ import "./parser/index.mjs";
 // incorrect highlighting of one language, once the bug get fixed, the
 // expected markup will be added into the `test/markup` folder to keep
 // theses highlighting errors from cropping up again.
-// import './markup/index.mjs';
+import './markup/index.mjs';
 
 // check regex for fatal issues like exponential backtracking, etc
 import './regex/index.mjs';

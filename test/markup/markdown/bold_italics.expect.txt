@@ -6,10 +6,10 @@
 <span class="hljs-strong">__Bold <span class="hljs-emphasis">*then italic*</span>__</span>
 <span class="hljs-strong">**Bold <span class="hljs-emphasis">_then italic_</span>**</span>
 <span class="hljs-strong">**Bold and <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span></span>**</span>
-<span class="hljs-strong">**<span class="hljs-emphasis">_[<span class="hljs-string">this</span>](<span class="hljs-link">https://google.com</span>)_</span>**</span>
+<span class="hljs-strong">**<span class="hljs-emphasis">_<span class="hljs-booger">[<span class="hljs-string">this</span>](<span class="hljs-link">https://google.com</span>)</span>_</span>**</span>
 
 <span class="hljs-quote">&gt; quoted <span class="hljs-strong">**Bold <span class="hljs-emphasis">_then italic_</span>**</span></span>
-<span class="hljs-quote">&gt; <span class="hljs-emphasis">_[<span class="hljs-string">this</span>](<span class="hljs-link">https://google.com</span>)_</span></span>
+<span class="hljs-quote">&gt; <span class="hljs-emphasis">_<span class="hljs-booger">[<span class="hljs-string">this</span>](<span class="hljs-link">https://google.com</span>)</span>_</span></span>
 
   <span class="hljs-emphasis">*this is a emphasized paragraph*</span>
   <span class="hljs-emphasis">*this is too*</span>
