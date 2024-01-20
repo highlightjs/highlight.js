@@ -8,7 +8,7 @@
 
 <span class="hljs-function"><span class="hljs-type">int8_t</span> <span class="hljs-title">Get_Tile_Value</span><span class="hljs-params">()</span> </span>{}
 
-<span class="hljs-function">B::type <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{};
+<span class="hljs-function">B<span class="hljs-operator">::</span>type <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>{};
 
 <span class="hljs-comment">// template</span>
 <span class="hljs-function">boost::optional&lt;application&gt; <span class="hljs-title">handle_key</span><span class="hljs-params">(application state, key_code key, coord size)</span></span>;
