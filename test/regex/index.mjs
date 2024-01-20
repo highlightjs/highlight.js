@@ -1,6 +1,6 @@
 'use strict';
 
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 hljs.debugMode();
 
 import { BFS, parseRegex, regexFor } from './lib/util.js';

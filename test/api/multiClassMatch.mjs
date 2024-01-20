@@ -1,6 +1,6 @@
 'use strict';
 
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 hljs.debugMode();
 
 export default function() {
@@ -10,6 +10,7 @@ export default function() {
         return {
           contains: [
             {
+              relevance: 1,
               begin: ["a", "b", "c"],
               className: {
                 1: "a",
@@ -17,6 +18,7 @@ export default function() {
               },
               contains: [
                 {
+                  relevance: 1,
                   match: "def",
                   className: "def"
                 }
@@ -42,6 +44,7 @@ export default function() {
                 /\(\)/,
                 /{.*}/
               ],
+              relevance: 1,
               className: {
                 1: "keyword",
                 2: "params",

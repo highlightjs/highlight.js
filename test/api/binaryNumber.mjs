@@ -1,6 +1,6 @@
 'use strict';
 
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 const pattern = new RegExp(`${hljs.BINARY_NUMBER_RE}$`);
 
 export default function() {

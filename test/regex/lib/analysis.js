@@ -84,4 +84,4 @@ function firstOf(iter) {
   return undefined;
 }
 
-module.exports = { firstOf, underAStar, isFirstMatch, isAlwaysZeroWidth};
+export { firstOf, underAStar, isFirstMatch, isAlwaysZeroWidth};

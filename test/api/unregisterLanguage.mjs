@@ -1,6 +1,6 @@
 "use strict";
 
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 
 const jQuery = function() {
   return {

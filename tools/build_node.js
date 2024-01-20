@@ -18,18 +18,26 @@ const log = (...args) => console.log(...args);
 //   await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}.js`, code);
 // }
 
+function cleanName(raw_name) {
+  let name = raw_name.replace("-","_");
+  if (name == "1c") {
+    name = "onec";
+  }
+  return name;
+}
+
 async function buildESMIndex(name, languages) {
-  const header = "import { HighlightJS } from './core';\n" +
+  const header = "import { HighlightJS } from './core.js';\n" +
     "const hljs = new HighlightJS();\n";
   // const footer =
   //   `hljs.HighlightJS = hljs\n`
   //   + `hljs.default = hljs\n`
   //   + `module.exports = hljs;`;
-  const footer = "export { HighlightJS, hljs } as default;";
+  const footer = "export { HighlightJS, hljs };";
 
   const registration = languages.map((lang) => {
-    const lang_id = lang.name;
-    const require = `import ${lang_id}  from './languages/${lang.name}';`;
+    const lang_id = cleanName(lang.name);
+    const require = `import ${lang_id}  from './languages/${lang.name}.js';`;
     return `${require}\nhljs.registerLanguage('${lang.name}', ${lang_id});\n`;
   });
 

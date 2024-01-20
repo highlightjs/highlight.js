@@ -1,6 +1,7 @@
 /* eslint-disable no-undefined */
 
-const { RegExpParser } = require('regexpp');
+// const { RegExpParser } = require('regexpp');
+import { RegExpParser } from 'regexpp';
 
 /**
  * @typedef {import("regexpp/ast").Pattern} Pattern
@@ -106,4 +107,4 @@ const parseRegex = (regex) => {
   return literal;
 };
 
-module.exports = { BFS, regexFor, parseRegex };
+export { BFS, regexFor, parseRegex };

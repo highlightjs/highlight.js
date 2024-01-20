@@ -1,6 +1,6 @@
 'use strict';
 
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 hljs.debugMode(); // tests run in debug mode so errors are raised
 
 import { JSDOM } from "jsdom";
