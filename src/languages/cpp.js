@@ -468,6 +468,7 @@ export default function(hljs) {
   };
 
   const FUNCTION_DISPATCH = {
+    className: 'function.dispatch',
     relevance: 0,
     keywords: {
       // Only for relevance, not highlighting.
@@ -480,28 +481,7 @@ export default function(hljs) {
       /(?!switch)/,
       /(?!while)/,
       hljs.IDENT_RE,
-      regex.lookahead(/(<[^<>]+>|)\s*\(/)),
-    returnBegin: 1,
-    contains:[
-      {
-        className: 'function.dispatch',
-        begin: regex.concat(
-          /\b/,
-          /(?!decltype)/,
-          /(?!if)/,
-          /(?!for)/,
-          /(?!switch)/,
-          /(?!while)/,
-          hljs.IDENT_RE,
-          regex.lookahead(/(<[^<>]+>|)\s*\(/)),
-        relevance: 0,
-      },
-      {
-        begin:/<[^<>]+>/,
-        keywords:CPP_KEYWORDS,
-        relevance: 0,
-      }
-    ]
+      regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
 
   const EXPRESSION_CONTAINS = [
