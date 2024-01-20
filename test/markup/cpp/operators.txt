@@ -1,0 +1,56 @@
+int a,b;
+a+=b; a += b ;
+a-=b; a -= b ;
+a*=b; a *= b ;
+a/=b; a /= b ;
+a%=b; a %= b ;
+a&=b; a &= b ;
+a|=b; a |= b ;
+a^=b; a ^= b ;
+a<<=b; a <<= b ;
+a>>=b; a >>= b ;
+a++; a ++ ;
+++a; ++ a ;
+a--; a -- ;
+--a; -- a ;
+a<<b; a << b ;
+a>>b; a >> b ;
+a&&b; a && b ;
+a||b; a || b ;
+a<=>b; a <=> b ;
+a==b; a == b ;
+a!=b; a != b ;
+a<=b; a <= b ;
+a>=b; a >= b ;
+~a; ~ a ;
+!a; ! a ;
+a%b; a % b ;
+a^b; a ^ b ;
+a&b; a & b ;
+&a; & a ;
+a|b; a | b ;
+a*b; a * b ;
+*a; * a ;
+a<b; a < b ;
+a>b; a > b ;
+a/b; a / b ;
+a-b; a - b ;
+-a; - a ;
+a+b; a + b ;
+a?a:b; a ? a : b ;
+a=b; a = b ;
+
+template<typename typ>
+struct toohard
+{
+  typ a,b;
+  inline void operator+=(const toohard&c){a+=c.b;}
+  inline void operator-(const typ&c){a-=c;}
+};
+template<typename typ>
+toohard<typ>operator*(toohard<typ>p,toohard<typ>q){return toohard<typ>{p.a*q.b,p.b*q.a};}
+toohard<unsigned __int128>*u=new toohard<unsigned __int128>,*v;
+v=new toohard<unsigned __int128>{1,2};
+*u**v;
+*u+=*v;
+*u-v->a;
