@@ -46,12 +46,12 @@
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">_thread</span>;
 
 <span class="hljs-comment">// Type traits and helpers types:</span>
-<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;
-<span class="hljs-keyword">using</span> <span class="hljs-type">decayed_t</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">typename</span> std<span class="hljs-operator">::</span><span class="hljs-type">decay_t</span><span class="hljs-operator">&lt;</span>X<span class="hljs-operator">&lt;</span>T<span class="hljs-operator">&gt;&gt;</span>;
+<span class="hljs-keyword">template</span><span class="hljs-operator">&lt;</span><span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span><span class="hljs-operator">&gt;</span>
+<span class="hljs-keyword">using</span> <span class="hljs-type">decay_t</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">typename</span> decay<span class="hljs-operator">&lt;</span>T<span class="hljs-operator">&gt;</span><span class="hljs-operator">::</span>type;
 
-<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;
+<span class="hljs-keyword">template</span><span class="hljs-operator">&lt;</span><span class="hljs-keyword">typename</span> T<span class="hljs-operator">&gt;</span>
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">X</span> {
-  <span class="hljs-keyword">using</span> <span class="hljs-type">decayed_t</span> = <span class="hljs-keyword">typename</span> std::<span class="hljs-type">decay_t</span>&lt;X&lt;T&gt;&gt;;
+  <span class="hljs-keyword">using</span> <span class="hljs-type">decayed_t</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">typename</span> std<span class="hljs-operator">::</span><span class="hljs-type">decay_t</span><span class="hljs-operator">&lt;</span>X<span class="hljs-operator">&lt;</span>T<span class="hljs-operator">&gt;&gt;</span>;
 };
 
 X<span class="hljs-operator">&lt;</span><span class="hljs-type">int</span><span class="hljs-operator">&amp;</span><span class="hljs-operator">&gt;</span><span class="hljs-operator">::</span><span class="hljs-type">decayed_t</span> x;
