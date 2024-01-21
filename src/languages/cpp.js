@@ -501,7 +501,8 @@ export default function(hljs) {
     // `return some()`, `else if()`, `(x*sum(1, 2))`
     variants: [
       {
-        begin: regex.lookahead('='),
+        begin: /=/,
+        beginScope: "operator",
         end: /;/
       },
       {
