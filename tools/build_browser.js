@@ -22,9 +22,10 @@ const getDefaultHeader = () => ({
     .toString().trim()
 });
 function buildHeader(args = getDefaultHeader()) {
+  let author = args.author.split("<")[0].trim();
   return "/*!\n"
   + `  Highlight.js v${args.version} (git: ${args.git_sha})\n`
-  + `  (c) ${config.copyrightYears} ${args.author} and other contributors\n`
+  + `  (c) ${config.copyrightYears} ${author} and other contributors\n`
   + `  License: ${args.license}\n`
   + ` */`;
 }
@@ -73,7 +74,7 @@ async function buildBrowser(options) {
 
   detailedGrammarSizes(languages);
 
-  const size = await buildCore("highlight", languages, { minify: options.minify, format: "cjs" });
+  const size = await buildCore("highlight", languages, { minify: options.minify, format: "esm" });
 
   log("-----");
   log("Languages (raw)     :",
@@ -210,21 +211,16 @@ async function buildCore(name, languages, options) {
     ...input.plugins,
     builtInLanguagesPlugin(languages)
   ];
-  const output = {
-    ...(options.format === "es" ? config.rollup.node.output : config.rollup.browser_iife.output),
-    file: `${process.env.BUILD_DIR}/${name}.js`
-  };
+  const output = config.rollup.node.output;
 
   // optimize for no languages by not including the language loading stub
   if (languages.length === 0) {
     input.input = "src/highlight.js";
   }
 
-  if (options.format === "es") {
-    output.format = "es";
-    output.file = `${process.env.BUILD_DIR}/es/${name}.js`;
-    relativePath = "es/";
-  }
+  output.format = "es";
+  output.file = `${process.env.BUILD_DIR}/${name}.js`;
+  relativePath = "";
 
   log(`Building ${relativePath}${name}.js.`);
 
