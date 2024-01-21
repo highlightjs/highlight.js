@@ -11,11 +11,17 @@ import * as Swift from './lib/kws_swift.js';
 import {
   concat,
   either,
-  lookahead
+  lookahead,
+  negativeLookahead
 } from '../lib/regex.js';
 
 /** @type LanguageFn */
 export default function(hljs) {
+  /**
+   * Regex for detecting a function call following an identifier.
+   */
+  const TRAILING_PAREN_REGEX = /[^\S\r\n]*\(/;
+
   const WHITESPACE = {
     match: /\s+/,
     relevance: 0
@@ -40,9 +46,9 @@ export default function(hljs) {
     ],
     className: { 2: "keyword" }
   };
-  const KEYWORD_GUARD = {
-    // Consume .keyword to prevent highlighting properties and methods as keywords.
-    match: concat(/\./, either(...Swift.keywords)),
+  const KEYWORD_PROP_GUARD = {
+    // Consume .keyword to prevent highlighting properties as keywords. .methods are highlighted seperately
+    match: concat(/\./, either(...Swift.keywords), negativeLookahead(TRAILING_PAREN_REGEX)),
     relevance: 0
   };
   const PLAIN_KEYWORDS = Swift.keywords
@@ -70,24 +76,14 @@ export default function(hljs) {
   };
   const KEYWORD_MODES = [
     DOT_KEYWORD,
-    KEYWORD_GUARD,
+    KEYWORD_PROP_GUARD,
     KEYWORD
   ];
 
-  // https://github.com/apple/swift/tree/main/stdlib/public/core
-  const BUILT_IN_GUARD = {
-    // Consume .built_in to prevent highlighting properties and methods.
-    match: concat(/\./, either(...Swift.builtIns)),
-    relevance: 0
-  };
   const BUILT_IN = {
-    className: 'built_in',
-    match: concat(/\b/, either(...Swift.builtIns), /(?=\()/)
+    scope: 'built_in',
+    match: concat(/\b/, either(...Swift.builtIns), lookahead(TRAILING_PAREN_REGEX)),
   };
-  const BUILT_INS = [
-    BUILT_IN_GUARD,
-    BUILT_IN
-  ];
 
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
   const OPERATOR_GUARD = {
@@ -335,7 +331,7 @@ export default function(hljs) {
       ...COMMENTS,
       REGEXP,
       ...KEYWORD_MODES,
-      ...BUILT_INS,
+      BUILT_IN,
       ...OPERATORS,
       NUMBER,
       STRING,
@@ -390,13 +386,16 @@ export default function(hljs) {
     endsParent: true,
     illegal: /["']/
   };
+
+  const FUNCTION_IDENT = either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator);
+
   // https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID362
   // https://docs.swift.org/swift-book/documentation/the-swift-programming-language/declarations/#Macro-Declaration
   const FUNCTION_OR_MACRO = {
     match: [
       /(func|macro)/,
       /\s+/,
-      either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator)
+      FUNCTION_IDENT,
     ],
     className: {
       1: "keyword",
@@ -491,6 +490,48 @@ export default function(hljs) {
     ]
   };
 
+  function noneOf(list) {
+    return negativeLookahead(either(...list));
+  }
+
+  const METHODS_ONLY = [...Swift.keywords, ...Swift.builtIns];
+  const FUNCTION_CALL = {
+    relevance: 0,
+    variants: [
+      {
+        // Functions and macro calls
+        scope: "title.function",
+        keywords: KEYWORDS,
+        match: concat(
+          either(/\b/, /#/),
+          noneOf(METHODS_ONLY.map(x => concat(x, TRAILING_PAREN_REGEX))),
+          FUNCTION_IDENT,
+          lookahead(TRAILING_PAREN_REGEX),
+        ),
+      },
+      {
+        // Keywords/built-ins that only can appear as a method call
+        // e.g. foo.if()
+        match: [
+          /\./,
+          either(...METHODS_ONLY),
+          TRAILING_PAREN_REGEX,
+        ],
+        scope: {
+          2: "title.function",
+        }
+      },
+      {
+        // Quoted methods calls, e.g. `foo`()
+        scope: "title.function",
+        match: concat(
+          QUOTED_IDENTIFIER.match,
+          lookahead(TRAILING_PAREN_REGEX),
+        )
+      }
+    ]
+  };
+
   // Add supported submodes to string interpolation.
   for (const variant of STRING.variants) {
     const interpolation = variant.contains.find(mode => mode.label === "interpol");
@@ -498,7 +539,7 @@ export default function(hljs) {
     interpolation.keywords = KEYWORDS;
     const submodes = [
       ...KEYWORD_MODES,
-      ...BUILT_INS,
+      BUILT_IN,
       ...OPERATORS,
       NUMBER,
       STRING,
@@ -535,14 +576,15 @@ export default function(hljs) {
       },
       REGEXP,
       ...KEYWORD_MODES,
-      ...BUILT_INS,
+      BUILT_IN,
       ...OPERATORS,
       NUMBER,
       STRING,
-      ...IDENTIFIERS,
       ...ATTRIBUTES,
       TYPE,
-      TUPLE
+      TUPLE,
+      FUNCTION_CALL,
+      ...IDENTIFIERS,
     ]
   };
 }

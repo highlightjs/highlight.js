@@ -17,6 +17,9 @@
   <span class="hljs-params">p5</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-type">String</span>? <span class="hljs-operator">=</span> <span class="hljs-string">&quot;text&quot;</span>
 ) { }
 
+<span class="hljs-keyword">func</span> <span class="hljs-title function_">`escaped`</span>() {}
+<span class="hljs-keyword">func</span> <span class="hljs-title function_">`if`</span>() {}
+
 <span class="hljs-keyword">init</span>&lt;<span class="hljs-type">X</span>: <span class="hljs-type">A</span>&gt;(<span class="hljs-keyword">_</span> <span class="hljs-params">p</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-keyword">inout</span> (x: <span class="hljs-type">Int</span>, var: <span class="hljs-type">Int</span>) <span class="hljs-operator">=</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) { }
 <span class="hljs-keyword">init?</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">p</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-keyword">inout</span> (x: <span class="hljs-type">Int</span>, var: <span class="hljs-type">Int</span>) <span class="hljs-operator">=</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) { }
 <span class="hljs-keyword">init!</span> (<span class="hljs-keyword">_</span> <span class="hljs-params">p</span>: <span class="hljs-meta">@attribute</span> <span class="hljs-keyword">inout</span> (x: <span class="hljs-type">Int</span>, var: <span class="hljs-type">Int</span>) <span class="hljs-operator">=</span> (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) { }
@@ -30,3 +33,64 @@
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">&gt;</span> (<span class="hljs-params">lhs</span>: <span class="hljs-keyword">Self</span>, <span class="hljs-params">rhs</span>: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-type">Bool</span>
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">&gt;=</span> (<span class="hljs-params">lhs</span>: <span class="hljs-keyword">Self</span>, <span class="hljs-params">rhs</span>: <span class="hljs-keyword">Self</span>) -&gt; <span class="hljs-type">Bool</span>
 }
+
+<span class="hljs-comment">// paren spacing</span>
+obj.<span class="hljs-title function_">fn</span>(<span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">fn</span> (<span class="hljs-number">1</span>)
+obj.prop
+(<span class="hljs-number">1</span>) <span class="hljs-comment">// newline break, this is no longer a function</span>
+
+<span class="hljs-comment">// builtins</span>
+<span class="hljs-built_in">abs</span>(<span class="hljs-number">1</span>)
+<span class="hljs-built_in">swap</span>(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
+<span class="hljs-built_in">zip</span>(a, b)
+obj.<span class="hljs-title function_">abs</span>(<span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">swap</span>(<span class="hljs-operator">&amp;</span>a, <span class="hljs-operator">&amp;</span>b)
+obj.<span class="hljs-title function_">zip</span>(a, b)
+obj.<span class="hljs-title function_">abs</span>  (<span class="hljs-number">1</span>)
+obj.abs
+(<span class="hljs-number">1</span>)
+
+<span class="hljs-comment">// methods</span>
+<span class="hljs-title function_">method</span>()
+<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
+<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">method</span>()
+obj .<span class="hljs-title function_">method</span>()
+obj.<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
+obj.<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
+obj.prop.<span class="hljs-title function_">method</span>()
+obj.prop .<span class="hljs-title function_">method</span>()
+obj.prop.<span class="hljs-title function_">method</span>(<span class="hljs-number">1</span>)
+obj.prop.<span class="hljs-title function_">method</span>(param: <span class="hljs-number">1</span>)
+obj.prop.<span class="hljs-title function_">method</span>(
+  param: <span class="hljs-number">1</span>
+)
+obj.prop
+  .<span class="hljs-title function_">method</span>()
+
+<span class="hljs-comment">// keywords</span>
+obj.<span class="hljs-title function_">if</span>(condition: <span class="hljs-literal">true</span>)
+obj.if <span class="hljs-comment">// variable</span>
+obj .if <span class="hljs-comment">// variable</span>
+<span class="hljs-title function_">`if`</span>()
+obj.<span class="hljs-title function_">`if`</span>()
+obj.<span class="hljs-title function_">`if`</span> ()
+<span class="hljs-title function_">`notKeyword`</span>()
+obj.<span class="hljs-title function_">`notKeyword`</span>()
+obj.<span class="hljs-title function_">`notKeyword`</span> ()
+
+<span class="hljs-comment">// number sign keywords are fine</span>
+<span class="hljs-title function_">column</span>()
+<span class="hljs-title function_">keyPath</span>()
+<span class="hljs-title function_">sourceLocation</span>()
+obj.<span class="hljs-title function_">column</span>()
+obj.<span class="hljs-title function_">keyPath</span>()
+obj.<span class="hljs-title function_">sourceLocation</span>()
+
+<span class="hljs-comment">// attribute keywords are fine</span>
+<span class="hljs-title function_">frozen</span>()
+<span class="hljs-title function_">discardableResult</span>()
+obj.<span class="hljs-title function_">frozen</span>()
+obj.<span class="hljs-title function_">discardableResult</span>()
+

@@ -26,11 +26,11 @@
 <span class="hljs-operator">+-</span><span class="hljs-number">1</span>
 <span class="hljs-number">2</span><span class="hljs-operator">-</span><span class="hljs-number">3</span>
 <span class="hljs-operator">-</span><span class="hljs-number">10</span>.magnitude
-fn(<span class="hljs-operator">-</span><span class="hljs-number">5</span>)
+<span class="hljs-title function_">fn</span>(<span class="hljs-operator">-</span><span class="hljs-number">5</span>)
 <span class="hljs-number">0x2</span>.p2
 
 <span class="hljs-comment">// expressions not containing numeric literals</span>
-fn(x0.d);
+<span class="hljs-title function_">fn</span>(x0.d);
 
 <span class="hljs-comment">// pseudo-expressions containing numeric literals</span>
 .<span class="hljs-number">0</span>

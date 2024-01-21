@@ -1,7 +1,7 @@
-<span class="hljs-keyword">macro</span> <span class="hljs-title function_">warning</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">message</span>: <span class="hljs-type">String</span>) <span class="hljs-operator">=</span> #externalMacro(module: <span class="hljs-string">&quot;MyMacros&quot;</span>, type: <span class="hljs-string">&quot;WarningMacro&quot;</span>)
+<span class="hljs-keyword">macro</span> <span class="hljs-title function_">warning</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">message</span>: <span class="hljs-type">String</span>) <span class="hljs-operator">=</span> <span class="hljs-title function_">#externalMacro</span>(module: <span class="hljs-string">&quot;MyMacros&quot;</span>, type: <span class="hljs-string">&quot;WarningMacro&quot;</span>)
 
 <span class="hljs-keyword">@freestanding</span>(declaration)
-<span class="hljs-keyword">macro</span> <span class="hljs-title function_">error</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">message</span>: <span class="hljs-type">String</span>) <span class="hljs-operator">=</span> #externalMacro(module: <span class="hljs-string">&quot;MyMacros&quot;</span>, type: <span class="hljs-string">&quot;ErrorMacro&quot;</span>)
+<span class="hljs-keyword">macro</span> <span class="hljs-title function_">error</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">message</span>: <span class="hljs-type">String</span>) <span class="hljs-operator">=</span> <span class="hljs-title function_">#externalMacro</span>(module: <span class="hljs-string">&quot;MyMacros&quot;</span>, type: <span class="hljs-string">&quot;ErrorMacro&quot;</span>)
 
 <span class="hljs-keyword">@attached</span>(member)
 <span class="hljs-keyword">macro</span> <span class="hljs-title function_">OptionSetMembers</span>()
@@ -9,4 +9,4 @@
 <span class="hljs-keyword">@attached</span>(peer, names: overloaded)
 <span class="hljs-keyword">macro</span> <span class="hljs-title function_">OptionSetMembers</span>()
 
-#myMacro()
+<span class="hljs-title function_">#myMacro</span>()
