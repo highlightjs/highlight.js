@@ -44,6 +44,8 @@ a<span class="hljs-operator">=</span>b; a <span class="hljs-operator">=</span> b
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">toohard</span>
 {
   typ a,b;
+  <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-title">toohard</span><span class="hljs-params">()</span></span>{}
+  <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-title">toohard</span><span class="hljs-params">(typ u,<span class="hljs-type">const</span> typ<span class="hljs-operator">&amp;</span>v)</span>:a(u),b(u<span class="hljs-operator">+</span>v){</span>a<span class="hljs-operator">+=</span>b<span class="hljs-operator">-=</span>a;}
   <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">operator</span>+</span>=(<span class="hljs-type">const</span> toohard<span class="hljs-operator">&amp;</span>c){a<span class="hljs-operator">+=</span>c.b;}
   <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">operator</span>-<span class="hljs-params">(<span class="hljs-type">const</span> typ<span class="hljs-operator">&amp;</span>c)</span></span>{a<span class="hljs-operator">-=</span>c;}
 };
