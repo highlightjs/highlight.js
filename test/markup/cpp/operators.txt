@@ -44,6 +44,8 @@ template<typename typ>
 struct toohard
 {
   typ a,b;
+  inline toohard(){}
+  inline toohard(typ u,const typ&v):a(u),b(u+v){a+=b-=a;}
   inline void operator+=(const toohard&c){a+=c.b;}
   inline void operator-(const typ&c){a-=c;}
 };
