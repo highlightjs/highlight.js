@@ -557,6 +557,7 @@ export default function(hljs) {
         begin: /:/,
         endsWithParent: true,
         contains: [
+          OPERATOR,
           STRINGS,
           NUMBERS
         ]
