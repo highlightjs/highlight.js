@@ -10,7 +10,6 @@ Core Grammars:
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
-- enh(cpp) add numbers to preprocessor scope [joshgoebel][]
 
 New Grammars:
 
