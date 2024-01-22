@@ -1,5 +1,6 @@
 #include <iostream>
 #define foo 1<<16
+#define oo 2'147'483'648u
 
 #ifdef DEBUG
 TYPE1 foo(void)
