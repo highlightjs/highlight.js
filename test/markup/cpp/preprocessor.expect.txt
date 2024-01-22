@@ -1,5 +1,6 @@
 <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-keyword">define</span> foo 1&lt;&lt;16</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> foo <span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">16</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> oo <span class="hljs-number">2&#x27;147&#x27;483&#x27;648u</span></span>
 
 <span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> DEBUG</span>
 <span class="hljs-function">TYPE1 <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>
