@@ -171,10 +171,7 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const FUNCTION_TITLE = regex.either(
-    regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(',
-    'operator\\s*' + OPERATOR_RE + '\\s*\\(',
-  );
+  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
 
   // https://en.cppreference.com/w/cpp/keyword
   const RESERVED_KEYWORDS = [
