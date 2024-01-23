@@ -15,7 +15,7 @@
 
 <span class="hljs-comment">// pack expansion in function arguments</span>
 <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T...&gt;
-<span class="hljs-type">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(T... args)</span> </span>{}
+<span class="hljs-type">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(T<span class="hljs-operator">...</span> args)</span> </span>{}
 
 <span class="hljs-built_in">test</span>();
 
