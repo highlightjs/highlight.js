@@ -536,7 +536,8 @@ export default function(hljs) {
     className: 'function',
     begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
     returnBegin: true,
-    end: /\)\s*(?:[{;=])/,
+    end: /(?<:\)\s*)[{;=]/,
+    excludeEnd: true,
     keywords: CPP_KEYWORDS,
     illegal: /[^\w\s\*&:<>.]/,
     contains: [
