@@ -1,5 +1,5 @@
 template <class T> // comment
-auto foo(T x) { ... };
+auto foo(T x) { ; };
 
 namespace impl {
     template<typename T>
