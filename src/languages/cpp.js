@@ -168,8 +168,12 @@ export default function(hljs) {
   };
 
   const TITLE_MODE = {
-    className: 'title',
-    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
+    scope: 'title',
+    keywords: "operator",
+    begin: regex.either(
+      regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
+      'operator\\s*' + OPERATOR_RE,
+    ),
     relevance: 0
   };
 
