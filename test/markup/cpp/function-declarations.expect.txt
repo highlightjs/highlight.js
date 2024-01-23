@@ -19,14 +19,14 @@
 
 <span class="hljs-built_in">test</span>();
 
-<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) {</span>}
-<span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) {</span>}
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) </span>{}
+<span class="hljs-function"><span class="hljs-keyword">explicit</span> <span class="hljs-title">A</span><span class="hljs-params">()</span>: a(<span class="hljs-number">10</span>) </span>{}
 
 <span class="hljs-function"><span class="hljs-keyword">extern</span> <span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">(<span class="hljs-type">int</span>)</span>, <span class="hljs-title">g</span><span class="hljs-params">(<span class="hljs-type">char</span>)</span></span>;
 
 <span class="hljs-keyword">struct</span> <span class="hljs-title class_">test</span>{
 	<span class="hljs-type">int</span> a,b;
-	<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:a(<span class="hljs-number">1</span>),b(<span class="hljs-number">2llu</span>){</span>;a<span class="hljs-operator">+=</span>b<span class="hljs-operator">+=</span>a<span class="hljs-operator">^</span>b;;;}
-	<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title"><span class="hljs-keyword">operator</span></span>+<span class="hljs-params">(<span class="hljs-type">const</span> test<span class="hljs-operator">&amp;</span>kkk)</span><span class="hljs-type">const</span></span>{<span class="hljs-keyword">return</span> a<span class="hljs-operator">+</span>kkk<span class="hljs-operator">.</span>b;}
+	<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:a(<span class="hljs-number">1</span>),b(<span class="hljs-number">2llu</span>)</span>{;a<span class="hljs-operator">+=</span>b<span class="hljs-operator">+=</span>a<span class="hljs-operator">^</span>b;;;}
+	<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title"><span class="hljs-keyword">operator</span>+</span><span class="hljs-params">(<span class="hljs-type">const</span> test<span class="hljs-operator">&amp;</span>kkk)</span><span class="hljs-type">const</span></span>{<span class="hljs-keyword">return</span> a<span class="hljs-operator">+</span>kkk<span class="hljs-operator">.</span>b;}
 };
-<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title"><span class="hljs-keyword">operator</span></span>*</span>=(test<span class="hljs-operator">*</span>lll,test qqq){;;;<span class="hljs-operator">*</span>lll<span class="hljs-operator">+</span>qqq;}
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title"><span class="hljs-keyword">operator</span>*=</span><span class="hljs-params">(test<span class="hljs-operator">*</span>lll,test qqq)</span></span>{;;;<span class="hljs-operator">*</span>lll<span class="hljs-operator">+</span>qqq;}
