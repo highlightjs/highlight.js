@@ -167,19 +167,9 @@ export default function(hljs) {
     ]
   };
 
-  const TITLE_MODE = {
-    scope: 'title',
-    keywords: "operator",
-    begin: regex.either(
-      regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
-      'operator\\s*' + OPERATOR_RE,
-    ),
-    relevance: 0
-  };
-
   const FUNCTION_TITLE = regex.either(
-    regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(',
-    'operator\\s*' + OPERATOR_RE + '\\s*\\(',
+    regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*(?=\\()',
+    'operator\\s*' + OPERATOR_RE + '\\s*(?=\\()',
   );
 
   // https://en.cppreference.com/w/cpp/keyword
@@ -547,10 +537,9 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: FUNCTION_TITLE,
-        returnBegin: true,
-        contains: [ TITLE_MODE ],
-        relevance: 0
+        match: FUNCTION_TITLE,
+        scope: 'title',
+        keywords: "operator",
       },
       // needed because we do not have look-behind on the below rule
       // to prevent it from grabbing the final : in a :: pair
@@ -562,6 +551,7 @@ export default function(hljs) {
       {
         begin: /:/,
         endsWithParent: true,
+        excludeEnd: true,
         contains: [
           OPERATOR,
           STRINGS,
