@@ -56,3 +56,9 @@ v<span class="hljs-operator">=</span><span class="hljs-keyword">new</span> tooha
 <span class="hljs-operator">*</span>u<span class="hljs-operator">*</span><span class="hljs-operator">*</span>v;
 <span class="hljs-operator">*</span>u<span class="hljs-operator">+=</span><span class="hljs-operator">*</span>v;
 <span class="hljs-operator">*</span>u<span class="hljs-operator">-</span>v<span class="hljs-operator">-&gt;</span>a;
+
+<span class="hljs-keyword">using</span> std::map;
+map&lt;<span class="hljs-type">int</span>,vector&lt;<span class="hljs-type">int</span>&gt; &gt;mmp;
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> i<span class="hljs-operator">:</span>mmp)std::cout<span class="hljs-operator">&lt;&lt;</span>i.first<span class="hljs-operator">&lt;&lt;</span>i.second.<span class="hljs-built_in">size</span>()<span class="hljs-operator">&lt;&lt;</span>std::endl;
+<span class="hljs-keyword">for</span>(map<span class="hljs-operator">&lt;</span><span class="hljs-type">int</span>,vector<span class="hljs-operator">&lt;</span><span class="hljs-type">int</span><span class="hljs-operator">&gt;</span> <span class="hljs-operator">&gt;</span><span class="hljs-operator">::</span>iterator i<span class="hljs-operator">=</span>mmp.<span class="hljs-built_in">begin</span>();i<span class="hljs-operator">!=</span>mmp.<span class="hljs-built_in">end</span>();<span class="hljs-operator">++</span>i)
+  std::cout<span class="hljs-operator">&lt;&lt;</span>i<span class="hljs-operator">-&gt;</span>first<span class="hljs-operator">&lt;&lt;</span>i<span class="hljs-operator">-&gt;</span>second.<span class="hljs-built_in">size</span>()<span class="hljs-operator">&lt;&lt;</span>std::endl;
