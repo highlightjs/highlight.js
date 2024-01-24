@@ -12,7 +12,7 @@ export default function(hljs) {
   // on it would desire this behavior
   const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', { contains: [ { begin: /\\\n/ } ] });
   const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
-  const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
+  const NAMESPACE_RE = /[a-zA-Z_]\w*\s*::/;
   const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
   const FUNCTION_TYPE_RE = '(?!struct)('
     + DECLTYPE_AUTO_RE + '|'
