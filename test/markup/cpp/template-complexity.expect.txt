@@ -22,3 +22,10 @@ std<span class="hljs-operator">::</span>wostream <span class="hljs-operator">&am
 <span class="hljs-keyword">union</span> <span class="hljs-title class_">Soy</span>
 {
 };
+
+<span class="hljs-keyword">template</span><span class="hljs-operator">&lt;</span><span class="hljs-keyword">typename</span> t1<span class="hljs-operator">=</span><span class="hljs-type">int</span>,<span class="hljs-type">bool</span> t2<span class="hljs-operator">=</span>(<span class="hljs-number">1</span><span class="hljs-operator">&gt;</span><span class="hljs-number">2</span>),<span class="hljs-keyword">typename</span> t3<span class="hljs-operator">=</span>vector<span class="hljs-operator">&lt;</span><span class="hljs-type">int</span><span class="hljs-operator">&gt;&gt;</span>
+t1 <span class="hljs-built_in">test</span>(t1 x)
+{
+	<span class="hljs-keyword">if</span>(t2)<span class="hljs-keyword">return</span> x;
+	<span class="hljs-keyword">return</span> t2;
+}
