@@ -22,3 +22,10 @@ enum class Boolean : char {
 union Soy
 {
 };
+
+template<typename t1=int,bool t2=(1>2),typename t3=vector<int>>
+t1 test(t1 x)
+{
+	if(t2)return x;
+	return t2;
+}
