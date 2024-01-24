@@ -56,3 +56,9 @@ v=new toohard<unsigned __int128>{1,2};
 *u**v;
 *u+=*v;
 *u-v->a;
+
+using std::map;
+map<int,vector<int> >mmp;
+for(auto i:mmp)std::cout<<i.first<<i.second.size()<<std::endl;
+for(map<int,vector<int> >::iterator i=mmp.begin();i!=mmp.end();++i)
+  std::cout<<i->first<<i->second.size()<<std::endl;
