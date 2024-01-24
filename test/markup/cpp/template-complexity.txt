@@ -23,7 +23,7 @@ union Soy
 {
 };
 
-template<typename t1=int,bool t2=(1>2),typename t3=vector<int>>
+template<typename t1=int,bool t2=(1>2),typename t3=std::vector<int>>
 t1 test(t1 x)
 {
 	if(t2)return x;
