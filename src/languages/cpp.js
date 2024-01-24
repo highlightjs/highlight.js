@@ -16,7 +16,7 @@ export default function(hljs) {
   const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
   const FUNCTION_TYPE_RE = '(?!struct)('
     + DECLTYPE_AUTO_RE + '|'
-    + regex.optional(NAMESPACE_RE)
+    + regex.anyNumberOfTimes(NAMESPACE_RE)
     + '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE)
   + ')';
 
@@ -97,8 +97,6 @@ export default function(hljs) {
   const OPERATORS = [
     '::',
     '->',
-    '...',
-    '.',
     '+=',
     '-=',
     '*=',
@@ -168,7 +166,7 @@ export default function(hljs) {
   };
 
   const FUNCTION_TITLE = regex.either(
-    regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*(?=\\()',
+    regex.anyNumberOfTimes(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*(?=\\()',
     'operator\\s*' + OPERATOR_RE + '\\s*(?=\\()',
   );
 
