@@ -183,6 +183,7 @@ export default function(hljs) {
     "read",
     "readarray",
     "source",
+    "sudo",
     "type",
     "typeset",
     "ulimit",
