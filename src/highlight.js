@@ -1013,6 +1013,7 @@ const HLJS = function(hljs) {
   hljs.versionString = packageJSON.version;
 
   hljs.regex = {
+    escape: regex.escape,
     concat: regex.concat,
     lookahead: regex.lookahead,
     either: regex.either,

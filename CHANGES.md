@@ -28,6 +28,8 @@ Core Grammars:
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
 - enh(bash) add keyword `sudo` [Alvin Joy][]
+- enh(cpp) add operator detecting [TOMWT][]
+- fix(cpp) fix `FUNCTION_DECLARATION` not matching overloading operator [TOMWT][]
 
 New Grammars:
 
@@ -62,6 +64,7 @@ Themes:
 [Vitaly Barilko]: https://github.com/Diversus23
 [Patrick Chiu]: https://github.com/patrick-kw-chiu
 [Alvin Joy]: https://github.com/alvinsjoy
+[TOMWT]: https://github.com/TOMWT-qwq
 
 
 ## Version 11.9.0

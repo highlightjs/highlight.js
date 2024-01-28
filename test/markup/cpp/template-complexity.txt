@@ -1,5 +1,5 @@
 template <class T> // comment
-auto foo(T x) { ... };
+auto foo(T x) { ; };
 
 namespace impl {
     template<typename T>
@@ -22,3 +22,10 @@ enum class Boolean : char {
 union Soy
 {
 };
+
+template<typename t1=int,bool t2=(1>2),typename t3=std::vector<int>>
+t1 test(t1 x)
+{
+	if(t2)return x;
+	return t2;
+}

@@ -12,11 +12,9 @@ export default function(hljs) {
   // on it would desire this behavior
   const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', { contains: [ { begin: /\\\n/ } ] });
   const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
-  const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
   const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
   const FUNCTION_TYPE_RE = '('
     + DECLTYPE_AUTO_RE + '|'
-    + regex.optional(NAMESPACE_RE)
     + '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE)
   + ')';
 
@@ -27,7 +25,6 @@ export default function(hljs) {
       { begin: '\\b[a-z\\d_]*_t\\b' },
       { match: /\batomic_[a-z]{3,6}\b/ }
     ]
-
   };
 
   // https://en.cppreference.com/w/cpp/language/escape
@@ -63,6 +60,53 @@ export default function(hljs) {
     ],
     relevance: 0
   };
+  
+  const OPERATORS = [
+    '->',
+    '+=',
+    '-=',
+    '*=',
+    '/=',
+    '%=',
+    '&=',
+    '|=',
+    '^=',
+    '<<=',
+    '>>=',
+    '++',
+    '--',
+    '<<',
+    '>>',
+    '&&',
+    '||',
+    '<=>',
+    '==',
+    '!=',
+    '<=',
+    '>=',
+    '~',
+    '!',
+    '%',
+    '^',
+    '&',
+    '|',
+    '*',
+    '<',
+    '>',
+    '/',
+    '-',
+    '+',
+    '?',
+    ':',
+    '=',
+  ];
+  const OPERATOR_RE = regex.either(...OPERATORS.map(x => regex.escape(x)));
+
+  const OPERATOR = {
+    scope: 'operator',
+    match: OPERATOR_RE,
+    relevance: 0
+  };
 
   const PREPROCESSOR = {
     className: 'meta',
@@ -82,17 +126,12 @@ export default function(hljs) {
         begin: /<.*?>/
       },
       C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      OPERATOR,
     ]
   };
 
-  const TITLE_MODE = {
-    className: 'title',
-    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
-    relevance: 0
-  };
-
-  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+  const FUNCTION_TITLE = hljs.IDENT_RE + '\\s*\\(';
 
   const C_KEYWORDS = [
     "asm",
@@ -183,6 +222,7 @@ export default function(hljs) {
     TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
+    OPERATOR,
     NUMBERS,
     STRINGS
   ];
@@ -193,7 +233,7 @@ export default function(hljs) {
     // `return some()`, `else if()`, `(x*sum(1, 2))`
     variants: [
       {
-        begin: /=/,
+        begin: regex.lookahead(/=/),
         end: /;/
       },
       {
@@ -232,10 +272,8 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: FUNCTION_TITLE,
-        returnBegin: true,
-        contains: [ hljs.inherit(TITLE_MODE, { className: "title.function" }) ],
-        relevance: 0
+        match: FUNCTION_TITLE,
+        scope: 'title',
       },
       // allow for multiple declarations, e.g.:
       // extern void f(int), g(char);
@@ -252,6 +290,7 @@ export default function(hljs) {
         contains: [
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
+          OPERATOR,
           STRINGS,
           NUMBERS,
           TYPES,
@@ -293,10 +332,6 @@ export default function(hljs) {
       EXPRESSION_CONTAINS,
       [
         PREPROCESSOR,
-        {
-          begin: hljs.IDENT_RE + '::',
-          keywords: KEYWORDS
-        },
         {
           className: 'class',
           beginKeywords: 'enum class struct union',

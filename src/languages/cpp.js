@@ -12,11 +12,11 @@ export default function(hljs) {
   // on it would desire this behavior
   const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', { contains: [ { begin: /\\\n/ } ] });
   const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
-  const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
+  const NAMESPACE_RE = /[a-zA-Z_]\w*\s*::\s*/;
   const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
   const FUNCTION_TYPE_RE = '(?!struct)('
     + DECLTYPE_AUTO_RE + '|'
-    + regex.optional(NAMESPACE_RE)
+    + regex.anyNumberOfTimes(NAMESPACE_RE)
     + '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE)
   + ')';
 
@@ -94,6 +94,54 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const OPERATORS = [
+    '::',
+    '->',
+    '+=',
+    '-=',
+    '*=',
+    '/=',
+    '%=',
+    '&=',
+    '|=',
+    '^=',
+    '<<=',
+    '>>=',
+    '++',
+    '--',
+    '<<',
+    '>>',
+    '&&',
+    '||',
+    '<=>',
+    '==',
+    '!=',
+    '<=',
+    '>=',
+    '~',
+    '!',
+    '%',
+    '^',
+    '&',
+    '|',
+    '*',
+    '<',
+    '>',
+    '/',
+    '-',
+    '+',
+    '?',
+    ':',
+    '=',
+  ];
+  const OPERATOR_RE = regex.either(...OPERATORS.map(x => regex.escape(x)));
+
+  const OPERATOR = {
+    scope: 'operator',
+    match: OPERATOR_RE,
+    relevance: 0
+  };
+
   const PREPROCESSOR = {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
@@ -112,17 +160,15 @@ export default function(hljs) {
         begin: /<.*?>/
       },
       C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      OPERATOR,
     ]
   };
 
-  const TITLE_MODE = {
-    className: 'title',
-    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
-    relevance: 0
-  };
-
-  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+  const FUNCTION_TITLE = regex.either(
+    regex.anyNumberOfTimes(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*(?=\\()',
+    'operator\\s*' + OPERATOR_RE + '\\s*(?=\\()',
+  );
 
   // https://en.cppreference.com/w/cpp/keyword
   const RESERVED_KEYWORDS = [
@@ -438,6 +484,7 @@ export default function(hljs) {
     CPP_PRIMITIVE_TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
+    OPERATOR,
     NUMBERS,
     STRINGS
   ];
@@ -448,7 +495,7 @@ export default function(hljs) {
     // `return some()`, `else if()`, `(x*sum(1, 2))`
     variants: [
       {
-        begin: /=/,
+        begin: regex.lookahead(/=/),
         end: /;/
       },
       {
@@ -488,10 +535,9 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: FUNCTION_TITLE,
-        returnBegin: true,
-        contains: [ TITLE_MODE ],
-        relevance: 0
+        match: FUNCTION_TITLE,
+        scope: 'title',
+        keywords: "operator",
       },
       // needed because we do not have look-behind on the below rule
       // to prevent it from grabbing the final : in a :: pair
@@ -503,7 +549,9 @@ export default function(hljs) {
       {
         begin: /:/,
         endsWithParent: true,
+        excludeEnd: true,
         contains: [
+          OPERATOR,
           STRINGS,
           NUMBERS
         ]
@@ -523,6 +571,7 @@ export default function(hljs) {
         contains: [
           C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE,
+          OPERATOR,
           STRINGS,
           NUMBERS,
           CPP_PRIMITIVE_TYPES,
