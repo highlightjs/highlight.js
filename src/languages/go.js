@@ -109,10 +109,29 @@ export default function(hljs) {
         className: 'number',
         variants: [
           {
-            begin: hljs.C_NUMBER_RE + '[i]',
-            relevance: 1
+            begin: '-?\\b0[xX]\\.[a-fA-F0-9](_?[a-fA-F0-9])*[pP][+-]?\\d(_?\\d)*i?', // hex without a present digit before . (making a digit afterwards required)
+            relevance: 0
           },
-          hljs.C_NUMBER_MODE
+          {
+            begin: '-?\\b0[xX](_?[a-fA-F0-9])+((\\.([a-fA-F0-9](_?[a-fA-F0-9])*)?)?[pP][+-]?\\d(_?\\d)*)?i?', // hex with a present digit before . (making a digit afterwards optional)
+            relevance: 0
+          },
+          {
+            begin: '-?\\b0[oO](_?[0-7])*i?', // leading 0o octal
+            relevance: 0
+          },
+          {
+            begin: '-?\\.\\d(_?\\d)*([eE][+-]?\\d(_?\\d)*)?i?', // decimal without a present digit before . (making a digit afterwards required)
+            relevance: 0
+          },
+          {
+            begin: '-?\\b\\d(_?\\d)*(\\.(\\d(_?\\d)*)?)?([eE][+-]?\\d(_?\\d)*)?i?', // decimal with a present digit before . (making a digit afterwards optional)
+            relevance: 0
+          },
+          {
+            begin: '-?\\b0(_?[0-7])*i?', // leading 0 octal
+            relevance: 0
+          }
         ]
       },
       { begin: /:=/ // relevance booster
