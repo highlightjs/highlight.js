@@ -127,10 +127,6 @@ export default function(hljs) {
           {
             match: '-?\\b\\d(_?\\d)*(\\.(\\d(_?\\d)*)?)?([eE][+-]?\\d(_?\\d)*)?i?', // decimal with a present digit before . (making a digit afterwards optional)
             relevance: 0
-          },
-          {
-            match: '-?\\b0(_?[0-7])*i?', // leading 0 octal
-            relevance: 0
           }
         ]
       },
