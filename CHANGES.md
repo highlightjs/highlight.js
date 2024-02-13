@@ -28,6 +28,7 @@ Core Grammars:
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
 - enh(bash) add keyword `sudo` [Alvin Joy][]
+- enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 
 New Grammars:
 
