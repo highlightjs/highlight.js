@@ -41,6 +41,7 @@ Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
 - enh(tools): remove duplicate CSS options [David Schach][]
+- (typescript): deprecate old `highlight` API [Misha Kaletsky][]
 
 Themes:
 
@@ -279,6 +280,7 @@ Grammars:
 [Mousetail]: https://github.com/mousetail
 [Gabriel Gonçalves]: https://github.com/KTSnowy
 [Nikita Sobolev]: https://github.com/sobolevn
+[Misha Kaletsky]: https://github.com/mmkal
 
 ## Version 11.5.0
 
