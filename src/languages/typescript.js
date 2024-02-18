@@ -28,10 +28,18 @@ export default function(hljs) {
     "unknown"
   ];
   const NAMESPACE = {
-    beginKeywords: 'namespace',
+    begin: [
+      /namespace/,
+      /\s+/,
+      hljs.IDENT_RE
+    ],
+    beginScope: {
+      1: "keyword",
+      3: "variable"
+    },
     end: /\{/,
     excludeEnd: true,
-    contains: [ tsLanguage.exports.CLASS_REFERENCE ]
+    contains: [tsLanguage.exports.CLASS_REFERENCE]
   };
   const INTERFACE = {
     beginKeywords: 'interface',
