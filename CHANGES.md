@@ -88,6 +88,7 @@ New Grammars:
 
 Core Grammars:
 
+- fix(cpp) fixed highlighter break state [Md Saad Akhtar][]
 - fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
