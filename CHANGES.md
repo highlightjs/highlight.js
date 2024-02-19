@@ -5,7 +5,6 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 - Drops support for Node 16.x, which is no longer supported by Node.js.
 
 Core Grammars:
-
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
@@ -28,6 +27,7 @@ Core Grammars:
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
 - enh(bash) add keyword `sudo` [Alvin Joy][]
+- fix(haxe) captures `new` keyword without capturing it within variables/class names [Cameron Taylor][]
 
 New Grammars:
 
@@ -136,6 +136,7 @@ Developer Tool:
 [Brian Ward]: https://github.com/WardBrian
 [Md Saad Akhtar]: https://github.com/akhtarmdsaad
 [Guillaume Laforge]: https://github.com/glaforge
+[Cameron Taylor]: https://github.com/ninjamuffin99
 
 
 ## Version 11.8.0
