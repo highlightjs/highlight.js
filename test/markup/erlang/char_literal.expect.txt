@@ -1,0 +1,23 @@
+Character = <span class="hljs-string">$a</span>
+TabCharacter = <span class="hljs-string">$\t</span>
+TabCharacterDecimal = <span class="hljs-string">$\011</span>
+TextWithDollar = <span class="hljs-string">&quot;This is just a normal text with a $ in the middle&quot;</span>
+StringStart = <span class="hljs-string">$&quot;</span>
+Backslash = <span class="hljs-string">$\\</span>
+ListStart = <span class="hljs-string">$[</span>
+ListEnd = <span class="hljs-string">$]</span>
+SpaceChar = <span class="hljs-string">$ </span> <span class="hljs-comment">% yes, that works</span>
+<span class="hljs-function"><span class="hljs-title">fun_takes_literal</span><span class="hljs-params">(<span class="hljs-string">$a</span>)</span> -&gt;</span> ok.
+<span class="hljs-function"><span class="hljs-title">fun_takes_literal_list</span><span class="hljs-params">([<span class="hljs-string">$a</span>|Rest])</span> -&gt;</span> ok.
+<span class="hljs-function"><span class="hljs-title">fun_takes_literal_binary</span><span class="hljs-params">(&lt;&lt;<span class="hljs-string">$a</span>, Rest/binary&gt;&gt;)</span> -&gt;</span> ok.
+<span class="hljs-function"><span class="hljs-title">convert_escape_sequence</span><span class="hljs-params">(&lt;&lt;<span class="hljs-string">$\\</span>, Escaped, Rest/binary&gt;&gt;)</span> -&gt;</span>
+    C = <span class="hljs-keyword">case</span> Escaped <span class="hljs-keyword">of</span>
+        <span class="hljs-string">$b</span> -&gt; <span class="hljs-string">$\b</span>;
+        <span class="hljs-string">$f</span> -&gt; <span class="hljs-string">$\f</span>;
+        <span class="hljs-string">$n</span> -&gt; <span class="hljs-string">$\n</span>;
+        <span class="hljs-string">$r</span> -&gt; <span class="hljs-string">$\r</span>;
+        <span class="hljs-string">$t</span> -&gt; <span class="hljs-string">$\t</span>;
+        <span class="hljs-string">$&quot;</span> -&gt; <span class="hljs-string">$&quot;</span>;
+        <span class="hljs-string">$\\</span> -&gt; <span class="hljs-string">$\\</span>;
+        _  -&gt; error
+    <span class="hljs-keyword">end</span>

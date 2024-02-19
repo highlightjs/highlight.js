@@ -3,7 +3,7 @@ Language: Bash
 Author: vah <vahtenberg@gmail.com>
 Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
 Website: https://www.gnu.org/software/bash/
-Category: common
+Category: common, scripting
 */
 
 /** @type LanguageFn */
@@ -183,6 +183,7 @@ export default function(hljs) {
     "read",
     "readarray",
     "source",
+    "sudo",
     "type",
     "typeset",
     "ulimit",
@@ -368,7 +369,10 @@ export default function(hljs) {
 
   return {
     name: 'Bash',
-    aliases: [ 'sh' ],
+    aliases: [
+      'sh',
+      'zsh'
+    ],
     keywords: {
       $pattern: /\b[a-z][a-z0-9._-]+\b/,
       keyword: KEYWORDS,

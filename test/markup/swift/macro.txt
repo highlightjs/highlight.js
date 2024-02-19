@@ -6,4 +6,7 @@ macro error(_ message: String) = #externalMacro(module: "MyMacros", type: "Error
 @attached(member)
 macro OptionSetMembers()
 
+@attached(peer, names: overloaded)
+macro OptionSetMembers()
+
 #myMacro()

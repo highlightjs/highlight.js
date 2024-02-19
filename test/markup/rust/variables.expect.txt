@@ -1,3 +1,4 @@
 <span class="hljs-keyword">let</span> <span class="hljs-variable">foo</span>;
 <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">bar</span>;
 <span class="hljs-keyword">let</span> <span class="hljs-variable">_foo_bar</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-variable">r#foo</span>;

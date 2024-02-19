@@ -9,3 +9,20 @@ class Car extends Vehicle {
       ${speed}.`;
   }
 }
+
+interface TrainProps {
+  speed: number;
+  cost: number;
+}
+
+class Train extends Vehicle {
+  constructor (trainData: TrainProps) {
+    super(trainData.speed);
+
+    var c = Symbol('cost');
+    this[c] = trainData.cost;
+
+    this.intro = `This is a car runs at
+      ${trainData.speed}.`;
+  }
+}

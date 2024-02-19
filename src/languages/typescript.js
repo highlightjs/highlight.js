@@ -87,6 +87,13 @@ export default function(hljs) {
   Object.assign(tsLanguage.keywords, KEYWORDS);
 
   tsLanguage.exports.PARAMS_CONTAINS.push(DECORATOR);
+
+  // highlight the function params
+  const ATTRIBUTE_HIGHLIGHT = tsLanguage.contains.find(c => c.className === "attr");
+  tsLanguage.exports.PARAMS_CONTAINS.push([
+    tsLanguage.exports.CLASS_REFERENCE, // class reference for highlighting the params types
+    ATTRIBUTE_HIGHLIGHT, // highlight the params key
+  ]);
   tsLanguage.contains = tsLanguage.contains.concat([
     DECORATOR,
     NAMESPACE,

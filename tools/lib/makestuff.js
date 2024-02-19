@@ -5,7 +5,7 @@ const _ = require('lodash');
 const config = require("../build_config.js");
 
 async function clean(directory) {
-  let del = await import('del');
+  const del = await import('del');
   del.deleteSync([directory]);
   fs.mkdirSync(directory, { recursive: true });
 }

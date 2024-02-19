@@ -25,6 +25,10 @@
   <span class="hljs-comment"># GH-117</span>
   <span class="hljs-keyword">my</span> <span class="hljs-variable">$g</span> = <span class="hljs-keyword">glob</span>(<span class="hljs-string">&quot;/usr/bin/*&quot;</span>);
 
+  <span class="hljs-comment"># GH-3934</span>
+  <span class="hljs-keyword">print</span> <span class="hljs-string">&quot;@&quot;</span>;
+  <span class="hljs-keyword">print</span>;
+
   <span class="hljs-keyword">return</span> <span class="hljs-variable">$o</span>;
 }
 
