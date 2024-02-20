@@ -84,7 +84,7 @@
 
 <span class="hljs-title class_"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> <span class="hljs-keyword"><span class="hljs-keyword">extends</span> <span class="hljs-type">BaseClass</span></span> <span class="hljs-keyword"><span class="hljs-keyword">implements</span> <span class="hljs-type">SomeFunctionality</span></span> </span>{
     <span class="hljs-keyword">var</span> callback:<span class="hljs-type">Void-&gt;Void </span>= <span class="hljs-literal">null</span>;
-    <span class="hljs-keyword">var</span> myArray:<span class="hljs-type">Array</span>&lt;<span class="hljs-keyword">Float</span>&gt; = <span class="hljs-keyword">new</span> <span class="hljs-type">Array</span>&lt;<span class="hljs-keyword">Float</span>&gt;();
+    <span class="hljs-keyword">var</span> myArray:<span class="hljs-type">Array</span>&lt;<span class="hljs-keyword">Float</span>&gt; = <span class="hljs-keyword">new</span><span class="hljs-type"></span> <span class="hljs-keyword">Array</span>&lt;<span class="hljs-keyword">Float</span>&gt;();
     <span class="hljs-keyword">var</span> arr = [<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>];
 
     <span class="hljs-keyword">public</span> <span class="hljs-title function_"><span class="hljs-keyword">function</span> <span class="hljs-title">new</span></span>(x) {
@@ -120,8 +120,8 @@
             done = <span class="hljs-literal">true</span>;
         }
 
-        <span class="hljs-keyword">var</span> H:<span class="hljs-type">Int </span>= <span class="hljs-keyword">cast</span> <span class="hljs-keyword">new</span> <span class="hljs-type">MyAbstract</span>(<span class="hljs-number">42</span>);
-        <span class="hljs-keyword">var</span> h:<span class="hljs-type">Int </span>= <span class="hljs-keyword">cast</span>(<span class="hljs-keyword">new</span> <span class="hljs-type">MyAbstract</span>(<span class="hljs-number">31</span>), <span class="hljs-keyword">Int</span>);
+        <span class="hljs-keyword">var</span> H:<span class="hljs-type">Int </span>= <span class="hljs-keyword">cast</span> <span class="hljs-keyword">new</span><span class="hljs-type"></span> MyAbstract(<span class="hljs-number">42</span>);
+        <span class="hljs-keyword">var</span> h:<span class="hljs-type">Int </span>= <span class="hljs-keyword">cast</span>(<span class="hljs-keyword">new</span><span class="hljs-type"></span> MyAbstract(<span class="hljs-number">31</span>), <span class="hljs-keyword">Int</span>);
 
         <span class="hljs-keyword">try</span> {
             <span class="hljs-keyword">throw</span> <span class="hljs-string">&quot;error&quot;</span>;
@@ -130,7 +130,7 @@
             <span class="hljs-built_in">trace</span>(err);
         }
         
-        <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-type">haxe</span>.ds.IntMap&lt;<span class="hljs-keyword">String</span>&gt;();
+        <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span><span class="hljs-type"></span> haxe.ds.IntMap&lt;<span class="hljs-keyword">String</span>&gt;();
         <span class="hljs-keyword">var</span> f = map.<span class="hljs-keyword">set</span>.bind(<span class="hljs-literal">_</span>, <span class="hljs-string">&quot;12&quot;</span>);
     }
 
@@ -175,4 +175,10 @@
         <span class="hljs-keyword">if</span>( lo &lt; j ) quicksort( lo, j );
         <span class="hljs-keyword">if</span>( i &lt; hi ) quicksort( i, hi );
     }
+
+    <span class="hljs-title function_"><span class="hljs-keyword">function</span> <span class="hljs-title">generateNewArray</span></span>(newArray:<span class="hljs-type">Array</span>):<span class="hljs-type">Void </span>{
+        <span class="hljs-keyword">var</span> i = newArray;
+        <span class="hljs-keyword">var</span> array = <span class="hljs-keyword">new</span><span class="hljs-type"></span> <span class="hljs-keyword">Array</span>();
+    }
+
 }
