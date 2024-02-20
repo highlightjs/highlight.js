@@ -38,6 +38,7 @@ New Grammars:
 - added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
 - added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
 - added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
+- added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
 
 Developer Tool:
 
@@ -69,6 +70,7 @@ Themes:
 [Lisa Ugray]: https://github.com/lugray
 [TaraLei]: https://github.com/TaraLei
 [Vasily Polovnyov]: https://github.com/vast
+[Arman Uguray]: https://github.com/armansito
 
 
 ## Version 11.9.0
