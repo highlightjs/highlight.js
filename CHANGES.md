@@ -68,6 +68,7 @@ Themes:
 [Alvin Joy]: https://github.com/alvinsjoy
 [Lisa Ugray]: https://github.com/lugray
 [TaraLei]: https://github.com/TaraLei
+[Vasily Polovnyov]: https://github.com/vast
 
 
 ## Version 11.9.0
