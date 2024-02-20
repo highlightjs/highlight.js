@@ -28,6 +28,7 @@ Core Grammars:
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
 - enh(bash) add keyword `sudo` [Alvin Joy][]
+- enh(markdown) add entity support [David Schach][] [TaraLei][]
 
 New Grammars:
 
@@ -62,6 +63,7 @@ Themes:
 [Vitaly Barilko]: https://github.com/Diversus23
 [Patrick Chiu]: https://github.com/patrick-kw-chiu
 [Alvin Joy]: https://github.com/alvinsjoy
+[TaraLei]: https://github.com/TaraLei
 
 
 ## Version 11.9.0
