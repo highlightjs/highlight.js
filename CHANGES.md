@@ -28,6 +28,8 @@ Core Grammars:
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
 - enh(bash) add keyword `sudo` [Alvin Joy][]
+- fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
+- enh(markdown) add entity support [David Schach][] [TaraLei][]
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 
 New Grammars:
@@ -41,6 +43,7 @@ Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
 - enh(tools): remove duplicate CSS options [David Schach][]
+- (typescript): deprecate old `highlight` API [Misha Kaletsky][]
 
 Themes:
 
@@ -63,6 +66,8 @@ Themes:
 [Vitaly Barilko]: https://github.com/Diversus23
 [Patrick Chiu]: https://github.com/patrick-kw-chiu
 [Alvin Joy]: https://github.com/alvinsjoy
+[Lisa Ugray]: https://github.com/lugray
+[TaraLei]: https://github.com/TaraLei
 
 
 ## Version 11.9.0
@@ -278,6 +283,7 @@ Grammars:
 [Mousetail]: https://github.com/mousetail
 [Gabriel Gonçalves]: https://github.com/KTSnowy
 [Nikita Sobolev]: https://github.com/sobolevn
+[Misha Kaletsky]: https://github.com/mmkal
 
 ## Version 11.5.0
 
