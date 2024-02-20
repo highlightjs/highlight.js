@@ -28,6 +28,8 @@ Core Grammars:
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
 - enh(bash) add keyword `sudo` [Alvin Joy][]
 - fix(haxe) captures `new` keyword without capturing it within variables/class names [Cameron Taylor][]
+- fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
+- enh(markdown) add entity support [David Schach][] [TaraLei][]
 
 New Grammars:
 
@@ -40,6 +42,7 @@ Developer Tool:
 
 - enh(tools): order CSS options picklist [David Schach][]
 - enh(tools): remove duplicate CSS options [David Schach][]
+- (typescript): deprecate old `highlight` API [Misha Kaletsky][]
 
 Themes:
 
@@ -62,6 +65,9 @@ Themes:
 [Vitaly Barilko]: https://github.com/Diversus23
 [Patrick Chiu]: https://github.com/patrick-kw-chiu
 [Alvin Joy]: https://github.com/alvinsjoy
+[Lisa Ugray]: https://github.com/lugray
+[TaraLei]: https://github.com/TaraLei
+[Cameron Taylor]: https://github.com/ninjamuffin99
 
 
 ## Version 11.9.0
@@ -136,7 +142,6 @@ Developer Tool:
 [Brian Ward]: https://github.com/WardBrian
 [Md Saad Akhtar]: https://github.com/akhtarmdsaad
 [Guillaume Laforge]: https://github.com/glaforge
-[Cameron Taylor]: https://github.com/ninjamuffin99
 
 
 ## Version 11.8.0
@@ -278,6 +283,7 @@ Grammars:
 [Mousetail]: https://github.com/mousetail
 [Gabriel Gonçalves]: https://github.com/KTSnowy
 [Nikita Sobolev]: https://github.com/sobolevn
+[Misha Kaletsky]: https://github.com/mmkal
 
 ## Version 11.5.0
 

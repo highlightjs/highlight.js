@@ -1,3 +1,64 @@
+-- Numbers
+
 float_var := <span class="hljs-number">1.0e10</span>
 complex_var := <span class="hljs-number">1.2e5</span>+<span class="hljs-number">2.3i</span>
 hex_int := <span class="hljs-number">0xcf3e4028ac084aea</span>
+
+int_simple := <span class="hljs-number">42</span>
+int_underscore := <span class="hljs-number">4_2</span>
+octal := <span class="hljs-number">0600</span>
+octal_underscore := <span class="hljs-number">0_600</span>
+octal_o := <span class="hljs-number">0o600</span>
+octal_upper_o := <span class="hljs-number">0O600</span>
+hex_mixed_case := <span class="hljs-number">0xBadFace</span>
+hex_underscore := <span class="hljs-number">0xBad_Face</span>
+hex_many_underscore := <span class="hljs-number">0x_67_7a_2f_cc_40_c6</span>
+long_int := <span class="hljs-number">170141183460469231731687303715884105727</span>
+long_int_underscore := <span class="hljs-number">170_141183_460469_231731_687303_715884_105727</span>
+
+float_no_post := <span class="hljs-number">0.</span>
+float_simple := <span class="hljs-number">72.40</span>
+float_leading_zero := <span class="hljs-number">072.40</span>
+float_e := <span class="hljs-number">1.e+0</span>
+float_e_neg := <span class="hljs-number">6.67428e-11</span>
+float_e_no_decimal := <span class="hljs-number">1E6</span>
+float_no_pre := <span class="hljs-number">.25</span>
+float_e_no_pre := <span class="hljs-number">.12345E+5</span>
+float_underscore := <span class="hljs-number">1_5.</span>
+float_underscore_in_e := <span class="hljs-number">0.15e+0_2</span>
+
+float_hex_p := <span class="hljs-number">0x1p-2</span>
+float_hex_p_no_post := <span class="hljs-number">0x2.p10</span>
+float_hex_p_sign := <span class="hljs-number">0x1.Fp+0</span>
+float_hex_p_neg := <span class="hljs-number">0X.8p-0</span>
+float_hex_underscore := <span class="hljs-number">0X_1FFFP-16</span>
+
+complex_zero := <span class="hljs-number">0i</span>
+complex_leading_zero := <span class="hljs-number">0123i</span>
+complex_octal := <span class="hljs-number">0o123i</span>
+complex_hex := <span class="hljs-number">0xabci</span>
+complex_float_zero := <span class="hljs-number">0.i</span>
+complex_float_simple := <span class="hljs-number">2.71828i</span>
+complex_float_e := <span class="hljs-number">1.e+0i</span>
+complex_float_e_neg := <span class="hljs-number">6.67428e-11i</span>
+complex_float_e_no_decimal := <span class="hljs-number">1E6i</span>
+complex_float_no_pre := <span class="hljs-number">.25i</span>
+complex_float_e_no_pre := <span class="hljs-number">.12345E+5i</span>
+complex_float_hex_p := <span class="hljs-number">0x1p-2i</span>
+
+-- Non-numbers
+
+identifier := _42
+trailing_underscore := <span class="hljs-number">42</span>_
+multiple_underscore := <span class="hljs-number">4</span>__2
+underscore_in_hex_prefix := <span class="hljs-number">0</span>_xBadFace
+
+float_minus_int := <span class="hljs-number">0x15e</span><span class="hljs-number">-2</span>
+no_mantissa_digits := <span class="hljs-number">0</span>x.p1
+p_exponent_on_decimal := <span class="hljs-number">1</span>p<span class="hljs-number">-2</span>
+missing_p_exponent := <span class="hljs-number">0x1</span><span class="hljs-number">.5e-2</span>
+underscore_before_decimal := <span class="hljs-number">1</span>_<span class="hljs-number">.5</span>
+underscore_after_decimal := <span class="hljs-number">1.</span>_5
+underscore_before_e := <span class="hljs-number">1.5</span>_e1
+underscore_after_e := <span class="hljs-number">1.5</span>e_1
+trailing_underscore_in_exponent := <span class="hljs-number">1.5e1</span>_
