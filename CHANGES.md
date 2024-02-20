@@ -5,6 +5,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 - Drops support for Node 16.x, which is no longer supported by Node.js.
 
 Core Grammars:
+
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
