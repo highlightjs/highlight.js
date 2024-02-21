@@ -483,6 +483,8 @@ export const ATTRIBUTES = [
   'isolation',
   'kerning',
   'justify-content',
+  'justify-items',
+  'justify-self',
   'left',
   'letter-spacing',
   'lighting-color',

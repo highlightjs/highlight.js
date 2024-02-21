@@ -30,6 +30,7 @@ Core Grammars:
 - enh(bash) add keyword `sudo` [Alvin Joy][]
 - fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
+- enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 
 New Grammars:
 
@@ -67,6 +68,7 @@ Themes:
 [Alvin Joy]: https://github.com/alvinsjoy
 [Lisa Ugray]: https://github.com/lugray
 [TaraLei]: https://github.com/TaraLei
+[Vasily Polovnyov]: https://github.com/vast
 
 
 ## Version 11.9.0
