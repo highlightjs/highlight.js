@@ -98,7 +98,7 @@ function testLanguage(languageName) {
         function toNFA(element, debug = false) {
           const { expression, maxCharacter } = parser.parseElement(element, {
             backreferences: "resolve",
-            lookarounds: "disable",
+            assertions: "disable",
           });
           return NFA.fromRegex(expression, { maxCharacter });
         }
@@ -118,11 +118,11 @@ function testLanguage(languageName) {
           const alternatives = node.alternatives;
 
           const total = toNFA(alternatives[0]);
-          total.removeEmptyWord();
+          total.withoutEmptyWord();
           for (let i = 1, l = alternatives.length; i < l; i++) {
             const a = alternatives[i];
             const current = toNFA(a);
-            current.removeEmptyWord();
+            current.withoutEmptyWord();
 
             if (!total.isDisjointWith(current)) {
               reportError(`${rulePath}: The alternative \`${a.raw}\` is not disjoint with at least one previous alternative.`
@@ -175,7 +175,7 @@ function testLanguage(languageName) {
             // cases, the approximation is good enough.
 
             const nfa = toNFA(node.element, true);
-            nfa.removeEmptyWord();
+            nfa.withoutEmptyWord();
             const twoStar = nfa.copy();
             twoStar.quantify(2, Infinity);
 
