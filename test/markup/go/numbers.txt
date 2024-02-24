@@ -1,3 +1,64 @@
+-- Numbers
+
 float_var := 1.0e10
 complex_var := 1.2e5+2.3i
 hex_int := 0xcf3e4028ac084aea
+
+int_simple := 42
+int_underscore := 4_2
+octal := 0600
+octal_underscore := 0_600
+octal_o := 0o600
+octal_upper_o := 0O600
+hex_mixed_case := 0xBadFace
+hex_underscore := 0xBad_Face
+hex_many_underscore := 0x_67_7a_2f_cc_40_c6
+long_int := 170141183460469231731687303715884105727
+long_int_underscore := 170_141183_460469_231731_687303_715884_105727
+
+float_no_post := 0.
+float_simple := 72.40
+float_leading_zero := 072.40
+float_e := 1.e+0
+float_e_neg := 6.67428e-11
+float_e_no_decimal := 1E6
+float_no_pre := .25
+float_e_no_pre := .12345E+5
+float_underscore := 1_5.
+float_underscore_in_e := 0.15e+0_2
+
+float_hex_p := 0x1p-2
+float_hex_p_no_post := 0x2.p10
+float_hex_p_sign := 0x1.Fp+0
+float_hex_p_neg := 0X.8p-0
+float_hex_underscore := 0X_1FFFP-16
+
+complex_zero := 0i
+complex_leading_zero := 0123i
+complex_octal := 0o123i
+complex_hex := 0xabci
+complex_float_zero := 0.i
+complex_float_simple := 2.71828i
+complex_float_e := 1.e+0i
+complex_float_e_neg := 6.67428e-11i
+complex_float_e_no_decimal := 1E6i
+complex_float_no_pre := .25i
+complex_float_e_no_pre := .12345E+5i
+complex_float_hex_p := 0x1p-2i
+
+-- Non-numbers
+
+identifier := _42
+trailing_underscore := 42_
+multiple_underscore := 4__2
+underscore_in_hex_prefix := 0_xBadFace
+
+float_minus_int := 0x15e-2
+no_mantissa_digits := 0x.p1
+p_exponent_on_decimal := 1p-2
+missing_p_exponent := 0x1.5e-2
+underscore_before_decimal := 1_.5
+underscore_after_decimal := 1._5
+underscore_before_e := 1.5_e1
+underscore_after_e := 1.5e_1
+trailing_underscore_in_exponent := 1.5e1_
