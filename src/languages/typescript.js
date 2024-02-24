@@ -35,11 +35,8 @@ export default function(hljs) {
     ],
     beginScope: {
       1: "keyword",
-      3: "variable"
-    },
-    end: /\{/,
-    excludeEnd: true,
-    contains: [tsLanguage.exports.CLASS_REFERENCE]
+      3: "title.class"
+    }
   };
   const INTERFACE = {
     beginKeywords: 'interface',
