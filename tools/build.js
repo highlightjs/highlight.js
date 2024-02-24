@@ -60,7 +60,7 @@
 
 'use strict';
 
-const commander = require('commander');
+const { program } = require('commander');
 const path = require('path');
 const { clean } = require("./lib/makestuff.js");
 const log = (...args) => console.log(...args);
@@ -68,7 +68,7 @@ const log = (...args) => console.log(...args);
 const TARGETS = ["cdn", "browser", "node"];
 const dir = {};
 
-commander
+program
   .usage('[options] [<language>...]')
   .option('-n, --no-minify', 'Disable minification')
   .option('-ne, --no-esm', 'Disable building ESM')
@@ -78,7 +78,7 @@ commander
     'browser')
   .parse(process.argv);
 
-const TARGET = commander.opts().target.toLowerCase();
+const TARGET = program.opts().target.toLowerCase();
 
 dir.root = path.dirname(__dirname);
 dir.buildRoot = path.join(dir.root, 'build');
@@ -87,7 +87,7 @@ async function doTarget(target, buildDir) {
   const build = require(`./build_${target}`);
   process.env.BUILD_DIR = buildDir;
   await clean(buildDir);
-  await build.build({ languages: commander.args, minify: commander.opts().minify, esm: commander.opts().esm });
+  await build.build({ languages: program.args, minify: program.opts().minify, esm: program.opts().esm });
 }
 
 async function doBuild() {
