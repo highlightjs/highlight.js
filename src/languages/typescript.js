@@ -67,6 +67,13 @@ export default function(hljs) {
     "enum",
     "override"
   ];
+
+  /*
+    namespace is a TS keyword but it's fine to use it as a variable name too.
+    const message = 'foo';
+    const namespace = 'bar';
+  */
+
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
