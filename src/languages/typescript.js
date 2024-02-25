@@ -55,7 +55,7 @@ export default function(hljs) {
   };
   const TS_SPECIFIC_KEYWORDS = [
     "type",
-    "namespace",
+    // "namespace",
     "interface",
     "public",
     "private",
