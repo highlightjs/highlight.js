@@ -1,0 +1,4 @@
+
+            <span class="hljs-keyword">const</span> message = <span class="hljs-string">&#x27;foo&#x27;</span>;
+            <span class="hljs-keyword">const</span> namespace = <span class="hljs-string">&#x27;bar&#x27;</span>;
+            <span class="hljs-keyword">function</span> <span class="hljs-title function_">baz</span>(<span class="hljs-params"></span>) {}
