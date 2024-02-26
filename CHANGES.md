@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(cpp) Keywords followed by parens are treated as built_in[Md Saad Akhtar][]
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
@@ -96,7 +97,6 @@ New Grammars:
 - added 3rd party Ballerina grammar to SUPPORTED_LANGUAGES [Yasith Deelaka][]
 
 Core Grammars:
-
 - fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]

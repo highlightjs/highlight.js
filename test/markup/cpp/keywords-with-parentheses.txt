@@ -1,0 +1,93 @@
+alignas(16) char aligned_buffer[1024];
+alignof(decltype(aligned_buffer))
+asm("movl $1, %eax");
+try {
+    throw std::runtime_error("An exception occurred");
+} catch (const std::exception& e) {
+    std::cout << "Caught exception: " << e.what() << std::endl;
+}
+const int* p = nullptr;
+int* mutable_p = const_cast<int*>(p);
+int x = 5;
+decltype(x) y = 10;
+Animal* animal = new Dog();
+if (Dog* dog = dynamic_cast<Dog*>(animal)) {
+    std::cout << "Dynamic cast successful" << std::endl;
+} else {
+    std::cout << "Dynamic cast failed" << std::endl;
+}
+int add(int a, int b) noexcept {
+  return a + b;
+}
+if (noexcept(add(1, 2))) {
+  // The add function will not throw an exception.
+} else {
+  // The add function may throw an exception.
+}
+int value = 10;
+double* ptr = reinterpret_cast<double*>(&value);
+std::cout << "Size of int: " << sizeof(int) << " bytes" << std::endl;
+static_assert(sizeof(int) == 4, "int must be 4 bytes");
+float z = static_cast<float>(10);
+int choice = 2;
+switch(choice) {
+    case 1:
+        std::cout << "Choice is 1" << std::endl;
+        break;
+    case 2:
+        std::cout << "Choice is 2" << std::endl;
+        break;
+    default:
+        std::cout << "Choice is not 1 or 2" << std::endl;
+}
+std::cout << "Type of x: " << typeid(x).name() << std::endl;
+int i = 0;
+while(i < 5) {
+    std::cout << "Iteration " << i << std::endl;
+    i++;
+}
+// requires
+template<class T>
+concept dereferenceable =
+  requires { typename iter_value_t<I>; } and
+  requires(I i) {
+    *i;
+  };
+
+// explicit
+template<class T>
+struct S {
+  explicit(weakly_incrementable<T>) S();
+};
+
+// auto, operators
+int main()
+{
+  auto x = auto(0);
+  x bitand_eq x;   // needs to be added too
+  x bitand_eq (x);
+  x bitor_eq x;    // needs to be added too
+  x bitor_eq (x);
+  x xor x;
+  x xor (x);
+  x and x;
+  x and (x);
+  x or x;
+  x or (x);
+  x bitand x;
+  x bitand (x);
+  x bitor x;
+  x bitor (x);
+  x not_eq x;
+  x not_eq (x);
+  not x;
+  not (x);
+  compl x;
+  compl (x);
+  co_await x;
+  co_await (x);
+  co_return x;
+  co_return (x);
+  co_yield x;
+  co_yield (x);
+}
