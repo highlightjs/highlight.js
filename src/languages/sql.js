@@ -445,6 +445,7 @@ export default function(hljs) {
     "upper",
     "user",
     "using",
+    "use",
     "value",
     "values",
     "value_of",
