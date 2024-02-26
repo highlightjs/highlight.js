@@ -31,6 +31,7 @@ Core Grammars:
 - fix(haxe) captures `new` keyword without capturing it within variables/class names [Cameron Taylor][]
 - fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
+- enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 
 New Grammars:
 
@@ -38,6 +39,7 @@ New Grammars:
 - added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
 - added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
 - added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
+- added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
 
 Developer Tool:
 
@@ -69,6 +71,9 @@ Themes:
 [Lisa Ugray]: https://github.com/lugray
 [TaraLei]: https://github.com/TaraLei
 [Cameron Taylor]: https://github.com/ninjamuffin99
+[Vasily Polovnyov]: https://github.com/vast
+[Arman Uguray]: https://github.com/armansito
+
 
 
 ## Version 11.9.0
@@ -95,6 +100,7 @@ New Grammars:
 
 Core Grammars:
 
+- fix(cpp) fixed highlighter break state [Md Saad Akhtar][]
 - fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]

@@ -28,10 +28,15 @@ export default function(hljs) {
     "unknown"
   ];
   const NAMESPACE = {
-    beginKeywords: 'namespace',
-    end: /\{/,
-    excludeEnd: true,
-    contains: [ tsLanguage.exports.CLASS_REFERENCE ]
+    begin: [
+      /namespace/,
+      /\s+/,
+      hljs.IDENT_RE
+    ],
+    beginScope: {
+      1: "keyword",
+      3: "title.class"
+    }
   };
   const INTERFACE = {
     beginKeywords: 'interface',
@@ -50,7 +55,7 @@ export default function(hljs) {
   };
   const TS_SPECIFIC_KEYWORDS = [
     "type",
-    "namespace",
+    // "namespace",
     "interface",
     "public",
     "private",
@@ -62,6 +67,13 @@ export default function(hljs) {
     "enum",
     "override"
   ];
+
+  /*
+    namespace is a TS keyword but it's fine to use it as a variable name too.
+    const message = 'foo';
+    const namespace = 'bar';
+  */
+
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
