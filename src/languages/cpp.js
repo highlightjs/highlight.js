@@ -428,10 +428,56 @@ export default function(hljs) {
       /(?!for)/,
       /(?!switch)/,
       /(?!while)/,
+      /(?!alignas)/,
+      /(?!alignof)/,
+      /(?!asm)/,
+      /(?!catch)/,
+      /(?!const_cast)/,
+      /(?!dynamic_cast)/,
+      /(?!noexcept)/,
+      /(?!reinterpret_cast)/,
+      /(?!sizeof)/,
+      /(?!static_assert)/,
+      /(?!static_cast)/,
+      /(?!typeid)/,
+      /(?!requires)/,
+      /(?!explicit)/,
+      /(?!case)/,
+      /(?!delete)/,
+      
+      // compound operators
+      /(?!bitand_eq)/,
+      /(?!bitor_eq)/,
+      /(?!xor_eq)/,
+      /(?!not_eq)/,
+      /(?!or_eq)/,
+      /(?!and_eq)/,
+
+      // operators
+      /(?!and)/,
+      /(?!or)/,
+      /(?!bitand)/,
+      /(?!bitor)/,
+      /(?!xor)/,
+
+      // unary operators
+      /(?!not)/,
+      /(?!compl)/,
+      /(?!co_await)/,
+      /(?!co_return)/,
+      /(?!co_yield)/,
+      
+      // Reserved types
+      /(?!int)/, 
+      /(?!char)/, 
+      /(?!double)/, 
+      /(?!float)/, 
+      /(?!bool)/,
+      /(?!auto)/,
+
       hljs.IDENT_RE,
       regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
-
   const EXPRESSION_CONTAINS = [
     FUNCTION_DISPATCH,
     PREPROCESSOR,
