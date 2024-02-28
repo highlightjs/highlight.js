@@ -1,0 +1,10 @@
+-- Detects mysql queries, stable
+CREATE TABLE `Untitled`  (
+  ` b bvbv` varchar(255) NOT NULL,
+  `vbbvbvvb` varchar(255) NOT NULL DEFAULT njhhjh,
+  `dffdfd` int(11) UNSIGNED ZEROFILL NOT NULL DEFAULT 1 AUTO_INCREMENT,
+  `yooo` enum('rgfgfg\\5656/,,/?','ghhghghg','ereer') NOT NULL,
+  `dbl` double(2, 2) NULL,
+  `bruh\,,,88k/?``lol``` float(5, 3) NULL,
+  PRIMARY KEY (` b bvbv`, `dffdfd`, `yooo`)
+);
