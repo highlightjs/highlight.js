@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- enh(js/ts) support namespaced tagged template strings [Aral Balkan][]
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
@@ -53,6 +54,7 @@ Themes:
 
 - Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
+[Aral Balkan]: https://github.com/aral
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
 [JaeBaek Lee]: https://github.com/ThinkingVincent
