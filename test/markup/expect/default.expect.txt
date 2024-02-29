@@ -1,0 +1,27 @@
+<span class="hljs-comment">##</span>
+<span class="hljs-comment"># Print out a value</span>
+<span class="hljs-comment"># \param g some value</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-keyword">proc</span><span class="hljs-title"> see</span> {g} {
+    <span class="hljs-keyword">upvar</span> <span class="hljs-variable">$g</span> a
+    <span class="hljs-keyword">puts</span> <span class="hljs-variable">$a</span>(int)
+}
+
+<span class="hljs-keyword">set</span> long(int) <span class="hljs-number">155</span>
+see long
+
+<span class="hljs-keyword">spawn</span> echo <span class="hljs-comment">;# comment</span>
+<span class="hljs-keyword">expect</span> -timeout <span class="hljs-number">5</span> {
+    -re <span class="hljs-string">&quot;hi&quot;</span> {
+        <span class="hljs-keyword">set</span> g <span class="hljs-variable">$expect_out</span>(<span class="hljs-number">1</span>,<span class="hljs-keyword">string</span>)
+        <span class="hljs-keyword">puts</span> <span class="hljs-variable">$g</span>
+    }
+}
+<span class="hljs-keyword">send</span> <span class="hljs-string">&quot;echo 55&quot;</span>
+
+<span class="hljs-keyword">interact</span> timeout <span class="hljs-number">50</span> {
+    <span class="hljs-keyword">exit</span> { <span class="hljs-keyword">exit</span> }
+}
+
+<span class="hljs-keyword">set</span> timeout <span class="hljs-number">10</span>
+<span class="hljs-keyword">expect_user</span>

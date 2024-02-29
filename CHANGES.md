@@ -39,6 +39,7 @@ New Grammars:
 - added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
 - added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
 - added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
+- added Expect grammar to SUPPORTED_LANGUAGES [Oscar Creator][]
 
 Developer Tool:
 
@@ -71,6 +72,7 @@ Themes:
 [TaraLei]: https://github.com/TaraLei
 [Vasily Polovnyov]: https://github.com/vast
 [Arman Uguray]: https://github.com/armansito
+[Oscar Creator]: https://github.com/OscarCreator
 
 
 ## Version 11.9.0

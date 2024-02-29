@@ -79,6 +79,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Elm                     | elm                    |         |
 | Erlang                  | erlang, erl            |         |
 | Excel                   | excel, xls, xlsx       |         |
+| Expect                  | exp                    |         |
 | Extempore               | extempore, xtlang, xtm | [highlightjs-xtlang](https://github.com/highlightjs/highlightjs-xtlang) |
 | F#                      | fsharp, fs, fsx, fsi, fsscript   |         |
 | FIX                     | fix                    |         |

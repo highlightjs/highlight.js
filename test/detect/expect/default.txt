@@ -1,0 +1,28 @@
+
+##
+# Print out a value
+# \param g some value
+#
+proc see {g} {
+    upvar $g a
+    puts $a(int)
+}
+
+set long(int) 155
+see long
+
+spawn echo ;# comment
+expect -timeout 5 {
+    -re "hi" {
+        set g $expect_out(1,string)
+        puts $g
+    }
+}
+send "echo 55"
+
+interact timeout 50 {
+    exit { exit }
+}
+
+set timeout 10
+expect_user 
