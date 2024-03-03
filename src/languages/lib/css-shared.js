@@ -393,6 +393,7 @@ export const ATTRIBUTES = [
   'color-interpolation-filters',
   'color-profile',
   'color-rendering',
+  'color-scheme',
   'column-count',
   'column-fill',
   'column-gap',
