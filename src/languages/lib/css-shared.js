@@ -289,6 +289,7 @@ export const PSEUDO_ELEMENTS = [
 ].sort().reverse();
 
 export const ATTRIBUTES = [
+  'accent-color',
   'align-content',
   'align-items',
   'align-self',
