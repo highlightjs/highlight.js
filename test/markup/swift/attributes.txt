@@ -5,8 +5,23 @@
 @propertyWrapper
 @SomeWrapper(value: 1.0, other: "string", bool: false)
 @resultBuilder
-@Sendable
 @unchecked
 @warn_unqualified_access
 
+@objc
+@objcMembers
+@CustomAttribute
+@Sendable
+@SendableCustom
+
 @ notAnAttribute
+
+// keywords delimited by whitespace
+@objc @objcMembers @Custom @Custom(param: "test")
+class Something {}
+
+@objc
+@objcMembers
+@Custom
+@Custom(param: "test")
+class Something {}

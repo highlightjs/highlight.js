@@ -4,6 +4,7 @@
  Contributors: Rene Saarsoo <nene@triin.net>
  Description: Couchbase query language
  Website: https://www.couchbase.com/products/n1ql
+ Category: database
  */
 
 export default function(hljs) {

@@ -1,17 +1,79 @@
 ## Version 11.10.0 (Next Release)
 
+CAVEATS / POTENTIALLY BREAKING CHANGES
+
+- Drops support for Node 16.x, which is no longer supported by Node.js.
+
 Core Grammars:
 
+- enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
+- fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
 - enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
+- fix(typescript): params types [Mohamed Ali][]
+- fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
+- fix(rust) fix for r# raw identifier not being highlighted correctly. [JaeBaek Lee][]
+- enh(rust) Adding union to be recognized as a keyword in Rust. [JaeBaek Lee][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
-- add raw string highlighting for C# 11. [Tara][]
+- fix(csharp) add raw string highlighting for C# 11. [Tara][]
+- fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
+- fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
+- enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
+- enh(delphi) add support for digit separators [Jonah Jeleniewski][]
+- enh(delphi) add support for character strings with non-decimal numerics [Jonah Jeleniewski][]
+- fix(javascript) incorrect function name highlighting [CY Fung][]
+- fix(1c) fix escaped symbols "+-;():=,[]" literals [Vitaly Barilko][]
+- fix(swift) correctly highlight generics and conformances in type definitions [Bradley Mackey][]
+- enh(swift) add package keyword [Bradley Mackey][]
+- fix(swift) ensure keyword attributes highlight correctly [Bradley Mackey][]
+- fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
+- enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
+- enh(bash) add keyword `sudo` [Alvin Joy][]
+- fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
+- enh(markdown) add entity support [David Schach][] [TaraLei][]
+- enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 
+New Grammars:
+
+- added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
+- added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
+- added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
+- added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
+- added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
+
+Developer Tool:
+
+- enh(tools): order CSS options picklist [David Schach][]
+- enh(tools): remove duplicate CSS options [David Schach][]
+- (typescript): deprecate old `highlight` API [Misha Kaletsky][]
+
+Themes:
+
+- Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
+
+[Lê Duy Quang]: https://github.com/leduyquang753
+[Mohamed Ali]: https://github.com/MohamedAli00949
+[JaeBaek Lee]: https://github.com/ThinkingVincent
 [Bradley Mackey]: https://github.com/bradleymackey
 [Kristian Ekenes]: https://github.com/ekenes
 [Aneesh Kulkarni]: https://github.com/aneesh98
 [Bruno Meneguele]: https://github.com/bmeneg
 [Tara]: https://github.com/taralei
+[Felix Uhl]: https://github.com/iFreilicht
+[nataliia-radina]: https://github.com/Nataliia-Radina
+[Robloxian Demo]: https://github.com/RobloxianDemo
+[Paul Tsnobiladzé]: https://github.com/tsnobip
+[Jonah Jeleniewski]: https://github.com/cirras
+[Josh Goebel]: https://github.com/joshgoebel
+[CY Fung]: https://github.com/cyfung1031
+[Vitaly Barilko]: https://github.com/Diversus23
+[Patrick Chiu]: https://github.com/patrick-kw-chiu
+[Alvin Joy]: https://github.com/alvinsjoy
+[Lisa Ugray]: https://github.com/lugray
+[TaraLei]: https://github.com/TaraLei
+[Vasily Polovnyov]: https://github.com/vast
+[Arman Uguray]: https://github.com/armansito
+
 
 ## Version 11.9.0
 
@@ -37,6 +99,7 @@ New Grammars:
 
 Core Grammars:
 
+- fix(cpp) fixed highlighter break state [Md Saad Akhtar][]
 - fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
 - enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
@@ -226,6 +289,7 @@ Grammars:
 [Mousetail]: https://github.com/mousetail
 [Gabriel Gonçalves]: https://github.com/KTSnowy
 [Nikita Sobolev]: https://github.com/sobolevn
+[Misha Kaletsky]: https://github.com/mmkal
 
 ## Version 11.5.0
 

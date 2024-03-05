@@ -6,4 +6,7 @@
 <span class="hljs-keyword">@attached</span>(member)
 <span class="hljs-keyword">macro</span> <span class="hljs-title function_">OptionSetMembers</span>()
 
+<span class="hljs-keyword">@attached</span>(peer, names: overloaded)
+<span class="hljs-keyword">macro</span> <span class="hljs-title function_">OptionSetMembers</span>()
+
 #myMacro()
