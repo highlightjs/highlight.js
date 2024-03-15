@@ -15,6 +15,7 @@ Core Grammars:
 - fix(rust) fix for r# raw identifier not being highlighted correctly. [JaeBaek Lee][]
 - enh(rust) Adding union to be recognized as a keyword in Rust. [JaeBaek Lee][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
+- fix(csharp) add raw string highlighting for C# 11. [Tara][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
 - enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
@@ -58,6 +59,7 @@ Themes:
 [Kristian Ekenes]: https://github.com/ekenes
 [Aneesh Kulkarni]: https://github.com/aneesh98
 [Bruno Meneguele]: https://github.com/bmeneg
+[Tara]: https://github.com/taralei
 [Felix Uhl]: https://github.com/iFreilicht
 [nataliia-radina]: https://github.com/Nataliia-Radina
 [Robloxian Demo]: https://github.com/RobloxianDemo

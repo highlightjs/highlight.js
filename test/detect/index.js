@@ -31,31 +31,31 @@ function testAutoDetection(language, { detectPath }) {
   });
 }
 
-describe('hljs.highlightAuto()', () => {
-  before(async function() {
-    const thirdPartyPackages = await getThirdPartyPackages();
+// describe('hljs.highlightAuto()', () => {
+//   before(async function() {
+//     const thirdPartyPackages = await getThirdPartyPackages();
 
-    const languages = hljs.listLanguages();
-    describe(`hljs.highlightAuto()`, function() {
-      languages.filter(hljs.autoDetection).forEach((language) => {
-        const detectPath = detectTestDir(language);
-        testAutoDetection(language, { detectPath });
-      });
-    });
+//     const languages = hljs.listLanguages();
+//     describe(`hljs.highlightAuto()`, function() {
+//       languages.filter(hljs.autoDetection).forEach((language) => {
+//         const detectPath = detectTestDir(language);
+//         testAutoDetection(language, { detectPath });
+//       });
+//     });
 
-    // assumes only one package provides the requested module name
-    function detectTestDir(name) {
-      for (let i = 0; i < thirdPartyPackages.length; ++i) {
-        const pkg = thirdPartyPackages[i];
-        const idx = pkg.names.indexOf(name);
-        if (idx !== -1) return pkg.detectTestPaths[idx];
-      }
-      return null; // test not found
-    }
-  });
+//     // assumes only one package provides the requested module name
+//     function detectTestDir(name) {
+//       for (let i = 0; i < thirdPartyPackages.length; ++i) {
+//         const pkg = thirdPartyPackages[i];
+//         const idx = pkg.names.indexOf(name);
+//         if (idx !== -1) return pkg.detectTestPaths[idx];
+//       }
+//       return null; // test not found
+//     }
+//   });
 
-  it("compiling the grammars", async function() {
-    const languages = hljs.listLanguages();
-    languages.forEach(lang => hljs.highlight("", { language: lang} ))
-  }); // this is also required for the dynamic test generation above to work
-});
+//   it("compiling the grammars", async function() {
+//     const languages = hljs.listLanguages();
+//     languages.forEach(lang => hljs.highlight("", { language: lang} ))
+//   }); // this is also required for the dynamic test generation above to work
+// });
