@@ -232,6 +232,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts, tsx, mts, cts |         |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
+| Unison                  | unison, u              | [highlightjs-unison](https://github.com/highlightjs/highlightjs-unison) |
 | VB.Net                  | vbnet, vb              |         |
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |
 | VBScript                | vbscript, vbs          |         |
