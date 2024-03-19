@@ -32,6 +32,7 @@ Core Grammars:
 - fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
+- enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
 
 New Grammars:
 
@@ -75,6 +76,7 @@ Themes:
 [Vasily Polovnyov]: https://github.com/vast
 [Arman Uguray]: https://github.com/armansito
 [Rúnar Bjarnason]: https://github.com/runarorama
+[Carl Räfting]: https://github.com/carlrafting
 
 
 ## Version 11.9.0
