@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- enh(gml) updated to latest language version [gnysek][]
 - enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
 - enh(js/ts) support namespaced tagged template strings [Aral Balkan][]
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
@@ -56,6 +57,7 @@ Themes:
 
 - Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
+[gnysek]: https://github.com/gnysek
 [Eisenwave]: https://github.com/Eisenwave 
 [Aral Balkan]: https://github.com/aral
 [Lê Duy Quang]: https://github.com/leduyquang753
@@ -203,6 +205,7 @@ Core Grammars:
 [AdamRaichu]: https://github.com/AdamRaichu
 [Ali Ukani]: https://github.com/ali
 [Jeroen van Vianen]: https://github.com/morinel
+[gnysek]: https://github.com/gnysek
 [Rijenkii]: https://github.com/rijenkii
 [faga295]: https://github.com/faga295
 [rvanasa]: https://github.com/rvanasa
