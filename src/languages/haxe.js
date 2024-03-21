@@ -89,7 +89,7 @@ export default function(hljs) {
       },
       {
         className: 'type', // instantiation
-        begin: /new */,
+        beginKeywords: 'new',
         end: /\W/,
         excludeBegin: true,
         excludeEnd: true

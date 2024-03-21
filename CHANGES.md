@@ -30,6 +30,7 @@ Core Grammars:
 - fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
 - enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
 - enh(bash) add keyword `sudo` [Alvin Joy][]
+- fix(haxe) captures `new` keyword without capturing it within variables/class names [Cameron Taylor][]
 - fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
@@ -75,10 +76,12 @@ Themes:
 [Alvin Joy]: https://github.com/alvinsjoy
 [Lisa Ugray]: https://github.com/lugray
 [TaraLei]: https://github.com/TaraLei
+[Cameron Taylor]: https://github.com/ninjamuffin99
 [Vasily Polovnyov]: https://github.com/vast
 [Arman Uguray]: https://github.com/armansito
 [Rúnar Bjarnason]: https://github.com/runarorama
 [Carl Räfting]: https://github.com/carlrafting
+
 
 
 ## Version 11.9.0
