@@ -70,7 +70,7 @@ export default function(hljs) {
     end: /$/,
     keywords: { keyword:
         'if else elif endif define undef warning error line '
-        + 'pragma _Pragma ifdef ifndef include' },
+        + 'pragma _Pragma ifdef ifndef elifdef elifndef include' },
     contains: [
       {
         begin: /\\\n/,
@@ -148,14 +148,26 @@ export default function(hljs) {
     "char",
     "void",
     "_Bool",
+    "_BitInt",
     "_Complex",
     "_Imaginary",
     "_Decimal32",
     "_Decimal64",
+    "_Decimal96",
     "_Decimal128",
+    "_Decimal64x",
+    "_Decimal128x",
+    "_Float16",
+    "_Float32",
+    "_Float64",
+    "_Float128",
+    "_Float32x",
+    "_Float64x",
+    "_Float128x",
     // modifiers
     "const",
     "static",
+    "constexpr",
     // aliases
     "complex",
     "bool",
