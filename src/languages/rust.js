@@ -7,15 +7,22 @@ Category: common, system
 */
 
 /** @type LanguageFn */
+
 export default function(hljs) {
   const regex = hljs.regex;
+  // ============================================
+  // Added to support the r# keyword, which is a raw identifier in Rust.
+  const RAW_IDENTIFIER = /(r#)?/;
+  const UNDERSCORE_IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.UNDERSCORE_IDENT_RE);
+  const IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.IDENT_RE);
+  // ============================================
   const FUNCTION_INVOKE = {
     className: "title.function.invoke",
     relevance: 0,
     begin: regex.concat(
       /\b/,
-      /(?!let\b)/,
-      hljs.IDENT_RE,
+      /(?!let|for|while|if|else|match\b)/,
+      IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
   const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
@@ -64,6 +71,7 @@ export default function(hljs) {
     "try",
     "type",
     "typeof",
+    "union",
     "unsafe",
     "unsized",
     "use",
@@ -216,7 +224,7 @@ export default function(hljs) {
         begin: [
           /fn/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
@@ -231,7 +239,10 @@ export default function(hljs) {
           {
             className: 'string',
             begin: /"/,
-            end: /"/
+            end: /"/,
+            contains: [
+              hljs.BACKSLASH_ESCAPE
+            ]
           }
         ]
       },
@@ -240,7 +251,7 @@ export default function(hljs) {
           /let/,
           /\s+/,
           /(?:mut\s+)?/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
@@ -253,7 +264,7 @@ export default function(hljs) {
         begin: [
           /for/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE,
+          UNDERSCORE_IDENT_RE,
           /\s+/,
           /in/
         ],
@@ -267,7 +278,7 @@ export default function(hljs) {
         begin: [
           /type/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",
@@ -278,7 +289,7 @@ export default function(hljs) {
         begin: [
           /(?:trait|enum|struct|union|impl|for)/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
         className: {
           1: "keyword",

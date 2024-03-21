@@ -2,6 +2,7 @@
 Language: TP
 Author: Jay Strybis <jay.strybis@gmail.com>
 Description: FANUC TP programming language (TPP).
+Category: hardware
 */
 
 export default function(hljs) {

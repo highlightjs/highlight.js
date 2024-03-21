@@ -5,6 +5,7 @@
   <span class="hljs-type">int</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; N;
   <span class="hljs-type">int</span> K;
   <span class="hljs-type">matrix</span>[N, K] x;
+  <span class="hljs-type">complex_row_vector</span>[K] z;
 }
 <span class="hljs-title">transformed</span> <span class="hljs-title">data</span> {
     <span class="hljs-type">complex</span> zi = <span class="hljs-number">1</span>+<span class="hljs-number">3.14i</span>;
@@ -16,13 +17,14 @@
   <span class="hljs-type">array</span>[K - <span class="hljs-number">1</span>] <span class="hljs-type">real</span> mu;
   <span class="hljs-type">array</span>[K + <span class="hljs-number">1</span>] <span class="hljs-type">real</span>&lt;<span class="hljs-keyword">lower</span>=<span class="hljs-number">0</span>&gt; sigma;
   <span class="hljs-type">cholesky_factor_corr</span>[K] L;
+  <span class="hljs-type">tuple</span>(<span class="hljs-type">real</span>, <span class="hljs-type">tuple</span>(<span class="hljs-type">real</span>, <span class="hljs-type">real</span>)) t;
 }
 <span class="hljs-title">model</span> {
   <span class="hljs-keyword">target</span> += <span class="hljs-built_in">normal_lpdf</span>(x[ : , <span class="hljs-number">1</span>] | mu[<span class="hljs-number">1</span>], sigma[<span class="hljs-number">1</span>]);
   <span class="hljs-keyword">target</span> += <span class="hljs-built_in">gumbel_lpdf</span>(x[ : , <span class="hljs-number">2</span>] | mu[<span class="hljs-number">2</span>], sigma[<span class="hljs-number">2</span>]);
   <span class="hljs-keyword">target</span> += <span class="hljs-built_in">lognormal_lpdf</span>(x[ : , <span class="hljs-number">3</span>] | mu[<span class="hljs-number">3</span>], sigma[<span class="hljs-number">3</span>]);
   <span class="hljs-keyword">target</span> += <span class="hljs-built_in">weibull_lpdf</span>(x[ : , <span class="hljs-number">4</span>] | sigma[<span class="hljs-number">4</span>], sigma[<span class="hljs-number">5</span>]);
-  
+
   {
     <span class="hljs-type">matrix</span>[K, N] y;
     <span class="hljs-keyword">for</span> (n <span class="hljs-keyword">in</span> <span class="hljs-number">1</span> : N) {

@@ -92,6 +92,7 @@ export const keywords = [
   'operator',
   'optional', // contextual
   'override', // contextual
+  'package',
   'postfix', // contextual
   'precedencegroup',
   'prefix', // contextual
@@ -169,7 +170,6 @@ export const numberSignKeywords = [
   '#line',
   '#selector',
   '#sourceLocation',
-  '#warn_unqualified_access',
   '#warning'
 ];
 
@@ -283,13 +283,16 @@ export const typeIdentifier = concat(/[A-Z]/, identifierCharacter, '*');
 
 // Built-in attributes, which are highlighted as keywords.
 // @available is handled separately.
+// https://docs.swift.org/swift-book/documentation/the-swift-programming-language/attributes
 export const keywordAttributes = [
+  'attached',
   'autoclosure',
   concat(/convention\(/, either('swift', 'block', 'c'), /\)/),
   'discardableResult',
   'dynamicCallable',
   'dynamicMemberLookup',
   'escaping',
+  'freestanding',
   'frozen',
   'GKInspectable',
   'IBAction',
@@ -314,7 +317,8 @@ export const keywordAttributes = [
   'UIApplicationMain',
   'unchecked',
   'unknown',
-  'usableFromInline'
+  'usableFromInline',
+  'warn_unqualified_access'
 ];
 
 // Contextual keywords used in @available and #(un)available.

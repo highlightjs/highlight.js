@@ -24,7 +24,7 @@ const getDefaultHeader = () => ({
 function buildHeader(args = getDefaultHeader()) {
   return "/*!\n"
   + `  Highlight.js v${args.version} (git: ${args.git_sha})\n`
-  + `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n`
+  + `  (c) ${config.copyrightYears} ${args.author} and other contributors\n`
   + `  License: ${args.license}\n`
   + ` */`;
 }

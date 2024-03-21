@@ -19,13 +19,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        # All 'LTS' and 'Current' versions (https://nodejs.org/en/about/previous-releases)
+        node-version: [18.x, 20.x, 21.x]
         build-how: ["node", "browser", "browser -n", "cdn :common"]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
@@ -52,5 +53,5 @@ jobs:
     - if: contains(matrix.build-how, 'node')
       name: Test Node.js build is "use strict" safe
       run: |
-        ./node_modules/.bin/rollup -c test/builds/rollup_import_via_commonjs.js
+        ./node_modules/.bin/rollup -c test/builds/rollup_import_via_commonjs.mjs
         node build/bundle.js
