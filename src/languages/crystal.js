@@ -2,6 +2,7 @@
 Language: Crystal
 Author: TSUYUSATO Kitsune <make.just.on@gmail.com>
 Website: https://crystal-lang.org
+Category: system
 */
 
 /** @type LanguageFn */

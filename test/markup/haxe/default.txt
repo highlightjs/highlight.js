@@ -175,4 +175,10 @@ class Main extends BaseClass implements SomeFunctionality {
         if( lo < j ) quicksort( lo, j );
         if( i < hi ) quicksort( i, hi );
     }
+
+    function generateNewArray(newArray:Array):Void {
+        var i = newArray;
+        var array = new Array();
+    }
+
 }

@@ -3,6 +3,7 @@ Language: Batch file (DOS)
 Author: Alexander Makarov <sam@rmcreative.ru>
 Contributors: Anton Kochkov <anton.kochkov@gmail.com>
 Website: https://en.wikipedia.org/wiki/Batch_file
+Category: scripting
 */
 
 /** @type LanguageFn */

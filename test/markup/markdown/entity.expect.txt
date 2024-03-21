@@ -1,0 +1,3 @@
+<span class="hljs-bullet">-</span> named entities: <span class="hljs-literal">&amp;amp;</span>, <span class="hljs-literal">&amp;frac34;</span>, <span class="hljs-literal">&amp;AElig;</span>
+<span class="hljs-bullet">-</span> decimal entities: <span class="hljs-literal">&amp;#65;</span> <span class="hljs-literal">&amp;#164;</span>
+<span class="hljs-bullet">-</span> hexadecimal entities: <span class="hljs-literal">&amp;#xFFFD;</span> <span class="hljs-literal">&amp;#x48;</span>.

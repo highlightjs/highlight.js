@@ -1,11 +1,55 @@
-<span class="hljs-comment">/* digit separators */</span>
-<span class="hljs-type">int</span> number = <span class="hljs-number">2&#x27;555&#x27;555&#x27;555</span>; <span class="hljs-comment">// digit separators</span>
-<span class="hljs-type">float</span> exponentFloat = <span class="hljs-number">.123&#x27;456e3&#x27;000</span>; <span class="hljs-comment">// digit separators in floats</span>
-<span class="hljs-type">float</span> suffixed = <span class="hljs-number">3.000&#x27;001&#x27;234f</span> <span class="hljs-comment">// digit separators in suffixed numbers</span>
-<span class="hljs-type">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> }; <span class="hljs-comment">// make sure digit separators don&#x27;t mess up chars</span>
-<span class="hljs-type">float</span> negative = <span class="hljs-number">-123.0f</span>; <span class="hljs-comment">// negative floating point numbers</span>
+<span class="hljs-comment">/* Floating-point literals. */</span>
+<span class="hljs-comment">// Decimal.</span>
+<span class="hljs-number">1.</span>
+<span class="hljs-number">+12.</span>
+<span class="hljs-number">-1&#x27;234.</span>
+<span class="hljs-number">1.2</span>
+<span class="hljs-number">1.234&#x27;5</span>
+<span class="hljs-number">1&#x27;234.567&#x27;8</span>
+<span class="hljs-number">1&#x27;234.567&#x27;8e-9</span>
+<span class="hljs-number">1&#x27;234.567&#x27;8E9&#x27;0</span>
+<span class="hljs-number">1234e56</span>
+<span class="hljs-number">1&#x27;234e5&#x27;6</span>
+<span class="hljs-comment">// Hexadecimal.</span>
+<span class="hljs-number">0x1p2</span>
+<span class="hljs-number">+0x1.p2</span>
+<span class="hljs-number">-0X1A.P2</span>
+<span class="hljs-number">0x1A&#x27;2B3C.p4</span>
+<span class="hljs-number">0x1.Ap2</span>
+<span class="hljs-number">0x1A.2B3C&#x27;4Dp+5</span>
+<span class="hljs-number">0x1A&#x27;2b3C.4D5e&#x27;6Fp7&#x27;8</span>
+<span class="hljs-comment">// Literal suffixes.</span>
+<span class="hljs-number">1.F</span> <span class="hljs-number">1.F16</span> <span class="hljs-number">1.F32</span> <span class="hljs-number">1.f64</span> <span class="hljs-number">1.f128</span>
+<span class="hljs-number">2.BF16</span> <span class="hljs-number">2.bf16</span>
+<span class="hljs-number">0X3&#x27;4.P5L</span> <span class="hljs-number">0x3&#x27;4.p5l</span>
 
-<span class="hljs-comment">/* literal suffixes: these are to be highlighted as numbers */</span>
-<span class="hljs-number">90ll</span> <span class="hljs-number">90LL</span> <span class="hljs-number">90u</span> <span class="hljs-number">90U</span> <span class="hljs-number">90l</span> <span class="hljs-number">90L</span>
-<span class="hljs-number">90ul</span> <span class="hljs-number">90ul</span> <span class="hljs-number">90Ul</span> <span class="hljs-number">90UL</span> <span class="hljs-number">90lu</span> <span class="hljs-number">90lU</span> <span class="hljs-number">90Lu</span> <span class="hljs-number">90LU</span>
-<span class="hljs-number">90ull</span> <span class="hljs-number">90uLL</span> <span class="hljs-number">90Ull</span> <span class="hljs-number">90ULL</span> <span class="hljs-number">90llu</span> <span class="hljs-number">90llU</span> <span class="hljs-number">90LLu</span> <span class="hljs-number">90LLU</span>
+<span class="hljs-comment">/* Integer literals. */</span>
+<span class="hljs-comment">// Binary.</span>
+<span class="hljs-number">+0b1</span>
+<span class="hljs-number">0B01</span>
+<span class="hljs-number">-0b10&#x27;1011</span>
+<span class="hljs-comment">// Hexadecimal.</span>
+<span class="hljs-number">+0x1</span>
+<span class="hljs-number">0X1A</span>
+<span class="hljs-number">-0x1A&#x27;2b3C</span>
+<span class="hljs-comment">// Octal.</span>
+<span class="hljs-number">+01</span>
+<span class="hljs-number">012</span>
+<span class="hljs-number">-0123&#x27;4567</span>
+<span class="hljs-comment">// Decimal.</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">+1</span>
+<span class="hljs-number">12</span>
+<span class="hljs-number">-123&#x27;456&#x27;789</span>
+<span class="hljs-comment">// Literal suffixes.</span>
+<span class="hljs-number">0B1U</span> <span class="hljs-number">0b1u</span>
+<span class="hljs-number">0X2L</span> <span class="hljs-number">0x2l</span>
+<span class="hljs-number">03LL</span> <span class="hljs-number">03ll</span>
+<span class="hljs-number">4UL</span> <span class="hljs-number">4Ul</span> <span class="hljs-number">4uL</span> <span class="hljs-number">4ul</span>
+<span class="hljs-number">5LU</span> <span class="hljs-number">5Lu</span> <span class="hljs-number">5lU</span> <span class="hljs-number">5lu</span>
+<span class="hljs-number">6ULL</span> <span class="hljs-number">6Ull</span> <span class="hljs-number">6uLL</span> <span class="hljs-number">6ull</span>
+<span class="hljs-number">7LLU</span> <span class="hljs-number">7LLu</span> <span class="hljs-number">7llU</span> <span class="hljs-number">7llu</span>
+<span class="hljs-number">8ZU</span> <span class="hljs-number">8Zu</span> <span class="hljs-number">8zU</span> <span class="hljs-number">8zu</span>
+<span class="hljs-number">9&#x27;0UZ</span> <span class="hljs-number">9&#x27;0Uz</span> <span class="hljs-number">9&#x27;0uZ</span> <span class="hljs-number">9&#x27;0uz</span>
+
+<span class="hljs-type">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> }; <span class="hljs-comment">// Make sure digit separators don&#x27;t mess up chars.</span>

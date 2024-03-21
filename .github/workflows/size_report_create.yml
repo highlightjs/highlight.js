@@ -39,7 +39,7 @@ jobs:
           echo "$REPORT" > size_report/report.md
 
       - name: Save Size Report as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: size_report
           path: ./size_report

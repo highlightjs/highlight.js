@@ -4,6 +4,7 @@ Description: Haxe is an open source toolkit based on a modern, high level, stric
 Author: Christopher Kaster <ikasoki@gmail.com> (Based on the actionscript.js language file by Alexander Myadzel)
 Contributors: Kenton Hamaluik <kentonh@gmail.com>
 Website: https://haxe.org
+Category: system
 */
 
 export default function(hljs) {
@@ -88,7 +89,7 @@ export default function(hljs) {
       },
       {
         className: 'type', // instantiation
-        begin: /new */,
+        beginKeywords: 'new',
         end: /\W/,
         excludeBegin: true,
         excludeEnd: true

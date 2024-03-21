@@ -7,3 +7,23 @@ function offsetPopulation(offset){
    var myLayer = FeatureSet($map, ["POPULATION", "ELECTION-DATA"]);
    return popDensity;
 }
+
+Distance($feedfeature, $originalFeature);
+
+var startDate = DateOnly(1996,11,10);
+var endDate = DateOnly();
+var age = DateDiff(endDate, startDate, 'years');
+Floor(age);
+
+var natlPizzaDay = Date(2024, 1, 9, 0, 0, 0, 0, "America/Los_Angeles");
+TimeZone(natlPizzaDay);
+
+var n = 0;
+for(var i=1; i<100; i++) {
+  if (i % 2 == 1) {
+    continue;
+  }
+  n+=i;
+}
+
+return n;

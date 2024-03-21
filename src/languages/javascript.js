@@ -133,7 +133,7 @@ export default function(hljs) {
     contains: [] // defined later
   };
   const HTML_TEMPLATE = {
-    begin: 'html`',
+    begin: '\.?html`',
     end: '',
     starts: {
       end: '`',
@@ -146,7 +146,7 @@ export default function(hljs) {
     }
   };
   const CSS_TEMPLATE = {
-    begin: 'css`',
+    begin: '\.?css`',
     end: '',
     starts: {
       end: '`',
@@ -159,7 +159,7 @@ export default function(hljs) {
     }
   };
   const GRAPHQL_TEMPLATE = {
-    begin: 'gql`',
+    begin: '\.?gql`',
     end: '',
     starts: {
       end: '`',
@@ -256,7 +256,7 @@ export default function(hljs) {
   const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
     {
-      begin: /\(/,
+      begin: /(\s*)\(/,
       end: /\)/,
       keywords: KEYWORDS,
       contains: ["self"].concat(SUBST_AND_COMMENTS)
@@ -264,7 +264,8 @@ export default function(hljs) {
   ]);
   const PARAMS = {
     className: 'params',
-    begin: /\(/,
+    // convert this to negative lookbehind in v12
+    begin: /(\s*)\(/, // to match the parms with 
     end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
@@ -387,8 +388,8 @@ export default function(hljs) {
         ...ECMAScript.BUILT_IN_GLOBALS,
         "super",
         "import"
-      ]),
-      IDENT_RE, regex.lookahead(/\(/)),
+      ].map(x => `${x}\\s*\\(`)),
+      IDENT_RE, regex.lookahead(/\s*\(/)),
     className: "title.function",
     relevance: 0
   };
@@ -509,7 +510,7 @@ export default function(hljs) {
                     skip: true
                   },
                   {
-                    begin: /\(/,
+                    begin: /(\s*)\(/,
                     end: /\)/,
                     excludeBegin: true,
                     excludeEnd: true,

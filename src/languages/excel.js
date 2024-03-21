@@ -3,6 +3,7 @@ Language: Excel formulae
 Author: Victor Zhou <OiCMudkips@users.noreply.github.com>
 Description: Excel formulae
 Website: https://products.office.com/en-us/excel/
+Category: enterprise
 */
 
 /** @type LanguageFn */
