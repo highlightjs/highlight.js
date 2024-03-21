@@ -289,6 +289,7 @@ export const PSEUDO_ELEMENTS = [
 ].sort().reverse();
 
 export const ATTRIBUTES = [
+  'accent-color',
   'align-content',
   'align-items',
   'align-self',
@@ -303,6 +304,7 @@ export const ATTRIBUTES = [
   'animation-name',
   'animation-play-state',
   'animation-timing-function',
+  'appearance',
   'backface-visibility',
   'background',
   'background-attachment',
@@ -393,6 +395,7 @@ export const ATTRIBUTES = [
   'color-interpolation-filters',
   'color-profile',
   'color-rendering',
+  'color-scheme',
   'column-count',
   'column-fill',
   'column-gap',
@@ -586,7 +589,9 @@ export const ATTRIBUTES = [
   'rest-after',
   'rest-before',
   'right',
+  'rotate',
   'row-gap',
+  'scale',
   'scroll-margin',
   'scroll-margin-block',
   'scroll-margin-block-end',
@@ -665,6 +670,7 @@ export const ATTRIBUTES = [
   'transition-duration',
   'transition-property',
   'transition-timing-function',
+  'translate',
   'unicode-bidi',
   'vector-effect',
   'vertical-align',

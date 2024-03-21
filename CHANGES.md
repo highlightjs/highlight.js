@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- enh(js/ts) support namespaced tagged template strings [Aral Balkan][]
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
 - fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
 - fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
@@ -15,6 +16,7 @@ Core Grammars:
 - fix(rust) fix for r# raw identifier not being highlighted correctly. [JaeBaek Lee][]
 - enh(rust) Adding union to be recognized as a keyword in Rust. [JaeBaek Lee][]
 - fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
+- fix(csharp) add raw string highlighting for C# 11. [Tara][]
 - fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
 - fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
 - enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
@@ -32,6 +34,7 @@ Core Grammars:
 - fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
+- enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
 
 New Grammars:
 
@@ -40,6 +43,7 @@ New Grammars:
 - added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
 - added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
 - added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
+- added 3rd party Unison grammar to SUPPORTED_LANGUAGES [Rúnar Bjarnason][]
 
 Developer Tool:
 
@@ -51,6 +55,7 @@ Themes:
 
 - Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
+[Aral Balkan]: https://github.com/aral
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
 [JaeBaek Lee]: https://github.com/ThinkingVincent
@@ -58,6 +63,7 @@ Themes:
 [Kristian Ekenes]: https://github.com/ekenes
 [Aneesh Kulkarni]: https://github.com/aneesh98
 [Bruno Meneguele]: https://github.com/bmeneg
+[Tara]: https://github.com/taralei
 [Felix Uhl]: https://github.com/iFreilicht
 [nataliia-radina]: https://github.com/Nataliia-Radina
 [Robloxian Demo]: https://github.com/RobloxianDemo
@@ -73,6 +79,8 @@ Themes:
 [Cameron Taylor]: https://github.com/ninjamuffin99
 [Vasily Polovnyov]: https://github.com/vast
 [Arman Uguray]: https://github.com/armansito
+[Rúnar Bjarnason]: https://github.com/runarorama
+[Carl Räfting]: https://github.com/carlrafting
 
 
 

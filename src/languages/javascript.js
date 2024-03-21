@@ -133,7 +133,7 @@ export default function(hljs) {
     contains: [] // defined later
   };
   const HTML_TEMPLATE = {
-    begin: 'html`',
+    begin: '\.?html`',
     end: '',
     starts: {
       end: '`',
@@ -146,7 +146,7 @@ export default function(hljs) {
     }
   };
   const CSS_TEMPLATE = {
-    begin: 'css`',
+    begin: '\.?css`',
     end: '',
     starts: {
       end: '`',
@@ -159,7 +159,7 @@ export default function(hljs) {
     }
   };
   const GRAPHQL_TEMPLATE = {
-    begin: 'gql`',
+    begin: '\.?gql`',
     end: '',
     starts: {
       end: '`',
