@@ -1,7 +1,7 @@
 import HTMLRenderer from './html_renderer.js';
 
-/** @typedef {{scope?: string, language?: string, sublanguage?: boolean, children: Node[]} | string} Node */
-/** @typedef {{scope?: string, language?: string, sublanguage?: boolean, children: Node[]} } DataNode */
+/** @typedef {{scope?: string, language?: string, children: Node[]} | string} Node */
+/** @typedef {{scope?: string, language?: string, children: Node[]} } DataNode */
 /** @typedef {import('highlight.js').Emitter} Emitter */
 /**  */
 

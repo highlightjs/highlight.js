@@ -9,3 +9,20 @@
       <span class="hljs-subst">${speed}</span>.`</span>;
   }
 }
+
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">TrainProps</span> {
+  <span class="hljs-attr">speed</span>: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">cost</span>: <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Train</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Vehicle</span> {
+  <span class="hljs-title function_">constructor</span> (<span class="hljs-params"><span class="hljs-attr">trainData</span>: <span class="hljs-title class_">TrainProps</span></span>) {
+    <span class="hljs-variable language_">super</span>(trainData.<span class="hljs-property">speed</span>);
+
+    <span class="hljs-keyword">var</span> c = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;cost&#x27;</span>);
+    <span class="hljs-variable language_">this</span>[c] = trainData.<span class="hljs-property">cost</span>;
+
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">intro</span> = <span class="hljs-string">`This is a car runs at
+      <span class="hljs-subst">${trainData.speed}</span>.`</span>;
+  }
+}

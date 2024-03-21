@@ -1,5 +1,5 @@
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">14</span>;
-<span class="hljs-keyword">let</span> i = <span class="hljs-number">(-14)</span>;
+<span class="hljs-keyword">let</span> i = (-<span class="hljs-number">14</span>);
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">1000</span>;
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">0b100</span>;
 <span class="hljs-keyword">let</span> i = <span class="hljs-number">0x1FF</span>;
@@ -29,13 +29,13 @@
 <span class="hljs-keyword">let</span> b = <span class="hljs-literal">true</span><span class="hljs-operator"> || </span><span class="hljs-literal">false</span>;
 <span class="hljs-keyword">let</span> l = <span class="hljs-literal">[]</span>;
 <span class="hljs-keyword">let</span> a = <span class="hljs-literal">[||]</span>;
-<span class="hljs-keyword">let</span> arr = <span class="hljs-literal">[|<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>|]</span>;
-<span class="hljs-keyword">let</span> b = <span class="hljs-literal">[<span class="hljs-identifier">item1</span>, <span class="hljs-identifier">item2</span>, <span class="hljs-operator">...</span><span class="hljs-identifier">theRest</span>]</span>;
+<span class="hljs-keyword">let</span> arr = [|<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>|];
+<span class="hljs-keyword">let</span> b = [item1, item2, ...theRest];
 <span class="hljs-keyword">let</span> <span class="hljs-literal">()</span> = ignore(b);
 
 <span class="hljs-keyword">let</span> str = <span class="hljs-string">&quot;a&quot;</span><span class="hljs-operator"> ++ </span><span class="hljs-string">&quot;b&quot;</span>;
 
-<span class="hljs-keyword">let</span> c = <span class="hljs-character">&#x27;a&#x27;</span>;
-<span class="hljs-keyword">let</span> c = <span class="hljs-character">&#x27;\xFF&#x27;</span>;
-<span class="hljs-keyword">let</span> c = <span class="hljs-character">&#x27;\128&#x27;</span>;
-<span class="hljs-keyword">let</span> c = <span class="hljs-character">&#x27;\n&#x27;</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-string">&#x27;a&#x27;</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-string">&#x27;\xFF&#x27;</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-string">&#x27;\128&#x27;</span>;
+<span class="hljs-keyword">let</span> c = <span class="hljs-string">&#x27;\n&#x27;</span>;

@@ -1,16 +1,185 @@
+## Version 11.10.0 (Next Release)
+
+CAVEATS / POTENTIALLY BREAKING CHANGES
+
+- Drops support for Node 16.x, which is no longer supported by Node.js.
+
+Core Grammars:
+
+- enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
+- enh(js/ts) support namespaced tagged template strings [Aral Balkan][]
+- enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
+- fix(cpp) not all kinds of number literals are highlighted correctly [Lê Duy Quang][]
+- fix(css) fix overly greedy pseudo class matching [Bradley Mackey][]
+- enh(arcade) updated to ArcGIS Arcade version 1.24 [Kristian Ekenes][]
+- fix(typescript): params types [Mohamed Ali][]
+- fix(rust) fix escaped double quotes in string  [Mohamed Ali][]
+- fix(rust) fix for r# raw identifier not being highlighted correctly. [JaeBaek Lee][]
+- enh(rust) Adding union to be recognized as a keyword in Rust. [JaeBaek Lee][]
+- fix(yaml) fix for yaml with keys having brackets highlighted incorrectly [Aneesh Kulkarni][]
+- fix(csharp) add raw string highlighting for C# 11. [Tara][]
+- fix(bash) fix # within token being detected as the start of a comment [Felix Uhl][]
+- fix(python) fix `or` conflicts with string highlighting [Mohamed Ali][]
+- enh(delphi) allow digits to be omitted for hex and binary literals [Jonah Jeleniewski][]
+- enh(delphi) add support for digit separators [Jonah Jeleniewski][]
+- enh(delphi) add support for character strings with non-decimal numerics [Jonah Jeleniewski][]
+- fix(javascript) incorrect function name highlighting [CY Fung][]
+- fix(1c) fix escaped symbols "+-;():=,[]" literals [Vitaly Barilko][]
+- fix(swift) correctly highlight generics and conformances in type definitions [Bradley Mackey][]
+- enh(swift) add package keyword [Bradley Mackey][]
+- fix(swift) ensure keyword attributes highlight correctly [Bradley Mackey][]
+- fix(types) fix interface LanguageDetail > keywords [Patrick Chiu]
+- enh(java) add `goto` to be recognized as a keyword in Java [Alvin Joy][]
+- enh(bash) add keyword `sudo` [Alvin Joy][]
+- fix(haxe) captures `new` keyword without capturing it within variables/class names [Cameron Taylor][]
+- fix(go) fix go number literals to accept `_` separators, add hex p exponents [Lisa Ugray][]
+- enh(markdown) add entity support [David Schach][] [TaraLei][]
+- enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
+- enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
+
+New Grammars:
+
+- added 3rd party CODEOWNERS grammar to SUPPORTED_LANGUAGES [nataliia-radina][]
+- added 3rd party Luau grammar to SUPPORTED_LANGUAGES [Robloxian Demo][]
+- added 3rd party ReScript grammar to SUPPORTED_LANGUAGES [Paul Tsnobiladzé][]
+- added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
+- added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
+- added 3rd party Unison grammar to SUPPORTED_LANGUAGES [Rúnar Bjarnason][]
+
+Developer Tool:
+
+- enh(tools): order CSS options picklist [David Schach][]
+- enh(tools): remove duplicate CSS options [David Schach][]
+- (typescript): deprecate old `highlight` API [Misha Kaletsky][]
+
+Themes:
+
+- Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
+
+[Eisenwave]: https://github.com/Eisenwave 
+[Aral Balkan]: https://github.com/aral
+[Lê Duy Quang]: https://github.com/leduyquang753
+[Mohamed Ali]: https://github.com/MohamedAli00949
+[JaeBaek Lee]: https://github.com/ThinkingVincent
+[Bradley Mackey]: https://github.com/bradleymackey
+[Kristian Ekenes]: https://github.com/ekenes
+[Aneesh Kulkarni]: https://github.com/aneesh98
+[Bruno Meneguele]: https://github.com/bmeneg
+[Tara]: https://github.com/taralei
+[Felix Uhl]: https://github.com/iFreilicht
+[nataliia-radina]: https://github.com/Nataliia-Radina
+[Robloxian Demo]: https://github.com/RobloxianDemo
+[Paul Tsnobiladzé]: https://github.com/tsnobip
+[Jonah Jeleniewski]: https://github.com/cirras
+[Josh Goebel]: https://github.com/joshgoebel
+[CY Fung]: https://github.com/cyfung1031
+[Vitaly Barilko]: https://github.com/Diversus23
+[Patrick Chiu]: https://github.com/patrick-kw-chiu
+[Alvin Joy]: https://github.com/alvinsjoy
+[Lisa Ugray]: https://github.com/lugray
+[TaraLei]: https://github.com/TaraLei
+[Cameron Taylor]: https://github.com/ninjamuffin99
+[Vasily Polovnyov]: https://github.com/vast
+[Arman Uguray]: https://github.com/armansito
+[Rúnar Bjarnason]: https://github.com/runarorama
+[Carl Räfting]: https://github.com/carlrafting
+
+
+
+## Version 11.9.0
+
+CAVEATS / POTENTIALLY BREAKING CHANGES
+
+- Drops support for Node 14.x, which is no longer supported by Node.js.
+- In the `node` build `styles/*.css` files now ship un-minified
+  with minified counterparts as: `styles/*.min.css` [mvorisek][]
+  (this makes things consistent with our `cdn` builds)
+
+Parser:
+
+- (enh) prevent re-highlighting of an element [joshgoebel][]
+- (chore) Remove discontinued badges from README [Bradley Mackey][]
+- (chore) Fix build size report [Bradley Mackey][]
+
+New Grammars:
+
+- added 3rd party Iptables grammar to SUPPORTED_LANGUAGES [Checconio][]
+- added 3rd party x86asmatt grammar to SUPPORTED_LANGUAGES [gondow][]
+- added 3rd party riscv64 grammar to SUPPORTED_LANGUAGES [aana-h2][]
+- added 3rd party Ballerina grammar to SUPPORTED_LANGUAGES [Yasith Deelaka][]
+
+Core Grammars:
+
+- fix(cpp) fixed highlighter break state [Md Saad Akhtar][]
+- fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
+- enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
+- enh(haxe) added `final`, `is`, `macro` keywords and `$` identifiers [Robert Borghese][]
+- enh(haxe) support numeric separators and suffixes [Robert Borghese][]
+- fix(haxe) fixed metadata arguments and support non-colon syntax [Robert Borghese][]
+- fix(haxe) differentiate `abstract` declaration from keyword [Robert Borghese][]
+- fix(bash) do not delimit a string by an escaped apostrophe [hancar][]
+- enh(swift) support `macro` keyword [Bradley Mackey][]
+- enh(swift) support parameter pack keywords [Bradley Mackey][]
+- enh(swift) regex literal support [Bradley Mackey][]
+- enh(swift) `@unchecked` and `@Sendable` support [Bradley Mackey][]
+- enh(scala) add using directives support `//> using foo bar` [Jamie Thompson][]
+- fix(scala) fixed comments in constructor arguments not being properly highlighted [Isaac Nonato][]
+- enh(swift) ownership modifiers support [Bradley Mackey][]
+- enh(nsis) Add `!assert` compiler flag [idleberg][]
+- fix(haskell) do not treat double dashes inside infix operators as comments [Zlondrej][]
+- enh(rust) added `eprintln!` macro [qoheniac][]
+- enh(leaf) update syntax to 4.0 [Samuel Bishop][]
+- fix(reasonml) simplify syntax and align it with ocaml [jchavarri][]
+- fix(swift) `warn_unqualified_access` is an attribute [Bradley Mackey][]
+- enh(swift) macro attributes are highlighted as keywords [Bradley Mackey][]
+- enh(stan) updated for version 2.33 (#3859) [Brian Ward][]
+- enh(llvm) match additional types [wtz][]
+- fix(css) added '_'  css variable detection [Md Saad Akhtar][]
+- enh(groovy) add `record` and `var` as keywords [Guillaume Laforge][]
+
+Developer Tool:
+
+- (chore) Update dev tool to use the new `highlight` API. [Shah Shabbir Ahmmed][]
+- (enh) Auto-update the highlighted output when the language dropdown changes. [Shah Shabbir Ahmmed][]
+
+[Robert Borghese]: https://github.com/RobertBorghese
+[Isaac Nonato]: https://github.com/isaacnonato
+[Shah Shabbir Ahmmed]: https://github.com/shabbir23ah
+[Josh Goebel]: https://github.com/joshgoebel
+[Checconio]: https://github.com/Checconio
+[Bradley Mackey]: https://github.com/bradleymackey
+[mvorisek]: https://github.com/mvorisek
+[qoheniac]: https://github.com/qoheniac
+[Samuel Bishop]: https://github.com/dannflor
+[gondow]: https://github.com/gondow
+[jchavarri]: https://github.com/jchavarri
+[aana-h2]: https://github.com/aana-h2
+[Nicholas Thompson]: https://github.com/NAThompson
+[Yasith Deelaka]: https://github.com/YasithD
+[Brian Ward]: https://github.com/WardBrian
+[wtz]: https://github.com/wangtz0607
+[Md Saad Akhtar]: https://github.com/akhtarmdsaad
+[Guillaume Laforge]: https://github.com/glaforge
+
+
 ## Version 11.8.0
 
-Improvements:
+Parser engine:
 
 - added a function to default export to generate a fresh highlighter instance to be used by extensions [WisamMechano][]
 - added BETA `__emitTokens` key to grammars to allow then to direct their own parsing, only using Highlight.js for the HTML rendering [Josh Goebel][]
+- (enh) add `removePlugin` api [faga295][]
+- (fix) typo in language name of `JavaScript` [Cyrus Kao][]
 
 New Grammars:
 
 - added 3rd party Lang grammar to SUPPORTED_LANGUAGES [AdamRaichu][]
+- added 3rd party C3 grammar to SUPPORTED_LANGUAGES [aliaegik][]
 
-Grammars:
+Core Grammars:
 
+- enh(sql) support `_` in variable names [joshgoebel][]
+- enh(mathematica) update keywords list to 13.2.1 [arnoudbuzing][]
 - enh(protobuf) add `proto` alias for Protobuf [dimitropoulos][]
 - enh(sqf)  latest changes in Arma 3 v2.11 [Leopard20][]
 - enh(js/ts) Added support for GraphQL tagged template strings [Ali Ukani][]
@@ -23,11 +192,10 @@ Grammars:
 - enh(dart) Add `base`, `interface`, `sealed`, and `when` keywords [Sam Rawlins][]
 - enh(php) detect newer more flexible NOWdoc syntax (#3679) [Timur Kamaev][]
 - enh(python) improve autodetection of code with type hinting any function's return type (making the `->` operator legal) [Keyacom][]
+- enh(bash) add `select` and `until` as keywords
 
-Parser:
-
-- add removePlugin api [faga295][]
-
+[arnoudbuzing]: https://github.com/arnoudbuzing
+[aliaegik]: https://github.com/aliaegik
 [Josh Goebel]: https://github.com/joshgoebel
 [Timur Kamaev]: https://github.com/doiftrue
 [Leopard20]: https://github.com/Leopard20/
@@ -43,6 +211,9 @@ Parser:
 [CrystalSplitter]: https://github.com/CrystalSplitter
 [Sam Rawlins]: https://github.com/srawlins
 [Keyacom]: https://github.com/Keyacom
+[Boris Verkhovskiy]: https://github.com/verhovsky
+[Cyrus Kao]: https://github.com/CyrusKao
+[Zlondrej]: https://github.com/zlondrej
 
 
 ## Version 11.7.0
@@ -132,6 +303,7 @@ Grammars:
 [Mousetail]: https://github.com/mousetail
 [Gabriel Gonçalves]: https://github.com/KTSnowy
 [Nikita Sobolev]: https://github.com/sobolevn
+[Misha Kaletsky]: https://github.com/mmkal
 
 ## Version 11.5.0
 

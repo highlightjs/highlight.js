@@ -20,11 +20,12 @@ export default function(hljs) {
   const KEY = {
     className: 'attr',
     variants: [
-      { begin: '\\w[\\w :\\/.-]*:(?=[ \t]|$)' },
-      { // double quoted keys
-        begin: '"\\w[\\w :\\/.-]*":(?=[ \t]|$)' },
-      { // single quoted keys
-        begin: '\'\\w[\\w :\\/.-]*\':(?=[ \t]|$)' }
+      // added brackets support 
+      { begin: /\w[\w :()\./-]*:(?=[ \t]|$)/ },
+      { // double quoted keys - with brackets
+        begin: /"\w[\w :()\./-]*":(?=[ \t]|$)/ },
+      { // single quoted keys - with brackets
+        begin: /'\w[\w :()\./-]*':(?=[ \t]|$)/ },
     ]
   };
 

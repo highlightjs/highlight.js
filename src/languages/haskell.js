@@ -7,8 +7,32 @@ Category: functional
 */
 
 export default function(hljs) {
+
+  /* See:
+     - https://www.haskell.org/onlinereport/lexemes.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/binary_literals.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/numeric_underscores.html
+     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/hex_float_literals.html
+  */
+  const decimalDigits = '([0-9]_*)+';
+  const hexDigits = '([0-9a-fA-F]_*)+';
+  const binaryDigits = '([01]_*)+';
+  const octalDigits = '([0-7]_*)+';
+  const ascSymbol = '[!#$%&*+.\\/<=>?@\\\\^~-]';
+  const uniSymbol = '(\\p{S}|\\p{P})' // Symbol or Punctuation
+  const special = '[(),;\\[\\]`|{}]';
+  const symbol = `(${ascSymbol}|(?!(${special}|[_:"']))${uniSymbol})`;
+
   const COMMENT = { variants: [
-    hljs.COMMENT('--', '$'),
+    // Double dash forms a valid comment only if it's not part of legal lexeme.
+    // See: Haskell 98 report: https://www.haskell.org/onlinereport/lexemes.html
+    //
+    // The commented code does the job, but we can't use negative lookbehind,
+    // due to poor support by Safari browser.
+    // > hljs.COMMENT(`(?<!${symbol})--+(?!${symbol})`, '$'),
+    // So instead, we'll add a no-markup rule before the COMMENT rule in the rules list
+    // to match the problematic infix operators that contain double dash.
+    hljs.COMMENT('--+', '$'),
     hljs.COMMENT(
       /\{-/,
       /-\}/,
@@ -56,19 +80,6 @@ export default function(hljs) {
     contains: LIST.contains
   };
 
-  /* See:
-
-     - https://www.haskell.org/onlinereport/lexemes.html
-     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/binary_literals.html
-     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/numeric_underscores.html
-     - https://downloads.haskell.org/ghc/9.0.1/docs/html/users_guide/exts/hex_float_literals.html
-
-  */
-  const decimalDigits = '([0-9]_*)+';
-  const hexDigits = '([0-9a-fA-F]_*)+';
-  const binaryDigits = '([01]_*)+';
-  const octalDigits = '([0-7]_*)+';
-
   const NUMBER = {
     className: 'number',
     relevance: 0,
@@ -92,6 +103,7 @@ export default function(hljs) {
       + 'qualified type data newtype deriving class instance as default '
       + 'infix infixl infixr foreign export ccall stdcall cplusplus '
       + 'jvm dotnet safe unsafe family forall mdo proc rec',
+    unicodeRegex: true,
     contains: [
       // Top-level constructions.
       {
@@ -193,6 +205,8 @@ export default function(hljs) {
       NUMBER,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, { begin: '^[_a-z][\\w\']*' }),
+      // No markup, prevents infix operators from being recognized as comments.
+      { begin: `(?!-)${symbol}--+|--+(?!-)${symbol}`},
       COMMENT,
       { // No markup, relevance booster
         begin: '->|<-' }

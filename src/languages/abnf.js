@@ -2,6 +2,7 @@
 Language: Augmented Backus-Naur Form
 Author: Alex McKibben <alex@nullscope.net>
 Website: https://tools.ietf.org/html/rfc5234
+Category: syntax
 Audit: 2020
 */
 

@@ -381,6 +381,7 @@ export default function(hljs) {
         beginKeywords: "if",
         relevance: 0
       },
+      { match: /\bor\b/, scope: "keyword" },
       STRING,
       COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,

@@ -1,2 +1,24 @@
 <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.red</span>){}
 <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.red</span>)<span class="hljs-selector-pseudo">:not</span>(<span class="hljs-selector-class">.green</span>){}
+
+<span class="hljs-selector-pseudo">:first-child</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-pseudo">:first-of-type</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-pseudo">:last-child</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-pseudo">:last-of-type</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">::first-letter</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5rem</span>;
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">color</span>: brown;
+}

@@ -96,6 +96,7 @@ async function compileLanguage(language, options) {
   const esm = `${HEADER}\n${data};\nexport default hljsGrammar;`;
 
   language.module = iife;
+  language.esm = esm;
   const miniESM = await Terser.minify(esm, options.terser);
   const miniIIFE = await Terser.minify(iife, options.terser);
   language.minified = miniIIFE.code;
