@@ -373,6 +373,7 @@ export default function(hljs) {
       NUMBER,
       {
         // very common convention
+        scope: 'variable.language',
         begin: /\bself\b/
       },
       {
