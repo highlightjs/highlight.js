@@ -6,7 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
-- enh(gml) updated to latest language version [gnysek][]
+- enh(gml) updated to latest language version (GML v2024.2) [gnysek][]
 - enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
 - enh(js/ts) support namespaced tagged template strings [Aral Balkan][]
 - enh(perl) fix false-positive variable match at end of string [Josh Goebel][]
