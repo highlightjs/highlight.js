@@ -373,7 +373,8 @@ export default function(hljs) {
       NUMBER,
       {
         // very common convention
-        begin: /\bself\b/
+        scope: 'variable.language',
+        match: /\bself\b/
       },
       {
         // eat "if" prior to string so that it won't accidentally be
