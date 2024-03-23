@@ -374,7 +374,7 @@ export default function(hljs) {
       {
         // very common convention
         scope: 'variable.language',
-        begin: /\bself\b/
+        match: /\bself\b/
       },
       {
         // eat "if" prior to string so that it won't accidentally be
