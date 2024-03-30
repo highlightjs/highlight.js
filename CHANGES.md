@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- enh(json) added jsonc as an alias [BackupMiles][]
 - enh(gml) updated to latest language version (GML v2024.2) [gnysek][]
 - enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
 - enh(js/ts) support namespaced tagged template strings [Aral Balkan][]
@@ -86,6 +87,7 @@ Themes:
 [Arman Uguray]: https://github.com/armansito
 [Rúnar Bjarnason]: https://github.com/runarorama
 [Carl Räfting]: https://github.com/carlrafting
+[BackupMiles]: https://github.com/BackupMiles
 
 
 

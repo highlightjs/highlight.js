@@ -111,7 +111,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Inform7                 | inform7, i7            |         |
 | IRPF90                  | irpf90                 |         |
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
-| JSON                    | json                   |         |
+| JSON                    | json, jsonc            |         |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
