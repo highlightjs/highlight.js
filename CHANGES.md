@@ -39,6 +39,7 @@ Core Grammars:
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 - enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
+- fix(gcode) stricter gcode line number matching [Barthy Bonhomme][]
 
 New Grammars:
 
@@ -88,7 +89,7 @@ Themes:
 [Rúnar Bjarnason]: https://github.com/runarorama
 [Carl Räfting]: https://github.com/carlrafting
 [BackupMiles]: https://github.com/BackupMiles
-
+[Barthy Bonhomme]: https://github.com/barthy-koeln
 
 
 ## Version 11.9.0

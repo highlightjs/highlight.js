@@ -51,13 +51,7 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      variants: [
-        {
-          begin: 'N',
-          end: '\\d+',
-          illegal: '\\W'
-        }
-      ]
+      begin: 'N\\d+'
     }
   ];
 
