@@ -7,58 +7,116 @@
  */
 
 export default function(hljs) {
-  const GCODE_IDENT_RE = '[A-Z_][A-Z0-9_.]*';
-  const GCODE_CLOSE_RE = '%';
   const GCODE_KEYWORDS = {
-    $pattern: GCODE_IDENT_RE,
-    keyword: 'IF DO WHILE ENDWHILE CALL ENDIF SUB ENDSUB GOTO REPEAT ENDREPEAT '
-      + 'EQ LT GT NE GE LE OR XOR'
+    $pattern: /[A-Z]+|%/,
+    meta: [
+      // conditions
+      'THEN',
+      'ELSE',
+      'ENDIF',
+      'IF',
+
+      // controls
+      'GOTO',
+      'DO',
+      'WHILE',
+      'WH',
+      'END',
+      'CALL',
+
+      // scoping
+      'SUB',
+      'ENDSUB',
+
+      // comparisons
+      'EQ',
+      'NE',
+      'LT',
+      'GT',
+      'LE',
+      'GE',
+      'AND',
+      'OR',
+      'XOR',
+
+      // start/end of program
+      '%'
+    ],
+    built_in: [
+      'ATAN',
+      'ABS',
+      'ACOS',
+      'ASIN',
+      'COS',
+      'EXP',
+      'FIX',
+      'FUP',
+      'ROUND',
+      'LN',
+      'SIN',
+      'SQRT',
+      'TAN',
+      'EXISTS'
+    ]
   };
-  const GCODE_START = {
-    className: 'meta',
-    begin: '([O])([0-9]+)'
-  };
-  const NUMBER = hljs.inherit(hljs.C_NUMBER_MODE, { begin: '([-+]?((\\.\\d+)|(\\d+)(\\.\\d*)?))|' + hljs.C_NUMBER_RE });
+
+
+  const NUMBER = /[+-]?((\.\d+)|(\d+)(\.\d*)?)/;
+
   const GCODE_CODE = [
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.C_BLOCK_COMMENT_MODE,
+    // comments
     hljs.COMMENT(/\(/, /\)/),
-    NUMBER,
-    hljs.inherit(hljs.APOS_STRING_MODE, { illegal: null }),
-    hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
+    hljs.COMMENT(/;/, /$/),
+    hljs.APOS_STRING_MODE,
+    hljs.QUOTE_STRING_MODE,
+    hljs.C_NUMBER_MODE,
+
+    // gcodes
     {
-      className: 'name',
-      begin: '([G])([0-9]+\\.?[0-9]?)'
-    },
-    {
-      className: 'name',
-      begin: '([M])([0-9]+\\.?[0-9]?)'
-    },
-    {
-      className: 'attr',
-      begin: '(VC|VS|#)',
-      end: '(\\d+)'
-    },
-    {
-      className: 'attr',
-      begin: '(VZOFX|VZOFY|VZOFZ)'
-    },
-    {
-      className: 'built_in',
-      begin: '(ATAN|ABS|ACOS|ASIN|SIN|COS|EXP|FIX|FUP|ROUND|LN|TAN)(\\[)',
-      contains: [ NUMBER ],
-      end: '\\]'
-    },
-    {
-      className: 'symbol',
+      scope: 'title.function',
+      relevance: 10,
       variants: [
-        {
-          begin: 'N',
-          end: '\\d+',
-          illegal: '\\W'
-        }
+        // G General functions: G0, G5.1, G5.2, …
+        // M Misc functions: M0, M55.6, M199, …
+        { match: /(?<![A-Z])[GM]\s*\d+(\.\d+)?/ },
+        // T Tools
+        { match: /(?<![A-Z])T\s*\d+/ },
       ]
-    }
+    },
+
+    {
+      scope: 'symbol',
+      relevance: 10,
+      variants: [
+        // O Subroutine ID: O100, O110, …
+        { match: /(?<![A-Z])O\s*\d+/ },
+        // O Subroutine name: O<some>, …
+        { match: /(?<![A-Z])O<.+>/ },
+        // Checksum at end of line: *71, *199, …
+        { match: /\*\s*\d+\s*$/ }
+      ]
+    },
+
+    {
+      scope: 'operator', // N Line number: N1, N2, N1020, …
+      match: /^N\s*\d+/
+    },
+
+    {
+      scope: 'variable',
+      relevance: 0,
+      match: /-?#\s*\d+/,
+    },
+
+    {
+      scope: 'property', // Physical axes
+      match: new RegExp(`(?<![A-Z])[ABCUVWXYZ]\\s*${NUMBER.source}`),
+    },
+
+    {
+      scope: 'params', // Different types of parameters
+      match: new RegExp(`(?<![A-Z])[FHIJKPQRS]\\s*${NUMBER.source}`),
+    },
   ];
 
   return {
@@ -68,12 +126,6 @@ export default function(hljs) {
     // However, most prefer all uppercase and uppercase is customary.
     case_insensitive: true,
     keywords: GCODE_KEYWORDS,
-    contains: [
-      {
-        className: 'meta',
-        begin: GCODE_CLOSE_RE
-      },
-      GCODE_START
-    ].concat(GCODE_CODE)
+    contains: GCODE_CODE
   };
 }

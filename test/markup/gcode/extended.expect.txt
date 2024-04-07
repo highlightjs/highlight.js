@@ -1,0 +1,84 @@
+<span class="hljs-meta">%</span><span class="hljs-comment">; something important</span>
+
+<span class="hljs-comment">; another comment</span>
+
+<span class="hljs-comment">(yet another more different comment)</span>
+<span class="hljs-comment">(
+  multi
+  line
+  madness
+)</span>
+
+<span class="hljs-title function_">M500</span><span class="hljs-comment">; comment after code</span>
+<span class="hljs-title function_">M500</span> <span class="hljs-comment">(comment after code)</span>
+
+<span class="hljs-symbol">O&lt;boring&gt;</span> <span class="hljs-meta">SUB</span>
+
+<span class="hljs-variable">#20</span> = [<span class="hljs-variable">#1</span> * <span class="hljs-built_in">SIN</span>[<span class="hljs-variable">#1</span>]]
+<span class="hljs-variable">#21</span> = [<span class="hljs-variable">-#2</span> * <span class="hljs-built_in">COS</span>[<span class="hljs-variable">#2</span>]]
+<span class="hljs-variable">#22</span> = [<span class="hljs-variable">#3</span> / <span class="hljs-built_in">COS</span>[<span class="hljs-variable">#3</span>]]
+<span class="hljs-variable">#23</span> = [<span class="hljs-variable">#4</span> + <span class="hljs-variable">#4</span> - <span class="hljs-variable">#4</span>]
+<span class="hljs-variable">#24</span> = [[<span class="hljs-variable">#5</span> - <span class="hljs-variable">#5</span>] * <span class="hljs-built_in">TAN</span>[<span class="hljs-variable">#5</span>]]
+<span class="hljs-variable">#25</span>=<span class="hljs-built_in">FIX</span>[<span class="hljs-variable">#101</span>/<span class="hljs-number">2.75</span>]
+<span class="hljs-variable">#26</span>=<span class="hljs-built_in">ROUND</span>[<span class="hljs-variable">#104</span>]
+<span class="hljs-variable">#27</span>=<span class="hljs-built_in">ABS</span>[<span class="hljs-variable">#104</span>]
+
+<span class="hljs-comment">; WITH SANE SPACING</span>
+
+<span class="hljs-operator">N1</span>  <span class="hljs-symbol">O107</span> <span class="hljs-meta">IF</span> [<span class="hljs-variable">#10</span> <span class="hljs-meta">GT</span> <span class="hljs-number">5</span>]
+<span class="hljs-operator">N2</span>    <span class="hljs-title function_">G0</span> <span class="hljs-property">A0</span> <span class="hljs-property">B0</span> <span class="hljs-property">C0</span> <span class="hljs-property">U0</span> <span class="hljs-property">V0</span> <span class="hljs-property">W0</span> <span class="hljs-property">X0</span> <span class="hljs-property">Y0</span> <span class="hljs-property">Z0</span> <span class="hljs-symbol">*71</span>
+<span class="hljs-operator">N3</span>    <span class="hljs-title function_">G100</span> <span class="hljs-property">A100</span> <span class="hljs-property">B0</span>
+<span class="hljs-operator">N4</span>    <span class="hljs-title function_">G5.2</span> <span class="hljs-property">A10.2</span> <span class="hljs-property">B0</span>
+<span class="hljs-operator">N5</span>    <span class="hljs-title function_">G100</span> <span class="hljs-property">A.2</span> <span class="hljs-property">B0</span>
+<span class="hljs-operator">N6</span>    <span class="hljs-title function_">G100</span> <span class="hljs-property">A-.2</span> <span class="hljs-property">B0</span>
+<span class="hljs-operator">N7</span>    <span class="hljs-title function_">G100</span> <span class="hljs-property">A+.2</span> <span class="hljs-property">B0</span>
+<span class="hljs-operator">N8</span>    <span class="hljs-title function_">T0</span>
+<span class="hljs-operator">N9</span>    <span class="hljs-title function_">M100</span> <span class="hljs-params">F1</span> <span class="hljs-params">H2</span> <span class="hljs-params">I3</span> <span class="hljs-params">J4</span> <span class="hljs-params">K5</span> <span class="hljs-params">P6</span> <span class="hljs-params">Q7</span> <span class="hljs-params">R8</span> <span class="hljs-params">S9</span>
+<span class="hljs-operator">N10</span>   <span class="hljs-title function_">M587</span> S<span class="hljs-string">&quot;MYROUTER&quot;</span> P<span class="hljs-string">&quot;ABCxyz;&quot;</span> <span class="hljs-string">&quot;123&quot;</span>
+<span class="hljs-operator">N10</span> <span class="hljs-symbol">O107</span> <span class="hljs-meta">ENDIF</span>
+
+
+<span class="hljs-comment">; WITH EXCESSIVE SPACING</span>
+
+<span class="hljs-symbol">O 108</span> <span class="hljs-meta">IF</span> [<span class="hljs-variable">#10</span> <span class="hljs-meta">GT</span> <span class="hljs-number">5</span>]
+<span class="hljs-operator">N 102</span>   <span class="hljs-title function_">G 0</span> <span class="hljs-property">A 0</span> <span class="hljs-property">B 0</span> <span class="hljs-property">C 0</span> <span class="hljs-property">U 0</span> <span class="hljs-property">V 0</span> <span class="hljs-property">W 0</span> <span class="hljs-property">X 0</span> <span class="hljs-property">Y 0</span> <span class="hljs-property">Z 0</span> <span class="hljs-symbol">*71</span>
+<span class="hljs-operator">N 103</span>   <span class="hljs-title function_">G 100</span> <span class="hljs-property">A 100</span> <span class="hljs-property">B 0</span>
+<span class="hljs-operator">N 104</span>   <span class="hljs-title function_">G 5.2</span> <span class="hljs-property">A 10.2</span> <span class="hljs-property">B 0</span>
+<span class="hljs-operator">N 105</span>   <span class="hljs-title function_">G 100</span> <span class="hljs-property">A .2</span> <span class="hljs-property">B 0</span>
+<span class="hljs-operator">N 106</span>   <span class="hljs-title function_">G 100</span> <span class="hljs-property">A -.2</span> <span class="hljs-property">B 0</span>
+<span class="hljs-operator">N 107</span>   <span class="hljs-title function_">G 100</span> <span class="hljs-property">A +.2</span> <span class="hljs-property">B 0</span>
+<span class="hljs-operator">N 108</span>   <span class="hljs-title function_">T 0</span>
+<span class="hljs-operator">N 109</span>   <span class="hljs-title function_">M 100</span> <span class="hljs-params">F 1</span> <span class="hljs-params">H 2</span> <span class="hljs-params">I 3</span> <span class="hljs-params">J 4</span> <span class="hljs-params">K 5</span> <span class="hljs-params">P 6</span> <span class="hljs-params">Q 7</span> <span class="hljs-params">R 8</span> <span class="hljs-params">S 9</span>
+<span class="hljs-operator">N 110</span> <span class="hljs-title function_">M 587</span> S <span class="hljs-string">&quot;MYROUTER&quot;</span> P <span class="hljs-string">&quot;ABCxyz;&quot;</span> <span class="hljs-string">&quot;123&quot;</span>
+<span class="hljs-symbol">O 108</span> <span class="hljs-meta">ENDIF</span>
+
+
+<span class="hljs-comment">; WITHOUT SPACING</span>
+
+<span class="hljs-symbol">O109</span><span class="hljs-meta">IF</span>[<span class="hljs-variable">#10</span><span class="hljs-meta">GT</span>5]
+<span class="hljs-operator">N202</span><span class="hljs-title function_">G0</span><span class="hljs-property">A0</span><span class="hljs-property">B0</span><span class="hljs-property">C0</span><span class="hljs-property">U0</span><span class="hljs-property">V0</span><span class="hljs-property">W0</span><span class="hljs-property">X0</span><span class="hljs-property">Y0</span><span class="hljs-property">Z0</span><span class="hljs-symbol">*71</span>
+<span class="hljs-operator">N203</span><span class="hljs-title function_">G100</span><span class="hljs-property">A100</span><span class="hljs-property">B0</span>
+<span class="hljs-operator">N204</span><span class="hljs-title function_">G5.2</span><span class="hljs-property">A10.2</span><span class="hljs-property">B0</span>
+<span class="hljs-operator">N205</span><span class="hljs-title function_">G100</span><span class="hljs-property">A.2</span><span class="hljs-property">B0</span>
+<span class="hljs-operator">N206</span><span class="hljs-title function_">G100</span><span class="hljs-property">A-.2</span><span class="hljs-property">B0</span>
+<span class="hljs-operator">N207</span><span class="hljs-title function_">G100</span><span class="hljs-property">A+.2</span><span class="hljs-property">B0</span>
+<span class="hljs-operator">N208</span><span class="hljs-title function_">T0</span>
+<span class="hljs-operator">N209</span><span class="hljs-title function_">M100</span><span class="hljs-params">F1</span><span class="hljs-params">H2</span><span class="hljs-params">I3</span><span class="hljs-params">J4</span><span class="hljs-params">K5</span><span class="hljs-params">P6</span><span class="hljs-params">Q7</span><span class="hljs-params">R8</span><span class="hljs-params">S9</span>
+<span class="hljs-operator">N210</span><span class="hljs-title function_">M587</span>S<span class="hljs-string">&quot;MYROUTER&quot;</span>P<span class="hljs-string">&quot;ABCxyz;&quot;</span><span class="hljs-string">&quot;123&quot;</span>
+<span class="hljs-number">0</span><span class="hljs-symbol">O109</span><span class="hljs-meta">ENDIF</span>
+
+<span class="hljs-symbol">O&lt;boring&gt;</span> <span class="hljs-meta">ENDSUB</span>
+
+<span class="hljs-symbol">O&lt;boring&gt;</span> <span class="hljs-meta">CALL</span> [<span class="hljs-number">1</span>] [<span class="hljs-number">2</span>] [<span class="hljs-number">3</span>] [<span class="hljs-number">4</span>] [<span class="hljs-number">5</span>]
+
+<span class="hljs-comment">; Words as seen in Klipper Firmware GCode</span>
+
+GET_RETRACTION
+TURN_OFF_HEATERS
+MANUAL_STEPPER STEPPER=config_name ENABLE=<span class="hljs-number">0</span> SET_POSITION=<span class="hljs-number">11.1</span> SPEED=<span class="hljs-number">22.2</span> ACCEL=<span class="hljs-number">33.3</span> MOVE=<span class="hljs-number">44.4</span> STOP_ON_ENDSTOP=<span class="hljs-number">-1</span> SYNC=<span class="hljs-number">0</span>
+
+SET_SKEW XY=<span class="hljs-number">100.0000</span>,<span class="hljs-number">100.0000</span>,<span class="hljs-number">70.7107</span>
+SKEW_PROFILE SAVE=<span class="hljs-string">&quot;this name has spaces&quot;</span>
+SAVE_CONFIG
+
+<span class="hljs-meta">%</span>
