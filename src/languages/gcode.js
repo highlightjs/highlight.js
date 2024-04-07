@@ -51,7 +51,7 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: 'N\\d+'
+      begin: /N\d+/
     }
   ];
 
