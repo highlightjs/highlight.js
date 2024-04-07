@@ -99,6 +99,7 @@ Core Grammars:
 - enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov][]
 - enh(css) add `text-decoration-skip-ink`, `text-decoration-thickness` and `text-underline-offset` attributes [Vasily Polovnyov][]
 - enh(java) add `when` to be recognized as a keyword in Java [Chiel van de Steeg][]
+- enh(gcode) rewrote language for modern gcode support [Barthélémy Bonhomme][]
 
 New Grammars:
 
@@ -158,6 +159,7 @@ Themes:
 [Sierra]: https://github.com/casuallyblue
 [Vlad Dimov]: https://github.com/DevDimov
 [Chiel van de Steeg]: https://github.com/cvdsteeg
+[Barthélémy Bonhomme]: https://github.com/barthy-koeln
 
 
 

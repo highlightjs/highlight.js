@@ -1,0 +1,84 @@
+%; something important
+
+; another comment
+
+(yet another more different comment)
+(
+  multi
+  line
+  madness
+)
+
+M500; comment after code
+M500 (comment after code)
+
+O<boring> SUB
+
+#20 = [#1 * SIN[#1]]
+#21 = [-#2 * COS[#2]]
+#22 = [#3 / COS[#3]]
+#23 = [#4 + #4 - #4]
+#24 = [[#5 - #5] * TAN[#5]]
+#25=FIX[#101/2.75]
+#26=ROUND[#104]
+#27=ABS[#104]
+
+; WITH SANE SPACING
+
+N1  O107 IF [#10 GT 5]
+N2    G0 A0 B0 C0 U0 V0 W0 X0 Y0 Z0 *71
+N3    G100 A100 B0
+N4    G5.2 A10.2 B0
+N5    G100 A.2 B0
+N6    G100 A-.2 B0
+N7    G100 A+.2 B0
+N8    T0
+N9    M100 F1 H2 I3 J4 K5 P6 Q7 R8 S9
+N10   M587 S"MYROUTER" P"ABCxyz;" "123"
+N10 O107 ENDIF
+
+
+; WITH EXCESSIVE SPACING
+
+O 108 IF [#10 GT 5]
+N 102   G 0 A 0 B 0 C 0 U 0 V 0 W 0 X 0 Y 0 Z 0 *71
+N 103   G 100 A 100 B 0
+N 104   G 5.2 A 10.2 B 0
+N 105   G 100 A .2 B 0
+N 106   G 100 A -.2 B 0
+N 107   G 100 A +.2 B 0
+N 108   T 0
+N 109   M 100 F 1 H 2 I 3 J 4 K 5 P 6 Q 7 R 8 S 9
+N 110 M 587 S "MYROUTER" P "ABCxyz;" "123"
+O 108 ENDIF
+
+
+; WITHOUT SPACING
+
+O109IF[#10GT5]
+N202G0A0B0C0U0V0W0X0Y0Z0*71
+N203G100A100B0
+N204G5.2A10.2B0
+N205G100A.2B0
+N206G100A-.2B0
+N207G100A+.2B0
+N208T0
+N209M100F1H2I3J4K5P6Q7R8S9
+N210M587S"MYROUTER"P"ABCxyz;""123"
+0O109ENDIF
+
+O<boring> ENDSUB
+
+O<boring> CALL [1] [2] [3] [4] [5]
+
+; Words as seen in Klipper Firmware GCode
+
+GET_RETRACTION
+TURN_OFF_HEATERS
+MANUAL_STEPPER STEPPER=config_name ENABLE=0 SET_POSITION=11.1 SPEED=22.2 ACCEL=33.3 MOVE=44.4 STOP_ON_ENDSTOP=-1 SYNC=0
+
+SET_SKEW XY=100.0000,100.0000,70.7107
+SKEW_PROFILE SAVE="this name has spaces"
+SAVE_CONFIG
+
+%
