@@ -3,6 +3,7 @@
  Contributors: Adam Joseph Cook <adam.joseph.cook@gmail.com>
  Description: G-code syntax highlighter for Fanuc and other common CNC machine tool controls.
  Website: https://www.sis.se/api/document/preview/911952/
+ Category: hardware
  */
 
 export default function(hljs) {

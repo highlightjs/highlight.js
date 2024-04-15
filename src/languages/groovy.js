@@ -3,6 +3,7 @@
  Author: Guillaume Laforge <glaforge@gmail.com>
  Description: Groovy programming language implementation inspired from Vsevolod's Java mode
  Website: https://groovy-lang.org
+ Category: system
  */
 
 function variants(variants, obj = {}) {
@@ -66,7 +67,7 @@ export default function(hljs) {
 
   const CLASS_DEFINITION = {
     match: [
-      /(class|interface|trait|enum|extends|implements)/,
+      /(class|interface|trait|enum|record|extends|implements)/,
       /\s+/,
       hljs.UNDERSCORE_IDENT_RE
     ],
@@ -126,7 +127,8 @@ export default function(hljs) {
     "import",
     "package",
     "return",
-    "instanceof"
+    "instanceof",
+    "var"
   ];
 
   return {

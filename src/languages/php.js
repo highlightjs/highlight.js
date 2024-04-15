@@ -51,10 +51,18 @@ export default function(hljs) {
     illegal: null,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
-  const HEREDOC = hljs.END_SAME_AS_BEGIN({
-    begin: /<<<[ \t]*(\w+)\n/,
+
+  const HEREDOC = {
+    begin: /<<<[ \t]*(?:(\w+)|"(\w+)")\n/,
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+    'on:begin': (m, resp) => { resp.data._beginMatch = m[1] || m[2]; },
+    'on:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch(); },
+  };
+
+  const NOWDOC = hljs.END_SAME_AS_BEGIN({
+    begin: /<<<[ \t]*'(\w+)'\n/,
+    end: /[ \t]*(\w+)\b/,
   });
   // list of valid whitespaces because non-breaking space might be part of a IDENT_RE
   const WHITESPACE = '[ \t\n]';
@@ -63,7 +71,8 @@ export default function(hljs) {
     variants: [
       DOUBLE_QUOTED,
       SINGLE_QUOTED,
-      HEREDOC
+      HEREDOC,
+      NOWDOC
     ]
   };
   const NUMBER = {

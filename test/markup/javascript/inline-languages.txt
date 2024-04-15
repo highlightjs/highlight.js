@@ -4,6 +4,8 @@ foo = false;
 
 html`<div id="foo">Hello world</div>`;
 
+kitten.html`<div id="foo">Hello world</div>`;
+
 html`<div id="foo">Hello times ${10} <span id="bar">world</span></div>`;
 
 html`
@@ -20,7 +22,15 @@ css`
   }
 `;
 
+kitten.css`
+  body {
+    color: red;
+  }
+`;
+
 gql`query { viewer { id } }`;
+
+kitten.gql`query { viewer { id } }`;
 
 gql`
   type Project {

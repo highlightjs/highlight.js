@@ -102,7 +102,10 @@ function dual(file) {
 }
 
 const generatePackageExports = () => ({
-  ".": dual("./lib/index.js"),
+  ".": {
+    "types": "./types/index.d.ts",
+    ...dual("./lib/index.js"),
+  },
   "./package.json": "./package.json",
   "./lib/common": dual("./lib/common.js"),
   "./lib/core": dual("./lib/core.js"),
@@ -170,8 +173,9 @@ async function buildNode(options) {
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `styles/${file}`);
-      installCleanCSS(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`);
+      installCleanCSS(`./src/styles/${file}`, `styles/${file}`, { minify: false });
+      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`, { minify: true });
+      installCleanCSS(`./src/styles/${file}`, `scss/${file.replace(".css", ".scss")}`, { minify: false });
     } else {
       // images, etc.
       install(`./src/styles/${file}`, `styles/${file}`);

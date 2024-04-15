@@ -2,11 +2,11 @@ const fs = require("fs");
 const CleanCSS = require('clean-css');
 const path = require('path');
 const _ = require('lodash');
-const del = require('del');
 const config = require("../build_config.js");
 
 async function clean(directory) {
-  del.sync([directory]);
+  const del = await import('del');
+  del.deleteSync([directory]);
   fs.mkdirSync(directory, { recursive: true });
 }
 
@@ -26,10 +26,14 @@ code.hljs {
 }
 `.trim();
 
-function installCleanCSS(file, dest) {
+function installCleanCSS(file, dest, opts = {}) {
+  // default is to minify
+  // eslint-disable-next-line no-undefined
+  const minify = opts.minify === undefined ? true : opts.minify;
+
   const theme = fs.readFileSync(file, { encoding: "utf8" });
   const content = DEFAULT_CSS + "\n" + theme;
-  const out = new CleanCSS(config.clean_css).minify(content).styles;
+  const out = new CleanCSS(minify ? config.clean_css : config.clean_css_beautify).minify(content).styles;
   fs.writeFileSync(`${process.env.BUILD_DIR}/${dest}`, out);
 }
 

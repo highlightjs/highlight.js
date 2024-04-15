@@ -4,6 +4,7 @@ Author: Igor Kalnitsky <igor@kalnitsky.org>
 Contributors: Daniel C.K. Kho <daniel.kho@tauhop.com>, Guillaume Savaton <guillaume.savaton@eseo.fr>
 Description: VHDL is a hardware description language used in electronic design automation to describe digital and mixed-signal systems.
 Website: https://en.wikipedia.org/wiki/VHDL
+Category: hardware
 */
 
 export default function(hljs) {

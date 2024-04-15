@@ -607,7 +607,7 @@ export default function(hljs) {
 
   const VARIABLE = {
     className: "variable",
-    begin: /@[a-z0-9]+/,
+    begin: /@[a-z0-9][a-z0-9_]*/,
   };
 
   const OPERATOR = {

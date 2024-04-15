@@ -3,6 +3,7 @@ Language: Golo
 Author: Philippe Charriere <ph.charriere@gmail.com>
 Description: a lightweight dynamic language for the JVM
 Website: http://golo-lang.org/
+Category: system
 */
 
 export default function(hljs) {

@@ -29,7 +29,9 @@ declare module 'highlight.js' {
     }
 
     interface PublicApi {
-        highlight: (codeOrLanguageName: string, optionsOrCode: string | HighlightOptions, ignoreIllegals?: boolean) => HighlightResult
+        highlight(code: string, options: HighlightOptions): HighlightResult
+        /** @deprecated use `higlight(code, {lang: ..., ignoreIllegals: ...})` */
+        highlight(languageName: string, code: string, ignoreIllegals?: boolean): HighlightResult
         highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
         highlightBlock: (element: HTMLElement) => void
         highlightElement: (element: HTMLElement) => void
@@ -45,6 +47,7 @@ declare module 'highlight.js' {
         autoDetection: (languageName: string) => boolean
         inherit: <T>(original: T, ...args: Record<string, any>[]) => T
         addPlugin: (plugin: HLJSPlugin) => void
+        removePlugin: (plugin: HLJSPlugin) => void
         debugMode: () => void
         safeMode: () => void
         versionString: string
@@ -56,6 +59,7 @@ declare module 'highlight.js' {
             optional: (re: RegExp | string) => string,
             anyNumberOfTimes: (re: RegExp | string) => string
         }
+        newInstance: () => HLJSApi
     }
 
     interface ModesAPI {
@@ -167,7 +171,7 @@ declare module 'highlight.js' {
         disableAutodetect?: boolean
         contains: (Mode)[]
         case_insensitive?: boolean
-        keywords?: Record<string, any> | string
+        keywords?: string | string[] | Record<string, string | string[] | RegExp>
         isCompiled?: boolean,
         exports?: any,
         classNameAliases?: Record<string, string>
@@ -178,14 +182,12 @@ declare module 'highlight.js' {
     // technically private, but exported for convenience as this has
     // been a pretty stable API and is quite useful
     export interface Emitter {
-        addKeyword(text: string, kind: string): void
+        startScope(name: string): void
+        endScope(): void
         addText(text: string): void
         toHTML(): string
         finalize(): void
-        closeAllNodes(): void
-        openNode(kind: string): void
-        closeNode(): void
-        addSublanguage(emitter: Emitter, subLanguageName: string): void
+        __addSublanguage(emitter: Emitter, subLanguageName: string): void
     }
 
     export type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
@@ -248,7 +250,7 @@ declare module 'highlight.js' {
         parent?: Mode
         starts?:Mode
         lexemes?: string | RegExp
-        keywords?: Record<string, any> | string
+        keywords?: string | string[] | Record<string, string | string[]>
         beginKeywords?: string
         relevance?: number
         illegal?: string | RegExp | Array<string | RegExp>
@@ -270,5 +272,3 @@ declare module 'highlight.js/lib/languages/*' {
     const defineLanguage: LanguageFn;
     export default defineLanguage;
 }
-
-

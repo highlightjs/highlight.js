@@ -3,6 +3,7 @@ Language: Nix
 Author: Domen Kožar <domen@dev.si>
 Description: Nix functional language
 Website: http://nixos.org/nix
+Category: system
 */
 
 export default function(hljs) {

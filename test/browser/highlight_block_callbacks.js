@@ -141,6 +141,37 @@ describe('after:highlightElement', function() {
     });
 
     this.hljs.highlightElement(this.block);
-    this.block.outerHTML.should.equal(`<code class="language-javascript hljs">redacted</code>`);
+    this.block.outerHTML.should.equal(`<code class="language-javascript hljs" data-highlighted="yes">redacted</code>`);
   })
 })
+
+describe('removePlugin', () => {
+  it("can remove added plugin", async() => {
+    const testCase = newTestCase({
+      code: "This is the original content.",
+      language: "javascript"
+    });
+    await buildFakeDOM.bind(this)(testCase);
+
+    const plugin = {
+      'before:highlightElement': ({ el, language }) => {
+        language.should.equal("javascript");
+        el.innerHTML = "var a;";
+      }
+    };
+    this.hljs.addPlugin(plugin);
+
+    this.hljs.highlightElement(this.block);
+    this.hljs.removePlugin(plugin);
+    const actual = this.block.innerHTML;
+    actual.should.equal(
+      `<span class="hljs-keyword">var</span> a;`);
+
+    this.block.innerHTML = "";
+    this.hljs.removePlugin(plugin);
+    await buildFakeDOM.bind(this)(testCase);
+    this.hljs.highlightElement(this.block);
+    const origin = this.block.innerHTML;
+    origin.should.equal(`<span class="hljs-title class_">This</span> is the original content.`);
+  });
+});

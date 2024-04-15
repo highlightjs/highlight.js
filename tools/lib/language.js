@@ -56,7 +56,12 @@ class Language {
     const categoryMatch = CATEGORY_REGEX.exec(this.data);
     const languageMatch = LANGUAGE_REGEX.exec(this.data);
 
-    if (requiresMatch) { this.requires = requiresMatch[1].split(", ").map((n) => n.replace(".js", "")); }
+    if (requiresMatch) {
+      this.requires = requiresMatch[1]
+        .split(", ")
+        .map((n) => n.replace(".js", ""))
+        .filter(n => n.trim() !== "");
+    }
 
     if (categoryMatch) { this.categories = categoryMatch[1].split(/,\s?/); }
 
@@ -91,6 +96,7 @@ async function compileLanguage(language, options) {
   const esm = `${HEADER}\n${data};\nexport default hljsGrammar;`;
 
   language.module = iife;
+  language.esm = esm;
   const miniESM = await Terser.minify(esm, options.terser);
   const miniIIFE = await Terser.minify(iife, options.terser);
   language.minified = miniIIFE.code;

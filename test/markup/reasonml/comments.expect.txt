@@ -1,0 +1,10 @@
+<span class="hljs-keyword">let</span> t = <span class="hljs-number">2</span>; <span class="hljs-comment">// Line comment</span>
+
+<span class="hljs-comment">/* Regular comment */</span>
+<span class="hljs-keyword">let</span> t = <span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">type</span> t =
+  | <span class="hljs-type">A</span>(<span class="hljs-built_in">string</span>)
+  | <span class="hljs-type">B</span>(<span class="hljs-built_in">int</span>);
+<span class="hljs-comment">/* A(&quot;foo&quot;) -&gt; { TAG: 0, _0: &quot;Foo&quot; } */</span>
+<span class="hljs-comment">/* B(2) -&gt; { TAG: 1, _0: 2 } */</span>
