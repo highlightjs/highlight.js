@@ -7,9 +7,10 @@
  */
 
 export default function(hljs) {
+  const regex = hljs.regex;
   const GCODE_KEYWORDS = {
     $pattern: /[A-Z]+|%/,
-    meta: [
+    keywords: [
       // conditions
       'THEN',
       'ELSE',
@@ -61,7 +62,8 @@ export default function(hljs) {
   };
 
 
-  const NUMBER = /[+-]?((\.\d+)|(\d+)(\.\d*)?)/;
+  const LETTER_BOUNDARY_RE = /(?<![A-Z])/;
+  const NUMBER_RE = /[+-]?((\.\d+)|(\d+)(\.\d*)?)/;
 
   const GCODE_CODE = [
     // comments
@@ -74,24 +76,22 @@ export default function(hljs) {
     // gcodes
     {
       scope: 'title.function',
-      relevance: 10,
       variants: [
         // G General functions: G0, G5.1, G5.2, …
         // M Misc functions: M0, M55.6, M199, …
-        { match: /(?<![A-Z])[GM]\s*\d+(\.\d+)?/ },
+        { match: regex.concat(LETTER_BOUNDARY_RE, /[GM]\s*\d+(\.\d+)?/) },
         // T Tools
-        { match: /(?<![A-Z])T\s*\d+/ },
+        { match: regex.concat(LETTER_BOUNDARY_RE, /T\s*\d+/) }
       ]
     },
 
     {
       scope: 'symbol',
-      relevance: 10,
       variants: [
         // O Subroutine ID: O100, O110, …
-        { match: /(?<![A-Z])O\s*\d+/ },
+        { match: regex.concat(LETTER_BOUNDARY_RE, /O\s*\d+/) },
         // O Subroutine name: O<some>, …
-        { match: /(?<![A-Z])O<.+>/ },
+        { match: regex.concat(LETTER_BOUNDARY_RE, /O<.+>/) },
         // Checksum at end of line: *71, *199, …
         { match: /\*\s*\d+\s*$/ }
       ]
@@ -104,18 +104,17 @@ export default function(hljs) {
 
     {
       scope: 'variable',
-      relevance: 0,
-      match: /-?#\s*\d+/,
+      match: /-?#\s*\d+/
     },
 
     {
       scope: 'property', // Physical axes
-      match: new RegExp(`(?<![A-Z])[ABCUVWXYZ]\\s*${NUMBER.source}`),
+      match: regex.concat(LETTER_BOUNDARY_RE, /[ABCUVWXYZ]\s*/, NUMBER_RE)
     },
 
     {
       scope: 'params', // Different types of parameters
-      match: new RegExp(`(?<![A-Z])[FHIJKPQRS]\\s*${NUMBER.source}`),
+      match: regex.concat(LETTER_BOUNDARY_RE, /[FHIJKPQRS]\s*/, NUMBER_RE)
     },
   ];
 
