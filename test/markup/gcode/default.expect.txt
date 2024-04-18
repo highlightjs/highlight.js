@@ -28,4 +28,5 @@
 <span class="hljs-symbol">N26</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">COS[<span class="hljs-number">45</span>]</span>
 <span class="hljs-symbol">N27</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">SIN[<span class="hljs-number">45</span>]</span>
 <span class="hljs-symbol">N28</span> <span class="hljs-attr">VZOFZ</span>=<span class="hljs-number">652.9658</span>
+<span class="hljs-symbol">N29</span> SAVE_CONFIG
 <span class="hljs-meta">%</span>
