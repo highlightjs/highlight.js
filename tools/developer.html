@@ -343,7 +343,7 @@
       </div>
       <div>
         <h3>Markup</h3>
-        <pre><output id="markup">...</></pre>
+        <pre><code id="markup" class="xml">...</code></pre>
       </div>
     </div>
 
@@ -367,7 +367,7 @@
       $(document).ready(function () {
         var select = $(".languages");
         hljs.listLanguages().forEach(function (l) {
-          select.append("<output id='markup'>" + l + "</output>");
+          select.append("<option value='" + l + "'>" + l + "</output>");
         });
 
         $(".theme").change(function (e) {
@@ -386,11 +386,9 @@
             ? hljs.highlight(source, { language, ignoreIllegals: true })
             : hljs.highlightAuto(source);
 
-          console.log($("#markup")[0].innerText);
-          // hljs.highlightAuto($("#markup")[0].innerText, {
-          //   language: $("#markup")[0].innerText,
-          //   ignoreIllegals: true,
-          // });
+          setTimeout(() => {
+            hljs.highlightElement(document.getElementById("markup"));
+          }, 1000);
 
           var rendering_time = +new Date() - start_time;
           editor.find(".hljs").html(result.value);
@@ -408,7 +406,7 @@
           }
           editor.find(".rendering_stats").text(rendering_stats);
           editor.find(".rendering_time").text(rendering_time);
-          editor.find("output").text(result.value);
+          editor.find("code#markup").text(result.value);
           saveSettings();
         }
 
