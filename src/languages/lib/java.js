@@ -8,16 +8,20 @@ export var NUMERIC = {
   variants: [
     // DecimalFloatingPointLiteral
     // including ExponentPart
-    { begin: `(\\b(${decimalDigits})((${frac})|\\.)?|(${frac}))` +
-      `[eE][+-]?(${decimalDigits})[fFdD]?\\b` },
+    {
+     begin: `(\\b(${decimalDigits})((${frac})|\\.)?|(${frac}))` +
+        `[eE][+-]?(${decimalDigits})[fFdD]?\\b`
+    },
     // excluding ExponentPart
     { begin: `\\b(${decimalDigits})((${frac})[fFdD]?\\b|\\.([fFdD]\\b)?)` },
     { begin: `(${frac})[fFdD]?\\b` },
     { begin: `\\b(${decimalDigits})[fFdD]\\b` },
 
     // HexadecimalFloatingPointLiteral
-    { begin: `\\b0[xX]((${hexDigits})\\.?|(${hexDigits})?\\.(${hexDigits}))` +
-      `[pP][+-]?(${decimalDigits})[fFdD]?\\b` },
+    {
+     begin: `\\b0[xX]((${hexDigits})\\.?|(${hexDigits})?\\.(${hexDigits}))` +
+        `[pP][+-]?(${decimalDigits})[fFdD]?\\b`
+    },
 
     // DecimalIntegerLiteral
     { begin: '\\b(0|[1-9](_*[0-9])*)[lL]?\\b' },

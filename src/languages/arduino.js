@@ -8,8 +8,8 @@ Category: system
 
 import cPlusPlus from './cpp.js';
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const ARDUINO_KW = {
     type: [
       "boolean",
@@ -396,7 +396,7 @@ export default function(hljs) {
   kws._hints = ARDUINO_KW._hints;
 
   ARDUINO.name = 'Arduino';
-  ARDUINO.aliases = [ 'ino' ];
+  ARDUINO.aliases = ['ino'];
   ARDUINO.supersetOf = "cpp";
 
   return ARDUINO;

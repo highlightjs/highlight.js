@@ -5,8 +5,8 @@ Category: syntax
 Author: Oleg Efimov <efimovov@gmail.com>
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   return {
     name: 'Backus–Naur Form',
     contains: [

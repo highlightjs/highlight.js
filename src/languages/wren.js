@@ -7,8 +7,8 @@ Maintainer: @joshgoebel
 Website: https://wren.io/
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const IDENT_RE = /[a-zA-Z]\w*/;
   const KEYWORDS = [
@@ -92,32 +92,38 @@ export default function(hljs) {
       ),
       /(?=\s*\([^)]+\)\s*\{)/),
     className: "title.function",
-    starts: { contains: [
-      {
-        begin: /\(/,
-        end: /\)/,
-        contains: [
-          {
-            relevance: 0,
-            scope: "params",
-            match: IDENT_RE
-          }
-        ]
-      }
-    ] }
+    starts: {
+      contains: [
+        {
+          begin: /\(/,
+          end: /\)/,
+          contains: [
+            {
+              relevance: 0,
+              scope: "params",
+              match: IDENT_RE
+            }
+          ]
+        }
+      ]
+    }
   };
   const CLASS_DEFINITION = {
     variants: [
-      { match: [
-        /class\s+/,
-        IDENT_RE,
-        /\s+is\s+/,
-        IDENT_RE
-      ] },
-      { match: [
-        /class\s+/,
-        IDENT_RE
-      ] }
+      {
+        match: [
+          /class\s+/,
+          IDENT_RE,
+          /\s+is\s+/,
+          IDENT_RE
+        ]
+      },
+      {
+        match: [
+          /class\s+/,
+          IDENT_RE
+        ]
+      }
     ],
     scope: {
       2: "title.class",
@@ -183,13 +189,15 @@ export default function(hljs) {
   const COMMENT_DOCS = hljs.COMMENT(
     /\/\*\*/,
     /\*\//,
-    { contains: [
-      {
-        match: /@[a-z]+/,
-        scope: "doctag"
-      },
-      "self"
-    ] }
+    {
+      contains: [
+        {
+          match: /@[a-z]+/,
+          scope: "doctag"
+        },
+        "self"
+      ]
+    }
   );
   const SUBST = {
     scope: "subst",

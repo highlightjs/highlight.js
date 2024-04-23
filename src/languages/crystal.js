@@ -5,8 +5,8 @@ Website: https://crystal-lang.org
 Category: system
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const INT_SUFFIX = '(_?[ui](8|16|32|64|128))?';
   const FLOAT_SUFFIX = '(_?f(32|64))?';
   const CRYSTAL_IDENT_RE = '[a-zA-Z_]\\w*[!?=]?';
@@ -51,12 +51,12 @@ export default function(hljs) {
 
   function recursiveParen(begin, end) {
     const
-        contains = [
-          {
-            begin: begin,
-            end: end
-          }
-        ];
+      contains = [
+        {
+          begin: begin,
+          end: end
+        }
+      ];
     contains[0].contains = contains;
     return contains;
   }
@@ -206,7 +206,7 @@ export default function(hljs) {
     className: 'meta',
     begin: '@\\[',
     end: '\\]',
-    contains: [ hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' }) ]
+    contains: [hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' })]
   };
   const CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,
@@ -226,7 +226,8 @@ export default function(hljs) {
         hljs.HASH_COMMENT_MODE,
         hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE }),
         { // relevance booster for inheritance
-          begin: '<' }
+          begin: '<'
+        }
       ]
     },
     {
@@ -303,7 +304,7 @@ export default function(hljs) {
 
   return {
     name: 'Crystal',
-    aliases: [ 'cr' ],
+    aliases: ['cr'],
     keywords: CRYSTAL_KEYWORDS,
     contains: CRYSTAL_DEFAULT_CONTAINS
   };

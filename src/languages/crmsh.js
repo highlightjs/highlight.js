@@ -6,17 +6,17 @@ Description: Syntax Highlighting for the crmsh DSL
 Category: config
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const RESOURCES = 'primitive rsc_template';
   const COMMANDS = 'group clone ms master location colocation order fencing_topology '
-      + 'rsc_ticket acl_target acl_group user role '
-      + 'tag xml';
+    + 'rsc_ticket acl_target acl_group user role '
+    + 'tag xml';
   const PROPERTY_SETS = 'property rsc_defaults op_defaults';
   const KEYWORDS = 'params meta operations op rule attributes utilization';
   const OPERATORS = 'read write deny defined not_defined in_range date spec in '
-      + 'ref reference attribute type xpath version and or lt gt tag '
-      + 'lte gte eq ne \\';
+    + 'ref reference attribute type xpath version and or lt gt tag '
+    + 'lte gte eq ne \\';
   const TYPES = 'number string';
   const LITERALS = 'Master Started Slave Stopped start promote demote stop monitor true false';
 

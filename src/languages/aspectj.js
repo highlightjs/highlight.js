@@ -7,8 +7,8 @@ Category: system
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const KEYWORDS = [
     "false",
@@ -160,7 +160,7 @@ export default function(hljs) {
           {
             begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
             returnBegin: true,
-            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+            contains: [hljs.UNDERSCORE_TITLE_MODE]
           }
         ]
       },
@@ -199,7 +199,7 @@ export default function(hljs) {
             begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
             returnBegin: true,
             relevance: 0,
-            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+            contains: [hljs.UNDERSCORE_TITLE_MODE]
           },
           {
             className: 'params',

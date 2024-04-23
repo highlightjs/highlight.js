@@ -5,8 +5,8 @@
  Website: https://flix.dev/
  */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const CHAR = {
     className: 'string',
     begin: /'(.|\\[xXuU][a-zA-Z0-9]+)'/
@@ -33,7 +33,7 @@ export default function(hljs) {
     beginKeywords: 'def',
     end: /[:={\[(\n;]/,
     excludeEnd: true,
-    contains: [ NAME ]
+    contains: [NAME]
   };
 
   return {

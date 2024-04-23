@@ -6,12 +6,12 @@ Website: https://www.gnu.org/software/diffutils/
 Category: common
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   return {
     name: 'Diff',
-    aliases: [ 'patch' ],
+    aliases: ['patch'],
     contains: [
       {
         className: 'meta',

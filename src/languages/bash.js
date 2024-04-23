@@ -6,8 +6,8 @@ Website: https://www.gnu.org/software/bash/
 Category: common, scripting
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const VAR = {};
   const BRACED_VAR = {
@@ -17,17 +17,19 @@ export default function(hljs) {
       "self",
       {
         begin: /:-/,
-        contains: [ VAR ]
+        contains: [VAR]
       } // default values
     ]
   };
   Object.assign(VAR, {
     className: 'variable',
     variants: [
-      { begin: regex.concat(/\$[\w\d#@][\w\d_]*/,
-        // negative look-ahead tries to avoid matching patterns that are not
-        // Perl at all like $ident$, @ident@, etc.
-        `(?![\\w\\d])(?![$])`) },
+      {
+        begin: regex.concat(/\$[\w\d#@][\w\d_]*/,
+          // negative look-ahead tries to avoid matching patterns that are not
+          // Perl at all like $ident$, @ident@, etc.
+          `(?![\\w\\d])(?![$])`)
+      },
       BRACED_VAR
     ]
   });
@@ -36,7 +38,7 @@ export default function(hljs) {
     className: 'subst',
     begin: /\$\(/,
     end: /\)/,
-    contains: [ hljs.BACKSLASH_ESCAPE ]
+    contains: [hljs.BACKSLASH_ESCAPE]
   };
   const COMMENT = hljs.inherit(
     hljs.COMMENT(),
@@ -52,13 +54,15 @@ export default function(hljs) {
   );
   const HERE_DOC = {
     begin: /<<-?\s*(?=\w+)/,
-    starts: { contains: [
-      hljs.END_SAME_AS_BEGIN({
-        begin: /(\w+)/,
-        end: /(\w+)/,
-        className: 'string'
-      })
-    ] }
+    starts: {
+      contains: [
+        hljs.END_SAME_AS_BEGIN({
+          begin: /(\w+)/,
+          end: /(\w+)/,
+          className: 'string'
+        })
+      ]
+    }
   };
   const QUOTE_STRING = {
     className: 'string',
@@ -113,7 +117,7 @@ export default function(hljs) {
     className: 'function',
     begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
     returnBegin: true,
-    contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: /\w[\w\d_]*/ }) ],
+    contains: [hljs.inherit(hljs.TITLE_MODE, { begin: /\w[\w\d_]*/ })],
     relevance: 0
   };
 

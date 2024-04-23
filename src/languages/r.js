@@ -7,8 +7,8 @@ Website: https://www.r-project.org
 Category: common,scientific
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   // Identifiers in R cannot start with `_`, but they can start with `.` if it
   // is not immediately followed by a digit.
@@ -75,58 +75,60 @@ export default function(hljs) {
       hljs.COMMENT(
         /#'/,
         /$/,
-        { contains: [
-          {
-            // Handle `@examples` separately to cause all subsequent code
-            // until the next `@`-tag on its own line to be kept as-is,
-            // preventing highlighting. This code is example R code, so nested
-            // doctags shouldn’t be treated as such. See
-            // `test/markup/r/roxygen.txt` for an example.
-            scope: 'doctag',
-            match: /@examples/,
-            starts: {
-              end: regex.lookahead(regex.either(
-                // end if another doc comment
-                /\n^#'\s*(?=@[a-zA-Z]+)/,
-                // or a line with no comment
-                /\n^(?!#')/
-              )),
-              endsParent: true
-            }
-          },
-          {
-            // Handle `@param` to highlight the parameter name following
-            // after.
-            scope: 'doctag',
-            begin: '@param',
-            end: /$/,
-            contains: [
-              {
-                scope: 'variable',
-                variants: [
-                  { match: IDENT_RE },
-                  { match: /`(?:\\.|[^`\\])+`/ }
-                ],
+        {
+          contains: [
+            {
+              // Handle `@examples` separately to cause all subsequent code
+              // until the next `@`-tag on its own line to be kept as-is,
+              // preventing highlighting. This code is example R code, so nested
+              // doctags shouldn’t be treated as such. See
+              // `test/markup/r/roxygen.txt` for an example.
+              scope: 'doctag',
+              match: /@examples/,
+              starts: {
+                end: regex.lookahead(regex.either(
+                  // end if another doc comment
+                  /\n^#'\s*(?=@[a-zA-Z]+)/,
+                  // or a line with no comment
+                  /\n^(?!#')/
+                )),
                 endsParent: true
               }
-            ]
-          },
-          {
-            scope: 'doctag',
-            match: /@[a-zA-Z]+/
-          },
-          {
-            scope: 'keyword',
-            match: /\\[a-zA-Z]+/
-          }
-        ] }
+            },
+            {
+              // Handle `@param` to highlight the parameter name following
+              // after.
+              scope: 'doctag',
+              begin: '@param',
+              end: /$/,
+              contains: [
+                {
+                  scope: 'variable',
+                  variants: [
+                    { match: IDENT_RE },
+                    { match: /`(?:\\.|[^`\\])+`/ }
+                  ],
+                  endsParent: true
+                }
+              ]
+            },
+            {
+              scope: 'doctag',
+              match: /@[a-zA-Z]+/
+            },
+            {
+              scope: 'keyword',
+              match: /\\[a-zA-Z]+/
+            }
+          ]
+        }
       ),
 
       hljs.HASH_COMMENT_MODE,
 
       {
         scope: 'string',
-        contains: [ hljs.BACKSLASH_ESCAPE ],
+        contains: [hljs.BACKSLASH_ESCAPE],
         variants: [
           hljs.END_SAME_AS_BEGIN({
             begin: /[rR]"(-*)\(/,
@@ -248,7 +250,7 @@ export default function(hljs) {
         // Escaped identifier
         begin: '`',
         end: '`',
-        contains: [ { begin: /\\./ } ]
+        contains: [{ begin: /\\./ }]
       }
     ]
   };

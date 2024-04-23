@@ -8,8 +8,8 @@ Category: common, css, web
 
 import * as css from "./lib/css-shared.js";
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const modes = css.MODES(hljs);
   const PSEUDO_SELECTORS = css.PSEUDO_SELECTORS;
 
@@ -21,15 +21,15 @@ export default function(hljs) {
 
   const RULES = []; const VALUE_MODES = []; // forward def. for recursive modes
 
-  const STRING_MODE = function(c) {
+  const STRING_MODE = function (c) {
     return {
-    // Less strings are not multiline (also include '~' for more consistent coloring of "escaped" strings)
+      // Less strings are not multiline (also include '~' for more consistent coloring of "escaped" strings)
       className: 'string',
       begin: '~?' + c + '.*?' + c
     };
   };
 
-  const IDENT_MODE = function(name, begin, relevance) {
+  const IDENT_MODE = function (name, begin, relevance) {
     return {
       className: name,
       begin: begin,
@@ -93,7 +93,7 @@ export default function(hljs) {
   const MIXIN_GUARD_MODE = {
     beginKeywords: 'when',
     endsWithParent: true,
-    contains: [ { beginKeywords: 'and not' } ].concat(VALUE_MODES) // using this form to override VALUE’s 'function' match
+    contains: [{ beginKeywords: 'and not' }].concat(VALUE_MODES) // using this form to override VALUE’s 'function' match
   };
 
   /* Rule-Level Modes */
@@ -177,7 +177,7 @@ export default function(hljs) {
       MIXIN_GUARD_MODE,
       IDENT_MODE('keyword', 'all\\b'),
       IDENT_MODE('variable', '@\\{' + IDENT_RE + '\\}'), // otherwise it’s identified as tag
-      
+
       {
         begin: '\\b(' + css.TAGS.join('|') + ')\\b',
         className: 'selector-tag'
@@ -210,7 +210,7 @@ export default function(hljs) {
   const PSEUDO_SELECTOR_MODE = {
     begin: IDENT_RE + ':(:)?' + `(${PSEUDO_SELECTORS.join('|')})`,
     returnBegin: true,
-    contains: [ SELECTOR_MODE ]
+    contains: [SELECTOR_MODE]
   };
 
   RULES.push(

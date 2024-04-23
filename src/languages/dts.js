@@ -6,8 +6,8 @@ Website: https://elinux.org/Device_Tree_Reference
 Category: config
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const STRINGS = {
     className: 'string',
     variants: [
@@ -15,7 +15,7 @@ export default function(hljs) {
       {
         begin: '(u8?|U)?R"',
         end: '"',
-        contains: [ hljs.BACKSLASH_ESCAPE ]
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
         begin: '\'\\\\?.',

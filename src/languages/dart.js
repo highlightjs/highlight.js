@@ -7,11 +7,11 @@ Website: https://dart.dev
 Category: scripting
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const SUBST = {
     className: 'subst',
-    variants: [ { begin: '\\$[A-Za-z0-9_]+' } ]
+    variants: [{ begin: '\\$[A-Za-z0-9_]+' }]
   };
 
   const BRACED_SUBST = {
@@ -227,14 +227,16 @@ export default function(hljs) {
       ),
       hljs.COMMENT(
         /\/{3,} ?/,
-        /$/, { contains: [
-          {
-            subLanguage: 'markdown',
-            begin: '.',
-            end: '$',
-            relevance: 0
-          }
-        ] }
+        /$/, {
+          contains: [
+            {
+              subLanguage: 'markdown',
+              begin: '.',
+              end: '$',
+              relevance: 0
+            }
+          ]
+      }
       ),
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
@@ -253,7 +255,8 @@ export default function(hljs) {
         className: 'meta',
         begin: '@[A-Za-z]+'
       },
-      { begin: '=>' // No markup, just a relevance booster
+      {
+        begin: '=>' // No markup, just a relevance booster
       }
     ]
   };

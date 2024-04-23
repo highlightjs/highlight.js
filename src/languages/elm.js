@@ -5,16 +5,18 @@ Website: https://elm-lang.org
 Category: functional
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
-  const COMMENT = { variants: [
-    hljs.COMMENT('--', '$'),
-    hljs.COMMENT(
-      /\{-/,
-      /-\}/,
-      { contains: [ 'self' ] }
-    )
-  ] };
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
+  const COMMENT = {
+    variants: [
+      hljs.COMMENT('--', '$'),
+      hljs.COMMENT(
+        /\{-/,
+        /-\}/,
+        { contains: ['self'] }
+      )
+    ]
+  };
 
   const CONSTRUCTOR = {
     className: 'type',
@@ -122,7 +124,7 @@ export default function(hljs) {
         begin: 'port',
         end: '$',
         keywords: 'port',
-        contains: [ COMMENT ]
+        contains: [COMMENT]
       },
 
       // Literals and names.
@@ -134,7 +136,8 @@ export default function(hljs) {
       COMMENT,
 
       { // No markup, relevance booster
-        begin: '->|<-' }
+        begin: '->|<-'
+      }
     ],
     illegal: /;/
   };

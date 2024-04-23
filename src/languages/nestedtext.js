@@ -5,8 +5,8 @@ Website: https://nestedtext.org/
 Category: config
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const NESTED = {
     match: [
       /^\s*(?=\S)/, // have to look forward here to avoid polynomial backtracking
@@ -47,16 +47,20 @@ export default function(hljs) {
   };
   const LIST_ITEM = {
     variants: [
-      { match: [
-        /^\s*/,
-        /-/,
-        /[ ]/,
-        /.*$/
-      ] },
-      { match: [
-        /^\s*/,
-        /-$/
-      ] }
+      {
+        match: [
+          /^\s*/,
+          /-/,
+          /[ ]/,
+          /.*$/
+        ]
+      },
+      {
+        match: [
+          /^\s*/,
+          /-$/
+        ]
+      }
     ],
     className: {
       2: "bullet",
@@ -66,7 +70,7 @@ export default function(hljs) {
 
   return {
     name: 'Nested Text',
-    aliases: [ 'nt' ],
+    aliases: ['nt'],
     contains: [
       hljs.inherit(hljs.HASH_COMMENT_MODE, {
         begin: /^\s*(?=#)/,

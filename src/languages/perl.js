@@ -5,8 +5,8 @@ Website: https://www.perl.org
 Category: common
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const KEYWORDS = [
     'abs',
@@ -269,11 +269,12 @@ export default function(hljs) {
     scope: 'variable',
     variants: [
       { begin: /\$\d/ },
-      { begin: regex.concat(
-        /[$%@](?!")(\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
-        // negative look-ahead tries to avoid matching patterns that are not
-        // Perl at all like $ident$, @ident@, etc.
-        `(?![A-Za-z])(?![@$%])`
+      {
+        begin: regex.concat(
+          /[$%@](?!")(\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
+          // negative look-ahead tries to avoid matching patterns that are not
+          // Perl at all like $ident$, @ident@, etc.
+          `(?![A-Za-z])(?![@$%])`
         )
       },
       {
@@ -282,7 +283,7 @@ export default function(hljs) {
         relevance: 0
       }
     ],
-    contains: [ ATTR ],
+    contains: [ATTR],
   };
   const NUMBER = {
     className: 'number',
@@ -393,7 +394,7 @@ export default function(hljs) {
         {
           begin: '\'',
           end: '\'',
-          contains: [ hljs.BACKSLASH_ESCAPE ]
+          contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
           begin: '"',
@@ -402,7 +403,7 @@ export default function(hljs) {
         {
           begin: '`',
           end: '`',
-          contains: [ hljs.BACKSLASH_ESCAPE ]
+          contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
           begin: /\{\w+\}/,
@@ -460,7 +461,7 @@ export default function(hljs) {
       end: '(\\s*\\(.*?\\))?[;{]',
       excludeEnd: true,
       relevance: 5,
-      contains: [ hljs.TITLE_MODE, ATTR ]
+      contains: [hljs.TITLE_MODE, ATTR]
     },
     {
       className: 'class',
@@ -468,7 +469,7 @@ export default function(hljs) {
       end: '[;{]',
       excludeEnd: true,
       relevance: 5,
-      contains: [ hljs.TITLE_MODE, ATTR, NUMBER ]
+      contains: [hljs.TITLE_MODE, ATTR, NUMBER]
     },
     {
       begin: '-\\w\\b',

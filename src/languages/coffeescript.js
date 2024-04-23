@@ -9,8 +9,8 @@ Website: https://coffeescript.org
 
 import * as ECMAScript from './lib/ecmascript.js';
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const COFFEE_BUILT_INS = [
     'npm',
     'print'
@@ -57,22 +57,24 @@ export default function(hljs) {
   };
   const EXPRESSIONS = [
     hljs.BINARY_NUMBER_MODE,
-    hljs.inherit(hljs.C_NUMBER_MODE, { starts: {
-      end: '(\\s*/)?',
-      relevance: 0
-    } }), // a number tries to eat the following slash to prevent treating it as a regexp
+    hljs.inherit(hljs.C_NUMBER_MODE, {
+      starts: {
+        end: '(\\s*/)?',
+        relevance: 0
+      }
+    }), // a number tries to eat the following slash to prevent treating it as a regexp
     {
       className: 'string',
       variants: [
         {
           begin: /'''/,
           end: /'''/,
-          contains: [ hljs.BACKSLASH_ESCAPE ]
+          contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
           begin: /'/,
           end: /'/,
-          contains: [ hljs.BACKSLASH_ESCAPE ]
+          contains: [hljs.BACKSLASH_ESCAPE]
         },
         {
           begin: /"""/,
@@ -110,10 +112,12 @@ export default function(hljs) {
         {
           // regex can't start with space to parse x / 2 / 3 as two divisions
           // regex can't start with *, and it supports an "illegal" in the main mode
-          begin: /\/(?![ *]).*?(?![\\]).\/[gim]{0,3}(?=\W)/ }
+          begin: /\/(?![ *]).*?(?![\\]).\/[gim]{0,3}(?=\W)/
+        }
       ]
     },
-    { begin: '@' + JS_IDENT_RE // relevance booster
+    {
+      begin: '@' + JS_IDENT_RE // relevance booster
     },
     {
       subLanguage: 'javascript',
@@ -146,23 +150,27 @@ export default function(hljs) {
         begin: /\(/,
         end: /\)/,
         keywords: KEYWORDS,
-        contains: [ 'self' ].concat(EXPRESSIONS)
+        contains: ['self'].concat(EXPRESSIONS)
       }
     ]
   };
 
   const CLASS_DEFINITION = {
     variants: [
-      { match: [
-        /class\s+/,
-        JS_IDENT_RE,
-        /\s+extends\s+/,
-        JS_IDENT_RE
-      ] },
-      { match: [
-        /class\s+/,
-        JS_IDENT_RE
-      ] }
+      {
+        match: [
+          /class\s+/,
+          JS_IDENT_RE,
+          /\s+extends\s+/,
+          JS_IDENT_RE
+        ]
+      },
+      {
+        match: [
+          /class\s+/,
+          JS_IDENT_RE
+        ]
+      }
     ],
     scope: {
       2: "title.class",
@@ -204,7 +212,7 @@ export default function(hljs) {
             begin: POSSIBLE_PARAMS_RE,
             end: '[-=]>',
             returnBegin: true,
-            contains: [ PARAMS ]
+            contains: [PARAMS]
           }
         ]
       },

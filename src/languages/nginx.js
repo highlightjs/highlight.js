@@ -6,8 +6,8 @@ Category: config, web
 Website: https://www.nginx.com
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const VAR = {
     className: 'variable',
@@ -76,7 +76,7 @@ export default function(hljs) {
         end: '\\s',
         endsWithParent: true,
         excludeEnd: true,
-        contains: [ VAR ]
+        contains: [VAR]
       },
       {
         className: 'regexp',
@@ -119,7 +119,7 @@ export default function(hljs) {
 
   return {
     name: 'Nginx config',
-    aliases: [ 'nginxconf' ],
+    aliases: ['nginxconf'],
     contains: [
       hljs.HASH_COMMENT_MODE,
       {

@@ -8,8 +8,8 @@ Category: functional
 
 import * as regex from '../lib/regex.js';
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const KEYWORDS = [
     "abstract",
     "and",
@@ -247,7 +247,7 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const makeOperatorMode = function({ includeEqual }) {
+  const makeOperatorMode = function ({ includeEqual }) {
     // List or symbolic operator characters from the FSharp Spec 4.1, minus the dot, and with `?` added, used for nullable operators.
     let allOperatorChars;
     if (includeEqual)
@@ -285,7 +285,7 @@ export default function(hljs) {
   // This variant is used when matching '=' should end a parent mode:
   const OPERATOR_WITHOUT_EQUAL = makeOperatorMode({ includeEqual: false });
 
-  const makeTypeAnnotationMode = function(prefix, prefixScope) {
+  const makeTypeAnnotationMode = function (prefix, prefixScope) {
     return {
       begin: regex.concat( // a type annotation is a
         prefix,            // should be a colon or the 'of' keyword
@@ -300,7 +300,7 @@ export default function(hljs) {
               /``/,        // quoted type name
               /\(/,        // parens type expression
               /{\|/,       // anonymous type annotation
-      )))),
+            )))),
       beginScope: prefixScope,
       // BUG: because ending with \n is necessary for some cases, multi-line type annotations are not properly supported.
       // Examples where \n is required at the end:

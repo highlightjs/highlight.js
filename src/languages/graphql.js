@@ -5,13 +5,13 @@
  Category: web, common
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const GQL_NAME = /[_A-Za-z][_0-9A-Za-z]*/;
   return {
     name: "GraphQL",
-    aliases: [ "gql" ],
+    aliases: ["gql"],
     case_insensitive: true,
     disableAutodetect: false,
     keywords: {

@@ -8,8 +8,8 @@ Category: config, web
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const NUMBER_REF = {
     className: 'number',
     begin: /[$%]\d+/
@@ -28,7 +28,7 @@ export default function(hljs) {
   };
   return {
     name: 'Apache config',
-    aliases: [ 'apacheconf' ],
+    aliases: ['apacheconf'],
     case_insensitive: true,
     contains: [
       hljs.HASH_COMMENT_MODE,
@@ -50,24 +50,26 @@ export default function(hljs) {
         relevance: 0,
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
-        keywords: { _: [
-          "order",
-          "deny",
-          "allow",
-          "setenv",
-          "rewriterule",
-          "rewriteengine",
-          "rewritecond",
-          "documentroot",
-          "sethandler",
-          "errordocument",
-          "loadmodule",
-          "options",
-          "header",
-          "listen",
-          "serverroot",
-          "servername"
-        ] },
+        keywords: {
+          _: [
+            "order",
+            "deny",
+            "allow",
+            "setenv",
+            "rewriterule",
+            "rewriteengine",
+            "rewritecond",
+            "documentroot",
+            "sethandler",
+            "errordocument",
+            "loadmodule",
+            "options",
+            "header",
+            "listen",
+            "serverroot",
+            "servername"
+          ]
+        },
         starts: {
           end: /$/,
           relevance: 0,

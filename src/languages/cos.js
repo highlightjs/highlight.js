@@ -5,7 +5,7 @@ Category: enterprise, scripting
 Website: https://cedocs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls
 */
 
-/** @type LanguageFn */
+/** @type {import("highlight.js").LanguageFn} */
 export default function cos(hljs) {
   const STRINGS = {
     className: 'string',
@@ -78,7 +78,7 @@ export default function cos(hljs) {
   return {
     name: 'Caché Object Script',
     case_insensitive: true,
-    aliases: [ "cls" ],
+    aliases: ["cls"],
     keywords: COS_KEYWORDS,
     contains: [
       NUMBERS,

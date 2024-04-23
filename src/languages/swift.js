@@ -14,8 +14,8 @@ import {
   lookahead
 } from '../lib/regex.js';
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const WHITESPACE = {
     match: /\s+/,
     relevance: 0
@@ -24,7 +24,7 @@ export default function(hljs) {
   const BLOCK_COMMENT = hljs.COMMENT(
     '/\\*',
     '\\*/',
-    { contains: [ 'self' ] }
+    { contains: ['self'] }
   );
   const COMMENTS = [
     hljs.C_LINE_COMMENT_MODE,
@@ -47,17 +47,19 @@ export default function(hljs) {
   };
   const PLAIN_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw === 'string')
-    .concat([ "_|0" ]); // seems common, so 0 relevance
+    .concat(["_|0"]); // seems common, so 0 relevance
   const REGEX_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw !== 'string') // find regex
     .concat(Swift.keywordTypes)
     .map(Swift.keywordWrapper);
-  const KEYWORD = { variants: [
-    {
-      className: 'keyword',
-      match: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
-    }
-  ] };
+  const KEYWORD = {
+    variants: [
+      {
+        className: 'keyword',
+        match: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
+      }
+    ]
+  };
   // find all the regular keywords
   const KEYWORDS = {
     $pattern: either(
@@ -104,7 +106,8 @@ export default function(hljs) {
         // dot-operator: only operators that start with a dot are allowed to use dots as
         // characters (..., ...<, .*, etc). So there rule here is: a dot followed by one or more
         // characters that may also include dots.
-        match: `\\.(\\.|${Swift.operatorCharacter})+` }
+        match: `\\.(\\.|${Swift.operatorCharacter})+`
+      }
     ]
   };
   const OPERATORS = [
@@ -186,7 +189,7 @@ export default function(hljs) {
       begin: /\[/,
       end: /\]/,
       relevance: 0,
-      contains: [ hljs.BACKSLASH_ESCAPE ]
+      contains: [hljs.BACKSLASH_ESCAPE]
     }
   ];
 
@@ -244,18 +247,20 @@ export default function(hljs) {
   const AVAILABLE_ATTRIBUTE = {
     match: /(@|#(un)?)available/,
     scope: 'keyword',
-    starts: { contains: [
-      {
-        begin: /\(/,
-        end: /\)/,
-        keywords: Swift.availabilityKeywords,
-        contains: [
-          ...OPERATORS,
-          NUMBER,
-          STRING
-        ]
-      }
-    ] }
+    starts: {
+      contains: [
+        {
+          begin: /\(/,
+          end: /\)/,
+          keywords: Swift.availabilityKeywords,
+          contains: [
+            ...OPERATORS,
+            NUMBER,
+            STRING
+          ]
+        }
+      ]
+    }
   };
 
   const KEYWORD_ATTRIBUTE = {
@@ -452,7 +457,7 @@ export default function(hljs) {
       1: "keyword",
       3: "title"
     },
-    contains: [ TYPE ],
+    contains: [TYPE],
     keywords: [
       ...Swift.precedencegroupKeywords,
       ...Swift.literals
@@ -530,7 +535,7 @@ export default function(hljs) {
       {
         beginKeywords: 'import',
         end: /$/,
-        contains: [ ...COMMENTS ],
+        contains: [...COMMENTS],
         relevance: 0
       },
       REGEXP,

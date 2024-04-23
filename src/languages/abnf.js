@@ -6,8 +6,8 @@ Category: syntax
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const IDENT = /^[a-zA-Z][a-zA-Z0-9-]*/;
 

@@ -26,8 +26,8 @@ function recurRegex(re, substitution, depth) {
   });
 }
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   const GENERIC_IDENT_RE = JAVA_IDENT_RE
@@ -114,7 +114,7 @@ export default function(hljs) {
       {
         begin: /\(/,
         end: /\)/,
-        contains: [ "self" ] // allow nested () inside our annotation
+        contains: ["self"] // allow nested () inside our annotation
       }
     ]
   };
@@ -124,13 +124,13 @@ export default function(hljs) {
     end: /\)/,
     keywords: KEYWORDS,
     relevance: 0,
-    contains: [ hljs.C_BLOCK_COMMENT_MODE ],
+    contains: [hljs.C_BLOCK_COMMENT_MODE],
     endsParent: true
   };
 
   return {
     name: 'Java',
-    aliases: [ 'jsp' ],
+    aliases: ['jsp'],
     keywords: KEYWORDS,
     illegal: /<\/|#/,
     contains: [
@@ -164,7 +164,7 @@ export default function(hljs) {
         begin: /"""/,
         end: /"""/,
         className: "string",
-        contains: [ hljs.BACKSLASH_ESCAPE ]
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

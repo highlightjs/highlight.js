@@ -7,8 +7,8 @@ Category: assembler
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const IDENT_RE = /([-a-zA-Z$._][\w$.-]*)/;
   const TYPE = {
@@ -35,7 +35,7 @@ export default function(hljs) {
   };
   const LABEL = {
     className: 'symbol',
-    variants: [ { begin: /^\s*[a-z]+:/ }, // labels
+    variants: [{ begin: /^\s*[a-z]+:/ }, // labels
     ],
     relevance: 0
   };

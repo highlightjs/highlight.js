@@ -6,13 +6,14 @@ Website: https://cmake.org
 Category: build-system
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   return {
     name: 'CMake',
-    aliases: [ 'cmake.in' ],
+    aliases: ['cmake.in'],
     case_insensitive: true,
-    keywords: { keyword:
+    keywords: {
+      keyword:
         // scripting commands
         'break cmake_host_system_information cmake_minimum_required cmake_parse_arguments '
         + 'cmake_policy configure_file continue elseif else endforeach endfunction endif endmacro '
@@ -46,7 +47,8 @@ export default function(hljs) {
         + 'on off true false and or not command policy target test exists is_newer_than '
         + 'is_directory is_symlink is_absolute matches less greater equal less_equal '
         + 'greater_equal strless strgreater strequal strless_equal strgreater_equal version_less '
-        + 'version_greater version_equal version_less_equal version_greater_equal in_list defined' },
+        + 'version_greater version_equal version_less_equal version_greater_equal in_list defined'
+    },
     contains: [
       {
         className: 'variable',

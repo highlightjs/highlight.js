@@ -5,8 +5,8 @@
  Category: enterprise, config
  */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const QUOTED_PROPERTY = {
     className: 'string',
     begin: /"/,

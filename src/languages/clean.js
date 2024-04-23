@@ -5,8 +5,8 @@ Category: functional
 Website: http://clean.cs.ru.nl
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const KEYWORDS = [
     "if",
     "let",
@@ -59,7 +59,8 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       { // relevance booster
-        begin: '->|<-[|:]?|#!?|>>=|\\{\\||\\|\\}|:==|=:|<>' }
+        begin: '->|<-[|:]?|#!?|>>=|\\{\\||\\|\\}|:==|=:|<>'
+      }
     ]
   };
 }

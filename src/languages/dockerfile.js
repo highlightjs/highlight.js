@@ -7,8 +7,8 @@ Website: https://docs.docker.com/engine/reference/builder/
 Category: config
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const KEYWORDS = [
     "from",
     "maintainer",
@@ -17,11 +17,11 @@ export default function(hljs) {
     "arg",
     "user",
     "onbuild",
-    "stopsignal"
+    "stopsignal",
   ];
   return {
-    name: 'Dockerfile',
-    aliases: [ 'docker' ],
+    name: "Dockerfile",
+    aliases: ["docker"],
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: [
@@ -30,13 +30,14 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.NUMBER_MODE,
       {
-        beginKeywords: 'run cmd entrypoint volume add copy workdir label healthcheck shell',
+        beginKeywords:
+          "run cmd entrypoint volume add copy workdir label healthcheck shell",
         starts: {
           end: /[^\\]$/,
-          subLanguage: 'bash'
-        }
-      }
+          subLanguage: "bash",
+        },
+      },
     ],
-    illegal: '</'
+    illegal: "</",
   };
 }

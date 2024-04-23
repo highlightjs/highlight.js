@@ -5,8 +5,8 @@ Category: scripting
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const IDENT_RE = /[a-zA-Z_$][a-zA-Z0-9_$]*/;
   const PKG_NAME_RE = regex.concat(
@@ -83,7 +83,7 @@ export default function(hljs) {
 
   return {
     name: 'ActionScript',
-    aliases: [ 'as' ],
+    aliases: ['as'],
     keywords: {
       keyword: KEYWORDS,
       literal: LITERALS

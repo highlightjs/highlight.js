@@ -5,8 +5,8 @@ Category: common, web
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   // XML names can have the following additional letters: https://www.w3.org/TR/xml/#NT-NameChar
   // OTHER_NAME_CHARS = /[:\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]/;
@@ -58,12 +58,12 @@ export default function(hljs) {
               {
                 begin: /"/,
                 end: /"/,
-                contains: [ XML_ENTITIES ]
+                contains: [XML_ENTITIES]
               },
               {
                 begin: /'/,
                 end: /'/,
-                contains: [ XML_ENTITIES ]
+                contains: [XML_ENTITIES]
               },
               { begin: /[^\s"'=<>`]+/ }
             ]
@@ -157,7 +157,7 @@ export default function(hljs) {
         begin: /<style(?=\s|>)/,
         end: />/,
         keywords: { name: 'style' },
-        contains: [ TAG_INTERNALS ],
+        contains: [TAG_INTERNALS],
         starts: {
           end: /<\/style>/,
           returnEnd: true,
@@ -173,7 +173,7 @@ export default function(hljs) {
         begin: /<script(?=\s|>)/,
         end: />/,
         keywords: { name: 'script' },
-        contains: [ TAG_INTERNALS ],
+        contains: [TAG_INTERNALS],
         starts: {
           end: /<\/script>/,
           returnEnd: true,

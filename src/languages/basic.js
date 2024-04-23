@@ -6,8 +6,8 @@ Website: https://en.wikipedia.org/wiki/Tandy_1000
 Category: system
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const KEYWORDS = [
     "ABS",
     "ASC",

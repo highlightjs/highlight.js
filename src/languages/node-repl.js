@@ -5,8 +5,8 @@ Author: Marat Nagayev <nagaevmt@yandex.ru>
 Category: scripting
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   return {
     name: 'Node REPL',
     contains: [

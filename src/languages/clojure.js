@@ -6,8 +6,8 @@ Website: https://clojure.org
 Category: lisp
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const SYMBOLSTART = 'a-zA-Z_\\-!.?+*=<>&\'';
   const SYMBOL_RE = '[#]?[' + SYMBOLSTART + '][' + SYMBOLSTART + '0-9/;:$#]*';
   const globals = 'def defonce defprotocol defstruct defmulti defmethod defn- defn defmacro deftype defrecord';
@@ -77,7 +77,7 @@ export default function(hljs) {
     scope: 'regex',
     begin: /#"/,
     end: /"/,
-    contains: [ hljs.BACKSLASH_ESCAPE ]
+    contains: [hljs.BACKSLASH_ESCAPE]
   };
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const COMMA = {

@@ -29,8 +29,8 @@ Category: scientific
 */
 import * as Mathematica from './lib/mathematica.js';
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   /*
   This rather scary looking matching of Mathematica numbers is carefully explained by Robert Jacobson here:
@@ -62,21 +62,23 @@ export default function(hljs) {
   const SYMBOL_RE = /[a-zA-Z$][a-zA-Z0-9$]*/;
   const SYSTEM_SYMBOLS_SET = new Set(Mathematica.SYSTEM_SYMBOLS);
   /** @type {Mode} */
-  const SYMBOLS = { variants: [
-    {
-      className: 'builtin-symbol',
-      begin: SYMBOL_RE,
-      // for performance out of fear of regex.either(...Mathematica.SYSTEM_SYMBOLS)
-      "on:begin": (match, response) => {
-        if (!SYSTEM_SYMBOLS_SET.has(match[0])) response.ignoreMatch();
+  const SYMBOLS = {
+    variants: [
+      {
+        className: 'builtin-symbol',
+        begin: SYMBOL_RE,
+        // for performance out of fear of regex.either(...Mathematica.SYSTEM_SYMBOLS)
+        "on:begin": (match, response) => {
+          if (!SYSTEM_SYMBOLS_SET.has(match[0])) response.ignoreMatch();
+        }
+      },
+      {
+        className: 'symbol',
+        relevance: 0,
+        begin: SYMBOL_RE
       }
-    },
-    {
-      className: 'symbol',
-      relevance: 0,
-      begin: SYMBOL_RE
-    }
-  ] };
+    ]
+  };
 
   const NAMED_CHARACTER = {
     className: 'named-character',
@@ -128,7 +130,7 @@ export default function(hljs) {
       'message-name': 'string'
     },
     contains: [
-      hljs.COMMENT(/\(\*/, /\*\)/, { contains: [ 'self' ] }),
+      hljs.COMMENT(/\(\*/, /\*\)/, { contains: ['self'] }),
       PATTERNS,
       SLOTS,
       MESSAGES,

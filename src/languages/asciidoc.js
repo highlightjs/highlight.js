@@ -7,8 +7,8 @@ Description: A semantic, text-based document format that can be exported to HTML
 Category: markup
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const HORIZONTAL_RULE = {
     begin: '^\'{3,}[ \\t]*$',
@@ -114,7 +114,7 @@ export default function(hljs) {
 
   return {
     name: 'AsciiDoc',
-    aliases: [ 'adoc' ],
+    aliases: ['adoc'],
     contains: [
       // block comment
       hljs.COMMENT(

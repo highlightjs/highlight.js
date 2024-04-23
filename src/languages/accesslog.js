@@ -7,8 +7,8 @@
  Audit: 2020
  */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   const HTTP_VERBS = [

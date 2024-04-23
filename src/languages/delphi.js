@@ -4,8 +4,8 @@ Website: https://www.embarcadero.com/products/delphi
 Category: system
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const KEYWORDS = [
     "exports",
     "register",
@@ -157,7 +157,7 @@ export default function(hljs) {
     className: 'string',
     begin: /'/,
     end: /'/,
-    contains: [ { begin: /''/ } ]
+    contains: [{ begin: /''/ }]
   };
   const NUMBER = {
     className: 'number',
@@ -166,24 +166,30 @@ export default function(hljs) {
     variants: [
       {
         // Regular numbers, e.g., 123, 123.456.
-        match: /\b\d[\d_]*(\.\d[\d_]*)?/ },
+        match: /\b\d[\d_]*(\.\d[\d_]*)?/
+      },
       {
         // Hexadecimal notation, e.g., $7F.
-        match: /\$[\dA-Fa-f_]+/ },
+        match: /\$[\dA-Fa-f_]+/
+      },
       {
         // Hexadecimal literal with no digits
         match: /\$/,
-        relevance: 0 },
+        relevance: 0
+      },
       {
         // Octal notation, e.g., &42.
-        match: /&[0-7][0-7_]*/ },
+        match: /&[0-7][0-7_]*/
+      },
       {
         // Binary notation, e.g., %1010.
-        match: /%[01_]+/ },
+        match: /%[01_]+/
+      },
       {
         // Binary literal with no digits
         match: /%/,
-        relevance: 0 }
+        relevance: 0
+      }
     ]
   };
   const CHAR_STRING = {
@@ -198,7 +204,7 @@ export default function(hljs) {
   const CLASS = {
     begin: hljs.IDENT_RE + '\\s*=\\s*class\\s*\\(',
     returnBegin: true,
-    contains: [ hljs.TITLE_MODE ]
+    contains: [hljs.TITLE_MODE]
   };
   const FUNCTION = {
     className: 'function',

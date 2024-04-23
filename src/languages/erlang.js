@@ -6,8 +6,8 @@ Website: https://www.erlang.org
 Category: functional
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const BASIC_ATOM_RE = '[a-z\'][a-zA-Z0-9_\']*';
   const FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
   const ERLANG_RESERVED = {
@@ -151,7 +151,7 @@ export default function(hljs) {
 
   return {
     name: 'Erlang',
-    aliases: [ 'erl' ],
+    aliases: ['erl'],
     keywords: ERLANG_RESERVED,
     illegal: '(</|\\*=|\\+=|-=|/\\*|\\*/|\\(\\*|\\*\\))',
     contains: [
@@ -182,7 +182,7 @@ export default function(hljs) {
           $pattern: '-' + hljs.IDENT_RE,
           keyword: DIRECTIVES.map(x => `${x}|1.5`).join(" ")
         },
-        contains: [ PARAMS ]
+        contains: [PARAMS]
       },
       NUMBER,
       hljs.QUOTE_STRING_MODE,

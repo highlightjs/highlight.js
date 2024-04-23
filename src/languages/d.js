@@ -24,8 +24,8 @@ Date: 2012-04-08
  *   up to the end of line is matched as special token sequence)
  */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   /**
    * Language keywords
    *
@@ -63,23 +63,23 @@ export default function(hljs) {
 
   const decimal_exponent_re = '([eE][+-]?' + decimal_integer_nosus_re + ')';
   const decimal_float_re = '(' + decimal_integer_nosus_re + '(\\.\\d*|' + decimal_exponent_re + ')|'
-                + '\\d+\\.' + decimal_integer_nosus_re + '|'
-                + '\\.' + decimal_integer_re + decimal_exponent_re + '?'
-              + ')';
+    + '\\d+\\.' + decimal_integer_nosus_re + '|'
+    + '\\.' + decimal_integer_re + decimal_exponent_re + '?'
+    + ')';
   const hexadecimal_float_re = '(0[xX]('
-                  + hexadecimal_digits_re + '\\.' + hexadecimal_digits_re + '|'
-                  + '\\.?' + hexadecimal_digits_re
-                 + ')[pP][+-]?' + decimal_integer_nosus_re + ')';
+    + hexadecimal_digits_re + '\\.' + hexadecimal_digits_re + '|'
+    + '\\.?' + hexadecimal_digits_re
+    + ')[pP][+-]?' + decimal_integer_nosus_re + ')';
 
   const integer_re = '('
-      + decimal_integer_re + '|'
-      + binary_integer_re + '|'
-       + hexadecimal_integer_re
+    + decimal_integer_re + '|'
+    + binary_integer_re + '|'
+    + hexadecimal_integer_re
     + ')';
 
   const float_re = '('
-      + hexadecimal_float_re + '|'
-      + decimal_float_re
+    + hexadecimal_float_re + '|'
+    + decimal_float_re
     + ')';
 
   /**
@@ -88,13 +88,13 @@ export default function(hljs) {
    * @type {String}
    */
   const escape_sequence_re = '\\\\('
-              + '[\'"\\?\\\\abfnrtv]|' // common escapes
-              + 'u[\\dA-Fa-f]{4}|' // four hex digit unicode codepoint
-              + '[0-7]{1,3}|' // one to three octal digit ascii char code
-              + 'x[\\dA-Fa-f]{2}|' // two hex digit ascii char code
-              + 'U[\\dA-Fa-f]{8}' // eight hex digit unicode codepoint
-              + ')|'
-              + '&[a-zA-Z\\d]{2,};'; // named character entity
+    + '[\'"\\?\\\\abfnrtv]|' // common escapes
+    + 'u[\\dA-Fa-f]{4}|' // four hex digit unicode codepoint
+    + '[0-7]{1,3}|' // one to three octal digit ascii char code
+    + 'x[\\dA-Fa-f]{2}|' // two hex digit ascii char code
+    + 'U[\\dA-Fa-f]{8}' // eight hex digit unicode codepoint
+    + ')|'
+    + '&[a-zA-Z\\d]{2,};'; // named character entity
 
   /**
    * D integer number literals
@@ -114,8 +114,8 @@ export default function(hljs) {
   const D_FLOAT_MODE = {
     className: 'number',
     begin: '\\b('
-        + float_re + '([fF]|L|i|[fF]i|Li)?|'
-        + integer_re + '(i|[fF]i|Li)'
+      + float_re + '([fF]|L|i|[fF]i|Li)?|'
+      + integer_re + '(i|[fF]i|Li)'
       + ')',
     relevance: 0
   };
@@ -150,7 +150,7 @@ export default function(hljs) {
   const D_STRING_MODE = {
     className: 'string',
     begin: '"',
-    contains: [ D_ESCAPE_SEQUENCE ],
+    contains: [D_ESCAPE_SEQUENCE],
     end: '"[cwd]?'
   };
 
@@ -242,7 +242,7 @@ export default function(hljs) {
     '\\/\\+',
     '\\+\\/',
     {
-      contains: [ 'self' ],
+      contains: ['self'],
       relevance: 10
     }
   );

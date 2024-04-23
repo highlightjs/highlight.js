@@ -5,8 +5,8 @@ Category: functional
 Website: https://coq.inria.fr
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const KEYWORDS = [
     "_|0",
     "as",
@@ -437,7 +437,8 @@ export default function(hljs) {
         end: '\\w+'
       },
       { // relevance booster
-        begin: /[-=]>/ }
+        begin: /[-=]>/
+      }
     ]
   };
 }

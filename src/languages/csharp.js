@@ -6,8 +6,8 @@ Website: https://docs.microsoft.com/dotnet/csharp/
 Category: common
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const BUILT_IN_KEYWORDS = [
     'bool',
     'byte',
@@ -173,7 +173,7 @@ export default function(hljs) {
     className: 'string',
     begin: '@"',
     end: '"',
-    contains: [ { begin: '""' } ]
+    contains: [{ begin: '""' }]
   };
   const VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, { illegal: /\n/ });
   const SUBST = {
@@ -233,14 +233,16 @@ export default function(hljs) {
     NUMBERS,
     hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, { illegal: /\n/ })
   ];
-  const STRING = { variants: [
-    RAW_STRING,
-    INTERPOLATED_VERBATIM_STRING,
-    INTERPOLATED_STRING,
-    VERBATIM_STRING,
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE
-  ] };
+  const STRING = {
+    variants: [
+      RAW_STRING,
+      INTERPOLATED_VERBATIM_STRING,
+      INTERPOLATED_STRING,
+      VERBATIM_STRING,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
 
   const GENERIC_MODIFIER = {
     begin: "<",

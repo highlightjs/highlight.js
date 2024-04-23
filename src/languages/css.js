@@ -7,8 +7,8 @@ Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 // @ts-ignore
 import * as css from "./lib/css-shared.js";
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const modes = css.MODES(hljs);
   const VENDOR_PREFIX = { begin: /-(webkit|moz|ms|o)-(?=[a-z])/ };
@@ -28,7 +28,8 @@ export default function(hljs) {
     classNameAliases: {
       // for visual continuity with `tag {}` and because we
       // don't have a great class for this?
-      keyframePosition: "selector-tag" },
+      keyframePosition: "selector-tag"
+    },
     contains: [
       modes.BLOCK_COMMENT,
       VENDOR_PREFIX,

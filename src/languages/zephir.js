@@ -7,21 +7,23 @@
  Audit: 2020
  */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const STRING = {
     className: 'string',
-    contains: [ hljs.BACKSLASH_ESCAPE ],
+    contains: [hljs.BACKSLASH_ESCAPE],
     variants: [
       hljs.inherit(hljs.APOS_STRING_MODE, { illegal: null }),
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null })
     ]
   };
   const TITLE_MODE = hljs.UNDERSCORE_TITLE_MODE;
-  const NUMBER = { variants: [
-    hljs.BINARY_NUMBER_MODE,
-    hljs.C_NUMBER_MODE
-  ] };
+  const NUMBER = {
+    variants: [
+      hljs.BINARY_NUMBER_MODE,
+      hljs.C_NUMBER_MODE
+    ]
+  };
   const KEYWORDS =
     // classes and objects
     'namespace class interface use extends '
@@ -51,29 +53,32 @@ export default function(hljs) {
 
   return {
     name: 'Zephir',
-    aliases: [ 'zep' ],
+    aliases: ['zep'],
     keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(
         /\/\*/,
         /\*\//,
-        { contains: [
-          {
-            className: 'doctag',
-            begin: /@[A-Za-z]+/
-          }
-        ] }
+        {
+          contains: [
+            {
+              className: 'doctag',
+              begin: /@[A-Za-z]+/
+            }
+          ]
+        }
       ),
       {
         className: 'string',
         begin: /<<<['"]?\w+['"]?$/,
         end: /^\w+;/,
-        contains: [ hljs.BACKSLASH_ESCAPE ]
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
       {
         // swallow composed identifiers to avoid parsing them as keywords
-        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/ },
+        begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/
+      },
       {
         className: 'function',
         beginKeywords: 'function fn',
@@ -111,14 +116,15 @@ export default function(hljs) {
         beginKeywords: 'namespace',
         end: /;/,
         illegal: /[.']/,
-        contains: [ TITLE_MODE ]
+        contains: [TITLE_MODE]
       },
       {
         beginKeywords: 'use',
         end: /;/,
-        contains: [ TITLE_MODE ]
+        contains: [TITLE_MODE]
       },
-      { begin: /=>/ // No markup, just a relevance booster
+      {
+        begin: /=>/ // No markup, just a relevance booster
       },
       STRING,
       NUMBER

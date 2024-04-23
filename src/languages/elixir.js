@@ -6,8 +6,8 @@ Category: functional
 Website: https://elixir-lang.org
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const ELIXIR_IDENT_RE = '[a-zA-Z_][a-zA-Z0-9_.]*(!|\\?)?';
   const ELIXIR_METHOD_RE = '[a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?';
@@ -123,11 +123,13 @@ export default function(hljs) {
     className: 'string',
     begin: '~[a-z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
-      { contains: [
-        escapeSigilEnd(x.end),
-        BACKSLASH_ESCAPE,
-        SUBST
-      ] }
+      {
+        contains: [
+          escapeSigilEnd(x.end),
+          BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      }
     ))
   };
 
@@ -135,7 +137,7 @@ export default function(hljs) {
     className: 'string',
     begin: '~[A-Z]' + '(?=' + SIGIL_DELIMITERS + ')',
     contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
-      { contains: [ escapeSigilEnd(x.end) ] }
+      { contains: [escapeSigilEnd(x.end)] }
     ))
   };
 
@@ -160,7 +162,7 @@ export default function(hljs) {
         contains: SIGIL_DELIMITER_MODES.map(x => hljs.inherit(x,
           {
             end: regex.concat(x.end, /[uismxfU]{0,7}/),
-            contains: [ escapeSigilEnd(x.end) ]
+            contains: [escapeSigilEnd(x.end)]
           })
         )
       }

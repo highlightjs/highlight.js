@@ -5,8 +5,8 @@ Category: assembler
 Website: https://www.microchip.com/webdoc/avrassembler/avrassembler.wb_instruction_list.html
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   return {
     name: 'AVR Assembly',
     case_insensitive: true,

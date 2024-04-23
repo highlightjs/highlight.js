@@ -17,8 +17,8 @@ Description: Ada is a general-purpose programming language that has great suppor
 // xml (broken by Foo : Bar type), elm (broken by Foo : Bar type), vbscript-html (broken by body keyword)
 // sql (ada default.txt has a lot of sql keywords)
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   // Regular expression for Ada numeric literals.
   // stolen form the VHDL highlighter
 
@@ -210,34 +210,34 @@ export default function(hljs) {
         // the title mode below matches only exactly once
         returnBegin: true,
         contains:
-                [
-                  COMMENTS,
-                  {
-                    // name of the function/procedure
-                    className: 'title',
-                    begin: '(\\bwith\\s+)?\\b(function|procedure)\\s+',
-                    end: '(\\(|\\s+|$)',
-                    excludeBegin: true,
-                    excludeEnd: true,
-                    illegal: BAD_CHARS
-                  },
-                  // 'self'
-                  // // parameter types
-                  VAR_DECLS,
-                  {
-                    // return type
-                    className: 'type',
-                    begin: '\\breturn\\s+',
-                    end: '(\\s+|;|$)',
-                    keywords: 'return',
-                    excludeBegin: true,
-                    excludeEnd: true,
-                    // we are done with functions
-                    endsParent: true,
-                    illegal: BAD_CHARS
+          [
+            COMMENTS,
+            {
+              // name of the function/procedure
+              className: 'title',
+              begin: '(\\bwith\\s+)?\\b(function|procedure)\\s+',
+              end: '(\\(|\\s+|$)',
+              excludeBegin: true,
+              excludeEnd: true,
+              illegal: BAD_CHARS
+            },
+            // 'self'
+            // // parameter types
+            VAR_DECLS,
+            {
+              // return type
+              className: 'type',
+              begin: '\\breturn\\s+',
+              end: '(\\s+|;|$)',
+              keywords: 'return',
+              excludeBegin: true,
+              excludeEnd: true,
+              // we are done with functions
+              endsParent: true,
+              illegal: BAD_CHARS
 
-                  }
-                ]
+            }
+          ]
       },
       {
         // new type declarations

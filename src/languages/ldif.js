@@ -5,8 +5,8 @@ Category: enterprise, config
 Website: https://en.wikipedia.org/wiki/LDAP_Data_Interchange_Format
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   return {
     name: 'LDIF',
     contains: [

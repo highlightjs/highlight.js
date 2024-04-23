@@ -6,8 +6,8 @@ Website: https://docs.microsoft.com/en-us/dynamics-nav/programming-in-c-al
 Category: enterprise
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const KEYWORDS = [
     "div",
@@ -55,7 +55,7 @@ export default function(hljs) {
     className: 'string',
     begin: /'/,
     end: /'/,
-    contains: [ { begin: /''/ } ]
+    contains: [{ begin: /''/ }]
   };
   const CHAR_STRING = {
     className: 'string',

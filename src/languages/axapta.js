@@ -6,8 +6,8 @@ Website: https://dynamics.microsoft.com/en-us/ax-overview/
 Category: enterprise
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const IDENT_RE = hljs.UNDERSCORE_IDENT_RE;
   const BUILT_IN_KEYWORDS = [
     'anytype',
@@ -147,16 +147,20 @@ export default function(hljs) {
 
   const CLASS_DEFINITION = {
     variants: [
-      { match: [
-        /(class|interface)\s+/,
-        IDENT_RE,
-        /\s+(extends|implements)\s+/,
-        IDENT_RE
-      ] },
-      { match: [
-        /class\s+/,
-        IDENT_RE
-      ] }
+      {
+        match: [
+          /(class|interface)\s+/,
+          IDENT_RE,
+          /\s+(extends|implements)\s+/,
+          IDENT_RE
+        ]
+      },
+      {
+        match: [
+          /class\s+/,
+          IDENT_RE
+        ]
+      }
     ],
     scope: {
       2: "title.class",
@@ -167,7 +171,7 @@ export default function(hljs) {
 
   return {
     name: 'X++',
-    aliases: [ 'x++' ],
+    aliases: ['x++'],
     keywords: KEYWORDS,
     contains: [
       hljs.C_LINE_COMMENT_MODE,

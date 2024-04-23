@@ -8,11 +8,12 @@ Website: https://www.djangoproject.com
 Category: template
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const FILTER = {
     begin: /\|[A-Za-z]+:?/,
-    keywords: { name:
+    keywords: {
+      name:
         'truncatewords removetags linebreaksbr yesno get_digit timesince random striptags '
         + 'filesizeformat escape linebreaks length_is ljust rjust cut urlize fix_ampersands '
         + 'title floatformat capfirst pprint divisibleby add make_list unordered_list urlencode '
@@ -20,7 +21,8 @@ export default function(hljs) {
         + 'dictsortreversed default_if_none pluralize lower join center default '
         + 'truncatewords_html upper length phone2numeric wordwrap time addslashes slugify first '
         + 'escapejs force_escape iriencode last safe safeseq truncatechars localize unlocalize '
-        + 'localtime utc timezone' },
+        + 'localtime utc timezone'
+    },
     contains: [
       hljs.QUOTE_STRING_MODE,
       hljs.APOS_STRING_MODE
@@ -29,7 +31,7 @@ export default function(hljs) {
 
   return {
     name: 'Django',
-    aliases: [ 'jinja' ],
+    aliases: ['jinja'],
     case_insensitive: true,
     subLanguage: 'xml',
     contains: [
@@ -43,7 +45,8 @@ export default function(hljs) {
           {
             className: 'name',
             begin: /\w+/,
-            keywords: { name:
+            keywords: {
+              name:
                 'comment endcomment load templatetag ifchanged endifchanged if endif firstof for '
                 + 'endfor ifnotequal endifnotequal widthratio extends include spaceless '
                 + 'endspaceless regroup ifequal endifequal ssi now with cycle url filter '
@@ -52,11 +55,12 @@ export default function(hljs) {
                 + 'plural get_current_language language get_available_languages '
                 + 'get_current_language_bidi get_language_info get_language_info_list localize '
                 + 'endlocalize localtime endlocaltime timezone endtimezone get_current_timezone '
-                + 'verbatim' },
+                + 'verbatim'
+            },
             starts: {
               endsWithParent: true,
               keywords: 'in by as',
-              contains: [ FILTER ],
+              contains: [FILTER],
               relevance: 0
             }
           }
@@ -66,7 +70,7 @@ export default function(hljs) {
         className: 'template-variable',
         begin: /\{\{/,
         end: /\}\}/,
-        contains: [ FILTER ]
+        contains: [FILTER]
       }
     ]
   };

@@ -7,8 +7,8 @@ Website: https://en.wikipedia.org/wiki/VBScript
 Category: scripting
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const BUILT_IN_FUNCTIONS = [
     "lcase",
@@ -196,7 +196,7 @@ export default function(hljs) {
 
   return {
     name: 'VBScript',
-    aliases: [ 'vbs' ],
+    aliases: ['vbs'],
     case_insensitive: true,
     keywords: {
       keyword: KEYWORDS,
@@ -206,7 +206,7 @@ export default function(hljs) {
     illegal: '//',
     contains: [
       BUILT_IN_CALL,
-      hljs.inherit(hljs.QUOTE_STRING_MODE, { contains: [ { begin: '""' } ] }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { contains: [{ begin: '""' }] }),
       hljs.COMMENT(
         /'/,
         /$/,

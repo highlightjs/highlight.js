@@ -4,8 +4,8 @@ Author: Evgeny Stepanischev <imbolk@gmail.com>
 Website: https://esolangs.org/wiki/Brainfuck
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const LITERAL = {
     className: 'literal',
     begin: /[+-]+/,
@@ -13,7 +13,7 @@ export default function(hljs) {
   };
   return {
     name: 'Brainfuck',
-    aliases: [ 'bf' ],
+    aliases: ['bf'],
     contains: [
       hljs.COMMENT(
         /[^\[\]\.,\+\-<> \r\n]/,
@@ -44,7 +44,7 @@ export default function(hljs) {
         // it looks ahead to find the start of a run of literals
         // so only the runs are counted as relevant
         begin: /(?=\+\+|--)/,
-        contains: [ LITERAL ]
+        contains: [LITERAL]
       },
       LITERAL
     ]

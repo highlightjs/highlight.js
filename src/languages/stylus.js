@@ -8,8 +8,8 @@ Category: css, web
 
 import * as css from "./lib/css-shared.js";
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const modes = css.MODES(hljs);
 
   const AT_MODIFIERS = "and or not only";
@@ -54,7 +54,7 @@ export default function(hljs) {
 
   return {
     name: 'Stylus',
-    aliases: [ 'styl' ],
+    aliases: ['styl'],
     case_insensitive: false,
     keywords: 'if else for in',
     illegal: '(' + ILLEGAL.join('|') + ')',
@@ -111,7 +111,7 @@ export default function(hljs) {
             keyword: AT_MODIFIERS,
             attribute: css.MEDIA_FEATURES.join(" ")
           },
-          contains: [ modes.CSS_NUMBER_MODE ]
+          contains: [modes.CSS_NUMBER_MODE]
         }
       },
 

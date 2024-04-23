@@ -6,9 +6,9 @@ Website: https://www.rust-lang.org
 Category: common, system
 */
 
-/** @type LanguageFn */
+/** @type {import("highlight.js").LanguageFn} */
 
-export default function(hljs) {
+export default function (hljs) {
   const regex = hljs.regex;
   // ============================================
   // Added to support the r# keyword, which is a raw identifier in Rust.
@@ -182,7 +182,7 @@ export default function(hljs) {
   ];
   return {
     name: 'Rust',
-    aliases: [ 'rs' ],
+    aliases: ['rs'],
     keywords: {
       $pattern: hljs.IDENT_RE + '!?',
       type: TYPES,
@@ -193,7 +193,7 @@ export default function(hljs) {
     illegal: '</',
     contains: [
       hljs.C_LINE_COMMENT_MODE,
-      hljs.COMMENT('/\\*', '\\*/', { contains: [ 'self' ] }),
+      hljs.COMMENT('/\\*', '\\*/', { contains: ['self'] }),
       hljs.inherit(hljs.QUOTE_STRING_MODE, {
         begin: /b?"/,
         illegal: null
@@ -215,8 +215,10 @@ export default function(hljs) {
           { begin: '\\b0b([01_]+)' + NUMBER_SUFFIX },
           { begin: '\\b0o([0-7_]+)' + NUMBER_SUFFIX },
           { begin: '\\b0x([A-Fa-f0-9_]+)' + NUMBER_SUFFIX },
-          { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)'
-                   + NUMBER_SUFFIX }
+          {
+            begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)'
+              + NUMBER_SUFFIX
+          }
         ],
         relevance: 0
       },

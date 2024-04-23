@@ -5,24 +5,26 @@ Description: ARM Assembly including Thumb and Thumb2 instructions
 Category: assembler
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   // local labels: %?[FB]?[AT]?\d{1,2}\w+
 
-  const COMMENT = { variants: [
-    hljs.COMMENT('^[ \\t]*(?=#)', '$', {
-      relevance: 0,
-      excludeBegin: true
-    }),
-    hljs.COMMENT('[;@]', '$', { relevance: 0 }),
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.C_BLOCK_COMMENT_MODE
-  ] };
+  const COMMENT = {
+    variants: [
+      hljs.COMMENT('^[ \\t]*(?=#)', '$', {
+        relevance: 0,
+        excludeBegin: true
+      }),
+      hljs.COMMENT('[;@]', '$', { relevance: 0 }),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ]
+  };
 
   return {
     name: 'ARM Assembly',
     case_insensitive: true,
-    aliases: [ 'arm' ],
+    aliases: ['arm'],
     keywords: {
       $pattern: '\\.?' + hljs.IDENT_RE,
       meta:
@@ -58,23 +60,23 @@ export default function(hljs) {
       {
         className: 'keyword',
         begin: '\\b(' // mnemonics
-            + 'adc|'
-            + '(qd?|sh?|u[qh]?)?add(8|16)?|usada?8|(q|sh?|u[qh]?)?(as|sa)x|'
-            + 'and|adrl?|sbc|rs[bc]|asr|b[lx]?|blx|bxj|cbn?z|tb[bh]|bic|'
-            + 'bfc|bfi|[su]bfx|bkpt|cdp2?|clz|clrex|cmp|cmn|cpsi[ed]|cps|'
-            + 'setend|dbg|dmb|dsb|eor|isb|it[te]{0,3}|lsl|lsr|ror|rrx|'
-            + 'ldm(([id][ab])|f[ds])?|ldr((s|ex)?[bhd])?|movt?|mvn|mra|mar|'
-            + 'mul|[us]mull|smul[bwt][bt]|smu[as]d|smmul|smmla|'
-            + 'mla|umlaal|smlal?([wbt][bt]|d)|mls|smlsl?[ds]|smc|svc|sev|'
-            + 'mia([bt]{2}|ph)?|mrr?c2?|mcrr2?|mrs|msr|orr|orn|pkh(tb|bt)|rbit|'
-            + 'rev(16|sh)?|sel|[su]sat(16)?|nop|pop|push|rfe([id][ab])?|'
-            + 'stm([id][ab])?|str(ex)?[bhd]?|(qd?)?sub|(sh?|q|u[qh]?)?sub(8|16)|'
-            + '[su]xt(a?h|a?b(16)?)|srs([id][ab])?|swpb?|swi|smi|tst|teq|'
-            + 'wfe|wfi|yield'
-        + ')'
-        + '(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al|hs|lo)?' // condition codes
-        + '[sptrx]?' // legal postfixes
-        + '(?=\\s)' // followed by space
+          + 'adc|'
+          + '(qd?|sh?|u[qh]?)?add(8|16)?|usada?8|(q|sh?|u[qh]?)?(as|sa)x|'
+          + 'and|adrl?|sbc|rs[bc]|asr|b[lx]?|blx|bxj|cbn?z|tb[bh]|bic|'
+          + 'bfc|bfi|[su]bfx|bkpt|cdp2?|clz|clrex|cmp|cmn|cpsi[ed]|cps|'
+          + 'setend|dbg|dmb|dsb|eor|isb|it[te]{0,3}|lsl|lsr|ror|rrx|'
+          + 'ldm(([id][ab])|f[ds])?|ldr((s|ex)?[bhd])?|movt?|mvn|mra|mar|'
+          + 'mul|[us]mull|smul[bwt][bt]|smu[as]d|smmul|smmla|'
+          + 'mla|umlaal|smlal?([wbt][bt]|d)|mls|smlsl?[ds]|smc|svc|sev|'
+          + 'mia([bt]{2}|ph)?|mrr?c2?|mcrr2?|mrs|msr|orr|orn|pkh(tb|bt)|rbit|'
+          + 'rev(16|sh)?|sel|[su]sat(16)?|nop|pop|push|rfe([id][ab])?|'
+          + 'stm([id][ab])?|str(ex)?[bhd]?|(qd?)?sub|(sh?|q|u[qh]?)?sub(8|16)|'
+          + '[su]xt(a?h|a?b(16)?)|srs([id][ab])?|swpb?|swi|smi|tst|teq|'
+          + 'wfe|wfi|yield'
+          + ')'
+          + '(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al|hs|lo)?' // condition codes
+          + '[sptrx]?' // legal postfixes
+          + '(?=\\s)' // followed by space
       },
       COMMENT,
       hljs.QUOTE_STRING_MODE,
@@ -95,13 +97,17 @@ export default function(hljs) {
         className: 'number',
         variants: [
           { // hex
-            begin: '[#$=]?0x[0-9a-f]+' },
+            begin: '[#$=]?0x[0-9a-f]+'
+          },
           { // bin
-            begin: '[#$=]?0b[01]+' },
+            begin: '[#$=]?0b[01]+'
+          },
           { // literal
-            begin: '[#$=]\\d+' },
+            begin: '[#$=]\\d+'
+          },
           { // bare number
-            begin: '\\b\\d+' }
+            begin: '\\b\\d+'
+          }
         ],
         relevance: 0
       },
@@ -109,11 +115,14 @@ export default function(hljs) {
         className: 'symbol',
         variants: [
           { // GNU ARM syntax
-            begin: '^[ \\t]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:' },
+            begin: '^[ \\t]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:'
+          },
           { // ARM syntax
-            begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+' },
+            begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+'
+          },
           { // label reference
-            begin: '[=#]\\w+' }
+            begin: '[=#]\\w+'
+          }
         ],
         relevance: 0
       }

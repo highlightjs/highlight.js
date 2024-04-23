@@ -6,8 +6,8 @@ Category: web, common
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const BLOCK_COMMENT = hljs.COMMENT(/\(;/, /;\)/);
   BLOCK_COMMENT.contains.push("self");

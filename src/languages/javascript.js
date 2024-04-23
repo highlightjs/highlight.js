@@ -7,8 +7,8 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 import * as ECMAScript from './lib/ecmascript.js';
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   /**
    * Takes a string like "<Booger" and checks to see
@@ -48,7 +48,7 @@ export default function(hljs) {
         // the , gives away that this is not HTML
         // `<T, A extends keyof T, V>`
         nextChar === ","
-        ) {
+      ) {
         response.ignoreMatch();
         return;
       }
@@ -106,8 +106,10 @@ export default function(hljs) {
     className: 'number',
     variants: [
       // DecimalLiteral
-      { begin: `(\\b(${decimalInteger})((${frac})|\\.)?|(${frac}))` +
-        `[eE][+-]?(${decimalDigits})\\b` },
+      {
+        begin: `(\\b(${decimalInteger})((${frac})|\\.)?|(${frac}))` +
+          `[eE][+-]?(${decimalDigits})\\b`
+      },
       { begin: `\\b(${decimalInteger})\\b((${frac})\\b|\\.)?|(${frac})\\b` },
 
       // DecimalBigIntegerLiteral
@@ -313,20 +315,20 @@ export default function(hljs) {
   const CLASS_REFERENCE = {
     relevance: 0,
     match:
-    regex.either(
-      // Hard coded exceptions
-      /\bJSON/,
-      // Float32Array, OutT
-      /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
-      // CSSFactory, CSSFactoryT
-      /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*)*/,
-      // FPs, FPsT
-      /\b[A-Z]{2,}[a-z]+([A-Z][a-z]+|\d)*([A-Z][a-z]*)*/,
-      // P
-      // single letters are not highlighted
-      // BLAH
-      // this will be flagged as a UPPER_CASE_CONSTANT instead
-    ),
+      regex.either(
+        // Hard coded exceptions
+        /\bJSON/,
+        // Float32Array, OutT
+        /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
+        // CSSFactory, CSSFactoryT
+        /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*)*/,
+        // FPs, FPsT
+        /\b[A-Z]{2,}[a-z]+([A-Z][a-z]+|\d)*([A-Z][a-z]*)*/,
+        // P
+        // single letters are not highlighted
+        // BLAH
+        // this will be flagged as a UPPER_CASE_CONSTANT instead
+      ),
     className: "title.class",
     keywords: {
       _: [
@@ -367,7 +369,7 @@ export default function(hljs) {
       3: "title.function"
     },
     label: "func.def",
-    contains: [ PARAMS ],
+    contains: [PARAMS],
     illegal: /%/
   };
 
@@ -566,12 +568,12 @@ export default function(hljs) {
         begin: '\\b(?!function)' + hljs.UNDERSCORE_IDENT_RE +
           '\\(' + // first parens
           '[^()]*(\\(' +
-            '[^()]*(\\(' +
-              '[^()]*' +
-            '\\)[^()]*)*' +
+          '[^()]*(\\(' +
+          '[^()]*' +
+          '\\)[^()]*)*' +
           '\\)[^()]*)*' +
           '\\)\\s*\\{', // end parens
-        returnBegin:true,
+        returnBegin: true,
         label: "func.def",
         contains: [
           PARAMS,
@@ -592,9 +594,9 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        match: [ /\bconstructor(?=\s*\()/ ],
+        match: [/\bconstructor(?=\s*\()/],
         className: { 1: "title.function" },
-        contains: [ PARAMS ]
+        contains: [PARAMS]
       },
       FUNCTION_CALL,
       UPPER_CASE_CONSTANT,

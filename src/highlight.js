@@ -25,7 +25,7 @@ import HTMLInjectionError from "./lib/html_injection_error.js";
 @typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
 @typedef {import('highlight.js').PluginEvent} PluginEvent
 @typedef {import('highlight.js').HLJSOptions} HLJSOptions
-@typedef {import('highlight.js').LanguageFn} LanguageFn
+@typedef {import('highlight.js').LanguageFn} {import("highlight.js").LanguageFn}
 @typedef {import('highlight.js').HighlightedHTMLElement} HighlightedHTMLElement
 @typedef {import('highlight.js').BeforeHighlightContext} BeforeHighlightContext
 @typedef {import('highlight.js/private').MatchType} MatchType
@@ -47,7 +47,7 @@ const MAX_KEYWORD_HITS = 7;
  * @param {any} hljs - object that is extended (legacy)
  * @returns {HLJSApi}
  */
-const HLJS = function(hljs) {
+const HLJS = function (hljs) {
   // Global internal variables used within the highlight.js library.
   /** @type {Record<string, Language>} */
   const languages = Object.create(null);
@@ -574,7 +574,7 @@ const HLJS = function(hljs) {
       if (!language.__emitTokens) {
         top.matcher.considerAll();
 
-        for (;;) {
+        for (; ;) {
           iterations++;
           if (resumeScanAtSamePosition) {
             // only regexes not matched previously will now be
@@ -968,7 +968,7 @@ const HLJS = function(hljs) {
    */
   function fire(event, args) {
     const cb = event;
-    plugins.forEach(function(plugin) {
+    plugins.forEach(function (plugin) {
       if (plugin[cb]) {
         plugin[cb](args);
       }
@@ -1008,8 +1008,8 @@ const HLJS = function(hljs) {
     removePlugin
   });
 
-  hljs.debugMode = function() { SAFE_MODE = false; };
-  hljs.safeMode = function() { SAFE_MODE = true; };
+  hljs.debugMode = function () { SAFE_MODE = false; };
+  hljs.safeMode = function () { SAFE_MODE = true; };
   hljs.versionString = packageJSON.version;
 
   hljs.regex = {

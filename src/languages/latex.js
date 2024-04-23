@@ -5,8 +5,8 @@ Website: https://www.latex-project.org
 Category: markup
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const KNOWN_CONTROL_WORDS = regex.either(...[
     '(?:NeedsTeXFormat|RequirePackage|GetIdInfo)',
@@ -95,7 +95,8 @@ export default function(hljs) {
   };
   const DOUBLE_CARET_CHAR = {
     // relevance: 1
-    variants: DOUBLE_CARET_VARIANTS };
+    variants: DOUBLE_CARET_VARIANTS
+  };
   const SPECIAL_CATCODE = {
     className: 'built_in',
     relevance: 0,
@@ -154,11 +155,11 @@ export default function(hljs) {
     begin: /\s+/,
     relevance: 0
   };
-  const ARGUMENT_M = [ ARGUMENT_BRACES ];
-  const ARGUMENT_O = [ ARGUMENT_BRACKETS ];
-  const ARGUMENT_AND_THEN = function(arg, starts_mode) {
+  const ARGUMENT_M = [ARGUMENT_BRACES];
+  const ARGUMENT_O = [ARGUMENT_BRACKETS];
+  const ARGUMENT_AND_THEN = function (arg, starts_mode) {
     return {
-      contains: [ SPACE_GOBBLER ],
+      contains: [SPACE_GOBBLER],
       starts: {
         relevance: 0,
         contains: arg,
@@ -166,7 +167,7 @@ export default function(hljs) {
       }
     };
   };
-  const CSNAME = function(csname, starts_mode) {
+  const CSNAME = function (csname, starts_mode) {
     return {
       begin: '\\\\' + csname + '(?![a-zA-Z@:_])',
       keywords: {
@@ -174,11 +175,11 @@ export default function(hljs) {
         keyword: '\\' + csname
       },
       relevance: 0,
-      contains: [ SPACE_GOBBLER ],
+      contains: [SPACE_GOBBLER],
       starts: starts_mode
     };
   };
-  const BEGIN_ENV = function(envname, starts_mode) {
+  const BEGIN_ENV = function (envname, starts_mode) {
     return hljs.inherit(
       {
         begin: '\\\\begin(?=[ \t]*(\\r?\\n[ \t]*)?\\{' + envname + '\\})',
@@ -201,7 +202,7 @@ export default function(hljs) {
       endsParent: true
     });
   };
-  const VERBATIM_DELIMITED_ENV = function(envname) {
+  const VERBATIM_DELIMITED_ENV = function (envname) {
     return {
       className: 'string',
       end: '(?=\\\\end\\{' + envname + '\\})'
@@ -224,7 +225,7 @@ export default function(hljs) {
                 begin: /\{/,
                 end: /\}/,
                 relevance: 0,
-                contains: [ "self" ]
+                contains: ["self"]
               }
             ],
           }
@@ -236,18 +237,22 @@ export default function(hljs) {
     ...[
       'verb',
       'lstinline'
-    ].map(csname => CSNAME(csname, { contains: [ VERBATIM_DELIMITED_EQUAL() ] })),
-    CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, { contains: [ VERBATIM_DELIMITED_EQUAL() ] })),
-    CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, { contains: [
-      VERBATIM_DELIMITED_BRACES(),
-      VERBATIM_DELIMITED_EQUAL()
-    ] })),
-    CSNAME('url', { contains: [
-      VERBATIM_DELIMITED_BRACES("link"),
-      VERBATIM_DELIMITED_BRACES("link")
-    ] }),
-    CSNAME('hyperref', { contains: [ VERBATIM_DELIMITED_BRACES("link") ] }),
-    CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, { contains: [ VERBATIM_DELIMITED_BRACES("link") ] })),
+    ].map(csname => CSNAME(csname, { contains: [VERBATIM_DELIMITED_EQUAL()] })),
+    CSNAME('mint', ARGUMENT_AND_THEN(ARGUMENT_M, { contains: [VERBATIM_DELIMITED_EQUAL()] })),
+    CSNAME('mintinline', ARGUMENT_AND_THEN(ARGUMENT_M, {
+      contains: [
+        VERBATIM_DELIMITED_BRACES(),
+        VERBATIM_DELIMITED_EQUAL()
+      ]
+    })),
+    CSNAME('url', {
+      contains: [
+        VERBATIM_DELIMITED_BRACES("link"),
+        VERBATIM_DELIMITED_BRACES("link")
+      ]
+    }),
+    CSNAME('hyperref', { contains: [VERBATIM_DELIMITED_BRACES("link")] }),
+    CSNAME('href', ARGUMENT_AND_THEN(ARGUMENT_O, { contains: [VERBATIM_DELIMITED_BRACES("link")] })),
     ...[].concat(...[
       '',
       '\\*'
@@ -267,7 +272,7 @@ export default function(hljs) {
 
   return {
     name: 'LaTeX',
-    aliases: [ 'tex' ],
+    aliases: ['tex'],
     contains: [
       ...VERBATIM,
       ...EVERYTHING_BUT_VERBATIM

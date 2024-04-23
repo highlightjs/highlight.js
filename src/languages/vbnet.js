@@ -6,8 +6,8 @@ Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started
 Category: common
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   /**
    * Character Literal
@@ -26,7 +26,8 @@ export default function(hljs) {
     contains: [
       {
         // double quote escape
-        begin: /""/ }
+        begin: /""/
+      }
     ]
   };
 
@@ -40,13 +41,16 @@ export default function(hljs) {
     variants: [
       {
         // #YYYY-MM-DD# (ISO-Date) or #M/D/YYYY# (US-Date)
-        begin: regex.concat(/# */, regex.either(YYYY_MM_DD, MM_DD_YYYY), / *#/) },
+        begin: regex.concat(/# */, regex.either(YYYY_MM_DD, MM_DD_YYYY), / *#/)
+      },
       {
         // #H:mm[:ss]# (24h Time)
-        begin: regex.concat(/# */, TIME_24H, / *#/) },
+        begin: regex.concat(/# */, TIME_24H, / *#/)
+      },
       {
         // #h[:mm[:ss]] A# (12h Time)
-        begin: regex.concat(/# */, TIME_12H, / *#/) },
+        begin: regex.concat(/# */, TIME_12H, / *#/)
+      },
       {
         // date plus time
         begin: regex.concat(
@@ -55,7 +59,8 @@ export default function(hljs) {
           / +/,
           regex.either(TIME_12H, TIME_24H),
           / *#/
-        ) }
+        )
+      }
     ]
   };
 
@@ -65,19 +70,24 @@ export default function(hljs) {
     variants: [
       {
         // Float
-        begin: /\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/ },
+        begin: /\b\d[\d_]*((\.[\d_]+(E[+-]?[\d_]+)?)|(E[+-]?[\d_]+))[RFD@!#]?/
+      },
       {
         // Integer (base 10)
-        begin: /\b\d[\d_]*((U?[SIL])|[%&])?/ },
+        begin: /\b\d[\d_]*((U?[SIL])|[%&])?/
+      },
       {
         // Integer (base 16)
-        begin: /&H[\dA-F_]+((U?[SIL])|[%&])?/ },
+        begin: /&H[\dA-F_]+((U?[SIL])|[%&])?/
+      },
       {
         // Integer (base 8)
-        begin: /&O[0-7_]+((U?[SIL])|[%&])?/ },
+        begin: /&O[0-7_]+((U?[SIL])|[%&])?/
+      },
       {
         // Integer (base 2)
-        begin: /&B[01_]+((U?[SIL])|[%&])?/ }
+        begin: /&B[01_]+((U?[SIL])|[%&])?/
+      }
     ]
   };
 
@@ -86,34 +96,41 @@ export default function(hljs) {
     begin: /^\w+:/
   };
 
-  const DOC_COMMENT = hljs.COMMENT(/'''/, /$/, { contains: [
-    {
-      className: 'doctag',
-      begin: /<\/?/,
-      end: />/
-    }
-  ] });
+  const DOC_COMMENT = hljs.COMMENT(/'''/, /$/, {
+    contains: [
+      {
+        className: 'doctag',
+        begin: /<\/?/,
+        end: />/
+      }
+    ]
+  });
 
-  const COMMENT = hljs.COMMENT(null, /$/, { variants: [
-    { begin: /'/ },
-    {
-      // TODO: Use multi-class for leading spaces
-      begin: /([\t ]|^)REM(?=\s)/ }
-  ] });
+  const COMMENT = hljs.COMMENT(null, /$/, {
+    variants: [
+      { begin: /'/ },
+      {
+        // TODO: Use multi-class for leading spaces
+        begin: /([\t ]|^)REM(?=\s)/
+      }
+    ]
+  });
 
   const DIRECTIVES = {
     className: 'meta',
     // TODO: Use multi-class for indentation once available
     begin: /[\t ]*#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
     end: /$/,
-    keywords: { keyword:
-        'const disable else elseif enable end externalsource if region then' },
-    contains: [ COMMENT ]
+    keywords: {
+      keyword:
+        'const disable else elseif enable end externalsource if region then'
+    },
+    contains: [COMMENT]
   };
 
   return {
     name: 'Visual Basic .NET',
-    aliases: [ 'vb' ],
+    aliases: ['vb'],
     case_insensitive: true,
     classNameAliases: { label: 'symbol' },
     keywords: {

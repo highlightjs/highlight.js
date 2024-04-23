@@ -181,15 +181,13 @@ export default function (hljs) {
     type: C_TYPES,
     literal: 'true false NULL',
     // TODO: apply hinting work similar to what was done in cpp.js
-    built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream '
-      + 'auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set '
-      + 'unordered_map unordered_multiset unordered_multimap priority_queue make_pair array shared_ptr abort terminate abs acos '
+    built_in: 'abs acos '
       + 'asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp '
       + 'fscanf future isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper '
       + 'isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow '
       + 'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp '
       + 'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan '
-      + 'vfprintf vprintf vsprintf endl initializer_list unique_ptr',
+      + 'vfprintf vprintf vsprintf',
   };
 
   const EXPRESSION_CONTAINS = [

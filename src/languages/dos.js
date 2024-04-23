@@ -6,8 +6,8 @@ Website: https://en.wikipedia.org/wiki/Batch_file
 Category: scripting
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const COMMENT = hljs.COMMENT(
     /^\s*@?rem\b/, /$/,
     { relevance: 10 }

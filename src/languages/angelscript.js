@@ -5,8 +5,8 @@ Category: scripting
 Website: https://www.angelcode.com/angelscript/
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const builtInTypeMode = {
     className: 'built_in',
     begin: '\\b(void|bool|int8|int16|int32|int64|int|uint8|uint16|uint32|uint64|uint|string|ref|array|double|float|auto|dictionary)'
@@ -27,8 +27,8 @@ export default function(hljs) {
     ]
   };
 
-  builtInTypeMode.contains = [ genericMode ];
-  objectHandleMode.contains = [ genericMode ];
+  builtInTypeMode.contains = [genericMode];
+  objectHandleMode.contains = [genericMode];
 
   const KEYWORDS = [
     "for",
@@ -81,7 +81,7 @@ export default function(hljs) {
 
   return {
     name: 'AngelScript',
-    aliases: [ 'asc' ],
+    aliases: ['asc'],
 
     keywords: KEYWORDS,
 
@@ -94,7 +94,7 @@ export default function(hljs) {
         begin: '\'',
         end: '\'',
         illegal: '\\n',
-        contains: [ hljs.BACKSLASH_ESCAPE ],
+        contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0
       },
 
@@ -110,7 +110,7 @@ export default function(hljs) {
         begin: '"',
         end: '"',
         illegal: '\\n',
-        contains: [ hljs.BACKSLASH_ESCAPE ],
+        contains: [hljs.BACKSLASH_ESCAPE],
         relevance: 0
       },
 

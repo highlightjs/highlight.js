@@ -6,8 +6,8 @@ Website: https://developer.apple.com/library/archive/documentation/AppleScript/C
 Audit: 2020
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const STRING = hljs.inherit(
     hljs.QUOTE_STRING_MODE, { illegal: null });
@@ -25,10 +25,12 @@ export default function(hljs) {
   const COMMENT_MODE_2 = hljs.COMMENT(
     /\(\*/,
     /\*\)/,
-    { contains: [
-      'self', // allow nesting
-      COMMENT_MODE_1
-    ] }
+    {
+      contains: [
+        'self', // allow nesting
+        COMMENT_MODE_1
+      ]
+    }
   );
   const COMMENTS = [
     COMMENT_MODE_1,
@@ -80,7 +82,7 @@ export default function(hljs) {
 
   return {
     name: 'AppleScript',
-    aliases: [ 'osascript' ],
+    aliases: ['osascript'],
     keywords: {
       keyword:
         'about above after against and around as at back before beginning '

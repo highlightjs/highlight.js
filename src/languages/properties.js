@@ -5,8 +5,8 @@ Website: https://en.wikipedia.org/wiki/.properties
 Category: config
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   // whitespaces: space, tab, formfeed
   const WS0 = '[ \\t\\f]*';
   const WS1 = '[ \\t\\f]+';

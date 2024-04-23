@@ -3,8 +3,8 @@ Language: FIX
 Author: Brent Bradbury <brent@brentium.com>
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   return {
     name: 'FIX',
     contains: [

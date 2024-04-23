@@ -8,8 +8,8 @@
  Category: scientific
  */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   const KEYWORDS = {
     keyword:
@@ -63,7 +63,7 @@ export default function(hljs) {
       }
     ],
     illegal: '\\n',
-    contains: [ hljs.BACKSLASH_ESCAPE ]
+    contains: [hljs.BACKSLASH_ESCAPE]
   };
   const ASSIGNMENT = {
     begin: '/',
@@ -102,7 +102,7 @@ export default function(hljs) {
 
   return {
     name: 'GAMS',
-    aliases: [ 'gms' ],
+    aliases: ['gms'],
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: [
@@ -148,7 +148,7 @@ export default function(hljs) {
           { // table header row
             beginKeywords: 'table',
             end: '$',
-            contains: [ DESCTEXT ]
+            contains: [DESCTEXT]
           },
           hljs.COMMENT('^\\*', '$'),
           hljs.C_LINE_COMMENT_MODE,

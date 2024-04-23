@@ -6,8 +6,8 @@ Website: https://products.office.com/en-us/excel/
 Category: enterprise
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   // built-in functions imported from https://web.archive.org/web/20160513042710/https://support.office.com/en-us/article/Excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188
   const BUILT_INS = [
     "ABS",

@@ -5,8 +5,8 @@ Website: https://www.erlang.org
 Category: functional
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {import("highlight.js").LanguageFn} */
+export default function (hljs) {
   const regex = hljs.regex;
   return {
     name: 'Erlang REPL',
@@ -31,11 +31,13 @@ export default function(hljs) {
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
-      { begin: regex.concat(
-        /\?(::)?/,
-        /([A-Z]\w*)/, // at least one identifier
-        /((::)[A-Z]\w*)*/ // perhaps more
-      ) },
+      {
+        begin: regex.concat(
+          /\?(::)?/,
+          /([A-Z]\w*)/, // at least one identifier
+          /((::)[A-Z]\w*)*/ // perhaps more
+        )
+      },
       { begin: '->' },
       { begin: 'ok' },
       { begin: '!' },
