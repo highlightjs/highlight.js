@@ -8,7 +8,7 @@ Website: https://ruby-doc.org/stdlib-2.6.5/libdoc/erb/rdoc/ERB.html
 Category: template
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   return {
     name: 'ERB',
