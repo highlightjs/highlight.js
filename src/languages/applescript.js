@@ -6,7 +6,7 @@ Website: https://developer.apple.com/library/archive/documentation/AppleScript/C
 Audit: 2020
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const STRING = hljs.inherit(
