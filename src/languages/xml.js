@@ -5,7 +5,7 @@ Category: common, web
 Audit: 2020
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   // XML names can have the following additional letters: https://www.w3.org/TR/xml/#NT-NameChar
