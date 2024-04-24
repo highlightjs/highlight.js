@@ -4,7 +4,7 @@ Website: https://www.embarcadero.com/products/delphi
 Category: system
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const KEYWORDS = [
     "exports",
