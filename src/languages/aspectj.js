@@ -7,7 +7,7 @@ Category: system
 Audit: 2020
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const KEYWORDS = [
