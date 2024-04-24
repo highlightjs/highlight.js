@@ -8,7 +8,7 @@ Website: https://www.djangoproject.com
 Category: template
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const FILTER = {
     begin: /\|[A-Za-z]+:?/,
