@@ -8,7 +8,7 @@ Category: common, css, web
 
 import * as css from "./lib/css-shared.js";
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const modes = css.MODES(hljs);
   const PSEUDO_SELECTORS = css.PSEUDO_SELECTORS;
