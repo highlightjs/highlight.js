@@ -9,7 +9,7 @@ Category: functional
 Audit: 2020
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (_hljs) {
   // see https://www.w3.org/TR/xquery/#id-terminal-delimitation
   const KEYWORDS = [
