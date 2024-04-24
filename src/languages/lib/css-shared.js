@@ -1,5 +1,5 @@
 /**
- * @param {import("highlight.js").HLJSApi} hljs
+ * @param {HLJSApi} hljs
  */
 export const MODES = (hljs) => {
   return {
