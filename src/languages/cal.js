@@ -6,7 +6,7 @@ Website: https://docs.microsoft.com/en-us/dynamics-nav/programming-in-c-al
 Category: enterprise
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const KEYWORDS = [
