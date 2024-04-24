@@ -8,7 +8,7 @@ Category: system
 
 import cPlusPlus from './cpp.js';
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const ARDUINO_KW = {
     type: [
