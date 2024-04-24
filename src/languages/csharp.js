@@ -6,7 +6,7 @@ Website: https://docs.microsoft.com/dotnet/csharp/
 Category: common
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const BUILT_IN_KEYWORDS = [
     'bool',
