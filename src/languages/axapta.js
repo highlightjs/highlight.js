@@ -6,7 +6,7 @@ Website: https://dynamics.microsoft.com/en-us/ax-overview/
 Category: enterprise
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const IDENT_RE = hljs.UNDERSCORE_IDENT_RE;
   const BUILT_IN_KEYWORDS = [
