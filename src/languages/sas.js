@@ -5,7 +5,7 @@ Description: Syntax Highlighting for SAS
 Category: scientific
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   // Data step and PROC SQL statements
