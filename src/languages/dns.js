@@ -5,7 +5,7 @@ Category: config
 Website: https://en.wikipedia.org/wiki/Zone_file
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const KEYWORDS = [
     "IN",
