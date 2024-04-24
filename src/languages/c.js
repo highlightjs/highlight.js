@@ -4,7 +4,7 @@ Category: common, system
 Website: https://en.wikipedia.org/wiki/C_(programming_language)
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does
