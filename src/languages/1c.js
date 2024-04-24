@@ -5,7 +5,7 @@ Description: built-in language 1C:Enterprise (v7, v8)
 Category: enterprise
 */
 /**
- * @type {import("highlight.js").LanguageFn}
+ * @type {LanguageFn}
  */
 export default function (hljs) {
   // общий паттерн для определения идентификаторов
