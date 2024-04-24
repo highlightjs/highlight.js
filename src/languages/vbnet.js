@@ -6,7 +6,7 @@ Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started
 Category: common
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   /**
