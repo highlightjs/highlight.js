@@ -5,7 +5,7 @@
  Category: web, common
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const GQL_NAME = /[_A-Za-z][_0-9A-Za-z]*/;
