@@ -5,7 +5,7 @@ Description: ARM Assembly including Thumb and Thumb2 instructions
 Category: assembler
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   // local labels: %?[FB]?[AT]?\d{1,2}\w+
 
