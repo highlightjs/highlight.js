@@ -5,7 +5,7 @@ Website: https://nestedtext.org/
 Category: config
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const NESTED = {
     match: [
