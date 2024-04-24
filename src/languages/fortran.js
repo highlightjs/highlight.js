@@ -5,7 +5,7 @@ Website: https://en.wikipedia.org/wiki/Fortran
 Category: scientific
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const PARAMS = {
