@@ -25,7 +25,7 @@ import HTMLInjectionError from "./lib/html_injection_error.js";
 @typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
 @typedef {import('highlight.js').PluginEvent} PluginEvent
 @typedef {import('highlight.js').HLJSOptions} HLJSOptions
-@typedef {import('highlight.js').LanguageFn} {import("highlight.js").LanguageFn}
+@typedef {import('highlight.js').LanguageFn} LanguageFn
 @typedef {import('highlight.js').HighlightedHTMLElement} HighlightedHTMLElement
 @typedef {import('highlight.js').BeforeHighlightContext} BeforeHighlightContext
 @typedef {import('highlight.js/private').MatchType} MatchType
