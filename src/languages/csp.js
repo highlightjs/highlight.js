@@ -8,7 +8,7 @@ Category: web
 vim: ts=2 sw=2 st=2
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const KEYWORDS = [
     "base-uri",
