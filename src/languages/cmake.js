@@ -6,7 +6,7 @@ Website: https://cmake.org
 Category: build-system
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   return {
     name: 'CMake',
