@@ -6,7 +6,7 @@ Website: https://elinux.org/Device_Tree_Reference
 Category: config
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const STRINGS = {
     className: 'string',
