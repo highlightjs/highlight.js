@@ -7,7 +7,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
 import * as ECMAScript from './lib/ecmascript.js';
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   /**
