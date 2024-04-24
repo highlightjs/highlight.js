@@ -7,7 +7,7 @@ Website: https://clojure.org
 Category: lisp
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   return {
     name: 'Clojure REPL',
