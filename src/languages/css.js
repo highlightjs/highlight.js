@@ -7,7 +7,7 @@ Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 // @ts-ignore
 import * as css from "./lib/css-shared.js";
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const modes = css.MODES(hljs);
