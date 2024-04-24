@@ -5,7 +5,7 @@ Website: https://www.erlang.org
 Category: functional
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   return {
