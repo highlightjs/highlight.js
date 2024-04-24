@@ -5,7 +5,7 @@ Description: AutoIt language definition
 Category: scripting
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const KEYWORDS = 'ByRef Case Const ContinueCase ContinueLoop '
     + 'Dim Do Else ElseIf EndFunc EndIf EndSelect '
