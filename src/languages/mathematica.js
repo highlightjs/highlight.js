@@ -29,7 +29,7 @@ Category: scientific
 */
 import * as Mathematica from './lib/mathematica.js';
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   /*
