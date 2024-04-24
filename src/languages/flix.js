@@ -5,7 +5,7 @@
  Website: https://flix.dev/
  */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const CHAR = {
     className: 'string',
