@@ -26,7 +26,7 @@ function recurRegex(re, substitution, depth) {
   });
 }
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
