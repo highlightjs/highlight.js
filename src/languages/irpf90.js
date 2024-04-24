@@ -6,7 +6,7 @@ Website: http://irpf90.ups-tlse.fr
 Category: scientific
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const PARAMS = {
