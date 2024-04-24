@@ -6,7 +6,7 @@ Website: https://www.erlang.org
 Category: functional
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const BASIC_ATOM_RE = '[a-z\'][a-zA-Z0-9_\']*';
   const FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
