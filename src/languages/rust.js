@@ -6,7 +6,7 @@ Website: https://www.rust-lang.org
 Category: common, system
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 
 export default function (hljs) {
   const regex = hljs.regex;
