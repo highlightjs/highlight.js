@@ -5,7 +5,7 @@ Website: https://en.wikipedia.org/wiki/Extended_Backus–Naur_form
 Category: syntax
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const commentMode = hljs.COMMENT(/\(\*/, /\*\)/);
 
