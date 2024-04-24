@@ -7,7 +7,7 @@ Website: https://dart.dev
 Category: scripting
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const SUBST = {
     className: 'subst',
