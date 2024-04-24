@@ -5,7 +5,7 @@ Category: enterprise, scripting
 Website: https://cedocs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function cos(hljs) {
   const STRINGS = {
     className: 'string',
