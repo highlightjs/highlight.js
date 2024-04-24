@@ -5,7 +5,7 @@ Website: https://ceylon-lang.org
 Category: system
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   // 2.3. Identifiers and keywords
   const KEYWORDS = [
