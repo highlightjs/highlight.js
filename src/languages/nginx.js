@@ -6,7 +6,7 @@ Category: config, web
 Website: https://www.nginx.com
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const VAR = {
