@@ -5,7 +5,7 @@ Category: scripting
 Website: https://www.angelcode.com/angelscript/
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const builtInTypeMode = {
     className: 'built_in',
