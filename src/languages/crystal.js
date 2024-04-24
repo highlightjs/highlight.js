@@ -5,7 +5,7 @@ Website: https://crystal-lang.org
 Category: system
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const INT_SUFFIX = '(_?[ui](8|16|32|64|128))?';
   const FLOAT_SUFFIX = '(_?f(32|64))?';
