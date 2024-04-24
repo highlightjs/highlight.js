@@ -24,7 +24,7 @@ Date: 2012-04-08
  *   up to the end of line is matched as special token sequence)
  */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   /**
    * Language keywords
