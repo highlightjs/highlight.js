@@ -10,7 +10,7 @@ Category: common, scripting
 import * as ECMAScript from "./lib/ecmascript.js";
 import javascript from "./javascript.js";
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const tsLanguage = javascript(hljs);
 
