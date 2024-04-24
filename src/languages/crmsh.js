@@ -6,7 +6,7 @@ Description: Syntax Highlighting for the crmsh DSL
 Category: config
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const RESOURCES = 'primitive rsc_template';
   const COMMANDS = 'group clone ms master location colocation order fencing_topology '
