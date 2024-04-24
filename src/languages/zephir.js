@@ -7,7 +7,7 @@
  Audit: 2020
  */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const STRING = {
     className: 'string',
