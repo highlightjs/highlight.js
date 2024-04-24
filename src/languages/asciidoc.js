@@ -7,7 +7,7 @@ Description: A semantic, text-based document format that can be exported to HTML
 Category: markup
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const HORIZONTAL_RULE = {
