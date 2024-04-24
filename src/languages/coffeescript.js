@@ -9,7 +9,7 @@ Website: https://coffeescript.org
 
 import * as ECMAScript from './lib/ecmascript.js';
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const COFFEE_BUILT_INS = [
     'npm',
