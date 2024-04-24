@@ -7,7 +7,7 @@ Website: https://en.wikipedia.org/wiki/VBScript
 Category: scripting
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   const BUILT_IN_FUNCTIONS = [
