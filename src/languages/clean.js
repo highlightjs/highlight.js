@@ -5,7 +5,7 @@ Category: functional
 Website: http://clean.cs.ru.nl
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const KEYWORDS = [
     "if",
