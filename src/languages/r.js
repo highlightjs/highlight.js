@@ -7,7 +7,7 @@ Website: https://www.r-project.org
 Category: common,scientific
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const regex = hljs.regex;
   // Identifiers in R cannot start with `_`, but they can start with `.` if it
