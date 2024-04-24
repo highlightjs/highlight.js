@@ -6,7 +6,7 @@ Description: language definition for Awk scripts
 Category: scripting
 */
 
-/** @type {import("highlight.js").LanguageFn} */
+/** @type {LanguageFn} */
 export default function (hljs) {
   const VARIABLE = {
     className: 'variable',
