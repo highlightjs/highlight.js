@@ -1,0 +1,8 @@
+<span class="hljs-keyword">logical</span> :: A=<span class="hljs-literal">.true.</span>, B=<span class="hljs-literal">.false.</span>, C=<span class="hljs-literal">.true.</span>, D=<span class="hljs-literal">.false.</span>
+<span class="hljs-keyword">logical</span> :: E
+
+E = <span class="hljs-number">3</span> &lt; <span class="hljs-number">4</span> <span class="hljs-keyword">.and.</span> B
+E = <span class="hljs-string">&#x27;ij&#x27;</span> &lt;= <span class="hljs-string">&#x27;ijk&#x27;</span> <span class="hljs-keyword">.and.</span> C
+E = B <span class="hljs-keyword">.or.</span> A <span class="hljs-keyword">.and.</span> D
+E = (B <span class="hljs-keyword">.or.</span> A) <span class="hljs-keyword">.and.</span> C
+E = A <span class="hljs-keyword">.and.</span> <span class="hljs-keyword">.not.</span>B
