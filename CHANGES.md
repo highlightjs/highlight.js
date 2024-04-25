@@ -49,6 +49,7 @@ New Grammars:
 - added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
 - added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
 - added 3rd party Unison grammar to SUPPORTED_LANGUAGES [Rúnar Bjarnason][]
+- added 3rd party Phix grammar to SUPPORTED_LANGUAGES [PeteLomax][]
 
 Developer Tool:
 
@@ -60,6 +61,7 @@ Themes:
 
 - Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
+[PeteLomax]: https://github.com/petelomax
 [gnysek]: https://github.com/gnysek
 [Eisenwave]: https://github.com/Eisenwave 
 [Aral Balkan]: https://github.com/aral
