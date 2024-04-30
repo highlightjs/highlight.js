@@ -40,6 +40,7 @@ Core Grammars:
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 - enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
 - fix(fortran) fixes parsing of keywords delimited by dots [Julien Bloino][]
+- enh(gcode) rewrote language for modern gcode support [Barthélémy Bonhomme][]
 
 New Grammars:
 
@@ -92,6 +93,7 @@ Themes:
 [Carl Räfting]: https://github.com/carlrafting
 [BackupMiles]: https://github.com/BackupMiles
 [Julien Bloino]: https://github.com/jbloino
+[Barthélémy Bonhomme]: https://github.com/barthy-koeln
 
 
 
