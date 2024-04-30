@@ -81,4 +81,6 @@ SET_SKEW XY=<span class="hljs-number">100.0000</span>,<span class="hljs-number">
 SKEW_PROFILE SAVE=<span class="hljs-string">&quot;this name has spaces&quot;</span>
 SAVE_CONFIG
 
+SKEW_PROFILE SAVE=some_ <span class="hljs-title function_">G123</span>
+SKEW_PROFILE SAVE=some_<span class="hljs-title function_">G123</span>
 <span class="hljs-keyword">%</span>
