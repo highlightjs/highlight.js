@@ -76,6 +76,10 @@ export default function(hljs) {
       return;
     }
 
+    if (charBeforeMatch === '_') {
+      return;
+    }
+
     response.ignoreMatch();
   }
 
