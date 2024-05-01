@@ -1,2 +1,18 @@
 <span class="hljs-attr">"*":</span>
+  <span class="hljs-string">"**/.env"</span>
 
+<span class="hljs-attr">"octo-repo":</span>
+  <span class="hljs-string">"/src/kernel.rs"</span>
+
+<span class="hljs-attr">"https://github.com/primer/react.git":</span>
+  <span class="hljs-string">"/e2e/**"</span>
+
+<span class="hljs-attr">"git@github.com:*/copilot":</span>
+  <span class="hljs-string">"/__tests__/**"</span>
+  <span class="hljs-string">"/script/*"</span>
+
+<span class="hljs-attr">"git@gitlab.com:gitlab-org/gitlab-runner.git":</span>
+  <span class="hljs-string">"/main_test.go"</span>
+  <span class="hljs-string">"**/packages/*"</span>
+  <span class="hljs-string">"**/{server,session}*"</span>
+  <span class="hljs-string">"**/*.m[dk]"</span>
