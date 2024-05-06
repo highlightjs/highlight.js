@@ -552,6 +552,7 @@ export default function (hljs) {
       'f95'
     ],
     keywords: {
+      $pattern: /\b[a-z][a-z0-9_]+\b|\.[a-z][a-z0-9_]+\./,
       keyword: KEYWORDS,
       literal: LITERALS,
       built_in: BUILT_INS

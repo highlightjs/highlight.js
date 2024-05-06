@@ -39,6 +39,7 @@ Core Grammars:
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 - enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
+- fix(fortran) fixes parsing of keywords delimited by dots [Julien Bloino][]
 
 New Grammars:
 
@@ -90,6 +91,7 @@ Themes:
 [Rúnar Bjarnason]: https://github.com/runarorama
 [Carl Räfting]: https://github.com/carlrafting
 [BackupMiles]: https://github.com/BackupMiles
+[Julien Bloino]: https://github.com/jbloino
 
 
 
