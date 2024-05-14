@@ -50,6 +50,7 @@ New Grammars:
 - added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
 - added 3rd party Unison grammar to SUPPORTED_LANGUAGES [Rúnar Bjarnason][]
 - added 3rd party Phix grammar to SUPPORTED_LANGUAGES [PeteLomax][]
+- added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [maxdeviant][]
 
 Developer Tool:
 
@@ -92,6 +93,7 @@ Themes:
 [Carl Räfting]: https://github.com/carlrafting
 [BackupMiles]: https://github.com/BackupMiles
 [Julien Bloino]: https://github.com/jbloino
+[maxdeviant]: https://github.com/maxdeviant
 
 
 
