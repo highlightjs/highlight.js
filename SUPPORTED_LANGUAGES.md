@@ -91,6 +91,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | GDScript                | godot, gdscript        | [highlightjs-gdscript](https://github.com/highlightjs/highlightjs-gdscript) |
 | Gherkin                 | gherkin                |         |
 | Glimmer and EmberJS     | hbs, glimmer, html.hbs, html.handlebars, htmlbars | [highlightjs-glimmer](https://github.com/NullVoxPopuli/highlightjs-glimmer) |
+| Gleam                   | gleam                  | [gleam-highlight.js](https://github.com/gleam-lang/gleam-highlight.js) |
 | GN for Ninja            | gn, gni                | [highlightjs-GN](https://github.com/highlightjs/highlightjs-GN) |
 | Go                      | go, golang             |         |
 | Grammatical Framework   | gf                     | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |
