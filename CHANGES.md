@@ -40,6 +40,7 @@ Core Grammars:
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 - enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
 - fix(fortran) fixes parsing of keywords delimited by dots [Julien Bloino][]
+- enh(css) add `select`, `option`, `optgroup`, `picture` and `source` to list of known tags [Vasily Polovnyov][]
 - enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov]
 
 New Grammars:
