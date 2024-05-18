@@ -10,18 +10,44 @@ export default function(hljs) {
   const regex = hljs.regex;
   const IDENT_RE = /[\p{XID_Start}_]\p{XID_Continue}*/u;
   const RESERVED_WORDS = [
-    "def", "switch", "case", "return", "if", "else", "when", "match", "λ", "Some", 
-    "data", "let", "use", "object", "fold", "open", "do", "bind", "Name", 
-    "identity", "Bool", "ask", "with"
+    "def",
+    "switch",
+    "case",
+    "return",
+    "if",
+    "else",
+    "when",
+    "match",
+    "λ",
+    "Some",
+    "data",
+    "let",
+    "use",
+    "object",
+    "fold",
+    "open",
+    "do",
+    "bind",
+    "Name",
+    "identity",
+    "Bool",
+    "ask",
+    "with"
   ];
 
-  const BUILT_INS = 
-    ["bend", "None", "Nil", "Result", "type"]
-  ;
+  const BUILT_INS = [
+    "bend",
+    "None",
+    "Nil",
+    "Result",
+    "type"
+  ];
 
-  const LITERALS = 
-    ["Node", "Leaf", "Tree"]
-  ;
+  const LITERALS = [
+    "Node",
+    "Leaf",
+    "Tree"
+  ];
 
   const TYPES = [
     "True",
@@ -56,9 +82,8 @@ export default function(hljs) {
 
   const STRING = {
     className: 'string',
-    contains: [ hljs.BACKSLASH_ESCAPE ],
-    variants: [
-      {
+    contains: [hljs.BACKSLASH_ESCAPE],
+    variants: [{
         begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?'''/,
         end: /'''/,
         contains: [
@@ -114,8 +139,7 @@ export default function(hljs) {
   const NUMBER = {
     className: 'number',
     relevance: 0,
-    variants: [
-      {
+    variants: [{
         begin: `(\\b(${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?(?=${lookahead})`
       },
       {
@@ -131,8 +155,7 @@ export default function(hljs) {
     begin: regex.lookahead(/# type:/),
     end: /$/,
     keywords: KEYWORDS,
-    contains: [
-      { // prevent keywords from coloring `type`
+    contains: [{ // prevent keywords from coloring `type`
         begin: /# type:/
       },
       // comment within a datatype comment includes no keywords
@@ -193,7 +216,10 @@ export default function(hljs) {
         beginKeywords: "when",
         relevance: 0
       },
-      { match: /\bor\b/, scope: "keyword" },
+      {
+        match: /\bor\b/,
+        scope: "keyword"
+      },
       STRING,
       COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,
@@ -206,7 +232,7 @@ export default function(hljs) {
           1: "keyword",
           3: "title.function"
         },
-        contains: [ PARAMS ]
+        contains: [PARAMS]
       },
       {
         className: 'meta',
