@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- enc(c) added more C23 keywords [Melkor-1][]
 - enh(json) added jsonc as an alias [BackupMiles][]
 - enh(gml) updated to latest language version (GML v2024.2) [gnysek][]
 - enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
@@ -63,6 +64,7 @@ Themes:
 
 - Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
+[Melkor-1]: https://github.com/Melkor-1
 [PeteLomax]: https://github.com/petelomax
 [gnysek]: https://github.com/gnysek
 [Eisenwave]: https://github.com/Eisenwave 
