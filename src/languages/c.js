@@ -114,6 +114,8 @@ export default function(hljs) {
     "restrict",
     "return",
     "sizeof",
+    "typeof",
+    "typeof_unqual",
     "struct",
     "switch",
     "typedef",
