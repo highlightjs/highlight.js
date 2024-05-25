@@ -65,7 +65,8 @@ export default function(hljs) {
     "abstract",
     "readonly",
     "enum",
-    "override"
+    "override",
+    "satisfies"
   ];
 
   /*
