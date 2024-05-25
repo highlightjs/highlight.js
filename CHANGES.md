@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- enh(typescript) add support for `satisfies` operator [Kisaragi Hiu][]
 - enc(c) added more C23 keywords [Melkor-1][]
 - enh(json) added jsonc as an alias [BackupMiles][]
 - enh(gml) updated to latest language version (GML v2024.2) [gnysek][]
@@ -64,6 +65,7 @@ Themes:
 
 - Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
+[Kisaragi Hiu]: https://github.com/kisaragi-hiu
 [Melkor-1]: https://github.com/Melkor-1
 [PeteLomax]: https://github.com/petelomax
 [gnysek]: https://github.com/gnysek
