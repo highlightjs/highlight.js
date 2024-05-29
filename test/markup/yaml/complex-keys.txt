@@ -1,18 +1,13 @@
-"*":
-  "**/.env"
+"**/.env"
 
-"octo-repo":
-  "/src/kernel.rs"
+"/src/kernel.rs"
 
-"https://github.com/primer/react.git":
-  "/e2e/**"
+"/e2e/**"
 
-"git@github.com:*/copilot":
-  "/__tests__/**"
-  "/script/*"
+"/__tests__/**"
+"/script/*"
 
-"git@gitlab.com:gitlab-org/gitlab-runner.git":
-  "/main_test.go"
-  "**/packages/*"
-  "**/{server,session}*"
-  "**/*.m[dk]"
+"/main_test.go"
+"**/packages/*"
+"**/{server,session}*"
+"**/*.m[dk]"
