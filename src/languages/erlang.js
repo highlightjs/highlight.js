@@ -80,6 +80,11 @@ export default function(hljs) {
     scope: 'string',
     match: /\$(\\([^0-9]|[0-9]{1,3}|)|.)/,
   };
+  const TRIPLE_QUOTE = hljs.END_SAME_AS_BEGIN({
+    scope: 'string',
+    begin: /("{3,})/,
+    end: /("{3,})/,
+  });
 
   const BLOCK_STATEMENTS = {
     beginKeywords: 'fun receive if try case',
@@ -92,6 +97,7 @@ export default function(hljs) {
     hljs.inherit(hljs.APOS_STRING_MODE, { className: '' }),
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
+    TRIPLE_QUOTE,
     hljs.QUOTE_STRING_MODE,
     NUMBER,
     TUPLE,
@@ -106,6 +112,7 @@ export default function(hljs) {
     NAMED_FUN,
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
+    TRIPLE_QUOTE,
     hljs.QUOTE_STRING_MODE,
     NUMBER,
     TUPLE,
@@ -185,6 +192,7 @@ export default function(hljs) {
         contains: [ PARAMS ]
       },
       NUMBER,
+      TRIPLE_QUOTE,
       hljs.QUOTE_STRING_MODE,
       RECORD_ACCESS,
       VAR1,
