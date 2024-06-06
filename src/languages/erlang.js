@@ -135,6 +135,7 @@ export default function(hljs) {
     "-author",
     "-copyright",
     "-doc",
+    "-moduledoc",
     "-vsn",
     "-import",
     "-include",
@@ -146,7 +147,9 @@ export default function(hljs) {
     "-file",
     "-behaviour",
     "-behavior",
-    "-spec"
+    "-spec",
+    "-on_load",
+    "-nifs",
   ];
 
   const PARAMS = {
@@ -189,7 +192,11 @@ export default function(hljs) {
           $pattern: '-' + hljs.IDENT_RE,
           keyword: DIRECTIVES.map(x => `${x}|1.5`).join(" ")
         },
-        contains: [ PARAMS ]
+        contains: [
+          PARAMS,
+          TRIPLE_QUOTE,
+          hljs.QUOTE_STRING_MODE
+        ]
       },
       NUMBER,
       TRIPLE_QUOTE,
