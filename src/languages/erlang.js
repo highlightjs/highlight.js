@@ -86,6 +86,31 @@ export default function(hljs) {
     end: /("{3,})/,
   });
 
+  // the closing character depends on the kind of opening character.
+  const SIGIL_START_END_PAIRS = {
+    '(': ')',
+    '[': ']',
+    '{': '}',
+    '<': '>',
+  };
+  const SIGIL = {
+    scope: 'string',
+    begin: /~\w?("{3,}|[\(\[\{<\/|'"`#])/,
+    end: /("{3,}|[\)\]\}>\/|'"`#])/,
+    'on:begin': (m, resp) => { resp.data._beginMatch = m[1]; },
+    'on:end': (m, resp) => {
+      let closing_sequence = SIGIL_START_END_PAIRS[resp.data._beginMatch];
+      // for other start sequences, the end is the same as the start
+      if (closing_sequence === undefined) {
+        closing_sequence = resp.data._beginMatch;
+      }
+      if (m[1] !== closing_sequence) {
+        resp.ignoreMatch();
+      }
+    },
+    contains: [ hljs.BACKSLASH_ESCAPE ]
+  };
+
   const BLOCK_STATEMENTS = {
     beginKeywords: 'fun receive if try case',
     end: 'end',
@@ -97,6 +122,7 @@ export default function(hljs) {
     hljs.inherit(hljs.APOS_STRING_MODE, { className: '' }),
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
+    SIGIL,
     TRIPLE_QUOTE,
     hljs.QUOTE_STRING_MODE,
     NUMBER,
@@ -112,6 +138,7 @@ export default function(hljs) {
     NAMED_FUN,
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
+    SIGIL,
     TRIPLE_QUOTE,
     hljs.QUOTE_STRING_MODE,
     NUMBER,
@@ -194,11 +221,13 @@ export default function(hljs) {
         },
         contains: [
           PARAMS,
+          SIGIL,
           TRIPLE_QUOTE,
           hljs.QUOTE_STRING_MODE
         ]
       },
       NUMBER,
+      SIGIL,
       TRIPLE_QUOTE,
       hljs.QUOTE_STRING_MODE,
       RECORD_ACCESS,
