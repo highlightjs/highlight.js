@@ -13,7 +13,7 @@ export default function(hljs) {
   const ERLANG_RESERVED = {
     keyword:
       'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if '
-      + 'let not of orelse|10 query receive rem try when xor',
+      + 'let not of orelse|10 query receive rem try when xor maybe else',
     literal:
       'false true'
   };
@@ -112,7 +112,7 @@ export default function(hljs) {
   };
 
   const BLOCK_STATEMENTS = {
-    beginKeywords: 'fun receive if try case',
+    beginKeywords: 'fun receive if try case maybe',
     end: 'end',
     keywords: ERLANG_RESERVED
   };
