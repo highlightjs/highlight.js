@@ -80,11 +80,10 @@ export default function(hljs) {
     scope: 'string',
     match: /\$(\\([^0-9]|[0-9]{1,3}|)|.)/,
   };
-  const TRIPLE_QUOTE = hljs.END_SAME_AS_BEGIN({
+  const TRIPLE_QUOTE = {
     scope: 'string',
-    begin: /("{3,})/,
-    end: /("{3,})/,
-  });
+    match: /"""("*)(?!")(.|\n)*?"""\1/,
+  };
 
   // the closing character depends on the kind of opening character.
   const SIGIL_START_END_PAIRS = {
