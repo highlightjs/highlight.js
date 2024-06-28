@@ -8,8 +8,8 @@ Category: web
 vim: ts=2 sw=2 st=2
 */
 
-/** @type LanguageFn */
-export default function(hljs) {
+/** @type {LanguageFn} */
+export default function (hljs) {
   const KEYWORDS = [
     "base-uri",
     "child-src",

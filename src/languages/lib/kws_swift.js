@@ -3,6 +3,9 @@ import {
   either
 } from '../../lib/regex.js';
 
+/**
+ * @param {string } keyword
+ */
 export const keywordWrapper = keyword => concat(
   /\b/,
   keyword,

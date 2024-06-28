@@ -1,3 +1,6 @@
+/**
+ * @param {HLJSApi} hljs
+ */
 export const MODES = (hljs) => {
   return {
     IMPORTANT: {
@@ -25,15 +28,15 @@ export const MODES = (hljs) => {
     },
     CSS_NUMBER_MODE: {
       scope: 'number',
-      begin: hljs.NUMBER_RE + '(' +
-        '%|em|ex|ch|rem' +
-        '|vw|vh|vmin|vmax' +
-        '|cm|mm|in|pt|pc|px' +
-        '|deg|grad|rad|turn' +
-        '|s|ms' +
-        '|Hz|kHz' +
-        '|dpi|dpcm|dppx' +
-        ')?',
+      begin: hljs.NUMBER_RE + '('
+        + '%|em|ex|ch|rem'
+        + '|vw|vh|vmin|vmax'
+        + '|cm|mm|in|pt|pc|px'
+        + '|deg|grad|rad|turn'
+        + '|s|ms'
+        + '|Hz|kHz'
+        + '|dpi|dpcm|dppx'
+        + ')?',
       relevance: 0
     },
     CSS_VARIABLE: {
@@ -253,8 +256,8 @@ export const PSEUDO_CLASSES = [
   'nth-col', // nth-col()
   'nth-last-child', // nth-last-child()
   'nth-last-col', // nth-last-col()
-  'nth-last-of-type', //nth-last-of-type()
-  'nth-of-type', //nth-of-type()
+  'nth-last-of-type', // nth-last-of-type()
+  'nth-of-type', // nth-of-type()
   'only-child',
   'only-of-type',
   'optional',
