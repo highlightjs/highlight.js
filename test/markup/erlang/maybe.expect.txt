@@ -1,0 +1,9 @@
+<span class="hljs-keyword">maybe</span>
+    {ok, A} ?= a(),
+    <span class="hljs-literal">true</span> = A &gt;= <span class="hljs-number">0</span>,
+    {ok, B} ?= b(),
+    A + B
+<span class="hljs-keyword">else</span>
+    error -&gt; error;
+    wrong -&gt; error
+<span class="hljs-keyword">end</span>

@@ -1,0 +1,23 @@
+quotes() ->
+    S = """
+        "I always have a quotation for everything -
+        it saves original thinking." - Dorothy L. Sayers
+
+        "Real stupidity beats artificial intelligence every time."
+        - Terry Pratchett
+        """,
+    io:put_chars(S),
+    io:nl().
+
+effect_warning() ->
+    """
+    f() ->
+        %% Test that the compiler warns for useless tuple building.
+        {a,b,c},
+        ok.
+    """.
+
+extra_delim() ->
+    """""
+    """"
+    """"".

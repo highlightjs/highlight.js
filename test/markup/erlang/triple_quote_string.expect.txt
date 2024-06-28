@@ -1,0 +1,23 @@
+<span class="hljs-function"><span class="hljs-title">quotes</span><span class="hljs-params">()</span> -&gt;</span>
+    S = <span class="hljs-string">&quot;&quot;&quot;
+        &quot;I always have a quotation for everything -
+        it saves original thinking.&quot; - Dorothy L. Sayers
+
+        &quot;Real stupidity beats artificial intelligence every time.&quot;
+        - Terry Pratchett
+        &quot;&quot;&quot;</span>,
+    io:put_chars(S),
+    io:nl().
+
+<span class="hljs-function"><span class="hljs-title">effect_warning</span><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    f() -&gt;
+        %% Test that the compiler warns for useless tuple building.
+        {a,b,c},
+        ok.
+    &quot;&quot;&quot;</span>.
+
+<span class="hljs-function"><span class="hljs-title">extra_delim</span><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-string">&quot;&quot;&quot;&quot;&quot;
+    &quot;&quot;&quot;&quot;
+    &quot;&quot;&quot;&quot;&quot;</span>.
