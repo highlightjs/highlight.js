@@ -112,6 +112,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | IRPF90                  | irpf90                 |         |
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
 | JSON                    | json, jsonc            |         |
+| JSONata                 | jsonata                | [highlightjs-jsonata](https://github.com/DevDimov/highlightjs-jsonata) |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
