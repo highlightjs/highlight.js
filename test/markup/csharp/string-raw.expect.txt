@@ -15,3 +15,7 @@
                 more than others.
     Some have &quot;&quot;quoted text&quot;&quot; in them. \&quot;
     &quot;&quot;&quot;</span>;
+
+<span class="hljs-keyword">var</span> MultiLineQuotes = <span class="hljs-string">&quot;&quot;&quot;&quot;
+            &quot;&quot;&quot;Raw string literals&quot;&quot;&quot; can start and end with more than three double-quotes when needed.
+            &quot;&quot;&quot;&quot;</span>;

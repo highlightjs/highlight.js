@@ -15,3 +15,7 @@ string longMessage2 = """
                 more than others.
     Some have ""quoted text"" in them. \"
     """;
+
+var MultiLineQuotes = """"
+            """Raw string literals""" can start and end with more than three double-quotes when needed.
+            """";

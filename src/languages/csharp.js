@@ -166,7 +166,7 @@ export default function(hljs) {
   };
   const RAW_STRING = {
     className: 'string',
-    begin: /"""("*)(?!")(.|\n)*?"""\1/,
+    begin: /("{3,})(?!")(.|\n)*?\1/,
     relevance: 1
   };
   const VERBATIM_STRING = {
