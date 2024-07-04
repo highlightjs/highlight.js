@@ -45,6 +45,7 @@ Core Grammars:
 - enh(css) add `select`, `option`, `optgroup`, `picture` and `source` to list of known tags [Vasily Polovnyov][]
 - enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov][]
 - enh(css) add `text-decoration-skip-ink`, `text-decoration-thickness` and `text-underline-offset` attributes [Vasily Polovnyov][]
+- enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
 
 New Grammars:
 
