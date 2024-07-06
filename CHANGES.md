@@ -1,4 +1,4 @@
-## Version 11.10.0 (Next Release)
+## Version 11.10.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
 
