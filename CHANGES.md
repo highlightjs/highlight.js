@@ -8,6 +8,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 Core Grammars:
 
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
+- enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
 
 New Grammars:
 
@@ -25,6 +26,7 @@ CONTRIBUTORS
 
 [Josh Goebel]: https://github.com/joshgoebel
 [aneesh98]: https://github.com/aneesh98
+[BaliBalo]: https://github.com/BaliBalo
 
 
 ## Version 11.10.0
@@ -74,7 +76,6 @@ Core Grammars:
 - enh(css) add `select`, `option`, `optgroup`, `picture` and `source` to list of known tags [Vasily Polovnyov][]
 - enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov][]
 - enh(css) add `text-decoration-skip-ink`, `text-decoration-thickness` and `text-underline-offset` attributes [Vasily Polovnyov][]
-- enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
 
 New Grammars:
 
@@ -133,7 +134,6 @@ Themes:
 [Julien Bloino]: https://github.com/jbloino
 [Sierra]: https://github.com/casuallyblue
 [Vlad Dimov]: https://github.com/DevDimov
-[BaliBalo]: https://github.com/BaliBalo
 
 
 
