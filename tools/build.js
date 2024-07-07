@@ -60,7 +60,7 @@
 
 'use strict';
 
-const commander = require('commander');
+const { program: commander } = require('commander');
 const path = require('path');
 const { clean } = require("./lib/makestuff.js");
 const log = (...args) => console.log(...args);

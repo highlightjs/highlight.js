@@ -1,4 +1,33 @@
-## Version 11.10.0 (Next Release)
+## Version 11.11.0
+
+CAVEATS / POTENTIALLY BREAKING CHANGES
+
+- Nothing yet.
+
+
+Core Grammars:
+
+- fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
+
+New Grammars:
+
+- Nothing yet.
+
+Developer Tools:
+
+- Nothing yet.
+
+Themes:
+
+- Nothing yet.
+
+CONTRIBUTORS
+
+[Josh Goebel]: https://github.com/joshgoebel
+[aneesh98]: https://github.com/aneesh98
+
+
+## Version 11.10.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
 
