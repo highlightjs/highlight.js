@@ -7,7 +7,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
-- Nothing yet.
+- fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
 
 New Grammars:
 
@@ -24,6 +24,7 @@ Themes:
 CONTRIBUTORS
 
 [Josh Goebel]: https://github.com/joshgoebel
+[aneesh98]: https://github.com/aneesh98
 
 
 ## Version 11.10.0
