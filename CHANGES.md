@@ -104,6 +104,7 @@ Themes:
 [Julien Bloino]: https://github.com/jbloino
 [Sierra]: https://github.com/casuallyblue
 [Vlad Dimov]: https://github.com/DevDimov
+[BaliBalo]: https://github.com/BaliBalo
 
 
 
