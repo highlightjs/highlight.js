@@ -1,3 +1,34 @@
+## Version 11.11.0
+
+CAVEATS / POTENTIALLY BREAKING CHANGES
+
+- Nothing yet.
+
+
+Core Grammars:
+
+- fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
+- enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
+
+New Grammars:
+
+- Nothing yet.
+
+Developer Tools:
+
+- Nothing yet.
+
+Themes:
+
+- Nothing yet.
+
+CONTRIBUTORS
+
+[Josh Goebel]: https://github.com/joshgoebel
+[aneesh98]: https://github.com/aneesh98
+[BaliBalo]: https://github.com/BaliBalo
+
+
 ## Version 11.10.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
