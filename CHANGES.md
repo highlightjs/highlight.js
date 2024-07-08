@@ -20,13 +20,14 @@ Developer Tools:
 
 Themes:
 
-- Nothing yet.
+- Added `Rosé Pine` theme [William Wilkinson][]
 
 CONTRIBUTORS
 
 [Josh Goebel]: https://github.com/joshgoebel
 [aneesh98]: https://github.com/aneesh98
 [BaliBalo]: https://github.com/BaliBalo
+[William Wilkinson]: https://github.com/wilkinson4
 
 
 ## Version 11.10.0
@@ -103,7 +104,7 @@ Themes:
 [Melkor-1]: https://github.com/Melkor-1
 [PeteLomax]: https://github.com/petelomax
 [gnysek]: https://github.com/gnysek
-[Eisenwave]: https://github.com/Eisenwave 
+[Eisenwave]: https://github.com/Eisenwave
 [Aral Balkan]: https://github.com/aral
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
