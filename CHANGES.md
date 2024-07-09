@@ -114,7 +114,6 @@ New Grammars:
 - added 3rd party Ballerina grammar to SUPPORTED_LANGUAGES [Yasith Deelaka][]
 
 Core Grammars:
-
 - fix(cpp) fixed highlighter break state [Md Saad Akhtar][]
 - fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]

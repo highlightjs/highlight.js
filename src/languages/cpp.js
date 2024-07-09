@@ -436,7 +436,6 @@ export default function(hljs) {
       hljs.IDENT_RE,
       regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
-
   const EXPRESSION_CONTAINS = [
     FUNCTION_DISPATCH,
     PREPROCESSOR,
