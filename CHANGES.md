@@ -1,4 +1,35 @@
-## Version 11.10.0 (Next Release)
+## Version 11.11.0
+
+CAVEATS / POTENTIALLY BREAKING CHANGES
+
+- Nothing yet.
+
+
+Core Grammars:
+
+- fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
+- enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
+
+New Grammars:
+
+- Nothing yet.
+
+Developer Tools:
+
+- Nothing yet.
+
+Themes:
+
+- Nothing yet.
+
+CONTRIBUTORS
+
+[Josh Goebel]: https://github.com/joshgoebel
+[aneesh98]: https://github.com/aneesh98
+[BaliBalo]: https://github.com/BaliBalo
+
+
+## Version 11.10.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
 
@@ -7,6 +38,8 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 Core Grammars:
 
 - fix(cpp) Keywords followed by parens are treated as built_in [Md Saad Akhtar][]
+- enh(typescript) add support for `satisfies` operator [Kisaragi Hiu][]
+- enc(c) added more C23 keywords [Melkor-1][]
 - enh(json) added jsonc as an alias [BackupMiles][]
 - enh(gml) updated to latest language version (GML v2024.2) [gnysek][]
 - enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
@@ -40,6 +73,10 @@ Core Grammars:
 - enh(markdown) add entity support [David Schach][] [TaraLei][]
 - enh(css) add `justify-items` and `justify-self` attributes [Vasily Polovnyov][]
 - enh(css) add `accent-color`, `appearance`, `color-scheme`, `rotate`, `scale` and `translate` attributes [Carl Räfting][]
+- fix(fortran) fixes parsing of keywords delimited by dots [Julien Bloino][]
+- enh(css) add `select`, `option`, `optgroup`, `picture` and `source` to list of known tags [Vasily Polovnyov][]
+- enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov][]
+- enh(css) add `text-decoration-skip-ink`, `text-decoration-thickness` and `text-underline-offset` attributes [Vasily Polovnyov][]
 
 New Grammars:
 
@@ -49,6 +86,9 @@ New Grammars:
 - added 3rd party Zig grammar to SUPPORTED_LANGUAGES [Hyou BunKen][]
 - added 3rd party WGSL grammar to SUPPORTED_LANGUAGES [Arman Uguray][]
 - added 3rd party Unison grammar to SUPPORTED_LANGUAGES [Rúnar Bjarnason][]
+- added 3rd party Phix grammar to SUPPORTED_LANGUAGES [PeteLomax][]
+- added 3rd party Mirth grammar to SUPPORTED_LANGUAGES [Sierra][]
+- added 3rd party JSONata grammar to SUPPORTED_LANGUAGES [Vlad Dimov][]
 
 Developer Tool:
 
@@ -60,6 +100,9 @@ Themes:
 
 - Added `1c-light` theme a like in the IDE 1C:Enterprise 8 (for 1c) [Vitaly Barilko][]
 
+[Kisaragi Hiu]: https://github.com/kisaragi-hiu
+[Melkor-1]: https://github.com/Melkor-1
+[PeteLomax]: https://github.com/petelomax
 [gnysek]: https://github.com/gnysek
 [Eisenwave]: https://github.com/Eisenwave 
 [Aral Balkan]: https://github.com/aral
@@ -89,6 +132,9 @@ Themes:
 [Rúnar Bjarnason]: https://github.com/runarorama
 [Carl Räfting]: https://github.com/carlrafting
 [BackupMiles]: https://github.com/BackupMiles
+[Julien Bloino]: https://github.com/jbloino
+[Sierra]: https://github.com/casuallyblue
+[Vlad Dimov]: https://github.com/DevDimov
 
 
 

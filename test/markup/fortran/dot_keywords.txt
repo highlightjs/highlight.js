@@ -1,0 +1,8 @@
+logical :: A=.true., B=.false., C=.true., D=.false.
+logical :: E
+
+E = 3 < 4 .and. B
+E = 'ij' <= 'ijk' .and. C
+E = B .or. A .and. D
+E = (B .or. A) .and. C
+E = A .and. .not.B
