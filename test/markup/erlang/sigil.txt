@@ -27,7 +27,8 @@ quotes() ->
     io:nl().
 
 ~s{"abc\txyz"}.
-~(paranthesis).
+~(parenthesis).
 ~<alligators>.
 ~`backticks`.
 ~#hashpounds#.
+~|pipes|.

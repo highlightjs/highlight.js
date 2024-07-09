@@ -27,7 +27,8 @@
     io:nl().
 
 <span class="hljs-string">~s{&quot;abc\txyz&quot;}</span>.
-<span class="hljs-string">~(paranthesis)</span>.
+<span class="hljs-string">~(parenthesis)</span>.
 <span class="hljs-string">~&lt;alligators&gt;</span>.
 <span class="hljs-string">~`backticks`</span>.
 <span class="hljs-string">~#hashpounds#</span>.
+<span class="hljs-string">~|pipes|</span>.

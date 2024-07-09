@@ -82,32 +82,25 @@ export default function(hljs) {
   };
   const TRIPLE_QUOTE = {
     scope: 'string',
-    match: /"""("*)(?!")(.|\n)*?"""\1/,
+    match: /"""("*)(?!")[\s\S]*?"""\1/,
   };
 
-  // the closing character depends on the kind of opening character.
-  const SIGIL_START_END_PAIRS = {
-    '(': ')',
-    '[': ']',
-    '{': '}',
-    '<': '>',
-  };
   const SIGIL = {
     scope: 'string',
-    begin: /~\w?("{3,}|[\(\[\{<\/|'"`#])/,
-    end: /("{3,}|[\)\]\}>\/|'"`#])/,
-    'on:begin': (m, resp) => { resp.data._beginMatch = m[1]; },
-    'on:end': (m, resp) => {
-      let closing_sequence = SIGIL_START_END_PAIRS[resp.data._beginMatch];
-      // for other start sequences, the end is the same as the start
-      if (closing_sequence === undefined) {
-        closing_sequence = resp.data._beginMatch;
-      }
-      if (m[1] !== closing_sequence) {
-        resp.ignoreMatch();
-      }
-    },
-    contains: [ hljs.BACKSLASH_ESCAPE ]
+    contains: [ hljs.BACKSLASH_ESCAPE ],
+    variants: [
+      {begin: /~\w?\(/, end: /\)/},
+      {begin: /~\w?\[/, end: /\]/},
+      {begin: /~\w?{/, end: /}/},
+      {begin: /~\w?</, end: />/},
+      {begin: /~\w?\//, end: /\//},
+      {begin: /~\w?\|/, end: /\|/},
+      {begin: /~\w?'/, end: /'/},
+      {begin: /~\w?"/, end: /"/},
+      {begin: /~\w?`/, end: /`/},
+      {begin: /~\w?#/, end: /#/},
+      {match: /~\w?"""("*)(?!")[\s\S]*?"""\1/},
+    ],
   };
 
   const BLOCK_STATEMENTS = {
