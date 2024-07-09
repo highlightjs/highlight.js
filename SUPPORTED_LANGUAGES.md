@@ -96,7 +96,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Grammatical Framework   | gf                     | [highlightjs-gf](https://github.com/johnjcamilleri/highlightjs-gf) |
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
-| GraphQL                 | graphql                |         |
+| GraphQL                 | graphql, gql           |         |
 | Groovy                  | groovy                 |         |
 | GSQL                    | gsql                   | [highlightjs-gsql](https://github.com/DanBarkus/highlightjs-gsql) |
 | HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
@@ -112,6 +112,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | IRPF90                  | irpf90                 |         |
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
 | JSON                    | json, jsonc            |         |
+| JSONata                 | jsonata                | [highlightjs-jsonata](https://github.com/DevDimov/highlightjs-jsonata) |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
@@ -141,6 +142,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Mercury                 | mercury                |         |
 | MIPS Assembler          | mips, mipsasm          |         |
 | Mint                    | mint                   | [highlightjs-mint](https://github.com/mint-lang/highlightjs-mint) |
+| Mirth                   | mirth                  | [highlightjs-mirth](https://github.com/highlightjs/highlightjs-mirth) |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
 | Mizar                   | mizar                  |         |
 | MKB                     | mkb                    | [highlightjs-mkb](https://github.com/Dereavy/highlightjs-mkb) |
@@ -168,6 +170,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
+| Phix                    | phix                   | [highlightjs-phix](https://github.com/highlightjs/highlightjs-phix) |
 | Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
