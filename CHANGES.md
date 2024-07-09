@@ -6,6 +6,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(cpp) Keywords followed by parens are treated as built_in [Md Saad Akhtar][]
 - enh(json) added jsonc as an alias [BackupMiles][]
 - enh(gml) updated to latest language version (GML v2024.2) [gnysek][]
 - enh(c) added more C23 keywords and preprcoessor directives [Eisenwave][]
