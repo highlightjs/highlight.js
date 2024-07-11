@@ -89,6 +89,7 @@ export default function(hljs) {
     scope: 'string',
     contains: [ hljs.BACKSLASH_ESCAPE ],
     variants: [
+      {match: /~\w?"""("*)(?!")[\s\S]*?"""\1/},
       {begin: /~\w?\(/, end: /\)/},
       {begin: /~\w?\[/, end: /\]/},
       {begin: /~\w?{/, end: /}/},
@@ -99,7 +100,6 @@ export default function(hljs) {
       {begin: /~\w?"/, end: /"/},
       {begin: /~\w?`/, end: /`/},
       {begin: /~\w?#/, end: /#/},
-      {match: /~\w?"""("*)(?!")[\s\S]*?"""\1/},
     ],
   };
 
