@@ -1,0 +1,43 @@
+type Upper_Snake<Upper_Param> = Upper_Param extends boolean ? Upper_Param : never
+
+const typeTestConstFn = <Upper_Arg, Upper_Result extends Upper_Snake<any>>(param: Upper_Result<Upper_Arg>) => {}
+
+const camelCase = 42
+
+const lower_camel_case = 42
+
+const snake_case = 42
+
+const Upper_Snake_Case = 42
+
+class Upper_Snake_Case_Class = {}
+
+new Upper_Snake_Case_Class()
+
+class Extreme__Upper_$_Snake_Case_Class$$$ = {}
+
+new Extreme__Upper_$_Snake_Case_Class$$$()
+
+const mixedObject = {
+  camelCase: 42,
+  SCREAMING_CASE: 42,
+  "string prop": 42,
+  snake_case: 42,
+  Upper_Snake_Case: 42,
+}
+
+function camelCaseFn = () => {}
+
+function snake_case_fn = () => {}
+
+function Upper_Snake_Case_Fn = () {}
+
+function Extreme__Case_$_Fn$ = () => {}
+
+const camelCaseConstFn = () => {}
+
+const snake_case_const_fn = () => {}
+
+const Upper_Snake_Case_Const_Fn = () => {}
+
+const Extreme_Case_$_Const__Fn$ = () => {}
