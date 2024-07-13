@@ -32,6 +32,7 @@ CONTRIBUTORS
 [aneesh98]: https://github.com/aneesh98
 [BaliBalo]: https://github.com/BaliBalo
 [William Wilkinson]: https://github.com/wilkinson4
+[nixxquality]: https://github.com/nixxquality
 
 
 ## Version 11.10.0
