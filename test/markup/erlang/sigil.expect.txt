@@ -1,0 +1,34 @@
+<span class="hljs-function"><span class="hljs-title">greek_quote</span><span class="hljs-params">()</span> -&gt;</span>
+    S = <span class="hljs-string">~B[&quot;Know thyself&quot; (Greek: Γνῶθι σαυτόν)]</span>,
+    io:format(<span class="hljs-string">&quot;~ts\n&quot;</span>, [S]).
+
+<span class="hljs-string">~&#x27;foo&#x27;</span>.
+
+&lt;&lt;<span class="hljs-string">&quot;\&quot;\\µA\&quot;&quot;</span>/utf8&gt;&gt; = &lt;&lt;<span class="hljs-string">$&quot;</span>,<span class="hljs-string">$\\</span>,<span class="hljs-number">194</span>,<span class="hljs-number">181</span>,<span class="hljs-string">$A</span>,<span class="hljs-string">$&quot;</span>&gt;&gt; =
+    <span class="hljs-string">~b&quot;&quot;&quot;
+        &quot;\\µA&quot;
+        &quot;&quot;&quot;</span> = <span class="hljs-string">~b&#x27;&quot;\\µA&quot;&#x27;</span> =
+    <span class="hljs-string">~B&quot;&quot;&quot;
+        &quot;\µA&quot;
+        &quot;&quot;&quot;</span> = <span class="hljs-string">~B&lt;&quot;\µA&quot;&gt;</span> =
+    <span class="hljs-string">~&quot;&quot;&quot;
+        &quot;\µA&quot;
+        &quot;&quot;&quot;</span> = <span class="hljs-string">~&quot;\&quot;\\µA\&quot;&quot;</span> = <span class="hljs-string">~/&quot;\\µA&quot;/</span>
+
+<span class="hljs-function"><span class="hljs-title">quotes</span><span class="hljs-params">()</span> -&gt;</span>
+    S = <span class="hljs-string">~&quot;&quot;&quot;
+         &quot;I always have a quotation for everything -
+         it saves original thinking.&quot; - Dorothy L. Sayers
+
+         &quot;Real stupidity beats artificial intelligence every time.&quot;
+         - Terry Pratchett
+         &quot;&quot;&quot;</span>,
+    io:put_chars(S),
+    io:nl().
+
+<span class="hljs-string">~s{&quot;abc\txyz&quot;}</span>.
+<span class="hljs-string">~(parenthesis)</span>.
+<span class="hljs-string">~&lt;alligators&gt;</span>.
+<span class="hljs-string">~`backticks`</span>.
+<span class="hljs-string">~#hashpounds#</span>.
+<span class="hljs-string">~|pipes|</span>.

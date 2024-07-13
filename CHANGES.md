@@ -9,6 +9,10 @@ Core Grammars:
 
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
 - enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
+- enh(erlang) OTP 27 triple-quoted strings [nixxquality][]
+- enh(erlang) OTP 27 doc attribute [nixxquality][]
+- enh(erlang) OTP 27 Sigil type [nixxquality][]
+- enh(erlang) OTP25/27 maybe statement [nixxquality][]
 
 New Grammars:
 
@@ -28,6 +32,7 @@ CONTRIBUTORS
 [aneesh98]: https://github.com/aneesh98
 [BaliBalo]: https://github.com/BaliBalo
 [William Wilkinson]: https://github.com/wilkinson4
+[nixxquality]: https://github.com/nixxquality
 
 
 ## Version 11.10.0
