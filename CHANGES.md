@@ -34,6 +34,7 @@ CONTRIBUTORS
 [BaliBalo]: https://github.com/BaliBalo
 [William Wilkinson]: https://github.com/wilkinson4
 [nixxquality]: https://github.com/nixxquality
+[srawlins]: https://github.com/srawlins
 
 
 ## Version 11.10.0

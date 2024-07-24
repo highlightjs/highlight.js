@@ -29,8 +29,8 @@ export default function(hljs) {
     className: 'number',
     relevance: 0,
     variants: [
-      { begin: "\\b[0-9][0-9_]*(\\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\\b" },
-      { begin: "\\b0[xX][0-9A-Fa-f][0-9A-Fa-f_]*\\b" }
+      { match: /\b[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\b/ },
+      { match: /\b0[xX][0-9A-Fa-f][0-9A-Fa-f_]*\b/ }
     ]
   };
 
