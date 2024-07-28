@@ -13,6 +13,7 @@ Core Grammars:
 - enh(erlang) OTP 27 doc attribute [nixxquality][]
 - enh(erlang) OTP 27 Sigil type [nixxquality][]
 - enh(erlang) OTP25/27 maybe statement [nixxquality][]
+- enh(dart) Support digit-separators in number literals [Sam Rawlins][]
 
 New Grammars:
 
@@ -33,6 +34,7 @@ CONTRIBUTORS
 [BaliBalo]: https://github.com/BaliBalo
 [William Wilkinson]: https://github.com/wilkinson4
 [nixxquality]: https://github.com/nixxquality
+[srawlins]: https://github.com/srawlins
 
 
 ## Version 11.10.0

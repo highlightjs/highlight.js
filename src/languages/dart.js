@@ -25,6 +25,15 @@ export default function(hljs) {
     keywords: 'true false null this is new super'
   };
 
+  const NUMBER = {
+    className: 'number',
+    relevance: 0,
+    variants: [
+      { match: /\b[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\b/ },
+      { match: /\b0[xX][0-9A-Fa-f][0-9A-Fa-f_]*\b/ }
+    ]
+  };
+
   const STRING = {
     className: 'string',
     variants: [
@@ -87,7 +96,7 @@ export default function(hljs) {
     ]
   };
   BRACED_SUBST.contains = [
-    hljs.C_NUMBER_MODE,
+    NUMBER,
     STRING
   ];
 
@@ -248,7 +257,7 @@ export default function(hljs) {
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
-      hljs.C_NUMBER_MODE,
+      NUMBER,
       {
         className: 'meta',
         begin: '@[A-Za-z]+'
