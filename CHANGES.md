@@ -14,6 +14,7 @@ Core Grammars:
 - enh(erlang) OTP 27 Sigil type [nixxquality][]
 - enh(erlang) OTP25/27 maybe statement [nixxquality][]
 - enh(dart) Support digit-separators in number literals [Sam Rawlins][]
+- enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `nint`, `record`, `required` and `scoped` [Alvin Joy][]
 
 New Grammars:
 
@@ -85,7 +86,6 @@ Core Grammars:
 - enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov][]
 - enh(css) add `text-decoration-skip-ink`, `text-decoration-thickness` and `text-underline-offset` attributes [Vasily Polovnyov][]
 - enh(java) add `when` to be recognized as a keyword in Java [Chiel van de Steeg][]
-- enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `nint`, `record`, `required` and `scoped` [Alvin Joy][]
 
 New Grammars:
 
