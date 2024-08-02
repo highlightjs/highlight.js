@@ -134,7 +134,6 @@ export default function(hljs) {
     'join',
     'let',
     'nameof',
-    'nint',
     'not',
     'notnull',
     'on',
