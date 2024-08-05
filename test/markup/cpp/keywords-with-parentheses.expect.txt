@@ -1,0 +1,93 @@
+<span class="hljs-keyword">alignas</span>(<span class="hljs-number">16</span>) <span class="hljs-type">char</span> aligned_buffer[<span class="hljs-number">1024</span>];
+<span class="hljs-keyword">alignof</span>(<span class="hljs-keyword">decltype</span>(aligned_buffer))
+<span class="hljs-keyword">asm</span>(<span class="hljs-string">&quot;movl $1, %eax&quot;</span>);
+<span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">throw</span> std::<span class="hljs-built_in">runtime_error</span>(<span class="hljs-string">&quot;An exception occurred&quot;</span>);
+} <span class="hljs-keyword">catch</span> (<span class="hljs-type">const</span> std::exception&amp; e) {
+    std::cout &lt;&lt; <span class="hljs-string">&quot;Caught exception: &quot;</span> &lt;&lt; e.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;
+}
+<span class="hljs-type">const</span> <span class="hljs-type">int</span>* p = <span class="hljs-literal">nullptr</span>;
+<span class="hljs-type">int</span>* mutable_p = <span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-type">int</span>*&gt;(p);
+<span class="hljs-type">int</span> x = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">decltype</span>(x) y = <span class="hljs-number">10</span>;
+Animal* animal = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Dog</span>();
+<span class="hljs-keyword">if</span> (Dog* dog = <span class="hljs-keyword">dynamic_cast</span>&lt;Dog*&gt;(animal)) {
+    std::cout &lt;&lt; <span class="hljs-string">&quot;Dynamic cast successful&quot;</span> &lt;&lt; std::endl;
+} <span class="hljs-keyword">else</span> {
+    std::cout &lt;&lt; <span class="hljs-string">&quot;Dynamic cast failed&quot;</span> &lt;&lt; std::endl;
+}
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> <span class="hljs-keyword">noexcept</span> </span>{
+  <span class="hljs-keyword">return</span> a + b;
+}
+<span class="hljs-keyword">if</span> (<span class="hljs-keyword">noexcept</span>(<span class="hljs-built_in">add</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))) {
+  <span class="hljs-comment">// The add function will not throw an exception.</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// The add function may throw an exception.</span>
+}
+<span class="hljs-type">int</span> value = <span class="hljs-number">10</span>;
+<span class="hljs-type">double</span>* ptr = <span class="hljs-keyword">reinterpret_cast</span>&lt;<span class="hljs-type">double</span>*&gt;(&amp;value);
+std::cout &lt;&lt; <span class="hljs-string">&quot;Size of int: &quot;</span> &lt;&lt; <span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>) &lt;&lt; <span class="hljs-string">&quot; bytes&quot;</span> &lt;&lt; std::endl;
+<span class="hljs-keyword">static_assert</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-type">int</span>) == <span class="hljs-number">4</span>, <span class="hljs-string">&quot;int must be 4 bytes&quot;</span>);
+<span class="hljs-type">float</span> z = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-type">float</span>&gt;(<span class="hljs-number">10</span>);
+<span class="hljs-type">int</span> choice = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">switch</span>(choice) {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        std::cout &lt;&lt; <span class="hljs-string">&quot;Choice is 1&quot;</span> &lt;&lt; std::endl;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        std::cout &lt;&lt; <span class="hljs-string">&quot;Choice is 2&quot;</span> &lt;&lt; std::endl;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+        std::cout &lt;&lt; <span class="hljs-string">&quot;Choice is not 1 or 2&quot;</span> &lt;&lt; std::endl;
+}
+std::cout &lt;&lt; <span class="hljs-string">&quot;Type of x: &quot;</span> &lt;&lt; <span class="hljs-keyword">typeid</span>(x).<span class="hljs-built_in">name</span>() &lt;&lt; std::endl;
+<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">5</span>) {
+    std::cout &lt;&lt; <span class="hljs-string">&quot;Iteration &quot;</span> &lt;&lt; i &lt;&lt; std::endl;
+    i++;
+}
+<span class="hljs-comment">// requires</span>
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;
+<span class="hljs-keyword">concept</span> dereferenceable =
+  <span class="hljs-keyword">requires</span> { <span class="hljs-keyword">typename</span> <span class="hljs-type">iter_value_t</span>&lt;I&gt;; } <span class="hljs-function"><span class="hljs-keyword">and</span>
+  <span class="hljs-title">requires</span><span class="hljs-params">(I i)</span> </span>{
+    *i;
+  };
+
+<span class="hljs-comment">// explicit</span>
+<span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt;
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">S</span> {
+  <span class="hljs-keyword">explicit</span>(weakly_incrementable&lt;T&gt;) <span class="hljs-built_in">S</span>();
+};
+
+<span class="hljs-comment">// auto, operators</span>
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>{
+  <span class="hljs-keyword">auto</span> x = <span class="hljs-keyword">auto</span>(<span class="hljs-number">0</span>);
+  x bitand_eq x;   <span class="hljs-comment">// needs to be added too</span>
+  <span class="hljs-function">x <span class="hljs-title">bitand_eq</span> <span class="hljs-params">(x)</span></span>;
+  x bitor_eq x;    <span class="hljs-comment">// needs to be added too</span>
+  <span class="hljs-function">x <span class="hljs-title">bitor_eq</span> <span class="hljs-params">(x)</span></span>;
+  x <span class="hljs-keyword">xor</span> x;
+  <span class="hljs-function">x <span class="hljs-title">xor</span> <span class="hljs-params">(x)</span></span>;
+  x <span class="hljs-keyword">and</span> x;
+  <span class="hljs-function">x <span class="hljs-title">and</span> <span class="hljs-params">(x)</span></span>;
+  x <span class="hljs-keyword">or</span> x;
+  <span class="hljs-function">x <span class="hljs-title">or</span> <span class="hljs-params">(x)</span></span>;
+  x <span class="hljs-keyword">bitand</span> x;
+  <span class="hljs-function">x <span class="hljs-title">bitand</span> <span class="hljs-params">(x)</span></span>;
+  x <span class="hljs-keyword">bitor</span> x;
+  <span class="hljs-function">x <span class="hljs-title">bitor</span> <span class="hljs-params">(x)</span></span>;
+  x <span class="hljs-keyword">not_eq</span> x;
+  <span class="hljs-function">x <span class="hljs-title">not_eq</span> <span class="hljs-params">(x)</span></span>;
+  <span class="hljs-keyword">not</span> x;
+  <span class="hljs-keyword">not</span> (x);
+  <span class="hljs-keyword">compl</span> x;
+  <span class="hljs-keyword">compl</span> (x);
+  <span class="hljs-keyword">co_await</span> x;
+  <span class="hljs-keyword">co_await</span> (x);
+  <span class="hljs-keyword">co_return</span> x;
+  <span class="hljs-keyword">co_return</span> (x);
+  <span class="hljs-keyword">co_yield</span> x;
+  <span class="hljs-keyword">co_yield</span> (x);
+}
