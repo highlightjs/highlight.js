@@ -54,15 +54,16 @@ export default function(hljs) {
     ]
   };
 
-  const NUMBERS = {
-    className: 'number',
-    variants: [
-      { begin: '\\b(0b[01\']+)' },
-      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },
-      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
-    ],
-    relevance: 0
-  };
+const NUMBERS = {
+  className: 'number',
+  variants: [
+    { begin: '\\b(0b[01\']+)' },
+    { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },
+    { begin: '(-?)\\b0[xX][a-fA-F0-9\']+(\\.[a-fA-F0-9\']+)?([pP][-+]?[\\d\']+)?' }
+  ],
+  relevance: 0
+};
+
 
   const PREPROCESSOR = {
     className: 'meta',
