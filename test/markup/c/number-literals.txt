@@ -1,0 +1,46 @@
+/* Floating-point literals. */
+// Decimal.
+1.
++12.
+1.2
+1234e56
+
+// Hexadecimal.
+0x1p2
++0x1.p2
+-0X1A.P2
+0x1.Ap2
+
+// Literal suffixes.
+1.F
+
+/* Integer literals. */
+// Binary.
++0b1 // Note: Not standard C, but valid in some compilers
+0B01 // Note: Not standard C, but valid in some compilers
+
+// Hexadecimal.
++0x1
+0X1A
+
+// Octal.
++01
+012
+
+// Decimal.
+0
++1
+12
+
+// Literal suffixes.
+0X2L
+0x2l
+03LL
+03ll
+4UL 4Ul 4uL 4ul
+5LU 5Lu 5lU 5lu
+6ULL 6Ull 6uLL 6ull
+7LLU 7LLu 7llU 7llu
+
+// Character array.
+char word[] = { '3', '\0' };
