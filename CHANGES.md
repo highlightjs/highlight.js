@@ -15,6 +15,7 @@ Core Grammars:
 - enh(erlang) OTP25/27 maybe statement [nixxquality][]
 - enh(dart) Support digit-separators in number literals [Sam Rawlins][]
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
+- fix(c) - Fixed hex numbers with decimals in c  [Dxuian]
 
 New Grammars:
 
@@ -37,6 +38,7 @@ CONTRIBUTORS
 [nixxquality]: https://github.com/nixxquality
 [srawlins]: https://github.com/srawlins
 [Alvin Joy]: https://github.com/alvinsjoy
+[Dxuian]:https://github.com/Dxuian
 
 
 ## Version 11.10.0
