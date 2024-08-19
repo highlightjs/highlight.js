@@ -15,7 +15,7 @@ Core Grammars:
 - enh(erlang) OTP25/27 maybe statement [nixxquality][]
 - enh(dart) Support digit-separators in number literals [Sam Rawlins][]
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
-- fix(ruby) - render block arguments with |= operator [Aboobacker MK]
+- fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 
 New Grammars:
 
