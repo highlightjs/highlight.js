@@ -57,14 +57,14 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(0b[01\']+)' },
-      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },
-      { begin: '(-?)(0[xX][a-fA-F0-9]+(?:\'[a-fA-F0-9]+)*(?:\\.[a-fA-F0-9]*(?:\'[a-fA-F0-9]*)*)?(?:[pP][-+]?[0-9]+)?|\\b\\d+(?:\'\\d+)*(?:\\.\\d*(?:\'\\d*)*)?(?:[eE][-+]?\\d+)?)' }
+      { begin: '\\b(0b[01\']+)' },  
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },  
+      { begin: '(-?)(0[xX][a-fA-F0-9]+(?:\'[a-fA-F0-9]+)*(?:\\.[a-fA-F0-9]*(?:\'[a-fA-F0-9]*)*)?(?:[pP][-+]?[0-9]+)?)' },  
+      { begin: '(-?)\\b\\d+(?:\'\\d+)*(?:\\.\\d*(?:\'\\d*)*)?(?:[eE][-+]?\\d+)?' }  
     ],
     relevance: 0
   };
-
-
+  
   const PREPROCESSOR = {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
