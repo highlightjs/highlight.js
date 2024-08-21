@@ -29,6 +29,10 @@ Themes:
 
 - Added `Rosé Pine` theme [William Wilkinson][]
 
+Improvements:
+
+- Resolve the memory leak problem when creating multiple Highlight.js instances [Imken][]
+
 CONTRIBUTORS
 
 [Josh Goebel]: https://github.com/joshgoebel
@@ -39,6 +43,7 @@ CONTRIBUTORS
 [srawlins]: https://github.com/srawlins
 [Alvin Joy]: https://github.com/alvinsjoy
 [Aboobacker MK]: https://github.com/tachyons
+[Imken]: https://github.com/immccn123
 
 
 ## Version 11.10.0
