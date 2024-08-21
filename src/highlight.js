@@ -822,7 +822,6 @@ const HLJS = function(hljs) {
     function boot() {
       // if a highlight was requested before DOM was loaded, do now
       highlightAll();
-      window.removeEventListener('DOMContentLoaded', boot, false);
     }
 
     // if we are called too early in the loading process
