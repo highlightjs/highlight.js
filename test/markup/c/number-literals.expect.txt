@@ -33,8 +33,8 @@
 <span class="hljs-number">12</span>
 
 <span class="hljs-comment">// Literal suffixes.</span>
-<span class="hljs-number">0X2</span>L
-<span class="hljs-number">0x2</span>l
+<span class="hljs-number">0X2L</span>
+<span class="hljs-number">0x2l</span>
 <span class="hljs-number">03LL</span>
 <span class="hljs-number">03ll</span>
 <span class="hljs-number">4UL</span> <span class="hljs-number">4Ul</span> <span class="hljs-number">4uL</span> <span class="hljs-number">4ul</span>
