@@ -1,0 +1,46 @@
+<span class="hljs-comment">/* Floating-point literals. */</span>
+<span class="hljs-comment">// Decimal.</span>
+<span class="hljs-number">1.</span>
++<span class="hljs-number">12.</span>
+<span class="hljs-number">1.2</span>
+<span class="hljs-number">1234e56</span>
+
+<span class="hljs-comment">// Hexadecimal.</span>
+<span class="hljs-number">0x1p2</span>
++<span class="hljs-number">0x1.p2</span>
+<span class="hljs-number">-0X1A.P2</span>
+<span class="hljs-number">0x1.Ap2</span>
+
+<span class="hljs-comment">// Literal suffixes.</span>
+<span class="hljs-number">1.F</span>
+
+<span class="hljs-comment">/* Integer literals. */</span>
+<span class="hljs-comment">// Binary.</span>
++<span class="hljs-number">0b1</span> <span class="hljs-comment">// Note: Not standard C, but valid in some compilers</span>
+<span class="hljs-number">0B</span>01 <span class="hljs-comment">// Note: Not standard C, but valid in some compilers</span>
+
+<span class="hljs-comment">// Hexadecimal.</span>
++<span class="hljs-number">0x1</span>
+<span class="hljs-number">0X1A</span>
+
+<span class="hljs-comment">// Octal.</span>
++<span class="hljs-number">01</span>
+<span class="hljs-number">012</span>
+
+<span class="hljs-comment">// Decimal.</span>
+<span class="hljs-number">0</span>
++<span class="hljs-number">1</span>
+<span class="hljs-number">12</span>
+
+<span class="hljs-comment">// Literal suffixes.</span>
+<span class="hljs-number">0X2L</span>
+<span class="hljs-number">0x2l</span>
+<span class="hljs-number">03LL</span>
+<span class="hljs-number">03ll</span>
+<span class="hljs-number">4UL</span> <span class="hljs-number">4Ul</span> <span class="hljs-number">4uL</span> <span class="hljs-number">4ul</span>
+<span class="hljs-number">5LU</span> <span class="hljs-number">5Lu</span> <span class="hljs-number">5lU</span> <span class="hljs-number">5lu</span>
+<span class="hljs-number">6ULL</span> <span class="hljs-number">6Ull</span> <span class="hljs-number">6uLL</span> <span class="hljs-number">6ull</span>
+<span class="hljs-number">7LLU</span> <span class="hljs-number">7LLu</span> <span class="hljs-number">7llU</span> <span class="hljs-number">7llu</span>
+
+<span class="hljs-comment">// Character array.</span>
+<span class="hljs-type">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> };
