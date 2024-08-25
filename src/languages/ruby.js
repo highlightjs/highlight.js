@@ -350,7 +350,7 @@ export default function(hljs) {
     },
     {
       className: 'params',
-      begin: /\|/,
+      begin: /\|(?!=)/,
       end: /\|/,
       excludeBegin: true,
       excludeEnd: true,

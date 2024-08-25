@@ -15,7 +15,8 @@ Core Grammars:
 - enh(erlang) OTP25/27 maybe statement [nixxquality][]
 - enh(dart) Support digit-separators in number literals [Sam Rawlins][]
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
-- fix(c) - Fixed hex numbers with decimals in c  [Dxuian]
+- fix(c) - Fixed hex numbers with decimals  [Dxuian]
+- fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 
 New Grammars:
 
@@ -29,6 +30,10 @@ Themes:
 
 - Added `Rosé Pine` theme [William Wilkinson][]
 
+Improvements:
+
+- Resolve the memory leak problem when creating multiple Highlight.js instances [Imken][]
+
 CONTRIBUTORS
 
 [Josh Goebel]: https://github.com/joshgoebel
@@ -39,6 +44,8 @@ CONTRIBUTORS
 [srawlins]: https://github.com/srawlins
 [Alvin Joy]: https://github.com/alvinsjoy
 [Dxuian]:https://github.com/Dxuian
+[Aboobacker MK]: https://github.com/tachyons
+[Imken]: https://github.com/immccn123
 
 
 ## Version 11.10.0
