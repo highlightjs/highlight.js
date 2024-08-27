@@ -266,7 +266,6 @@ export default function(hljs) {
     "json_table",
     "json_table_primitive",
     "json_value",
-    "key",
     "lag",
     "language",
     "large",
@@ -639,7 +638,14 @@ export default function(hljs) {
       }
     });
   }
-
+  //COMBOS generator 
+  function generateComboKeywords(combos) {
+    const keywords = [];
+    combos.forEach(combo => {
+      keywords.push(...combo.split(' '));
+    });
+    return keywords;
+  }
   return {
     name: 'SQL',
     case_insensitive: true,
@@ -655,11 +661,11 @@ export default function(hljs) {
     },
     contains: [
       {
-        begin: regex.either(...COMBOS),
+        begin: regex.either(...generateComboKeywords(COMBOS)),
         relevance: 0,
         keywords: {
           $pattern: /[\w\.]+/,
-          keyword: KEYWORDS.concat(COMBOS),
+          keyword: KEYWORDS.concat(generateComboKeywords(COMBOS)),
           literal: LITERALS,
           type: TYPES
         },
