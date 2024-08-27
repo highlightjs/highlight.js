@@ -266,6 +266,7 @@ export default function(hljs) {
     "json_table",
     "json_table_primitive",
     "json_value",
+    "key",
     "lag",
     "language",
     "large",
