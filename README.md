@@ -48,7 +48,7 @@ detection.
     - [cdnjs (link)](#cdnjs-link)
     - [jsdelivr (link)](#jsdelivr-link)
     - [unpkg (link)](#unpkg-link)
-    - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
+  - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
   - [Download from our website](#download-from-our-website)
   - [Install via NPM package](#install-via-npm-package)
   - [Build from Source](#build-from-source)
@@ -395,7 +395,7 @@ hljs.registerLanguage('go', go);
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
 very large. You can find our list of "common" languages that we bundle by default on our [download page][5].
 
-#### Download prebuilt CDN assets
+### Download prebuilt CDN assets
 
 You can also download and self-host the same assets we serve up via our own CDNs.  We publish those builds to the [cdn-release](https://github.com/highlightjs/cdn-release) GitHub repository.  You can easily pull individual files off the CDN endpoints with `curl`, etc; if say you only needed `highlight.min.js` and a single CSS file.
 
