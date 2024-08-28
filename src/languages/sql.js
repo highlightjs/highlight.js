@@ -622,6 +622,35 @@ export default function(hljs) {
     keywords: { built_in: FUNCTIONS }
   };
 
+  //COMBOS generator
+  // const regexPatterns = COMBOS.map(phrase => {
+  //   const escapedPhrase = phrase.replace(/ /g, "\\s+"); // Replace spaces with \s+ to match any whitespace
+  //   return new RegExp(escapedPhrase, "gi"); // Create case-insensitive regex
+  // });
+
+  const COMBOSLIST = {
+    className: 'type',
+    variants: [
+      { match: /\bcreate\s+table\b/ },
+      { match: /\binsert\s+into\b/ },
+      { match: /\bprimary\s+key\b/ },
+      { match: /\bforeign\s+key\b/ },
+      { match: /\bnot\s+null\b/ },
+      { match: /\balter\s+table\b/ },
+      { match: /\badd\s+constraint\b/ },
+      { match: /\bgrouping\s+sets\b/ },
+      { match: /\bon\s+overflow\b/ },
+      { match: /\bcharacter\s+set\b/ },
+      { match: /\brespect\s+nulls\b/ },
+      { match: /\bignore\s+nulls\b/ },
+      { match: /\bnulls\s+first\b/ },
+      { match: /\bnulls\s+last\b/ },
+      { match: /\bdepth\s+first\b/ },
+      { match: /\bbreadth\s+first\b/ }
+    ],
+    relevance: 0
+  };
+  
   // keywords with less than 3 letters are reduced in relevancy
   function reduceRelevancy(list, {
     exceptions, when
@@ -638,14 +667,7 @@ export default function(hljs) {
       }
     });
   }
-  //COMBOS generator 
-  function generateComboKeywords(combos) {
-    const keywords = [];
-    combos.forEach(combo => {
-      keywords.push(...combo.split(' '));
-    });
-    return keywords;
-  }
+
   return {
     name: 'SQL',
     case_insensitive: true,
@@ -661,19 +683,10 @@ export default function(hljs) {
     },
     contains: [
       {
-        begin: regex.either(...generateComboKeywords(COMBOS)),
-        relevance: 0,
-        keywords: {
-          $pattern: /[\w\.]+/,
-          keyword: KEYWORDS.concat(generateComboKeywords(COMBOS)),
-          literal: LITERALS,
-          type: TYPES
-        },
-      },
-      {
         className: "type",
         begin: regex.either(...MULTI_WORD_TYPES)
       },
+      COMBOSLIST,
       FUNCTION_CALL,
       VARIABLE,
       STRING,
