@@ -181,16 +181,25 @@ export default function(hljs) {
     keyword: C_KEYWORDS,
     type: C_TYPES,
     literal: 'true false NULL',
-    // TODO: apply hinting work similar to what was done in cpp.js
-    built_in: 'std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream '
-      + 'auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set '
-      + 'unordered_map unordered_multiset unordered_multimap priority_queue make_pair array shared_ptr abort terminate abs acos '
-      + 'asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp '
-      + 'fscanf future isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper '
-      + 'isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow '
-      + 'printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp '
-      + 'strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan '
-      + 'vfprintf vprintf vsprintf endl initializer_list unique_ptr',
+    built_in: 'stdin stdout stderr'
+      + 'abs acos asin atan atan2 ceil cos cosh exp fabs floor fmod frexp ldexp log log10 pow sin sinh sqrt tan tanh'
+      + 'printf scanf puts putchar getchar gets fgets fputs fprintf fscanf sscanf sprintf snprintf'
+      + 'malloc calloc realloc free'
+      + 'memcpy memmove memset memcmp memchr strcpy strncpy strcat strncat strcmp strncmp strchr strrchr strstr strlen'
+      + 'atoi atol atoll strtol strtoll strtoul strtoull'
+      + 'rand srand'
+      + 'exit abort assert'
+      + 'time clock difftime mktime asctime ctime gmtime localtime strftime'
+      + 'fopen fclose fread fwrite fseek ftell rewind fflush'
+      + 'isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper isxdigit tolower toupper'
+      + 'qsort bsearch'
+      + 'setjmp longjmp'
+      + 'va_start va_arg va_end'
+      + 'offsetof'
+      + 'static_assert'
+      + 'alignas alignof'
+      + '_Generic'
+      + 'atomic_bool atomic_char atomic_schar atomic_uchar atomic_short atomic_ushort atomic_int atomic_uint atomic_long atomic_ulong atomic_llong atomic_ullong atomic_intptr_t atomic_uintptr_t atomic_size_t atomic_ptrdiff_t atomic_intmax_t atomic_uintmax_t'
   };
 
   const EXPRESSION_CONTAINS = [
