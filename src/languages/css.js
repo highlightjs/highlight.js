@@ -14,7 +14,7 @@ export default function(hljs) {
   const VENDOR_PREFIX = { begin: /-(webkit|moz|ms|o)-(?=[a-z])/ };
   const AT_MODIFIERS = "and or not only";
   const AT_PROPERTY_RE = /@-?\w[\w]*(-\w+)*/; // @-webkit-keyframes
-  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
+  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*(\\\\:[a-zA-Z0-9_-]+)*';
   const STRINGS = [
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE
@@ -37,7 +37,7 @@ export default function(hljs) {
       modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
-        begin: /#[A-Za-z0-9_-]+/,
+        begin: '#' + IDENT_RE,
         relevance: 0
       },
       {
@@ -49,8 +49,8 @@ export default function(hljs) {
       {
         className: 'selector-pseudo',
         variants: [
-          { begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')' },
-          { begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' }
+          { begin: '(?<!\\\\):(' + css.PSEUDO_CLASSES.join('|') + ')'},
+          { begin: '(?<!\\\\):(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'}
         ]
       },
       // we may actually need this (12/2020)
