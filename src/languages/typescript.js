@@ -69,12 +69,14 @@ export default function(hljs) {
     "satisfies"
   ];
 
-  /*
-    namespace is a TS keyword but it's fine to use it as a variable name too.
-    const message = 'foo';
-    const namespace = 'bar';
-  */
-
+  const OPTIONAL_PROPERTY_RE = IDENT_RE + '\\s*\\?';
+  const OPTIONAL_ASSIGN_MODE = {
+    className: 'attr',
+    begin: OPTIONAL_PROPERTY_RE,
+    end: /\s*=\s*/,
+    excludeEnd: true,
+  };
+  
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
@@ -82,6 +84,7 @@ export default function(hljs) {
     built_in: ECMAScript.BUILT_INS.concat(TYPES),
     "variable.language": ECMAScript.BUILT_IN_VARIABLES
   };
+  
   const DECORATOR = {
     className: 'meta',
     begin: '@' + IDENT_RE,
@@ -111,6 +114,7 @@ export default function(hljs) {
     DECORATOR,
     NAMESPACE,
     INTERFACE,
+    OPTIONAL_ASSIGN_MODE, // Added for optional property assignment highlighting
   ]);
 
   // TS gets a simpler shebang rule than JS
