@@ -21,11 +21,11 @@ export default function(hljs) {
     className: 'attr',
     variants: [
       // added brackets support 
-      { begin: /\w[\w :()\./-]*:(?=[ \t]|$)/ },
-      { // double quoted keys - with brackets
-        begin: /"\w[\w :()\./-]*":(?=[ \t]|$)/ },
-      { // single quoted keys - with brackets
-        begin: /'\w[\w :()\./-]*':(?=[ \t]|$)/ },
+      { begin: /\w[\w :()\./-]*:(?=\s|$)/ },
+      // double quoted keys - with brackets
+      { begin: /"\w[\w :()\./-]*":(?=\s|$)/ },
+      // single quoted keys - with brackets
+      { begin: /'\w[\w :()\./-]*':(?=\s|$)/ },
     ]
   };
 
@@ -107,6 +107,18 @@ export default function(hljs) {
     relevance: 0
   };
 
+  // Optimized block scalar handling to avoid polynomial backtracking
+  const BLOCK_SCALAR = {
+    className: 'string',
+    begin: /[|>][-+\d]*\s*$/, // Block scalar indicator with modifiers
+    contains: [
+      {
+        begin: /^\s+/,  // Indented block content
+        relevance: 0
+      }
+    ]
+  };
+
   const MODES = [
     KEY,
     {
@@ -114,13 +126,15 @@ export default function(hljs) {
       begin: '^---\\s*$',
       relevance: 10
     },
+    BLOCK_SCALAR, // handle block scalars (| or >)
     { // multi line string
       // Blocks start with a | or > followed by a newline
       //
       // Indentation of subsequent lines must be the same to
       // be considered part of the block
       className: 'string',
-      begin: '[\\|>]([1-9]?[+-])?[ ]*\\n( +)[^ ][^\\n]*\\n(\\2[^\\n]+\\n?)*'
+      begin: '[\\|>]([-+]?[0-9]*)?[ ]*\\n', // Support for block string indicators
+      relevance: 0
     },
     { // Ruby/Rails erb
       begin: '<%[%=-]?',
