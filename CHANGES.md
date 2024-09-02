@@ -20,7 +20,7 @@ Core Grammars:
 
 New Grammars:
 
-- Nothing yet.
+- added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
 
 Developer Tools:
 
@@ -46,6 +46,7 @@ CONTRIBUTORS
 [Dxuian]:https://github.com/Dxuian
 [Aboobacker MK]: https://github.com/tachyons
 [Imken]: https://github.com/immccn123
+[Osmocom]: https://github.com/osmocom
 
 
 ## Version 11.10.0
