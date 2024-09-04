@@ -17,6 +17,7 @@ Core Grammars:
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
+- fix(css) - Fixed css escape chars  [Dxuian]
 
 New Grammars:
 
