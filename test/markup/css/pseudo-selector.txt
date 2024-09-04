@@ -22,3 +22,47 @@ p::first-letter {
   font-weight: bold;
   color: brown;
 }
+.dark\:hover\:bg-sky-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
+.dark\:hover\:bg-sky-600\:text-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 132 199 / var(--tw-bg-opacity));
+  color: white;
+}
+
+.dark\:hover\:bg-sky-700\:text-white\:border:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
+  color: white;
+  border: 1px solid white;
+}
+
+.dark\:hover\:bg-sky-800\:text-white\:border\:rounded:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+}
+
+.dark\:hover\:bg-sky-900\:text-white\:border\:rounded\:shadow:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(12 74 110 / var(--tw-bg-opacity));
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dark\:hover\:bg-sky-950\:text-white\:border\:rounded\:shadow\:p-4:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 32 56 / var(--tw-bg-opacity));
+  color: white;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+}
