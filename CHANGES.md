@@ -48,6 +48,7 @@ CONTRIBUTORS
 [Aboobacker MK]: https://github.com/tachyons
 [Imken]: https://github.com/immccn123
 [Osmocom]: https://github.com/osmocom
+[Álvaro Mondéjar]: https://github.com/mondeja
 
 
 ## Version 11.10.0
