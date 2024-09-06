@@ -232,6 +232,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Toit                    | toit                   | [toit-highlight](https://github.com/snxx-lppxx/toit-highlight) |
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
+| TTCN-3                  | ttcn, ttcnpp, ttcn3    | [highlightjs-ttcn3](https://gitea.osmocom.org/ttcn3/highlightjs-ttcn3) |
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts, tsx, mts, cts |         |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
