@@ -15,13 +15,14 @@ Core Grammars:
 - enh(erlang) OTP25/27 maybe statement [nixxquality][]
 - enh(dart) Support digit-separators in number literals [Sam Rawlins][]
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
+- enh(bash) add reserved keywords `time` and `coproc` [Álvaro Mondéjar][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 - fix(yaml) - Fixed Multiline strings not supporting empty lines   [Dxuian]
 
 New Grammars:
 
-- Nothing yet.
+- added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
 
 Developer Tools:
 
@@ -47,6 +48,8 @@ CONTRIBUTORS
 [Dxuian]:https://github.com/Dxuian
 [Aboobacker MK]: https://github.com/tachyons
 [Imken]: https://github.com/immccn123
+[Osmocom]: https://github.com/osmocom
+[Álvaro Mondéjar]: https://github.com/mondeja
 
 
 ## Version 11.10.0
