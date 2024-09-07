@@ -27,4 +27,11 @@
    <span class="hljs-string">ggg</span>
    <span class="hljs-string">hhh</span>
    <span class="hljs-comment"># not a comment</span>
+
+
+<span class="hljs-attr">foo:</span>
+  <span class="hljs-attr">bar:</span> <span class="hljs-string">|</span>
+    <span class="hljs-attr">still:</span> <span class="hljs-string">a</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">not:</span> <span class="hljs-string">anymore</span>
 <span class="hljs-comment"># comment starts here</span>
