@@ -8,3 +8,9 @@ export const useWeb3React: <T = any>(key?: string) => Modify<
 declare global {
   type SupportedChainIds = 1 | 4
 }
+
+type Options = {
+  srcdir: string,
+  outdir: string,
+  minify?: boolean
+}

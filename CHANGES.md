@@ -16,6 +16,7 @@ Core Grammars:
 - enh(dart) Support digit-separators in number literals [Sam Rawlins][]
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
+- fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 
 New Grammars:
