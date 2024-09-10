@@ -1,16 +1,70 @@
-import { useWeb3React as useWeb3React_ } from '@web3-react/core'
-
-export const useWeb3React: <T = any>(key?: string) => Modify<
+// Updated function with both optional and non-optional parameters
+export const useWeb3React: <T = any>(key?: string, version: number) => Modify<
   ReturnType<typeof useWeb3React_<T>>,
-  { chainId: SupportedChainIds }
+  { chainId: SupportedChainIds, network: string }
 > = useWeb3React_ as any
 
 declare global {
   type SupportedChainIds = 1 | 4
 }
 
+// Optional and non-optional properties in an object type
 type Options = {
   srcdir: string,
   outdir: string,
-  minify?: boolean
+  minify?: boolean,
+  sourcemap: boolean
 }
+
+// Function with both optional and non-optional parameters
+function multiply(a: number, b: number, c?: number, d: number): number {
+    return a * b * d;
+}
+
+// Optional Function Parameters
+function greet(name?: string, age?: number, city: string) {
+  console.log(`Hello, ${name ?? "Guest"} from ${city}!`);
+}
+
+// Optional and non-optional properties in an interface
+interface Person {
+  name: string;
+  age?: number;
+  address?: string;
+  occupation: string;
+}
+
+// Optional Class Members and Constructor Parameters
+class Car {
+  make: string;
+  model?: string;
+  year: number;
+
+  constructor(make: string, year: number, model?: string) {
+    this.make = make;
+    this.year = year;
+    this.model = model;
+  }
+}
+
+
+// Optional Constructor Parameters
+class User {
+  name: string;
+  age?: number;
+  city: string;
+
+  constructor(name: string, city: string, age?: number) {
+    this.name = name;
+    this.city = city;
+    this.age = age;
+  }
+}
+
+// Optional in Function Type Signatures
+type PrintMessage = (message: string, sender?: string, timestamp: number) => void;
+
+const print: PrintMessage = (message, sender, timestamp) => {
+  console.log(`Message: ${message}, from: ${sender ?? "Anonymous"} at ${timestamp}`);
+};
+

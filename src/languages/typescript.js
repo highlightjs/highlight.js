@@ -68,15 +68,22 @@ export default function(hljs) {
     "override",
     "satisfies"
   ];
+  /*
+    namespace is a TS keyword but it's fine to use it as a variable name too.
+    const message = 'foo';
+    const namespace = 'bar';
+  */
+  // Regular expression for matching optional properties/parameters
+  const OPTIONAL_PROPERTY_RE = IDENT_RE + '(?=\\s*\\?)'; // Matches param before the ?
 
-  const OPTIONAL_PROPERTY_RE = IDENT_RE + '\\s*\\?';
+  // Mode for highlighting optional properties/parameters without highlighting the ?
   const OPTIONAL_ASSIGN_MODE = {
-    className: 'attr',
-    begin: OPTIONAL_PROPERTY_RE,
-    end: /\s*=\s*/,
-    excludeEnd: true,
+    className: 'attr',  // Defines this as an attribute (for parameters or properties)
+    begin: OPTIONAL_PROPERTY_RE, // Begin highlighting the parameter before ?
+    end: /\s*(?=\?)/,   // End before the ? symbol
+    excludeEnd: true,   // Exclude the ? from highlighting
   };
-  
+
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
@@ -110,6 +117,11 @@ export default function(hljs) {
     tsLanguage.exports.CLASS_REFERENCE, // class reference for highlighting the params types
     ATTRIBUTE_HIGHLIGHT, // highlight the params key
   ]);
+
+  // Add the optional parameter mode to highlight optional parameters properly
+  tsLanguage.exports.PARAMS_CONTAINS.push(OPTIONAL_ASSIGN_MODE);
+
+  // Add the optional property assignment highlighting for objects or classes
   tsLanguage.contains = tsLanguage.contains.concat([
     DECORATOR,
     NAMESPACE,

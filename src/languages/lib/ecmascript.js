@@ -1,4 +1,4 @@
-export const IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*\\??';
+export const IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
 const KEYWORDS = [
   "as", // for exports
   "in",
