@@ -22,31 +22,7 @@ p::first-letter {
   font-weight: bold;
   color: brown;
 }
-.dark\:hover\:bg-sky-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
-}
 
-.dark\:hover\:bg-sky-600\:text-white:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(2 132 199 / var(--tw-bg-opacity));
-  color: white;
-}
-
-.dark\:hover\:bg-sky-700\:text-white\:border:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
-  color: white;
-  border: 1px solid white;
-}
-
-.dark\:hover\:bg-sky-800\:text-white\:border\:rounded:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
-  color: white;
-  border: 1px solid white;
-  border-radius: 0.5rem;
-}
 
 .dark\:hover\:bg-sky-900\:text-white\:border\:rounded\:shadow:hover {
   --tw-bg-opacity: 1;
@@ -57,12 +33,46 @@ p::first-letter {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.dark\:hover\:bg-sky-950\:text-white\:border\:rounded\:shadow\:p-4:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(2 32 56 / var(--tw-bg-opacity));
-  color: white;
-  border: 1px solid white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 1rem;
+.class\:name {
+	color: red;
+}
+
+.class\.name {
+	font-weight: bold;
+}
+
+.at\@sign {
+	font-family: monospace;
+}
+
+.aske\$dollar {
+	color: green;
+}
+
+.caret\^sign {
+	text-transform: uppercase;
+}
+
+.and\&sign {
+	background-color: yellow;
+}
+
+.asterisk\*sign {
+	font-size: 1.2em;
+}
+
+.plus\+sign {
+	letter-spacing: 2px;
+}
+
+.pipe\|class {
+	border: 1px solid black;
+}
+
+.tilde\~sign {
+	text-shadow: 1px 1px 2px gray;
+}
+
+.equals\=sign {
+	text-align: center;
 }

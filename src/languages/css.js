@@ -13,8 +13,8 @@ export default function(hljs) {
   const modes = css.MODES(hljs);
   const VENDOR_PREFIX = { begin: /-(webkit|moz|ms|o)-(?=[a-z])/ };
   const AT_MODIFIERS = "and or not only";
-  const AT_PROPERTY_RE = /@-?\w[\w]*(-\w+)*/; // @-webkit-keyframes
-  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*(\\\\:[a-zA-Z0-9_-]+)*';
+  const AT_PROPERTY_RE = /@-?\b\w[\w-]*\b/; // @-webkit-keyframes
+  const IDENT_RE = '[a-zA-Z_-](?:[a-zA-Z0-9_-]*\\\\[.$^&+|~=:<>*\\[\\]@])?[a-zA-Z0-9_-]*(?:\\\\:[a-zA-Z0-9_-]+)*';
   const STRINGS = [
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE
