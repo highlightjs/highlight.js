@@ -49,8 +49,8 @@ export default function(hljs) {
       {
         className: 'selector-pseudo',
         variants: [
-          { begin: '(?<!\\\\):(' + css.PSEUDO_CLASSES.join('|') + ')'},
-          { begin: '(?<!\\\\):(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')'}
+          { begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')' },
+          { begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' }
         ]
       },
       // we may actually need this (12/2020)
