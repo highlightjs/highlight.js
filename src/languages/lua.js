@@ -27,6 +27,7 @@ export default function(hljs) {
   ];
   return {
     name: 'Lua',
+    aliases: ['pluto'],
     keywords: {
       $pattern: hljs.UNDERSCORE_IDENT_RE,
       literal: "true false nil",
