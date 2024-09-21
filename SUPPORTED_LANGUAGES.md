@@ -175,6 +175,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
+| PowerOn                 | poweron, po            | [highlightjs-poweron](https://github.com/libum-llc/highlightjs-poweron) |
 | PowerShell              | powershell, ps, ps1    |         |
 | Processing              | processing             |         |
 | Prolog                  | prolog                 |         |
