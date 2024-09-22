@@ -622,35 +622,26 @@ export default function(hljs) {
     keywords: { built_in: FUNCTIONS }
   };
 
-  //COMBOS generator
-  // const regexPatterns = COMBOS.map(phrase => {
-  //   const escapedPhrase = phrase.replace(/ /g, "\\s+"); // Replace spaces with \s+ to match any whitespace
-  //   return new RegExp(escapedPhrase, "gi"); // Create case-insensitive regex
-  // });
+  // turns a multi-word keyword combo into a regex that doesn't
+  // care about extra whitespace etc.
+  // input: "START QUERY"
+  // output: /\bSTART\s+QUERY\b/
+  function kws_to_regex(list) {
+    return regex.concat(
+      /\b/,
+      regex.either(...list.map((kw) => {
+        return kw_spaces = kw.replace(/\s+/, "\\s+")
+      })),
+      /\b/
+    )
+  }
 
-  const COMBOSLIST = {
-    className: 'type',
-    variants: [
-      { match: /\bcreate\s+table\b/ },
-      { match: /\binsert\s+into\b/ },
-      { match: /\bprimary\s+key\b/ },
-      { match: /\bforeign\s+key\b/ },
-      { match: /\bnot\s+null\b/ },
-      { match: /\balter\s+table\b/ },
-      { match: /\badd\s+constraint\b/ },
-      { match: /\bgrouping\s+sets\b/ },
-      { match: /\bon\s+overflow\b/ },
-      { match: /\bcharacter\s+set\b/ },
-      { match: /\brespect\s+nulls\b/ },
-      { match: /\bignore\s+nulls\b/ },
-      { match: /\bnulls\s+first\b/ },
-      { match: /\bnulls\s+last\b/ },
-      { match: /\bdepth\s+first\b/ },
-      { match: /\bbreadth\s+first\b/ }
-    ],
-    relevance: 0
+  const COMBOS_MODE = {
+    scope: "keyword",
+    match: kws_to_regex(COMBOS),
+    relevance: 0,
   };
-  
+
   // keywords with less than 3 letters are reduced in relevancy
   function reduceRelevancy(list, {
     exceptions, when
@@ -683,10 +674,10 @@ export default function(hljs) {
     },
     contains: [
       {
-        className: "type",
-        begin: regex.either(...MULTI_WORD_TYPES)
+        scope: "type",
+        match: kws_to_regex(MULTI_WORD_TYPES)
       },
-      COMBOSLIST,
+      COMBOS_MODE,
       FUNCTION_CALL,
       VARIABLE,
       STRING,

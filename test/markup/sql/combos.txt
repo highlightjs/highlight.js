@@ -1,37 +1,37 @@
 -- Basic Table with a Single Primary Key
-CREATE    TABLE    users    (  
-    id    INT    PRIMARY   KEY,   
-    username   VARCHAR(50),    
+CREATE    TABLE    users    (
+    id    INT    PRIMARY   KEY,
+    username   VARCHAR(50),
     email    VARCHAR(100)
 );
 
 -- Table with Composite Primary Key
-CREATE     TABLE     orders     ( 
-    order_id     INT,    
-    user_id     INT,  
-    PRIMARY   KEY   (order_id,     user_id)    
+CREATE     TABLE     orders     (
+    order_id     INT,
+    user_id     INT,
+    PRIMARY   KEY   (order_id,     user_id)
 );
 
 -- Table with Primary Key and Auto Increment
-CREATE   TABLE   products    (   
-    product_id   INT    PRIMARY   KEY    AUTO_INCREMENT,   
-    name    VARCHAR(100),   
+CREATE   TABLE   products    (
+    product_id   INT    PRIMARY   KEY    AUTO_INCREMENT,
+    name    VARCHAR(100),
     price    DECIMAL(10, 2)
 );
 
 -- Table with Primary Key and Foreign Key
-CREATE   TABLE     order_items     (  
-    item_id    INT,    
-    order_id    INT,   
-    product_id     INT,    
-    PRIMARY    KEY   (item_id),  
+CREATE   TABLE     order_items     (
+    item_id    INT,
+    order_id    INT,
+    product_id     INT,
+    PRIMARY    KEY   (item_id),
     FOREIGN     KEY   (order_id)   REFERENCES    orders(order_id)
 );
 
 -- Table with Date and Primary Key
-CREATE     TABLE    events    (  
-    event_id    INT     PRIMARY    KEY,  
-    event_name    VARCHAR(100),    
+CREATE     TABLE    events    (
+    event_id    INT     PRIMARY    KEY,
+    event_name    VARCHAR(100),
     event_date   DATE
 );
 
@@ -114,5 +114,5 @@ KEY,
 event_name
 VARCHAR(100),
 event_date
-DATE
+DATE with  timezone
 );
