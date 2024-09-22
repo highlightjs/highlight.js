@@ -24,19 +24,19 @@ export default function(hljs) {
   const regex = hljs.regex;
   const COMMENT_MODE = hljs.COMMENT('--', '$');
   const STRING = {
-    className: 'string',
+    scope: 'string',
     variants: [
       {
         begin: /'/,
         end: /'/,
-        contains: [ { begin: /''/ } ]
+        contains: [ { match: /''/ } ]
       }
     ]
   };
   const QUOTED_IDENTIFIER = {
     begin: /"/,
     end: /"/,
-    contains: [ { begin: /""/ } ]
+    contains: [ { match: /""/ } ]
   };
 
   const LITERALS = [
@@ -606,18 +606,18 @@ export default function(hljs) {
   });
 
   const VARIABLE = {
-    className: "variable",
-    begin: /@[a-z0-9][a-z0-9_]*/,
+    scope: "variable",
+    match: /@[a-z0-9][a-z0-9_]*/,
   };
 
   const OPERATOR = {
-    className: "operator",
-    begin: /[-+*/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/,
+    scope: "operator",
+    match: /[-+*/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/,
     relevance: 0,
   };
 
   const FUNCTION_CALL = {
-    begin: regex.concat(/\b/, regex.either(...FUNCTIONS), /\s*\(/),
+    match: regex.concat(/\b/, regex.either(...FUNCTIONS), /\s*\(/),
     relevance: 0,
     keywords: { built_in: FUNCTIONS }
   };
@@ -636,7 +636,7 @@ export default function(hljs) {
     )
   }
 
-  const COMBOS_MODE = {
+  const MULTI_WORD_KEYWORDS = {
     scope: "keyword",
     match: kws_to_regex(COMBOS),
     relevance: 0,
@@ -677,7 +677,7 @@ export default function(hljs) {
         scope: "type",
         match: kws_to_regex(MULTI_WORD_TYPES)
       },
-      COMBOS_MODE,
+      MULTI_WORD_KEYWORDS,
       FUNCTION_CALL,
       VARIABLE,
       STRING,
