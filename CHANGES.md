@@ -19,6 +19,7 @@ Core Grammars:
 - enh(bash) add reserved keywords `time` and `coproc` [Álvaro Mondéjar][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
+- fix(yaml) - Fixed Multiline strings not supporting empty lines   [Dxuian]
 
 New Grammars:
 

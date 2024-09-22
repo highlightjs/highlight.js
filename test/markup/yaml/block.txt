@@ -27,4 +27,11 @@ with-both: |3-
    ggg
    hhh
    # not a comment
+
+
+foo:
+  bar: |
+    still: a string
+
+    not: anymore
 # comment starts here

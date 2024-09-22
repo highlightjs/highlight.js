@@ -1,7 +1,7 @@
 <span class="hljs-attr">key:</span> <span class="hljs-string">value</span>
 <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;some value&#x27;</span>
 <span class="hljs-attr">key:</span> <span class="hljs-string">&quot;some value&quot;</span>
-<span class="hljs-attr">key:</span> <span class="hljs-string">|
-  multi-string
-  value
-</span><span class="hljs-attr">key:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">|</span>
+  <span class="hljs-string">multi-string</span>
+  <span class="hljs-string">value</span>
+<span class="hljs-attr">key:</span> <span class="hljs-literal">true</span>
