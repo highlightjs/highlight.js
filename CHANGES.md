@@ -9,10 +9,20 @@ Core Grammars:
 
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
 - enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
+- enh(erlang) OTP 27 triple-quoted strings [nixxquality][]
+- enh(erlang) OTP 27 doc attribute [nixxquality][]
+- enh(erlang) OTP 27 Sigil type [nixxquality][]
+- enh(erlang) OTP25/27 maybe statement [nixxquality][]
+- enh(dart) Support digit-separators in number literals [Sam Rawlins][]
+- enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
+- enh(lua) add 'pluto' as an alias [Sainan]
+- enh(bash) add reserved keywords `time` and `coproc` [Álvaro Mondéjar][]
+- fix(c) - Fixed hex numbers with decimals  [Dxuian]
+- fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 
 New Grammars:
 
-- Nothing yet.
+- added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
 
 Developer Tools:
 
@@ -20,13 +30,27 @@ Developer Tools:
 
 Themes:
 
-- Nothing yet.
+- Added `Rosé Pine` theme [William Wilkinson][]
+
+Improvements:
+
+- Resolve the memory leak problem when creating multiple Highlight.js instances [Imken][]
 
 CONTRIBUTORS
 
 [Josh Goebel]: https://github.com/joshgoebel
 [aneesh98]: https://github.com/aneesh98
 [BaliBalo]: https://github.com/BaliBalo
+[William Wilkinson]: https://github.com/wilkinson4
+[nixxquality]: https://github.com/nixxquality
+[srawlins]: https://github.com/srawlins
+[Alvin Joy]: https://github.com/alvinsjoy
+[Dxuian]:https://github.com/Dxuian
+[Aboobacker MK]: https://github.com/tachyons
+[Imken]: https://github.com/immccn123
+[Sainan]: https://github.com/Sainan
+[Osmocom]: https://github.com/osmocom
+[Álvaro Mondéjar]: https://github.com/mondeja
 
 
 ## Version 11.10.0
@@ -77,6 +101,7 @@ Core Grammars:
 - enh(css) add `select`, `option`, `optgroup`, `picture` and `source` to list of known tags [Vasily Polovnyov][]
 - enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov][]
 - enh(css) add `text-decoration-skip-ink`, `text-decoration-thickness` and `text-underline-offset` attributes [Vasily Polovnyov][]
+- enh(java) add `when` to be recognized as a keyword in Java [Chiel van de Steeg][]
 
 New Grammars:
 
@@ -104,7 +129,7 @@ Themes:
 [Melkor-1]: https://github.com/Melkor-1
 [PeteLomax]: https://github.com/petelomax
 [gnysek]: https://github.com/gnysek
-[Eisenwave]: https://github.com/Eisenwave 
+[Eisenwave]: https://github.com/Eisenwave
 [Aral Balkan]: https://github.com/aral
 [Lê Duy Quang]: https://github.com/leduyquang753
 [Mohamed Ali]: https://github.com/MohamedAli00949
@@ -135,6 +160,7 @@ Themes:
 [Julien Bloino]: https://github.com/jbloino
 [Sierra]: https://github.com/casuallyblue
 [Vlad Dimov]: https://github.com/DevDimov
+[Chiel van de Steeg]: https://github.com/cvdsteeg
 
 
 

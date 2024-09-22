@@ -1,0 +1,9 @@
+<span class="hljs-keyword">-module</span><span class="hljs-params">(arith)</span>.
+<span class="hljs-keyword">-moduledoc</span> <span class="hljs-string">&quot;&quot;&quot;
+A module for basic arithmetic.
+&quot;&quot;&quot;</span>.
+
+<span class="hljs-keyword">-export</span><span class="hljs-params">([add/<span class="hljs-number">2</span>])</span>.
+
+<span class="hljs-keyword">-doc</span> <span class="hljs-string">&quot;Adds two numbers.&quot;</span>.
+<span class="hljs-function"><span class="hljs-title">add</span><span class="hljs-params">(One, Two)</span> -&gt;</span> One + Two.

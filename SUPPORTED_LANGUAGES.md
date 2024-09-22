@@ -130,7 +130,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
 | LookML                  | lookml                 | [highlightjs-lookml](https://github.com/spectacles-ci/highlightjs-lookml) |
-| Lua                     | lua                    |         |
+| Lua                     | lua, pluto             |         |
 | Luau                    | luau                   | [highlightjs-luau](https://github.com/highlightjs/highlightjs-luau) |
 | Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Makefile                | makefile, mk, mak, make |        |
@@ -175,6 +175,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
+| PowerOn                 | poweron, po            | [highlightjs-poweron](https://github.com/libum-llc/highlightjs-poweron) |
 | PowerShell              | powershell, ps, ps1    |         |
 | Processing              | processing             |         |
 | Prolog                  | prolog                 |         |
@@ -232,6 +233,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Toit                    | toit                   | [toit-highlight](https://github.com/snxx-lppxx/toit-highlight) |
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
+| TTCN-3                  | ttcn, ttcnpp, ttcn3    | [highlightjs-ttcn3](https://gitea.osmocom.org/ttcn3/highlightjs-ttcn3) |
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts, tsx, mts, cts |         |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |

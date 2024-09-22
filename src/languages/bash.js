@@ -123,6 +123,7 @@ export default function(hljs) {
     "else",
     "elif",
     "fi",
+    "time",
     "for",
     "while",
     "until",
@@ -131,6 +132,7 @@ export default function(hljs) {
     "done",
     "case",
     "esac",
+    "coproc",
     "function",
     "select"
   ];

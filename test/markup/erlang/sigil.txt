@@ -1,0 +1,34 @@
+greek_quote() ->
+    S = ~B["Know thyself" (Greek: Γνῶθι σαυτόν)],
+    io:format("~ts\n", [S]).
+
+~'foo'.
+
+<<"\"\\µA\""/utf8>> = <<$",$\\,194,181,$A,$">> =
+    ~b"""
+        "\\µA"
+        """ = ~b'"\\µA"' =
+    ~B"""
+        "\µA"
+        """ = ~B<"\µA"> =
+    ~"""
+        "\µA"
+        """ = ~"\"\\µA\"" = ~/"\\µA"/
+
+quotes() ->
+    S = ~"""
+         "I always have a quotation for everything -
+         it saves original thinking." - Dorothy L. Sayers
+
+         "Real stupidity beats artificial intelligence every time."
+         - Terry Pratchett
+         """,
+    io:put_chars(S),
+    io:nl().
+
+~s{"abc\txyz"}.
+~(parenthesis).
+~<alligators>.
+~`backticks`.
+~#hashpounds#.
+~|pipes|.

@@ -13,7 +13,7 @@ export default function(hljs) {
   const ERLANG_RESERVED = {
     keyword:
       'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if '
-      + 'let not of orelse|10 query receive rem try when xor',
+      + 'let not of orelse|10 query receive rem try when xor maybe else',
     literal:
       'false true'
   };
@@ -80,9 +80,31 @@ export default function(hljs) {
     scope: 'string',
     match: /\$(\\([^0-9]|[0-9]{1,3}|)|.)/,
   };
+  const TRIPLE_QUOTE = {
+    scope: 'string',
+    match: /"""("*)(?!")[\s\S]*?"""\1/,
+  };
+
+  const SIGIL = {
+    scope: 'string',
+    contains: [ hljs.BACKSLASH_ESCAPE ],
+    variants: [
+      {match: /~\w?"""("*)(?!")[\s\S]*?"""\1/},
+      {begin: /~\w?\(/, end: /\)/},
+      {begin: /~\w?\[/, end: /\]/},
+      {begin: /~\w?{/, end: /}/},
+      {begin: /~\w?</, end: />/},
+      {begin: /~\w?\//, end: /\//},
+      {begin: /~\w?\|/, end: /\|/},
+      {begin: /~\w?'/, end: /'/},
+      {begin: /~\w?"/, end: /"/},
+      {begin: /~\w?`/, end: /`/},
+      {begin: /~\w?#/, end: /#/},
+    ],
+  };
 
   const BLOCK_STATEMENTS = {
-    beginKeywords: 'fun receive if try case',
+    beginKeywords: 'fun receive if try case maybe',
     end: 'end',
     keywords: ERLANG_RESERVED
   };
@@ -92,6 +114,8 @@ export default function(hljs) {
     hljs.inherit(hljs.APOS_STRING_MODE, { className: '' }),
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
+    SIGIL,
+    TRIPLE_QUOTE,
     hljs.QUOTE_STRING_MODE,
     NUMBER,
     TUPLE,
@@ -106,6 +130,8 @@ export default function(hljs) {
     NAMED_FUN,
     BLOCK_STATEMENTS,
     FUNCTION_CALL,
+    SIGIL,
+    TRIPLE_QUOTE,
     hljs.QUOTE_STRING_MODE,
     NUMBER,
     TUPLE,
@@ -128,6 +154,7 @@ export default function(hljs) {
     "-author",
     "-copyright",
     "-doc",
+    "-moduledoc",
     "-vsn",
     "-import",
     "-include",
@@ -139,7 +166,9 @@ export default function(hljs) {
     "-file",
     "-behaviour",
     "-behavior",
-    "-spec"
+    "-spec",
+    "-on_load",
+    "-nifs",
   ];
 
   const PARAMS = {
@@ -182,9 +211,16 @@ export default function(hljs) {
           $pattern: '-' + hljs.IDENT_RE,
           keyword: DIRECTIVES.map(x => `${x}|1.5`).join(" ")
         },
-        contains: [ PARAMS ]
+        contains: [
+          PARAMS,
+          SIGIL,
+          TRIPLE_QUOTE,
+          hljs.QUOTE_STRING_MODE
+        ]
       },
       NUMBER,
+      SIGIL,
+      TRIPLE_QUOTE,
       hljs.QUOTE_STRING_MODE,
       RECORD_ACCESS,
       VAR1,
