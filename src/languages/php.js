@@ -562,6 +562,7 @@ export default function(hljs) {
             keywords: KEYWORDS,
             contains: [
               'self',
+              ATTRIBUTES,
               VARIABLE,
               LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
               hljs.C_BLOCK_COMMENT_MODE,
