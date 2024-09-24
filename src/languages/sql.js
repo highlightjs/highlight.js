@@ -630,7 +630,7 @@ export default function(hljs) {
     return regex.concat(
       /\b/,
       regex.either(...list.map((kw) => {
-        return kw_spaces = kw.replace(/\s+/, "\\s+")
+        return kw.replace(/\s+/, "\\s+")
       })),
       /\b/
     )
