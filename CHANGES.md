@@ -18,6 +18,7 @@ Core Grammars:
 - enh(lua) add 'pluto' as an alias [Sainan]
 - enh(bash) add reserved keywords `time` and `coproc` [Álvaro Mondéjar][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
+- fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 
 New Grammars:

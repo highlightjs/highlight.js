@@ -12,6 +12,7 @@ import javascript from "./javascript.js";
 
 /** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const tsLanguage = javascript(hljs);
 
   const IDENT_RE = ECMAScript.IDENT_RE;
@@ -68,13 +69,11 @@ export default function(hljs) {
     "override",
     "satisfies"
   ];
-
   /*
     namespace is a TS keyword but it's fine to use it as a variable name too.
     const message = 'foo';
     const namespace = 'bar';
   */
-
   const KEYWORDS = {
     $pattern: ECMAScript.IDENT_RE,
     keyword: ECMAScript.KEYWORDS.concat(TS_SPECIFIC_KEYWORDS),
@@ -82,6 +81,7 @@ export default function(hljs) {
     built_in: ECMAScript.BUILT_INS.concat(TYPES),
     "variable.language": ECMAScript.BUILT_IN_VARIABLES
   };
+
   const DECORATOR = {
     className: 'meta',
     begin: '@' + IDENT_RE,
@@ -102,15 +102,25 @@ export default function(hljs) {
   tsLanguage.exports.PARAMS_CONTAINS.push(DECORATOR);
 
   // highlight the function params
-  const ATTRIBUTE_HIGHLIGHT = tsLanguage.contains.find(c => c.className === "attr");
+  const ATTRIBUTE_HIGHLIGHT = tsLanguage.contains.find(c => c.scope === "attr");
+
+  // take default attr rule and extend it to support optionals
+  const OPTIONAL_KEY_OR_ARGUMENT = Object.assign({},
+    ATTRIBUTE_HIGHLIGHT,
+    { match: regex.concat(IDENT_RE, regex.lookahead(/\s*\?:/)) }
+  );
   tsLanguage.exports.PARAMS_CONTAINS.push([
     tsLanguage.exports.CLASS_REFERENCE, // class reference for highlighting the params types
     ATTRIBUTE_HIGHLIGHT, // highlight the params key
+    OPTIONAL_KEY_OR_ARGUMENT, // Added for optional property assignment highlighting
   ]);
+
+  // Add the optional property assignment highlighting for objects or classes
   tsLanguage.contains = tsLanguage.contains.concat([
     DECORATOR,
     NAMESPACE,
     INTERFACE,
+    OPTIONAL_KEY_OR_ARGUMENT, // Added for optional property assignment highlighting
   ]);
 
   // TS gets a simpler shebang rule than JS

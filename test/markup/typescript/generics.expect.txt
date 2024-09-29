@@ -1,10 +1,69 @@
-<span class="hljs-keyword">import</span> { useWeb3React <span class="hljs-keyword">as</span> useWeb3React_ } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@web3-react/core&#x27;</span>
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">useWeb3React</span>: &lt;T = <span class="hljs-built_in">any</span>&gt;<span class="hljs-function">(<span class="hljs-params">key?: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-title class_">Modify</span>&lt;
+<span class="hljs-comment">// Updated function with both optional and non-optional parameters</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-attr">useWeb3React</span>: &lt;T = <span class="hljs-built_in">any</span>&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">key</span>?: <span class="hljs-built_in">string</span>, <span class="hljs-attr">version</span>: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-title class_">Modify</span>&lt;
   <span class="hljs-title class_">ReturnType</span>&lt;<span class="hljs-keyword">typeof</span> useWeb3React_&lt;T&gt;&gt;,
-  { <span class="hljs-attr">chainId</span>: <span class="hljs-title class_">SupportedChainIds</span> }
+  { <span class="hljs-attr">chainId</span>: <span class="hljs-title class_">SupportedChainIds</span>, <span class="hljs-attr">network</span>: <span class="hljs-built_in">string</span> }
 &gt; = useWeb3React_ <span class="hljs-keyword">as</span> <span class="hljs-built_in">any</span>
 
 <span class="hljs-keyword">declare</span> <span class="hljs-variable language_">global</span> {
   <span class="hljs-keyword">type</span> <span class="hljs-title class_">SupportedChainIds</span> = <span class="hljs-number">1</span> | <span class="hljs-number">4</span>
 }
+
+<span class="hljs-comment">// Optional and non-optional properties in an object type</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Options</span> = {
+  <span class="hljs-attr">srcdir</span>: <span class="hljs-built_in">string</span>,
+  <span class="hljs-attr">outdir</span>: <span class="hljs-built_in">string</span>,
+  <span class="hljs-attr">minify</span>?: <span class="hljs-built_in">boolean</span>,
+  <span class="hljs-attr">sourcemap</span>: <span class="hljs-built_in">boolean</span>
+}
+
+<span class="hljs-comment">// Function with both optional and non-optional parameters</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">multiply</span>(<span class="hljs-params"><span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span>, <span class="hljs-attr">b</span>: <span class="hljs-built_in">number</span>, <span class="hljs-attr">c</span>?: <span class="hljs-built_in">number</span>, <span class="hljs-attr">d</span>: <span class="hljs-built_in">number</span></span>): <span class="hljs-built_in">number</span> {
+    <span class="hljs-keyword">return</span> a * b * d;
+}
+
+<span class="hljs-comment">// Optional Function Parameters</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params"><span class="hljs-attr">name</span>?: <span class="hljs-built_in">string</span>, <span class="hljs-attr">age</span>?: <span class="hljs-built_in">number</span>, <span class="hljs-attr">city</span>: <span class="hljs-built_in">string</span></span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Hello, <span class="hljs-subst">${name ?? <span class="hljs-string">&quot;Guest&quot;</span>}</span> from <span class="hljs-subst">${city}</span>!`</span>);
+}
+
+<span class="hljs-comment">// Optional and non-optional properties in an interface</span>
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Person</span> {
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">age</span>?: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">address</span>?: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">occupation</span>: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-comment">// Optional Class Members and Constructor Parameters</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+  <span class="hljs-attr">make</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">model</span>?: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">year</span>: <span class="hljs-built_in">number</span>;
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-attr">make</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">year</span>: <span class="hljs-built_in">number</span>, <span class="hljs-attr">model</span>?: <span class="hljs-built_in">string</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">make</span> = make;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">year</span> = year;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">model</span> = model;
+  }
+}
+
+
+<span class="hljs-comment">// Optional Constructor Parameters</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> {
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+  <span class="hljs-attr">age</span>?: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">city</span>: <span class="hljs-built_in">string</span>;
+
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"><span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">city</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">age</span>?: <span class="hljs-built_in">number</span></span>) {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">city</span> = city;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age;
+  }
+}
+
+<span class="hljs-comment">// Optional in Function Type Signatures</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">PrintMessage</span> = <span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">message</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">sender</span>?: <span class="hljs-built_in">string</span>, <span class="hljs-attr">timestamp</span>: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-attr">print</span>: <span class="hljs-title class_">PrintMessage</span> = <span class="hljs-function">(<span class="hljs-params">message, sender, timestamp</span>) =&gt;</span> {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Message: <span class="hljs-subst">${message}</span>, from: <span class="hljs-subst">${sender ?? <span class="hljs-string">&quot;Anonymous&quot;</span>}</span> at <span class="hljs-subst">${timestamp}</span>`</span>);
+};
