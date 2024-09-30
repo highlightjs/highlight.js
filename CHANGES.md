@@ -20,6 +20,7 @@ Core Grammars:
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
+- fix(css) - Fixed css escape chars  [Dxuian]
 
 New Grammars:
 

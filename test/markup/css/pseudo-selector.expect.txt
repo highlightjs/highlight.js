@@ -22,3 +22,57 @@
   <span class="hljs-attribute">font-weight</span>: bold;
   <span class="hljs-attribute">color</span>: brown;
 }
+
+
+<span class="hljs-selector-class">.dark\:hover\:bg-sky-900\:text-white\:border\:rounded\:shadow</span><span class="hljs-selector-pseudo">:hover</span> {
+  <span class="hljs-attr">--tw-bg-opacity</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">12</span> <span class="hljs-number">74</span> <span class="hljs-number">110</span> / <span class="hljs-built_in">var</span>(--tw-bg-opacity));
+  <span class="hljs-attribute">color</span>: white;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid white;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0.5rem</span>;
+  <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">4px</span> <span class="hljs-number">6px</span> -<span class="hljs-number">1px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.1</span>), <span class="hljs-number">0</span> <span class="hljs-number">2px</span> <span class="hljs-number">4px</span> -<span class="hljs-number">1px</span> <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.06</span>);
+}
+
+<span class="hljs-selector-class">.class\:name</span> {
+	<span class="hljs-attribute">color</span>: red;
+}
+
+<span class="hljs-selector-class">.class\.name</span> {
+	<span class="hljs-attribute">font-weight</span>: bold;
+}
+
+<span class="hljs-selector-class">.at\@sign</span> {
+	<span class="hljs-attribute">font-family</span>: monospace;
+}
+
+<span class="hljs-selector-class">.aske\$dollar</span> {
+	<span class="hljs-attribute">color</span>: green;
+}
+
+<span class="hljs-selector-class">.caret\^sign</span> {
+	<span class="hljs-attribute">text-transform</span>: uppercase;
+}
+
+<span class="hljs-selector-class">.and\&amp;sign</span> {
+	<span class="hljs-attribute">background-color</span>: yellow;
+}
+
+<span class="hljs-selector-class">.asterisk\*sign</span> {
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;
+}
+
+<span class="hljs-selector-class">.plus\+sign</span> {
+	<span class="hljs-attribute">letter-spacing</span>: <span class="hljs-number">2px</span>;
+}
+
+<span class="hljs-selector-class">.pipe\|class</span> {
+	<span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid black;
+}
+
+<span class="hljs-selector-class">.tilde\~sign</span> {
+	<span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> gray;
+}
+
+<span class="hljs-selector-class">.equals\=sign</span> {
+	<span class="hljs-attribute">text-align</span>: center;
+}
