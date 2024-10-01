@@ -33,6 +33,10 @@ Developer Tools:
 Themes:
 
 - Added `Rosé Pine` theme [William Wilkinson][]
+- Added `Cybertopia Cherry` theme [Alexandre ZANNI][]
+- Added `Cybertopia Dimmer` theme [Alexandre ZANNI][]
+- Added `Cybertopia Icecap` theme [Alexandre ZANNI][]
+- Added `Cybertopia Saturated` theme [Alexandre ZANNI][]
 
 Improvements:
 
@@ -53,7 +57,7 @@ CONTRIBUTORS
 [Sainan]: https://github.com/Sainan
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
-
+[Alexandre ZANNI]: https://github.com/noraj
 
 ## Version 11.10.0
 
