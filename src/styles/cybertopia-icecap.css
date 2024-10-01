@@ -18,14 +18,6 @@
   --hljs-hue-7: #028EC5;
 }
 
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em
-}
-code.hljs {
-  padding: 3px 5px
-}
 .hljs {
   color: var(--hljs-mono-1);
   background: var(--hljs-bg)
