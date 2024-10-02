@@ -34,15 +34,6 @@ base0E  #8991bb  Keywords, Storage, Selector, Markup Italic, Diff Changed
 base0F  #4d6fff  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 */
 
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-}
-
-code.hljs {
-  padding: 3px 5px;
-}
 
 .hljs {
   color: #ffeeff;
