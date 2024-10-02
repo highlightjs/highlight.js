@@ -248,13 +248,13 @@ export default function(hljs) {
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       {
-        className: 'class',
+        className: 'class', // Highlight class names
         beginKeywords: 'class interface',
         end: /\{/,
         excludeEnd: true,
         contains: [
           { beginKeywords: 'extends implements' },
-          hljs.UNDERSCORE_TITLE_MODE
+          hljs.UNDERSCORE_TITLE_MODE // Highlights the class name itself
         ]
       },
       NUMBER,
@@ -262,8 +262,16 @@ export default function(hljs) {
         className: 'meta',
         begin: '@[A-Za-z]+'
       },
-      { begin: '=>' // No markup, just a relevance booster
-      }
+      {
+        className: 'title', // Add constructor highlighting
+        relevance: 0,
+        match: /\b[A-Z][a-zA-Z0-9_]*\b/ // Detect CamelCase patterns
+      },
+      {
+        className: 'attr', // Add properties highlighting
+        match: /\b[a-z][a-zA-Z0-9_]*\s*:/ // Matches lowercase properties followed by a colon
+      },
+      { begin: '=>' } // No markup, just a relevance booster
     ]
   };
 }
