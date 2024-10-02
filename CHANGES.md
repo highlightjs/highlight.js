@@ -21,6 +21,7 @@ Core Grammars:
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
+- fix(dart) - Enhanced Dart syntax highlighting for classes, constructors, attributes, strings, and number literals [Lavan]
 
 New Grammars:
 
@@ -53,6 +54,7 @@ CONTRIBUTORS
 [Sainan]: https://github.com/Sainan
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
+[Lavan]:https://github.com/jvlavan
 
 
 ## Version 11.10.0
