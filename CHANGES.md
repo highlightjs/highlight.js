@@ -15,12 +15,17 @@ Core Grammars:
 - enh(erlang) OTP25/27 maybe statement [nixxquality][]
 - enh(dart) Support digit-separators in number literals [Sam Rawlins][]
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
+- enh(lua) add 'pluto' as an alias [Sainan]
+- enh(bash) add reserved keywords `time` and `coproc` [Álvaro Mondéjar][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
+- fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
-
+- fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
+- fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
+  
 New Grammars:
 
-- Nothing yet.
+- added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
 
 Developer Tools:
 
@@ -46,6 +51,10 @@ CONTRIBUTORS
 [Dxuian]:https://github.com/Dxuian
 [Aboobacker MK]: https://github.com/tachyons
 [Imken]: https://github.com/immccn123
+[Sainan]: https://github.com/Sainan
+[Osmocom]: https://github.com/osmocom
+[Álvaro Mondéjar]: https://github.com/mondeja
+[Lavan]: https://github.com/jvlavan
 
 
 ## Version 11.10.0

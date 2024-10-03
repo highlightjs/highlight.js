@@ -265,7 +265,7 @@ export default function(hljs) {
   const PARAMS = {
     className: 'params',
     // convert this to negative lookbehind in v12
-    begin: /(\s*)\(/, // to match the parms with 
+    begin: /(\s*)\(/, // to match the parms with
     end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
@@ -476,8 +476,8 @@ export default function(hljs) {
       NUMBER,
       CLASS_REFERENCE,
       {
-        className: 'attr',
-        begin: IDENT_RE + regex.lookahead(':'),
+        scope: 'attr',
+        match: IDENT_RE + regex.lookahead(':'),
         relevance: 0
       },
       FUNCTION_VARIABLE,
