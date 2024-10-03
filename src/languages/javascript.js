@@ -317,7 +317,7 @@ export default function(hljs) {
       // Hard coded exceptions
       /\bJSON/,
       // Float32Array, OutT
-      /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
+      /\b[A-Z][a-z]+([A-Z][a-z]*|\d|_|\$)*/,
       // CSSFactory, CSSFactoryT
       /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*)*/,
       // FPs, FPsT
