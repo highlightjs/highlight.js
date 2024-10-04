@@ -22,6 +22,7 @@ Core Grammars:
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
+- fix(dart) - Enhanced Dart syntax highlighting for classes, constructors, attributes, strings, and number literals [Lavan]
   
 New Grammars:
 
