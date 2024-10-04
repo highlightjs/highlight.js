@@ -57,7 +57,6 @@ CONTRIBUTORS
 [Lavan]: https://github.com/jvlavan
 
 
-
 ## Version 11.10.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
