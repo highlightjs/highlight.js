@@ -21,8 +21,8 @@ Core Grammars:
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
-- fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]  
-
+- fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
+  
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
