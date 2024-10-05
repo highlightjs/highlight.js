@@ -6,7 +6,7 @@ const config = require("../build_config.js");
 
 async function clean(directory) {
   const del = await import('del');
-  del.deleteSync([directory]);
+  await del.default([directory]);
   fs.mkdirSync(directory, { recursive: true });
 }
 
