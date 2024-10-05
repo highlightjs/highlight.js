@@ -4,6 +4,9 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 - Nothing yet.
 
+Build:
+
+- fix(build) Replace deleteSync, which was removed in v6 of del lib. [Wojciech Kania][]
 
 Core Grammars:
 
@@ -55,6 +58,7 @@ CONTRIBUTORS
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Lavan]: https://github.com/jvlavan
+[Wojciech Kania]: https://github.com/wkania
 
 
 ## Version 11.10.0
