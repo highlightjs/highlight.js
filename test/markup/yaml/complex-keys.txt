@@ -1,0 +1,13 @@
+"**/.env"
+
+"/src/kernel.rs"
+
+"/e2e/**"
+
+"/__tests__/**"
+"/script/*"
+
+"/main_test.go"
+"**/packages/*"
+"**/{server,session}*"
+"**/*.m[dk]"
