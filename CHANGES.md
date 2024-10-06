@@ -22,6 +22,7 @@ Core Grammars:
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
+- enh(php) add support for Anonymous functions (closures) [Wojciech Kania][]
   
 New Grammars:
 
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Lavan]: https://github.com/jvlavan
+[Wojciech Kania]: https://github.com/wkania
 
 
 ## Version 11.10.0

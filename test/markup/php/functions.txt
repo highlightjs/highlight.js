@@ -8,6 +8,15 @@ $fn2 = function ($x) use ($y) {
 };
 
 /**
+ * Anonymous function
+ */
+function hello(string $name) {
+    return trim(function() use ($name) {
+        echo "Hello; $name";
+    });
+}
+
+/**
  * Function invoke
  */
 $date = new DateTimeImmutable ();
@@ -49,3 +58,4 @@ setAlarm(
     label: 'foo',
     time:time() + array(5)[0] + Foo::HOUR,
 );
+

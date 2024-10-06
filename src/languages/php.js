@@ -401,6 +401,40 @@ export default function(hljs) {
     scope: 'attr',
     match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
   };
+  
+  const FUNCTION_DECLARATION = {
+    scope: 'function',
+    relevance: 0,
+    beginKeywords: 'fn function',
+    end: /[;{]/,
+    excludeEnd: true,
+    illegal: '[$%\\[]',
+    contains: [
+      { beginKeywords: 'use', },
+      hljs.UNDERSCORE_TITLE_MODE,
+      {
+        begin: '=>', // No markup, just a relevance booster
+        endsParent: true
+      },
+      {
+        scope: 'params',
+        begin: '\\(',
+        end: '\\)',
+        excludeBegin: true,
+        excludeEnd: true,
+        keywords: KEYWORDS,
+        contains: [
+          'self',
+          VARIABLE,
+          LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
+          hljs.C_BLOCK_COMMENT_MODE,
+          STRING,
+          NUMBER
+        ]
+      },
+    ]
+  };
+  
   const PARAMS_MODE = {
     relevance: 0,
     begin: /\(/,
@@ -414,8 +448,10 @@ export default function(hljs) {
       STRING,
       NUMBER,
       CONSTRUCTOR_CALL,
+      FUNCTION_DECLARATION,
     ],
   };
+  
   const FUNCTION_INVOKE = {
     relevance: 0,
     match: [
@@ -528,38 +564,7 @@ export default function(hljs) {
         },
       },
       CONSTRUCTOR_CALL,
-      {
-        scope: 'function',
-        relevance: 0,
-        beginKeywords: 'fn function',
-        end: /[;{]/,
-        excludeEnd: true,
-        illegal: '[$%\\[]',
-        contains: [
-          { beginKeywords: 'use', },
-          hljs.UNDERSCORE_TITLE_MODE,
-          {
-            begin: '=>', // No markup, just a relevance booster
-            endsParent: true
-          },
-          {
-            scope: 'params',
-            begin: '\\(',
-            end: '\\)',
-            excludeBegin: true,
-            excludeEnd: true,
-            keywords: KEYWORDS,
-            contains: [
-              'self',
-              VARIABLE,
-              LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
-              hljs.C_BLOCK_COMMENT_MODE,
-              STRING,
-              NUMBER
-            ]
-          },
-        ]
-      },
+      FUNCTION_DECLARATION,
       {
         scope: 'class',
         variants: [
