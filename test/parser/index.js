@@ -9,4 +9,5 @@ describe('hljs', function() {
   require('./should-not-destroyData');
   require('./compiler-extensions');
   require('./max_keyword_hits');
+  require('./process-buffer');
 });
