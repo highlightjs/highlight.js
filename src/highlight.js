@@ -47,7 +47,7 @@ const MAX_KEYWORD_HITS = 7;
  * @param {any} hljs - object that is extended (legacy)
  * @returns {HLJSApi}
  */
-const HLJS = function(hljs) {
+const HLJS = function (hljs) {
   // Global internal variables used within the highlight.js library.
   /** @type {Record<string, Language>} */
   const languages = Object.create(null);
@@ -481,7 +481,19 @@ const HLJS = function(hljs) {
       const lexeme = match && match[0];
 
       // add non-matched text to the current mode buffer
-      modeBuffer += textBeforeMatch;
+      if (textBeforeMatch) {
+        // Preserve newline characters
+        const lines = textBeforeMatch.split('\n');
+        lines.forEach((line, index) => {
+          if (index > 0) {
+            processBuffer();
+            emitter.addText('\n');
+          }
+          if (line.length > 0) {
+            modeBuffer += line;
+          }
+        });
+      }
 
       if (lexeme == null) {
         processBuffer();
@@ -574,7 +586,7 @@ const HLJS = function(hljs) {
       if (!language.__emitTokens) {
         top.matcher.considerAll();
 
-        for (;;) {
+        for (; ;) {
           iterations++;
           if (resumeScanAtSamePosition) {
             // only regexes not matched previously will now be
@@ -967,7 +979,7 @@ const HLJS = function(hljs) {
    */
   function fire(event, args) {
     const cb = event;
-    plugins.forEach(function(plugin) {
+    plugins.forEach(function (plugin) {
       if (plugin[cb]) {
         plugin[cb](args);
       }
@@ -1007,8 +1019,8 @@ const HLJS = function(hljs) {
     removePlugin
   });
 
-  hljs.debugMode = function() { SAFE_MODE = false; };
-  hljs.safeMode = function() { SAFE_MODE = true; };
+  hljs.debugMode = function () { SAFE_MODE = false; };
+  hljs.safeMode = function () { SAFE_MODE = true; };
   hljs.versionString = packageJSON.version;
 
   hljs.regex = {
