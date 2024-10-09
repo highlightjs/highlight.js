@@ -22,6 +22,7 @@ Core Grammars:
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
+
   
 New Grammars:
 
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Lavan]: https://github.com/jvlavan
+[Mohit Nagaraj]: https://github.com/mohit-nagaraj
 
 
 ## Version 11.10.0
@@ -105,6 +107,7 @@ Core Grammars:
 - enh(css) add `inset`, `inset-*`, `border-start-*-radius` and `border-end-*-radius` attributes [Vasily Polovnyov][]
 - enh(css) add `text-decoration-skip-ink`, `text-decoration-thickness` and `text-underline-offset` attributes [Vasily Polovnyov][]
 - enh(java) add `when` to be recognized as a keyword in Java [Chiel van de Steeg][]
+- enh(parser) improve parser to parse new lines in code [Mohit Nagaraj][]
 
 New Grammars:
 
