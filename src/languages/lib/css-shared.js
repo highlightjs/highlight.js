@@ -17,7 +17,7 @@ export const MODES = (hljs) => {
       scope: 'selector-attr',
       begin: /\[/,
       end: /\]/,
-      illegal: /[$]/,
+      illegal: '$',
       contains: [
         hljs.APOS_STRING_MODE,
         hljs.QUOTE_STRING_MODE
