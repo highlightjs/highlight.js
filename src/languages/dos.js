@@ -12,9 +12,15 @@ export default function(hljs) {
     /^\s*@?rem\b/, /$/,
     { relevance: 10 }
   );
+
+  // for matching comments starting with ::
+  const COMMENT_2 = hljs.COMMENT(
+    /^::/, /$/,
+    { relevance: 10 }
+  );
   const LABEL = {
     className: 'symbol',
-    begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
+    begin: '^:',
     relevance: 0
   };
   const KEYWORDS = [
@@ -141,6 +147,8 @@ export default function(hljs) {
       built_in: BUILT_INS
     },
     contains: [
+      COMMENT,
+      COMMENT_2,
       {
         className: 'variable',
         begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
@@ -149,7 +157,7 @@ export default function(hljs) {
         className: 'function',
         begin: LABEL.begin,
         end: /\n/,
-        illegal: LABEL.begin + /\s*$/,
+        illegal: '[::].+', // to ignore lines starting with "::" [COMMENTS]
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
           COMMENT
@@ -160,7 +168,6 @@ export default function(hljs) {
         begin: '\\b\\d+',
         relevance: 0
       },
-      COMMENT
     ]
   };
 }
