@@ -14,7 +14,7 @@ export default function(hljs) {
   );
   const LABEL = {
     className: 'symbol',
-    begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
+    begin: '^:',
     relevance: 0
   };
   const KEYWORDS = [
@@ -149,7 +149,7 @@ export default function(hljs) {
         className: 'function',
         begin: LABEL.begin,
         end: /\n/,
-        illegal: LABEL.begin + /\s*$/,
+        illegal: '[::].+', // to ignore lines starting with "::" [COMMENTS]
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
           COMMENT
