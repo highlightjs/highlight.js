@@ -185,23 +185,57 @@ export default function(hljs) {
         className: 'attr',
         begin: /\S+/,
         relevance: 0.2
-      }
-    ]
+      },
+    ],
+  };
+
+  const NORMAL_ESCAPED_DOLLAR = {
+    scope: 'char.escape',
+    match: /\\\$/,
+  };
+  const INDENTED_ESCAPED_DOLLAR = {
+    scope: 'char.escape',
+    match: /''\$/,
+  };
+  const ANTIQUOTE = {
+    scope: 'subst',
+    begin: /\$\{/,
+    end: /\}/,
+    keywords: KEYWORDS,
+  };
+  const ESCAPED_DOUBLEQUOTE = {
+    scope: 'char.escape',
+    match: /'''/,
+  };
+  const ESCAPED_LITERAL = {
+    scope: 'char.escape',
+    match: /\\(?!\$)./,
   };
   const STRING = {
-    className: 'string',
-    contains: [ ESCAPED_DOLLAR, ANTIQUOTE ],
+    scope: 'string',
     variants: [
       {
         begin: "''",
-        end: "''"
+        end: "''",
+        contains: [
+          INDENTED_ESCAPED_DOLLAR,
+          ANTIQUOTE,
+          ESCAPED_DOUBLEQUOTE,
+          ESCAPED_LITERAL,
+        ],
       },
       {
         begin: '"',
-        end: '"'
-      }
-    ]
+        end: '"',
+        contains: [
+          NORMAL_ESCAPED_DOLLAR,
+          ANTIQUOTE,
+          ESCAPED_LITERAL,
+        ],
+      },
+    ],
   };
+
   const EXPRESSIONS = [
     hljs.NUMBER_MODE,
     hljs.HASH_COMMENT_MODE,
