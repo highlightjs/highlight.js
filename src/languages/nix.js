@@ -338,11 +338,26 @@ export default function(hljs) {
     MINUS_OPERATOR,
     OPERATOR,
   ];
+
   ANTIQUOTE.contains = EXPRESSIONS;
+
+  const REPL = [
+    {
+      scope: 'meta.prompt',
+      match: /^nix-repl>(?=\s)/,
+      relevance: 10,
+    },
+    {
+      scope: 'meta',
+      beforeMatch: /\s+/,
+      begin: /:([a-z]+|\?)/,
+    },
+  ];
+
   return {
     name: 'Nix',
     aliases: [ "nixos" ],
     keywords: KEYWORDS,
-    contains: EXPRESSIONS
+    contains: EXPRESSIONS.concat(REPL),
   };
 }
