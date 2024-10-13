@@ -318,6 +318,12 @@ export default function(hljs) {
     ],
   };
 
+  const URL = {
+    scope: 'link',
+    match: /https?:\/\/[A-Za-z0-9\-._~:/?#[\]@!$&'()*+,=]+/,
+    relevance: 0,
+  };
+
   const EXPRESSIONS = [
     NUMBER,
     hljs.HASH_COMMENT_MODE,
@@ -332,6 +338,7 @@ export default function(hljs) {
     ),
     BUILTINS,
     STRING,
+    URL,
     LOOKUP_PATH,
     PATH,
     ATTRS,
