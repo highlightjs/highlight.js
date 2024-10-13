@@ -176,8 +176,90 @@ export default function(hljs) {
     relevance: 10,
   };
 
+  const IDENTIFIER_REGEX = '[A-Za-z_][A-Za-z0-9_\'-]*';
+
+  const LOOKUP_PATH = {
+    scope: 'symbol',
+    match: new RegExp(`<${IDENTIFIER_REGEX}(/${IDENTIFIER_REGEX})*>`),
+  };
+
+  const PATH_PIECE = "[A-Za-z0-9_\\+\\.-]+"
+  const PATH = {
+    scope: 'symbol',
+    match: new RegExp(`(\\.\\.|\\.|~)?/(${PATH_PIECE})?(/${PATH_PIECE})*(?=[\\s;])`),
+  };
+
+  const OPERATOR_WITHOUT_MINUS_REGEX = regex.either(...[
+    '==',
+    '=',
+    '\\+\\+',
+    '\\+',
+    '<=',
+    '<\\|',
+    '<',
+    '>=',
+    '>',
+    '->',
+    '//',
+    '/',
+    '!=',
+    '!',
+    '\\|\\|',
+    '\\|>',
+    '\\?',
+    '\\*',
+    '&&',
+  ]);
+
+  const OPERATOR = {
+    scope: 'operator',
+    match: regex.concat(OPERATOR_WITHOUT_MINUS_REGEX, /(?!-)/),
+    relevance: 0,
+  };
+
+  // '-' is being handled by itself to ensure we are able to tell the difference
+  // between a dash in an identifier and a minus operator
+  const NUMBER = {
+    scope: 'number',
+    match: new RegExp(`${hljs.NUMBER_RE}(?!-)`),
+    relevance: 0,
+  };
+  const MINUS_OPERATOR = {
+    variants: [
+      {
+        scope: 'operator',
+        beforeMatch: /\s/,
+        // The (?!>) is used to ensure this doesn't collide with the '->' operator
+        begin: /-(?!>)/,
+      },
+      {
+        begin: [
+          new RegExp(`${hljs.NUMBER_RE}`),
+          /-/,
+          /(?!>)/,
+        ],
+        beginScope: {
+          1: 'number',
+          2: 'operator'
+        },
+      },
+      {
+        begin: [
+          OPERATOR_WITHOUT_MINUS_REGEX,
+          /-/,
+          /(?!>)/,
+        ],
+        beginScope: {
+          1: 'operator',
+          2: 'operator'
+        },
+      },
+    ],
+    relevance: 0,
+  };
+
   const ATTRS = {
-    begin: /[a-zA-Z0-9-_]+(\s*=)/,
+    begin: new RegExp(`${IDENTIFIER_REGEX}(\\s*=)`),
     returnBegin: true,
     relevance: 0,
     contains: [
@@ -237,12 +319,16 @@ export default function(hljs) {
   };
 
   const EXPRESSIONS = [
-    hljs.NUMBER_MODE,
+    NUMBER,
     hljs.HASH_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
     BUILTINS,
     STRING,
-    ATTRS
+    LOOKUP_PATH,
+    PATH,
+    ATTRS,
+    MINUS_OPERATOR,
+    OPERATOR,
   ];
   ANTIQUOTE.contains = EXPRESSIONS;
   return {
