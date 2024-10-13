@@ -1,25 +1,105 @@
-{ stdenv, foo, bar ? <span class="hljs-literal">false</span>, ... }:
+{
+  stdenv,
+  pkgs <span class="hljs-operator">?</span> <span class="hljs-built_in">import</span> <span class="hljs-symbol">&lt;nixpkgs&gt;</span> {},
+  home-manager <span class="hljs-operator">?</span> <span class="hljs-built_in">import</span> <span class="hljs-symbol">&lt;a/b/c/home-manager&gt;</span>,
+  foo <span class="hljs-operator">?</span> <span class="hljs-string">&quot;hello&quot;</span>,
+  bar <span class="hljs-operator">?</span> <span class="hljs-literal">false</span>,
+  ...
+}:
 
 <span class="hljs-comment">/*
  * foo
  */</span>
 
 <span class="hljs-keyword">let</span>
-  <span class="hljs-attr">a</span> = <span class="hljs-number">1</span>; <span class="hljs-comment"># just a comment</span>
-  <span class="hljs-attr">b</span> = <span class="hljs-literal">null</span>;
-  <span class="hljs-attr">c</span> = <span class="hljs-built_in">toString</span> <span class="hljs-number">10</span>;
-<span class="hljs-keyword">in</span> stdenv.mkDerivation <span class="hljs-keyword">rec</span> {
-  <span class="hljs-attr">name</span> = <span class="hljs-string">&quot;foo-<span class="hljs-subst">${version}</span>&quot;</span>;
-  <span class="hljs-attr">version</span> = <span class="hljs-string">&quot;1.3&quot;</span>;
+  <span class="hljs-attr">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; <span class="hljs-comment"># just a comment</span>
+  <span class="hljs-attr">b</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
+  <span class="hljs-attr">c</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">toString</span> <span class="hljs-number">10</span>;
 
-  <span class="hljs-attr">configureFlags</span> = [ <span class="hljs-string">&quot;--with-foo2&quot;</span> ] ++ stdenv.lib.optional bar <span class="hljs-string">&quot;--with-foo=<span class="hljs-subst">${ <span class="hljs-keyword">with</span> stdenv.lib; foo }</span>&quot;</span>
+  <span class="hljs-keyword">inherit</span> (<span class="hljs-built_in">builtins</span>) concatLists;
+  <span class="hljs-keyword">inherit</span> (lib) genAttrs;
+<span class="hljs-keyword">in</span>
 
-  <span class="hljs-attr">postInstall</span> = <span class="hljs-string">&#x27;&#x27;
+{
+  <span class="hljs-attr">number</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+  <span class="hljs-attr">floating_point</span> <span class="hljs-operator">=</span> <span class="hljs-number">2.3</span>;
+
+  <span class="hljs-attr">dash_usage</span> <span class="hljs-operator">=</span> {
+    <span class="hljs-attr">negative</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span><span class="hljs-number">1</span>;
+    <span class="hljs-attr">negative_space</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span>;
+
+    <span class="hljs-attr">arithmetic</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-operator">-</span><span class="hljs-number">2</span>;
+    <span class="hljs-attr">arithmetic2</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span><span class="hljs-number">1</span> <span class="hljs-operator">-</span> <span class="hljs-number">2</span>;
+    <span class="hljs-attr">arithmetic3</span> <span class="hljs-operator">=</span> <span class="hljs-operator">-</span> <span class="hljs-number">1</span> <span class="hljs-operator">-</span><span class="hljs-number">2</span><span class="hljs-operator">-</span><span class="hljs-number">3</span>;
+    <span class="hljs-attr">arithmetic4</span> <span class="hljs-operator">=</span><span class="hljs-operator">-</span><span class="hljs-number">1</span><span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-number">2</span> <span class="hljs-operator">+</span> <span class="hljs-operator">-</span> <span class="hljs-number">3</span>;
+
+    <span class="hljs-attr">attrname</span> <span class="hljs-operator">=</span> a-b;
+  };
+
+  <span class="hljs-attr">normal_string</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;asdf&quot;</span>;
+  <span class="hljs-attr">interpolated_string</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello <span class="hljs-subst">${<span class="hljs-built_in">toString</span> <span class="hljs-number">1</span> <span class="hljs-operator">+</span> (<span class="hljs-number">2</span> <span class="hljs-operator">*</span> <span class="hljs-number">3</span>)}</span> world&quot;</span>;
+  <span class="hljs-attr">escaped_interpolation_string</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;<span class="hljs-char escape_">\$</span>{escaped} and &#x27;&#x27;<span class="hljs-subst">${<span class="hljs-string">&quot;not&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-string">&quot;escaped&quot;</span>}</span>&quot;</span>;
+  <span class="hljs-attr">indentedString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;&#x27;
+    hello
     <span class="hljs-subst">${ <span class="hljs-keyword">if</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">then</span> <span class="hljs-string">&quot;--<span class="hljs-subst">${test}</span>&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">false</span> }</span>
-    <span class="hljs-char escape_">&#x27;&#x27;$</span>{ escaped }
+    \<span class="hljs-subst">${<span class="hljs-string">&quot;not&quot;</span> <span class="hljs-operator">+</span> <span class="hljs-string">&quot;escaped&quot;</span>}</span> and <span class="hljs-char escape_">&#x27;&#x27;$</span>{escaped}
+    <span class="hljs-char escape_">&#x27;&#x27;&#x27;</span>escaped single ticks<span class="hljs-char escape_">&#x27;&#x27;&#x27;</span>
+    world
   &#x27;&#x27;</span>;
 
-  <span class="hljs-attr">meta</span> = <span class="hljs-keyword">with</span> stdenv.lib; {
-    <span class="hljs-attr">homepage</span> = https://nixos.org;
+  <span class="hljs-attr">attrsWithoutSpace</span><span class="hljs-operator">=</span><span class="hljs-string">&quot;hello <span class="hljs-subst">${world}</span>&quot;</span>;
+
+  <span class="hljs-attr">concatenatedList</span> <span class="hljs-operator">=</span> [ <span class="hljs-string">&quot;--with-foo2&quot;</span> ] <span class="hljs-operator">++</span> stdenv.lib.optional bar <span class="hljs-string">&quot;--with-foo=<span class="hljs-subst">${ <span class="hljs-keyword">with</span> stdenv.lib; foo }</span>&quot;</span>;
+
+  <span class="hljs-attr">paths</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">with</span> lib; {
+    <span class="hljs-attr">home</span> <span class="hljs-operator">=</span> <span class="hljs-symbol">~/x/y/z</span>;
+    <span class="hljs-attr">here</span> <span class="hljs-operator">=</span> <span class="hljs-symbol">./x/y/z</span>;
+    <span class="hljs-attr">up</span> <span class="hljs-operator">=</span> <span class="hljs-symbol">../x/y/z</span>;
+    <span class="hljs-attr">root</span> <span class="hljs-operator">=</span> <span class="hljs-symbol">/x/y/z</span>;
+  };
+
+  <span class="hljs-attr">long.nested.attr.path</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;&#x27;
+    <span class="hljs-subst">${
+      <span class="hljs-comment"># comment inside antiquote</span>
+      <span class="hljs-comment">/* comment before */</span> <span class="hljs-built_in">toString</span> <span class="hljs-number">1</span> <span class="hljs-comment">/* comment after */</span>
+    }</span>
+  &#x27;&#x27;</span>;
+
+  <span class="hljs-attr">someBuiltins</span> <span class="hljs-operator">=</span> [
+    (<span class="hljs-built_in">removeAttrs</span> { <span class="hljs-attr">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; ${<span class="hljs-string">&quot;_&quot;</span> <span class="hljs-operator">+</span> y.z <span class="hljs-keyword">or</span> <span class="hljs-string">&quot;none&quot;</span>} <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; } [ <span class="hljs-string">&quot;x&quot;</span> ])
+    (<span class="hljs-built_in">builtins.concatLists</span> [ [<span class="hljs-number">1</span>] [<span class="hljs-number">2</span>] ])
+    (<span class="hljs-built_in">builtins</span>.nonExistent <span class="hljs-string">&quot;hello&quot;</span>)
+  ];
+
+  <span class="hljs-attr">someOperators</span> <span class="hljs-operator">=</span> [
+    (a <span class="hljs-operator">|&gt;</span> b <span class="hljs-operator">&lt;|</span> c)
+    (x <span class="hljs-operator">||</span> y <span class="hljs-operator">&amp;&amp;</span> z <span class="hljs-operator">-&gt;</span> w)
+    (x <span class="hljs-operator">&lt;</span> y <span class="hljs-operator">&amp;&amp;</span> y <span class="hljs-operator">&gt;</span> x)
+  ];
+
+  <span class="hljs-attr">function</span> <span class="hljs-operator">=</span> <span class="hljs-params">a:</span> <span class="hljs-params">b:</span> a <span class="hljs-operator">//</span> b;
+  <span class="hljs-attr">unformattedFunction</span> <span class="hljs-operator">=</span> <span class="hljs-params">a :</span> <span class="hljs-params">b :</span> a <span class="hljs-operator">==</span> b;
+
+  <span class="hljs-attr">interpolatedAttrs</span> <span class="hljs-operator">=</span> {
+    ${<span class="hljs-literal">null</span>} <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+    x.${y}.z <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;
+  };
+
+  <span class="hljs-attr">invalidAttrs</span> <span class="hljs-operator">=</span> {
+    <span class="hljs-number">1</span>invalidAttr <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+    <span class="hljs-attr">notAPath</span> <span class="hljs-operator">=</span> <span class="hljs-operator">//</span>;
+    <span class="hljs-attr">trailingSlashPath</span> <span class="hljs-operator">=</span> <span class="hljs-operator">/</span>asdf<span class="hljs-symbol">/</span>;
+    <span class="hljs-attr">notAFunction</span> <span class="hljs-operator">=</span> x:x;
   };
 }
+
+<span class="hljs-comment"># REPL tests</span>
+
+<span class="hljs-meta prompt_">nix-repl&gt;</span> <span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">2</span>
+
+<span class="hljs-number">3</span>
+<span class="hljs-meta prompt_">nix-repl&gt;</span> <span class="hljs-meta">:b</span> pkgs.writeText <span class="hljs-string">&quot;file.txt&quot;</span> <span class="hljs-string">&quot;content&quot;</span>
+
+This <span class="hljs-built_in">derivation</span> produced the following <span class="hljs-params">outputs:</span>
+  out <span class="hljs-operator">-&gt;</span> <span class="hljs-symbol">/nix/store/v5a715bk02cgvb0fv9kby0nsyy1prpy2-file.txt</span>
+[<span class="hljs-number">2</span> built]
