@@ -140,6 +140,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Maxima                  | maxima                 |         |
 | Maya Embedded Language  | mel                    |         |
 | Mercury                 | mercury                |         |
+| MetaPost                | metapost               | [highlightjs-metapost](https://github.com/chupinmaxime/highlightjs-metapost) |        |
 | MIPS Assembler          | mips, mipsasm          |         |
 | Mint                    | mint                   | [highlightjs-mint](https://github.com/mint-lang/highlightjs-mint) |
 | Mirth                   | mirth                  | [highlightjs-mirth](https://github.com/highlightjs/highlightjs-mirth) |
