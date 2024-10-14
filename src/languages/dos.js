@@ -15,14 +15,27 @@ export default function(hljs) {
 
   // for matching comments starting with ::
   const COMMENT_2 = hljs.COMMENT(
-    /^::/, /$/,
+    /^::.*$/, /$/,
     { relevance: 10 }
   );
   const LABEL = {
     className: 'symbol',
-    begin: '^:',
+    begin: '^:[A-Za-z._?][A-Za-z0-9_$#@~.?]*',
     relevance: 0
   };
+
+  const DISK_CHANGE = {
+    className: 'symbol',
+    begin: '^[A-Za-z]:\\?$',
+    relevance: 0
+  };
+
+  const OUTPUT_REDIRECT = {
+    className: 'symbol',
+    begin: '[1-2]?[>]>{1}\s*[^&\s]+',
+    relevance: 0
+  };
+
   const KEYWORDS = [
     "if",
     "else",
@@ -157,11 +170,23 @@ export default function(hljs) {
         className: 'function',
         begin: LABEL.begin,
         end: /\n/,
-        illegal: '[::].+', // to ignore lines starting with "::" [COMMENTS]
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
-          COMMENT
+          COMMENT,
+          COMMENT_2
         ]
+      },
+      {
+        className: 'function',
+        begin: DISK_CHANGE.begin,
+        end: /\n/,
+        contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }) ]
+      },
+      {
+        className: 'function',
+        begin: OUTPUT_REDIRECT.begin,
+        end: /\n/,
+        contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }) ]
       },
       {
         className: 'number',
