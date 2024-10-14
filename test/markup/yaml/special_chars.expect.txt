@@ -1,0 +1,18 @@
+<span class="hljs-comment"># quoted keys</span>
+<span class="hljs-attr">&quot;*&quot;:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;**/.env&quot;</span>
+
+<span class="hljs-comment"># unquoted keys</span>
+<span class="hljs-attr">*:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;**/.env&quot;</span>
+
+<span class="hljs-comment"># special chars in keys:</span>
+<span class="hljs-attr">git@github.com:*/copilot:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;/__tests__/**&quot;</span>
+
+<span class="hljs-comment"># leading special chars in a key</span>
+<span class="hljs-attr">*/copilot:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;/__tests__/**&quot;</span>
+   
+<span class="hljs-attr">@gitlab.com:gitlab-org/gitlab-runner.git:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;/__tests__/**&quot;</span>

@@ -20,15 +20,15 @@ export default function(hljs) {
   const KEY = {
     className: 'attr',
     variants: [
-      // added brackets support 
-      { begin: /\w[\w :()\./-]*:(?=[ \t]|$)/ },
-      { // double quoted keys - with brackets
-        begin: /"\w[\w :()\./-]*":(?=[ \t]|$)/ },
-      { // single quoted keys - with brackets
-        begin: /'\w[\w :()\./-]*':(?=[ \t]|$)/ },
+      // added brackets support and special char support
+      { begin: /[\w*@][\w*@ :()\./-]*:(?=[ \t]|$)/ },
+      { // double quoted keys - with brackets and special char support
+        begin: /"[\w*@][\w*@ :()\./-]*":(?=[ \t]|$)/ },
+      { // single quoted keys - with brackets and special char support
+        begin: /'[\w*@][\w*@ :()\./-]*':(?=[ \t]|$)/ },
     ]
   };
-
+  
   const TEMPLATE_VARIABLES = {
     className: 'template-variable',
     variants: [
