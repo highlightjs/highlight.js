@@ -324,6 +324,11 @@ export default function(hljs) {
     relevance: 0,
   };
 
+  const FUNCTION_PARAMS = {
+    scope: 'params',
+    match: new RegExp(`${IDENTIFIER_REGEX}\\s*:(?=\\s)`),
+  };
+
   const EXPRESSIONS = [
     NUMBER,
     hljs.HASH_COMMENT_MODE,
@@ -341,6 +346,7 @@ export default function(hljs) {
     URL,
     LOOKUP_PATH,
     PATH,
+    FUNCTION_PARAMS,
     ATTRS,
     MINUS_OPERATOR,
     OPERATOR,
