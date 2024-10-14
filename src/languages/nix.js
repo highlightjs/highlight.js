@@ -259,15 +259,16 @@ export default function(hljs) {
   };
 
   const ATTRS = {
-    begin: new RegExp(`${IDENTIFIER_REGEX}(\\s*=)`),
+    beforeMatch: /(^|\{|;)\s*/,
+    begin: new RegExp(`${IDENTIFIER_REGEX}(\\.${IDENTIFIER_REGEX})*\\s*=(?!=)`),
     returnBegin: true,
     relevance: 0,
     contains: [
       {
-        className: 'attr',
-        begin: /\S+/,
-        relevance: 0.2
-      },
+        scope: 'attr',
+        match: new RegExp(`${IDENTIFIER_REGEX}(\\.${IDENTIFIER_REGEX})*(?=\\s*=)`),
+        relevance: 0.2,
+      }
     ],
   };
 
