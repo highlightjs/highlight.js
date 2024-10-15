@@ -10,4 +10,5 @@ function $initHighlight(block, cls) {
     if (checkCondition(classes[i]) === undefined)
       return /\d+[\s/]/g;
   }
+  using val = condition();
 }
