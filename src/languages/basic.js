@@ -200,9 +200,9 @@ export default function(hljs) {
     contains: [
       {
         // Match strings that start with " and end with " or a line break
-        className: 'string',
-        begin: '"',
-        end: '"|$',
+        scope: 'string',
+        begin: /"/,
+        end: /"|$/,
         illegal: '\\n',
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
