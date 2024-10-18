@@ -6,7 +6,9 @@ Website: http://nixos.org/nix
 Category: system
 */
 
+/** @type LanguageFn */
 export default function(hljs) {
+  const regex = hljs.regex;
   const KEYWORDS = {
     keyword: [
       "rec",
