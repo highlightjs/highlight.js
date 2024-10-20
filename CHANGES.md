@@ -20,7 +20,9 @@ Core Grammars:
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
-
+- fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
+- fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
+  
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
@@ -57,6 +59,8 @@ CONTRIBUTORS
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Alexandre ZANNI]: https://github.com/noraj
+[Lavan]: https://github.com/jvlavan
+
 
 ## Version 11.10.0
 
