@@ -1,0 +1,43 @@
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Upper_Snake</span>&lt;<span class="hljs-title class_">Upper_Param</span>&gt; = <span class="hljs-title class_">Upper_Param</span> <span class="hljs-keyword">extends</span> <span class="hljs-built_in">boolean</span> ? <span class="hljs-title class_">Upper_Param</span> : <span class="hljs-built_in">never</span>
+
+<span class="hljs-keyword">const</span> typeTestConstFn = &lt;<span class="hljs-title class_">Upper_Arg</span>, <span class="hljs-title class_">Upper_Result</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Upper_Snake</span>&lt;<span class="hljs-built_in">any</span>&gt;&gt;<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">param</span>: <span class="hljs-title class_">Upper_Result</span>&lt;<span class="hljs-title class_">Upper_Arg</span>&gt;</span>) =&gt;</span> {}
+
+<span class="hljs-keyword">const</span> camelCase = <span class="hljs-number">42</span>
+
+<span class="hljs-keyword">const</span> lower_camel_case = <span class="hljs-number">42</span>
+
+<span class="hljs-keyword">const</span> snake_case = <span class="hljs-number">42</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Upper_Snake_Case</span> = <span class="hljs-number">42</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Upper_Snake_Case_Class</span> = {}
+
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Upper_Snake_Case_Class</span>()
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Extreme__Upper_$_Snake_Case_Class$$$</span> = {}
+
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Extreme__Upper_$_Snake_Case_Class$$$</span>()
+
+<span class="hljs-keyword">const</span> mixedObject = {
+  <span class="hljs-attr">camelCase</span>: <span class="hljs-number">42</span>,
+  <span class="hljs-attr">SCREAMING_CASE</span>: <span class="hljs-number">42</span>,
+  <span class="hljs-string">&quot;string prop&quot;</span>: <span class="hljs-number">42</span>,
+  <span class="hljs-attr">snake_case</span>: <span class="hljs-number">42</span>,
+  <span class="hljs-title class_">Upper_Snake_Case</span>: <span class="hljs-number">42</span>,
+}
+
+<span class="hljs-keyword">function</span> camelCaseFn = <span class="hljs-function">() =&gt;</span> {}
+
+<span class="hljs-keyword">function</span> snake_case_fn = <span class="hljs-function">() =&gt;</span> {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title class_">Upper_Snake_Case_Fn</span> = () {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title class_">Extreme__Case_$_Fn$</span> = <span class="hljs-function">() =&gt;</span> {}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">camelCaseConstFn</span> = (<span class="hljs-params"></span>) =&gt; {}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">snake_case_const_fn</span> = (<span class="hljs-params"></span>) =&gt; {}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">Upper_Snake_Case_Const_Fn</span> = (<span class="hljs-params"></span>) =&gt; {}
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">Extreme_Case_$_Const__Fn$</span> = (<span class="hljs-params"></span>) =&gt; {}
