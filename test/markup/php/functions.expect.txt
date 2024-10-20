@@ -8,6 +8,15 @@
 };
 
 <span class="hljs-comment">/**
+ * Anonymous function
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hello</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> <span class="hljs-variable">$name</span></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">trim</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) <span class="hljs-keyword">use</span> (<span class="hljs-params"><span class="hljs-variable">$name</span></span>) </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Hello; <span class="hljs-subst">$name</span>&quot;</span>;
+    });
+}
+
+<span class="hljs-comment">/**
  * Function invoke
  */</span>
 <span class="hljs-variable">$date</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">DateTimeImmutable</span> ();
@@ -49,3 +58,4 @@
     <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;foo&#x27;</span>,
     <span class="hljs-attr">time</span>:<span class="hljs-title function_ invoke__">time</span>() + <span class="hljs-keyword">array</span>(<span class="hljs-number">5</span>)[<span class="hljs-number">0</span>] + <span class="hljs-title class_">Foo</span>::<span class="hljs-variable constant_">HOUR</span>,
 );
+
