@@ -22,6 +22,7 @@ Core Grammars:
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
+- fix(yaml) - Fixed special chars in yaml   [Dxuian]
 - fix(basic) - Fixed closing quotation marks not required for a PRINT statement [Somya]
   
 New Grammars:
