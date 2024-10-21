@@ -203,7 +203,6 @@ export default function(hljs) {
         scope: 'string',
         begin: /"/,
         end: /"|$/,
-        illegal: /\n/,
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       hljs.COMMENT('REM', '$', { relevance: 10 }),
