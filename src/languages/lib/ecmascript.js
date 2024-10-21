@@ -40,7 +40,8 @@ const KEYWORDS = [
   "import",
   "from",
   "export",
-  "extends"
+  "extends",
+  "using"
 ];
 const LITERALS = [
   "true",
