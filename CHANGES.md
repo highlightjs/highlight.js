@@ -23,6 +23,7 @@ Core Grammars:
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
 - fix(yaml) - Fixed special chars in yaml   [Dxuian]
+- fix(basic) - Fixed closing quotation marks not required for a PRINT statement [Somya]
   
 New Grammars:
 
@@ -56,6 +57,7 @@ CONTRIBUTORS
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Lavan]: https://github.com/jvlavan
+[Somya]: https://github.com/somya-05
 
 
 ## Version 11.10.0
