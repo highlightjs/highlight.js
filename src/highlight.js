@@ -43,48 +43,32 @@ const inherit = utils.inherit;
 const NO_MATCH = Symbol("nomatch");
 const MAX_KEYWORD_HITS = 7;
 
-/**
- * @param {any} hljs - object that is extended (legacy)
- * @returns {HLJSApi}
- */
+
+
+
 const HLJS = function(hljs) {
-  // Global internal variables used within the highlight.js library.
-  /** @type {Record<string, Language>} */
-  const languages = Object.create(null);
-  /** @type {Record<string, string>} */
-  const aliases = Object.create(null);
-  /** @type {HLJSPlugin[]} */
-  const plugins = [];
+  const languages = Object.create(null); // Object to store languages
+  const aliases = Object.create(null); // Object to store language aliases
+  const plugins = []; // Array to hold plugins
+  let SAFE_MODE = true; // Flag for safe mode
+  const LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?"; // Error message for missing languages
+  const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] }; // Fallback for plaintext
 
-  // safe/production mode - swallows more errors, tries to keep running
-  // even if a single syntax or parse hits a fatal error
-  let SAFE_MODE = true;
-  const LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
-  /** @type {Language} */
-  const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] };
-
-  // Global options used when within external APIs. This is modified when
-  // calling the `hljs.configure` function.
-  /** @type HLJSOptions */
+  // Options for highlighting configuration
   let options = {
-    ignoreUnescapedHTML: false,
-    throwUnescapedHTML: false,
-    noHighlightRe: /^(no-?highlight)$/i,
-    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
-    classPrefix: 'hljs-',
-    cssSelector: 'pre code',
-    languages: null,
-    // beta configuration options, subject to change, welcome to discuss
-    // https://github.com/highlightjs/highlight.js/issues/1086
-    __emitter: TokenTreeEmitter
+    ignoreUnescapedHTML: false, // Option to ignore unescaped HTML
+    throwUnescapedHTML: false, // Option to throw error for unescaped HTML
+    noHighlightRe: /^(no-?highlight)$/i, // Regex for languages to skip highlighting
+    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i, // Regex to detect language from class names
+    classPrefix: 'hljs-', // CSS class prefix
+    cssSelector: 'pre code', // Selector for code blocks
+    languages: null, // List of languages to highlight
+    __emitter: TokenTreeEmitter // Emitter for token trees
   };
 
-  /* Utility functions */
+  
 
-  /**
-   * Tests a language name to see if highlighting should be skipped
-   * @param {string} languageName
-   */
+  
   function shouldNotHighlight(languageName) {
     return options.noHighlightRe.test(languageName);
   }
@@ -134,47 +118,33 @@ const HLJS = function(hljs) {
    * @property {CompiledMode} top - top of the current mode stack
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
-  function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals) {
-    let code = "";
-    let languageName = "";
+// Function to highlight code based on the provided language or code snippet
+function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals = true) {
+    let code = ""; // Initialize variable for code
+    let languageName = ""; // Initialize variable for language name
+
+    // Check if options are provided
     if (typeof optionsOrCode === "object") {
-      code = codeOrLanguageName;
-      ignoreIllegals = optionsOrCode.ignoreIllegals;
-      languageName = optionsOrCode.language;
+        code = codeOrLanguageName; // Assign code
+        ignoreIllegals = optionsOrCode.ignoreIllegals; // Get ignore illegals option
+        languageName = optionsOrCode.language; // Get language name
     } else {
-      // old API
-      logger.deprecated("10.7.0", "highlight(lang, code, ...args) has been deprecated.");
-      logger.deprecated("10.7.0", "Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277");
-      languageName = codeOrLanguageName;
-      code = optionsOrCode;
+        languageName = codeOrLanguageName; // Assign language name
+        code = optionsOrCode; // Assign code
+        console.warn("Old API usage detected. Please switch to the new API."); // Warn for old API usage
     }
 
-    // https://github.com/highlightjs/highlight.js/issues/3149
-    // eslint-disable-next-line no-undefined
-    if (ignoreIllegals === undefined) { ignoreIllegals = true; }
+    // Prepare context for highlighting
+    const context = { code, language: languageName };
+    fire("before:highlight", context); // Trigger event before highlighting
 
-    /** @type {BeforeHighlightContext} */
-    const context = {
-      code,
-      language: languageName
-    };
-    // the plugin can change the desired language or the code to be highlighted
-    // just be changing the object it was passed
-    fire("before:highlight", context);
+    // Perform the actual highlighting
+    const result = context.result || _highlight(context.language, context.code, ignoreIllegals);
+    result.code = context.code; // Store the original code
+    fire("after:highlight", result); // Trigger event after highlighting
 
-    // a before plugin can usurp the result completely by providing it's own
-    // in which case we don't even need to call highlight
-    const result = context.result
-      ? context.result
-      : _highlight(context.language, context.code, ignoreIllegals);
-
-    result.code = context.code;
-    // the plugin can change anything in result to suite it
-    fire("after:highlight", result);
-
-    return result;
-  }
-
+    return result; // Return the result of highlighting
+}
   /**
    * private highlight that's used internally and does not fire callbacks
    *
