@@ -47,36 +47,28 @@ const MAX_KEYWORD_HITS = 7;
  * @param {any} hljs - object that is extended (legacy)
  * @returns {HLJSApi}
  */
+// Main function to initialize the Highlight.js library
 const HLJS = function(hljs) {
-  // Global internal variables used within the highlight.js library.
-  /** @type {Record<string, Language>} */
+  // Storage for registered languages and their aliases
   const languages = Object.create(null);
-  /** @type {Record<string, string>} */
   const aliases = Object.create(null);
-  /** @type {HLJSPlugin[]} */
-  const plugins = [];
+  const plugins = []; // Array to hold registered plugins
 
-  // safe/production mode - swallows more errors, tries to keep running
-  // even if a single syntax or parse hits a fatal error
+  // Flag to determine if the library should run in safe mode
   let SAFE_MODE = true;
-  const LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
-  /** @type {Language} */
-  const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] };
+  const LANGUAGE_NOT_FOUND = "Could not find the language '{}'"; // Error message template
+  const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] }; // Fallback language
 
-  // Global options used when within external APIs. This is modified when
-  // calling the `hljs.configure` function.
-  /** @type HLJSOptions */
+  // Default configuration options for the library
   let options = {
-    ignoreUnescapedHTML: false,
-    throwUnescapedHTML: false,
-    noHighlightRe: /^(no-?highlight)$/i,
-    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
-    classPrefix: 'hljs-',
-    cssSelector: 'pre code',
-    languages: null,
-    // beta configuration options, subject to change, welcome to discuss
-    // https://github.com/highlightjs/highlight.js/issues/1086
-    __emitter: TokenTreeEmitter
+    ignoreUnescapedHTML: false, // Whether to ignore unescaped HTML in code blocks
+    throwUnescapedHTML: false, // Whether to throw an error for unescaped HTML
+    noHighlightRe: /^(no-?highlight)$/i, // Regex to identify blocks that should not be highlighted
+    languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i, // Regex for detecting language classes
+    classPrefix: 'hljs-', // Prefix for CSS classes
+    cssSelector: 'pre code', // CSS selector for code blocks
+    languages: null, // Languages to be highlighted
+    __emitter: TokenTreeEmitter // Emitter for generating highlighted output
   };
 
   /* Utility functions */
