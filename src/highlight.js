@@ -526,6 +526,7 @@ const HLJS = function(hljs) {
       // first handler (when ignoreIllegals is true)
       if (match.type === "illegal" && lexeme === "") {
         // advance so we aren't stuck in an infinite loop
+        modeBuffer += "\n";
         return 1;
       }
 
