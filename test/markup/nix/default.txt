@@ -1,4 +1,11 @@
-{ stdenv, foo, bar ? false, ... }:
+{
+  stdenv,
+  pkgs ? import <nixpkgs> {},
+  home-manager ? import <a/b/c/home-manager>,
+  foo ? "hello",
+  bar ? false,
+  ...
+}:
 
 /*
  * foo
@@ -8,18 +15,91 @@ let
   a = 1; # just a comment
   b = null;
   c = toString 10;
-in stdenv.mkDerivation rec {
-  name = "foo-${version}";
-  version = "1.3";
 
-  configureFlags = [ "--with-foo2" ] ++ stdenv.lib.optional bar "--with-foo=${ with stdenv.lib; foo }"
+  inherit (builtins) concatLists;
+  inherit (lib) genAttrs;
+in
 
-  postInstall = ''
+{
+  number = 1;
+  floating_point = 2.3;
+
+  dash_usage = {
+    negative = -1;
+    negative_space = - 1;
+
+    arithmetic = 1-2;
+    arithmetic2 = -1 - 2;
+    arithmetic3 = - 1 -2-3;
+    arithmetic4 =-1+-2 + - 3;
+
+    attrname = a-b;
+  };
+
+  normal_string = "asdf";
+  interpolated_string = "hello ${toString 1 + (2 * 3)} world";
+  escaped_interpolation_string = "\${escaped} and ''${"not" + "escaped"}";
+  indentedString = ''
+    hello
     ${ if true then "--${test}" else false }
-    ''${ escaped }
+    \${"not" + "escaped"} and ''${escaped}
+    '''escaped single ticks'''
+    world
   '';
 
-  meta = with stdenv.lib; {
-    homepage = https://nixos.org;
+  attrsWithoutSpace="hello ${world}";
+
+  concatenatedList = [ "--with-foo2" ] ++ stdenv.lib.optional bar "--with-foo=${ with stdenv.lib; foo }";
+
+  paths = with lib; {
+    home = ~/x/y/z;
+    here = ./x/y/z;
+    up = ../x/y/z;
+    root = /x/y/z;
+  };
+
+  long.nested.attr.path = ''
+    ${
+      # comment inside antiquote
+      /* comment before */ toString 1 /* comment after */
+    }
+  '';
+
+  someBuiltins = [
+    (removeAttrs { x = 1; ${"_" + y.z or "none"} = 2; } [ "x" ])
+    (builtins.concatLists [ [1] [2] ])
+    (builtins.nonExistent "hello")
+  ];
+
+  someOperators = [
+    (a |> b <| c)
+    (x || y && z -> w)
+    (x < y && y > x)
+  ];
+
+  function = a: b: a // b;
+  unformattedFunction = a : b : a == b;
+
+  interpolatedAttrs = {
+    ${null} = 1;
+    x.${y}.z = 2;
+  };
+
+  invalidAttrs = {
+    1invalidAttr = 1;
+    notAPath = //;
+    trailingSlashPath = /asdf/;
+    notAFunction = x:x;
   };
 }
+
+# REPL tests
+
+nix-repl> 1 + 2
+
+3
+nix-repl> :b pkgs.writeText "file.txt" "content"
+
+This derivation produced the following outputs:
+  out -> /nix/store/v5a715bk02cgvb0fv9kby0nsyy1prpy2-file.txt
+[2 built]

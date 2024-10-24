@@ -17,6 +17,14 @@ Core Grammars:
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
 - enh(lua) add 'pluto' as an alias [Sainan]
 - enh(bash) add reserved keywords `time` and `coproc` [Álvaro Mondéjar][]
+- enh(nix) update keywords [h7x4][]
+- enh(nix) support paths [h7x4][]
+- enh(nix) support lookup paths [h7x4][]
+- enh(nix) support operators [h7x4][]
+- enh(nix) support REPL keywords [h7x4][]
+- enh(nix) support markdown comments [h7x4][]
+- enh(nix) support basic function params [h7x4][]
+- enh(nix) better parsing of attrsets [h7x4][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
@@ -24,7 +32,12 @@ Core Grammars:
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
 - fix(yaml) - Fixed special chars in yaml   [Dxuian]
 - fix(basic) - Fixed closing quotation marks not required for a PRINT statement [Somya]
-  
+- fix(nix) remove `add` builtin [h7x4][]
+- fix(nix) mark `or` as builtin instead of literal [h7x4][]
+- fix(nix) handle `'''` string escapes [h7x4][]
+- fix(nix) handle backslash string escapes [h7x4][]
+- fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
+
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
