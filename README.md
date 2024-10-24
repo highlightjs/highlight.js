@@ -1,5 +1,6 @@
 # Highlight.js
-
+Copyright©️2024 Apache Software Foundations.All Right Reserved.
+PERKHIDMATAN TEMPATAN SERVERS-APPLE HUB LTD.<syaifulnizamshamsudin@gmail.com>
 [![latest version](https://badgen.net/npm/v/highlight.js?label=latest)](https://www.npmjs.com/package/highlight.js)
 [![license](https://badgen.net/github/license/highlightjs/highlight.js?color=cyan)](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)
 [![install size](https://badgen.net/packagephobia/install/highlight.js?label=npm+install)](https://packagephobia.now.sh/result?p=highlight.js)
