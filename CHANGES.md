@@ -24,6 +24,7 @@ Core Grammars:
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
 - fix(yaml) - Fixed special chars in yaml   [Dxuian]
 - fix(basic) - Fixed closing quotation marks not required for a PRINT statement [Somya]
+- fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
   
 New Grammars:
 
@@ -58,6 +59,7 @@ CONTRIBUTORS
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
+[guuido]: https://github.com/guuido
 
 
 ## Version 11.10.0
