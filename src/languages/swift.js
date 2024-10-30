@@ -461,27 +461,29 @@ export default function(hljs) {
   };
 
   const CLASS_FUNC_DECLARATION = {
-    begin: [
-      /(class)\s+/,          
-      /(func)\b/,
+    match: [
+      /class\b/,          
+      /\s+/,
+      /func\b/,
       /\s+/,
       /\b[A-Za-z_][A-Za-z0-9_]*\b/ 
     ],
-    beginScope: {
+    scope: {
       1: "keyword",
-      2: "keyword",
-      4: "title.function"
+      3: "keyword",
+      5: "title.function"
     }
   };
 
   const CLASS_VAR_DECLARATION = {
-    begin: [
-      /(class)\s+/,          
-      /(var)\b/, 
+    match: [
+      /class\b/,
+      /\s+/,          
+      /var\b/, 
     ],
-    beginScope: {
+    scope: {
       1: "keyword",
-      2: "keyword"
+      3: "keyword"
     }
   };
 

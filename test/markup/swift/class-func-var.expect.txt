@@ -1,15 +1,15 @@
-<span class="hljs-keyword">class </span><span class="hljs-keyword">func</span> <span class="hljs-title function_">f1</span>() -&gt; <span class="hljs-type">Void</span> { }
+<span class="hljs-keyword">class</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">f1</span>() -&gt; <span class="hljs-type">Void</span> { }
 
-<span class="hljs-keyword">class </span><span class="hljs-keyword">func</span> <span class="hljs-title function_">f2</span><span class="hljs-operator">&lt;</span><span class="hljs-type">T</span>: <span class="hljs-type">Comparable</span><span class="hljs-operator">&gt;</span>() -&gt; <span class="hljs-type">T</span> { }
+<span class="hljs-keyword">class</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">f2</span><span class="hljs-operator">&lt;</span><span class="hljs-type">T</span>: <span class="hljs-type">Comparable</span><span class="hljs-operator">&gt;</span>() -&gt; <span class="hljs-type">T</span> { }
 
-<span class="hljs-keyword">class </span><span class="hljs-keyword">func</span> <span class="hljs-title function_">f3</span><span class="hljs-operator">&lt;</span><span class="hljs-type">T</span><span class="hljs-operator">&gt;</span>(
+<span class="hljs-keyword">class</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">f3</span><span class="hljs-operator">&lt;</span><span class="hljs-type">T</span><span class="hljs-operator">&gt;</span>(
   <span class="hljs-keyword">_</span> p1: <span class="hljs-type">Int</span>,
   p2: <span class="hljs-type">String</span>
 ) <span class="hljs-keyword">async</span> <span class="hljs-keyword">throws</span> -&gt; [<span class="hljs-type">T</span>] { }
 
-<span class="hljs-keyword">class </span><span class="hljs-keyword">var</span> v1: <span class="hljs-type">Int</span> { <span class="hljs-keyword">get</span> <span class="hljs-keyword">set</span> }
+<span class="hljs-keyword">class</span> <span class="hljs-keyword">var</span> v1: <span class="hljs-type">Int</span> { <span class="hljs-keyword">get</span> <span class="hljs-keyword">set</span> }
 
-<span class="hljs-keyword">class </span><span class="hljs-keyword">var</span> v2: <span class="hljs-type">String</span> {
+<span class="hljs-keyword">class</span> <span class="hljs-keyword">var</span> v2: <span class="hljs-type">String</span> {
   <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;test&quot;</span> }
   <span class="hljs-keyword">set</span> { }
 }
