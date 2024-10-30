@@ -16,7 +16,7 @@
 
 ## Overview of Breaking Changes
 
-Welcome to version 11.0. This a major release and therefore contains breaking changes. Below is a complete list of those such changes.
+Welcome to version 11.0.  This a major release and therefore contains breaking changes.  Below is a complete list of those such changes.
 
 
 ### Built-in set of "Common" Languages
@@ -60,17 +60,17 @@ hljs.registerAliases(["php3","php4","php5","php6","php7","php8"],{ languageName:
 ### Styles and CSS
 
 - The default padding on `.hljs` element has been increased and is now `1em` (it was `0.5em` previously). If your design depends on the smaller spacing you may need to update your CSS to override.
-- `schoolbook` no longer has a custom lined background, it is solid color now. The old image and CSS can be found in the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles) if you wish to manually copy it into your project.
+- `schoolbook` no longer has a custom lined background, it is solid color now.  The old image and CSS can be found in the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles) if you wish to manually copy it into your project.
 - `github` includes significant changes to more properly match modern GitHub syntax highlighting. If you desire the old theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
 - `github-gist` has been removed in favor of `github` as GitHub and GitHub Gist have converged. If you desire the theme you can manually copy it into your project from the [10-stable branch](https://github.com/highlightjs/highlight.js/tree/10-stable/src/styles).
-- The `.hljs` CSS selector is now further scoped. It now targets `code.hljs` (inline code) and `pre code.hljs` (code blocks). If you are using a different element you may need to update your CSS to reapply some styling.
-- All [Base16 themes](https://github.com/highlightjs/base16-highlightjs) now live in the `styles/base16` directory - this means some CSS files have moved. Please confirm themes you use reference the new locations.
+- The `.hljs` CSS selector is now further scoped.  It now targets `code.hljs` (inline code) and `pre code.hljs` (code blocks). If you are using a different element you may need to update your CSS to reapply some styling.
+- All [Base16 themes](https://github.com/highlightjs/base16-highlightjs) now live in the `styles/base16` directory - this means some CSS files have moved.  Please confirm themes you use reference the new locations.
 
 
 #### Grammar Scopes
 
-- `.meta-string` removed/deprecated. Use `.meta .string` (a nested scope) instead. See [meta-keyword][].
-- `.meta-keyword` removed/deprecated. Use `.meta .keyword` (a nested scope) instead. See [meta-keyword][].
+- `.meta-string` removed/deprecated.  Use `.meta .string` (a nested scope) instead. See [meta-keyword][].
+- `.meta-keyword` removed/deprecated.  Use `.meta .keyword` (a nested scope) instead. See [meta-keyword][].
 
 ### Behavioral changes
 
@@ -120,11 +120,11 @@ Note: The object literal passed to the `before:highlightElement` callback now pa
 - The `relevance` key returned by `highlight()` is no longer guaranteed to be an even integer.
 - `highlightElement` now always tags blocks with a consistent `language-[name]` class
 
-This behavior was inconsistent before. Sometimes `[name]` class would be added, sometimes the alias name would be added, something no class would be added. now `language-[name]` is always added. This also affects sublanguage `span` tags which now also include the `language-` prefix.
+This behavior was inconsistent before.  Sometimes `[name]` class would be added, sometimes the alias name would be added, something no class would be added.  now `language-[name]` is always added. This also affects sublanguage `span` tags which now also include the `language-` prefix.
 
 #### Feature Removal
 
-- HTML auto-passthru is now no longer included in core. Use a plugin instead. For a possible plugin please see [#2889](https://github.com/highlightjs/highlight.js/issues/2889).
+- HTML auto-passthru is now no longer included in core.  Use a plugin instead. For a possible plugin please see [#2889](https://github.com/highlightjs/highlight.js/issues/2889).
 
 An example:
 
@@ -135,11 +135,11 @@ var a = 4;
 </code></pre>
 ```
 
-Unescaped HTML like this will now be ignored (stripped before highlighting) and a warning will be logged to the console. All HTML to be highlighted should be properly escaped to avoid potential HTML/JS injection attacks.
+Unescaped HTML like this will now be ignored (stripped before highlighting) and a warning will be logged to the console.  All HTML to be highlighted should be properly escaped to avoid potential HTML/JS injection attacks.
 
 - `fixMarkup` has been removed.
 
-This function was deprecated in v10.2. It is not our goal to provide random string utilities. You may need to provide your own replacement [Ref: #2534](https://github.com/highlightjs/highlight.js/issues/2634)
+This function was deprecated in v10.2.  It is not our goal to provide random string utilities. You may need to provide your own replacement [Ref: #2534](https://github.com/highlightjs/highlight.js/issues/2634)
 
 - `CSS_NUMBER_MODE` has been removed.
 
