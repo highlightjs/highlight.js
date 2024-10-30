@@ -10,4 +10,5 @@
     <span class="hljs-keyword">if</span> (<span class="hljs-title function_">checkCondition</span>(classes[i]) === <span class="hljs-literal">undefined</span>)
       <span class="hljs-keyword">return</span> <span class="hljs-regexp">/\d+[\s/]/g</span>;
   }
+  <span class="hljs-keyword">using</span> val = <span class="hljs-title function_">condition</span>();
 }

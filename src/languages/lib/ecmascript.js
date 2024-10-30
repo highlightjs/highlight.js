@@ -40,7 +40,9 @@ const KEYWORDS = [
   "import",
   "from",
   "export",
-  "extends"
+  "extends",
+  // It's reached stage 3, which is "recommended for implementation":
+  "using"
 ];
 const LITERALS = [
   "true",
