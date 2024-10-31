@@ -37,7 +37,8 @@ Core Grammars:
 - fix(nix) handle `'''` string escapes [h7x4][]
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
-
+- fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
+  
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
@@ -71,6 +72,7 @@ CONTRIBUTORS
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
+[guuido]: https://github.com/guuido
 
 
 ## Version 11.10.0
