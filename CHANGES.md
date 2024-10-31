@@ -17,13 +17,28 @@ Core Grammars:
 - enh(csharp) add Contextual keywords `file`, `args`, `dynamic`, `record`, `required` and `scoped` [Alvin Joy][]
 - enh(lua) add 'pluto' as an alias [Sainan]
 - enh(bash) add reserved keywords `time` and `coproc` [Álvaro Mondéjar][]
+- enh(nix) update keywords [h7x4][]
+- enh(nix) support paths [h7x4][]
+- enh(nix) support lookup paths [h7x4][]
+- enh(nix) support operators [h7x4][]
+- enh(nix) support REPL keywords [h7x4][]
+- enh(nix) support markdown comments [h7x4][]
+- enh(nix) support basic function params [h7x4][]
+- enh(nix) better parsing of attrsets [h7x4][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
+- enh(gcode) rewrote language for modern gcode support [Barthélémy Bonhomme][]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
 - fix(yaml) - Fixed special chars in yaml   [Dxuian]
 - fix(basic) - Fixed closing quotation marks not required for a PRINT statement [Somya]
+- fix(nix) remove `add` builtin [h7x4][]
+- fix(nix) mark `or` as builtin instead of literal [h7x4][]
+- fix(nix) handle `'''` string escapes [h7x4][]
+- fix(nix) handle backslash string escapes [h7x4][]
+- fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
+- fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
   
 New Grammars:
 
@@ -61,8 +76,10 @@ CONTRIBUTORS
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
 [Alexandre ZANNI]: https://github.com/noraj
+[Barthélémy Bonhomme]: https://github.com/barthy-koeln
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
+[guuido]: https://github.com/guuido
 
 
 ## Version 11.10.0
@@ -172,7 +189,6 @@ Themes:
 [Sierra]: https://github.com/casuallyblue
 [Vlad Dimov]: https://github.com/DevDimov
 [Chiel van de Steeg]: https://github.com/cvdsteeg
-
 
 
 ## Version 11.9.0

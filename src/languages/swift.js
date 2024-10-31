@@ -460,6 +460,33 @@ export default function(hljs) {
     end: /}/
   };
 
+  const CLASS_FUNC_DECLARATION = {
+    match: [
+      /class\b/,          
+      /\s+/,
+      /func\b/,
+      /\s+/,
+      /\b[A-Za-z_][A-Za-z0-9_]*\b/ 
+    ],
+    scope: {
+      1: "keyword",
+      3: "keyword",
+      5: "title.function"
+    }
+  };
+
+  const CLASS_VAR_DECLARATION = {
+    match: [
+      /class\b/,
+      /\s+/,          
+      /var\b/, 
+    ],
+    scope: {
+      1: "keyword",
+      3: "keyword"
+    }
+  };
+
   const TYPE_DECLARATION = {
     begin: [
       /(struct|protocol|class|extension|enum|actor)/,
@@ -524,6 +551,8 @@ export default function(hljs) {
       ...COMMENTS,
       FUNCTION_OR_MACRO,
       INIT_SUBSCRIPT,
+      CLASS_FUNC_DECLARATION,
+      CLASS_VAR_DECLARATION,
       TYPE_DECLARATION,
       OPERATOR_DECLARATION,
       PRECEDENCEGROUP,
