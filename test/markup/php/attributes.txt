@@ -4,6 +4,7 @@ namespace Entity;
 #[\MyExample\MyAttribute]
 #[MyAttribute(1234)]
 #[MyAttribute(value: 1234)]
+#[ASSERT(value: 1234)]
 #[HTMLAttribute(tag: "h1")]
 #[MyAttribute(MyAttribute::VALUE)]
 #[MyAttribute(array("key" => "value"))]
