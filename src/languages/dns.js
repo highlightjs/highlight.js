@@ -66,17 +66,28 @@ export default function(hljs) {
     contains: [
       hljs.COMMENT(';', '$', { relevance: 0 }),
       STRING,
+      // {
+      //   match: /TXT\s+/,
+      //   keywords: KEYWORDS,
+      //   contains: [
+      //     STRING,
+      //     PUNCTUATION,
+      //     {
+      //       match: /\S+/,
+      //       scope: "string"
+      //     }
+      //   ]
+      // },
       {
-        match: /TXT\s+/,
-        keywords: KEYWORDS,
-        contains: [
-          STRING,
-          PUNCTUATION,
-          {
-            match: /\S+/,            
-            scope: "string"
-          }
-        ]
+        match: [
+          /TXT/,
+          /\s+/,
+          /(?!")\S+($|(?=;))/
+        ],
+        scope: {
+          1: "keyword",
+          3: "string"
+        }
       },
       {
         className: 'meta',
