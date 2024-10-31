@@ -28,6 +28,7 @@ Core Grammars:
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
+- enh(gcode) rewrote language for modern gcode support [Barthélémy Bonhomme][]
 - fix(sql) - Fixed sql primary key and foreign key spacing issue   [Dxuian]
 - fix(cpp) added flat_set and flat_map as a part of cpp 23 version [Lavan]
 - fix(yaml) - Fixed special chars in yaml   [Dxuian]
@@ -70,6 +71,7 @@ CONTRIBUTORS
 [Sainan]: https://github.com/Sainan
 [Osmocom]: https://github.com/osmocom
 [Álvaro Mondéjar]: https://github.com/mondeja
+[Barthélémy Bonhomme]: https://github.com/barthy-koeln
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
 [guuido]: https://github.com/guuido
@@ -182,7 +184,6 @@ Themes:
 [Sierra]: https://github.com/casuallyblue
 [Vlad Dimov]: https://github.com/DevDimov
 [Chiel van de Steeg]: https://github.com/cvdsteeg
-
 
 
 ## Version 11.9.0
