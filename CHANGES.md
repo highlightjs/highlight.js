@@ -7,6 +7,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(apache) - support line continuation via `\` [Josh Goebel][]
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
 - enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
 - enh(erlang) OTP 27 triple-quoted strings [nixxquality][]
@@ -39,7 +40,7 @@ Core Grammars:
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
-  
+
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
