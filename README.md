@@ -292,13 +292,14 @@ import 'highlight.js/styles/github.css';
 
 ### Browser ES6 Modules
 
-*Note: You need to install `@highlightjs/cdn-assets` package instead of `highlight.js`. See [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)*
+*Note: For now you'll want to install `@highlightjs/cdn-assets` package instead of `highlight.js`.
+See [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)*
 
 To import the library and register only those languages that you need:
 
 ```js
-import hljs from './node_modules/@highlightjs/cdn-assets/es/core.js';
-import javascript from './node_modules/@highlightjs/cdn-assets/es/languages/javascript.min.js';
+import hljs from './assets/js/@highlightjs/cdn-assets/es/core.js';
+import javascript from './assets/js/@highlightjs/cdn-assets/es/languages/javascript.min.js';
 
 hljs.registerLanguage('javascript', javascript);
 ```
@@ -306,10 +307,12 @@ hljs.registerLanguage('javascript', javascript);
 To import the library and register all languages:
 
 ```js
-import hljs from './node_modules/@highlightjs/cdn-assets/es/highlight.js';
+import hljs from './assets/js/@highlightjs/cdn-assets/es/highlight.js';
 ```
 
-*Note: The above code works only when the file containing the JavaScript code and the `node_modules` folder are inside same folder. If that is not the case, you have to modify the path in import statement accordingly.*
+*Note: The path to these files will depend on how your individiaul project is configured,
+the path `./assets/js` above is only an example.  You'll likely need to modify the path
+for your own unmique setup.*
 
 You can also use [`importmap`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) to import in similar way as Node:
 
@@ -317,17 +320,18 @@ You can also use [`importmap`](https://developer.mozilla.org/en-US/docs/Web/HTML
 <script type="importmap">
 {
 	"imports": {
-		"@highlightjs/cdn-assets/": "./node_modules/@highlightjs/cdn-assets/"
+		"@highlightjs": "./assets/js/@highlightjs/cdn-assets/es/"
 	}
 }
 </script>
 ```
 
-Use the above code in HTML file. After that, your JavaScript code looks like this:
+Use the above code in your HTML. After that, your JavaScript can import using the named key from
+your `importmap`, for example `@highlightjs` in this case:
 
 ```js
-import hljs from '@highlightjs/cdn-assets/es/core.js';
-import javascript from '@highlightjs/cdn-assets/es/languages/javascript.min.js';
+import hljs from '@highlightjs/core.js';
+import javascript from '@highlightjs/languages/javascript.min.js';
 
 hljs.registerLanguage('javascript', javascript);
 ```
