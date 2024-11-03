@@ -8,7 +8,6 @@ Website: https://en.wikipedia.org/wiki/Zone_file
 /** @type LanguageFn */
 export default function(hljs) {
   const KEYWORDS = [
-    "IN",
     "A",
     "AAAA",
     "AFSDB",
@@ -47,6 +46,16 @@ export default function(hljs) {
     "TSIG",
     "TXT"
   ];
+
+  const PUNCTUATION = {
+    scope: 'punctuation',
+    match: /\(|\)/
+  };
+  const STRING = {
+    scope: 'string',
+    begin: '"', end: '"'
+  };
+
   return {
     name: 'DNS Zone',
     aliases: [
@@ -56,9 +65,38 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       hljs.COMMENT(';', '$', { relevance: 0 }),
+      STRING,
+      // {
+      //   match: /TXT\s+/,
+      //   keywords: KEYWORDS,
+      //   contains: [
+      //     STRING,
+      //     PUNCTUATION,
+      //     {
+      //       match: /\S+/,
+      //       scope: "string"
+      //     }
+      //   ]
+      // },
+      {
+        match: [
+          /TXT/,
+          /\s+/,
+          /(?!")\S+($|(?=;))/
+        ],
+        scope: {
+          1: "keyword",
+          3: "string"
+        }
+      },
       {
         className: 'meta',
         begin: /^\$(TTL|GENERATE|INCLUDE|ORIGIN)\b/
+      },
+      PUNCTUATION,
+      {
+        scope: 'type',
+        match: /IN|CH/
       },
       // IPv6
       {
