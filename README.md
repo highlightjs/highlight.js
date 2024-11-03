@@ -41,14 +41,15 @@ detection.
   - [Using with Vue.js](#using-with-vuejs)
   - [Using Web Workers](#using-web-workers)
 - [Importing the Library](#importing-the-library)
-  - [Node.js / `require`](#nodejs--require)
-  - [ES6 Modules / `import`](#es6-modules--import)
+  - [Node.js CommonJS Modules / `require`](#nodejs-commonjs-modules--require)
+  - [Node.js ES6 Modules / `import`](#nodejs-es6-modules--import)
+  - [Browser ES6 Modules](#browser-es6-modules)
 - [Getting the Library](#getting-the-library)
   - [Fetch via CDN](#fetch-via-cdn)
     - [cdnjs (link)](#cdnjs-link)
     - [jsdelivr (link)](#jsdelivr-link)
     - [unpkg (link)](#unpkg-link)
-    - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
+  - [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)
   - [Download from our website](#download-from-our-website)
   - [Install via NPM package](#install-via-npm-package)
   - [Build from Source](#build-from-source)
@@ -240,7 +241,7 @@ onmessage = (event) => {
 First, you'll likely be installing the library via `npm` or `yarn` -- see [Getting the Library](#getting-the-library).
 
 
-### Node.js / `require`
+### Node.js CommonJS Modules / `require`
 
 Requiring the top-level library will load all languages:
 
@@ -266,10 +267,7 @@ const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: '
 ```
 
 
-### ES6 Modules / `import`
-
-*Note: You can also import directly from fully static URLs, such as our very own pre-built
-ES6 Module CDN resources. See [Fetch via CDN](#fetch-via-cdn) for specific examples.*
+### Node.js ES6 Modules / `import`
 
 The default import will register all languages:
 
@@ -291,6 +289,53 @@ If your build tool processes CSS imports, you can also import the theme directly
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 ```
+
+### Browser ES6 Modules
+
+*Note: For now you'll want to install `@highlightjs/cdn-assets` package instead of `highlight.js`.
+See [Download prebuilt CDN assets](#download-prebuilt-cdn-assets)*
+
+To import the library and register only those languages that you need:
+
+```js
+import hljs from './assets/js/@highlightjs/cdn-assets/es/core.js';
+import javascript from './assets/js/@highlightjs/cdn-assets/es/languages/javascript.min.js';
+
+hljs.registerLanguage('javascript', javascript);
+```
+
+To import the library and register all languages:
+
+```js
+import hljs from './assets/js/@highlightjs/cdn-assets/es/highlight.js';
+```
+
+*Note: The path to these files will vary depending on where you have installed/copied them
+within your project or site. The above path is only an example.*
+
+You can also use [`importmap`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) to import in similar way as Node:
+
+```html
+<script type="importmap">
+{
+	"imports": {
+		"@highlightjs": "./assets/js/@highlightjs/cdn-assets/es/"
+	}
+}
+</script>
+```
+
+Use the above code in your HTML. After that, your JavaScript can import using the named key from
+your `importmap`, for example `@highlightjs` in this case:
+
+```js
+import hljs from '@highlightjs/core.js';
+import javascript from '@highlightjs/languages/javascript.min.js';
+
+hljs.registerLanguage('javascript', javascript);
+```
+
+*Note: You can also import directly from fully static URLs, such as our very own pre-built ES6 Module CDN resources. See [Fetch via CDN](#fetch-via-cdn) for specific examples.*
 
 
 ## Getting the Library
@@ -395,7 +440,7 @@ hljs.registerLanguage('go', go);
 **Note:** *The CDN-hosted `highlight.min.js` package doesn't bundle every language.* It would be
 very large. You can find our list of "common" languages that we bundle by default on our [download page][5].
 
-#### Download prebuilt CDN assets
+### Download prebuilt CDN assets
 
 You can also download and self-host the same assets we serve up via our own CDNs.  We publish those builds to the [cdn-release](https://github.com/highlightjs/cdn-release) GitHub repository.  You can easily pull individual files off the CDN endpoints with `curl`, etc; if say you only needed `highlight.min.js` and a single CSS file.
 
@@ -416,6 +461,14 @@ Our NPM package including all supported languages can be installed with NPM or Y
 npm install highlight.js
 # or
 yarn add highlight.js
+```
+
+There is also another npm package [@highlightjs/cdn-assets](https://www.npmjs.com/package/@highlightjs/cdn-assets) that contains prebuilt CDN assets including [ES6 Modules that can be imported in browser](#browser-es6-modules):
+
+```bash
+npm install @highlightjs/cdn-assets
+# or
+yarn add @highlightjs/cdn-assets
 ```
 
 Alternatively, you can build the NPM package from source.
