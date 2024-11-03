@@ -310,9 +310,9 @@ To import the library and register all languages:
 import hljs from './assets/js/@highlightjs/cdn-assets/es/highlight.js';
 ```
 
-*Note: The path to these files will depend on how your individiaul project is configured,
+*Note: The path to these files will depend on how your individual project is configured,
 the path `./assets/js` above is only an example.  You'll likely need to modify the path
-for your own unmique setup.*
+for your own unique setup.*
 
 You can also use [`importmap`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) to import in similar way as Node:
 
