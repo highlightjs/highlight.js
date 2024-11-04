@@ -42,14 +42,28 @@ export default function(hljs) {
       }
     ]
   };
-  const STRING = {
+
+  const SINGLE_QUOTE_STRING = {
     className: 'string',
     relevance: 0,
     variants: [
       {
         begin: /'/,
         end: /'/
-      },
+      }
+    ],
+    contains: [
+      {
+        begin: /''/,
+        relevance: 0
+      }
+    ]
+  };
+
+  const STRING = {
+    className: 'string',
+    relevance: 0,
+    variants: [
       {
         begin: /"/,
         end: /"/
@@ -67,7 +81,13 @@ export default function(hljs) {
   const CONTAINER_STRING = hljs.inherit(STRING, { variants: [
     {
       begin: /'/,
-      end: /'/
+      end: /'/,
+      contains: [
+        {
+          begin: /''/,
+          relevance: 0
+        }
+      ]
     },
     {
       begin: /"/,
@@ -176,6 +196,7 @@ export default function(hljs) {
     },
     OBJECT,
     ARRAY,
+    SINGLE_QUOTE_STRING,
     STRING
   ];
 
