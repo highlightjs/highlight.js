@@ -11,4 +11,5 @@ key: "\\"
 key: "\"
 key: value"
 key: value
-
+key: ''''
+key: 'some''value'

@@ -46,15 +46,12 @@ export default function(hljs) {
   const SINGLE_QUOTE_STRING = {
     className: 'string',
     relevance: 0,
-    variants: [
-      {
-        begin: /'/,
-        end: /'/
-      }
-    ],
+    begin: /'/,
+    end: /'/,
     contains: [
       {
-        begin: /''/,
+        match: /''/,
+        scope: 'char.escape',
         relevance: 0
       }
     ]
