@@ -39,6 +39,7 @@ Core Grammars:
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
+- fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
   
 New Grammars:
 
