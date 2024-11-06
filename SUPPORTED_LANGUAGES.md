@@ -231,7 +231,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Stylus                  | stylus, styl           |         |
 | SubUnit                 | subunit                |         |
 | Supercollider           | supercollider, sc      | [highlightjs-supercollider](https://github.com/highlightjs/highlightjs-supercollider) |
-| Svelte                  | svelte                 | [highlightjs-svelte](https://github.com/AlexxNB/highlightjs-svelte) |
+| Svelte                  | svelte                 | [highlight.svelte](https://github.com/moonlitgrace/highlight.svelte) |
 | Swift                   | swift                  |         |
 | Tcl                     | tcl, tk                |         |
 | Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
