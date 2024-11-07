@@ -1,0 +1,79 @@
+fn main() {
+    let a: felt252 = 'a';
+    println!("test");
+  }
+
+  impl UpgradeableImpl of IUpgradeable<ContractState> {}
+
+  fn test() {
+    print!("test2");
+  }
+
+  struct Abc {
+    a: u256,
+    pub b: usize
+  }
+
+  enum EnumAbc {
+    A,
+    B
+  }
+  fn main() -> u32 {
+    fib(16)
+  }
+  
+  use core::traits::Into as into_trait;
+  use core::traits::TryInto;
+  
+  const FOO: u32 = 42;
+  
+  fn fib(mut n: u32) -> u32 {
+    let mut a: u32 = 0;
+    let mut b: u32 = 1;
+    while n != 0 {
+        n = n - 1;
+        let temp = b;
+        b = a + b;
+        a = temp;
+    };
+    a
+  }
+  
+  type Pair = (u32, u32);
+  
+  enum Color {
+    Red: (),
+    Green: (),
+    Blue: (),
+  }
+  
+  trait Shape<T> {
+    const SHAPE_CONST: felt252;
+  
+    type ShapePair;
+  
+    fn area(self: T) -> u32;
+  }
+  
+  [derive(Drop, Serde, PartialEq)]
+  struct Circle {
+    radius: u32,
+  }
+  
+  impl CircleShape of Shape<Circle> {
+    type ShapePair = (Circle, Circle);
+  
+    const SHAPE_CONST: felt252 = 'xyz';
+  
+    fn area(self: Circle) -> u32 {
+        3 * self.radius * self.radius
+    }
+  }
+  
+  mod tests {
+    use super::fib as fib_function;
+  
+    fn it_works() {
+        assert(fib_function(16) == 987, 'it works!');
+    }
+  }

@@ -1,0 +1,79 @@
+ <span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
+    <span class="hljs-keyword">let</span> <span class="hljs-variable">a</span>: <span class="hljs-type">felt252</span> = <span class="hljs-string">&#x27;a&#x27;</span>;
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;test&quot;</span>);
+  }
+
+  <span class="hljs-keyword">impl</span> <span class="hljs-title class_">UpgradeableImpl</span> <span class="hljs-keyword">of</span> <span class="hljs-title class_">IUpgradeable</span>&lt;ContractState&gt; {}
+
+  <span class="hljs-keyword">fn</span> <span class="hljs-title function_">test</span>() {
+    <span class="hljs-built_in">print!</span>(<span class="hljs-string">&quot;test2&quot;</span>);
+  }
+
+  <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Abc</span> {
+    a: <span class="hljs-type">u256</span>,
+    <span class="hljs-keyword">pub</span> b: <span class="hljs-type">usize</span>
+  }
+
+  <span class="hljs-keyword">enum</span> <span class="hljs-title class_">EnumAbc</span> {
+    A,
+    B
+  }
+  <span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span> {
+    <span class="hljs-title function_ invoke__">fib</span>(<span class="hljs-number">16</span>)
+  }
+  
+  <span class="hljs-keyword">use</span> core::traits::<span class="hljs-built_in">Into</span> <span class="hljs-keyword">as</span> into_trait;
+  <span class="hljs-keyword">use</span> core::traits::TryInto;
+  
+  <span class="hljs-keyword">const</span> FOO: <span class="hljs-type">u32</span> = <span class="hljs-number">42</span>;
+  
+  <span class="hljs-keyword">fn</span> <span class="hljs-title function_">fib</span>(<span class="hljs-keyword">mut</span> n: <span class="hljs-type">u32</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span> {
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">a</span>: <span class="hljs-type">u32</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">b</span>: <span class="hljs-type">u32</span> = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span> n != <span class="hljs-number">0</span> {
+        n = n - <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">let</span> <span class="hljs-variable">temp</span> = b;
+        b = a + b;
+        a = temp;
+    };
+    a
+  }
+  
+  <span class="hljs-keyword">type</span> <span class="hljs-title class_">Pair</span> = (<span class="hljs-type">u32</span>, <span class="hljs-type">u32</span>);
+  
+  <span class="hljs-keyword">enum</span> <span class="hljs-title class_">Color</span> {
+    Red: (),
+    Green: (),
+    Blue: (),
+  }
+  
+  <span class="hljs-keyword">trait</span> <span class="hljs-title class_">Shape</span>&lt;T&gt; {
+    <span class="hljs-keyword">const</span> SHAPE_CONST: <span class="hljs-type">felt252</span>;
+  
+    <span class="hljs-keyword">type</span> <span class="hljs-title class_">ShapePair</span>;
+  
+    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">area</span>(<span class="hljs-keyword">self</span>: T) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span>;
+  }
+  
+  [<span class="hljs-title function_ invoke__">derive</span>(<span class="hljs-built_in">Drop</span>, <span class="hljs-built_in">Serde</span>, <span class="hljs-built_in">PartialEq</span>)]
+  <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Circle</span> {
+    radius: <span class="hljs-type">u32</span>,
+  }
+  
+  <span class="hljs-keyword">impl</span> <span class="hljs-title class_">CircleShape</span> <span class="hljs-keyword">of</span> <span class="hljs-title class_">Shape</span>&lt;Circle&gt; {
+    <span class="hljs-keyword">type</span> <span class="hljs-title class_">ShapePair</span> = (Circle, Circle);
+  
+    <span class="hljs-keyword">const</span> SHAPE_CONST: <span class="hljs-type">felt252</span> = <span class="hljs-string">&#x27;xyz&#x27;</span>;
+  
+    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">area</span>(<span class="hljs-keyword">self</span>: Circle) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">u32</span> {
+        <span class="hljs-number">3</span> * <span class="hljs-keyword">self</span>.radius * <span class="hljs-keyword">self</span>.radius
+    }
+  }
+  
+  <span class="hljs-keyword">mod</span> tests {
+    <span class="hljs-keyword">use</span> super::fib <span class="hljs-keyword">as</span> fib_function;
+  
+    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">it_works</span>() {
+        <span class="hljs-title function_ invoke__">assert</span>(<span class="hljs-title function_ invoke__">fib_function</span>(<span class="hljs-number">16</span>) == <span class="hljs-number">987</span>, <span class="hljs-symbol">&#x27;it</span> works!&#x27;);
+    }
+  }
