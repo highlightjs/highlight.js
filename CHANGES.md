@@ -44,7 +44,7 @@ Core Grammars:
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
-- added 3rd party Odin grammar to SUPPORTED_LANGUAGES [clsource][https://github.com/clsource]
+- added 3rd party Odin grammar to SUPPORTED_LANGUAGES [clsource](https://github.com/clsource)
 
 Developer Tools:
 
