@@ -7,8 +7,13 @@ Website: https://dart.dev
 Category: scripting
 */
 
+import { keywords } from "./lib/kws_swift";
+
 /** @type LanguageFn */
 export default function(hljs) {
+
+  const regex = hljs.regex;
+
   const SUBST = {
     className: 'subst',
     variants: [ { begin: '\\$[A-Za-z0-9_]+' } ]
@@ -221,6 +226,42 @@ export default function(hljs) {
     $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
   };
 
+  const CAPITALIZED_BUILT_IN_TYPES = BUILT_IN_TYPES.filter(type => /^[A-Z]/.test(type));
+
+  const BUILT_IN_TYPES_REGEX = `\\b(${CAPITALIZED_BUILT_IN_TYPES.join('|')})\\b`;
+
+  const CLASS_NAME_RE = regex.either(
+    /\b([A-Z]+[a-z0-9]+)+/,
+    // ends in caps
+    /\b([A-Z]+[a-z0-9]+)+[A-Z]+/,
+  );
+
+  const CLASS_REFERENCE = {
+    relevance: 0,
+    variants: [
+      {
+        // prevent built-in types with capital letter from being selected as title.class
+        match: BUILT_IN_TYPES_REGEX,
+        skip: true
+      },
+      {
+        match: CLASS_NAME_RE,
+        scope: "title.class"
+      } 
+    ]
+  };
+
+  const FUNCTION_REFERENCE = {
+    relevance: 0,
+    match: [
+      /[a-z][A-Za-z0-9]*/,
+       /\(/
+    ],
+    className: {
+      1: "title.function"
+    },
+  };
+
   return {
     name: 'Dart',
     keywords: KEYWORDS,
@@ -257,6 +298,8 @@ export default function(hljs) {
           hljs.UNDERSCORE_TITLE_MODE
         ]
       },
+      CLASS_REFERENCE,
+      FUNCTION_REFERENCE,
       NUMBER,
       {
         className: 'meta',
