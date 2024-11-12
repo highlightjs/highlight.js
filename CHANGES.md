@@ -40,6 +40,7 @@ Core Grammars:
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
+- fix(dart) - Improved highlighting for class and functions [guuido]
   
 New Grammars:
 
