@@ -1,0 +1,11 @@
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">greet</span>(<span class="hljs-built_in">String</span> name) {
+  <span class="hljs-title function_">print</span>(<span class="hljs-string">&#x27;Hello, <span class="hljs-subst">$name</span>!&#x27;</span>);
+}
+
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">dummy</span>(<span class="hljs-title class_">Foo</span> obj) {
+  <span class="hljs-keyword">return</span> obj;
+}
+
+<span class="hljs-built_in">int</span> <span class="hljs-title function_">add</span>(<span class="hljs-built_in">int</span> a, <span class="hljs-built_in">int</span> b) {
+  <span class="hljs-keyword">return</span> a + b;
+}
