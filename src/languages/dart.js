@@ -251,13 +251,8 @@ export default function(hljs) {
 
   const FUNCTION_REFERENCE = {
     relevance: 0,
-    match: [
-      /[a-z][A-Za-z0-9]*/,
-       /\(/
-    ],
-    className: {
-      1: "title.function"
-    },
+    match: /[a-z][A-Za-z0-9]*(?=\()/,
+    className: "title.function",
   };
 
   return {
