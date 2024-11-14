@@ -191,10 +191,10 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Q                       | k, kdb                 |         |
 | QML                     | qml                    |         |
 | R                       | r                      |         |
-| Raku                    | raku, Perl6, p6, pm6, rakumod | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
-| RakuDoc                 | pod6,POD6, rakudoc     | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
+| Raku                    | raku, perl6, p6, pm6, rakumod | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
+| RakuDoc                 | pod6, rakudoc          | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
 | RakuQuoting             | rakuquoting            | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
-| RakuRegexe              | rakuregexe, Perl 6, p6, pm6, rakumod | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
+| RakuRegexe              | rakuregexe, perl 6, p6, pm6, rakumod | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
 | Razor CSHTML            | cshtml, razor, razor-cshtml | [highlightjs-cshtml-razor](https://github.com/highlightjs/highlightjs-cshtml-razor) |
 | ReasonML                | reasonml, re           |         |
 | Rebol & Red             | redbol, rebol, red, red-system | [highlightjs-redbol](https://github.com/oldes/highlightjs-redbol) |
