@@ -1,5 +1,5 @@
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
-  <span class="hljs-built_in">String</span> name;
+  <span class="hljs-title class_">String</span> name;
   <span class="hljs-built_in">int</span> age;
 
   <span class="hljs-title class_">Person</span>(<span class="hljs-keyword">this</span>.name, <span class="hljs-keyword">this</span>.age);

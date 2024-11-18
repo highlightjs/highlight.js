@@ -1,4 +1,4 @@
-<span class="hljs-keyword">void</span> <span class="hljs-title function_">greet</span>(<span class="hljs-built_in">String</span> name) {
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">greet</span>(<span class="hljs-title class_">String</span> name) {
   <span class="hljs-title function_">print</span>(<span class="hljs-string">&#x27;Hello, <span class="hljs-subst">$name</span>!&#x27;</span>);
 }
 

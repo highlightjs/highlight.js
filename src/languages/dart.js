@@ -224,10 +224,6 @@ export default function(hljs) {
     $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
   };
 
-  const CAPITALIZED_BUILT_IN_TYPES = BUILT_IN_TYPES.filter(type => /^[A-Z]/.test(type));
-
-  const BUILT_IN_TYPES_REGEX = `\\b(${CAPITALIZED_BUILT_IN_TYPES.join('|')})\\b`;
-
   const CLASS_NAME_RE = regex.either(
     /\b([A-Z]+[a-z0-9]+)+/,
     // ends in caps
@@ -237,11 +233,6 @@ export default function(hljs) {
   const CLASS_REFERENCE = {
     relevance: 0,
     variants: [
-      {
-        // prevent built-in types with capital letter from being selected as title.class
-        match: BUILT_IN_TYPES_REGEX,
-        skip: true
-      },
       {
         match: CLASS_NAME_RE,
         scope: "title.class"
