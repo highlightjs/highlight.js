@@ -40,6 +40,7 @@ Core Grammars:
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
+- enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 - fix(dart) - Added highlighting for class and function names [guuido]
   
 New Grammars:
@@ -84,6 +85,7 @@ CONTRIBUTORS
 [Somya]: https://github.com/somya-05
 [guuido]: https://github.com/guuido
 [clsource]: https://github.com/clsource
+[Jake Leahy]: https://github.com/ire4ever1190
 
 
 ## Version 11.10.0
