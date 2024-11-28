@@ -41,7 +41,8 @@ Core Grammars:
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
-  
+- fix(ruby) - Fix non-interpolabale Ruby strings [Boris Verkhovskiy][]
+
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
@@ -85,7 +86,7 @@ CONTRIBUTORS
 [guuido]: https://github.com/guuido
 [clsource]: https://github.com/clsource
 [Jake Leahy]: https://github.com/ire4ever1190
-
+[Boris Verkhovskiy]: https://github.com/verhovsky
 
 ## Version 11.10.0
 

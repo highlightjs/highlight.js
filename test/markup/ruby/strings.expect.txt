@@ -28,3 +28,9 @@ c = <span class="hljs-string">?\u{0AF09}</span>
 c = <span class="hljs-string">?\u{AF9}</span>
 c = <span class="hljs-string">?\u{F9}</span>
 c = <span class="hljs-string">?\u{F}</span>
+
+<span class="hljs-comment"># Interpolation</span>
+c = <span class="hljs-string">&#x27;a#{1}b&#x27;</span>  <span class="hljs-comment">#=&gt; &quot;a\#{1}b&quot;</span>
+c = <span class="hljs-string">&quot;a<span class="hljs-subst">#{<span class="hljs-number">1</span>}</span>b&quot;</span>  <span class="hljs-comment">#=&gt; &quot;a1b&quot;</span>
+c = <span class="hljs-string">%q(a#{1}b)</span> <span class="hljs-comment">#=&gt; &quot;a\#{1}b&quot;</span>
+c = <span class="hljs-string">%Q{a<span class="hljs-subst">#{<span class="hljs-number">1</span>}</span>b}</span> <span class="hljs-comment">#=&gt; &quot;a1b&quot;</span>

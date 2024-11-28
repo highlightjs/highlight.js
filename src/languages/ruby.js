@@ -15,8 +15,7 @@ export default function(hljs) {
     /\b([A-Z]+[a-z0-9]+)+/,
     // ends in caps
     /\b([A-Z]+[a-z0-9]+)+[A-Z]+/,
-  )
-  ;
+  );
   const CLASS_NAME_WITH_NAMESPACE_RE = regex.concat(CLASS_NAME_RE, /(::\w+)*/)
   // very popular ruby built-ins that one might even assume
   // are actual keywords (despite that not being the case)
@@ -124,54 +123,119 @@ export default function(hljs) {
   };
   const STRING = {
     className: 'string',
-    contains: [
-      hljs.BACKSLASH_ESCAPE,
-      SUBST
-    ],
+    contains: [ hljs.BACKSLASH_ESCAPE ],
     variants: [
       {
         begin: /'/,
         end: /'/
       },
       {
-        begin: /"/,
-        end: /"/
-      },
-      {
-        begin: /`/,
-        end: /`/
-      },
-      {
-        begin: /%[qQwWx]?\(/,
+        begin: /%q\(/,
         end: /\)/
       },
       {
-        begin: /%[qQwWx]?\[/,
+        begin: /%q\[/,
         end: /\]/
       },
       {
-        begin: /%[qQwWx]?\{/,
+        begin: /%q\{/,
         end: /\}/
       },
       {
-        begin: /%[qQwWx]?</,
+        begin: /%q</,
         end: />/
       },
       {
-        begin: /%[qQwWx]?\//,
+        begin: /%q\//,
         end: /\//
       },
       {
-        begin: /%[qQwWx]?%/,
+        begin: /%q%/,
         end: /%/
       },
       {
-        begin: /%[qQwWx]?-/,
+        begin: /%q-/,
         end: /-/
       },
       {
+        begin: /"/,
+        end: /"/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /`/,
+        end: /`/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /%[qQwWx]?\(/,
+        end: /\)/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /%[qQwWx]?\[/,
+        end: /\]/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /%[qQwWx]?\{/,
+        end: /\}/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /%[qQwWx]?</,
+        end: />/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /%[qQwWx]?\//,
+        end: /\//,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /%[qQwWx]?%/,
+        end: /%/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /%[qQwWx]?-/,
+        end: /-/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
         begin: /%[qQwWx]?\|/,
-        end: /\|/
+        end: /\|/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
       // where ? is the last character of a preceding identifier, as in: `func?4`

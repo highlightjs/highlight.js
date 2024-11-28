@@ -28,3 +28,9 @@ c = ?\u{0AF09}
 c = ?\u{AF9}
 c = ?\u{F9}
 c = ?\u{F}
+
+# Interpolation
+c = 'a#{1}b'  #=> "a\#{1}b"
+c = "a#{1}b"  #=> "a1b"
+c = %q(a#{1}b) #=> "a\#{1}b"
+c = %Q{a#{1}b} #=> "a1b"
