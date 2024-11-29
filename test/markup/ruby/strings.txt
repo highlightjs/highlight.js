@@ -22,9 +22,21 @@ c = ?\c\M-x     # meta control character, where x is an ASCII printable characte
 c = ?\c?        # delete, ASCII 7Fh (DEL)
 c = ?\C-?       # delete, ASCII 7Fh (DEL)
 
+# symbols
+c = :booger        #=> :booger
+c = :"booger"      #=> :booger
+c = :'booger'      #=> :booger
+c = :"b#{yum}ger"  #=> :burger
+
 # Unicode character(s) of type \u{nnnn ....}, where each nnnn is 1-6 hexadecimal digits ([0-9a-fA-F])
 c = ?\u{00AF09}
 c = ?\u{0AF09}
 c = ?\u{AF9}
 c = ?\u{F9}
 c = ?\u{F}
+
+# Interpolation
+c = 'a#{1}b'  #=> "a\#{1}b"
+c = "a#{1}b"  #=> "a1b"
+c = %q(a#{1}b) #=> "a\#{1}b"
+c = %Q{a#{1}b} #=> "a1b"

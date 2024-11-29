@@ -15,8 +15,7 @@ export default function(hljs) {
     /\b([A-Z]+[a-z0-9]+)+/,
     // ends in caps
     /\b([A-Z]+[a-z0-9]+)+[A-Z]+/,
-  )
-  ;
+  );
   const CLASS_NAME_WITH_NAMESPACE_RE = regex.concat(CLASS_NAME_RE, /(::\w+)*/)
   // very popular ruby built-ins that one might even assume
   // are actual keywords (despite that not being the case)
@@ -122,7 +121,39 @@ export default function(hljs) {
     end: /\}/,
     keywords: RUBY_KEYWORDS
   };
-  const STRING = {
+
+  function string_variants(prefix, delimiters) {
+    return delimiters.map((d) => {
+      return {
+        begin: regex.concat(prefix, regex.escape(d.charAt(0))),
+        end: regex.escape(d.charAt(1))
+      }
+    })
+  }
+
+  const STRING_DELIMITERS = [
+    "()",
+    "[]",
+    "{}",
+    "<>",
+    "\\/\\/",
+    "%%",
+    "--"
+  ];
+
+  const SINGLE_QUOTED_STRING = {
+    className: 'string',
+    contains: [ hljs.BACKSLASH_ESCAPE ],
+    variants: [
+      {
+        begin: /'/,
+        end: /'/
+      },
+      ...string_variants("%q", STRING_DELIMITERS)
+    ]
+  }
+
+  const DOUBLE_QUOTED_STRING = {
     className: 'string',
     contains: [
       hljs.BACKSLASH_ESCAPE,
@@ -130,48 +161,88 @@ export default function(hljs) {
     ],
     variants: [
       {
-        begin: /'/,
-        end: /'/
-      },
-      {
         begin: /"/,
         end: /"/
       },
+      ...string_variants("%Q", STRING_DELIMITERS)
+    ]
+  }
+
+  // TODO: continue to break these out into smaller more discrete modes
+  const OLD_STRINGS_TOO_MANY_VARIANTS = {
+    className: 'string',
+    contains: [ hljs.BACKSLASH_ESCAPE ],
+    variants: [
       {
         begin: /`/,
-        end: /`/
+        end: /`/,
+        contains: [
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?\(/,
-        end: /\)/
+        begin: /%[wWx]?\(/,
+        end: /\)/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?\[/,
-        end: /\]/
+        begin: /%[wWx]?\[/,
+        end: /\]/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?\{/,
-        end: /\}/
+        begin: /%[wWx]?\{/,
+        end: /\}/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?</,
-        end: />/
+        begin: /%[wWx]?</,
+        end: />/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?\//,
-        end: /\//
+        begin: /%[wWx]?\//,
+        end: /\//,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?%/,
-        end: /%/
+        begin: /%[wWx]?%/,
+        end: /%/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?-/,
-        end: /-/
+        begin: /%[wWx]?-/,
+        end: /-/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       {
-        begin: /%[qQwWx]?\|/,
-        end: /\|/
+        begin: /%[wWx]?\|/,
+        end: /\|/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
       },
       // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
       // where ? is the last character of a preceding identifier, as in: `func?4`
@@ -181,27 +252,35 @@ export default function(hljs) {
       { begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/ },
       { begin: /\B\?\\(c|C-)[\x20-\x7e]/ },
       { begin: /\B\?\\?\S/ },
-      // heredocs
-      {
-        // this guard makes sure that we have an entire heredoc and not a false
-        // positive (auto-detect, etc.)
-        begin: regex.concat(
-          /<<[-~]?'?/,
-          regex.lookahead(/(\w+)(?=\W)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b/)
-        ),
-        contains: [
-          hljs.END_SAME_AS_BEGIN({
-            begin: /(\w+)/,
-            end: /(\w+)/,
-            contains: [
-              hljs.BACKSLASH_ESCAPE,
-              SUBST
-            ]
-          })
-        ]
-      }
     ]
   };
+
+  const HEREDOC = {
+    scope: "string",
+    // this guard makes sure that we have an entire heredoc and not a false
+    // positive (auto-detect, etc.)
+    begin: regex.concat(
+      /<<[-~]?'?/,
+      regex.lookahead(/(\w+)(?=\W)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b/)
+    ),
+    contains: [
+      hljs.END_SAME_AS_BEGIN({
+        begin: /(\w+)/,
+        end: /(\w+)/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      })
+    ]
+  }
+
+  const STRINGS = [
+    SINGLE_QUOTED_STRING,
+    DOUBLE_QUOTED_STRING,
+    HEREDOC,
+    OLD_STRINGS_TOO_MANY_VARIANTS
+  ]
 
   // Ruby syntax is underdocumented, but this grammar seems to be accurate
   // as of version 2.7.2 (confirmed with (irb and `Ripper.sexp(...)`)
@@ -316,8 +395,34 @@ export default function(hljs) {
     scope: "title.class"
   };
 
+  const SYMBOL = {
+    className: 'symbol',
+    variants: [
+      {
+        begin: regex.concat(/:/, RUBY_METHOD_RE)
+      },
+      {
+        begin: /:"/,
+        end: /"/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /:'/,
+        end: /'/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE
+        ]
+      }
+    ],
+    relevance: 0
+  };
+
   const RUBY_DEFAULT_CONTAINS = [
-    STRING,
+    SYMBOL,
+    ...STRINGS,
     CLASS_DEFINITION,
     INCLUDE_EXTEND,
     OBJECT_CREATION,
@@ -330,15 +435,6 @@ export default function(hljs) {
     {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
-      relevance: 0
-    },
-    {
-      className: 'symbol',
-      begin: ':(?!\\s)',
-      contains: [
-        STRING,
-        { begin: RUBY_METHOD_RE }
-      ],
       relevance: 0
     },
     NUMBER,

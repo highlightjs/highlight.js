@@ -6,6 +6,6 @@
 
 &lt;%-</span><span class="language-ruby"> available_things = things.select(&amp;<span class="hljs-symbol">:available?</span>) </span><span class="language-xml">-%&gt;
 &lt;%%</span><span class="language-ruby">- x = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> -</span><span class="language-xml">%%&gt;
-&lt;%%</span><span class="language-ruby"> value = <span class="hljs-string">&#x27;real string <span class="hljs-subst">#{<span class="hljs-variable">@value</span>}</span>&#x27;</span> </span><span class="language-xml">%%&gt;
+&lt;%%</span><span class="language-ruby"> value = <span class="hljs-string">&quot;real string <span class="hljs-subst">#{<span class="hljs-variable">@value</span>}</span>&quot;</span> </span><span class="language-xml">%%&gt;
 &lt;%%</span><span class="language-ruby">= available_things.inspect </span><span class="language-xml">%%&gt;
 </span>
