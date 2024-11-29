@@ -1014,6 +1014,7 @@ const HLJS = function(hljs) {
   hljs.regex = {
     concat: regex.concat,
     lookahead: regex.lookahead,
+    escape: regex.escape,
     either: regex.either,
     optional: regex.optional,
     anyNumberOfTimes: regex.anyNumberOfTimes

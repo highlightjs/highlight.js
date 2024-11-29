@@ -121,7 +121,27 @@ export default function(hljs) {
     end: /\}/,
     keywords: RUBY_KEYWORDS
   };
-  const STRING = {
+
+  function string_variants(prefix, delimiters) {
+    return delimiters.map((d) => {
+      return {
+        begin: regex.concat(prefix, regex.escape(d.charAt(0))),
+        end: regex.escape(d.charAt(1))
+      }
+    })
+  }
+
+  const STRING_DELIMITERS = [
+    "()",
+    "[]",
+    "{}",
+    "<>",
+    "\\/\\/",
+    "%%",
+    "--"
+  ];
+
+  const SINGLE_QUOTED_STRING = {
     className: 'string',
     contains: [ hljs.BACKSLASH_ESCAPE ],
     variants: [
@@ -129,52 +149,38 @@ export default function(hljs) {
         begin: /'/,
         end: /'/
       },
-      {
-        begin: /%q\(/,
-        end: /\)/
-      },
-      {
-        begin: /%q\[/,
-        end: /\]/
-      },
-      {
-        begin: /%q\{/,
-        end: /\}/
-      },
-      {
-        begin: /%q</,
-        end: />/
-      },
-      {
-        begin: /%q\//,
-        end: /\//
-      },
-      {
-        begin: /%q%/,
-        end: /%/
-      },
-      {
-        begin: /%q-/,
-        end: /-/
-      },
+      ...string_variants("%q", STRING_DELIMITERS)
+    ]
+  }
+
+  const DOUBLE_QUOTED_STRING = {
+    className: 'string',
+    contains: [
+      hljs.BACKSLASH_ESCAPE,
+      SUBST
+    ],
+    variants: [
       {
         begin: /"/,
-        end: /"/,
-        contains: [
-          hljs.BACKSLASH_ESCAPE,
-          SUBST
-        ]
+        end: /"/
       },
+      ...string_variants("%Q", STRING_DELIMITERS)
+    ]
+  }
+
+  const OLD_STRINGS_TOO_MANY_VARIANTS = {
+    className: 'string',
+    contains: [ hljs.BACKSLASH_ESCAPE ],
+    variants: [
       {
         begin: /`/,
         end: /`/,
         contains: [
-          hljs.BACKSLASH_ESCAPE,
           SUBST
         ]
       },
       {
-        begin: /%[qQwWx]?\(/,
+        begin: /%[wWx]?\(/,
         end: /\)/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -182,7 +188,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /%[qQwWx]?\[/,
+        begin: /%[wWx]?\[/,
         end: /\]/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -190,7 +196,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /%[qQwWx]?\{/,
+        begin: /%[wWx]?\{/,
         end: /\}/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -198,7 +204,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /%[qQwWx]?</,
+        begin: /%[wWx]?</,
         end: />/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -206,7 +212,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /%[qQwWx]?\//,
+        begin: /%[wWx]?\//,
         end: /\//,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -214,7 +220,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /%[qQwWx]?%/,
+        begin: /%[wWx]?%/,
         end: /%/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -222,7 +228,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /%[qQwWx]?-/,
+        begin: /%[wWx]?-/,
         end: /-/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -230,7 +236,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /%[qQwWx]?\|/,
+        begin: /%[wWx]?\|/,
         end: /\|/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -266,6 +272,12 @@ export default function(hljs) {
       }
     ]
   };
+
+  const STRINGS = [
+    SINGLE_QUOTED_STRING,
+    DOUBLE_QUOTED_STRING,
+    OLD_STRINGS_TOO_MANY_VARIANTS
+  ]
 
   // Ruby syntax is underdocumented, but this grammar seems to be accurate
   // as of version 2.7.2 (confirmed with (irb and `Ripper.sexp(...)`)
@@ -381,7 +393,7 @@ export default function(hljs) {
   };
 
   const RUBY_DEFAULT_CONTAINS = [
-    STRING,
+    ...STRINGS,
     CLASS_DEFINITION,
     INCLUDE_EXTEND,
     OBJECT_CREATION,
@@ -400,7 +412,8 @@ export default function(hljs) {
       className: 'symbol',
       begin: ':(?!\\s)',
       contains: [
-        STRING,
+        // TODO: STRING, STRINGS, double quoted?
+        OLD_STRINGS_TOO_MANY_VARIANTS,
         { begin: RUBY_METHOD_RE }
       ],
       relevance: 0
