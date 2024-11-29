@@ -168,6 +168,7 @@ export default function(hljs) {
     ]
   }
 
+  // TODO: continue to break these out into smaller more discrete modes
   const OLD_STRINGS_TOO_MANY_VARIANTS = {
     className: 'string',
     contains: [ hljs.BACKSLASH_ESCAPE ],
@@ -251,31 +252,33 @@ export default function(hljs) {
       { begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/ },
       { begin: /\B\?\\(c|C-)[\x20-\x7e]/ },
       { begin: /\B\?\\?\S/ },
-      // heredocs
-      {
-        // this guard makes sure that we have an entire heredoc and not a false
-        // positive (auto-detect, etc.)
-        begin: regex.concat(
-          /<<[-~]?'?/,
-          regex.lookahead(/(\w+)(?=\W)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b/)
-        ),
-        contains: [
-          hljs.END_SAME_AS_BEGIN({
-            begin: /(\w+)/,
-            end: /(\w+)/,
-            contains: [
-              hljs.BACKSLASH_ESCAPE,
-              SUBST
-            ]
-          })
-        ]
-      }
     ]
   };
+
+  const HEREDOC = {
+    scope: "string",
+    // this guard makes sure that we have an entire heredoc and not a false
+    // positive (auto-detect, etc.)
+    begin: regex.concat(
+      /<<[-~]?'?/,
+      regex.lookahead(/(\w+)(?=\W)[^\n]*\n(?:[^\n]*\n)*?\s*\1\b/)
+    ),
+    contains: [
+      hljs.END_SAME_AS_BEGIN({
+        begin: /(\w+)/,
+        end: /(\w+)/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      })
+    ]
+  }
 
   const STRINGS = [
     SINGLE_QUOTED_STRING,
     DOUBLE_QUOTED_STRING,
+    HEREDOC,
     OLD_STRINGS_TOO_MANY_VARIANTS
   ]
 
@@ -392,7 +395,33 @@ export default function(hljs) {
     scope: "title.class"
   };
 
+  const SYMBOL = {
+    className: 'symbol',
+    variants: [
+      {
+        begin: regex.concat(/:/, RUBY_METHOD_RE)
+      },
+      {
+        begin: /:"/,
+        end: /"/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        begin: /:'/,
+        end: /'/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE
+        ]
+      }
+    ],
+    relevance: 0
+  };
+
   const RUBY_DEFAULT_CONTAINS = [
+    SYMBOL,
     ...STRINGS,
     CLASS_DEFINITION,
     INCLUDE_EXTEND,
@@ -406,16 +435,6 @@ export default function(hljs) {
     {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
-      relevance: 0
-    },
-    {
-      className: 'symbol',
-      begin: ':(?!\\s)',
-      contains: [
-        // TODO: STRING, STRINGS, double quoted?
-        OLD_STRINGS_TOO_MANY_VARIANTS,
-        { begin: RUBY_METHOD_RE }
-      ],
       relevance: 0
     },
     NUMBER,
