@@ -126,7 +126,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lasso                   | lasso, ls, lassoscript |         |
 | Less                    | less                   |         |
 | LDIF                    | ldif                   |         |
-| Liquid                  | liquid                 | [highlightjs-liquid](https://github.com/leanprover-community/highlightjs-liquid) |
+| Liquid                  | liquid                 | [highlightjs-liquid](https://github.com/highlightjs/highlightjs-liquid) |
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
