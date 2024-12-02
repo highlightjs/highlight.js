@@ -8,6 +8,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 Core Grammars:
 
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
+- enh(arcade) updated to ArcGIS Arcade version 1.29 [Kristian Ekenes][]
 - enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
 - enh(erlang) OTP 27 triple-quoted strings [nixxquality][]
 - enh(erlang) OTP 27 doc attribute [nixxquality][]
@@ -87,6 +88,7 @@ CONTRIBUTORS
 [clsource]: https://github.com/clsource
 [Jake Leahy]: https://github.com/ire4ever1190
 [Laurel King]: https://github.com/laurelthorburn
+[Kristian Ekenes]: https://github.com/ekenes
 
 
 ## Version 11.10.0

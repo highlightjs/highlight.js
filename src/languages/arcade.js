@@ -1,7 +1,7 @@
 /*
  Language: ArcGIS Arcade
  Category: scripting
- Author: John Foster <jfoster@esri.com>
+ Author: John Foster <jfoster@esri.com>, Kristian Ekenes <kekenes@esri.com>
  Website: https://developers.arcgis.com/arcade/
  Description: ArcGIS Arcade is an expression language used in many Esri ArcGIS products such as Pro, Online, Server, Runtime, JavaScript, and Python
 */
@@ -26,6 +26,7 @@ export default function(hljs) {
       "import",
       "in",
       "new",
+      "of",
       "return",
       "switch",
       "try",
@@ -96,6 +97,7 @@ export default function(hljs) {
       "Disjoint",
       "Distance",
       "DistanceGeodetic",
+      "DistanceToCoordinate",
       "Distinct",
       "Domain",
       "DomainCode",
@@ -107,6 +109,7 @@ export default function(hljs) {
       "Expects",
       "Extent",
       "Feature",
+      "FeatureInFilter",
       "FeatureSet",
       "FeatureSetByAssociation",
       "FeatureSetById",
@@ -115,6 +118,7 @@ export default function(hljs) {
       "FeatureSetByRelationshipClass",
       "FeatureSetByRelationshipName",
       "Filter",
+      "FilterBySubtypeCode",
       "Find",
       "First|0",
       "Floor",
@@ -149,6 +153,7 @@ export default function(hljs) {
       "IsNan",
       "IsSelfIntersecting",
       "IsSimple",
+      "KnowledgeGraphByPortalItem",
       "Left|0",
       "Length",
       "Length3D",
@@ -158,6 +163,7 @@ export default function(hljs) {
       "Map",
       "Max",
       "Mean",
+      "MeasureToCoordinate",
       "Mid",
       "Millisecond",
       "Min",
@@ -175,6 +181,7 @@ export default function(hljs) {
       "OrderBy",
       "Overlaps",
       "Point",
+      "PointToCoordinate",
       "Polygon",
       "Polyline",
       "Pop",
@@ -182,6 +189,7 @@ export default function(hljs) {
       "Pow",
       "Proper",
       "Push",
+      "QueryGraph",
       "Random",
       "Reduce",
       "Relate",
@@ -202,6 +210,7 @@ export default function(hljs) {
       "Splice",
       "Split",
       "Sqrt",
+      "StandardizeFilename",
       "StandardizeGuid",
       "Stdev",
       "SubtypeCode",
@@ -264,6 +273,7 @@ export default function(hljs) {
     "feedfeature",
     "fencefeature",
     "fencenotificationtype",
+    "graph",
     "join",
     "layer",
     "locationupdate",
@@ -281,7 +291,9 @@ export default function(hljs) {
     "targetdatastore",
     "targetfeature",
     "targetlayer",
+    "userInput",
     "value",
+    "variables",
     "view"
   ];
   const SYMBOL = {
