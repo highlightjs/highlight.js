@@ -3,7 +3,7 @@ Language: Makefile
 Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Contributors: Joël Porquet <joel@porquet.org>
 Website: https://www.gnu.org/software/make/manual/html_node/Introduction.html
-Category: common
+Category: common, build-system
 */
 
 export default function(hljs) {
@@ -38,7 +38,10 @@ export default function(hljs) {
         + 'word wordlist firstword lastword dir notdir suffix basename '
         + 'addsuffix addprefix join wildcard realpath abspath error warning '
         + 'shell origin flavor foreach if or and call eval file value' },
-    contains: [ VARIABLE ]
+    contains: [ 
+      VARIABLE,
+      QUOTE_STRING // Added QUOTE_STRING as they can be a part of functions
+    ]
   };
   /* Variable assignment */
   const ASSIGNMENT = { begin: '^' + hljs.UNDERSCORE_IDENT_RE + '\\s*(?=[:+?]?=)' };

@@ -1,31 +1,31 @@
-<span class="hljs-meta">O003</span> <span class="hljs-comment">(DIAMOND SQUARE)</span>
-<span class="hljs-symbol">N2</span> <span class="hljs-name">G54</span> <span class="hljs-name">G90</span> <span class="hljs-name">G49</span> <span class="hljs-name">G80</span>
-<span class="hljs-symbol">N3</span> <span class="hljs-name">M6</span> T<span class="hljs-number">1</span> <span class="hljs-comment">(1.ENDMILL)</span>
-<span class="hljs-symbol">N4</span> <span class="hljs-name">M3</span> S<span class="hljs-number">1800</span>
-<span class="hljs-symbol">N5</span> <span class="hljs-name">G0</span> X<span class="hljs-number">-.6</span> Y<span class="hljs-number">2.050</span>
-<span class="hljs-symbol">N6</span> <span class="hljs-name">G43</span>  H<span class="hljs-number">1</span>  Z<span class="hljs-number">.1</span>
-<span class="hljs-symbol">N7</span> <span class="hljs-name">G1</span> Z<span class="hljs-number">-.3</span> F<span class="hljs-number">50.</span>
-<span class="hljs-symbol">N8</span> <span class="hljs-name">G41</span> D<span class="hljs-number">1</span> Y<span class="hljs-number">1.45</span>
-<span class="hljs-symbol">N9</span> <span class="hljs-name">G1</span> X<span class="hljs-number">0</span> F<span class="hljs-number">20.</span>
-<span class="hljs-symbol">N10</span> <span class="hljs-name">G2</span> J<span class="hljs-number">-1.45</span>
+<span class="hljs-symbol">O003</span> <span class="hljs-comment">(DIAMOND SQUARE)</span>
+<span class="hljs-operator">N2</span> <span class="hljs-title function_">G54</span> <span class="hljs-title function_">G90</span> <span class="hljs-title function_">G49</span> <span class="hljs-title function_">G80</span>
+<span class="hljs-operator">N3</span> <span class="hljs-title function_">M6</span> <span class="hljs-title function_">T1</span> <span class="hljs-comment">(1.ENDMILL)</span>
+<span class="hljs-operator">N4</span> <span class="hljs-title function_">M3</span> <span class="hljs-params">S1800</span>
+<span class="hljs-operator">N5</span> <span class="hljs-title function_">G0</span> <span class="hljs-property">X-.6</span> <span class="hljs-property">Y2.050</span>
+<span class="hljs-operator">N6</span> <span class="hljs-title function_">G43</span>  <span class="hljs-params">H1</span>  <span class="hljs-property">Z.1</span>
+<span class="hljs-operator">N7</span> <span class="hljs-title function_">G1</span> <span class="hljs-property">Z-.3</span> <span class="hljs-params">F50.</span>
+<span class="hljs-operator">N8</span> <span class="hljs-title function_">G41</span> D1 <span class="hljs-property">Y1.45</span>
+<span class="hljs-operator">N9</span> <span class="hljs-title function_">G1</span> <span class="hljs-property">X0</span> <span class="hljs-params">F20.</span>
+<span class="hljs-operator">N10</span> <span class="hljs-title function_">G2</span> <span class="hljs-params">J-1.45</span>
 <span class="hljs-comment">(CUTTER COMP CANCEL)</span>
-<span class="hljs-symbol">N11</span> <span class="hljs-name">G1</span> Z<span class="hljs-number">-.2</span> F<span class="hljs-number">50.</span>
-<span class="hljs-symbol">N12</span> Y<span class="hljs-number">-.990</span>
-<span class="hljs-symbol">N13</span> <span class="hljs-name">G40</span>
-<span class="hljs-symbol">N14</span> <span class="hljs-name">G0</span> X<span class="hljs-number">-.6</span> Y<span class="hljs-number">1.590</span>
-<span class="hljs-symbol">N15</span> <span class="hljs-name">G0</span> Z<span class="hljs-number">.1</span>
-<span class="hljs-symbol">N16</span> <span class="hljs-name">M5</span> <span class="hljs-name">G49</span> <span class="hljs-name">G28</span> <span class="hljs-name">G91</span> Z<span class="hljs-number">0</span>
-<span class="hljs-symbol">N17</span> <span class="hljs-keyword">CALL</span> <span class="hljs-meta">O9456</span>
-<span class="hljs-symbol">N18</span> <span class="hljs-attr">#500</span>=<span class="hljs-number">0.004</span>
-<span class="hljs-symbol">N19</span> <span class="hljs-attr">#503</span>=[<span class="hljs-attr">#500</span>+<span class="hljs-attr">#501</span>]
-<span class="hljs-symbol">N20</span> <span class="hljs-attr">VC45</span>=<span class="hljs-number">0.0006</span>
-<span class="hljs-attr">VS4</span>=<span class="hljs-number">0.0007</span>
-<span class="hljs-symbol">N21</span> <span class="hljs-name">G90</span> <span class="hljs-name">G10</span> L<span class="hljs-number">20</span> P<span class="hljs-number">3</span> X<span class="hljs-number">5.</span>Y<span class="hljs-number">4.</span> Z<span class="hljs-number">6.567</span>
-<span class="hljs-symbol">N22</span> <span class="hljs-name">G0</span> X<span class="hljs-number">5000</span>
-<span class="hljs-symbol">N23</span> <span class="hljs-keyword">IF</span> [<span class="hljs-attr">#1</span> <span class="hljs-keyword">LT</span> <span class="hljs-number">0.370</span>] <span class="hljs-keyword">GOTO</span> <span class="hljs-number">49</span>
-<span class="hljs-symbol">N24</span> X<span class="hljs-number">-0.678</span> Y<span class="hljs-number">+.990</span>
-<span class="hljs-symbol">N25</span> <span class="hljs-name">G84.3</span> X<span class="hljs-number">-0.1</span>
-<span class="hljs-symbol">N26</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">COS[<span class="hljs-number">45</span>]</span>
-<span class="hljs-symbol">N27</span> <span class="hljs-attr">#4</span>=<span class="hljs-attr">#5</span>*<span class="hljs-built_in">SIN[<span class="hljs-number">45</span>]</span>
-<span class="hljs-symbol">N28</span> <span class="hljs-attr">VZOFZ</span>=<span class="hljs-number">652.9658</span>
-<span class="hljs-meta">%</span>
+<span class="hljs-operator">N11</span> <span class="hljs-title function_">G1</span> <span class="hljs-property">Z-.2</span> <span class="hljs-params">F50.</span>
+<span class="hljs-operator">N12</span> <span class="hljs-property">Y-.990</span>
+<span class="hljs-operator">N13</span> <span class="hljs-title function_">G40</span>
+<span class="hljs-operator">N14</span> <span class="hljs-title function_">G0</span> <span class="hljs-property">X-.6</span> <span class="hljs-property">Y1.590</span>
+<span class="hljs-operator">N15</span> <span class="hljs-title function_">G0</span> <span class="hljs-property">Z.1</span>
+<span class="hljs-operator">N16</span> <span class="hljs-title function_">M5</span> <span class="hljs-title function_">G49</span> <span class="hljs-title function_">G28</span> <span class="hljs-title function_">G91</span> <span class="hljs-property">Z0</span>
+<span class="hljs-operator">N17</span> <span class="hljs-keyword">CALL</span> <span class="hljs-symbol">O9456</span>
+<span class="hljs-operator">N18</span> <span class="hljs-variable">#500</span>=<span class="hljs-number">0.004</span>
+<span class="hljs-operator">N19</span> <span class="hljs-variable">#503</span>=[<span class="hljs-variable">#500</span>+<span class="hljs-variable">#501</span>]
+<span class="hljs-operator">N20</span> VC45=<span class="hljs-number">0.0006</span>
+VS4=<span class="hljs-number">0.0007</span>
+<span class="hljs-operator">N21</span> <span class="hljs-title function_">G90</span> <span class="hljs-title function_">G10</span> L20 <span class="hljs-params">P3</span> <span class="hljs-property">X5.</span><span class="hljs-property">Y4.</span> <span class="hljs-property">Z6.567</span>
+<span class="hljs-operator">N22</span> <span class="hljs-title function_">G0</span> <span class="hljs-property">X5000</span>
+<span class="hljs-operator">N23</span> <span class="hljs-keyword">IF</span> [<span class="hljs-variable">#1</span> <span class="hljs-keyword">LT</span> <span class="hljs-number">0.370</span>] <span class="hljs-keyword">GOTO</span> <span class="hljs-number">49</span>
+<span class="hljs-operator">N24</span> <span class="hljs-property">X-0.678</span> <span class="hljs-property">Y+.990</span>
+<span class="hljs-operator">N25</span> <span class="hljs-title function_">G84.3</span> <span class="hljs-property">X-0.1</span>
+<span class="hljs-operator">N26</span> <span class="hljs-variable">#4</span>=<span class="hljs-variable">#5</span>*<span class="hljs-built_in">COS</span>[<span class="hljs-number">45</span>]
+<span class="hljs-operator">N27</span> <span class="hljs-variable">#4</span>=<span class="hljs-variable">#5</span>*<span class="hljs-built_in">SIN</span>[<span class="hljs-number">45</span>]
+<span class="hljs-operator">N28</span> VZOFZ=<span class="hljs-number">652.9658</span>
+<span class="hljs-keyword">%</span>

@@ -3,6 +3,7 @@ Language: Vala
 Author: Antono Vasiljev <antono.vasiljev@gmail.com>
 Description: Vala is a new programming language that aims to bring modern programming language features to GNOME developers without imposing any additional runtime requirements and without using a different ABI compared to applications and libraries written in C.
 Website: https://wiki.gnome.org/Projects/Vala
+Category: system
 */
 
 export default function(hljs) {

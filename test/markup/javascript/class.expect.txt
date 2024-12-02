@@ -38,3 +38,29 @@
 <span class="hljs-title class_">InT</span>
 <span class="hljs-title class_">CSSParserT</span>
 <span class="hljs-title class_">IResponseTsS</span>
+
+<span class="hljs-comment">// this class to show that the params may be seperated with space after the function name and highlighted as params also.</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Vehicle</span> {
+  <span class="hljs-title function_">constructor</span> (<span class="hljs-params">speed, cost</span>) {
+    <span class="hljs-variable language_">super</span>(speed);
+
+    <span class="hljs-keyword">var</span> c = <span class="hljs-title class_">Symbol</span>(<span class="hljs-string">&#x27;cost&#x27;</span>);
+    <span class="hljs-variable language_">this</span>[c] = cost;
+
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">intro</span> = <span class="hljs-string">`This is a car runs at
+      <span class="hljs-subst">${speed}</span>.`</span>;
+  }
+
+  <span class="hljs-title function_">join</span> () {
+  }
+
+  <span class="hljs-title function_">other</span> (a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ) ) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a)
+  }
+
+  <span class="hljs-title function_">something</span> (a = ( ( <span class="hljs-number">3</span> + <span class="hljs-number">2</span> ) ), b = <span class="hljs-number">1</span> ) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a)
+  }
+
+  <span class="hljs-title function_">onemore</span> (a=(<span class="hljs-number">3</span>+<span class="hljs-number">2</span>, b=(<span class="hljs-number">5</span>*<span class="hljs-number">9</span>))) {}
+}

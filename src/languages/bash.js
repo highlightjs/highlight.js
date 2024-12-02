@@ -3,7 +3,7 @@ Language: Bash
 Author: vah <vahtenberg@gmail.com>
 Contributrors: Benjamin Pannell <contact@sierrasoftworks.com>
 Website: https://www.gnu.org/software/bash/
-Category: common
+Category: common, scripting
 */
 
 /** @type LanguageFn */
@@ -38,6 +38,18 @@ export default function(hljs) {
     end: /\)/,
     contains: [ hljs.BACKSLASH_ESCAPE ]
   };
+  const COMMENT = hljs.inherit(
+    hljs.COMMENT(),
+    {
+      match: [
+        /(^|\s)/,
+        /#.*$/
+      ],
+      scope: {
+        2: 'comment'
+      }
+    }
+  );
   const HERE_DOC = {
     begin: /<<-?\s*(?=\w+)/,
     starts: { contains: [
@@ -111,6 +123,7 @@ export default function(hljs) {
     "else",
     "elif",
     "fi",
+    "time",
     "for",
     "while",
     "until",
@@ -119,6 +132,7 @@ export default function(hljs) {
     "done",
     "case",
     "esac",
+    "coproc",
     "function",
     "select"
   ];
@@ -171,6 +185,7 @@ export default function(hljs) {
     "read",
     "readarray",
     "source",
+    "sudo",
     "type",
     "typeset",
     "ulimit",
@@ -356,7 +371,10 @@ export default function(hljs) {
 
   return {
     name: 'Bash',
-    aliases: [ 'sh' ],
+    aliases: [
+      'sh',
+      'zsh'
+    ],
     keywords: {
       $pattern: /\b[a-z][a-z0-9._-]+\b/,
       keyword: KEYWORDS,
@@ -376,7 +394,7 @@ export default function(hljs) {
       hljs.SHEBANG(), // to catch unknown shells but still highlight the shebang
       FUNCTION,
       ARITHMETIC,
-      hljs.HASH_COMMENT_MODE,
+      COMMENT,
       HERE_DOC,
       PATH_MODE,
       QUOTE_STRING,
