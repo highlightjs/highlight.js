@@ -116,7 +116,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
-| Julia                   | julia, jl               |         |   
+| Julia                   | julia, jl               |         |
 | Julia REPL              | julia-repl             |         |
 | Kotlin                  | kotlin, kt             |         |
 | Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
@@ -126,6 +126,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lasso                   | lasso, ls, lassoscript |         |
 | Less                    | less                   |         |
 | LDIF                    | ldif                   |         |
+| Liquid                  | liquid                 | [highlightjs-liquid](https://github.com/highlightjs/highlightjs-liquid) |
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
@@ -200,7 +201,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Rebol & Red             | redbol, rebol, red, red-system | [highlightjs-redbol](https://github.com/oldes/highlightjs-redbol) |
 | RenderMan RIB           | rib                    |         |
 | RenderMan RSL           | rsl                    |         |
-| ReScript                | rescript, res          | [highlightjs-rescript](https://github.com/tsnobip/highlightjs-rescript) | 
+| ReScript                | rescript, res          | [highlightjs-rescript](https://github.com/tsnobip/highlightjs-rescript) |
 | RiScript                | risc, riscript         | [highlightjs-riscript](https://github.com/highlightjs/highlightjs-riscript) |
 | RISC-V Assembly         | riscv, riscvasm        | [highlightjs-riscvasm](https://github.com/highlightjs/highlightjs-riscvasm) |
 | Roboconf                | graph, instances       |         |
