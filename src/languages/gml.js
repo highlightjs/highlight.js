@@ -1098,7 +1098,7 @@ export default function(hljs) {
   const JSDOC_ANNOTATIONS = [
     {
       match: /@((desc(ription)?)|ignore|pure|deprecated|(func(tion)?))\b/,
-      className: "literal"
+      className: "keyword"
     },
     {
       match: [
@@ -1106,8 +1106,8 @@ export default function(hljs) {
         JSDOC_TYPE_PARAM_REG
       ],
       className: {
-        1: "literal",
-        2: "function"
+        1: "keyword",
+        2: "literal",
       }
     },
     {
@@ -1116,8 +1116,8 @@ export default function(hljs) {
         JSDOC_TYPE_PARAM_REG
       ],
       className: {
-        1: "literal",
-        2: "function"
+        1: "keyword",
+        2: "literal",
       }
     },
     {
@@ -1129,8 +1129,8 @@ export default function(hljs) {
         /(( *=[^\n]+?)?\])? *?/
       ],
       className: {
-        1: "literal",
-        2: "function",
+        1: "keyword",
+        2: "literal",
         3: "variable",
         4: "variable",
         5: "variable",
