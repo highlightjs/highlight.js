@@ -1408,14 +1408,14 @@ export default function(hljs) {
    */
   const FUNCTION_DECLARATION = {
     match: [
-      "title.function",
+      "function",
       /\s+/,
       VALID_IDENTIFIER_RE,
       /\s*?\(/
     ],
     scope: {
       1: "keyword",
-      3: "function"
+      3: "title.function"
     }
   };
 
