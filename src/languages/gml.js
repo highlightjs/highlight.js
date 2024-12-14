@@ -1116,7 +1116,7 @@ export default function(hljs) {
       ],
       scope: {
         1: "doctag",
-        2: "literal",
+        2: "type",
       }
     },
     {
