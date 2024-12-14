@@ -1313,7 +1313,7 @@ export default function(hljs) {
       ],
       className: {
         1: "literal",
-        3: "variable"
+        3: "property"
       }
     },
     {
@@ -1332,7 +1332,7 @@ export default function(hljs) {
         VALID_IDENTIFIER_REG
       ],
       className: {
-        2: "variable"
+        2: "property"
       }
     },
   ];
