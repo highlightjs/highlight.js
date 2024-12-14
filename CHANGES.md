@@ -90,8 +90,7 @@ CONTRIBUTORS
 [Jake Leahy]: https://github.com/ire4ever1190
 [Laurel King]: https://github.com/laurelthorburn
 [Kristian Ekenes]: https://github.com/ekenes
-[Danny Winrow]:
-https://github.com/dannywinrow
+[Danny Winrow]: https://github.com/dannywinrow
 
 
 ## Version 11.10.0
