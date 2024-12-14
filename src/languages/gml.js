@@ -1322,7 +1322,7 @@ export default function(hljs) {
         /\s*\(/
       ],
       scope: {
-        2: "function"
+        2: "title.function"
       }
     },
     {
@@ -1347,7 +1347,7 @@ export default function(hljs) {
       /\(/
     ],
     scope: {
-      1: "function"
+      1: "title.function"
     }
   };
 
