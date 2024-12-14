@@ -1194,7 +1194,7 @@ export default function(hljs) {
    * An escape sequence in a string.
    */
   const STRING_ESCAPE = {
-    scope: "literal",
+    scope: "char.escape",
     variants: [
       { match: /\\u[a-fA-F0-9]{1,6}/ },
       { match: /\\[^\n]/ }
