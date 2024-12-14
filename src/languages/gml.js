@@ -17,8 +17,8 @@ export default function(hljs) {
    * in the case of {@link EXPRESSION}, which is an array of a bunch of different types, of which
    * some of these also can contain expressions, AND contain other things too.
    * 
-   * Note that {@link doLateConcat} MUST be called before this can be used, because we're using some
-   * reference-based trickery to do this.
+   * Note that {@link doLateConcat} MUST be called before the results of this are valid, because
+   * we're using some reference-based trickery to do this.
    * 
    * @param  {...any[]} arrays The arrays to be concatenated later.
    * @returns {any[]}
