@@ -1,7 +1,7 @@
 /*
 Language: GML
-Description: Game Maker Language for GameMaker (rev. 2023.1)
-Website: https://manual.yoyogames.com/
+Description: Game Maker Language for GameMaker (rev. 2024.11)
+Website: https://manual.gamemaker.io/
 Category: scripting
 */
 
