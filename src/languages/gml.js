@@ -1091,7 +1091,7 @@ export default function(hljs) {
   /**
    * A single-line comment.
    */
-  const COMMENT_LINE = hljs.COMMENT('//', /\$|\n/);
+  const COMMENT_LINE = hljs.COMMENT('//', /$/);
 
   const JSDOC_TYPE_PARAM_RE = /{ *?[a-zA-Z_][a-zA-Z0-9_\.<>\|]*? *?} *?/;
 
@@ -1143,7 +1143,7 @@ export default function(hljs) {
    */
   const COMMENT_JSDOC = {
     begin: /\/\/\//,
-    end: /$|\n/,
+    end: /$/,
     scope: "comment",
     contains: JSDOC_ANNOTATIONS
   };
@@ -1446,7 +1446,7 @@ export default function(hljs) {
           VALID_IDENTIFIER_RE,
           /\s*=\s*/
         ],
-        end: /,|\n|}/,
+        end: /,|$|}/,
         scope: {
           1: "literal"
         },
