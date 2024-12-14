@@ -1249,7 +1249,7 @@ export default function(hljs) {
    * Various representations of numbers
    */
   const NUMBER = {
-    scope: "literal",
+    scope: "number",
     variants: [
       { match: /(\B|^)\$[0-9a-fA-F]+/ },
       { match: /(\B|^)#[0-9a-fA-F]+/ },
