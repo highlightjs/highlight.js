@@ -7,6 +7,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(rust) - adds emoji support in single quote strings [joshgoebel][]
 - fix(apache) - support line continuation via `\` [Josh Goebel][]
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
 - enh(arcade) updated to ArcGIS Arcade version 1.29 [Kristian Ekenes][]
