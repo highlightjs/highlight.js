@@ -9,7 +9,9 @@ Core Grammars:
 
 - fix(apache) - support line continuation via `\` [Josh Goebel][]
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
+- enh(arcade) updated to ArcGIS Arcade version 1.29 [Kristian Ekenes][]
 - enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
+- enh(excel) add built-in functions for Excel 365 release to 2024 [Danny Winrow][]
 - enh(erlang) OTP 27 triple-quoted strings [nixxquality][]
 - enh(erlang) OTP 27 doc attribute [nixxquality][]
 - enh(erlang) OTP 27 Sigil type [nixxquality][]
@@ -40,10 +42,14 @@ Core Grammars:
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
+- fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
+- enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
+- added 3rd party Odin grammar to SUPPORTED_LANGUAGES [clsource][]
+- added 3rd party Liquid grammar to SUPPORTED_LANGUAGES [Laurel King][]
 
 Developer Tools:
 
@@ -81,6 +87,11 @@ CONTRIBUTORS
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
 [guuido]: https://github.com/guuido
+[clsource]: https://github.com/clsource
+[Jake Leahy]: https://github.com/ire4ever1190
+[Laurel King]: https://github.com/laurelthorburn
+[Kristian Ekenes]: https://github.com/ekenes
+[Danny Winrow]: https://github.com/dannywinrow
 
 
 ## Version 11.10.0

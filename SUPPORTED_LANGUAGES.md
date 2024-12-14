@@ -116,7 +116,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
-| Julia                   | julia, jl               |         |   
+| Julia                   | julia, jl               |         |
 | Julia REPL              | julia-repl             |         |
 | Kotlin                  | kotlin, kt             |         |
 | Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
@@ -126,6 +126,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lasso                   | lasso, ls, lassoscript |         |
 | Less                    | less                   |         |
 | LDIF                    | ldif                   |         |
+| Liquid                  | liquid                 | [highlightjs-liquid](https://github.com/highlightjs/highlightjs-liquid) |
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
@@ -162,6 +163,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
+| Odin                    | odin                   |         [highlightjs-odin](https://github.com/NinjasCL/highlightjs-odin) |
 | OpenGL Shading Language | glsl                   |         |
 | OpenSCAD                | openscad, scad         |         |
 | Oracle Rules Language   | ruleslanguage          |         |
@@ -190,12 +192,16 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Q                       | k, kdb                 |         |
 | QML                     | qml                    |         |
 | R                       | r                      |         |
+| Raku                    | raku, perl6, p6, pm6, rakumod | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
+| RakuDoc                 | pod6, rakudoc          | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
+| RakuQuoting             | rakuquoting            | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
+| RakuRegexe              | rakuregexe                           | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
 | Razor CSHTML            | cshtml, razor, razor-cshtml | [highlightjs-cshtml-razor](https://github.com/highlightjs/highlightjs-cshtml-razor) |
 | ReasonML                | reasonml, re           |         |
 | Rebol & Red             | redbol, rebol, red, red-system | [highlightjs-redbol](https://github.com/oldes/highlightjs-redbol) |
 | RenderMan RIB           | rib                    |         |
 | RenderMan RSL           | rsl                    |         |
-| ReScript                | rescript, res          | [highlightjs-rescript](https://github.com/tsnobip/highlightjs-rescript) | 
+| ReScript                | rescript, res          | [highlightjs-rescript](https://github.com/tsnobip/highlightjs-rescript) |
 | RiScript                | risc, riscript         | [highlightjs-riscript](https://github.com/highlightjs/highlightjs-riscript) |
 | RISC-V Assembly         | riscv, riscvasm        | [highlightjs-riscvasm](https://github.com/highlightjs/highlightjs-riscvasm) |
 | Roboconf                | graph, instances       |         |
@@ -225,7 +231,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Stylus                  | stylus, styl           |         |
 | SubUnit                 | subunit                |         |
 | Supercollider           | supercollider, sc      | [highlightjs-supercollider](https://github.com/highlightjs/highlightjs-supercollider) |
-| Svelte                  | svelte                 | [highlightjs-svelte](https://github.com/AlexxNB/highlightjs-svelte) |
+| Svelte                  | svelte                 | [highlight.svelte](https://github.com/moonlitgrace/highlight.svelte) |
 | Swift                   | swift                  |         |
 | Tcl                     | tcl, tk                |         |
 | Terraform (HCL)         | terraform, tf, hcl     | [highlightjs-terraform](https://github.com/highlightjs/highlightjs-terraform) |
