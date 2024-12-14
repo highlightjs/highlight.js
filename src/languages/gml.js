@@ -1097,7 +1097,7 @@ export default function(hljs) {
   const JSDOC_ANNOTATIONS = [
     {
       match: /@((desc(ription)?)|ignore|pure|deprecated|(func(tion)?))\b/,
-      scope: "keyword"
+      scope: "doctag"
     },
     {
       match: [
@@ -1105,8 +1105,8 @@ export default function(hljs) {
         JSDOC_TYPE_PARAM_RE
       ],
       scope: {
-        1: "keyword",
-        2: "literal",
+        1: "doctag",
+        2: "type",
       }
     },
     {
@@ -1115,7 +1115,7 @@ export default function(hljs) {
         JSDOC_TYPE_PARAM_RE
       ],
       scope: {
-        1: "keyword",
+        1: "doctag",
         2: "literal",
       }
     },
@@ -1128,8 +1128,8 @@ export default function(hljs) {
         /(( *=[^\n]+?)?\])? *?/
       ],
       scope: {
-        1: "keyword",
-        2: "literal",
+        1: "doctag",
+        2: "type",
         3: "variable",
         4: "variable",
         5: "variable",
