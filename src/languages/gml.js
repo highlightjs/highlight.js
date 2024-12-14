@@ -1479,7 +1479,6 @@ export default function(hljs) {
 
   return {
     name: 'GML',
-    case_insensitive: false, // language is case-sensitive
     keywords: {
       keyword: KEYWORDS,
       literal: LITERALS,
