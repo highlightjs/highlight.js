@@ -1277,7 +1277,7 @@ export default function(hljs) {
         ],
         scope: {
           1: "keyword",
-          2: "literal"
+          2: "variable.constant"
         },
         contains: lateConcat(
           EXPRESSION,
@@ -1355,7 +1355,7 @@ export default function(hljs) {
    * The manual likes using `obj_` and such to define assets. Sneaky trick to make it look nicer :P
    */
   const USER_ASSET_CONSTANT = {
-    scope: "literal",
+    scope: "variable.constant",
     end: VALID_IDENTIFIER_RE,
     variants: [
       { begin: "spr_" },
@@ -1436,7 +1436,7 @@ export default function(hljs) {
     end: "}",
     scope: {
       1: "keyword",
-      3: "literal"
+      3: "variable.constant"
     },
     contains: [
       COMMENT,
@@ -1447,13 +1447,13 @@ export default function(hljs) {
         ],
         end: /,|$|}/,
         scope: {
-          1: "literal"
+          1: "variable.constant"
         },
         contains: EXPRESSION
       },
       {
         match: VALID_IDENTIFIER_RE,
-        scope: "literal"
+        scope: "variable.constant"
       }
     ]
   };
