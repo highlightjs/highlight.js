@@ -881,7 +881,7 @@ export default function(hljs) {
     "vk_up",
   ];
   // many of these look like enumerables to me (see comments below)
-  const SYMBOLS = [
+  const LANGUAGE_VARIABLES = [
     "wallpaper_config", 
     "wallpaper_subscription_data", 
     "argument",
@@ -1471,7 +1471,7 @@ export default function(hljs) {
       keywords: {
         keyword: KEYWORDS,
         literal: LITERALS,
-        symbol: SYMBOLS
+        symbol: LANGUAGE_VARIABLES
       },
     }
   );
@@ -1484,7 +1484,7 @@ export default function(hljs) {
     keywords: {
       keyword: KEYWORDS,
       literal: LITERALS,
-      symbol: SYMBOLS
+      "variable.language": LANGUAGE_VARIABLES
     },
     contains: [
       COMMENT,
