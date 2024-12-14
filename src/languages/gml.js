@@ -1098,14 +1098,14 @@ export default function(hljs) {
   const JSDOC_ANNOTATIONS = [
     {
       match: /@((desc(ription)?)|ignore|pure|deprecated|(func(tion)?))\b/,
-      className: "keyword"
+      scope: "keyword"
     },
     {
       match: [
         /@(self|context) *?/,
         JSDOC_TYPE_PARAM_RE
       ],
-      className: {
+      scope: {
         1: "keyword",
         2: "literal",
       }
@@ -1115,7 +1115,7 @@ export default function(hljs) {
         /(@return)s? *?/,
         JSDOC_TYPE_PARAM_RE
       ],
-      className: {
+      scope: {
         1: "keyword",
         2: "literal",
       }
@@ -1128,7 +1128,7 @@ export default function(hljs) {
         VALID_IDENTIFIER_RE,
         /(( *=[^\n]+?)?\])? *?/
       ],
-      className: {
+      scope: {
         1: "keyword",
         2: "literal",
         3: "variable",
@@ -1144,7 +1144,7 @@ export default function(hljs) {
   const COMMENT_JSDOC = {
     begin: /\/\/\//,
     end: /$|\n/,
-    className: "comment",
+    scope: "comment",
     contains: JSDOC_ANNOTATIONS
   };
 
@@ -1154,7 +1154,7 @@ export default function(hljs) {
   const COMMENT_BLOCK_JSDOC = {
     begin: /\/\*\*/,
     end: /\*\//,
-    className: "comment",
+    scope: "comment",
     contains: JSDOC_ANNOTATIONS
   };
 
@@ -1250,7 +1250,7 @@ export default function(hljs) {
    * Various representations of numbers
    */
   const NUMBER = {
-    className: "literal",
+    scope: "literal",
     variants: [
       { match: /(\B|^)\$[0-9a-fA-F]+/ },
       { match: /(\B|^)#[0-9a-fA-F]+/ },
@@ -1262,7 +1262,7 @@ export default function(hljs) {
 
   const COMMENT_LINE_INNER = {
     match: /[^\n]+/,
-    className: "comment"
+    scope: "comment"
   };
 
   /**
@@ -1276,7 +1276,7 @@ export default function(hljs) {
           /#macro\s+/,
           VALID_IDENTIFIER_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           2: "literal"
         },
@@ -1311,7 +1311,7 @@ export default function(hljs) {
         DOT_ACCESSOR_RE,
         VALID_IDENTIFIER_RE
       ],
-      className: {
+      scope: {
         1: "literal",
         3: "property"
       }
@@ -1322,7 +1322,7 @@ export default function(hljs) {
         VALID_IDENTIFIER_RE,
         /\s*\(/
       ],
-      className: {
+      scope: {
         2: "function"
       }
     },
@@ -1331,7 +1331,7 @@ export default function(hljs) {
         DOT_ACCESSOR_RE,
         VALID_IDENTIFIER_RE
       ],
-      className: {
+      scope: {
         2: "property"
       }
     },
@@ -1347,7 +1347,7 @@ export default function(hljs) {
       /\s*?/,
       /\(/
     ],
-    className: {
+    scope: {
       1: "function"
     }
   };
@@ -1356,7 +1356,7 @@ export default function(hljs) {
    * The manual likes using `obj_` and such to define assets. Sneaky trick to make it look nicer :P
    */
   const USER_ASSET_CONSTANT = {
-    className: "literal",
+    scope: "literal",
     end: VALID_IDENTIFIER_RE,
     variants: [
       { begin: "spr_" },
@@ -1380,7 +1380,7 @@ export default function(hljs) {
       /\s+/
     ],
     end: /:/,
-    className: {
+    scope: {
       1: "keyword"
     },
     contains: EXPRESSION
@@ -1395,7 +1395,7 @@ export default function(hljs) {
       VALID_IDENTIFIER_RE,
       /\s*:/
     ],
-    className: {
+    scope: {
       2: "variable-instance"
     },
   };
@@ -1413,7 +1413,7 @@ export default function(hljs) {
       VALID_IDENTIFIER_RE,
       /\s*?\(/
     ],
-    className: {
+    scope: {
       1: "keyword",
       3: "function"
     }
@@ -1435,7 +1435,7 @@ export default function(hljs) {
       /\s*{/
     ],
     end: "}",
-    className: {
+    scope: {
       1: "keyword",
       3: "literal"
     },
@@ -1447,14 +1447,14 @@ export default function(hljs) {
           /\s*=\s*/
         ],
         end: /,|\n|}/,
-        className: {
+        scope: {
           1: "literal"
         },
         contains: EXPRESSION
       },
       {
         match: VALID_IDENTIFIER_RE,
-        className: "literal"
+        scope: "literal"
       }
     ]
   };
