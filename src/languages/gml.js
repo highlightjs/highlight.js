@@ -1408,7 +1408,7 @@ export default function(hljs) {
    */
   const FUNCTION_DECLARATION = {
     match: [
-      "function",
+      "title.function",
       /\s+/,
       VALID_IDENTIFIER_RE,
       /\s*?\(/
