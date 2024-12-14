@@ -1023,15 +1023,37 @@ export default function(hljs) {
    */
   const COMMENT_LINE = hljs.COMMENT('//', /\$|\n/);
 
+  const JSDOC_TYPE_PARAM_REG = /{ *?[a-zA-Z_][a-zA-Z0-9_\.<>\|]*? *?} *?/;
+
   const JSDOC_ANNOTATIONS = [
     {
-      match: /@((desc(ription)?)|ignore)\b/,
+      match: /@((desc(ription)?)|ignore|pure|deprecated|(func(tion)?))\b/,
       className: "literal"
     },
     {
       match: [
-        /@(param|arg) *?/,
-        /{ *?[a-zA-Z_][a-zA-Z0-9_\.<>\|]*? *?} *?/,
+        /@(self|context) *?/,
+        JSDOC_TYPE_PARAM_REG
+      ],
+      className: {
+        1: "literal",
+        2: "function"
+      }
+    },
+    {
+      match: [
+        /(@return)s? *?/,
+        JSDOC_TYPE_PARAM_REG
+      ],
+      className: {
+        1: "literal",
+        2: "function"
+      }
+    },
+    {
+      match: [
+        /@((param(eter)?)|arg(ument)?) *?/,
+        JSDOC_TYPE_PARAM_REG,
         /\[?/,
         VALID_IDENTIFIER_REG,
         /(( *=[^\n]+?)?\])? *?/
