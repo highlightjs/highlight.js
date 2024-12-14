@@ -7,6 +7,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(apache) - support line continuation via `\` [Josh Goebel][]
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
 - enh(arcade) updated to ArcGIS Arcade version 1.29 [Kristian Ekenes][]
 - enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
