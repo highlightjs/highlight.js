@@ -1395,7 +1395,7 @@ export default function(hljs) {
       /\s*:/
     ],
     scope: {
-      2: "variable-instance"
+      2: "variable"
     },
   };
 
