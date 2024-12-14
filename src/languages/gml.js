@@ -62,7 +62,6 @@ export default function(hljs) {
     "exit",
     "finally",
     "for",
-    "function",
     "globalvar",
     "if",
     "mod",
