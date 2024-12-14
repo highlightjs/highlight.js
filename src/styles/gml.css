@@ -14,7 +14,7 @@ GML Theme - Meseta <meseta@gmail.com>
   font-weight: bold;
 }
 
-.hljs-function {
+.hljs-title.function_ {
   color: #FFB871;
 }
 
