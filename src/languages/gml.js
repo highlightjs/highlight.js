@@ -1075,12 +1075,12 @@ export default function(hljs) {
   /**
    * Regex for some sort of identifier - i.e, a valid name of something in code.
    */
-  const VALID_IDENTIFIER_REG = /[a-zA-Z_][a-zA-Z0-9_]*/;
+  const VALID_IDENTIFIER_RE = /[a-zA-Z_][a-zA-Z0-9_]*/;
   /**
    * Regex for a dot separating some LHS and RHS expression with optional whitespace (as this is
    * supported in the engine.)
    */
-  const DOT_ACCESSOR_REG = /\b\.\b/;
+  const DOT_ACCESSOR_RE = /\b\.\b/;
 
   /**
    * Expressions, which form part of a valid statement.
@@ -1093,7 +1093,7 @@ export default function(hljs) {
    */
   const COMMENT_LINE = hljs.COMMENT('//', /\$|\n/);
 
-  const JSDOC_TYPE_PARAM_REG = /{ *?[a-zA-Z_][a-zA-Z0-9_\.<>\|]*? *?} *?/;
+  const JSDOC_TYPE_PARAM_RE = /{ *?[a-zA-Z_][a-zA-Z0-9_\.<>\|]*? *?} *?/;
 
   const JSDOC_ANNOTATIONS = [
     {
@@ -1103,7 +1103,7 @@ export default function(hljs) {
     {
       match: [
         /@(self|context) *?/,
-        JSDOC_TYPE_PARAM_REG
+        JSDOC_TYPE_PARAM_RE
       ],
       className: {
         1: "keyword",
@@ -1113,7 +1113,7 @@ export default function(hljs) {
     {
       match: [
         /(@return)s? *?/,
-        JSDOC_TYPE_PARAM_REG
+        JSDOC_TYPE_PARAM_RE
       ],
       className: {
         1: "keyword",
@@ -1123,9 +1123,9 @@ export default function(hljs) {
     {
       match: [
         /@((param(eter)?)|arg(ument)?) *?/,
-        JSDOC_TYPE_PARAM_REG,
+        JSDOC_TYPE_PARAM_RE,
         /\[?/,
-        VALID_IDENTIFIER_REG,
+        VALID_IDENTIFIER_RE,
         /(( *=[^\n]+?)?\])? *?/
       ],
       className: {
@@ -1274,7 +1274,7 @@ export default function(hljs) {
       {
         begin: [
           /#macro\s+/,
-          VALID_IDENTIFIER_REG
+          VALID_IDENTIFIER_RE
         ],
         className: {
           1: "keyword",
@@ -1308,8 +1308,8 @@ export default function(hljs) {
     {
       match: [
         "global",
-        DOT_ACCESSOR_REG,
-        VALID_IDENTIFIER_REG
+        DOT_ACCESSOR_RE,
+        VALID_IDENTIFIER_RE
       ],
       className: {
         1: "literal",
@@ -1318,8 +1318,8 @@ export default function(hljs) {
     },
     {
       match: [
-        DOT_ACCESSOR_REG,
-        VALID_IDENTIFIER_REG,
+        DOT_ACCESSOR_RE,
+        VALID_IDENTIFIER_RE,
         /\s*\(/
       ],
       className: {
@@ -1328,8 +1328,8 @@ export default function(hljs) {
     },
     {
       match: [
-        DOT_ACCESSOR_REG,
-        VALID_IDENTIFIER_REG
+        DOT_ACCESSOR_RE,
+        VALID_IDENTIFIER_RE
       ],
       className: {
         2: "property"
@@ -1343,7 +1343,7 @@ export default function(hljs) {
    */
   const FUNCTION_CALL = {
     begin: [
-      VALID_IDENTIFIER_REG,
+      VALID_IDENTIFIER_RE,
       /\s*?/,
       /\(/
     ],
@@ -1357,7 +1357,7 @@ export default function(hljs) {
    */
   const USER_ASSET_CONSTANT = {
     className: "literal",
-    end: VALID_IDENTIFIER_REG,
+    end: VALID_IDENTIFIER_RE,
     variants: [
       { begin: "spr_" },
       { begin: "obj_" },
@@ -1392,7 +1392,7 @@ export default function(hljs) {
   const STRUCT_LITERAL_MEMBER = {
     match: [
       /\b/,
-      VALID_IDENTIFIER_REG,
+      VALID_IDENTIFIER_RE,
       /\s*:/
     ],
     className: {
@@ -1410,7 +1410,7 @@ export default function(hljs) {
     match: [
       "function",
       /\s+/,
-      VALID_IDENTIFIER_REG,
+      VALID_IDENTIFIER_RE,
       /\s*?\(/
     ],
     className: {
@@ -1431,7 +1431,7 @@ export default function(hljs) {
     begin: [
       /enum/,
       /\s+/,
-      VALID_IDENTIFIER_REG,
+      VALID_IDENTIFIER_RE,
       /\s*{/
     ],
     end: "}",
@@ -1443,7 +1443,7 @@ export default function(hljs) {
       COMMENT,
       {
         begin: [
-          VALID_IDENTIFIER_REG,
+          VALID_IDENTIFIER_RE,
           /\s*=\s*/
         ],
         end: /,|\n|}/,
@@ -1453,7 +1453,7 @@ export default function(hljs) {
         contains: EXPRESSION
       },
       {
-        match: VALID_IDENTIFIER_REG,
+        match: VALID_IDENTIFIER_RE,
         className: "literal"
       }
     ]
@@ -1467,7 +1467,7 @@ export default function(hljs) {
     FUNCTION_CALL,
     USER_ASSET_CONSTANT,
     {
-      match: VALID_IDENTIFIER_REG,
+      match: VALID_IDENTIFIER_RE,
       keywords: {
         keyword: KEYWORDS,
         literal: LITERALS,
