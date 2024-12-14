@@ -118,6 +118,7 @@ export default function(hljs) {
     "asset_timeline",
     "asset_unknown",
     "audio_3d",
+    "audio_bus_main", 
     "audio_falloff_exponent_distance",
     "audio_falloff_exponent_distance_clamped",
     "audio_falloff_exponent_distance_scaled",
@@ -881,10 +882,8 @@ export default function(hljs) {
   ];
   // many of these look like enumerables to me (see comments below)
   const SYMBOLS = [
-    "audio_bus_main", 
     "wallpaper_config", 
     "wallpaper_subscription_data", 
-    "argument_relative",
     "argument",
     "argument0",
     "argument1",
@@ -1071,7 +1070,6 @@ export default function(hljs) {
     "player_avatar_sprite",
     "player_avatar_url",
     "player_user_id",
-    "player_name",
     "player_type"
   ];
   /**
