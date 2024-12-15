@@ -27,7 +27,7 @@
 	<span class="hljs-variable language_">y</span> += vspd;
 
 	<span class="hljs-keyword">if</span> (DEBUG) {
-		<span class="hljs-title function_ invoke__">show_debug_message</span>(<span class="hljs-string">$&quot;</span><span class="hljs-string">x</span><span class="hljs-string">:</span><span class="hljs-string"> </span><span class="hljs-subst">{</span><span class="hljs-variable language_">x</span><span class="hljs-subst">}</span><span class="hljs-string">,</span><span class="hljs-char escape_">\t</span><span class="hljs-string">y</span><span class="hljs-string">:</span><span class="hljs-string"> </span><span class="hljs-subst">{</span><span class="hljs-variable language_">y</span><span class="hljs-subst">}</span><span class="hljs-string">&quot;</span>);
+		<span class="hljs-title function_ invoke__">show_debug_message</span>(<span class="hljs-string">$&quot;</span><span class="hljs-string">x: </span><span class="hljs-subst">{</span><span class="hljs-variable language_">x</span><span class="hljs-subst">}</span><span class="hljs-string">,</span><span class="hljs-char escape_">\t</span><span class="hljs-string">y: </span><span class="hljs-subst">{</span><span class="hljs-variable language_">y</span><span class="hljs-subst">}</span><span class="hljs-string">&quot;</span>);
 	}
 
 }
