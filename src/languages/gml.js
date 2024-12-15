@@ -7,44 +7,6 @@ Category: scripting
 
 export default function(hljs) {
 
-  /**
-   * @type {any[][][]}
-   */
-  const lateConcatTargets = [];
-
-  /**
-   * Somewhat evil helper function to allow us to *very* lately build arrays. This is most useful
-   * in the case of {@link EXPRESSION}, which is an array of a bunch of different types, of which
-   * some of these also can contain expressions, AND contain other things too.
-   * 
-   * Note that {@link doLateConcat} MUST be called before the results of this are valid, because
-   * we're using some reference-based trickery to do this.
-   * 
-   * @param  {...any[]} arrays The arrays to be concatenated later.
-   * @returns {any[]}
-   */
-  function lateConcat(...arrays) {
-    lateConcatTargets.push(arrays);
-    return arrays;
-  }
-
-  /**
-   * Perform the late-concatenation operation on all target arrays, converting them into effectively
-   * an array of the members that were to be concatenated.
-   */
-  function doLateConcat() {
-
-    lateConcatTargets.forEach(target => {
-      const arrayMembers = [...target];
-      target.length = 0;
-
-      for (const array of arrayMembers) {
-        target.push(...array);
-      }
-      
-    });
-  }
-
   const KEYWORDS = [
     "and",
     "begin",
@@ -1265,42 +1227,6 @@ export default function(hljs) {
   };
 
   /**
-   * Pre-processor modes for macro definitions and regions.
-   */
-  const PREPROCESSOR = {
-    end: /$/,
-    variants: [
-      {
-        begin: [
-          /#macro\s+/,
-          VALID_IDENTIFIER_RE
-        ],
-        scope: {
-          1: "keyword",
-          2: "variable.constant"
-        },
-        contains: lateConcat(
-          EXPRESSION,
-          [
-            COMMENT,
-            {
-              match: /\\\n/
-            }
-          ]
-        ),
-      },
-      {
-        begin: "#define"
-      },
-      {
-        begin: /#(end)?region\b/,
-        beginScope: "keyword",
-        contains: [COMMENT_LINE_INNER]
-      },
-    ]
-  };
-
-  /**
    * Dot accessor usage with a special highlighting case for `global`.
    */
   const PROP_ACCESS = [
@@ -1475,7 +1401,39 @@ export default function(hljs) {
     }
   );
 
-  doLateConcat();
+  /**
+   * Pre-processor modes for macro definitions and regions.
+   */
+  const PREPROCESSOR = {
+    end: /$/,
+    variants: [
+      {
+        begin: [
+          /#macro\s+/,
+          VALID_IDENTIFIER_RE
+        ],
+        scope: {
+          1: "keyword",
+          2: "variable.constant"
+        },
+        contains: [
+          ...EXPRESSION,
+          COMMENT,
+          {
+            match: /\\\n/
+          }
+        ]
+      },
+      {
+        begin: "#define"
+      },
+      {
+        begin: /#(end)?region\b/,
+        beginScope: "keyword",
+        contains: [COMMENT_LINE_INNER]
+      },
+    ]
+  };
 
   return {
     name: 'GML',
