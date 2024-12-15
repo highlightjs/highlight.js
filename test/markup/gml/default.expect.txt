@@ -1,22 +1,67 @@
-<span class="hljs-comment">/// <span class="hljs-keyword">@description</span> Collision code</span>
-<span class="hljs-comment">// standard collision handling
-</span>
-<span class="hljs-comment">// Horizontal collisions
-</span><span class="hljs-keyword">if</span>(<span class="hljs-function">place_meeting</span>(<span class="hljs-variable language_">x</span>+hspd, <span class="hljs-variable language_">y</span>, <span class="hljs-literal">obj_wall</span>)) {
-	<span class="hljs-keyword">while</span>(!<span class="hljs-function">place_meeting</span>(<span class="hljs-variable language_">x</span>+<span class="hljs-function">sign</span>(hspd), <span class="hljs-variable language_">y</span>, <span class="hljs-literal">obj_wall</span>)) {
-		<span class="hljs-variable language_">x</span> += <span class="hljs-function">sign</span>(hspd);
-	}
-	hspd = <span class="hljs-literal">0</span>;
-}
-<span class="hljs-variable language_">x</span> += hspd;
+<span class="hljs-meta">#macro </span><span class="hljs-variable constant_">DEBUG</span> <span class="hljs-literal">false</span>
+<span class="hljs-meta">#macro </span><span class="hljs-variable constant_">DEBUG</span>:Debug <span class="hljs-literal">true</span>
+<span class="hljs-meta">#macro </span><span class="hljs-variable constant_">DEBUG</span>:Release <span class="hljs-literal">false</span>
 
-<span class="hljs-comment">// Vertical collisions
-</span><span class="hljs-keyword">if</span>(<span class="hljs-function">place_meeting</span>(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>+vspd, collide_obj)) {
-	<span class="hljs-keyword">while</span>(!<span class="hljs-function">place_meeting</span>(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>+<span class="hljs-function">sign</span>(vspd), collide_obj)) {
-		<span class="hljs-variable language_">y</span> += <span class="hljs-function">sign</span>(vspd);
-	}
-	vspd = <span class="hljs-literal">0</span>;
-}
-<span class="hljs-variable language_">y</span> += vspd;
+<span class="hljs-comment">/// <span class="hljs-doctag">@description</span> Collision code</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@self </span><span class="hljs-type">{Id.Instance}</span></span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">standard_collisions</span>() {
 
-<span class="hljs-function">show_debug_message</span>(<span class="hljs-string">&quot;This is a test&quot;</span>);
+	<span class="hljs-comment">// standard collision handling</span>
+
+	<span class="hljs-comment">// Horizontal collisions</span>
+	<span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">place_meeting</span>(<span class="hljs-variable language_">x</span>+hspd, <span class="hljs-variable language_">y</span>, <span class="hljs-variable constant_">obj_wall</span>)) {
+		<span class="hljs-keyword">while</span>(!<span class="hljs-title function_ invoke__">place_meeting</span>(<span class="hljs-variable language_">x</span>+<span class="hljs-title function_ invoke__">sign</span>(hspd), <span class="hljs-variable language_">y</span>, <span class="hljs-variable constant_">obj_wall</span>)) {
+			<span class="hljs-variable language_">x</span> += <span class="hljs-title function_ invoke__">sign</span>(hspd);
+		}
+		hspd = <span class="hljs-number">0</span>;
+	}
+	<span class="hljs-variable language_">x</span> += hspd;
+
+	<span class="hljs-comment">// Vertical collisions</span>
+	<span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">place_meeting</span>(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>+vspd, collide_obj)) {
+		<span class="hljs-keyword">while</span>(!<span class="hljs-title function_ invoke__">place_meeting</span>(<span class="hljs-variable language_">x</span>, <span class="hljs-variable language_">y</span>+<span class="hljs-title function_ invoke__">sign</span>(vspd), collide_obj)) {
+			<span class="hljs-variable language_">y</span> += <span class="hljs-title function_ invoke__">sign</span>(vspd);
+		}
+		vspd = <span class="hljs-number">0</span>;
+	}
+	<span class="hljs-variable language_">y</span> += vspd;
+
+	<span class="hljs-keyword">if</span> (DEBUG) {
+		<span class="hljs-title function_ invoke__">show_debug_message</span>(<span class="hljs-string">$&quot;</span><span class="hljs-string">x</span><span class="hljs-string">:</span><span class="hljs-string"> </span><span class="hljs-subst">{</span><span class="hljs-variable language_">x</span><span class="hljs-subst">}</span><span class="hljs-string">,</span><span class="hljs-char escape_">\t</span><span class="hljs-string">y</span><span class="hljs-string">:</span><span class="hljs-string"> </span><span class="hljs-subst">{</span><span class="hljs-variable language_">y</span><span class="hljs-subst">}</span><span class="hljs-string">&quot;</span>);
+	}
+
+}
+
+<span class="hljs-comment">/// <span class="hljs-doctag">@description</span> A sample constructor that does something.</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{Real} </span><span class="hljs-variable">[</span><span class="hljs-variable">some_data</span><span class="hljs-variable">=2]</span> Some optional data.</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">SomeConstructor</span>(some_data = <span class="hljs-number">2</span>) <span class="hljs-keyword">constructor</span> {
+
+	<span class="hljs-literal">self</span>.<span class="hljs-property">some_data</span> = some_data;
+
+	<span class="hljs-comment">/// <span class="hljs-doctag">@description</span> Some example function!</span>
+	<span class="hljs-comment">/// <span class="hljs-doctag">@pure</span></span>
+	<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{String} </span><span class="hljs-variable">stuff</span></span>
+	<span class="hljs-comment">/// <span class="hljs-doctag">@returns </span><span class="hljs-type">{Bool}</span></span>
+	<span class="hljs-keyword">static</span> do_things = <span class="hljs-title function_ invoke__">function</span>(stuff) {
+		<span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">string_digits</span>(stuff) != stuff) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		}
+
+		<span class="hljs-keyword">return</span> <span class="hljs-title function_ invoke__">real</span>(stuff) == <span class="hljs-literal">self</span>.<span class="hljs-property">some_data</span>;
+	};
+
+}
+
+<span class="hljs-comment">/** <span class="hljs-doctag">@desc</span> Some random enum. */</span>
+<span class="hljs-keyword">enum</span> <span class="hljs-variable constant_">AnEnum</span> {
+	<span class="hljs-comment">/** <span class="hljs-doctag">@desc</span> It is zero! */</span>
+	<span class="hljs-variable constant_">Zero</span> = <span class="hljs-number">0</span>,
+	<span class="hljs-comment">/** <span class="hljs-doctag">@desc</span> It is one! */</span>
+	<span class="hljs-variable constant_">One</span> = <span class="hljs-number">1</span>
+}
+
+<span class="hljs-keyword">var</span> some_constructor = <span class="hljs-keyword">new</span> <span class="hljs-title function_ invoke__">SomeConstructor</span>(AnEnum.<span class="hljs-property">Zero</span>);
+
+<span class="hljs-keyword">if</span> (some_constructor.<span class="hljs-title function_ invoke__">do_things</span>(<span class="hljs-string">&quot;0&quot;</span>)) {
+	<span class="hljs-keyword">throw</span> <span class="hljs-string">&quot;idk&quot;</span>;
+}
