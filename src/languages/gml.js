@@ -1227,20 +1227,9 @@ export default function(hljs) {
   };
 
   /**
-   * Dot accessor usage with a special highlighting case for `global`.
+   * Dot accessor usage.
    */
   const PROP_ACCESS = [
-    {
-      match: [
-        "global",
-        DOT_ACCESSOR_RE,
-        VALID_IDENTIFIER_RE
-      ],
-      scope: {
-        1: "literal",
-        3: "property"
-      }
-    },
     {
       match: [
         DOT_ACCESSOR_RE,
