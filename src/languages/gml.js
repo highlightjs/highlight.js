@@ -1170,14 +1170,14 @@ export default function(hljs) {
     variants: [
       {
         begin: /\$"/,
-        end: "\"",
+        end: /\"/,
         beginScope: "string",
         endScope: "string",
         contains: [
           STRING_ESCAPE,
           STRING_SUBSTITUTION,
           {
-            match: /[^\n"{]/,
+            match: /[^\n"{\\]+/,
             scope: "string"
           }
         ]
