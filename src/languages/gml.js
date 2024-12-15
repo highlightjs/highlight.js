@@ -1396,7 +1396,7 @@ export default function(hljs) {
       keywords: {
         keyword: KEYWORDS,
         literal: LITERALS,
-        symbol: LANGUAGE_VARIABLES
+        "variable.language": LANGUAGE_VARIABLES
       },
     }
   );
