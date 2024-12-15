@@ -1054,7 +1054,7 @@ export default function(hljs) {
    */
   const COMMENT_LINE = hljs.COMMENT('//', /$/);
 
-  const JSDOC_TYPE_PARAM_RE = /{ *?[a-zA-Z_][a-zA-Z0-9_\.<>\|]*? *?} *?/;
+  const JSDOC_TYPE_PARAM_RE = /{ *[a-zA-Z_][a-zA-Z0-9_\.<>\|]* *} */;
 
   const JSDOC_ANNOTATIONS = [
     {
@@ -1063,7 +1063,7 @@ export default function(hljs) {
     },
     {
       match: [
-        /@(self|context) *?/,
+        /@(self|context) */,
         JSDOC_TYPE_PARAM_RE
       ],
       scope: {
@@ -1073,7 +1073,7 @@ export default function(hljs) {
     },
     {
       match: [
-        /(@return)s? *?/,
+        /(@return)s? */,
         JSDOC_TYPE_PARAM_RE
       ],
       scope: {
@@ -1083,7 +1083,7 @@ export default function(hljs) {
     },
     {
       match: [
-        /@((param(eter)?)|arg(ument)?) *?/,
+        /@((param(eter)?)|arg(ument)?) */,
         JSDOC_TYPE_PARAM_RE,
         /\[?/,
         VALID_IDENTIFIER_RE,
