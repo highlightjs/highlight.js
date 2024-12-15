@@ -1414,10 +1414,6 @@ export default function(hljs) {
         ]
       },
       {
-        begin: "#define",
-        scope: "meta"
-      },
-      {
         begin: /#(end)?region\b/,
         beginScope: "meta",
         contains: [COMMENT_LINE_INNER]
