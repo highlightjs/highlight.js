@@ -1173,6 +1173,7 @@ export default function(hljs) {
         end: /\"/,
         beginScope: "string",
         endScope: "string",
+        illegal: /\n/,
         contains: [
           STRING_ESCAPE,
           STRING_SUBSTITUTION,
