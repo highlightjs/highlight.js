@@ -1199,7 +1199,6 @@ export default function(hljs) {
         scope: "string",
         begin: "@\"",
         end: "\"",
-        relevance: 10,
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
