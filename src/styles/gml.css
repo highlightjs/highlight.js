@@ -5,75 +5,71 @@ GML Theme - Meseta <meseta@gmail.com>
 */
 
 .hljs {
-  background: #222222;
-  color: #C0C0C0;
+	background: #222222;
+	color: #C0C0C0;
 }
 
-.hljs-keyword {
-  color: #FFB871;
-  font-weight: bold;
+.hljs-keyword,
+.hljs-type,
+.hljs-meta {
+	color: #FFB871;
+	font-weight: bold;
 }
 
 .hljs-title.function_ {
-  color: #FFB871;
+	color: #FFB871;
 }
 
-.hljs-literal {
-  color: #FF8080;
+.hljs-literal,
+.hljs-number,
+.hljs-subst,
+.hljs-char.escape_,
+.hljs-doctag,
+.hljs-variable.constant_ {
+	color: #FF8080;
 }
 
 .hljs-variable.language_ {
-  color: #58E55A;
+	color: #58E55A;
 }
 
-.hljs-property {
-    color: #b2b1ff;
+.hljs-property,
+.hljs-variable {
+	color: #b2b1ff;
 }
 
 .hljs-comment {
-  color: #5B995B;
+	color: #5B995B;
 }
 
 .hljs-string {
-  color: #FFFF00;
-}
-
-.hljs-number {
-  color: #FF8080;
+	color: #FFFF00;
 }
 
 .hljs-attribute,
 .hljs-selector-tag,
-.hljs-doctag,
 .hljs-name,
 .hljs-bullet,
 .hljs-code,
 .hljs-addition,
 .hljs-regexp,
-.hljs-variable,
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
 .hljs-selector-pseudo,
-.hljs-type,
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion,
-.hljs-title,
-.hljs-section,
-.hljs-meta .hljs-keyword,
-
-.hljs-meta,
-.hljs-subst {
-  color: #C0C0C0;
+.hljs-section {
+	color: #C0C0C0;
 }
 
 .hljs-emphasis {
-  font-style: italic;
+	font-style: italic;
 }
 
 .hljs-strong {
-  font-weight: bold;
+	font-weight: bold;
 }
