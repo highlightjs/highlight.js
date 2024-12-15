@@ -1079,7 +1079,8 @@ export default function(hljs) {
       scope: {
         1: "doctag",
         2: "type",
-      }
+      },
+      relevance: 0,
     },
     {
       match: [
@@ -1095,7 +1096,8 @@ export default function(hljs) {
         3: "variable",
         4: "variable",
         5: "variable",
-      }
+      },
+      relevance: 0,
     }
   ];
 
@@ -1106,7 +1108,8 @@ export default function(hljs) {
     begin: /\/\/\//,
     end: /$/,
     scope: "comment",
-    contains: JSDOC_ANNOTATIONS
+    relevance: 0,
+    contains: JSDOC_ANNOTATIONS,
   };
 
   /**
@@ -1116,6 +1119,7 @@ export default function(hljs) {
     begin: /\/\*\*/,
     end: /\*\//,
     scope: "comment",
+    relevance: 0,
     contains: JSDOC_ANNOTATIONS
   };
 
@@ -1173,6 +1177,7 @@ export default function(hljs) {
         end: /\"/,
         beginScope: "string",
         endScope: "string",
+        relevance: 10,
         illegal: /\n/,
         contains: [
           STRING_ESCAPE,
@@ -1187,21 +1192,24 @@ export default function(hljs) {
         scope: "string",
         begin: "@'",
         end: "'",
+        relevance: 10,
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
         scope: "string",
         begin: "@\"",
         end: "\"",
+        relevance: 10,
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
         scope: "string",
         begin: /"/,
         end: /"/,
-        illegal: "\\n",
+        illegal: /\n/,
+        relevance: 0,
         contains: [
-          STRING_ESCAPE, 
+          STRING_ESCAPE,
           STRING_NUMERICAL_SUBSTITUTION
         ]
       }
@@ -1216,9 +1224,9 @@ export default function(hljs) {
     variants: [
       { match: /(\B|^)\$[0-9a-fA-F]+/ },
       { match: /(\B|^)#[0-9a-fA-F]+/ },
-      { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*/ },
-      { match: /\b0b[01][01_]*/ },
-      { match: /\b[0-9][0-9_.]*/ }
+      { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*/, relevance: 0 },
+      { match: /\b0b[01][01_]*/, relevance: 0 },
+      { match: /\b[0-9][0-9_.]*/, relevance: 0 }
     ]
   };
 
@@ -1273,6 +1281,7 @@ export default function(hljs) {
   const USER_ASSET_CONSTANT = {
     scope: "variable.constant",
     end: VALID_IDENTIFIER_RE,
+    relevance: 2,
     variants: [
       { begin: "spr_" },
       { begin: "obj_" },
@@ -1388,7 +1397,7 @@ export default function(hljs) {
         literal: LITERALS,
         "variable.language": LANGUAGE_VARIABLES
       },
-    }
+    },
   );
 
   /**
@@ -1402,6 +1411,7 @@ export default function(hljs) {
           /#macro\s+/,
           VALID_IDENTIFIER_RE
         ],
+        end: /$/,
         scope: {
           1: "meta",
           2: "variable.constant"
