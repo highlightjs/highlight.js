@@ -1149,7 +1149,7 @@ export default function(hljs) {
    */
   const STRING_NUMERICAL_SUBSTITUTION = {
     match: /{[0-9]+}/,
-    scope: "literal"
+    scope: "subst"
   };
 
   /**
