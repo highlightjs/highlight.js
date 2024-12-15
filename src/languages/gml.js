@@ -1413,7 +1413,7 @@ export default function(hljs) {
           VALID_IDENTIFIER_RE
         ],
         scope: {
-          1: "keyword",
+          1: "meta",
           2: "variable.constant"
         },
         contains: [
@@ -1425,11 +1425,12 @@ export default function(hljs) {
         ]
       },
       {
-        begin: "#define"
+        begin: "#define",
+        scope: "meta"
       },
       {
         begin: /#(end)?region\b/,
-        beginScope: "keyword",
+        beginScope: "meta",
         contains: [COMMENT_LINE_INNER]
       },
     ]
