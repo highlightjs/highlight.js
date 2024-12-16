@@ -27,20 +27,20 @@
 	<span class="hljs-variable language_">y</span> += vspd;
 
 	<span class="hljs-keyword">if</span> (DEBUG) {
-		<span class="hljs-title function_ invoke__">show_debug_message</span>(<span class="hljs-string">$&quot;</span><span class="hljs-string">x: </span><span class="hljs-subst">{</span><span class="hljs-variable language_">x</span><span class="hljs-subst">}</span><span class="hljs-string">,</span><span class="hljs-char escape_">\t</span><span class="hljs-string">y: </span><span class="hljs-subst">{</span><span class="hljs-variable language_">y</span><span class="hljs-subst">}</span><span class="hljs-string">&quot;</span>);
+		<span class="hljs-title function_ invoke__">show_debug_message</span>(<span class="hljs-string">$&quot;x: <span class="hljs-subst"><span class="hljs-char escape_">{</span><span class="hljs-variable language_">x</span><span class="hljs-char escape_">}</span></span>,<span class="hljs-char escape_">\t</span>y: <span class="hljs-subst"><span class="hljs-char escape_">{</span><span class="hljs-variable language_">y</span><span class="hljs-char escape_">}</span></span>&quot;</span>);
 	}
 
 }
 
 <span class="hljs-comment">/// <span class="hljs-doctag">@description</span> A sample constructor that does something.</span>
-<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{Real} </span><span class="hljs-variable">[</span><span class="hljs-variable">some_data</span><span class="hljs-variable">=2]</span> Some optional data.</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{Real} </span><span class="hljs-params">[</span><span class="hljs-params">some_data</span><span class="hljs-params">=2]</span> Some optional data.</span>
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">SomeConstructor</span>(some_data = <span class="hljs-number">2</span>) <span class="hljs-keyword">constructor</span> {
 
 	<span class="hljs-literal">self</span>.<span class="hljs-property">some_data</span> = some_data;
 
 	<span class="hljs-comment">/// <span class="hljs-doctag">@description</span> Some example function!</span>
 	<span class="hljs-comment">/// <span class="hljs-doctag">@pure</span></span>
-	<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{String} </span><span class="hljs-variable">stuff</span></span>
+	<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{String} </span><span class="hljs-params">stuff</span></span>
 	<span class="hljs-comment">/// <span class="hljs-doctag">@returns </span><span class="hljs-type">{Bool}</span></span>
 	<span class="hljs-keyword">static</span> do_things = <span class="hljs-title function_ invoke__">function</span>(stuff) {
 		<span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">string_digits</span>(stuff) != stuff) {
