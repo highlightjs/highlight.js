@@ -22,7 +22,6 @@ GML Theme - Meseta <meseta@gmail.com>
 
 .hljs-literal,
 .hljs-number,
-.hljs-subst,
 .hljs-char.escape_,
 .hljs-doctag,
 .hljs-variable.constant_ {
@@ -62,7 +61,8 @@ GML Theme - Meseta <meseta@gmail.com>
 .hljs-quote,
 .hljs-template-tag,
 .hljs-deletion,
-.hljs-section {
+.hljs-section,
+.hljs-subst {
 	color: #C0C0C0;
 }
 

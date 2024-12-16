@@ -1142,8 +1142,9 @@ export default function(hljs) {
   const STRING_SUBSTITUTION = {
     begin: /{/,
     end: /}/,
-    beginScope: "subst",
-    endScope: "subst",
+    beginScope: "char.escape",
+    endScope: "char.escape",
+    scope: "subst",
     contains: EXPRESSION
   };
 
@@ -1175,17 +1176,12 @@ export default function(hljs) {
       {
         begin: /\$"/,
         end: /\"/,
-        beginScope: "string",
-        endScope: "string",
+        scope: "string",
         relevance: 10,
         illegal: /\n/,
         contains: [
           STRING_ESCAPE,
-          STRING_SUBSTITUTION,
-          {
-            match: /[^\n"{\\]+/,
-            scope: "string"
-          }
+          STRING_SUBSTITUTION
         ]
       },
       {
