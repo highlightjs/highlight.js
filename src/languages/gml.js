@@ -1093,9 +1093,9 @@ export default function(hljs) {
       scope: {
         1: "doctag",
         2: "type",
-        3: "variable",
-        4: "variable",
-        5: "variable",
+        3: "params",
+        4: "params",
+        5: "params",
       },
       relevance: 0,
     }
