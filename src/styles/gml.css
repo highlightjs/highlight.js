@@ -33,7 +33,8 @@ GML Theme - Meseta <meseta@gmail.com>
 }
 
 .hljs-property,
-.hljs-variable {
+.hljs-variable,
+.hljs-params {
 	color: #b2b1ff;
 }
 
