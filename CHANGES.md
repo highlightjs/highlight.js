@@ -7,6 +7,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(ruby) correct bitwise OR(|) highlighting 
 - fix(rust) - adds emoji support in single quote strings [joshgoebel][]
 - fix(apache) - support line continuation via `\` [Josh Goebel][]
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
