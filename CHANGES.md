@@ -1,3 +1,8 @@
+## Version 11.11.1
+
+- Fixes regression with Rust grammar.
+
+
 ## Version 11.11.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES

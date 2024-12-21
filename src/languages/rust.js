@@ -199,6 +199,10 @@ export default function(hljs) {
         illegal: null
       }),
       {
+        className: 'symbol',
+        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
+      },
+      {
         scope: 'string',
         variants: [
           { begin: /b?r(#*)"(.|\n)*?"\1(?!#)/ },
@@ -213,10 +217,6 @@ export default function(hljs) {
             ]
           }
         ]
-      },
-      {
-        className: 'symbol',
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
       },
       {
         className: 'number',
