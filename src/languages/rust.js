@@ -200,7 +200,8 @@ export default function(hljs) {
       }),
       {
         className: 'symbol',
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
+        // negative lookahead to avoid matching `'`
+        begin: /'[a-zA-Z_][a-zA-Z0-9_]*(?!')/
       },
       {
         scope: 'string',
