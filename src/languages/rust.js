@@ -213,7 +213,7 @@ export default function(hljs) {
             contains: [
               {
                 scope: "char.escape",
-                match: /\\(\w|x\w{2}|u\w{4}|U\w{8})/
+                match: /\\('|\w|x\w{2}|u\w{4}|U\w{8})/
               }
             ]
           }
