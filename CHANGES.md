@@ -108,6 +108,7 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(cpp) Keywords followed by parens are treated as built_in [Md Saad Akhtar][]
 - enh(typescript) add support for `satisfies` operator [Kisaragi Hiu][]
 - enc(c) added more C23 keywords [Melkor-1][]
 - enh(json) added jsonc as an alias [BackupMiles][]
@@ -232,7 +233,6 @@ New Grammars:
 - added 3rd party Ballerina grammar to SUPPORTED_LANGUAGES [Yasith Deelaka][]
 
 Core Grammars:
-
 - fix(cpp) fixed highlighter break state [Md Saad Akhtar][]
 - fix(rust) added negative-lookahead for callable keywords `if` `while` `for` [Omar Hussein][]
 - enh(armasm) added `x0-x30` and `w0-w30` ARMv8 registers [Nicholas Thompson][]
