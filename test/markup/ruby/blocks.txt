@@ -5,3 +5,6 @@ end
 names |= users.map do |user|
   user.name
 end
+
+bitwise_or = 1 | 2
+not_registered_as_param

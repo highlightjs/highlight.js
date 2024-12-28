@@ -5,3 +5,6 @@
 names |= users.map <span class="hljs-keyword">do</span> |<span class="hljs-params">user</span>|
   user.name
 <span class="hljs-keyword">end</span>
+
+bitwise_or = <span class="hljs-number">1</span> | <span class="hljs-number">2</span>
+not_registered_as_param
