@@ -806,18 +806,6 @@ const HighlightJS = function() {
     options = inherit(options, userOptions);
   }
 
-  // TODO: remove v12, deprecated
-  const initHighlighting = () => {
-    highlightAll();
-    logger.deprecated("10.6.0", "initHighlighting() deprecated.  Use highlightAll() now.");
-  };
-
-  // TODO: remove v12, deprecated
-  function initHighlightingOnLoad() {
-    highlightAll();
-    logger.deprecated("10.6.0", "initHighlightingOnLoad() deprecated.  Use highlightAll() now.");
-  }
-
   let wantsHighlight = false;
 
   /**
@@ -999,8 +987,6 @@ const HighlightJS = function() {
     // TODO: Remove with v12 API
     highlightBlock: deprecateHighlightBlock,
     configure,
-    initHighlighting,
-    initHighlightingOnLoad,
     registerLanguage,
     unregisterLanguage,
     listLanguages,
