@@ -11,7 +11,6 @@ export default function(hljs) {
     aliases: [
       'text',
       'txt'
-    ],
-    disableAutodetect: true
+    ]
   };
 }

@@ -52,7 +52,7 @@ export default function(hljs) {
   };
 
   const PRED_OP = { // relevance booster
-    begin: /:-/ 
+    begin: /:-/
   };
 
   const inner = [
@@ -76,11 +76,9 @@ export default function(hljs) {
 
   return {
     name: 'Prolog',
-    // not enough signal/keywords
-    disableAutodetect: true,
     contains: [
       ...inner,
-      { 
+      {
         begin: /\.$/  // relevance booster
       }
     ]
