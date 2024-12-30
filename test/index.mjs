@@ -1,7 +1,7 @@
 'use strict';
 
+
 import { hljs } from "../build/lib/all.js";
-hljs.debugMode(); // tests run in debug mode so errors are raised
 
 // Tests specific to the API exposed inside the hljs object.
 // Right now, that only includes tests for several common regular expressions.
@@ -29,3 +29,5 @@ import './regex/index.mjs';
 // isn't actually used to test inside a browser but `jsdom` acts as a virtual
 // browser inside of node.js and runs together with all the other tests.
 import './special/index.mjs';
+
+hljs.debugMode(); // tests run in debug mode so errors are raised
