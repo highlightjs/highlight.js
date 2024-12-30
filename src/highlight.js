@@ -666,60 +666,6 @@ const HighlightJS = function() {
   }
 
   /**
-  Highlighting with language detection. Accepts a string with the code to
-  highlight. Returns an object with the following properties:
-
-  - language (detected language)
-  - relevance (int)
-  - value (an HTML string with highlighting markup)
-  - secondBest (object with the same structure for second-best heuristically
-    detected language, may be absent)
-
-    @param {string} code
-    @param {Array<string>} [languageSubset]
-    @returns {AutoHighlightResult}
-  */
-  function highlightAuto(code, languageSubset) {
-    languageSubset = languageSubset || options.languages || Object.keys(languages);
-    code = code.replace(/\r\n/g,"\n");
-
-    const plaintext = justTextHighlightResult(code);
-    const results = languageSubset.filter(getLanguage).filter(autoDetection).map(name =>
-      _highlight(name, code, false)
-    );
-    results.unshift(plaintext); // plaintext is always an option
-
-    const sorted = results.sort((a, b) => {
-      // sort base on relevance
-      if (a.relevance !== b.relevance) return b.relevance - a.relevance;
-
-      // always award the tie to the base language
-      // ie if C++ and Arduino are tied, it's more likely to be C++
-      if (a.language && b.language) {
-        if (getLanguage(a.language).supersetOf === b.language) {
-          return 1;
-        } else if (getLanguage(b.language).supersetOf === a.language) {
-          return -1;
-        }
-      }
-
-      // otherwise say they are equal, which has the effect of sorting on
-      // relevance while preserving the original ordering - which is how ties
-      // have historically been settled, ie the language that comes first always
-      // wins in the case of a tie
-      return 0;
-    });
-
-    const [best, secondBest] = sorted;
-
-    /** @type {AutoHighlightResult} */
-    const result = best;
-    result.secondBest = secondBest;
-
-    return result;
-  }
-
-  /**
    * Builds new class name for block given the language name
    *
    * @param {HTMLElement} element
