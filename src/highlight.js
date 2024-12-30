@@ -913,33 +913,9 @@ const HighlightJS = function() {
   }
 
   /**
-   * Upgrades the old highlightBlock plugins to the new
-   * highlightElement API
-   * @param {HLJSPlugin} plugin
-   */
-  function upgradePluginAPI(plugin) {
-    // TODO: remove with v12
-    if (plugin["before:highlightBlock"] && !plugin["before:highlightElement"]) {
-      plugin["before:highlightElement"] = (data) => {
-        plugin["before:highlightBlock"](
-          Object.assign({ block: data.el }, data)
-        );
-      };
-    }
-    if (plugin["after:highlightBlock"] && !plugin["after:highlightElement"]) {
-      plugin["after:highlightElement"] = (data) => {
-        plugin["after:highlightBlock"](
-          Object.assign({ block: data.el }, data)
-        );
-      };
-    }
-  }
-
-  /**
    * @param {HLJSPlugin} plugin
    */
   function addPlugin(plugin) {
-    upgradePluginAPI(plugin);
     plugins.push(plugin);
   }
 
