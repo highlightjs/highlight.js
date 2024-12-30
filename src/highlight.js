@@ -850,15 +850,6 @@ const HighlightJS = function() {
   }
 
   /**
-   * Determines if a given language has auto-detection enabled
-   * @param {string} name - name of the language
-   */
-  function autoDetection(name) {
-    const lang = getLanguage(name);
-    return lang && !lang.disableAutodetect;
-  }
-
-  /**
    * @param {HLJSPlugin} plugin
    */
   function addPlugin(plugin) {
@@ -906,7 +897,6 @@ const HighlightJS = function() {
     listLanguages,
     getLanguage,
     registerAliases,
-    autoDetection,
     inherit,
     addPlugin,
     removePlugin
