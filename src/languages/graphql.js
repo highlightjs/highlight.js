@@ -13,7 +13,6 @@ export default function(hljs) {
     name: "GraphQL",
     aliases: [ "gql" ],
     case_insensitive: true,
-    disableAutodetect: false,
     keywords: {
       keyword: [
         "query",

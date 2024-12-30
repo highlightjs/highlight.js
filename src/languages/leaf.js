@@ -52,8 +52,6 @@ export default function(hljs) {
 
   return {
     name: 'Leaf',
-    // not enough signal
-    disableAutodetect: true,
     contains: [
       // #ident():
       {
