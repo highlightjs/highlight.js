@@ -168,7 +168,6 @@ declare module 'highlight.js' {
         unicodeRegex?: boolean
         rawDefinition?: () => Language
         aliases?: string[]
-        disableAutodetect?: boolean
         contains: (Mode)[]
         case_insensitive?: boolean
         keywords?: string | string[] | Record<string, string | string[] | RegExp>
