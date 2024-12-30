@@ -967,25 +967,12 @@ const HighlightJS = function() {
     });
   }
 
-  /**
-   * DEPRECATED
-   * @param {HighlightedHTMLElement} el
-   */
-  function deprecateHighlightBlock(el) {
-    logger.deprecated("10.7.0", "highlightBlock will be removed entirely in v12.0");
-    logger.deprecated("10.7.0", "Please use highlightElement now.");
-
-    return highlightElement(el);
-  }
-
   /* Interface definition */
   Object.assign(hljs, {
     highlight,
     highlightAuto,
     highlightAll,
     highlightElement,
-    // TODO: Remove with v12 API
-    highlightBlock: deprecateHighlightBlock,
     configure,
     registerLanguage,
     unregisterLanguage,
