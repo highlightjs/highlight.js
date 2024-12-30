@@ -202,7 +202,6 @@ export default function(hljs) {
 
   return {
     name: 'YAML',
-    disableAutodetect: true,
     case_insensitive: true,
     aliases: [ 'yml' ],
     contains: MODES

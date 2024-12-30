@@ -63,7 +63,7 @@ const HighlightJS = function() {
   let SAFE_MODE = true;
   const LANGUAGE_NOT_FOUND = "Could not find the language '{}', did you forget to load/include a language module?";
   /** @type {Language} */
-  const PLAINTEXT_LANGUAGE = { disableAutodetect: true, name: 'Plain text', contains: [] };
+  const PLAINTEXT_LANGUAGE = { name: 'Plain text', contains: [] };
 
   // Global options used when within external APIs. This is modified when
   // calling the `hljs.configure` function.

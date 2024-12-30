@@ -179,8 +179,6 @@ export default function(hljs) {
     // Some implementations (CNC controls) of G-code are interoperable with uppercase and lowercase letters seamlessly.
     // However, most prefer all uppercase and uppercase is customary.
     case_insensitive: true,
-    // TODO: post v12 with the use of look-behind this can be enabled
-    disableAutodetect: true,
     keywords: GCODE_KEYWORDS,
     contains: GCODE_CODE
   };

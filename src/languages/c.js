@@ -289,9 +289,6 @@ export default function(hljs) {
     name: "C",
     aliases: [ 'h' ],
     keywords: KEYWORDS,
-    // Until differentiations are added between `c` and `cpp`, `c` will
-    // not be auto-detected to avoid auto-detect conflicts between C and C++
-    disableAutodetect: true,
     illegal: '</',
     contains: [].concat(
       EXPRESSION_CONTEXT,
