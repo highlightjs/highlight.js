@@ -23,6 +23,9 @@ function cleanName(raw_name) {
   if (name == "1c") {
     name = "onec";
   }
+  if (name == "1c_enterprise") {
+    name = "onec_enterprise";
+  }
   return name;
 }
 
