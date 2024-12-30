@@ -6,4 +6,4 @@ A module for basic arithmetic.
 <span class="hljs-keyword">-export</span><span class="hljs-params">([add/<span class="hljs-number">2</span>])</span>.
 
 <span class="hljs-keyword">-doc</span> <span class="hljs-string">&quot;Adds two numbers.&quot;</span>.
-<span class="hljs-function"><span class="hljs-title">add</span><span class="hljs-params">(One, Two)</span> -&gt;</span> One + Two.
+<span class="hljs-title function_">add</span><span class="hljs-params">(One, Two)</span> -&gt; One + Two.
