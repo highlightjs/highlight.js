@@ -96,15 +96,6 @@ For a list of all supported scope names please see the :doc:`Scopes Reference
 </scope-reference>`.
 
 
-disableAutodetect
-^^^^^^^^^^^^^^^^^
-
-- **type**: boolean
-
-Disables autodetection for this language.
-(defaults to false, meaning auto-detect is enabled)
-
-
 __emitTokens
 ^^^^^^^^^^^^
 
