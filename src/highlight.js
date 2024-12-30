@@ -929,6 +929,11 @@ const HighlightJS = function() {
     }
   }
 
+  function errorHighlightAuto() {
+    logger.error("highlightAuto has been removed in v12.0.");
+    logger.error("Please use highlight(code) to manually highlight.");
+  }
+
   /**
    *
    * @param {PluginEvent} event
@@ -946,7 +951,7 @@ const HighlightJS = function() {
   /* Interface definition */
   Object.assign(hljs, {
     highlight,
-    highlightAuto,
+    highlightAuto: errorHighlightAuto,
     highlightAll,
     highlightElement,
     configure,
