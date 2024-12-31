@@ -176,8 +176,7 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.C_NUMBER_MODE,
       {
-        className: 'meta',
-        relevance: 0.9,
+        scope: 'meta',
         begin: '#',
         end: '$'
       },
