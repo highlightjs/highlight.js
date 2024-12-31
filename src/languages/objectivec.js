@@ -235,7 +235,6 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'class',
         begin: '(' + CLASS_KEYWORDS.keyword.join('|') + ')\\b',
         end: /(\{|$)/,
         excludeEnd: true,
@@ -243,6 +242,7 @@ export default function(hljs) {
         contains: [ hljs.UNDERSCORE_TITLE_MODE ]
       },
       {
+        // guard
         begin: '\\.' + hljs.UNDERSCORE_IDENT_RE,
         relevance: 0
       }
