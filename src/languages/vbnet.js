@@ -106,8 +106,7 @@ export default function(hljs) {
     // TODO: Use multi-class for indentation once available
     begin: /[\t ]*#(const|disable|else|elseif|enable|end|externalsource|if|region)\b/,
     end: /$/,
-    keywords: { keyword:
-        'const disable else elseif enable end externalsource if region then' },
+    keywords: 'const disable else elseif enable end externalsource if region then',
     contains: [ COMMENT ]
   };
 
