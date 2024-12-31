@@ -56,7 +56,9 @@ export default function(hljs) {
       className: 'built_in',
       begin: '@__' + hljs.IDENT_RE
     },
-    { begin: '@' + hljs.IDENT_RE // relevance booster on par with CoffeeScript
+    { 
+      scope: "variable",
+      begin: '@' + hljs.IDENT_RE // relevance booster on par with CoffeeScript
     },
     { begin: hljs.IDENT_RE + '\\\\' + hljs.IDENT_RE // inst\method
     }
@@ -89,7 +91,7 @@ export default function(hljs) {
     contains: EXPRESSIONS.concat([
       hljs.COMMENT('--', '$'),
       {
-        className: 'function', // function: -> =>
+        // function: -> =>
         begin: '^\\s*' + JS_IDENT_RE + '\\s*=\\s*' + POSSIBLE_PARAMS_RE,
         end: '[-=]>',
         returnBegin: true,
@@ -103,7 +105,6 @@ export default function(hljs) {
         relevance: 0,
         contains: [
           {
-            className: 'function',
             begin: POSSIBLE_PARAMS_RE,
             end: '[-=]>',
             returnBegin: true,
@@ -112,7 +113,6 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'class',
         beginKeywords: 'class',
         end: '$',
         illegal: /[:="\[\]]/,
@@ -128,11 +128,7 @@ export default function(hljs) {
       },
       {
         className: 'name', // table
-        begin: JS_IDENT_RE + ':',
-        end: ':',
-        returnBegin: true,
-        returnEnd: true,
-        relevance: 0
+        begin: JS_IDENT_RE + '(?=:)'
       }
     ])
   };
