@@ -25,11 +25,8 @@ export default function(hljs) {
   const HEADERS_AND_BODY = [
     HEADER,
     {
-      begin: '\\n\\n',
-      starts: {
-        subLanguage: [],
-        endsWithParent: true
-      }
+      begin: /\n\n/,
+      end: hljs.MATCH_NOTHING_RE
     }
   ];
 
