@@ -133,7 +133,8 @@ export default function(hljs) {
         // compiler annotation
         className: 'meta',
         begin: '@[a-z]\\w*(?::"[^"]*")?'
-      }
-    ].concat(EXPRESSIONS)
+      },
+      ...EXPRESSIONS
+    ]
   };
 }

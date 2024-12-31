@@ -164,8 +164,9 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       hljs.BINARY_NUMBER_MODE,
       hljs.C_NUMBER_MODE,
-      TITLE1
-    ].concat(COMMENT_MODES),
+      TITLE1,
+      ...COMMENT_MODES
+    ],
     illegal: ';$|^\\[|^=|&|\\{'
   };
 }

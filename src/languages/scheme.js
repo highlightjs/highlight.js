@@ -181,8 +181,9 @@ export default function(hljs) {
     IDENT,
     QUOTED_IDENT,
     QUOTED_LIST,
-    LIST
-  ].concat(COMMENT_MODES);
+    LIST,
+    ...COMMENT_MODES
+  ];
 
   return {
     name: 'Scheme',
@@ -194,7 +195,8 @@ export default function(hljs) {
       STRING,
       QUOTED_IDENT,
       QUOTED_LIST,
-      LIST
-    ].concat(COMMENT_MODES)
+      LIST,
+      ...COMMENT_MODES
+    ]
   };
 }
