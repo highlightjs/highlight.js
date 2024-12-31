@@ -66,7 +66,6 @@ export default function(hljs) {
     {
       className: 'builtin-symbol',
       match: SYMBOL_RE,
-      relevance: 1,
       // for performance out of fear of regex.either(...Mathematica.SYSTEM_SYMBOLS)
       "on:begin": (match, response) => {
         if (!SYSTEM_SYMBOLS_SET.has(match[0])) response.ignoreMatch();
@@ -74,7 +73,6 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      relevance: 0,
       begin: SYMBOL_RE
     }
   ] };
@@ -91,25 +89,21 @@ export default function(hljs) {
   };
   const PATTERNS = {
     className: 'pattern',
-    relevance: 0,
     begin: /([a-zA-Z$][a-zA-Z0-9$]*)?_+([a-zA-Z$][a-zA-Z0-9$]*)?/
   };
 
   const SLOTS = {
     className: 'slot',
-    relevance: 0,
     begin: /#[a-zA-Z$][a-zA-Z0-9$]*|#+[0-9]?/
   };
 
   const BRACES = {
     className: 'brace',
-    relevance: 0,
     begin: /[[\](){}]/
   };
 
   const MESSAGES = {
     className: 'message-name',
-    relevance: 0,
     begin: regex.concat("::", SYMBOL_RE)
   };
 

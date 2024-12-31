@@ -148,11 +148,7 @@ export default function(hljs) {
     illegal: /\/\*/,
     contains: [
       hljs.COMMENT('#rem', '#end'),
-      hljs.COMMENT(
-        "'",
-        '$',
-        { relevance: 0 }
-      ),
+      hljs.COMMENT("'",'$'),
       FUNC_DEFINITION,
       CLASS_DEFINITION,
       {

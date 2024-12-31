@@ -186,8 +186,7 @@ export default function(hljs) {
         contains: [
           hljs.BACKSLASH_ESCAPE,
           PROMPT
-        ],
-        relevance: 2
+        ]
       },
       {
         begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?"""/,
@@ -195,8 +194,7 @@ export default function(hljs) {
         contains: [
           hljs.BACKSLASH_ESCAPE,
           PROMPT
-        ],
-        relevance: 2
+        ]
       },
       {
         begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'''/,
@@ -382,8 +380,7 @@ export default function(hljs) {
       {
         // eat "if" prior to string so that it won't accidentally be
         // labeled as an f-string
-        beginKeywords: "if",
-        relevance: 0
+        beginKeywords: "if"
       },
       { match: /\bor\b/, scope: "keyword" },
       STRING,

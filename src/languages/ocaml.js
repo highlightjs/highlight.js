@@ -60,10 +60,7 @@ export default function(hljs) {
         begin: '[a-z_]\\w*\'[\\w\']*',
         relevance: 0
       },
-      hljs.inherit(hljs.APOS_STRING_MODE, {
-        className: 'string',
-        relevance: 0
-      }),
+      hljs.APOS_STRING_MODE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
         className: 'number',

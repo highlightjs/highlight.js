@@ -80,14 +80,8 @@ export default function(hljs) {
     keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: [
-      hljs.inherit(hljs.APOS_STRING_MODE, {
-        className: 'string',
-        relevance: 0
-      }),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        className: 'string',
-        relevance: 0
-      }),
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
       {
         beginKeywords: 'subroutine function program',
         illegal: '[${=\\n]',

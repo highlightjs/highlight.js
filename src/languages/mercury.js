@@ -43,8 +43,8 @@ export default function(hljs) {
     begin: "0'.\\|0[box][0-9a-fA-F]*"
   };
 
-  const ATOM = hljs.inherit(hljs.APOS_STRING_MODE, { relevance: 0 });
-  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { relevance: 0 });
+  const ATOM = hljs.APOS_STRING_MODE;
+  const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE);
   const STRING_FMT = {
     className: 'subst',
     begin: '\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]',

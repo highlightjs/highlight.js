@@ -11,7 +11,6 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta.prompt',
-        relevance: 1,
         starts: {
           // a space separates the REPL prefix from the actual code
           // this is purely for cleaner HTML output
