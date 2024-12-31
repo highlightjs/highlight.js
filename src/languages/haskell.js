@@ -127,7 +127,6 @@ export default function(hljs) {
         illegal: '\\W\\.|;'
       },
       {
-        className: 'class',
         begin: '^(\\s*)?(class|instance)\\b',
         end: 'where',
         keywords: 'class family instance where',
@@ -138,7 +137,6 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'class',
         begin: '\\b(data|(new)?type)\\b',
         end: '$',
         keywords: 'data family type newtype deriving',
@@ -178,11 +176,7 @@ export default function(hljs) {
           COMMENT
         ]
       },
-      {
-        className: 'meta',
-        begin: '#!\\/usr\\/bin\\/env\ runhaskell',
-        end: '$'
-      },
+      hljs.SHEBANG({binary: "runhaskell"}),
       // "Whitespaces".
       PRAGMA,
       PREPROCESSOR,
