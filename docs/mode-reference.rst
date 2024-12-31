@@ -654,7 +654,7 @@ Further info: https://github.com/highlightjs/highlight.js/issues/826
 subLanguage
 ^^^^^^^^^^^
 
-- **type**: string or array
+- **type**: string
 
 Highlights the entire contents of the mode with another language.
 
@@ -663,11 +663,7 @@ When using this attribute there's no point to define internal parsing rules like
 since the sublanguage already wraps the text in its own ``<span
 class="language-name">`` tag.
 
-The value of the attribute controls which language or languages will be used for highlighting:
-
-* language name: explicit highlighting with the specified language
-* empty array: auto detection with all the languages available
-* array of language names: auto detection constrained to the specified set
+The value of the attribute controls which language ill be used for highlighting.
 
 
 skip
