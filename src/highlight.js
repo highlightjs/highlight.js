@@ -242,7 +242,10 @@ const HighlightJS = function() {
         result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage]);
         continuations[top.subLanguage] = /** @type {CompiledMode} */ (result._top);
       } else {
-        result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
+        // TODO: hook for language detector
+        let lang = top.subLanguage.length ? top.subLanguage[0] : null;
+        result = highlight(modeBuffer, {language: lang} )
+        // result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
       }
 
       // Counting embedded language score towards the host language may be disabled
