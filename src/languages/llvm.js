@@ -35,9 +35,7 @@ export default function(hljs) {
   };
   const LABEL = {
     className: 'symbol',
-    variants: [ { begin: /^\s*[a-z]+:/ }, // labels
-    ],
-    relevance: 0
+    begin: /^\s*[a-z]+:/ 
   };
   const VARIABLE = {
     className: 'variable',
@@ -48,7 +46,7 @@ export default function(hljs) {
     ]
   };
   const FUNCTION = {
-    className: 'title',
+    className: 'title.function',
     variants: [
       { begin: regex.concat(/@/, IDENT_RE) },
       { begin: /@\d+/ },
