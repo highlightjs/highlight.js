@@ -1,21 +1,3 @@
-// keywords that should have no default relevance value
-const COMMON_KEYWORDS = [
-  'of',
-  'and',
-  'for',
-  'in',
-  'not',
-  'or',
-  'if',
-  'then',
-  'parent', // common variable name
-  'list', // common variable name
-  'value', // common variable name
-  'it',
-  'is',
-  'at'
-];
-
 const DEFAULT_KEYWORD_SCOPE = "keyword";
 
 /**
@@ -25,7 +7,7 @@ const DEFAULT_KEYWORD_SCOPE = "keyword";
  * @param {boolean} caseInsensitive
  */
 export function compileKeywords(rawKeywords, caseInsensitive, scopeName = DEFAULT_KEYWORD_SCOPE) {
-  /** @type {import("highlight.js/private").KeywordDict} */
+  /** @type {Record<string,string>} */
   const compiledKeywords = Object.create(null);
 
   // input can be a string of keywords, an array of keywords, or a object with
@@ -60,34 +42,9 @@ export function compileKeywords(rawKeywords, caseInsensitive, scopeName = DEFAUL
       keywordList = keywordList.map(x => x.toLowerCase());
     }
     keywordList.forEach(function(keyword) {
+      // we keep this for legacy support to remove `|x` from keywords
       const pair = keyword.split('|');
-      compiledKeywords[pair[0]] = [scopeName, scoreForKeyword(pair[0], pair[1])];
+      compiledKeywords[pair[0]] = scopeName;
     });
   }
-}
-
-/**
- * Returns the proper score for a given keyword
- *
- * Also takes into account comment keywords, which will be scored 0 UNLESS
- * another score has been manually assigned.
- * @param {string} keyword
- * @param {string} [providedScore]
- */
-function scoreForKeyword(keyword, providedScore) {
-  // manual scores always win over common keywords
-  // so you can force a score of 1 if you really insist
-  if (providedScore) {
-    return Number(providedScore);
-  }
-
-  return commonKeyword(keyword) ? 0 : 1;
-}
-
-/**
- * Determines if a given keyword is common or not
- *
- * @param {string} keyword */
-function commonKeyword(keyword) {
-  return COMMON_KEYWORDS.includes(keyword.toLowerCase());
 }
