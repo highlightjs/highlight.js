@@ -22,11 +22,17 @@ export default function(hljs) {
     hljs.COMMENT('--', '$'),
     hljs.COMMENT('[^:]//', '$')
   ];
-  const TITLE1 = hljs.inherit(hljs.TITLE_MODE, { variants: [
-    { begin: '\\b_*rig[A-Z][A-Za-z0-9_\\-]*' },
-    { begin: '\\b_[a-z0-9\\-]+' }
-  ] });
-  const TITLE2 = hljs.inherit(hljs.TITLE_MODE, { begin: '\\b([A-Za-z0-9_\\-]+)\\b' });
+  const TITLE1 = hljs.inherit(hljs.TITLE_MODE, { 
+    scope: "title.function",
+    variants: [
+      { begin: '\\b_*rig[A-Z][A-Za-z0-9_\\-]*' },
+      { begin: '\\b_[a-z0-9\\-]+' }
+    ]
+   });
+  const TITLE2 = hljs.inherit(hljs.TITLE_MODE, { 
+    scope: "title.function",
+    begin: '\\b([A-Za-z0-9_\\-]+)\\b' 
+  });
   return {
     name: 'LiveCode',
     case_insensitive: false,
@@ -112,7 +118,6 @@ export default function(hljs) {
         begin: '\\bend\\sif\\b'
       },
       {
-        className: 'function',
         beginKeywords: 'function',
         end: '$',
         contains: [
@@ -126,7 +131,6 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'function',
         begin: '\\bend\\s+',
         end: '$',
         keywords: 'end',
