@@ -89,11 +89,10 @@ export default function(hljs) {
         relevance: 0
       }),
       {
-        className: 'function',
         beginKeywords: 'subroutine function program',
         illegal: '[${=\\n]',
         contains: [
-          hljs.UNDERSCORE_TITLE_MODE,
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {scope: "title.function" }),
           PARAMS
         ]
       },

@@ -44,11 +44,12 @@ export default function(hljs) {
     illegal: '(//|"|#|/\\*|\\s+/\\w+)',
     contains: [
       {
-        className: 'function',
         beginKeywords: 'function',
         end: '$',
         contains: [
-          hljs.UNDERSCORE_TITLE_MODE,
+          hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {
+            scope: "title.function"
+          }),
           {
             className: 'params',
             variants: [

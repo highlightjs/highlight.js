@@ -49,6 +49,8 @@ export default function(hljs) {
     // built-ins
     + 'true false null undefined';
 
+  const TITLE_CLASS = hljs.inherit(TITLE_MODE, {scope: "title.class"});
+
   return {
     name: 'Zephir',
     aliases: [ 'zep' ],
@@ -75,13 +77,12 @@ export default function(hljs) {
         // swallow composed identifiers to avoid parsing them as keywords
         begin: /(::|->)+[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/ },
       {
-        className: 'function',
         beginKeywords: 'function fn',
         end: /[;{]/,
         excludeEnd: true,
         illegal: /\$|\[|%/,
         contains: [
-          TITLE_MODE,
+          hljs.inherit(TITLE_MODE, {scope: "title.function"}),
           {
             className: 'params',
             begin: /\(/,
@@ -97,28 +98,28 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'class',
         beginKeywords: 'class interface',
         end: /\{/,
         excludeEnd: true,
         illegal: /[:($"]/,
         contains: [
           { beginKeywords: 'extends implements' },
-          TITLE_MODE
+          TITLE_CLASS
         ]
       },
       {
         beginKeywords: 'namespace',
         end: /;/,
         illegal: /[.']/,
-        contains: [ TITLE_MODE ]
+        contains: [ TITLE_CLASS ]
       },
       {
         beginKeywords: 'use',
         end: /;/,
-        contains: [ TITLE_MODE ]
+        contains: [ TITLE_CLASS ]
       },
-      { begin: /=>/ // No markup, just a relevance booster
+      { 
+        begin: /=>/ // No markup, just a relevance booster
       },
       STRING,
       NUMBER

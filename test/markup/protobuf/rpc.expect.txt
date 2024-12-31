@@ -1,4 +1,4 @@
 <span class="hljs-keyword">service </span><span class="hljs-title class_">Greeter</span> {
   <span class="hljs-comment">// Sends a greeting</span>
-  <span class="hljs-function"><span class="hljs-keyword">rpc</span> SayHello (HelloRequest) <span class="hljs-keyword">returns</span> (HelloReply) </span>{}
+  <span class="hljs-keyword">rpc </span><span class="hljs-title function_">SayHello</span> (HelloRequest) <span class="hljs-keyword">returns</span> (HelloReply) {}
 }

@@ -1,4 +1,4 @@
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span>;</span> <span class="hljs-keyword">end</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Bar</span>;</span> <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span>; <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Bar</span>; <span class="hljs-keyword">end</span>
 
-<span class="hljs-keyword">annotation</span> <span class="hljs-title">JSON::Field</span>; <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">annotation</span> <span class="hljs-title class_">JSON::Field</span>; <span class="hljs-keyword">end</span>

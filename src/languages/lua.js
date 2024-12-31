@@ -51,11 +51,13 @@ export default function(hljs) {
     },
     contains: COMMENTS.concat([
       {
-        className: 'function',
         beginKeywords: 'function',
         end: '\\)',
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
+          hljs.inherit(hljs.TITLE_MODE, { 
+            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*',
+            scope: "title.function"
+          }),
           {
             className: 'params',
             begin: '\\(',
