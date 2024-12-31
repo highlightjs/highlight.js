@@ -274,10 +274,10 @@ export default function(hljs) {
       // because both MUST contain a decimal point and so cannot be confused with
       // the interior part of an identifier
       {
-        begin: `(\\b(${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?(?=${lookahead})`
+        match: `(\\b(${digitpart})|(${pointfloat}))[eE][+-]?(${digitpart})[jJ]?(?=${lookahead})`
       },
       {
-        begin: `(${pointfloat})[jJ]?`
+        match: `(${pointfloat})[jJ]?`
       },
 
       // decinteger, bininteger, octinteger, hexinteger
@@ -287,22 +287,22 @@ export default function(hljs) {
       // decinteger is optionally imaginary
       // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
       {
-        begin: `\\b([1-9](_?[0-9])*|0+(_?0)*)[lLjJ]?(?=${lookahead})`
+        match: `\\b([1-9](_?[0-9])*|0+(_?0)*)[lLjJ]?(?=${lookahead})`
       },
       {
-        begin: `\\b0[bB](_?[01])+[lL]?(?=${lookahead})`
+        match: `\\b0[bB](_?[01])+[lL]?(?=${lookahead})`
       },
       {
-        begin: `\\b0[oO](_?[0-7])+[lL]?(?=${lookahead})`
+        match: `\\b0[oO](_?[0-7])+[lL]?(?=${lookahead})`
       },
       {
-        begin: `\\b0[xX](_?[0-9a-fA-F])+[lL]?(?=${lookahead})`
+        match: `\\b0[xX](_?[0-9a-fA-F])+[lL]?(?=${lookahead})`
       },
 
       // imagnumber (digitpart-based)
       // https://docs.python.org/3.9/reference/lexical_analysis.html#imaginary-literals
       {
-        begin: `\\b(${digitpart})[jJ](?=${lookahead})`
+        match: `\\b(${digitpart})[jJ](?=${lookahead})`
       }
     ]
   };
