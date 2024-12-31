@@ -218,25 +218,23 @@ export default function(hljs) {
     VARIABLE,
     hljs.HASH_COMMENT_MODE,
     {
-      className: 'class',
       beginKeywords: 'class module struct',
       end: '$|;',
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE }),
+        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE, scope: "title.class" }),
         { // relevance booster for inheritance
           begin: '<' }
       ]
     },
     {
-      className: 'class',
       beginKeywords: 'lib enum union',
       end: '$|;',
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE })
+        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE, scope: "title.class" })
       ]
     },
     {
@@ -245,28 +243,28 @@ export default function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE })
+        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE, scope: "title.class" })
       ],
       relevance: 2
     },
     {
-      className: 'function',
       beginKeywords: 'def',
       end: /\B\b/,
       contains: [
         hljs.inherit(hljs.TITLE_MODE, {
           begin: CRYSTAL_METHOD_RE,
+          scope: "title.function",
           endsParent: true
         })
       ]
     },
     {
-      className: 'function',
       beginKeywords: 'fun macro',
       end: /\B\b/,
       contains: [
         hljs.inherit(hljs.TITLE_MODE, {
           begin: CRYSTAL_METHOD_RE,
+          scope: "title.function",
           endsParent: true
         })
       ],

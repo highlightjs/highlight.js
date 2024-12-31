@@ -128,7 +128,7 @@ export default function(hljs) {
         illegal: '[;.\\-]',
         contains: [
           { // interface or namespace name
-            className: 'symbol',
+            className: 'title.class',
             begin: '[a-zA-Z0-9_]+'
           }
         ]
@@ -140,14 +140,14 @@ export default function(hljs) {
         illegal: '[;.\\-]',
         contains: [
           { // class name
-            className: 'symbol',
+            className: 'title.class',
             begin: '[a-zA-Z0-9_]+',
             contains: [
               {
                 begin: '[:,]\\s*',
                 contains: [
                   {
-                    className: 'symbol',
+                    className: 'title.class',
                     begin: '[a-zA-Z0-9_]+'
                   }
                 ]

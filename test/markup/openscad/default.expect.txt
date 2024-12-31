@@ -2,7 +2,7 @@
 <span class="hljs-meta"><span class="hljs-keyword">include</span> &lt;../common/base.scad&gt;</span>
 
 <span class="hljs-comment">//draw a foobar</span>
-<span class="hljs-function"><span class="hljs-keyword">module</span> <span class="hljs-title">foobar</span><span class="hljs-params">()</span>{</span>
+<span class="hljs-keyword">module</span> <span class="hljs-title function_">foobar</span><span class="hljs-params">()</span>{
     <span class="hljs-built_in">translate</span>([<span class="hljs-number">0</span>,-<span class="hljs-number">10</span>,<span class="hljs-number">0</span>])
     <span class="hljs-built_in">difference</span>(){
         <span class="hljs-built_in">cube</span>([<span class="hljs-number">5</span>,<span class="hljs-number">10.04</span>,<span class="hljs-number">15</span>]);

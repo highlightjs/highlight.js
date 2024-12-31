@@ -145,11 +145,13 @@ export default function(hljs) {
         begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
       },
       {
-        className: 'function',
         begin: LABEL.begin,
         end: 'goto:eof',
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
+          hljs.inherit(hljs.TITLE_MODE, { 
+            begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*',
+            scope: "title.function"
+           }),
           COMMENT
         ]
       },
