@@ -312,8 +312,6 @@ export function compileLanguage(language) {
       // do this later so compiler extensions that come earlier have access to the
       // raw array if they wanted to perhaps manipulate it, etc.
       EXT.compileIllegal,
-      // default to 1 relevance if not specified
-      EXT.compileRelevance
     ].forEach(ext => ext(mode, parent));
 
     mode.isCompiled = true;
