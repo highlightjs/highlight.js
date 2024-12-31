@@ -6,8 +6,8 @@
 
 <span class="hljs-keyword">COPY</span><span class="language-bash"> www.conf /etc/php5/fpm/pool.d/</span>
 
-<span class="hljs-keyword">RUN</span><span class="language-bash"> apt-get update \
-    &amp;&amp; apt-get install -y php5-fpm php-apc php5-curl php5-gd php5-intl php5-mysql</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> apt<span class="hljs-operator">-ge</span>t update \
+    &amp;&amp; apt<span class="hljs-operator">-ge</span>t install -y php5-fpm php-apc php5-curl php5-gd php5-intl php5-mysql</span>
 <span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">mkdir</span> /tmp/sessions</span>
 
 <span class="hljs-keyword">ENV</span> APPLICATION_ENV dev
