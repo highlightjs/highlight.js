@@ -15,7 +15,7 @@ export default function(hljs) {
       { begin: /\$\{(.*?)\}/ }
     ]
   };
-  const KEYWORDS = 'BEGIN END if else while do for in break continue delete next nextfile function func exit|10';
+  const KEYWORDS = 'BEGIN END if else while do for in break continue delete next nextfile function func exit';
   const STRING = {
     className: 'string',
     contains: [ hljs.BACKSLASH_ESCAPE ],
@@ -54,7 +54,7 @@ export default function(hljs) {
   };
   return {
     name: 'Awk',
-    keywords: { keyword: KEYWORDS },
+    keywords: KEYWORDS,
     contains: [
       VARIABLE,
       STRING,
