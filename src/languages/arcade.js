@@ -354,16 +354,8 @@ export default function(hljs) {
         relevance: 0,
         contains: [
           {
-            begin: IDENT_RE + '\\s*:',
-            returnBegin: true,
-            relevance: 0,
-            contains: [
-              {
-                className: 'attr',
-                begin: IDENT_RE,
-                relevance: 0
-              }
-            ]
+            scope: "attr",
+            begin: IDENT_RE + '(?=\\s*:)'
           }
         ]
       },
