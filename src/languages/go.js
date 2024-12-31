@@ -133,12 +133,11 @@ export default function(hljs) {
       { begin: /:=/ // relevance booster
       },
       {
-        className: 'function',
         beginKeywords: 'func',
         end: '\\s*(\\{|$)',
         excludeEnd: true,
         contains: [
-          hljs.TITLE_MODE,
+          hljs.inherit(hljs.TITLE_MODE, {scope: "title.function"}),
           {
             className: 'params',
             begin: /\(/,
