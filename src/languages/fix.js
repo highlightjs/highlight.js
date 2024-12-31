@@ -16,7 +16,6 @@ export default function(hljs) {
           /([\u2401\u0001])/
         ],
         // this is weird, string signal
-        relevance: "double",
         scope: {
           1: "attr",
           3: "string"

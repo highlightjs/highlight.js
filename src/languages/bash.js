@@ -377,8 +377,7 @@ export default function(hljs) {
 
   const COMPARISON = {
     scope:"operator",
-    match: regex.either(...COMPARISONS),
-    relevance: "low"
+    match: regex.either(...COMPARISONS)
   }
 
   return {

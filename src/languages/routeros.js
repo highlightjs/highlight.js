@@ -119,7 +119,6 @@ export default function(hljs) {
               VAR,
               {
                 className: 'literal',
-                relevance: "keyword",
                 begin: '\\b(' + LITERALS.split(' ').join('|') + ')\\b'
               },
               {

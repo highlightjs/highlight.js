@@ -46,7 +46,6 @@ export default function(hljs) {
       modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-pseudo',
-        relevance: "keyword",
         variants: [
           { begin: ':(' + css.PSEUDO_CLASSES.join('|') + ')' },
           { begin: ':(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' }
@@ -61,7 +60,6 @@ export default function(hljs) {
       modes.CSS_VARIABLE,
       {
         className: 'attribute',
-        relevance: "keyword",
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'
       },
       // attribute values
@@ -104,7 +102,6 @@ export default function(hljs) {
         contains: [
           {
             className: 'keyword',
-            relevance: "keyword",
             begin: AT_PROPERTY_RE
           },
           {
@@ -129,7 +126,6 @@ export default function(hljs) {
       },
       {
         className: 'selector-tag',
-        relevance: "keyword",
         begin: '\\b(' + css.TAGS.join('|') + ')\\b'
       }
     ]

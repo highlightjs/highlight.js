@@ -39,7 +39,6 @@ export default function(hljs) {
         // it looks ahead to find the start of a run of literals
         // so only the runs are counted as relevant
         begin: /(?=\+\+\+|---)/,
-        relevance: "keyword",
         contains: [ LITERAL ]
       },
       LITERAL

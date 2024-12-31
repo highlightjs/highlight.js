@@ -109,7 +109,6 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       {
         className: 'built_in',
-        relevance: "keyword",
         begin: regex.concat(
           /\b/,
           regex.either(...BUILT_IN_PATTERNS),
@@ -118,18 +117,15 @@ export default function(hljs) {
       },
       {
         className: 'built_in',
-        relevance: "keyword",
         begin: /^\s*return\b/
       },
       {
         className: 'literal',
-        relevance: "keyword",
         begin:
           /\b(text item delimiters|current application|missing value)\b/
       },
       {
         className: 'keyword',
-        relevance: "keyword",
         begin: regex.concat(
           /\b/,
           regex.either(...KEYWORD_PATTERNS),

@@ -28,8 +28,7 @@ export default function(hljs) {
       // IP
       {
         className: 'number',
-        begin: /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?\b/,
-        relevance: "keyword"
+        begin: /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?\b/
       },
       // Other numbers
       {
@@ -44,11 +43,9 @@ export default function(hljs) {
         end: /"/,
         keywords: HTTP_VERBS,
         illegal: /\n/,
-        relevance: "keyword",
         contains: [
           {
-            begin: /HTTP\/[12]\.\d'/,
-            relevance: "high"
+            begin: /HTTP\/[12]\.\d'/
           }
         ]
       },
@@ -59,8 +56,7 @@ export default function(hljs) {
         // simple array accesses a[123] and [] and other common patterns
         // found in other languages
         begin: /\[\d[^\]\n]{8,}\]/,
-        illegal: /\n/,
-        relevance: "minor"
+        illegal: /\n/
       },
       {
         className: 'string',
@@ -75,8 +71,7 @@ export default function(hljs) {
         className: 'string',
         begin: /"Mozilla\/\d\.\d \(/,
         end: /"/,
-        illegal: /\n/,
-        relevance: "high"
+        illegal: /\n/
       },
       // Strings
       {

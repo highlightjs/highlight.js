@@ -36,7 +36,6 @@ export default function(hljs) {
       // testcase status and description
       {
         className: 'symbol',
-        relevance: "keyword",
         variants: [
           { begin: /^ok/ },
           { begin: /^not ok/ }

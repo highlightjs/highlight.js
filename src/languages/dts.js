@@ -15,8 +15,7 @@ export default function(hljs) {
       {
         begin: '(u8?|U)?R"',
         end: '"',
-        contains: [ hljs.BACKSLASH_ESCAPE ],
-        relevance: "low"
+        contains: [ hljs.BACKSLASH_ESCAPE ]
       },
       {
         begin: '\'\\\\?.',
@@ -96,8 +95,7 @@ export default function(hljs) {
 
   const ROOT_NODE = {
     className: 'title.class',
-    begin: /^\/(?=\s*\{)/,
-    relevance: "half"
+    begin: /^\/(?=\s*\{)/
   };
 
   // TODO: `attribute` might be the right scope here, unsure

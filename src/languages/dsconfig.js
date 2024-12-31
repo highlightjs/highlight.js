@@ -42,8 +42,7 @@ export default function(hljs) {
         className: 'built_in',
         begin: /(list|create|get|set|delete)-(\w+)/,
         end: /(?=\s)/,
-        illegal: '!@#$%^&*()',
-        relevance: "keyword"
+        illegal: '!@#$%^&*()'
       },
       {
         className: 'built_in',

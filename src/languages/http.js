@@ -15,7 +15,6 @@ export default function(hljs) {
       regex.concat('^', HEADER_NAME),
       /\:/
     ],
-    relevance: "low",
     scope: {
       1: "attribute",
       2: "punctuation"
@@ -38,7 +37,6 @@ export default function(hljs) {
       // response
       {
         begin: '^(?=' + VERSION + " \\d{3})",
-        relevance: "high",
         end: /$/,
         contains: [
           {
@@ -59,7 +57,6 @@ export default function(hljs) {
       // request
       {
         begin: '(?=^[A-Z]+ \/(.*?) ' + VERSION + '$)',
-        relevance: "high",
         end: /$/,
         contains: [
           {

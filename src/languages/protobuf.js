@@ -68,7 +68,6 @@ export default function(hljs) {
           /rpc /,
           hljs.IDENT_RE
         ],
-        relevance: "keyword",
         scope: {
           1: "keyword",
           2: "title.function"

@@ -21,8 +21,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta.prompt',
-        begin: '^[0-9]+> ',
-        relevance: "half"
+        begin: '^[0-9]+> '
       },
       hljs.COMMENT('%', '$'),
       {

@@ -614,7 +614,6 @@ export default function(hljs) {
             /\s+/,
             /\w+/
           ],
-          relevance: "keyword",
           scope: {
             1: 'keyword',
             3: 'title.class'

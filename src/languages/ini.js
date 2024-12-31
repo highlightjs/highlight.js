@@ -36,7 +36,6 @@ export default function(hljs) {
   };
   const LITERALS = {
     className: 'literal',
-    relevance: "keyword",
     begin: /\bon|off|true|false|yes|no\b/
   };
   const STRINGS = {
