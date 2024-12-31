@@ -164,6 +164,15 @@ export default function(hljs) {
     "unset"
   ];
 
+  const COMPARISONS = [
+    "-eq",
+    "-ne",
+    "-lt",
+    "-le",
+    "-gt",
+    "-ge"
+  ]
+
   const BASH_BUILT_INS = [
     "alias",
     "bind",
@@ -366,6 +375,12 @@ export default function(hljs) {
     "yes"
   ];
 
+  const COMPARISON = {
+    scope:"operator",
+    match: regex.either(...COMPARISONS),
+    relevance: "low"
+  }
+
   return {
     name: 'Bash',
     aliases: [
@@ -398,7 +413,8 @@ export default function(hljs) {
       ESCAPED_QUOTE,
       APOS_STRING,
       ESCAPED_APOS,
-      VAR
+      VAR,
+      COMPARISON
     ]
   };
 }
