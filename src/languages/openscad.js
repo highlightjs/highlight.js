@@ -44,12 +44,11 @@ export default function(hljs) {
     relevance: 0
   };
   const FUNCTIONS = {
-    className: 'function',
     beginKeywords: 'module function',
     end: /=|\{/,
     contains: [
       PARAMS,
-      hljs.UNDERSCORE_TITLE_MODE
+      hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { scope: "title.function" })
     ]
   };
 
