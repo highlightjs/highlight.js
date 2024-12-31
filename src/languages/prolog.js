@@ -8,13 +8,11 @@ Category: functional
 
 export default function(hljs) {
   const ATOM = {
-
     begin: /[a-z][A-Za-z0-9_]*/,
     relevance: 0
   };
 
   const VAR = {
-
     className: 'symbol',
     variants: [
       { begin: /[A-Z][a-zA-Z0-9_]*/ },
@@ -24,28 +22,19 @@ export default function(hljs) {
   };
 
   const PARENTED = {
-
     begin: /\(/,
     end: /\)/,
     relevance: 0
   };
 
   const LIST = {
-
     begin: /\[/,
     end: /\]/
   };
 
-  const LINE_COMMENT = {
-
-    className: 'comment',
-    begin: /%/,
-    end: /$/,
-    contains: [ hljs.PHRASAL_WORDS_MODE ]
-  };
+  const LINE_COMMENT = hljs.COMMENT(/%/, /$/);
 
   const BACKTICK_STRING = {
-
     className: 'string',
     begin: /`/,
     end: /`/,
@@ -63,10 +52,10 @@ export default function(hljs) {
   };
 
   const PRED_OP = { // relevance booster
-    begin: /:-/ };
+    begin: /:-/ 
+  };
 
   const inner = [
-
     ATOM,
     VAR,
     PARENTED,

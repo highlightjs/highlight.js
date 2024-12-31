@@ -23,11 +23,7 @@ export default function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, { contains: [ BACKTICK_ESCAPE ] }),
       hljs.COMMENT(';', '$', { relevance: 0 }),
       hljs.C_BLOCK_COMMENT_MODE,
-      {
-        className: 'number',
-        begin: hljs.NUMBER_RE,
-        relevance: 0
-      },
+      hljs.NUMBER_MODE,
       {
         // subst would be the most accurate however fails the point of
         // highlighting. variable is comparably the most accurate that actually

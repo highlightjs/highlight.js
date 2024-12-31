@@ -111,13 +111,13 @@ export default function(hljs) {
         + 'unpackHalf2x16 unpackSnorm2x16 unpackSnorm4x8 unpackUnorm2x16 unpackUnorm4x8 usubBorrow',
       literal: 'true false'
     },
-    illegal: '"',
+    illegal: /"/,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.C_NUMBER_MODE,
       {
-        className: 'meta',
+        scope: 'meta',
         begin: '#',
         end: '$'
       }

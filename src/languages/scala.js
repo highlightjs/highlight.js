@@ -142,7 +142,7 @@ export default function(hljs) {
   // TODO: use negative look-behind in future
   //       /(?<!\.)\binline(?=\s)/
   const INLINE_MODES = [
-    { match: /\.inline\b/ },
+    { match: /\.inline\b/ }, // guard
     {
       begin: /\binline(?=\s)/,
       keywords: 'inline'

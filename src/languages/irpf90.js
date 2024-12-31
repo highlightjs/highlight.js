@@ -28,7 +28,7 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const F_KEYWORDS = {
+  const KEYWORDS = {
     literal: '.False. .True.',
     keyword: 'kind do while private call intrinsic where elsewhere '
       + 'type endtype endmodule endselect endinterface end enddo endif if forall endforall only contains default return stop then '
@@ -77,7 +77,7 @@ export default function(hljs) {
   return {
     name: 'IRPF90',
     case_insensitive: true,
-    keywords: F_KEYWORDS,
+    keywords: KEYWORDS,
     illegal: /\/\*/,
     contains: [
       hljs.inherit(hljs.APOS_STRING_MODE, {
