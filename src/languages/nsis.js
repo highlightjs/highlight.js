@@ -215,11 +215,11 @@ export default function(hljs) {
     ],
     illegal: /\n/,
     contains: [
-      ESCAPE_CHARS,
       CONSTANTS,
       DEFINES,
       VARIABLES,
-      LANGUAGES
+      LANGUAGES,
+      ESCAPE_CHARS
     ]
   };
 
