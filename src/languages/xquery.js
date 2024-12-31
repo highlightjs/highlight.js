@@ -338,12 +338,6 @@ export default function(_hljs) {
     DIRECT
   ];
 
-  const METHOD = {
-    begin: /\{/,
-    end: /\}/,
-    contains: CONTAINS
-  };
-
   return {
     name: 'XQuery',
     aliases: [
