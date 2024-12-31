@@ -109,7 +109,8 @@ export default function(hljs) {
       VARIABLE,
       {
         className: 'keyword',
-        begin: '\\bend\\sif\\b'
+        match: '\\bend\\sif\\b',
+        keywords: "end if"
       },
       {
         className: 'function',

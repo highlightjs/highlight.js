@@ -173,7 +173,6 @@ export default function(hljs) {
     },
     { // array listing
       className: 'bullet',
-      // TODO: remove |$ hack when we have proper look-ahead support
       begin: '-(?=[ ]|$)',
       relevance: 0
     },
@@ -197,7 +196,7 @@ export default function(hljs) {
   ];
 
   const VALUE_MODES = [ ...MODES ];
-  VALUE_MODES.pop();
+  VALUE_MODES.pop(); // STRING
   VALUE_MODES.push(CONTAINER_STRING);
   VALUE_CONTAINER.contains = VALUE_MODES;
 

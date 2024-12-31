@@ -4,7 +4,7 @@
 package l2f.gameserver.model;
 
 public abstract strictfp class L2Char extends L2Object {
-  public static final Short ERROR = 0x0001;
+  public static final short ERROR = 0x0001;
 
   public void moveTo(int x, int y, int z) {
     _ai = null;

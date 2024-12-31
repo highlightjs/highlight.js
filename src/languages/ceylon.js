@@ -113,8 +113,12 @@ export default function(hljs) {
     {
       // numeric literal
       className: 'number',
-      begin: '#[0-9a-fA-F_]+|\\$[01_]+|[0-9_]+(?:\\.[0-9_](?:[eE][+-]?\\d+)?)?[kMGTPmunpf]?',
-      relevance: 0
+      relevance: 0,
+      variants: [
+        { match: /#[0-9a-fA-F_]+/ },
+        { match: /\$[01_]+/ },
+        { match: /[0-9_]+(?:\.[0-9_](?:[eE][+-]?\d+)?)?[kMGTPmunpf]?/ }
+      ]
     }
   ];
   SUBST.contains = EXPRESSIONS;
@@ -125,7 +129,10 @@ export default function(hljs) {
       keyword: KEYWORDS.concat(DECLARATION_MODIFIERS),
       meta: DOCUMENTATION
     },
-    illegal: '\\$[^01]|#[^0-9a-fA-F]',
+    illegal: [
+      /\$[^01]/,
+      /#[^0-9a-fA-F]/
+    ],
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT('/\\*', '\\*/', { contains: [ 'self' ] }),

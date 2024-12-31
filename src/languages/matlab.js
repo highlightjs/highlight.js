@@ -82,9 +82,9 @@ export default function(hljs) {
       },
       {
         className: 'string',
-        begin: '\'',
-        end: '\'',
-        contains: [ { begin: '\'\'' } ]
+        begin: /'/,
+        end: /'/,
+        contains: [ { begin: /''/ } ]
       },
       {
         begin: /\]|\}|\)/,
@@ -98,8 +98,8 @@ export default function(hljs) {
         contains: [ { begin: '""' } ],
         starts: TRANSPOSE
       },
-      hljs.COMMENT('^\\s*%\\{\\s*$', '^\\s*%\\}\\s*$'),
-      hljs.COMMENT('%', '$')
+      hljs.COMMENT(/^\s*%\{\s*$/, /^\s*%\}\s*$/),
+      hljs.COMMENT(/%/, /$/)
     ]
   };
 }
