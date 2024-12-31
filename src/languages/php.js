@@ -540,7 +540,6 @@ export default function(hljs) {
       },
       CONSTRUCTOR_CALL,
       {
-        scope: 'function',
         relevance: 0,
         beginKeywords: 'fn function',
         end: /[;{]/,
@@ -607,7 +606,6 @@ export default function(hljs) {
         relevance: 0,
         end: ';',
         contains: [
-          // TODO: title.function vs title.class
           {
             match: /\b(as|const|function)\b/,
             scope: "keyword"

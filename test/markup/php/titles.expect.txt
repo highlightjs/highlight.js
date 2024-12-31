@@ -1,23 +1,23 @@
 <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Foo</span> </span>{
     <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">FOO</span>=<span class="hljs-string">&#x27;foo&#x27;</span>;
 
-    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params">
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params">
         <span class="hljs-keyword">public</span> <span class="hljs-keyword">readonly</span> <span class="hljs-keyword">string</span> <span class="hljs-variable">$name</span> = <span class="hljs-built_in">self</span>::<span class="hljs-variable constant_">FOO</span>
-    </span>) </span>{}
+    </span>) {}
 
-    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getClass</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title">getClass</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-title class_">DateTimeImmutable</span>::<span class="hljs-variable language_">class</span>;
     }
 
-    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getClassFromSelf</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">function</span> <span class="hljs-title">getClassFromSelf</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">self</span>::<span class="hljs-variable language_">class</span>;
     }
 
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getClassFromStatic</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">static</span> <span class="hljs-keyword">function</span> <span class="hljs-title">getClassFromStatic</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">static</span>::<span class="hljs-variable language_">class</span>;
     }
 
-    <span class="hljs-keyword">public</span> <span class="hljs-built_in">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getParentClass</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">static</span> <span class="hljs-keyword">function</span> <span class="hljs-title">getParentClass</span>(<span class="hljs-params"></span>): <span class="hljs-title">string</span> {
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">parent</span>::<span class="hljs-variable language_">class</span>;
     }
 }
