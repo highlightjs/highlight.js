@@ -41,7 +41,6 @@ import HTMLInjectionError from "./lib/html_injection_error.js";
 const escape = utils.escapeHTML;
 const inherit = utils.inherit;
 const NO_MATCH = Symbol("nomatch");
-const MAX_KEYWORD_HITS = 7;
 
 /**
  * @param {any} hljs - object that is extended (legacy)
@@ -176,18 +175,6 @@ const HighlightJS = function() {
    * @returns {HighlightResult} - result of the highlight operation
   */
   function _highlight(languageName, codeToHighlight, ignoreIllegals, continuation) {
-    const keywordHits = Object.create(null);
-
-    /**
-     * Return keyword data if a match is a keyword
-     * @param {CompiledMode} mode - current mode
-     * @param {string} matchText - the textual match
-     * @returns {KeywordData | false}
-     */
-    function keywordData(mode, matchText) {
-      return mode.keywords[matchText];
-    }
-
     function processKeywords() {
       if (!top.keywords) {
         emitter.addText(modeBuffer);
@@ -202,20 +189,18 @@ const HighlightJS = function() {
       while (match) {
         buf += modeBuffer.substring(lastIndex, match.index);
         const word = language.case_insensitive ? match[0].toLowerCase() : match[0];
-        const data = keywordData(top, word);
-        if (data) {
-          const [kind, keywordRelevance] = data;
+        const scope = top.keywords[word];
+        if (scope) {
           emitter.addText(buf);
           buf = "";
 
-          keywordHits[word] = (keywordHits[word] || 0) + 1;
-          if (kind.startsWith("_")) {
+          if (scope.startsWith("_")) {
             // _ implied for relevance only, do not highlight
             // by applying a class name
             buf += match[0];
           } else {
-            const cssClass = language.scopeAliases[kind] || kind;
-            emitKeyword(match[0], cssClass);
+            const finalScope = language.scopeAliases[scope] || scope;
+            emitKeyword(match[0], finalScope);
           }
         } else {
           buf += match[0];
