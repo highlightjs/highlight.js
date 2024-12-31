@@ -629,25 +629,6 @@ const HighlightJS = function() {
   }
 
   /**
-   * returns a valid highlight result, without actually doing any actual work,
-   * auto highlight starts with this and it's possible for small snippets that
-   * auto-detection may not find a better match
-   * @param {string} code
-   * @returns {HighlightResult}
-   */
-  function justTextHighlightResult(code) {
-    const result = {
-      value: escape(code),
-      illegal: false,
-      relevance: 0,
-      _top: PLAINTEXT_LANGUAGE,
-      _emitter: new options.__emitter(options)
-    };
-    result._emitter.addText(code);
-    return result;
-  }
-
-  /**
    * Builds new class name for block given the language name
    *
    * @param {HTMLElement} element
