@@ -54,9 +54,9 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'string',
-        begin: '\'',
-        end: '[^\\\\]\'',
-        illegal: '[^\\\\][^\']'
+        begin: /'/,
+        end: /[^\\]'/,
+        illegal: /[\\][^']/
       },
       {
         className: 'symbol',
