@@ -1,9 +1,9 @@
 <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR REPLACE</span> <span class="hljs-keyword">FUNCTION</span> hello_world(param_your_name <span class="hljs-type">text</span>)
 <span class="hljs-keyword">RETURNS</span> <span class="hljs-type">text</span> <span class="hljs-keyword">AS</span>
-$$<span class="language-pgsql">
-<span class="hljs-keyword">SELECT</span> <span class="hljs-string">&#x27;Hello world. My name is &#x27;</span> || param_your_name || <span class="hljs-string">&#x27;.&#x27;</span>;
-$$</span>
+$$
+SELECT &#x27;Hello world. My name is &#x27; || param_your_name || &#x27;.&#x27;;
+$$
 <span class="hljs-keyword">language</span> <span class="hljs-keyword">sql</span> <span class="hljs-keyword">STRICT</span>;
 
-<span class="hljs-keyword">SELECT</span> sql_expression($sql$<span class="language-bash">SELECT hello_world($phrase<span class="hljs-variable">$Regina</span><span class="hljs-string">&#x27;s elephant&#x27;</span>s dog$phrase$)
-    || $phrase$ I made a <span class="hljs-built_in">cat</span><span class="hljs-string">&#x27;s meow today.$phrase$ $sql$</span></span>);
+<span class="hljs-keyword">SELECT</span> sql_expression($sql$SELECT hello_world($phrase$Regina&#x27;s elephant&#x27;s dog$phrase$)
+    || $phrase$ I made a cat&#x27;s meow today.$phrase$ $sql$);

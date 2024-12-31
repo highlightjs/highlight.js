@@ -462,28 +462,6 @@ export default function(hljs) {
       hljs.END_SAME_AS_BEGIN({
         begin: DOLLAR_STRING,
         end: DOLLAR_STRING,
-        contains: [
-          {
-            // actually we want them all except SQL; listed are those with known implementations
-            // and XML + JSON just in case
-            subLanguage: [
-              'pgsql',
-              'perl',
-              'python',
-              'tcl',
-              'r',
-              'lua',
-              'java',
-              'php',
-              'ruby',
-              'bash',
-              'scheme',
-              'xml',
-              'json'
-            ],
-            endsWithParent: true
-          }
-        ]
       }),
       // identifiers in quotes
       {
