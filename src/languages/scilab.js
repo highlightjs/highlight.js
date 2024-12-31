@@ -64,7 +64,8 @@ export default function(hljs) {
         relevance: 0,
         contains: COMMON_CONTAINS
       },
-      hljs.COMMENT('//', '$')
-    ].concat(COMMON_CONTAINS)
+      hljs.C_LINE_COMMENT_MODE,
+      ...COMMON_CONTAINS
+    ]
   };
 }
