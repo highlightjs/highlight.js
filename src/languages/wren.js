@@ -80,7 +80,6 @@ export default function(hljs) {
     "="
   ];
   const FUNCTION = {
-    relevance: 0,
     match: regex.concat(/\b(?!(if|while|for|else|super)\b)/, IDENT_RE, /(?=\s*[({])/),
     className: "title.function"
   };
@@ -98,7 +97,6 @@ export default function(hljs) {
         end: /\)/,
         contains: [
           {
-            relevance: 0,
             scope: "params",
             match: IDENT_RE
           }
@@ -142,19 +140,16 @@ export default function(hljs) {
     className: "property",
     begin: regex.concat(/\./, regex.lookahead(IDENT_RE)),
     end: IDENT_RE,
-    excludeBegin: true,
-    relevance: 0
+    excludeBegin: true
   };
 
   const FIELD = {
-    relevance: 0,
     match: regex.concat(/\b_/, IDENT_RE),
     scope: "variable"
   };
 
   // CamelCase
   const CLASS_REFERENCE = {
-    relevance: 0,
     match: /\b[A-Z]+[a-z]+([A-Z]+[a-z]+)*/,
     scope: "title.class",
     keywords: { _: CORE_CLASSES }
@@ -228,9 +223,8 @@ export default function(hljs) {
     ...LITERALS
   ];
   const VARIABLE = {
-    relevance: 0,
     match: regex.concat(
-      "\\b(?!",
+      "\\b(?!", // guard
       ALL_KWS.join("|"),
       "\\b)",
       /[a-zA-Z_]\w*(?:[?!]|\b)/
