@@ -98,7 +98,7 @@ export default function(hljs) {
         className: 'section',
         relevance: 1,
         begin: /^\[+/,
-        end: /\]+$/
+        end: /\]+(?=\s*($|;))/
       },
       {
         begin: DOTTED_KEY,
