@@ -163,10 +163,7 @@ export default function(hljs) {
         starts: {
           end: /<\/style>/,
           returnEnd: true,
-          subLanguage: [
-            'css',
-            'xml'
-          ]
+          subLanguage: 'css'
         }
       },
       {
