@@ -73,9 +73,9 @@ export default function(hljs) {
       hljs.NUMBER_MODE,
       {
         className: 'string',
-        begin: '\'',
-        end: '\'',
-        illegal: '\\n'
+        begin: /'/,
+        end: /'/,
+        illegal: /\n/
       },
 
       /*
@@ -93,7 +93,6 @@ export default function(hljs) {
         begin: /"(\\"|\n\\|[^"\n])*"/
       },
       hljs.COMMENT('"', '$'),
-
       {
         className: 'variable',
         begin: /[bwtglsav]:[\w\d_]+/
@@ -106,7 +105,7 @@ export default function(hljs) {
         ],
         className: {
           1: "keyword",
-          3: "title"
+          3: "title.function"
         },
         end: '$',
         relevance: 0,
