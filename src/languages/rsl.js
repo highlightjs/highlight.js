@@ -112,7 +112,6 @@ export default function(hljs) {
       /\s+/,
       hljs.IDENT_RE,
     ],
-    relevance: "keyword",
     scope: {
       1: "keyword",
       3: "title.class",

@@ -13,8 +13,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta',
-        begin: '^__(END|DATA)__$',
-        relevance: "keyword"
+        begin: '^__(END|DATA)__$'
       },
       // mojolicious line
       {

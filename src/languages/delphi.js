@@ -161,7 +161,6 @@ export default function(hljs) {
   };
   const NUMBER = {
     className: 'number',
-    relevance: "low",
     // Source: https://www.freepascal.org/docs-html/ref/refse6.html
     variants: [
       {

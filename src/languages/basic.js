@@ -221,14 +221,12 @@ export default function(hljs) {
       {
         // Match hexadecimal numbers (&Hxxxx)
         className: 'number',
-        begin: '(&[hH][0-9a-fA-F]{1,4})',
-        relevance: "low"
+        begin: '(&[hH][0-9a-fA-F]{1,4})'
       },
       {
         // Match octal numbers (&Oxxxxxx)
         className: 'number',
-        begin: '(&[oO][0-7]{1,6})',
-        relevance: "low"
+        begin: '(&[oO][0-7]{1,6})'
       }
     ]
   };

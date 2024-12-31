@@ -9,8 +9,7 @@ Category: common, protocols, web
 export default function(hljs) {
   const ATTRIBUTE = {
     className: 'attr',
-    begin: /"(\\.|[^\\"\r\n])*"(?=\s*:)/,
-    relevance: "keyword"
+    begin: /"(\\.|[^\\"\r\n])*"(?=\s*:)/
   };
   const PUNCTUATION = {
     match: /[{}[\],:]/,

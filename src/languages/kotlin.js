@@ -24,7 +24,6 @@ export default function(hljs) {
   const KEYWORDS_WITH_LABEL = {
     className: 'keyword',
     begin: /\b(break|continue|return|this)\b/,
-    relevance: "keyword",
     starts: { contains: [
       {
         className: 'symbol',
@@ -84,7 +83,6 @@ export default function(hljs) {
 
   const ANNOTATION_USE_SITE = {
     className: 'meta',
-    relevance: "keyword",
     begin: '@(?:file|property|field|get|set|receiver|param|setparam|delegate)\\s*:(?:\\s*' + hljs.UNDERSCORE_IDENT_RE + ')?'
   };
   const ANNOTATION = {
@@ -161,7 +159,7 @@ export default function(hljs) {
           {
             begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
             returnBegin: true,
-            contains: [ 
+            contains: [
               hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, {scope: "title.function"})
             ]
           },

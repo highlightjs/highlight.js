@@ -65,7 +65,6 @@ export default function(hljs) {
         /\s*\)/
       ] }
     ],
-    relevance: "keyword",
     scope: {
       1: "keyword",
       3: "title.class"
@@ -86,7 +85,6 @@ export default function(hljs) {
       {
         className: 'meta',
         match: /^@0x[\w\d]{16};/,
-        relevance: "keyword",
         illegal: /\n/
       },
       {
