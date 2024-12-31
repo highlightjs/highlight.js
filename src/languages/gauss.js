@@ -203,7 +203,6 @@ export default function(hljs) {
   const BUILT_IN_REF =
   { // these are explicitly named internal function calls
     className: 'built_in',
-    relevance: "keyword",
     begin: '\\b(' + KEYWORDS.built_in.split(' ').join('|') + ')\\b'
   };
 
@@ -271,7 +270,6 @@ export default function(hljs) {
       PREPROCESSOR,
       {
         className: 'keyword',
-        relevance: "keyword",
         begin: /\bexternal (matrix|string|array|sparse matrix|struct|proc|keyword|fn)/
       },
       DEFINITION('proc keyword', ';'),

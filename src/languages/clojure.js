@@ -50,7 +50,6 @@ export default function(hljs) {
   };
   const NUMBER = {
     scope: 'number',
-    relevance: "low",
     variants: [
       { match: /[-+]?0[xX][0-9a-fA-F]+N?/ }, // hexadecimal                 // 0x2a
       { match: /[-+]?0[0-7]+N?/ }, // octal                       // 052
@@ -62,7 +61,6 @@ export default function(hljs) {
   };
   const CHARACTER = {
     scope: 'character',
-    relevance: "low",
     variants: [
       { match: /\\o[0-3]?[0-7]{1,2}/ }, // Unicode Octal 0 - 377
       { match: /\\u[0-9a-fA-F]{4}/ }, // Unicode Hex 0000 - FFFF
@@ -93,7 +91,6 @@ export default function(hljs) {
   );
   const LITERAL = {
     className: 'literal',
-    relevance: "keyword",
     begin: /\b(true|false|nil)\b/
   };
   const COLLECTION = {

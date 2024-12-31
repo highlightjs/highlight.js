@@ -14,7 +14,6 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta',
-        relevance: "critical",
         begin: '^!!!( (5|1\\.1|Strict|Frameset|Basic|Mobile|RDFa|XML\\b.*))?$'
       },
       // FIXME these comments should be allowed to span indented lines

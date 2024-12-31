@@ -9,12 +9,10 @@ Author: Oleg Efimov <efimovov@gmail.com>
 export default function(hljs) {
   const ATTRIBUTE = {
     scope: 'attribute',
-    relevance: "minor",
     match: /<[a-z][a-z-]*>/
   }
 
   const TAG = {
-    relevance: "minor",
     match: /<[a-z][a-z-]*>/
   }
 
@@ -31,7 +29,6 @@ export default function(hljs) {
       {
         begin: /::=/,
         beginScope: "operator",
-        relevance: "low",
         end: /$/,
         contains: [
           TAG,

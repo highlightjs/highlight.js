@@ -143,7 +143,6 @@ export default function(hljs) {
       /\s*/,
       LABEL_RE
     ],
-    relevance: "keyword",
     scope: {
       1: "keyword",
       3: "title.function"
@@ -158,7 +157,7 @@ export default function(hljs) {
   const STRINGS = [
     {
       scope: 'string',
-      begin: /"/, 
+      begin: /"/,
       end: /"/,
       contains: [
         VARIABLE
@@ -166,14 +165,14 @@ export default function(hljs) {
     },
     {
       scope: 'string',
-      begin: /'/, 
+      begin: /'/,
       end: /'/,
       contains: [
         VARIABLE
       ]
     }
   ]
-  
+
   return {
     name: 'Batch file (DOS)',
     aliases: [

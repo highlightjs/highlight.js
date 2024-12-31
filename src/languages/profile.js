@@ -23,8 +23,7 @@ export default function(hljs) {
         ]
       },
       {
-        match: /function calls(?=\s)/,
-        relevance: "double"
+        match: /function calls(?=\s)/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

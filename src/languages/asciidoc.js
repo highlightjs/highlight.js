@@ -99,8 +99,7 @@ export default function(hljs) {
   ];
   const ADMONITION = {
     className: 'symbol',
-    begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
-    relevance: "keyword"
+    begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+'
   };
   const BULLET_LIST = {
     className: 'bullet',
@@ -138,7 +137,6 @@ export default function(hljs) {
       // headings
       {
         className: 'section',
-        relevance: "half",
         variants: [
           { begin: '^(={1,6})[ \t].+?([ \t]\\1)?$' },
           { begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$' }
@@ -160,15 +158,13 @@ export default function(hljs) {
       {
         className: 'quote',
         begin: '^_{4,}\\n',
-        end: '\\n_{4,}$',
-        relevance: "low"
+        end: '\\n_{4,}$'
       },
       // listing and literal blocks
       {
         className: 'code',
         begin: '^[\\-\\.]{4,}\\n',
-        end: '\\n[\\-\\.]{4,}$',
-        relevance: "low"
+        end: '\\n[\\-\\.]{4,}$'
       },
       // passthrough blocks
       {
@@ -237,8 +233,7 @@ export default function(hljs) {
             excludeBegin: true,
             excludeEnd: true
           }
-        ],
-        relevance: "keyword"
+        ]
       }
     ]
   };

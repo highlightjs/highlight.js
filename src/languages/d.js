@@ -161,8 +161,7 @@ export default function(hljs) {
   const D_WYSIWYG_DELIMITED_STRING_MODE = {
     className: 'string',
     begin: '[rq]"',
-    end: '"[cwd]?',
-    relevance: "low"
+    end: '"[cwd]?'
   };
 
   /**
@@ -183,8 +182,7 @@ export default function(hljs) {
    */
   const D_HEX_STRING_MODE = {
     className: 'string',
-    begin: 'x"[\\da-fA-F\\s\\n\\r]*"[cwd]?',
-    relevance: "low"
+    begin: 'x"[\\da-fA-F\\s\\n\\r]*"[cwd]?'
   };
 
   /**
@@ -195,8 +193,7 @@ export default function(hljs) {
   const D_TOKEN_STRING_MODE = {
     className: 'string',
     begin: 'q"\\{',
-    end: '\\}"',
-    relevance: "low"
+    end: '\\}"'
   };
 
   /**

@@ -40,13 +40,11 @@ export default function(hljs) {
       },
       {
         className: 'section',
-        relevance: "keyword",
         begin: /^(Volume|Book|Part|Chapter|Section|Table)\b/,
         end: '$'
       },
       {
         // Rule definition
-        relevance: "keyword",
         begin: /^(Check|Carry out|Report|Instead of|To|Rule|When|Before|After)\b/,
         end: /:/,
         contains: [

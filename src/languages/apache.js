@@ -20,8 +20,7 @@ export default function(hljs) {
   };
   const IP_ADDRESS = {
     className: "number",
-    begin: /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?/,
-    relevance: "low"
+    begin: /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(:\d{1,5})?/
   };
   const PORT_NUMBER = {
     className: "number",
