@@ -32,7 +32,7 @@ export default function(hljs) {
 
   const KEYWORDS = [
     "for",
-    "in|0",
+    "in",
     "break",
     "continue",
     "while",
@@ -51,7 +51,7 @@ export default function(hljs) {
     "not",
     "get|0",
     "in",
-    "inout|10",
+    "inout",
     "out",
     "override",
     "set|0",

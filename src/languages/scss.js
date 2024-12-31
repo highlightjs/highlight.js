@@ -19,8 +19,7 @@ export default function(hljs) {
   const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   const VARIABLE = {
     className: 'variable',
-    begin: '(\\$' + IDENT_RE + ')\\b',
-    relevance: 0
+    begin: '(\\$' + IDENT_RE + ')\\b'
   };
 
   return {
@@ -35,29 +34,23 @@ export default function(hljs) {
       modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
-        begin: '#[A-Za-z0-9_-]+',
-        relevance: 0
+        begin: '#[A-Za-z0-9_-]+'
       },
       {
         className: 'selector-class',
-        begin: '\\.[A-Za-z0-9_-]+',
-        relevance: 0
+        begin: '\\.[A-Za-z0-9_-]+'
       },
       modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-tag',
-        begin: '\\b(' + css.TAGS.join('|') + ')\\b',
-        // was there, before, but why?
-        relevance: 0
+        begin: '\\b(' + css.TAGS.join('|') + ')\\b'
       },
       {
         className: 'selector-pseudo',
-        relevance: 1,
         begin: ':(' + PSEUDO_CLASSES.join('|') + ')'
       },
       {
         className: 'selector-pseudo',
-        relevance: 1,
         begin: ':(:)?(' + PSEUDO_ELEMENTS.join('|') + ')'
       },
       VARIABLE,
@@ -69,12 +62,10 @@ export default function(hljs) {
       modes.CSS_VARIABLE,
       {
         className: 'attribute',
-        relevance: 1,
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b'
       },
       { 
         begin: '\\b(whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|underline|transparent|top|thin|thick|text|text-top|text-bottom|tb-rl|table-header-group|table-footer-group|sw-resize|super|strict|static|square|solid|small-caps|separate|se-resize|scroll|s-resize|rtl|row-resize|ridge|right|repeat|repeat-y|repeat-x|relative|progress|pointer|overline|outside|outset|oblique|nowrap|not-allowed|normal|none|nw-resize|no-repeat|no-drop|newspaper|ne-resize|n-resize|move|middle|medium|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|list-item|line|line-through|line-edge|lighter|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline|inline-block|inherit|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|horizontal|hidden|help|hand|groove|fixed|ellipsis|e-resize|double|dotted|distribute|distribute-space|distribute-letter|distribute-all-lines|disc|disabled|default|decimal|dashed|crosshair|collapse|col-resize|circle|char|center|capitalize|break-word|break-all|bottom|both|bolder|bold|block|bidi-override|below|baseline|auto|always|all-scroll|absolute|table|table-cell)\\b', 
-        relevance: 1,
       },
       {
         begin: /:/,

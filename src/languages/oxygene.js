@@ -7,7 +7,7 @@ Category: build-system
 */
 
 export default function(hljs) {
-  const OXYGENE_KEYWORDS = {
+  const KEYWORDS = {
     $pattern: /\.?\w+/,
     keyword:
       'abstract add and array as asc aspect assembly async begin break block by case class concat const copy constructor continue '
@@ -41,14 +41,14 @@ export default function(hljs) {
   const FUNCTION = {
     beginKeywords: 'function constructor destructor procedure method',
     end: '[:;]',
-    keywords: 'function constructor|10 destructor|10 procedure|10 method|10',
+    keywords: 'function constructor destructor procedure method',
     contains: [
       hljs.inherit(hljs.TITLE_MODE, { scope: "title.function" }),
       {
         className: 'params',
         begin: '\\(',
         end: '\\)',
-        keywords: OXYGENE_KEYWORDS,
+        keywords: KEYWORDS,
         contains: [
           STRING,
           CHAR_STRING
@@ -68,7 +68,7 @@ export default function(hljs) {
   return {
     name: 'Oxygene',
     case_insensitive: true,
-    keywords: OXYGENE_KEYWORDS,
+    keywords: KEYWORDS,
     illegal: '("|\\$[G-Zg-z]|\\/\\*|</|=>|->)',
     contains: [
       CURLY_COMMENT,

@@ -47,15 +47,11 @@ export default function(hljs) {
       },
       { /* module or constructor */
         className: 'type',
-        begin: '\\b[A-Z][\\w\']*',
-        relevance: 0
+        begin: '\\b[A-Z][\\w\']*'
       },
       { /* don't color identifiers, but safely catch all identifiers with ' */
         begin: '[a-z_]\\w*\'[\\w\']*' },
-      hljs.inherit(hljs.APOS_STRING_MODE, {
-        className: 'string',
-        relevance: 0
-      }),
+      hljs.APOS_STRING_MODE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
         className: 'number',

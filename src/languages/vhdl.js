@@ -194,11 +194,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE, // VHDL-2008 block commenting.
       hljs.COMMENT('--', '$'),
       hljs.QUOTE_STRING_MODE,
-      {
-        className: 'number',
-        begin: NUMBER_RE,
-        relevance: 0
-      },
+      hljs.NUMBER_MODE,
       {
         className: 'string',
         begin: '\'(U|X|0|1|Z|W|L|H|-)\'',
