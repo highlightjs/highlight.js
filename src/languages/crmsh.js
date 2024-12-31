@@ -28,7 +28,8 @@ export default function(hljs) {
     ],
     case_insensitive: true,
     keywords: {
-      keyword: KEYWORDS + ' ' + OPERATORS + ' ' + TYPES,
+      keyword: KEYWORDS + ' ' + OPERATORS,
+      type: TYPES,
       literal: LITERALS
     },
     contains: [
