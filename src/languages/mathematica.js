@@ -65,7 +65,7 @@ export default function(hljs) {
   const SYMBOLS = { variants: [
     {
       className: 'builtin-symbol',
-      begin: SYMBOL_RE,
+      match: SYMBOL_RE,
       relevance: 1,
       // for performance out of fear of regex.either(...Mathematica.SYSTEM_SYMBOLS)
       "on:begin": (match, response) => {
