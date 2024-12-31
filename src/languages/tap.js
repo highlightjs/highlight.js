@@ -38,8 +38,8 @@ export default function(hljs) {
         className: 'symbol',
         relevance: "keyword",
         variants: [
-          { begin: /^ok(?= )/ },
-          { begin: /^not ok(?= )/ }
+          { begin: /^ok/ },
+          { begin: /^not ok/ }
         ]
       }
     ]
