@@ -19,7 +19,6 @@ export default function(hljs) {
   };
 
   const genericMode = {
-    className: 'keyword',
     begin: '<',
     end: '>',
     contains: [
