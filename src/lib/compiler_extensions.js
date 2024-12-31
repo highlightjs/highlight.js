@@ -65,11 +65,6 @@ export function beginKeywords(mode, parent) {
   mode.__beforeBegin = skipIfHasPrecedingDot;
   mode.keywords = mode.keywords || mode.beginKeywords;
   delete mode.beginKeywords;
-
-  // prevents double relevance, the keywords themselves provide
-  // relevance, the mode doesn't need to double it
-  // eslint-disable-next-line no-undefined
-  if (mode.relevance === undefined) mode.relevance = 0;
 }
 
 /**
@@ -92,30 +87,4 @@ export function compileMatch(mode, _parent) {
 
   mode.begin = mode.match;
   delete mode.match;
-}
-
-/** @type {Record<string,number> } */
-const RELEVANCE_LEVELS = {
-  baseline: 0.05,
-  low: 0.1,
-  minor: 0.5,
-  keyword: 1,
-  double: 2,
-  high: 5,
-  "important!": 9
-}
-
-/**
- * provides the default 1 relevance to all modes
- * @type {CompilerExt}
- */
-export function compileRelevance(mode, _parent) {
-  // eslint-disable-next-line no-undefined
-  if (mode.relevance === undefined) {
-    mode.relevance = RELEVANCE_LEVELS.baseline;
-  } else if (RELEVANCE_LEVELS[mode.relevance]) {
-    mode.relevance = RELEVANCE_LEVELS[mode.relevance];
-  // } else if (mode.relevance === 0) {
-  //   mode.relevance = 0.05;
-  }
 }

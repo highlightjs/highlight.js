@@ -129,7 +129,6 @@ const HighlightJS = function() {
    *
    * @returns {HighlightResult} Result - an object that represents the result
    * @property {string} language - the language name
-   * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
    * @property {string} code - the original raw code
    * @property {CompiledMode} top - top of the current mode stack
@@ -210,7 +209,6 @@ const HighlightJS = function() {
           buf = "";
 
           keywordHits[word] = (keywordHits[word] || 0) + 1;
-          if (keywordHits[word] <= MAX_KEYWORD_HITS) relevance += keywordRelevance;
           if (kind.startsWith("_")) {
             // _ implied for relevance only, do not highlight
             // by applying a class name
@@ -248,13 +246,6 @@ const HighlightJS = function() {
         // result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
       }
 
-      // Counting embedded language score towards the host language may be disabled
-      // with zeroing the containing mode relevance. Use case in point is Markdown that
-      // allows XML everywhere and makes every XML snippet to have a much larger Markdown
-      // score.
-      if (top.relevance > 0) {
-        relevance += result.relevance;
-      }
       emitter.__addSublanguage(result._emitter, result.language);
     }
 
@@ -404,11 +395,6 @@ const HighlightJS = function() {
           modeBuffer = lexeme;
         }
       }
-      // modes that return to the beginning then are matched by other
-      // rules will technically never end, so we need to credit them upfront
-      if (newMode.returnBegin && newMode.relevance) {
-        relevance += newMode.relevance;
-      }
       startNewMode(newMode, match);
       return newMode.returnBegin ? 0 : lexeme.length;
     }
@@ -446,9 +432,6 @@ const HighlightJS = function() {
       do {
         if (top.scope) {
           emitter.closeNode();
-        }
-        if (!top.skip) {
-          if (top.relevance) relevance += top.relevance;
         }
         top = top.parent;
       } while (top !== endMode.parent);
@@ -572,7 +555,6 @@ const HighlightJS = function() {
     const emitter = new options.__emitter(options);
     processContinuations();
     let modeBuffer = '';
-    let relevance = 0;
     let index = 0;
     let iterations = 0;
     let resumeScanAtSamePosition = false;
@@ -612,7 +594,6 @@ const HighlightJS = function() {
       return {
         language: languageName,
         value: result,
-        relevance,
         illegal: false,
         _emitter: emitter,
         _top: top
@@ -623,7 +604,6 @@ const HighlightJS = function() {
           language: languageName,
           value: escape(codeToHighlight),
           illegal: true,
-          relevance: 0,
           _illegalBy: {
             message: err.message,
             index,
@@ -638,7 +618,6 @@ const HighlightJS = function() {
           language: languageName,
           value: escape(codeToHighlight),
           illegal: false,
-          relevance: 0,
           errorRaised: err,
           _emitter: emitter,
           _top: top
@@ -731,15 +710,11 @@ const HighlightJS = function() {
     element.dataset.highlighted = "yes";
     updateClassName(element, language, result.language);
     element.result = {
-      language: result.language,
-      // TODO: remove with version 11.0
-      re: result.relevance,
-      relevance: result.relevance
+      language: result.language
     };
     if (result.secondBest) {
       element.secondBest = {
-        language: result.secondBest.language,
-        relevance: result.secondBest.relevance
+        language: result.secondBest.language
       };
     }
 
