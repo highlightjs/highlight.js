@@ -670,6 +670,7 @@ const HighlightJS = function() {
 
     node = element;
     const text = node.textContent;
+    // TODO: remobe highlightAuto with v12
     const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
 
     element.innerHTML = result.value;
