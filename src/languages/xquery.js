@@ -326,18 +326,6 @@ export default function(_hljs) {
     ]
   };
 
-  const CONTAINS = [
-    VAR,
-    BUILT_IN,
-    STRING,
-    NUMBER,
-    COMMENT,
-    ANNOTATION,
-    TITLE,
-    COMPUTED,
-    DIRECT
-  ];
-
   return {
     name: 'XQuery',
     aliases: [
@@ -353,6 +341,16 @@ export default function(_hljs) {
       type: TYPES,
       literal: LITERALS
     },
-    contains: CONTAINS
+    contains: [
+      VAR,
+      BUILT_IN,
+      STRING,
+      NUMBER,
+      COMMENT,
+      ANNOTATION,
+      TITLE,
+      COMPUTED,
+      DIRECT
+    ]
   };
 }
