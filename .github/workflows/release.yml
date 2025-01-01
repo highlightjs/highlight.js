@@ -43,10 +43,10 @@ jobs:
           echo "NPM_TAG=latest" >> $GITHUB_ENV
           echo "RELEASING=stable" >> $GITHUB_ENV
 
-      - name: match-tag-to-package-version
-        uses: geritol/match-tag-to-package-version@0.2.0
-        env:
-          TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
+      # - name: match-Vtag-to-package-version
+      #   uses: geritol/match-tag-to-package-version@0.2.0
+      #   env:
+      #     TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
 
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
