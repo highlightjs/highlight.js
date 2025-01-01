@@ -1,4 +1,4 @@
-![](<span class="hljs-link">https://example.com</span>)
-[](<span class="hljs-link">https://example.com</span>)
-![<span class="hljs-string">alt</span>](<span class="hljs-link">https://example.com</span>)
-[<span class="hljs-string">text</span>](<span class="hljs-link">https://example.com</span>)
+!<span class="hljs-booger">[](<span class="hljs-link">https://example.com</span>)</span>
+<span class="hljs-booger">[](<span class="hljs-link">https://example.com</span>)</span>
+!<span class="hljs-booger">[<span class="hljs-string">alt</span>](<span class="hljs-link">https://example.com</span>)</span>
+<span class="hljs-booger">[<span class="hljs-string">text</span>](<span class="hljs-link">https://example.com</span>)</span>

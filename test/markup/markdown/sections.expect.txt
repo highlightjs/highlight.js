@@ -5,8 +5,8 @@
 <span class="hljs-section">hello world
 ===========</span>
 
-<span class="hljs-section"><span class="hljs-emphasis">*hello world*</span> or [<span class="hljs-string">google</span>](<span class="hljs-link">link</span>)
+<span class="hljs-section"><span class="hljs-emphasis">*hello world*</span> or <span class="hljs-booger">[<span class="hljs-string">google</span>](<span class="hljs-link">link</span>)</span>
 ===========</span>
 
-<span class="hljs-section"># <span class="hljs-emphasis">*hello world*</span> or [<span class="hljs-string">google</span>](<span class="hljs-link">link</span>)</span>
+<span class="hljs-section"># <span class="hljs-emphasis">*hello world*</span> or <span class="hljs-booger">[<span class="hljs-string">google</span>](<span class="hljs-link">link</span>)</span></span>
 
