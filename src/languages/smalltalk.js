@@ -28,7 +28,6 @@ export default function(hljs) {
       "thisContext"
     ],
     contains: [
-      // relevance must be lowered so this doesn't compete with strings
       hljs.COMMENT('"', '"'),
       hljs.APOS_STRING_MODE,
       {

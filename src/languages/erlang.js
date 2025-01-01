@@ -214,8 +214,7 @@ export default function(hljs) {
       VAR1,
       VAR2,
       TUPLE,
-      CHAR_LITERAL,
-      { begin: /\.$/ } // relevance booster
+      CHAR_LITERAL
     ]
   };
 }

@@ -435,9 +435,7 @@ export default function(hljs) {
         excludeBegin: true,
         begin: '\\|\\s*',
         end: '\\w+'
-      },
-      { // relevance booster
-        begin: /[-=]>/ }
+      }
     ]
   };
 }

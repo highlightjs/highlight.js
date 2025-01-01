@@ -14,7 +14,6 @@ export default function(hljs) {
     aliases: [ 'i7' ],
     case_insensitive: true,
     keywords: {
-      // Some keywords more or less unique to I7, for relevance.
       keyword:
         // kind:
         'thing room person man woman animal container '

@@ -236,9 +236,7 @@ export default function(hljs) {
       illegal: /=/,
       contains: [
         hljs.HASH_COMMENT_MODE,
-        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE, scope: "title.class" }),
-        { // relevance booster for inheritance
-          begin: '<' }
+        hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE, scope: "title.class" })
       ]
     },
     {

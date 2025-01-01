@@ -220,7 +220,7 @@ export default function(hljs) {
     contains: [
       { beginKeywords: KEYWORDS.keyword },
       BUILT_IN_REF,
-      { // ambiguously named function calls get a relevance of 0
+      {
         className: 'built_in',
         begin: hljs.UNDERSCORE_IDENT_RE
       }

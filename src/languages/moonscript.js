@@ -57,7 +57,7 @@ export default function(hljs) {
     },
     {
       scope: "variable",
-      begin: '@' + hljs.IDENT_RE // relevance booster on par with CoffeeScript
+      begin: '@' + hljs.IDENT_RE
     },
     { begin: hljs.IDENT_RE + '\\\\' + hljs.IDENT_RE // inst\method
     }

@@ -56,10 +56,7 @@ export default function(hljs) {
       {
         className: 'built_in',
         begin: 'A_[a-zA-Z0-9]+'
-      },
-      {
-        // consecutive commas, not for highlighting but just for relevance
-        begin: ',\\s*,' }
+      }
     ]
   };
 }

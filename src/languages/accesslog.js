@@ -63,7 +63,7 @@ export default function(hljs) {
         end: /\]/,
         illegal: /\n/
       },
-      // User agent / relevance boost
+      // User agent
       {
         className: 'string',
         begin: /"Mozilla\/\d\.\d \(/,

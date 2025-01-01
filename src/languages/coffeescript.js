@@ -111,8 +111,6 @@ export default function(hljs) {
           begin: /\/(?![ *]).*?(?![\\]).\/[gim]{0,3}(?=\W)/ }
       ]
     },
-    { begin: '@' + JS_IDENT_RE // relevance booster
-    },
     {
       subLanguage: 'javascript',
       excludeBegin: true,

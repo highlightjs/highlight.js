@@ -128,8 +128,6 @@ export default function(hljs) {
           }
         ]
       },
-      { begin: /:=/ // relevance booster
-      },
       {
         beginKeywords: 'func',
         end: '\\s*(\\{|$)',

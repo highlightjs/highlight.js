@@ -54,10 +54,9 @@ export default function(hljs) {
       'if else foreach return do while until elseif begin for trap data dynamicparam '
       + 'end break throw param continue finally in switch exit filter try process catch '
       + 'hidden static parameter',
-    // "echo" relevance has been set to 0 to avoid auto-detect conflicts with shell transcripts
     built_in:
       'ac asnp cat cd CFS chdir clc clear clhy cli clp cls clv cnsn compare copy cp '
-      + 'cpi cpp curl cvpa dbp del diff dir dnsn ebp echo|0 epal epcsv epsn erase etsn exsn fc fhx '
+      + 'cpi cpp curl cvpa dbp del diff dir dnsn ebp echo epal epcsv epsn erase etsn exsn fc fhx '
       + 'fl ft fw gal gbp gc gcb gci gcm gcs gdr gerr ghy gi gin gjb gl gm gmo gp gps gpv group '
       + 'gsn gsnp gsv gtz gu gv gwmi h history icm iex ihy ii ipal ipcsv ipmo ipsn irm ise iwmi '
       + 'iwr kill lp ls man md measure mi mount move mp mv nal ndr ni nmo npssc nsn nv ogv oh '

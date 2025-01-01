@@ -34,13 +34,6 @@ export default function(hljs) {
         className: 'string',
         begin: '[\\.,]'
       },
-      {
-        // this mode works as the only real relevance counter
-        // it looks ahead to find the start of a run of literals
-        // so only the runs are counted as relevant
-        begin: /(?=\+\+\+|---)/,
-        contains: [ LITERAL ]
-      },
       LITERAL
     ]
   };

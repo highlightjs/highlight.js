@@ -86,13 +86,6 @@ export default function(hljs) {
       {
         begin: /\[.+?\]\([./?&#].*?\)/
       },
-      // too much like nested array access in so many languages
-      // to have any real relevance
-      {
-        scope:"brokengoober",
-        begin: /\[.+?\]\[.+?\]/
-      },
-      // whatever else, lower relevance (might not be a link at all)
       {
         begin: /\[.*?\]\(.*?\)/
       }
