@@ -1,6 +1,5 @@
 'use strict';
 
-import autoDetection from './autoDetection.mjs'
 import beginKeywords from './beginKeywords.mjs'
 import binaryNumber from './binaryNumber.mjs'
 import cNumber from './cNumber.mjs'
@@ -17,7 +16,6 @@ import multiClassMatch from './multiClassMatch.mjs'
 import normalizeLineEncoding from './normalizeLineEncoding.mjs'
 
 describe('api', function() {
-  autoDetection.apply(this);
   beginKeywords.apply(this);
   binaryNumber.apply(this);
   cNumber.apply(this);

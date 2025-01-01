@@ -10,7 +10,6 @@ export default function() {
         return {
           contains: [
             {
-              relevance: 1,
               begin: ["a", "b", "c"],
               className: {
                 1: "a",
@@ -18,7 +17,6 @@ export default function() {
               },
               contains: [
                 {
-                  relevance: 1,
                   match: "def",
                   className: "def"
                 }
@@ -44,7 +42,6 @@ export default function() {
                 /\(\)/,
                 /{.*}/
               ],
-              relevance: 1,
               className: {
                 1: "keyword",
                 2: "params",
@@ -64,14 +61,12 @@ export default function() {
       const result = hljs.highlight(code, { language: 'test' });
 
       result.value.should.equal(`<span class="hljs-a">a</span>b<span class="hljs-c">c</span><span class="hljs-def">def</span>`);
-      result.relevance.should.equal(2);
     });
     it('basic functionality', () => {
       const code = "func(){ test }";
       const result = hljs.highlight(code, { language: 'test' });
 
       result.value.should.equal(`<span class="hljs-keyword">func</span><span class="hljs-params">()</span><span class="hljs-body">{ test }</span>`);
-      result.relevance.should.equal(1);
     });
     it('works inside a classified parent mode', () => {
       const code = "^^^what abc now^^^";

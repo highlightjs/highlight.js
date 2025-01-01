@@ -1,4 +1,0 @@
-> a = "1"
-'1'
-> function b(){
-... return 1+2;

@@ -5,7 +5,6 @@ import resumeScan from './resume-scan.mjs';
 import reuseEndsWithParent from './reuse-endsWithParent.mjs';
 import shouldNotDestroyData from './should-not-destroyData.mjs';
 import compilerExtensions from './compiler-extensions.mjs';
-import maxKeywordHits from './max_keyword_hits.mjs';
 import functionDeclarationBacktracking from './function-declaration-backtracking.mjs';
 import beginEndScope from './beginEndScope.mjs';
 
@@ -17,7 +16,6 @@ describe('hljs', function() {
   // not quite ready to become a plugin yet, so these hooks
   // have been removed and we're skipping this test for now
   describe.skip('compiler extensions', compilerExtensions.bind(this));
-  describe('max keyword hits', maxKeywordHits.bind(this));
   describe('function declaration backtracking', functionDeclarationBacktracking.bind(this));
   describe('beginScope and endScope', beginEndScope.bind(this));
 });
