@@ -21,31 +21,11 @@ language instead of throwing an exception.
 
 Returns an object with the following properties:
 
-* ``language``: language name, same as the name passed in ``languageName``, returned for consistency with ``highlightAuto``
-* ``relevance``: integer value representing the relevance score
+* ``language``: language name, same as the name passed in ``languageName``
 * ``value``: HTML string with highlighting markup
 * ``top``: top of the current mode stack
 * ``illegal``: boolean representing whether any illegal matches were found
 * ``code``: the original raw code
-
-
-
-highlightAuto
--------------
-
-::
-
-  highlightAuto(code, languageSubset)
-
-Highlighting with language detection.
-Accepts a string with the code to highlight and an optional array of language names and aliases restricting detection to only those languages. The subset can also be set with ``configure``, but the local parameter overrides the option if set.
-
-Returns an object with the following properties:
-
-* ``language``: detected language
-* ``relevance``: integer value representing the relevance score
-* ``value``: HTML string with highlighting markup
-* ``secondBest``: object with the same structure for second-best heuristically detected language (may be absent)
 
 
 highlightElement
@@ -262,4 +242,3 @@ initHighlightingOnLoad
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. deprecated:: 10.6 Please use ``highlightAll()`` instead.
-
