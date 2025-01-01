@@ -664,7 +664,7 @@ const HighlightJS = function() {
 
     node = element;
     const text = node.textContent;
-    const result = language ? highlight(text, { language, ignoreIllegals: true }) : highlightAuto(text);
+    const result = highlight(text, { language, ignoreIllegals: true });
 
     element.innerHTML = result.value;
     element.dataset.highlighted = "yes";
@@ -672,11 +672,6 @@ const HighlightJS = function() {
     element.result = {
       language: result.language
     };
-    if (result.secondBest) {
-      element.secondBest = {
-        language: result.secondBest.language
-      };
-    }
 
     fire("after:highlightElement", { el: element, result, text });
   }
