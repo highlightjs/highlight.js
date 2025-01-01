@@ -1284,6 +1284,14 @@ export default function(hljs) {
   };
 
   /**
+   * Match for the accessor for a `ds_map`. This exists to disambiguate from ternaries, which would
+   * otherwise consume the match for a struct literal member.
+   */
+  const DS_MAP_ACCESS = {
+    match: /\[\?/
+  };
+
+  /**
    * A ternary expression, matching partial ternary as `? <EXPRESSION> :`.
    * Effectively exists to prevent {@link STRUCT_LITERAL_MEMBER} from stealing `<EXPRESSION> :`.
    */
@@ -1380,6 +1388,7 @@ export default function(hljs) {
 
   EXPRESSION.push(
     STRING,
+    DS_MAP_ACCESS,
     TERNARY,
     PROP_ACCESS,
     NUMBER,
@@ -1445,6 +1454,7 @@ export default function(hljs) {
         // Prevent keywords being taken by function calls.
         beginKeywords: KEYWORDS.join(" ")
       },
+      DS_MAP_ACCESS,
       TERNARY,
       STRUCT_LITERAL_MEMBER,
       FUNCTION_DECLARATION,
