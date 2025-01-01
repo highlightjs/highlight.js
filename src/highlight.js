@@ -194,14 +194,8 @@ const HighlightJS = function() {
           emitter.addText(buf);
           buf = "";
 
-          if (scope.startsWith("_")) {
-            // _ implied for relevance only, do not highlight
-            // by applying a class name
-            buf += match[0];
-          } else {
-            const finalScope = language.scopeAliases[scope] || scope;
-            emitKeyword(match[0], finalScope);
-          }
+          const finalScope = language.scopeAliases[scope] || scope;
+          emitKeyword(match[0], finalScope);
         } else {
           buf += match[0];
         }
