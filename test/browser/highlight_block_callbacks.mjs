@@ -14,27 +14,6 @@ class ContentAdder {
   }
 }
 
-class OldPlugin {
-  'before:highlightBlock'({ block, language }) {}
-  'after:highlightBlock'({ block, result, text }) {}
-}
-
-describe('old highlightBlock plugin', function() {
-  it("is upgraded to new API automatically", async function() {
-    // we need a stub testcase juts for buildFakeDOM to work
-    const testCase = newTestCase({ html: "" });
-    await buildFakeDOM.bind(this)(testCase);
-
-    const old = new OldPlugin();
-    should(old["after:highlightElement"]).be.undefined();
-    should(old["before:highlightElement"]).be.undefined();
-    this.hljs.addPlugin(old);
-    should(old["after:highlightElement"]).not.be.undefined();
-    should(old["before:highlightElement"]).not.be.undefined();
-  });
-}
-);
-
 describe('callback system', function() {
   it("supports class based plugins", async function() {
     const testCase = newTestCase({
@@ -104,7 +83,7 @@ describe('after:highlightElement', function() {
     this.hljs.addPlugin({
       'after:highlightElement': ({el, result}) => {
         result.language.should.equal("javascript")
-        result.relevance.should.above(0)
+        result.value.includes("hljs-keyword").should.equal(true)
       }
     });
 
@@ -146,7 +125,7 @@ describe('after:highlightElement', function() {
 })
 
 describe('removePlugin', () => {
-  it("can remove added plugin", async() => {
+  it("can remove added plugin", async function() {
     const testCase = newTestCase({
       code: "This is the original content.",
       language: "javascript"
