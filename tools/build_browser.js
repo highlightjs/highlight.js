@@ -74,17 +74,18 @@ async function buildBrowser(options) {
 
   detailedGrammarSizes(languages);
 
-  const size = await buildCore("highlight", languages, { minify: options.minify, format: "esm" });
+  const name = "highlight.cjs.bundle"
+  const size = await buildCore(name, languages, { minify: options.minify, format: "cjs" });
 
   log("-----");
   log("Languages (raw)     :",
     languages.map((el) => el.data.length).reduce((acc, curr) => acc + curr, 0), "bytes");
-  log("highlight.js        :", size.fullSize, "bytes");
+  log(`${name}.js        :`, size.fullSize, "bytes");
   if (options.minify) {
-    log("highlight.min.js    :", size.minified, "bytes");
-    log("highlight.min.js.gz :", zlib.gzipSync(size.minifiedSrc).length, "bytes");
+    log(`${name}.min.js    :`, size.minified, "bytes");
+    log(`${name}.min.js.gz :`, zlib.gzipSync(size.minifiedSrc).length, "bytes");
   } else {
-    log("highlight.js.gz     :", zlib.gzipSync(size.fullSrc).length, "bytes");
+    log(`${name}.js.gz     :`, zlib.gzipSync(size.fullSrc).length, "bytes");
   }
   log("-----");
 }
@@ -211,14 +212,15 @@ async function buildCore(name, languages, options) {
     ...input.plugins,
     builtInLanguagesPlugin(languages)
   ];
-  const output = config.rollup.node.output;
+  // const output = config.rollup.node.output;
+  const output = config.rollup.browser_iife.output;
 
   // optimize for no languages by not including the language loading stub
   if (languages.length === 0) {
     input.input = "src/highlight.js";
   }
 
-  output.format = "es";
+  // output.format = "es";
   output.file = `${process.env.BUILD_DIR}/${name}.js`;
   relativePath = "";
 

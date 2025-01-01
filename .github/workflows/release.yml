@@ -66,8 +66,8 @@ jobs:
           draft: true
           prerelease: ${{ !(env.RELEASING == 'stable') }}
           files: |
-            ./build/highlight.js
-            ./build/highlight.min.js
+            ./build/highlight.cjs.bundle.js
+            ./build/highlight.cjs.bundle.min.js
       # - name: Build Node.js package
       #   run: |
       #     npm install
