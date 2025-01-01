@@ -29,16 +29,14 @@ export default function(hljs) {
     ],
     contains: [
       // relevance must be lowered so this doesn't compete with strings
-      hljs.COMMENT('"', '"', { relevance: 0.1 }),
+      hljs.COMMENT('"', '"'),
       hljs.APOS_STRING_MODE,
       {
         className: 'type',
-        begin: '\\b[A-Z][A-Za-z0-9_]*',
-        relevance: 0
+        begin: '\\b[A-Z][A-Za-z0-9_]*'
       },
       {
-        begin: VAR_IDENT_RE + ':',
-        relevance: 0
+        begin: VAR_IDENT_RE + ':'
       },
       hljs.C_NUMBER_MODE,
       SYMBOL,

@@ -205,8 +205,8 @@ export default function(hljs) {
         end: /"|$/,
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
-      hljs.COMMENT(/REM(?=\s)/, /$/, { relevance: "double" }),
-      hljs.COMMENT(/'/, /$/, { relevance: 0 }),
+      hljs.COMMENT(/REM(?=\s)/, /$/),
+      hljs.COMMENT(/'/, /$/),
       {
         // Match line numbers
         className: 'symbol',
@@ -215,8 +215,7 @@ export default function(hljs) {
       {
         // Match typed numeric constants (1000, 12.34!, 1.2e5, 1.5#, 1.2D2)
         className: 'number',
-        begin: '\\b\\d+(\\.\\d+)?([edED]\\d+)?[#\!]?',
-        relevance: 0
+        begin: '\\b\\d+(\\.\\d+)?([edED]\\d+)?[#\!]?'
       },
       {
         // Match hexadecimal numbers (&Hxxxx)

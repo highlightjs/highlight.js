@@ -105,12 +105,10 @@ export default function(hljs) {
         /\/\*\*/,
         /\*\//,
         {
-          relevance: 0,
           contains: [
             {
               // eat up @'s in emails to prevent them to be recognized as doctags
-              begin: /\w+@/,
-              relevance: 0
+              begin: /\w+@/
             },
             {
               className: 'doctag',
@@ -143,7 +141,6 @@ export default function(hljs) {
         beginKeywords: 'class interface',
         end: /[{;=]/,
         excludeEnd: true,
-        relevance: 0,
         keywords: 'class interface',
         illegal: /[:"\[\]]/,
         contains: [
@@ -169,23 +166,20 @@ export default function(hljs) {
         begin: /[:]/,
         returnBegin: true,
         end: /[{;]/,
-        relevance: 0,
         excludeEnd: false,
         keywords: KEYWORDS,
         illegal: /["\[\]]/,
         contains: [
           {
             begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
-            keywords: KEYWORDS.concat(SHORTKEYS),
-            relevance: 0
+            keywords: KEYWORDS.concat(SHORTKEYS)
           },
           hljs.QUOTE_STRING_MODE
         ]
       },
       {
         // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
-        beginKeywords: 'new throw',
-        relevance: 0
+        beginKeywords: 'new throw'
       },
       {
         // the function class is a bit different for AspectJ compared to the Java language
@@ -198,14 +192,12 @@ export default function(hljs) {
           {
             begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
             returnBegin: true,
-            relevance: 0,
             contains: [ TITLE_FUNCTION ]
           },
           {
             className: 'params',
             begin: /\(/,
             end: /\)/,
-            relevance: 0,
             keywords: KEYWORDS,
             contains: [
               hljs.APOS_STRING_MODE,

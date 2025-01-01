@@ -110,8 +110,7 @@ export default function(hljs) {
       '^=begin',
       '^=end',
       {
-        contains: [ YARDOCTAG ],
-        relevance: 9
+        contains: [ YARDOCTAG ]
       }
     ),
     hljs.COMMENT('^__END__', hljs.MATCH_NOTHING_RE)
@@ -210,7 +209,6 @@ export default function(hljs) {
   const digits = '[0-9](_?[0-9])*';
   const NUMBER = {
     className: 'number',
-    relevance: 0,
     variants: [
       // decimal integer/float, optionally exponential or rational, optionally imaginary
       { begin: `\\b(${decimal})(\\.(${digits}))?([eE][+-]?(${digits})|r)?i?\\b` },
@@ -279,7 +277,6 @@ export default function(hljs) {
   };
 
   const UPPER_CASE_CONSTANT = {
-    relevance: 0,
     match: /\b[A-Z][A-Z_0-9]+\b/,
     className: "variable.constant"
   };
@@ -289,7 +286,6 @@ export default function(hljs) {
       /def/, /\s+/,
       RUBY_METHOD_RE
     ],
-    relevance: 1,
     scope: {
       1: "keyword",
       3: "title.function"
@@ -300,7 +296,6 @@ export default function(hljs) {
   };
 
   const OBJECT_CREATION = {
-    relevance: 0,
     match: [
       CLASS_NAME_WITH_NAMESPACE_RE,
       /\.new[. (]/
@@ -312,7 +307,6 @@ export default function(hljs) {
 
   // CamelCase
   const CLASS_REFERENCE = {
-    relevance: 0,
     match: CLASS_NAME_RE,
     scope: "title.class"
   };
@@ -330,8 +324,7 @@ export default function(hljs) {
       begin: hljs.IDENT_RE + '::' },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
-      relevance: 0
+      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:'
     },
     {
       className: 'symbol',
@@ -339,8 +332,7 @@ export default function(hljs) {
       contains: [
         STRING,
         { begin: RUBY_METHOD_RE }
-      ],
-      relevance: 0
+      ]
     },
     NUMBER,
     {
@@ -355,7 +347,6 @@ export default function(hljs) {
       end: /\|/,
       excludeBegin: true,
       excludeEnd: true,
-      relevance: 0, // this could be a lot of things (in other languages) other than params
       keywords: RUBY_KEYWORDS
     },
     { // regexp container
@@ -392,8 +383,7 @@ export default function(hljs) {
             }
           ]
         }
-      ].concat(IRB_OBJECT, COMMENT_MODES),
-      relevance: 0
+      ].concat(IRB_OBJECT, COMMENT_MODES)
     }
   ].concat(IRB_OBJECT, COMMENT_MODES);
 

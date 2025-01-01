@@ -13,8 +13,7 @@ export default function(hljs) {
     variants: [
       { begin: '\\b([gtps][A-Z]{1}[a-zA-Z0-9]*)(\\[.+\\])?(?:\\s*?)' },
       { begin: '\\$_[A-Z]+' }
-    ],
-    relevance: 0
+    ]
   };
   const COMMENT_MODES = [
     hljs.C_BLOCK_COMMENT_MODE,
@@ -22,16 +21,16 @@ export default function(hljs) {
     hljs.COMMENT('--', '$'),
     hljs.COMMENT('[^:]//', '$')
   ];
-  const TITLE1 = hljs.inherit(hljs.TITLE_MODE, { 
+  const TITLE1 = hljs.inherit(hljs.TITLE_MODE, {
     scope: "title.function",
     variants: [
       { begin: '\\b_*rig[A-Z][A-Za-z0-9_\\-]*' },
       { begin: '\\b_[a-z0-9\\-]+' }
     ]
    });
-  const TITLE2 = hljs.inherit(hljs.TITLE_MODE, { 
+  const TITLE2 = hljs.inherit(hljs.TITLE_MODE, {
     scope: "title.function",
-    begin: '\\b([A-Za-z0-9_\\-]+)\\b' 
+    begin: '\\b([A-Za-z0-9_\\-]+)\\b'
   });
   return {
     name: 'LiveCode',
@@ -138,8 +137,7 @@ export default function(hljs) {
         contains: [
           TITLE2,
           TITLE1
-        ],
-        relevance: 0
+        ]
       },
       {
         beginKeywords: 'command on',
@@ -158,8 +156,7 @@ export default function(hljs) {
         className: 'meta',
         variants: [
           {
-            begin: '<\\?(rev|lc|livecode)',
-            relevance: 9
+            begin: '<\\?(rev|lc|livecode)'
           },
           { begin: '<\\?' },
           { begin: '\\?>' }

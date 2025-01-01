@@ -24,8 +24,7 @@ export default function cos(hljs) {
 
   const NUMBERS = {
     className: "number",
-    begin: "\\b(\\d+(\\.\\d*)?|\\.\\d+)",
-    relevance: 0
+    begin: "\\b(\\d+(\\.\\d*)?|\\.\\d+)"
   };
 
   const COS_KEYWORDS =
@@ -87,8 +86,7 @@ export default function cos(hljs) {
       {
         className: "comment",
         begin: /;/,
-        end: "$",
-        relevance: 0
+        end: "$"
       },
       { // Functions and user-defined functions: write $ztime(60*60*3), $$myFunc(10), $$^Val(1)
         className: "built_in",

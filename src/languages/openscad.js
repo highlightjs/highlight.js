@@ -17,8 +17,7 @@ export default function(hljs) {
   };
   const NUMBERS = {
     className: 'number',
-    begin: '\\b\\d+(\\.\\d+)?(e-?\\d+)?', // adds 1e5, 1e-10
-    relevance: 0
+    begin: '\\b\\d+(\\.\\d+)?(e-?\\d+)?' // adds 1e5, 1e-10
   };
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const PREPRO = {
@@ -40,8 +39,7 @@ export default function(hljs) {
     ]
   };
   const MODIFIERS = {
-    begin: '[*!#%]',
-    relevance: 0
+    begin: '[*!#%]'
   };
   const FUNCTIONS = {
     beginKeywords: 'module function',

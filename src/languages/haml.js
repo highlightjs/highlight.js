@@ -19,8 +19,7 @@ export default function(hljs) {
       // FIXME these comments should be allowed to span indented lines
       hljs.COMMENT(
         '^\\s*(!=#|=#|-#|/).*$',
-        null,
-        { relevance: 0 }
+        null
       ),
       {
         begin: '^\\s*(-|=|!=)(?!#)',
@@ -62,8 +61,7 @@ export default function(hljs) {
                   hljs.APOS_STRING_MODE,
                   hljs.QUOTE_STRING_MODE,
                   {
-                    begin: '\\w+',
-                    relevance: 0
+                    begin: '\\w+'
                   }
                 ]
               }
@@ -82,14 +80,12 @@ export default function(hljs) {
                 contains: [
                   {
                     className: 'attr',
-                    begin: '\\w+',
-                    relevance: 0
+                    begin: '\\w+'
                   },
                   hljs.APOS_STRING_MODE,
                   hljs.QUOTE_STRING_MODE,
                   {
-                    begin: '\\w+',
-                    relevance: 0
+                    begin: '\\w+'
                   }
                 ]
               }

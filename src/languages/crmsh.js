@@ -70,29 +70,24 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'meta',
-        begin: '(ocf|systemd|service|lsb):[\\w_:-]+',
-        relevance: 0
+        begin: '(ocf|systemd|service|lsb):[\\w_:-]+'
       },
       {
         className: 'number',
-        begin: '\\b\\d+(\\.\\d+)?(ms|s|h|m)?',
-        relevance: 0
+        begin: '\\b\\d+(\\.\\d+)?(ms|s|h|m)?'
       },
       {
         className: 'literal',
-        begin: '[-]?(infinity|inf)',
-        relevance: 0
+        begin: '[-]?(infinity|inf)'
       },
       {
         className: 'attr',
-        begin: /([A-Za-z$_#][\w_-]+)=/,
-        relevance: 0
+        begin: /([A-Za-z$_#][\w_-]+)=/
       },
       {
         className: 'tag',
         begin: '</?',
-        end: '/?>',
-        relevance: 0
+        end: '/?>'
       }
     ]
   };

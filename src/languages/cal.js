@@ -42,8 +42,7 @@ export default function(hljs) {
     hljs.C_LINE_COMMENT_MODE,
     hljs.COMMENT(
       /\{/,
-      /\}/,
-      { relevance: 0 }
+      /\}/
     ),
     hljs.COMMENT(
       /\(\*/,
@@ -62,8 +61,7 @@ export default function(hljs) {
   };
   const DATE = {
     className: 'number',
-    begin: '\\b\\d+(\\.\\d+)?(DT|D|T)',
-    relevance: 0
+    begin: '\\b\\d+(\\.\\d+)?(DT|D|T)'
   };
   const DBL_QUOTED_VARIABLE = {
     className: 'string', // not a string technically but makes sense to be highlighted in the same style
@@ -120,7 +118,6 @@ export default function(hljs) {
       /.*/,
       /$/
     ],
-    relevance: 3,
     scope: {
       1: "keyword",
       3: "type",
@@ -131,8 +128,7 @@ export default function(hljs) {
 
   const PROPERTY = {
     match: /[\w]+(?=\=)/,
-    scope: "attribute",
-    relevance: 0
+    scope: "attribute"
   };
 
   return {

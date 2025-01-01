@@ -373,8 +373,7 @@ export default function(hljs) {
       // PG_smth; HAS_some_PRIVILEGE
       {
         // className: 'built_in',
-        begin: /\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b/,
-        relevance: 9
+        begin: /\b(PG_\w+?|HAS_[A-Z_]+_PRIVILEGE)\b/
       },
       // extract
       {
@@ -480,8 +479,7 @@ export default function(hljs) {
         className: 'meta',
         variants: [
           { // %TYPE, %ROWTYPE
-            begin: '%(ROW)?TYPE',
-            relevance: 1
+            begin: '%(ROW)?TYPE'
           },
           { // $n
             begin: '\\$\\d+' },

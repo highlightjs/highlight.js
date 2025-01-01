@@ -32,10 +32,10 @@ export default function(hljs) {
   const PREPROCESSOR = {
     scope: "meta",
     variants: [
-      { begin: /<\?php/, relevance: 9 }, // boost for obvious PHP
+      { begin: /<\?php/ }, // boost for obvious PHP
       { begin: /<\?=/ },
       // less relevant per PSR-1 which says not to use short-tags
-      { begin: /<\?/, relevance: 0.1 },
+      { begin: /<\?/ },
       { begin: /\?>/ } // end php tag
     ]
   };
@@ -86,8 +86,7 @@ export default function(hljs) {
       { begin: `\\b0[xX][\\da-fA-F]+(?:_[\\da-fA-F]+)*\\b` }, // Hex w/ underscore support
       // Decimals w/ underscore support, with optional fragments and scientific exponent (e) suffix.
       { begin: `(?:\\b\\d+(?:_\\d+)*(\\.(?:\\d+(?:_\\d+)*))?|\\B\\.\\d+)(?:[eE][+-]?\\d+)?` }
-    ],
-    relevance: 0
+    ]
   };
   const LITERALS = [
     "false",
@@ -405,7 +404,6 @@ export default function(hljs) {
     match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
   };
   const PARAMS_MODE = {
-    relevance: 0,
     begin: /\(/,
     end: /\)/,
     keywords: KEYWORDS,
@@ -420,7 +418,6 @@ export default function(hljs) {
     ],
   };
   const FUNCTION_INVOKE = {
-    relevance: 0,
     match: [
       /\b/,
       // to prevent keywords from being confused as the function title
@@ -540,7 +537,6 @@ export default function(hljs) {
       },
       CONSTRUCTOR_CALL,
       {
-        relevance: 0,
         beginKeywords: 'fn function',
         end: /[;{]/,
         excludeEnd: true,
@@ -583,7 +579,6 @@ export default function(hljs) {
             illegal: /[:($"]/
           }
         ],
-        relevance: 0,
         end: /\{/,
         excludeEnd: true,
         contains: [
@@ -596,14 +591,12 @@ export default function(hljs) {
       // element to be treated as its own *individual* title
       {
         beginKeywords: 'namespace',
-        relevance: 0,
         end: ';',
         illegal: /[.']/,
         contains: [ hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { scope: "title.class" }) ]
       },
       {
         beginKeywords: 'use',
-        relevance: 0,
         end: ';',
         contains: [
           {

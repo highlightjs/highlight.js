@@ -56,8 +56,7 @@ export default function(hljs) {
             starts: {
               endsWithParent: true,
               keywords: 'in by as',
-              contains: [ FILTER ],
-              relevance: 0
+              contains: [ FILTER ]
             }
           }
         ]

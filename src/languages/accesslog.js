@@ -33,8 +33,7 @@ export default function(hljs) {
       // Other numbers
       {
         className: 'number',
-        begin: /\b\d+\b/,
-        relevance: 0
+        begin: /\b\d+\b/
       },
       // Requests
       {
@@ -62,9 +61,7 @@ export default function(hljs) {
         className: 'string',
         begin: /\[/,
         end: /\]/,
-        illegal: /\n/,
-        // [] is just too common for array access to give it signal
-        relevance: 0
+        illegal: /\n/
       },
       // User agent / relevance boost
       {

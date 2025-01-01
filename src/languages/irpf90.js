@@ -24,8 +24,7 @@ export default function(hljs) {
       { begin: regex.concat(/\b\d+/, /\.(\d*)/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX) },
       { begin: regex.concat(/\b\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX) },
       { begin: regex.concat(/\.\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX) }
-    ],
-    relevance: 0
+    ]
   };
 
   const KEYWORDS = {
@@ -90,8 +89,8 @@ export default function(hljs) {
           PARAMS
         ]
       },
-      hljs.COMMENT('!', '$', { relevance: 0 }),
-      hljs.COMMENT('begin_doc', 'end_doc', { relevance: 9 }),
+      hljs.COMMENT('!', '$'),
+      hljs.COMMENT('begin_doc', 'end_doc'),
       NUMBER
     ]
   };

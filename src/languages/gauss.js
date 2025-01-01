@@ -109,7 +109,7 @@ export default function(hljs) {
              + 'DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR'
   };
 
-  const AT_COMMENT_MODE = hljs.COMMENT('@', '@', { relevance: "low" });
+  const AT_COMMENT_MODE = hljs.COMMENT('@', '@');
 
   const PREPROCESSOR =
   {
@@ -147,8 +147,7 @@ export default function(hljs) {
     contains: [
       {
         className: "type",
-        begin: hljs.UNDERSCORE_IDENT_RE,
-        relevance: 0
+        begin: hljs.UNDERSCORE_IDENT_RE
       }
     ]
   };
@@ -162,7 +161,6 @@ export default function(hljs) {
       excludeBegin: true,
       excludeEnd: true,
       endsWithParent: true,
-      relevance: 0,
       contains: [
         { // dots
           className: 'literal',
@@ -179,8 +177,7 @@ export default function(hljs) {
   const FUNCTION_DEF =
   {
     className: "title.function",
-    begin: hljs.UNDERSCORE_IDENT_RE,
-    relevance: 0
+    begin: hljs.UNDERSCORE_IDENT_RE
   };
 
   const DEFINITION = function(beginKeywords, end, inherits) {
@@ -220,14 +217,12 @@ export default function(hljs) {
     begin: hljs.UNDERSCORE_IDENT_RE + '\\s*\\(',
     returnBegin: true,
     keywords: KEYWORDS,
-    relevance: 0,
     contains: [
       { beginKeywords: KEYWORDS.keyword },
       BUILT_IN_REF,
       { // ambiguously named function calls get a relevance of 0
         className: 'built_in',
-        begin: hljs.UNDERSCORE_IDENT_RE,
-        relevance: 0
+        begin: hljs.UNDERSCORE_IDENT_RE
       }
     ]
   };
@@ -237,7 +232,6 @@ export default function(hljs) {
     // className: "fn_ref_params",
     begin: /\(/,
     end: /\)/,
-    relevance: 0,
     keywords: {
       built_in: KEYWORDS.built_in,
       literal: KEYWORDS.literal
@@ -278,7 +272,6 @@ export default function(hljs) {
         beginKeywords: 'for threadfor',
         end: /;/,
         // end: /\(/,
-        relevance: 0,
         contains: [
           hljs.C_BLOCK_COMMENT_MODE,
           AT_COMMENT_MODE,
@@ -290,8 +283,7 @@ export default function(hljs) {
         variants: [
           { begin: hljs.UNDERSCORE_IDENT_RE + '\\.' + hljs.UNDERSCORE_IDENT_RE },
           { begin: hljs.UNDERSCORE_IDENT_RE + '\\s*=' }
-        ],
-        relevance: 0
+        ]
       },
       FUNCTION_REF,
       STRUCT_TYPE

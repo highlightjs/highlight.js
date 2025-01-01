@@ -76,8 +76,7 @@ export default function(hljs) {
       {
         className: 'string',
         begin: '"',
-        end: '"',
-        relevance: 0
+        end: '"'
       },
       hljs.COMMENT(
         '#',
@@ -88,39 +87,32 @@ export default function(hljs) {
         variants: [
           { begin: '\\s*\\.end\\s[a-zA-Z0-9]*' },
           {
-            begin: '^[ ]*\\.[a-zA-Z]*',
-            relevance: 0
+            begin: '^[ ]*\\.[a-zA-Z]*'
           },
           {
-            begin: '\\s:[a-zA-Z_0-9]*',
-            relevance: 0
+            begin: '\\s:[a-zA-Z_0-9]*'
           },
-          { 
-            relevance: 1,
-            begin: '\\s(' + smali_keywords.join('|') + ')' 
+          {
+            begin: '\\s(' + smali_keywords.join('|') + ')'
           }
         ]
       },
       {
         className: 'built_in',
         variants: [
-          { 
-            relevance: 1,
+          {
             begin: '\\s(' + smali_instr_low_prio.join('|') + ')\\s' },
           {
-            begin: '\\s(' + smali_instr_low_prio.join('|') + ')((-|/)[a-zA-Z0-9]+)+\\s',
-            relevance: 2
+            begin: '\\s(' + smali_instr_low_prio.join('|') + ')((-|/)[a-zA-Z0-9]+)+\\s'
           },
           {
-            begin: '\\s(' + smali_instr_high_prio.join('|') + ')((-|/)[a-zA-Z0-9]+)*\\s',
-            relevance: 2
+            begin: '\\s(' + smali_instr_high_prio.join('|') + ')((-|/)[a-zA-Z0-9]+)*\\s'
           }
         ]
       },
       {
         className: 'class',
-        begin: 'L[^\(;:\n]*;',
-        relevance: 0
+        begin: 'L[^\(;:\n]*;'
       },
       { begin: '[vp][0-9]+' }
     ]

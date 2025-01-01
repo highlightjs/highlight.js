@@ -92,8 +92,7 @@ export default function(hljs) {
     contains: [
       {
         scope: 'literal',
-        match: /\[(\|\|)?\]|\(\)/,
-        relevance: 0
+        match: /\[(\|\|)?\]|\(\)/
       },
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT(/\/\*/, /\*\//, { illegal: /^(#,\/\/)/ }),
@@ -108,21 +107,17 @@ export default function(hljs) {
       },
       { /* module or constructor */
         scope: 'type',
-        match: /\b[A-Z][\w\']*/,
-        relevance: 0
+        match: /\b[A-Z][\w\']*/
       },
       { /* don't color identifiers, but safely catch all identifiers with ' */
-      match: /[a-z_]\w*\'[\w\']*/,
-        relevance: 0
+      match: /[a-z_]\w*\'[\w\']*/
       },
       {
         scope: 'operator',
-        match: /\s+(\|\||\+[\+\.]?|\*[\*\/\.]?|\/[\.]?|\.\.\.|\|>|&&|===?)\s+/,
-        relevance: 0
-      },      
+        match: /\s+(\|\||\+[\+\.]?|\*[\*\/\.]?|\/[\.]?|\.\.\.|\|>|&&|===?)\s+/
+      },
       hljs.inherit(hljs.APOS_STRING_MODE, {
-        scope: 'string',
-        relevance: 0
+        scope: 'string'
       }),
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
@@ -132,8 +127,7 @@ export default function(hljs) {
           { match: /\b0[oO][0-7_]+[Lln]?/ },
           { match: /\b0[bB][01_]+[Lln]?/ },
           { match: /\b[0-9][0-9_]*([Lln]|(\.[0-9_]*)?([eE][-+]?[0-9_]+)?)/ },
-        ],
-        relevance: 0
+        ]
       },
     ]
   };

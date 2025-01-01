@@ -94,8 +94,7 @@ export default function(hljs) {
           COMMENT_WORD,
           // [ ] because \s would be too broad (matching newlines)
           regex.anyNumberOfTimes(regex.concat(/[ ]+/, COMMENT_WORD))
-        ),
-        relevance: 0
+        )
       }
     ]
   };
@@ -164,7 +163,7 @@ export default function(hljs) {
         begin: /^[a-z][a-z0-9_,\-+' ()$]+\.{2}/,
         returnBegin: true,
         contains: [
-          { 
+          {
             className: 'title.function',
             begin: /^[a-z0-9_]+/
           },

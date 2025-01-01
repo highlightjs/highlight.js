@@ -106,8 +106,7 @@ export default function(hljs) {
     "scsh",
   ];
   const KNOWN_SHEBANG = hljs.SHEBANG({
-    binary: `(${SH_LIKE_SHELLS.join("|")})`,
-    relevance: 9
+    binary: `(${SH_LIKE_SHELLS.join("|")})`
   });
   const FUNCTION = {
     scope: 'title.function',

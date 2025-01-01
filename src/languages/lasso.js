@@ -40,8 +40,7 @@ export default function(hljs) {
   };
   const HTML_COMMENT = hljs.COMMENT(
     '<!--',
-    '-->',
-    { relevance: 0 }
+    '-->'
   );
   const LASSO_NOPROCESS = {
     className: 'meta',
@@ -90,15 +89,13 @@ export default function(hljs) {
       className: 'params',
       variants: [
         {
-          begin: '-(?!infinity)' + LASSO_IDENT_RE,
-          relevance: 0
+          begin: '-(?!infinity)' + LASSO_IDENT_RE
         },
         { begin: '(\\.\\.\\.)' }
       ]
     },
     {
       begin: /(->|\.)\s*/,
-      relevance: 0,
       contains: [ LASSO_DATAMEMBER ]
     },
     {
@@ -121,11 +118,9 @@ export default function(hljs) {
       {
         className: 'meta',
         begin: LASSO_CLOSE_RE,
-        relevance: 0,
         starts: { // markup
           end: '\\[|' + LASSO_ANGLE_RE,
           returnEnd: true,
-          relevance: 0,
           contains: [ HTML_COMMENT ]
         }
       },
@@ -141,7 +136,6 @@ export default function(hljs) {
             {
               className: 'meta',
               begin: LASSO_CLOSE_RE,
-              relevance: 0,
               starts: {
                 end: '\\[noprocess\\]|' + LASSO_ANGLE_RE,
                 returnEnd: true,
@@ -155,12 +149,10 @@ export default function(hljs) {
       },
       {
         className: 'meta',
-        begin: '\\[',
-        relevance: 0
+        begin: '\\['
       },
       hljs.SHEBANG({
-        binary: "lasso9",
-        relevance: "important!"
+        binary: "lasso9"
       })
     ].concat(LASSO_CODE)
   };

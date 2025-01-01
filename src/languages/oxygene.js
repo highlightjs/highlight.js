@@ -21,8 +21,7 @@ export default function(hljs) {
   };
   const CURLY_COMMENT = hljs.COMMENT(
     /\{/,
-    /\}/,
-    { relevance: 0 }
+    /\}/
   );
   const PAREN_COMMENT = hljs.COMMENT(
     '\\(\\*',
@@ -61,8 +60,7 @@ export default function(hljs) {
 
   const SEMICOLON = {
     scope: "punctuation",
-    match: /;/,
-    relevance: 0
+    match: /;/
   };
 
   return {

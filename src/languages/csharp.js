@@ -163,17 +163,15 @@ export default function(hljs) {
   const TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, { begin: '[a-zA-Z](\\.?\\w)*' });
   const NUMBERS = {
     className: 'number',
-    relevance: 0,
     variants: [
-      { begin: '\\b(0b[01\']+)', relevance: "low" },
-      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)', relevance: "low" },
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)' },
       { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
     ]
   };
   const RAW_STRING = {
     className: 'string',
-    begin: /"""("*)(?!")(.|\n)*?"""\1/,
-    relevance: 1
+    begin: /"""("*)(?!")(.|\n)*?"""\1/
   };
   const VERBATIM_STRING = {
     className: 'string',

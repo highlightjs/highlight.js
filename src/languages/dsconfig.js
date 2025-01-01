@@ -20,14 +20,12 @@ export default function(hljs) {
   const UNQUOTED_PROPERTY = {
     className: 'string',
     begin: /[\w\-?]+:\w+/,
-    end: /\W/,
-    relevance: 0
+    end: /\W/
   };
   const VALUELESS_PROPERTY = {
     className: 'string',
     begin: /\w+(\-\w+)*/,
-    end: /(?=\W)/,
-    relevance: 0
+    end: /(?=\W)/
   };
 
   return {
@@ -35,8 +33,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'keyword',
-        begin: /^dsconfig(?=\s)/,
-        relevance: "important!"
+        begin: /^dsconfig(?=\s)/
       },
       {
         className: 'built_in',

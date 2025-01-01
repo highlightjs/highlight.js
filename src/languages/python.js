@@ -167,8 +167,7 @@ export default function(hljs) {
   };
 
   const LITERAL_BRACKET = {
-    begin: /\{\{/,
-    relevance: 0
+    begin: /\{\{/
   };
 
   const STRING = {
@@ -261,7 +260,6 @@ export default function(hljs) {
   const lookahead = `\\b|${RESERVED_WORDS.join('|')}`;
   const NUMBER = {
     className: 'number',
-    relevance: 0,
     variants: [
       // exponentfloat, pointfloat
       // https://docs.python.org/3.9/reference/lexical_analysis.html#floating-point-literals

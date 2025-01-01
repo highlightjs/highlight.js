@@ -13,8 +13,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'symbol',
-        begin: '\\*',
-        relevance: 0
+        begin: '\\*'
       },
       {
         className: 'meta',

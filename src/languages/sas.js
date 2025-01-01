@@ -548,7 +548,7 @@ export default function(hljs) {
           hljs.QUOTE_STRING_MODE
         ]
       },
-      hljs.COMMENT('\\*', ';', { relevance: 0 }),
+      hljs.COMMENT('\\*', ';'),
       hljs.C_BLOCK_COMMENT_MODE
     ]
   };

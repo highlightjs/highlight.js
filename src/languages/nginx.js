@@ -49,7 +49,6 @@ export default function(hljs) {
       $pattern: /[a-z_]{2,}|\/dev\/poll/,
       literal: LITERALS
     },
-    relevance: 0,
     illegal: '=>',
     contains: [
       hljs.HASH_COMMENT_MODE,
@@ -110,8 +109,7 @@ export default function(hljs) {
       // units
       {
         className: 'number',
-        begin: '\\b\\d+[kKmMgGdshdwy]?\\b',
-        relevance: 0
+        begin: '\\b\\d+[kKmMgGdshdwy]?\\b'
       },
       VAR
     ]
@@ -130,8 +128,7 @@ export default function(hljs) {
       },
       {
         className: 'section',
-        begin: regex.concat(hljs.UNDERSCORE_IDENT_RE + regex.lookahead(/\s+\{/)),
-        relevance: 0
+        begin: regex.concat(hljs.UNDERSCORE_IDENT_RE + regex.lookahead(/\s+\{/))
       },
       {
         begin: regex.lookahead(hljs.UNDERSCORE_IDENT_RE + '\\s'),
@@ -142,8 +139,7 @@ export default function(hljs) {
             begin: hljs.UNDERSCORE_IDENT_RE,
             starts: DEFAULT
           }
-        ],
-        relevance: 0
+        ]
       }
     ],
     illegal: '[^\\s\\}\\{]'

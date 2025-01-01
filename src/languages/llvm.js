@@ -17,12 +17,10 @@ export default function(hljs) {
   };
   const OPERATOR = {
     className: 'operator',
-    relevance: 0,
     begin: /=/
   };
   const PUNCTUATION = {
     className: 'punctuation',
-    relevance: 0,
     begin: /,/
   };
   const NUMBER = {
@@ -30,12 +28,11 @@ export default function(hljs) {
     variants: [
       { begin: /[su]?0[xX][KMLHR]?[a-fA-F0-9]+/ },
       { begin: /[-+]?\d+(?:[.]\d+)?(?:[eE][-+]?\d+(?:[.]\d+)?)?/ }
-    ],
-    relevance: 0
+    ]
   };
   const LABEL = {
     className: 'symbol',
-    begin: /^\s*[a-z]+:/ 
+    begin: /^\s*[a-z]+:/
   };
   const VARIABLE = {
     className: 'variable',
@@ -105,9 +102,6 @@ export default function(hljs) {
     contains: [
       TYPE,
       // this matches "empty comments"...
-      // ...because it's far more likely this is a statement terminator in
-      // another language than an actual comment
-      hljs.COMMENT(/;\s*$/, null, { relevance: 0 }),
       hljs.COMMENT(/;/, /$/),
       {
         className: 'string',
