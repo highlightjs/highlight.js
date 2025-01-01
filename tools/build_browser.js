@@ -211,14 +211,15 @@ async function buildCore(name, languages, options) {
     ...input.plugins,
     builtInLanguagesPlugin(languages)
   ];
-  const output = config.rollup.node.output;
+  // const output = config.rollup.node.output;
+  const output = config.rollup.browser_iife.output;
 
   // optimize for no languages by not including the language loading stub
   if (languages.length === 0) {
     input.input = "src/highlight.js";
   }
 
-  output.format = "es";
+  // output.format = "es";
   output.file = `${process.env.BUILD_DIR}/${name}.js`;
   relativePath = "";
 
