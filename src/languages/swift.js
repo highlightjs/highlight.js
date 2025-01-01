@@ -17,8 +17,7 @@ import {
 /** @type LanguageFn */
 export default function(hljs) {
   const WHITESPACE = {
-    match: /\s+/,
-    relevance: 0
+    match: /\s+/
   };
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID411
   const BLOCK_COMMENT = hljs.COMMENT(
@@ -38,13 +37,11 @@ export default function(hljs) {
       /\./,
       either(...Swift.dotKeywords, ...Swift.optionalDotKeywords)
     ],
-    relevance: 1,
     className: { 2: "keyword" }
   };
   const KEYWORD_GUARD = {
     // Consume .keyword to prevent highlighting properties and methods as keywords.
-    match: concat(/\./, either(...Swift.keywords)),
-    relevance: 0
+    match: concat(/\./, either(...Swift.keywords))
   };
   const PLAIN_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw === 'string')
@@ -56,7 +53,6 @@ export default function(hljs) {
   const KEYWORD = { variants: [
     {
       className: 'keyword',
-      relevance: 1,
       match: either(...REGEX_KEYWORDS, ...Swift.optionalDotKeywords)
     }
   ] };
@@ -79,12 +75,10 @@ export default function(hljs) {
   // https://github.com/apple/swift/tree/main/stdlib/public/core
   const BUILT_IN_GUARD = {
     // Consume .built_in to prevent highlighting properties and methods.
-    match: concat(/\./, either(...Swift.builtIns)),
-    relevance: 0
+    match: concat(/\./, either(...Swift.builtIns))
   };
   const BUILT_IN = {
     className: 'built_in',
-    relevance: 1,
     match: concat(/\b/, either(...Swift.builtIns), /(?=\()/)
   };
   const BUILT_INS = [
@@ -95,12 +89,10 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418
   const OPERATOR_GUARD = {
     // Prevent -> from being highlighting as an operator.
-    match: /->/,
-    relevance: 0
+    match: /->/
   };
   const OPERATOR = {
     className: 'operator',
-    relevance: 0,
     variants: [
       { match: Swift.operator },
       {
@@ -121,7 +113,6 @@ export default function(hljs) {
   const hexDigits = '([0-9a-fA-F]_*)+';
   const NUMBER = {
     className: 'number',
-    relevance: 0,
     variants: [
       // decimal floating-point-literal (subsumes decimal-literal)
       { match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b` },
@@ -188,7 +179,6 @@ export default function(hljs) {
     {
       begin: /\[/,
       end: /\]/,
-      relevance: 0,
       contains: [ hljs.BACKSLASH_ESCAPE ]
     }
   ];
@@ -247,7 +237,6 @@ export default function(hljs) {
   const AVAILABLE_ATTRIBUTE = {
     match: /(@|#(un)?)available/,
     scope: 'keyword',
-    relevance: 1,
     starts: { contains: [
       {
         begin: /\(/,
@@ -264,8 +253,7 @@ export default function(hljs) {
 
   const KEYWORD_ATTRIBUTE = {
     scope: 'keyword',
-    match: concat(/@/, either(...Swift.keywordAttributes), lookahead(either(/\(/, /\s+/))),
-    relevance: 1
+    match: concat(/@/, either(...Swift.keywordAttributes), lookahead(either(/\(/, /\s+/)))
   };
 
   const USER_DEFINED_ATTRIBUTE = {
@@ -282,29 +270,23 @@ export default function(hljs) {
   // https://docs.swift.org/swift-book/ReferenceManual/Types.html
   const TYPE = {
     match: lookahead(/\b[A-Z]/),
-    relevance: 0,
     contains: [
       { // Common Apple frameworks, for relevance boost
         className: 'type',
-        relevance: 2,
         match: concat(/(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)/, Swift.identifierCharacter, '+')
       },
       { // Type identifier
         className: 'type',
-        match: Swift.typeIdentifier,
-        relevance: 0
+        match: Swift.typeIdentifier
       },
       { // Optional type
-        match: /[?!]+/,
-        relevance: 0
+        match: /[?!]+/
       },
       { // Variadic parameter
-        match: /\.\.\./,
-        relevance: 0
+        match: /\.\.\./
       },
       { // Protocol composition
-        match: concat(/\s+&\s+/, lookahead(Swift.typeIdentifier)),
-        relevance: 0
+        match: concat(/\s+&\s+/, lookahead(Swift.typeIdentifier))
       }
     ]
   };
@@ -326,14 +308,12 @@ export default function(hljs) {
   // Prevents element names from being highlighted as keywords.
   const TUPLE_ELEMENT_NAME = {
     match: concat(Swift.identifier, /\s*:/),
-    keywords: "_|0",
-    relevance: 0
+    keywords: "_|0"
   };
   // Matches tuples as well as the parameter list of a function type.
   const TUPLE = {
     begin: /\(/,
     end: /\)/,
-    relevance: 0,
     keywords: KEYWORDS,
     contains: [
       'self',
@@ -366,7 +346,6 @@ export default function(hljs) {
       lookahead(concat(Swift.identifier, /\s+/, Swift.identifier, /\s*:/))
     ),
     end: /:/,
-    relevance: 0,
     contains: [
       {
         className: 'keyword',
@@ -404,7 +383,6 @@ export default function(hljs) {
       /\s+/,
       either(QUOTED_IDENTIFIER.match, Swift.identifier, Swift.operator)
     ],
-    relevance: 1,
     className: {
       1: "keyword",
       3: "title.function"
@@ -427,7 +405,6 @@ export default function(hljs) {
       /\b(?:subscript|init[?!]?)/,
       /\s*(?=[<(])/,
     ],
-    relevance: 1,
     className: { 1: "keyword" },
     contains: [
       GENERIC_PARAMETERS,
@@ -443,7 +420,6 @@ export default function(hljs) {
       /\s+/,
       Swift.operator
     ],
-    relevance: 1,
     className: {
       1: "keyword",
       3: "title"
@@ -457,7 +433,6 @@ export default function(hljs) {
       /\s+/,
       Swift.typeIdentifier
     ],
-    relevance: 1,
     className: {
       1: "keyword",
       3: "title"
@@ -472,11 +447,11 @@ export default function(hljs) {
 
   const CLASS_FUNC_DECLARATION = {
     match: [
-      /class\b/,          
+      /class\b/,
       /\s+/,
       /func\b/,
       /\s+/,
-      /\b[A-Za-z_][A-Za-z0-9_]*\b/ 
+      /\b[A-Za-z_][A-Za-z0-9_]*\b/
     ],
     scope: {
       1: "keyword",
@@ -488,8 +463,8 @@ export default function(hljs) {
   const CLASS_VAR_DECLARATION = {
     match: [
       /class\b/,
-      /\s+/,          
-      /var\b/, 
+      /\s+/,
+      /var\b/,
     ],
     scope: {
       1: "keyword",
@@ -523,7 +498,6 @@ export default function(hljs) {
           },
           ...KEYWORD_MODES,
         ],
-        relevance: 0,
       },
     ]
   };
@@ -569,8 +543,7 @@ export default function(hljs) {
       {
         beginKeywords: 'import',
         end: /$/,
-        contains: [ ...COMMENTS ],
-        relevance: 0
+        contains: [ ...COMMENTS ]
       },
       REGEXP,
       ...KEYWORD_MODES,

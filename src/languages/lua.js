@@ -20,8 +20,7 @@ export default function(hljs) {
       '--' + OPENING_LONG_BRACKET,
       CLOSING_LONG_BRACKET,
       {
-        contains: [ LONG_BRACKETS ],
-        relevance: 2
+        contains: [ LONG_BRACKETS ]
       }
     )
   ];
@@ -54,7 +53,7 @@ export default function(hljs) {
         beginKeywords: 'function',
         end: '\\)',
         contains: [
-          hljs.inherit(hljs.TITLE_MODE, { 
+          hljs.inherit(hljs.TITLE_MODE, {
             begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*',
             scope: "title.function"
           }),

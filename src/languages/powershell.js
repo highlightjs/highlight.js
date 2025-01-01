@@ -70,8 +70,7 @@ export default function(hljs) {
   const TITLE_NAME_RE = /\w[\w\d]*((-)[\w\d]+)*/;
 
   const BACKTICK_ESCAPE = {
-    begin: '`[\\s\\S]',
-    relevance: 0
+    begin: '`[\\s\\S]'
   };
 
   const VAR = {
@@ -80,7 +79,6 @@ export default function(hljs) {
       { begin: /\$\B/ },
       {
         className: 'keyword',
-        relevance: 1,
         begin: /\$this/
       },
       { begin: /\$[\w\d][\w\d_:]*/ }
@@ -89,7 +87,6 @@ export default function(hljs) {
 
   const LITERAL = {
     className: 'literal',
-    relevance: 1,
     begin: /\$(null|true|false)\b/
   };
 
@@ -132,7 +129,6 @@ export default function(hljs) {
 
   const PS_HELPTAGS = {
     className: "doctag",
-    relevance: 0.5,
     variants: [
       /* no paramater help tags */
       { begin: /\.(synopsis|description|example|inputs|outputs|notes|link|component|role|functionality)/ },
@@ -162,7 +158,6 @@ export default function(hljs) {
 
   const CMDLETS = {
     className: 'built_in',
-    relevance: 1,
     variants: [ { begin: '('.concat(VALID_VERBS, ')+(-)[\\w\\d]+') } ]
   };
 
@@ -171,7 +166,6 @@ export default function(hljs) {
     beginKeywords: 'class enum',
     end: /\s*[{]/,
     excludeEnd: true,
-    relevance: 0,
     contains: [ hljs.TITLE_MODE ]
   };
 
@@ -181,23 +175,19 @@ export default function(hljs) {
     end: /\s*\{|$/,
     excludeEnd: true,
     returnBegin: true,
-    relevance: 0,
     contains: [
       {
         begin: "function",
-        relevance: 1,
         className: "keyword"
       },
       {
         className: "title",
-        begin: TITLE_NAME_RE,
-        relevance: 0
+        begin: TITLE_NAME_RE
       },
       {
         begin: /\(/,
         end: /\)/,
         className: "params",
-        relevance: 0,
         contains: [ VAR ]
       }
       // CMDLETS
@@ -208,14 +198,12 @@ export default function(hljs) {
   const PS_USING = {
     begin: /using\s/,
     end: /$/,
-    relevance: 1,
     returnBegin: true,
     contains: [
       QUOTE_STRING,
       APOS_STRING,
       {
         className: 'keyword',
-        relevance: 1,
         begin: /(using|assembly|command|module|namespace|type)/
       }
     ]
@@ -226,13 +214,11 @@ export default function(hljs) {
     // PS literals are pretty verbose so it's a good idea to accent them a bit.
     {
       className: 'operator',
-      relevance: 1,
       begin: '('.concat(COMPARISON_OPERATORS, ')\\b')
     },
     {
       className: 'literal',
-      begin: /(-){1,2}[\w\d-]+/,
-      relevance: 0
+      begin: /(-){1,2}[\w\d-]+/
     }
   ] };
 
@@ -252,14 +238,12 @@ export default function(hljs) {
 
   const HASH_SIGNS = {
     className: 'selector-tag',
-    begin: /@\B/,
-    relevance: 0
+    begin: /@\B/
   };
 
   const PS_NEW_OBJECT_TYPE = {
     className: 'built_in',
     begin: /New-Object\s+\w/,
-    relevance: 1,
     end: /$/,
     returnBegin: true,
     contains: [
@@ -287,8 +271,7 @@ export default function(hljs) {
         begin: '('.concat(
           KEYWORDS.keyword.toString().replace(/\s/g, '|'
           ), ')\\b'),
-        endsParent: true,
-        relevance: 1
+        endsParent: true
       },
       hljs.inherit(hljs.TITLE_MODE, { endsParent: true })
     ]
@@ -319,7 +302,6 @@ export default function(hljs) {
       GENTLEMANS_SET,
       {
         begin: "(" + TYPES.join("|") + ")",
-        relevance: 1,
         className: "built_in"
       },
       {

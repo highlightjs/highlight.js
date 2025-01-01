@@ -560,8 +560,7 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
-        begin: hljs.NUMBER_RE + '(%)?',
-        relevance: 0
+        begin: hljs.NUMBER_RE + '(%)?'
       },
       /* Excel formula comments are done by putting the comment in a function call to N() */
       hljs.COMMENT(/\bN\(/, /\)/,

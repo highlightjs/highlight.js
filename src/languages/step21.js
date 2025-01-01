@@ -18,13 +18,11 @@ export default function(hljs) {
   };
   const STEP21_START = {
     className: 'meta',
-    begin: /^ISO-10303-21;/,
-    relevance: "important!"
+    begin: /^ISO-10303-21;/
   };
   const STEP21_CLOSE = {
     className: 'meta',
-    begin: /^END-ISO-10303-21;/,
-    relevance: "important!"
+    begin: /^END-ISO-10303-21;/
   };
 
   return {

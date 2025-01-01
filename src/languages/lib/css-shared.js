@@ -37,8 +37,7 @@ export const MODES = (hljs) => {
         '|s|ms' +
         '|Hz|kHz' +
         '|dpi|dpcm|dppx' +
-        ')?',
-      relevance: 0
+        ')?'
     },
     CSS_VARIABLE: {
       className: "attr",

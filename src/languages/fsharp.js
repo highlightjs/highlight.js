@@ -243,8 +243,7 @@ export default function(hljs) {
       { match: regex.concat(BEGIN_GENERIC_TYPE_SYMBOL_RE, /``.*?``/) },
       // the type name is a normal identifier (we don't use IDENTIFIER_RE because there cannot be another apostrophe here):
       { match: regex.concat(BEGIN_GENERIC_TYPE_SYMBOL_RE, hljs.UNDERSCORE_IDENT_RE) }
-    ],
-    relevance: 0
+    ]
   };
 
   const makeOperatorMode = function({ includeEqual }) {
@@ -276,8 +275,7 @@ export default function(hljs) {
         /:>/,
         /:=/, // Reference cell assignment
         /::?/, // : or ::
-        /\$/), // A single $ can be used as an operator
-      relevance: 0
+        /\$/) // A single $ can be used as an operator
     };
   }
 
@@ -311,7 +309,6 @@ export default function(hljs) {
         regex.either(
           /\n/,
           /=/)),
-      relevance: 0,
       // we need the known types, and we need the type constraint keywords and literals. e.g.: when 'a : null
       keywords: hljs.inherit(ALL_KEYWORDS, { type: KNOWN_TYPES }),
       contains: [
@@ -408,8 +405,7 @@ export default function(hljs) {
   const TRIPLE_QUOTED_STRING = {
     scope: 'string',
     begin: /"""/,
-    end: /"""/,
-    relevance: 2
+    end: /"""/
   };
   const SUBST = {
     scope: 'subst',
@@ -465,8 +461,7 @@ export default function(hljs) {
         match: /\}\}/ // escaped }
       },
       SUBST
-    ],
-    relevance: 2
+    ]
   };
   // '.'
   const CHAR_LITERAL = {
@@ -534,7 +529,6 @@ export default function(hljs) {
         scope: 'meta',
         begin: /\[</,
         end: />\]/,
-        relevance: 2,
         contains: [
           QUOTED_IDENTIFIER,
           // can contain any constant value

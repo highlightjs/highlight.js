@@ -10,7 +10,6 @@ export default function(hljs) {
   const PARAM = {
     begin: /[\w-]+ *=/,
     returnBegin: true,
-    relevance: 0,
     contains: [
       {
         className: 'attr',
@@ -24,13 +23,11 @@ export default function(hljs) {
     end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
-    contains: [ PARAM ],
-    relevance: 0
+    contains: [ PARAM ]
   };
   const OPERATION = {
     className: 'title.function',
-    begin: /:[\w\-.]+/,
-    relevance: 0
+    begin: /:[\w\-.]+/
   };
   const PATH = {
     className: 'string',

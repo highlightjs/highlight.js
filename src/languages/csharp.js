@@ -170,15 +170,14 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b0[bB]_*[01](_*[01])*' + INTEGER_SUFFIX, relevance: "low" },
-      { begin: '(-?)\\b0[xX]_*[a-fA-F0-9](_*[a-fA-F0-9])*' + INTEGER_SUFFIX, relevance: "low" },
+      { begin: '\\b0[bB]_*[01](_*[01])*' + INTEGER_SUFFIX },
+      { begin: '(-?)\\b0[xX]_*[a-fA-F0-9](_*[a-fA-F0-9])*' + INTEGER_SUFFIX },
       { begin: '(-?)(\\b' + DIGITS + '(\\.(' + DIGITS + ')?)?|\\.' + DIGITS + ')([eE][-+]?' + DIGITS + ')?' + REAL_SUFFIX }
     ]
   };
   const RAW_STRING = {
     className: 'string',
-    begin: /"""("*)(?!")(.|\n)*?"""\1/,
-    relevance: 1
+    begin: /"""("*)(?!")(.|\n)*?"""\1/
   };
   const VERBATIM_STRING = {
     className: 'string',

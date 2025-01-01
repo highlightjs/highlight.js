@@ -385,12 +385,11 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'number',
-        relevance: 0,
         variants: [
           {
             // float number w/ exponent
             // hmm, I wonder if we ought to include other exponent markers?
-            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b' 
+            begin: '\\b(\\d+|\\d+\\.|\\.\\d+|\\d+\\.\\d+)[Ee][-+]?\\d+\\b'
           },
           {
             // bigfloat number

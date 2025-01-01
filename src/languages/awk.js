@@ -22,23 +22,19 @@ export default function(hljs) {
     variants: [
       {
         begin: /(u|b)?r?'''/,
-        end: /'''/,
-        relevance: 2
+        end: /'''/
       },
       {
         begin: /(u|b)?r?"""/,
-        end: /"""/,
-        relevance: 2
+        end: /"""/
       },
       {
         begin: /(u|r|ur)'/,
-        end: /'/,
-        relevance: 2
+        end: /'/
       },
       {
         begin: /(u|r|ur)"/,
-        end: /"/,
-        relevance: 2
+        end: /"/
       },
       {
         begin: /(b|br)'/,

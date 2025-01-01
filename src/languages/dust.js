@@ -27,7 +27,6 @@ export default function(hljs) {
             begin: /[a-zA-Z\.-]+/,
             starts: {
               endsWithParent: true,
-              relevance: 0,
               contains: [ hljs.QUOTE_STRING_MODE ]
             }
           }

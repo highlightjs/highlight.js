@@ -80,13 +80,11 @@ export default function(hljs) {
 
   const PARENS = {
     match: /(\((?!;)|\))+/,
-    className: "punctuation",
-    relevance: 0
+    className: "punctuation"
   };
 
   const NUMBER = {
     className: "number",
-    relevance: 0,
     // borrowed from Prism, TODO: split out into variants
     match: /[+-]?\b(?:\d(?:_?\d)*(?:\.\d(?:_?\d)*)?(?:[eE][+-]?\d(?:_?\d)*)?|0x[\da-fA-F](?:_?[\da-fA-F])*(?:\.[\da-fA-F](?:_?[\da-fA-D])*)?(?:[pP][+-]?\d(?:_?\d)*)?)\b|\binf\b|\bnan(?::0x[\da-fA-F](?:_?[\da-fA-D])*)?\b/
   };

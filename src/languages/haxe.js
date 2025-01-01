@@ -53,8 +53,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       {
         className: 'number',
-        begin: HAXE_NUMBER_RE,
-        relevance: 0
+        begin: HAXE_NUMBER_RE
       },
       {
         className: 'variable',
@@ -77,8 +76,7 @@ export default function(hljs) {
         begin: /:[ \t]*/,
         end: /[^A-Za-z0-9_ \t\->]/,
         excludeBegin: true,
-        excludeEnd: true,
-        relevance: 0
+        excludeEnd: true
       },
       {
         className: 'type', // types
@@ -144,8 +142,7 @@ export default function(hljs) {
             contains: [
               {
                 className: 'type',
-                begin: hljs.IDENT_RE,
-                relevance: 0
+                begin: hljs.IDENT_RE
               }
             ]
           },

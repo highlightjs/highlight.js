@@ -29,11 +29,10 @@ export default function(hljs) {
     };
   };
 
-  const IDENT_MODE = function(name, begin, relevance) {
+  const IDENT_MODE = function(name, begin) {
     return {
       className: name,
-      begin: begin,
-      relevance: relevance
+      begin: begin
     };
   };
 
@@ -48,8 +47,7 @@ export default function(hljs) {
     begin: '\\(',
     end: '\\)',
     contains: VALUE_MODES,
-    keywords: AT_KEYWORDS,
-    relevance: 0
+    keywords: AT_KEYWORDS
   };
 
   // generic Less highlighter (used almost everywhere except selectors):
@@ -70,7 +68,7 @@ export default function(hljs) {
     modes.UNICODE_RANGE,
     modes.HEXCOLOR,
     PARENS_MODE,
-    IDENT_MODE('variable', '@@?' + IDENT_RE, 10),
+    IDENT_MODE('variable', '@@?' + IDENT_RE),
     IDENT_MODE('variable', '@\\{' + IDENT_RE + '\\}'),
     IDENT_MODE('built_in', '~?`[^`]*?`'), // inline javascript (or whatever host language) *multiline* string
     { // @media features (it’s here to not duplicate things in AT_RULE_MODE with extra PARENS_MODE overriding):
@@ -103,7 +101,6 @@ export default function(hljs) {
     begin: INTERP_IDENT_RE + '\\s*:',
     returnBegin: true,
     end: /[;}]/,
-    relevance: 0,
     contains: [
       { begin: /-(webkit|moz|ms|o)-/ },
       modes.CSS_VARIABLE,
@@ -114,7 +111,6 @@ export default function(hljs) {
         starts: {
           endsWithParent: true,
           illegal: '[<=$]',
-          relevance: 0,
           contains: VALUE_MODES
         }
       }
@@ -128,8 +124,7 @@ export default function(hljs) {
       end: '[;{}]',
       keywords: AT_KEYWORDS,
       returnEnd: true,
-      contains: VALUE_MODES,
-      relevance: 0
+      contains: VALUE_MODES
     }
   };
 
@@ -142,8 +137,7 @@ export default function(hljs) {
       // (we’ll still often loose to the css-parser unless there's '//' comment,
       // simply because 1 variable just can't beat 99 properties :)
       {
-        begin: '@' + IDENT_RE + '\\s*:',
-        relevance: 15
+        begin: '@' + IDENT_RE + '\\s*:'
       },
       { begin: '@' + IDENT_RE }
     ],
@@ -171,7 +165,6 @@ export default function(hljs) {
     returnBegin: true,
     returnEnd: true,
     illegal: '[<=\'$"]',
-    relevance: 0,
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
@@ -184,10 +177,10 @@ export default function(hljs) {
         className: 'selector-tag'
       },
       modes.CSS_NUMBER_MODE,
-      IDENT_MODE('selector-tag', INTERP_IDENT_RE, 0),
+      IDENT_MODE('selector-tag', INTERP_IDENT_RE),
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
-      IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
-      IDENT_MODE('selector-tag', '&', 0),
+      IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE),
+      IDENT_MODE('selector-tag', '&'),
       modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-pseudo',
@@ -200,7 +193,6 @@ export default function(hljs) {
       {
         begin: /\(/,
         end: /\)/,
-        relevance: 0,
         contains: VALUE_WITH_RULESETS
       }, // argument list of parametric mixins
       { begin: '!important' }, // eat !important after mixin call or it will be colored as tag

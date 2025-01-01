@@ -188,14 +188,12 @@ export default function(hljs) {
   const FUNCTIONS = {
     beginKeywords: FUNCTION_NAMES.join(" "),
     keywords: { name: FUNCTION_NAMES },
-    relevance: 0,
     contains: [ PARAMS ]
   };
 
   const FILTER = {
     match: /\|(?=[A-Za-z_]+:?)/,
     beginScope: "punctuation",
-    relevance: 0,
     contains: [
       {
         match: /[A-Za-z_]+:?/,
@@ -204,13 +202,12 @@ export default function(hljs) {
     ]
   };
 
-  const tagNamed = (tagnames, { relevance }) => {
+  const tagNamed = (tagnames) => {
     return {
       beginScope: {
         1: 'template-tag',
         3: 'name'
       },
-      relevance: relevance || 2,
       endScope: 'template-tag',
       begin: [
         /\{%/,
@@ -229,8 +226,8 @@ export default function(hljs) {
   };
 
   const CUSTOM_TAG_RE = /[a-z_]+/;
-  const TAG = tagNamed(TAG_NAMES, { relevance: 1 });
-  const CUSTOM_TAG = tagNamed([ CUSTOM_TAG_RE ], { relevance: 1 });
+  const TAG = tagNamed(TAG_NAMES);
+  const CUSTOM_TAG = tagNamed([ CUSTOM_TAG_RE ]);
 
   return {
     name: 'Twig',

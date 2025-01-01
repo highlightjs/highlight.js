@@ -112,7 +112,6 @@ export default function(hljs) {
             begin: /\{/,
             end: /\}/,
             keywords: PUPPET_KEYWORDS,
-            relevance: 0,
             contains: [
               STRING,
               COMMENT,
@@ -129,14 +128,12 @@ export default function(hljs) {
               },
               {
                 className: 'number',
-                begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b',
-                relevance: 0
+                begin: '(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b'
               },
               VARIABLE
             ]
           }
-        ],
-        relevance: 0
+        ]
       }
     ]
   };

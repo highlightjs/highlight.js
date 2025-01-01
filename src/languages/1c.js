@@ -445,8 +445,7 @@ export default function(hljs) {
 
   const PUNCTUATION = {
     match: /[;()+\-:=,]/,
-    className: "punctuation",
-    relevance: 0
+    className: "punctuation"
   };
 
   // comment : комментарии

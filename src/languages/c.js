@@ -67,7 +67,7 @@ export default function(hljs) {
     className: 'type',
     variants: [
       { begin: '\\b[a-z\\d_]*_t\\b' },
-      { match: ATOMIC_TYPES, relevance: "half" }
+      { match: ATOMIC_TYPES }
     ]
 
   };
@@ -107,8 +107,7 @@ export default function(hljs) {
       { match: /(-?)\b([\d']+(\.[\d']*)?|\.[\d']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)/ },
       { match: /(-?)\b(0[xX][a-fA-F0-9]+(?:'[a-fA-F0-9]+)*(?:\.[a-fA-F0-9]*(?:'[a-fA-F0-9]*)*)?(?:[pP][-+]?[0-9]+)?(l|L)?(u|U)?)/ },
       { match: /(-?)\b\d+(?:'\d+)*(?:\.\d*(?:'\d*)*)?(?:[eE][-+]?\d+)?/ }
-    ],
-    relevance: 0
+    ]
   };  
   
   // `#include` is the only preprocessor directive that takes an angle-bracket

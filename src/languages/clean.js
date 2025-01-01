@@ -57,10 +57,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE,
-      { // relevance booster
-        relevance: 0.1,
-        begin: '->|<-[|:]?|#!?|>>=|\\{\\||\\|\\}|:==|=:|<>' }
+      hljs.C_NUMBER_MODE
     ]
   };
 }

@@ -8,8 +8,7 @@ Category: hardware
 export default function(hljs) {
   const TPID = {
     className: 'number',
-    begin: '[1-9][0-9]*', /* no leading zeros */
-    relevance: 0
+    begin: '[1-9][0-9]*' /* no leading zeros */
   };
   const TPLABEL = {
     className: 'symbol',
@@ -148,8 +147,7 @@ export default function(hljs) {
       {
         /* to catch numbers that do not have a word boundary on the left */
         className: 'number',
-        begin: '\\d+(sec|msec|mm/sec|cm/min|inch/min|deg/sec|mm|in|cm)?\\b',
-        relevance: 0
+        begin: '\\d+(sec|msec|mm/sec|cm/min|inch/min|deg/sec|mm|in|cm)?\\b'
       },
       hljs.COMMENT('//', '[;$]'),
       hljs.COMMENT('!', '[;$]'),

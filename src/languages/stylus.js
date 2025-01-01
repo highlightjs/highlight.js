@@ -86,19 +86,16 @@ export default function(hljs) {
       // tags
       {
         begin: '\\b(' + css.TAGS.join('|') + ')' + LOOKAHEAD_TAG_END,
-        relevance: 1,
         className: 'selector-tag'
       },
 
       // psuedo selectors
       {
         className: 'selector-pseudo',
-        relevance: 1,
         begin: '&?:(' + css.PSEUDO_CLASSES.join('|') + ')' + LOOKAHEAD_TAG_END
       },
       {
         className: 'selector-pseudo',
-        relevance: 1,
         begin: '&?:(:)?(' + css.PSEUDO_ELEMENTS.join('|') + ')' + LOOKAHEAD_TAG_END
       },
 
@@ -121,7 +118,6 @@ export default function(hljs) {
       // @ keywords
       {
         className: 'keyword',
-        relevance: 1,
         begin: '\@((-(o|moz|ms|webkit)-)?(' + AT_KEYWORDS.join('|') + '))\\b'
       },
 
@@ -168,7 +164,6 @@ export default function(hljs) {
       {
         className: 'attribute',
         begin: '\\b(' + css.ATTRIBUTES.join('|') + ')\\b',
-        relevance: 1,
         starts: {
           // value container
           end: /;|$/,
@@ -182,8 +177,7 @@ export default function(hljs) {
             modes.IMPORTANT,
             modes.FUNCTION_DISPATCH
           ],
-          illegal: /\./,
-          relevance: 0
+          illegal: /\./
         }
       },
       modes.FUNCTION_DISPATCH

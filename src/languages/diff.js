@@ -15,7 +15,6 @@ export default function(hljs) {
     contains: [
       {
         className: 'meta',
-        relevance: "important!",
         match: regex.either(
           /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/, // @@ -1,2 +1,2 @@
           /^@@ +-\d+ +\+\d+,\d+ +@@/,     // @@ -1 +1,2 @@

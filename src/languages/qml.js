@@ -81,11 +81,9 @@ export default function(hljs) {
         className: 'attribute',
         begin: QML_IDENT_RE,
         end: '\\s*:',
-        excludeEnd: true,
-        relevance: 0
+        excludeEnd: true
       }
-    ],
-    relevance: 0
+    ]
   };
 
   // Find QML object. A QML object is a QML identifier followed by { and ends at the matching }.
@@ -94,7 +92,6 @@ export default function(hljs) {
     begin: regex.concat(QML_IDENT_RE, /\s*\{/),
     end: /\{/,
     returnBegin: true,
-    relevance: 0,
     contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: QML_IDENT_RE }) ]
   };
 
@@ -131,8 +128,7 @@ export default function(hljs) {
           { begin: '\\b(0[bB][01]+)' },
           { begin: '\\b(0[oO][0-7]+)' },
           { begin: hljs.C_NUMBER_RE }
-        ],
-        relevance: 0
+        ]
       },
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
@@ -144,11 +140,9 @@ export default function(hljs) {
           { // E4X / JSX
             begin: /</,
             end: />\s*[);\]]/,
-            relevance: 0,
             subLanguage: 'xml'
           }
-        ],
-        relevance: 0
+        ]
       },
       SIGNAL,
       PROPERTY,
@@ -175,8 +169,7 @@ export default function(hljs) {
       },
       {
         // hack: prevents detection of keywords after dots
-        begin: '\\.' + hljs.IDENT_RE,
-        relevance: 0
+        begin: '\\.' + hljs.IDENT_RE
       },
       ID_ID,
       QML_ATTRIBUTE,

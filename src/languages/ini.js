@@ -10,7 +10,6 @@ export default function(hljs) {
   const regex = hljs.regex;
   const NUMBERS = {
     className: 'number',
-    relevance: 0,
     variants: [
       { begin: /([+-]+)?[\d]+_[\d_]+/ },
       { begin: hljs.NUMBER_RE }
@@ -93,7 +92,6 @@ export default function(hljs) {
       COMMENTS,
       {
         className: 'section',
-        relevance: 1,
         begin: /^\[+/,
         end: /\]+(?=\s*($|;))/
       },

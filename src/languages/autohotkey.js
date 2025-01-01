@@ -21,7 +21,7 @@ export default function(hljs) {
     contains: [
       BACKTICK_ESCAPE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, { contains: [ BACKTICK_ESCAPE ] }),
-      hljs.COMMENT(';', '$', { relevance: 0 }),
+      hljs.COMMENT(';', '$'),
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.NUMBER_MODE,
       {
@@ -45,17 +45,13 @@ export default function(hljs) {
           { begin: '^[^\\n";]+::(?!=)' },
           {
             begin: '^[^\\n";]+:(?!=)',
-            // zero relevance as it catches a lot of things
-            // followed by a single ':' in many languages
-            relevance: 0
           }
         ]
       },
       {
         className: 'meta',
         begin: '^\\s*#\\w+',
-        end: '$',
-        relevance: 0
+        end: '$'
       },
       {
         className: 'built_in',

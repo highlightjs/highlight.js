@@ -35,9 +35,7 @@ export default function(hljs) {
         ],
         scope: {
           2: "string"
-        },
-        // this is just a (expression) in so many other languages
-        relevance: 0
+        }
       }
     ]
   };

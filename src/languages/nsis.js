@@ -570,8 +570,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.COMMENT(
         ';',
-        '$',
-        { relevance: 0 }
+        '$'
       ),
       VARIABLE_DEFINITION,
       FUNCTION_DEFINITION,

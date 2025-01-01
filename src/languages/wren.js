@@ -125,7 +125,6 @@ export default function(hljs) {
   };
 
   const OPERATOR = {
-    relevance: 0,
     match: regex.either(...OPERATORS),
     className: "operator"
   };

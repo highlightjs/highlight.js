@@ -613,12 +613,10 @@ export default function(hljs) {
   const OPERATOR = {
     scope: "operator",
     match: /[-+*/=%^~]|&&?|\|\|?|!=?|<(?:=>?|<|>)?|>[>=]?/,
-    relevance: 0,
   };
 
   const FUNCTION_CALL = {
     match: regex.concat(/\b/, regex.either(...FUNCTIONS), /\s*\(/),
-    relevance: 0,
     keywords: { built_in: FUNCTIONS }
   };
 
@@ -639,7 +637,6 @@ export default function(hljs) {
   const MULTI_WORD_KEYWORDS = {
     scope: "keyword",
     match: kws_to_regex(COMBOS),
-    relevance: 0,
   };
 
   // keywords with less than 3 letters are reduced in relevancy

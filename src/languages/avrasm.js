@@ -42,8 +42,7 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.COMMENT(
         ';',
-        '$',
-        { relevance: 0 }
+        '$'
       ),
       hljs.C_NUMBER_MODE, // 0x..., decimal, float
       hljs.BINARY_NUMBER_MODE, // 0b...

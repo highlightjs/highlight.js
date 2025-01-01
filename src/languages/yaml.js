@@ -28,7 +28,7 @@ export default function(hljs) {
         begin: /'[\w*@][\w*@ :()\./-]*':(?=[ \t]|$)/ },
     ]
   };
-  
+
   const TEMPLATE_VARIABLES = {
     className: 'template-variable',
     variants: [
@@ -45,21 +45,18 @@ export default function(hljs) {
 
   const SINGLE_QUOTE_STRING = {
     className: 'string',
-    relevance: 0,
     begin: /'/,
     end: /'/,
     contains: [
       {
         match: /''/,
-        scope: 'char.escape',
-        relevance: 0
+        scope: 'char.escape'
       }
     ]
   };
 
   const STRING = {
     className: 'string',
-    relevance: 0,
     variants: [
       {
         begin: /"/,
@@ -81,8 +78,7 @@ export default function(hljs) {
       end: /'/,
       contains: [
         {
-          begin: /''/,
-          relevance: 0
+          begin: /''/
         }
       ]
     },
@@ -106,22 +102,19 @@ export default function(hljs) {
     end: ',',
     endsWithParent: true,
     excludeEnd: true,
-    keywords: LITERALS,
-    relevance: 0
+    keywords: LITERALS
   };
   const OBJECT = {
     begin: /\{/,
     end: /\}/,
     contains: [ VALUE_CONTAINER ],
-    illegal: '\\n',
-    relevance: 0
+    illegal: '\\n'
   };
   const ARRAY = {
     begin: '\\[',
     end: '\\]',
     contains: [ VALUE_CONTAINER ],
-    illegal: '\\n',
-    relevance: 0
+    illegal: '\\n'
   };
 
   const MODES = [
@@ -143,8 +136,7 @@ export default function(hljs) {
       end: '[%-]?%>',
       subLanguage: 'ruby',
       excludeBegin: true,
-      excludeEnd: true,
-      relevance: 0
+      excludeEnd: true
     },
     { // named tags
       className: 'type',
@@ -173,8 +165,7 @@ export default function(hljs) {
     },
     { // array listing
       className: 'bullet',
-      begin: '-(?=[ ]|$)',
-      relevance: 0
+      begin: '-(?=[ ]|$)'
     },
     hljs.HASH_COMMENT_MODE,
     {
@@ -186,8 +177,7 @@ export default function(hljs) {
     // sit isolated from other words
     {
       className: 'number',
-      begin: hljs.C_NUMBER_RE + '\\b',
-      relevance: 0
+      begin: hljs.C_NUMBER_RE + '\\b'
     },
     OBJECT,
     ARRAY,

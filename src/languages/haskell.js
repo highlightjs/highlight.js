@@ -54,8 +54,7 @@ export default function(hljs) {
 
   const CONSTRUCTOR = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (build-in, infix).
-    relevance: 0
+    begin: '\\b[A-Z][\\w\']*' // TODO: other constructors (build-in, infix).
   };
 
   const LIST = {
@@ -82,7 +81,6 @@ export default function(hljs) {
 
   const NUMBER = {
     className: 'number',
-    relevance: 0,
     variants: [
       // decimal floating-point-literal (subsumes decimal-literal)
       { match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b` },

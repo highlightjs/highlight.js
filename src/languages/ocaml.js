@@ -34,8 +34,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'literal',
-        begin: '\\[(\\|\\|)?\\]|\\(\\)',
-        relevance: 0
+        begin: '\\[(\\|\\|)?\\]|\\(\\)'
       },
       hljs.COMMENT(
         '\\(\\*',
@@ -53,18 +52,15 @@ export default function(hljs) {
       },
       { /* module or constructor */
         className: 'type',
-        begin: '\\b[A-Z][\\w\']*',
-        relevance: 0
+        begin: '\\b[A-Z][\\w\']*'
       },
       { /* don't color identifiers, but safely catch all identifiers with ' */
-        begin: '[a-z_]\\w*\'[\\w\']*',
-        relevance: 0
+        begin: '[a-z_]\\w*\'[\\w\']*'
       },
       hljs.APOS_STRING_MODE,
       hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null }),
       {
         className: 'number',
-        relevance: 0,
         variants: [
           { match: '\\b0[xX][a-fA-F0-9_]+[Lln]?' },
           { match: '\\b0[oO][0-7_]+[Lln]?' },

@@ -55,7 +55,6 @@ export default function(hljs) {
 
   const NUMBERS = {
     className: 'number',
-    relevance: 0,
     begin: MATHEMATICA_NUMBER_RE
   };
 
@@ -84,7 +83,6 @@ export default function(hljs) {
 
   const OPERATORS = {
     className: 'operator',
-    relevance: 0,
     begin: /[+\-*/,;.:@~=><&|_`'^?!%]+/
   };
   const PATTERNS = {

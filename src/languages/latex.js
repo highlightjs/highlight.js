@@ -67,7 +67,6 @@ export default function(hljs) {
   const CONTROL_SEQUENCE = {
     className: 'keyword',
     begin: /\\/,
-    relevance: 0,
     contains: [
       {
         endsParent: true,
@@ -83,34 +82,28 @@ export default function(hljs) {
       },
       {
         endsParent: true,
-        relevance: 0,
         variants: L2_VARIANTS
       }
     ]
   };
   const MACRO_PARAM = {
     className: 'params',
-    relevance: 0,
     begin: /#+\d?/
   };
   const DOUBLE_CARET_CHAR = {
-    // relevance: 1
     variants: DOUBLE_CARET_VARIANTS };
   const SPECIAL_CATCODE = {
     className: 'built_in',
-    relevance: 0,
     begin: /[$&^_]/
   };
   const MAGIC_COMMENT = {
     className: 'meta',
     begin: /% ?!(T[eE]X|tex|BIB|bib)/,
-    end: '$',
-    relevance: 9
+    end: '$'
   };
   const COMMENT = hljs.COMMENT(
     '%',
-    '$',
-    { relevance: 0 }
+    '$'
   );
   const EVERYTHING_BUT_VERBATIM = [
     CONTROL_SEQUENCE,
@@ -123,7 +116,6 @@ export default function(hljs) {
   const BRACE_GROUP_NO_VERBATIM = {
     begin: /\{/,
     end: /\}/,
-    relevance: 0,
     contains: [
       'self',
       ...EVERYTHING_BUT_VERBATIM
@@ -132,7 +124,6 @@ export default function(hljs) {
   const ARGUMENT_BRACES = hljs.inherit(
     BRACE_GROUP_NO_VERBATIM,
     {
-      relevance: 0,
       endsParent: true,
       contains: [
         BRACE_GROUP_NO_VERBATIM,
@@ -144,15 +135,13 @@ export default function(hljs) {
     begin: /\[/,
     end: /\]/,
     endsParent: true,
-    relevance: 0,
     contains: [
       BRACE_GROUP_NO_VERBATIM,
       ...EVERYTHING_BUT_VERBATIM
     ]
   };
   const SPACE_GOBBLER = {
-    begin: /\s+/,
-    relevance: 0
+    begin: /\s+/
   };
   const ARGUMENT_M = [ ARGUMENT_BRACES ];
   const ARGUMENT_O = [ ARGUMENT_BRACKETS ];
@@ -160,7 +149,6 @@ export default function(hljs) {
     return {
       contains: [ SPACE_GOBBLER ],
       starts: {
-        relevance: 0,
         contains: arg,
         starts: starts_mode
       }
@@ -173,7 +161,6 @@ export default function(hljs) {
         $pattern: /\\[a-zA-Z]+/,
         keyword: '\\' + csname
       },
-      relevance: 0,
       contains: [ SPACE_GOBBLER ],
       starts: starts_mode
     };
@@ -186,7 +173,6 @@ export default function(hljs) {
           $pattern: /\\[a-zA-Z]+/,
           keyword: '\\begin'
         },
-        relevance: 0,
       },
       ARGUMENT_AND_THEN(ARGUMENT_M, starts_mode)
     );
@@ -210,7 +196,6 @@ export default function(hljs) {
 
   const VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
     return {
-      relevance: 0,
       begin: /\{/,
       starts: {
         endsParent: true,
@@ -223,7 +208,6 @@ export default function(hljs) {
               {
                 begin: /\{/,
                 end: /\}/,
-                relevance: 0,
                 contains: [ "self" ]
               }
             ],

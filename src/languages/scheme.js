@@ -60,12 +60,10 @@ export default function(hljs) {
     className: 'number',
     variants: [
       {
-        begin: SCHEME_SIMPLE_NUMBER_RE,
-        relevance: 0
+        begin: SCHEME_SIMPLE_NUMBER_RE
       },
       {
-        begin: SCHEME_COMPLEX_NUMBER_RE,
-        relevance: 0
+        begin: SCHEME_COMPLEX_NUMBER_RE
       },
       { begin: '#b[0-1]+(/[0-1]+)?' },
       { begin: '#o[0-7]+(/[0-7]+)?' },
@@ -84,15 +82,13 @@ export default function(hljs) {
   const COMMENT_MODES = [
     hljs.COMMENT(
       ';',
-      '$',
-      { relevance: 0 }
+      '$'
     ),
     hljs.COMMENT('#\\|', '\\|#')
   ];
 
   const IDENT = {
-    begin: SCHEME_IDENT_RE,
-    relevance: 0
+    begin: SCHEME_IDENT_RE
   };
 
   const QUOTED_IDENT = {
@@ -101,8 +97,7 @@ export default function(hljs) {
   };
 
   const BODY = {
-    endsWithParent: true,
-    relevance: 0
+    endsWithParent: true
   };
 
   const QUOTED_LIST = {
@@ -128,7 +123,6 @@ export default function(hljs) {
 
   const NAME = {
     className: 'name',
-    relevance: 0,
     begin: SCHEME_IDENT_RE,
     keywords: KEYWORDS
   };

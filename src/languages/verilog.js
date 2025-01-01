@@ -516,8 +516,7 @@ export default function(hljs) {
           { begin: /\b((\d+'([bhodBHOD]))[0-9xzXZa-fA-F_]+)/ },
           { begin: /\B(('([bhodBHOD]))[0-9xzXZa-fA-F_]+)/ },
           { // decimal
-            begin: /\b[0-9][0-9_]*/,
-            relevance: 0
+            begin: /\b[0-9][0-9_]*/
           }
         ]
       },
@@ -527,8 +526,7 @@ export default function(hljs) {
         variants: [
           { begin: '#\\((?!parameter).+\\)' },
           {
-            begin: '\\.\\w+',
-            relevance: 0
+            begin: '\\.\\w+'
           }
         ]
       },

@@ -15,21 +15,18 @@ export default function(hljs) {
   return {
     name: 'Parser3',
     subLanguage: 'xml',
-    relevance: 0,
     contains: [
       hljs.COMMENT('^#', '$'),
       hljs.COMMENT(
         /\^rem\{/,
         /\}/,
         {
-          relevance: 1.5,
           contains: [ CURLY_SUBCOMMENT ]
         }
       ),
       {
         className: 'meta',
-        begin: '^@(?:BASE|USE|CLASS|OPTIONS)$',
-        relevance: 5
+        begin: '^@(?:BASE|USE|CLASS|OPTIONS)$'
       },
       {
         className: 'title',

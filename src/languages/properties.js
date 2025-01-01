@@ -19,12 +19,10 @@ export default function(hljs) {
   const DELIM_AND_VALUE = {
     // skip DELIM
     end: DELIM,
-    relevance: 0,
     starts: {
       // value: everything until end of line (again, taking into account backslashes)
       className: 'string',
       end: /$/,
-      relevance: 0,
       contains: [
         { begin: '\\\\\\\\' },
         { begin: '\\\\\\n' }

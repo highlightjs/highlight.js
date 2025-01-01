@@ -21,8 +21,7 @@ export default function(hljs) {
   const COMMENT = hljs.COMMENT('%', '$');
   const NUMBER = {
     className: 'number',
-    begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)',
-    relevance: 0
+    begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)'
   };
   const NAMED_FUN = { begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+' };
   const FUNCTION_CALL = {
@@ -48,12 +47,10 @@ export default function(hljs) {
     // "contains" defined later
   };
   const VAR1 = {
-    begin: '\\b_([A-Z][A-Za-z0-9_]*)?',
-    relevance: 0
+    begin: '\\b_([A-Z][A-Za-z0-9_]*)?'
   };
   const VAR2 = {
-    begin: '[A-Z][a-zA-Z0-9_]*',
-    relevance: 0
+    begin: '[A-Z][a-zA-Z0-9_]*'
   };
   const RECORD_ACCESS = {
     begin: '#' + hljs.UNDERSCORE_IDENT_RE,

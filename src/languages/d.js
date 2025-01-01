@@ -103,8 +103,7 @@ export default function(hljs) {
    */
   const D_INTEGER_MODE = {
     className: 'number',
-    begin: '\\b' + integer_re + '(L|u|U|Lu|LU|uL|UL)?',
-    relevance: 0
+    begin: '\\b' + integer_re + '(L|u|U|Lu|LU|uL|UL)?'
   };
 
   /**
@@ -116,8 +115,7 @@ export default function(hljs) {
     begin: '\\b('
         + float_re + '([fF]|L|i|[fF]i|Li)?|'
         + integer_re + '(i|[fF]i|Li)'
-      + ')',
-    relevance: 0
+      + ')'
   };
 
   /**

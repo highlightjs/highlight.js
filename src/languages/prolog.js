@@ -8,8 +8,7 @@ Category: functional
 
 export default function(hljs) {
   const ATOM = {
-    begin: /[a-z][A-Za-z0-9_]*/,
-    relevance: 0
+    begin: /[a-z][A-Za-z0-9_]*/
   };
 
   const VAR = {
@@ -17,14 +16,12 @@ export default function(hljs) {
     variants: [
       { begin: /[A-Z][a-zA-Z0-9_]*/ },
       { begin: /_[A-Za-z0-9_]*/ }
-    ],
-    relevance: 0
+    ]
   };
 
   const PARENTED = {
     begin: /\(/,
-    end: /\)/,
-    relevance: 0
+    end: /\)/
   };
 
   const LIST = {

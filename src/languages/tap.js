@@ -16,7 +16,7 @@ export default function(hljs) {
       {
         className: 'meta',
         variants: [
-          { begin: '^TAP version (\\d+)$', relevance: "important!" },
+          { begin: '^TAP version (\\d+)$' },
           { begin: '^1\\.\\.(\\d+)$' }
         ]
       },
@@ -24,14 +24,12 @@ export default function(hljs) {
       {
         begin: /---$/,
         end: '\\.\\.\\.$',
-        subLanguage: 'yaml',
-        relevance: 0
+        subLanguage: 'yaml'
       },
       // testcase number
       {
         className: 'number',
-        begin: ' (\\d+) ',
-        relevance: 0
+        begin: ' (\\d+) '
       },
       // testcase status and description
       {

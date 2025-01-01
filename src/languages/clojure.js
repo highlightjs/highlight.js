@@ -56,7 +56,7 @@ export default function(hljs) {
       { match: /[-+]?[1-9][0-9]?[rR][0-9a-zA-Z]+N?/ }, // variable radix from 2 to 36 // 2r101010, 8r52, 36r16
       { match: /[-+]?[0-9]+\/[0-9]+N?/ }, // ratio                       // 1/2
       { match: /[-+]?[0-9]+((\.[0-9]*([eE][+-]?[0-9]+)?M?)|([eE][+-]?[0-9]+M?|M))/ }, // float        // 0.42 4.2E-1M 42E1 42M
-      { match: /[-+]?([1-9][0-9]*|0)N?/, relevance: 0 }, // int (don't match leading 0) // 42 42N
+      { match: /[-+]?([1-9][0-9]*|0)N?/ }, // int (don't match leading 0) // 42 42N
     ]
   };
   const CHARACTER = {
@@ -64,11 +64,10 @@ export default function(hljs) {
     variants: [
       { match: /\\o[0-3]?[0-7]{1,2}/ }, // Unicode Octal 0 - 377
       { match: /\\u[0-9a-fA-F]{4}/ }, // Unicode Hex 0000 - FFFF
-      { match: /\\(newline|space|tab|formfeed|backspace|return)/, relevance: "keyword" }, // special characters
+      { match: /\\(newline|space|tab|formfeed|backspace|return)/ }, // special characters
       {
         // any non-whitespace char
-        match: /\\\S/,
-        relevance: 0
+        match: /\\\S/
       }
     ]
   };
@@ -81,13 +80,11 @@ export default function(hljs) {
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const COMMA = {
     scope: 'punctuation',
-    match: /,/,
-    relevance: 0
+    match: /,/
   };
   const COMMENT = hljs.COMMENT(
     ';',
-    '$',
-    { relevance: 0 }
+    '$'
   );
   const LITERAL = {
     className: 'literal',
@@ -95,8 +92,7 @@ export default function(hljs) {
   };
   const COLLECTION = {
     begin: "\\[|(#::?" + SYMBOL_RE + ")?\\{",
-    end: '[\\]\\}]',
-    relevance: 0
+    end: '[\\]\\}]'
   };
   const KEY = {
     className: 'symbol',
@@ -107,8 +103,7 @@ export default function(hljs) {
     end: '\\)'
   };
   const BODY = {
-    endsWithParent: true,
-    relevance: 0
+    endsWithParent: true
   };
   const NAME = {
     keywords: keywords,

@@ -18,7 +18,6 @@ export default function(hljs) {
     begin: /\(/,
     end: /\)(?=\:?)/,
     endsParent: true,
-    relevance: 7,
     contains: [
       {
         scope: 'string',

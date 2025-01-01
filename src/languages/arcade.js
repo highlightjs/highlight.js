@@ -297,8 +297,7 @@ export default function(hljs) {
   ];
   const SYMBOL = {
     className: 'symbol',
-    begin: '\\$' + regex.either(...PROFILE_VARS),
-    relevance: 1
+    begin: '\\$' + regex.either(...PROFILE_VARS)
   };
   const NUMBER = {
     className: 'number',
@@ -306,8 +305,7 @@ export default function(hljs) {
       { begin: '\\b(0[bB][01]+)' },
       { begin: '\\b(0[oO][0-7]+)' },
       { begin: hljs.C_NUMBER_RE }
-    ],
-    relevance: 0
+    ]
   };
   const SUBST = {
     className: 'subst',
@@ -351,7 +349,6 @@ export default function(hljs) {
       NUMBER,
       { // object attr container
         begin: /[{,]\s*/,
-        relevance: 0,
         contains: [
           {
             scope: "attr",

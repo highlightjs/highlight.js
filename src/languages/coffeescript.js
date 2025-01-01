@@ -58,8 +58,7 @@ export default function(hljs) {
   const EXPRESSIONS = [
     hljs.BINARY_NUMBER_MODE,
     hljs.inherit(hljs.C_NUMBER_MODE, { starts: {
-      end: '(\\s*/)?',
-      relevance: 0
+      end: '(\\s*/)?'
     } }), // a number tries to eat the following slash to prevent treating it as a regexp
     {
       className: 'string',
@@ -104,8 +103,7 @@ export default function(hljs) {
           ]
         },
         {
-          begin: '//[gim]{0,3}(?=\\W)',
-          relevance: 0
+          begin: '//[gim]{0,3}(?=\\W)'
         },
         {
           // regex can't start with space to parse x / 2 / 3 as two divisions
@@ -196,7 +194,6 @@ export default function(hljs) {
       {
         // anonymous function start
         begin: /[:\(,=]\s*/,
-        relevance: 0,
         contains: [
           {
             begin: POSSIBLE_PARAMS_RE,
@@ -208,7 +205,6 @@ export default function(hljs) {
       },
       CLASS_DEFINITION,
       {
-        relevance: 1,
         match: /constructor(?=:)/
       },
       {

@@ -193,8 +193,7 @@ export default function(hljs) {
       DISPATCH,
       {
         className: 'number',
-        begin: /\b\d+/,
-        relevance: 0
+        begin: /\b\d+/
       },
       ...COMMENTS
     ]

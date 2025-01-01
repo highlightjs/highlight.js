@@ -149,8 +149,7 @@ export default function(hljs) {
       {
         className: 'meta', // Actually pragma
         begin: /\{\./,
-        end: /\.\}/,
-        relevance: 1
+        end: /\.\}/
       },
       {
         className: 'string',
@@ -166,12 +165,10 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         className: 'type',
-        begin: /\b[A-Z]\w+\b/,
-        relevance: 0
+        begin: /\b[A-Z]\w+\b/
       },
       {
         className: 'number',
-        relevance: 0,
         variants: [
           { begin: /\b(0[xX][0-9a-fA-F][_0-9a-fA-F]*)('?[iIuU](8|16|32|64))?/ },
           { begin: /\b(0o[0-7][_0-7]*)('?[iIuUfF](8|16|32|64))?/ },

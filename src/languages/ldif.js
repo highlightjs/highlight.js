@@ -12,8 +12,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'attribute',
-        match: '^dn(?=:)',
-        relevance: "important!"
+        match: '^dn(?=:)'
       },
       {
         className: 'attribute',

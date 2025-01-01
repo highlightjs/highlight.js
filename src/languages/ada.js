@@ -69,8 +69,7 @@ export default function(hljs) {
       {
         className: 'type',
         begin: ID_REGEX,
-        endsParent: true,
-        relevance: 0
+        endsParent: true
       }
     ]
   };
@@ -169,8 +168,7 @@ export default function(hljs) {
         end: /"/,
         contains: [
           {
-            begin: /""/,
-            relevance: 0
+            begin: /""/
           }
         ]
       },
@@ -183,8 +181,7 @@ export default function(hljs) {
       {
         // number literals
         className: 'number',
-        begin: NUMBER_RE,
-        relevance: 0
+        begin: NUMBER_RE
       },
       {
         // Attributes

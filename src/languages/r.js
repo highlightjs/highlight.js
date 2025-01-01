@@ -154,13 +154,11 @@ export default function(hljs) {
           }),
           {
             begin: '"',
-            end: '"',
-            relevance: 0
+            end: '"'
           },
           {
             begin: "'",
-            end: "'",
-            relevance: 0
+            end: "'"
           }
         ],
       },
@@ -175,7 +173,6 @@ export default function(hljs) {
       // { begin: /(?<![a-zA-Z0-9._])0[xX][0-9a-fA-F]+([pP][+-]?\d+)?[Li]?/ },
       // { begin: /(?<![a-zA-Z0-9._])(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[Li]?/ }
       {
-        relevance: 0,
         variants: [
           {
             scope: {
@@ -219,8 +216,6 @@ export default function(hljs) {
 
       // Operators/punctuation when they're not directly followed by numbers
       {
-        // Relevance boost for the most common assignment form.
-        relevance: 0.5,
         scope: { 3: 'operator' },
         match: [
           IDENT_RE,
@@ -232,7 +227,6 @@ export default function(hljs) {
 
       {
         scope: 'operator',
-        relevance: 0,
         variants: [
           { match: OPERATORS_RE },
           { match: /%[^%]*%/ }
@@ -241,7 +235,6 @@ export default function(hljs) {
 
       {
         scope: 'punctuation',
-        relevance: 0,
         match: PUNCTUATION_RE
       },
 

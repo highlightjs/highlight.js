@@ -137,7 +137,7 @@ export default function(hljs) {
   ];
   const COMMENT_MODES = [
     hljs.C_LINE_COMMENT_MODE,
-    hljs.COMMENT(/\{/, /\}/, { relevance: 0 }),
+    hljs.COMMENT(/\{/, /\}/),
     hljs.COMMENT(/\(\*/, /\*\)/)
   ];
   const DIRECTIVE = {
@@ -171,8 +171,7 @@ export default function(hljs) {
         match: /\$[\dA-Fa-f_]+/ },
       {
         // Hexadecimal literal with no digits
-        match: /\$/,
-        relevance: 0 },
+        match: /\$/},
       {
         // Octal notation, e.g., &42.
         match: /&[0-7][0-7_]*/ },
@@ -181,8 +180,7 @@ export default function(hljs) {
         match: /%[01_]+/ },
       {
         // Binary literal with no digits
-        match: /%/,
-        relevance: 0 }
+        match: /%/}
     ]
   };
   const CHAR_STRING = {

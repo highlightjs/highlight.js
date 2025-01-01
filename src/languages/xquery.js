@@ -254,8 +254,7 @@ export default function(_hljs) {
 
   const NUMBER = {
     className: 'number',
-    begin: /(\b0[0-7_]+)|(\b0x[0-9a-fA-F_]+)|(\b[1-9][0-9_]*(\.[0-9_]+)?)|[0_]\b/,
-    relevance: 0
+    begin: /(\b0[0-7_]+)|(\b0x[0-9a-fA-F_]+)|(\b[1-9][0-9_]*(\.[0-9_]+)?)|[0_]\b/
   };
 
   const STRING = {
@@ -266,8 +265,7 @@ export default function(_hljs) {
         end: /"/,
         contains: [
           {
-            begin: /""/,
-            relevance: 0
+            begin: /""/
           }
         ]
       },
@@ -276,8 +274,7 @@ export default function(_hljs) {
         end: /'/,
         contains: [
           {
-            begin: /''/,
-            relevance: 0
+            begin: /''/
           }
         ]
       }
@@ -293,7 +290,6 @@ export default function(_hljs) {
     className: 'comment',
     begin: /\(:/,
     end: /:\)/,
-    relevance: 2,
     contains: [
       {
         className: 'doctag',

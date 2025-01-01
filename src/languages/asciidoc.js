@@ -117,7 +117,6 @@ export default function(hljs) {
         // can also be done as...
         // '^/{4,}$',
         // '^/{4,}$',
-        { relevance: "double" }
       ),
       // line comment
       hljs.COMMENT(
@@ -174,8 +173,7 @@ export default function(hljs) {
           {
             begin: '<',
             end: '>',
-            subLanguage: 'xml',
-            relevance: 0
+            subLanguage: 'xml'
           }
         ]
       },
@@ -209,8 +207,7 @@ export default function(hljs) {
       {
         className: 'code',
         begin: '^[ \\t]',
-        end: '$',
-        relevance: 0
+        end: '$'
       },
       HORIZONTAL_RULE,
       // images and links

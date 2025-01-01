@@ -55,13 +55,11 @@ export default function(hljs) {
       // seems to be a guard against [ident]' or [ident].
       // perhaps to prevent attributes from flagging as keywords?
       {
-        begin: '[a-zA-Z_][a-zA-Z_0-9]*[\\.\']+',
-        relevance: 0
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*[\\.\']+'
       },
       {
         begin: '\\[',
         end: '\\][\\.\']*',
-        relevance: 0,
         contains: COMMON_CONTAINS
       },
       hljs.C_LINE_COMMENT_MODE,

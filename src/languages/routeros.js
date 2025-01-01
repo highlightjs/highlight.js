@@ -102,7 +102,6 @@ export default function(hljs) {
       {
         // > is to avoid matches with => in other grammars
         begin: /[\w-]+=([^\s{}[\]()>]+)/,
-        relevance: 0,
         returnBegin: true,
         contains: [
           {
@@ -112,7 +111,6 @@ export default function(hljs) {
           {
             begin: /=/,
             endsWithParent: true,
-            relevance: 0,
             contains: [
               QUOTE_STRING,
               APOS_STRING,
@@ -151,7 +149,6 @@ export default function(hljs) {
       },
       {
         begin: '\\b(' + COMMON_COMMANDS.split(' ').join('|') + ')([\\s[(\\]|])',
-        relevance: 1,
         returnBegin: true,
         contains: [
           {
@@ -163,10 +160,9 @@ export default function(hljs) {
       {
         className: 'built_in',
         variants: [
-          { begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+', relevance: 1 },
+          { begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+' },
           {
-            begin: /\.\./,
-            relevance: 0
+            begin: /\.\./
           }
         ]
       }

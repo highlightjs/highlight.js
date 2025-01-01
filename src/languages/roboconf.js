@@ -16,7 +16,6 @@ export default function(hljs) {
     excludeEnd: true,
     starts: {
       end: ';',
-      relevance: 0,
       contains: [
         {
           className: 'variable',

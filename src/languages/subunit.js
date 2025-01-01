@@ -21,7 +21,6 @@ export default function(hljs) {
   };
   const KEYWORDS = {
     className: 'keyword',
-    relevance: 1,
     variants: [
       { begin: '^(test|testing|success|successful|failure|error|skip|xfail|uxsuccess)(:?)\\s+(test)?' },
       { begin: '^progress(:?)(\\s+)?(pop|push)?' },

@@ -24,8 +24,7 @@ export default function(hljs) {
   const TRIPLE_QUOTE_STRING_MODE = {
     className: 'string',
     begin: '"""',
-    end: '"""',
-    relevance: 2
+    end: '"""'
   };
 
   const QUOTE_STRING_MODE = {
@@ -39,25 +38,21 @@ export default function(hljs) {
     className: 'string',
     begin: '\'',
     end: '\'',
-    contains: [ hljs.BACKSLASH_ESCAPE ],
-    relevance: 0
+    contains: [ hljs.BACKSLASH_ESCAPE ]
   };
 
   const TYPE_NAME = {
     className: 'type',
-    begin: '\\b_?[A-Z][\\w]*',
-    relevance: 0
+    begin: '\\b_?[A-Z][\\w]*'
   };
 
   const PRIMED_NAME = {
-    begin: hljs.IDENT_RE + '\'',
-    relevance: 0
+    begin: hljs.IDENT_RE + '\''
   };
 
   const NUMBER_MODE = {
     className: 'number',
-    begin: '(-?)(\\b0[xX][a-fA-F0-9]+|\\b0[bB][01]+|(\\b\\d+(_\\d+)?(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)',
-    relevance: 0
+    begin: '(-?)(\\b0[xX][a-fA-F0-9]+|\\b0[bB][01]+|(\\b\\d+(_\\d+)?(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'
   };
 
   /**

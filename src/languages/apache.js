@@ -39,15 +39,12 @@ export default function(hljs) {
         contains: [
           IP_ADDRESS,
           PORT_NUMBER,
-          // low relevance prevents us from claming XML/HTML where this rule would
-          // match strings inside of XML tags
-          hljs.inherit(hljs.QUOTE_STRING_MODE, { relevance: 0 })
+          hljs.QUOTE_STRING_MODE
         ]
       },
       {
         className: 'attribute',
         begin: /\w+/,
-        relevance: 0,
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
         keywords: { _: [
@@ -70,7 +67,6 @@ export default function(hljs) {
         ] },
         starts: {
           end: /$/,
-          relevance: 0,
           keywords: { literal: 'on off all deny allow' },
           contains: [
             {

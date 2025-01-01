@@ -51,8 +51,7 @@ export default function(hljs) {
         className: 'string',
         begin: '[a-z]+"""',
         end: '"""',
-        contains: [ SUBST ],
-        relevance: 2
+        contains: [ SUBST ]
       }
     ]
 
@@ -60,14 +59,12 @@ export default function(hljs) {
 
   const TYPE = {
     className: 'type',
-    begin: '\\b[A-Z][A-Za-z0-9_]*',
-    relevance: 0
+    begin: '\\b[A-Z][A-Za-z0-9_]*'
   };
 
   const NAME = {
     className: 'title',
-    begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/,
-    relevance: 0
+    begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/
   };
 
   const CLASS = {
@@ -86,11 +83,10 @@ export default function(hljs) {
         end: /\]/,
         excludeBegin: true,
         excludeEnd: true,
-        relevance: 0,
-        contains: [ 
-          TYPE, 
-          hljs.C_LINE_COMMENT_MODE, 
-          hljs.C_BLOCK_COMMENT_MODE, 
+        contains: [
+          TYPE,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
         ]
       },
       {
@@ -99,11 +95,10 @@ export default function(hljs) {
         end: /\)/,
         excludeBegin: true,
         excludeEnd: true,
-        relevance: 0,
-        contains: [ 
-          TYPE, 
-          hljs.C_LINE_COMMENT_MODE, 
-          hljs.C_BLOCK_COMMENT_MODE, 
+        contains: [
+          TYPE,
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
         ]
       },
       NAME
