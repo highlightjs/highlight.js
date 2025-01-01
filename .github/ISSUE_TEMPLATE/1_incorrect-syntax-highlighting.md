@@ -15,10 +15,6 @@ assignees: ''
 Please specify exactly *which* language grammar you are using to highlight (`python`, `javascript`, etc.) or specify if you are using auto-detection.  If you are using auto-detection please first check to make sure the language you are expecting was properly detected.  If Highlight.js misidentifies the type of code - then the highlighting may be entirely incorrect - and there often isn't much we can do about that - auto-detection is only best-effort and can't guess right 100% of the time.
 -->
 
-**Are you using `highlight` or `highlightAuto`?**
-
-...
-
 **Sample Code to Reproduce**
 <!--
 Please include plain text examples of the code that fails to highlight properly or can reproduce the bug you are seeing.  If you attach a screenshot PLEASE also provide the actually code that we can copy/paste if necessary to help resolve the issue.

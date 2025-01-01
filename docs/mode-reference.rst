@@ -491,20 +491,20 @@ keywords
 
 *Keyword definition comes in three forms.*
 
-A string of space-separated keywords with an optional relevance following a pipe (``|``):
+A string of space-separated keywords:
 
 ::
 
-  'for while if|0 else weird_voodoo|10 ...'
+  'for while if else weird_voodoo ...'
 
-An array of keywords (with optional relevance  following a ``|``):
+An array of keywords:
 
   ::
 
     [
       "for",
       "while",
-      "if|0"
+      "if"
     ]
 
 .. note::
@@ -520,11 +520,10 @@ used to locate them:
 ::
 
   {
-    keyword: [ 'for', 'while', 'if|0' ],
+    keyword: [ 'for', 'while', 'if' ],
     literal: [ 'true', 'false' ],
     $pattern: /\w+/
   }
-
 
 
 For a more detailed explanation see :doc:`Language definition guide </language-guide>`.
@@ -623,10 +622,9 @@ each having all the attributes from the main definition augmented or overridden 
   {
     scope: 'string',
     contains: ['self', hljs.BACKSLASH_ESCAPE],
-    relevance: 0,
     variants: [
       {begin: /"/, end: /"/},
-      {begin: /'/, end: /'/, relevance: 1}
+      {begin: /'/, end: /'/}
     ]
   }
 

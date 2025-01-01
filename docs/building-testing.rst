@@ -79,12 +79,6 @@ alias or symbolic link for nodejs to node. The reason for this is the
 dependencies that are requires to test highlight.js has a reference to
 "node".
 
-Place the snippet you used inside the browser in
-``test/detect/<language>/default.txt``, build the package with all the languages
-for node and run the test suite. If your language breaks auto-detection, it
-should be fixed by :ref:`improving relevance <relevance>`, which is a black art
-in and of itself. When in doubt, please refer to the discussion group!
-
 
 Testing markup
 --------------
