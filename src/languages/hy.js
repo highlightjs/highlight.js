@@ -47,13 +47,11 @@ export default function(hljs) {
   const SIMPLE_NUMBER_RE = '[-+]?\\d+(\\.\\d+)?';
 
   const SYMBOL = {
-    begin: SYMBOL_RE,
-    relevance: 0
+    begin: SYMBOL_RE
   };
   const NUMBER = {
     className: 'number',
-    begin: SIMPLE_NUMBER_RE,
-    relevance: 0
+    begin: SIMPLE_NUMBER_RE
   };
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const COMMENT = hljs.COMMENT(
@@ -67,8 +65,7 @@ export default function(hljs) {
   };
   const COLLECTION = {
     begin: '[\\[\\{]',
-    end: '[\\]\\}]',
-    relevance: 0
+    end: '[\\]\\}]'
   };
   const HINT = {
     className: 'comment',
@@ -84,12 +81,10 @@ export default function(hljs) {
     end: '\\)'
   };
   const BODY = {
-    endsWithParent: true,
-    relevance: 0
+    endsWithParent: true
   };
   const NAME = {
     className: 'name',
-    relevance: 0,
     keywords: keywords,
     begin: SYMBOL_RE,
     starts: BODY

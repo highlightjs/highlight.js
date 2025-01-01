@@ -188,14 +188,12 @@ export default function(hljs) {
   const FUNCTIONS = {
     beginKeywords: FUNCTION_NAMES.join(" "),
     keywords: { name: FUNCTION_NAMES },
-    relevance: 0,
     contains: [ PARAMS ]
   };
 
   const FILTER = {
     match: /\|(?=[A-Za-z_]+:?)/,
     beginScope: "punctuation",
-    relevance: 0,
     contains: [
       {
         match: /[A-Za-z_]+:?/,

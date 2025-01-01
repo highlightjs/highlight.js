@@ -9,8 +9,7 @@ Category: config
 export default function(hljs) {
   const MACRO = {
     className: 'variable',
-    begin: /\$[\w\d#@][\w\d_]*/,
-    relevance: 0
+    begin: /\$[\w\d#@][\w\d_]*/
   };
   const TABLE = {
     className: 'variable',
@@ -31,7 +30,7 @@ export default function(hljs) {
       /* block match pass are "actions" in pf.conf(5), the rest are
       * lexically similar top-level commands.
       */
-      built_in: 
+      built_in:
         'block match pass load anchor antispoof|10 set table',
       keyword:
         'in out log quick on rdomain inet inet6 proto from port os to route '

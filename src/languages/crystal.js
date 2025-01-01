@@ -107,8 +107,7 @@ export default function(hljs) {
         begin: /<<-\w+$/,
         end: /^\s*\w+$/
       }
-    ],
-    relevance: 0
+    ]
   };
   const Q_STRING = {
     className: 'string',
@@ -141,8 +140,7 @@ export default function(hljs) {
         begin: /<<-'\w+'$/,
         end: /^\s*\w+$/
       }
-    ],
-    relevance: 0
+    ]
   };
   const REGEXP = {
     begin: '(?!%\\})(' + hljs.RE_STARTERS_RE + '|\\n|\\b(case|if|select|unless|until|when|while)\\b)\\s*',
@@ -156,8 +154,7 @@ export default function(hljs) {
         ],
         variants: [
           {
-            begin: '//[a-z]*',
-            relevance: 0
+            begin: '//[a-z]*'
           },
           {
             begin: '/(?!\\/)',
@@ -165,8 +162,7 @@ export default function(hljs) {
           }
         ]
       }
-    ],
-    relevance: 0
+    ]
   };
   const REGEXP2 = {
     className: 'regexp',
@@ -199,8 +195,7 @@ export default function(hljs) {
         begin: '%r\\|',
         end: '\\|'
       }
-    ],
-    relevance: 0
+    ]
   };
   const ATTRIBUTE = {
     className: 'meta',
@@ -244,8 +239,7 @@ export default function(hljs) {
       contains: [
         hljs.HASH_COMMENT_MODE,
         hljs.inherit(hljs.TITLE_MODE, { begin: CRYSTAL_PATH_RE, scope: "title.class" })
-      ],
-      relevance: 2
+      ]
     },
     {
       beginKeywords: 'def',
@@ -267,13 +261,11 @@ export default function(hljs) {
           scope: "title.function",
           endsParent: true
         })
-      ],
-      relevance: 2
+      ]
     },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
-      relevance: 0
+      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:'
     },
     {
       className: 'symbol',
@@ -281,8 +273,7 @@ export default function(hljs) {
       contains: [
         STRING,
         { begin: CRYSTAL_METHOD_RE }
-      ],
-      relevance: 0
+      ]
     },
     {
       className: 'number',
@@ -292,8 +283,7 @@ export default function(hljs) {
         { begin: '\\b0x([A-Fa-f0-9_]+)' + INT_SUFFIX },
         { begin: '\\b([1-9][0-9_]*[0-9]|[0-9])(\\.[0-9][0-9_]*)?([eE]_?[-+]?[0-9_]*)?' + FLOAT_SUFFIX + '(?!_)' },
         { begin: '\\b([1-9][0-9_]*|0)' + INT_SUFFIX }
-      ],
-      relevance: 0
+      ]
     }
   ];
   SUBST.contains = CRYSTAL_DEFAULT_CONTAINS;

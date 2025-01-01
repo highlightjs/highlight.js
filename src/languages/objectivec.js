@@ -241,8 +241,7 @@ export default function(hljs) {
       },
       {
         // guard
-        begin: '\\.' + hljs.UNDERSCORE_IDENT_RE,
-        relevance: 0
+        begin: '\\.' + hljs.UNDERSCORE_IDENT_RE
       }
     ]
   };

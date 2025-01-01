@@ -30,7 +30,6 @@ export default function(hljs) {
       {
         className: 'meta.prompt',
         begin: /^julia>/,
-        relevance: 9,
         starts: {
           // end the highlighting if we are on a new line and the line does not have at
           // least six spaces in the beginning

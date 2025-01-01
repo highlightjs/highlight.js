@@ -90,8 +90,7 @@ export default function(hljs) {
         // Note: there are user-defined literal suffixes too, but perhaps having the custom suffix not part of the
         // literal highlight actually makes it stand out more.
       }
-    ],
-    relevance: 0
+    ]
   };
 
   const PREPROCESSOR = {

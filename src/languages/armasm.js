@@ -87,12 +87,10 @@ export default function(hljs) {
         className: 'title',
         begin: '\\|',
         end: '\\|',
-        illegal: '\\n',
-        relevance: 0
+        illegal: '\\n'
       },
       {
         className: 'number',
-        relevance: 0,
         variants: [
           { // hex
             begin: '[#$=]?0x[0-9a-f]+', relevance: "low" },
@@ -113,8 +111,7 @@ export default function(hljs) {
             begin: '^[a-z_\\.\\$][a-z0-9_\\.\\$]+' },
           { // label reference
             begin: '[=#]\\w+' }
-        ],
-        relevance: 0
+        ]
       }
     ]
   };

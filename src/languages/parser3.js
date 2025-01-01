@@ -15,7 +15,6 @@ export default function(hljs) {
   return {
     name: 'Parser3',
     subLanguage: 'xml',
-    relevance: 0,
     contains: [
       hljs.COMMENT('^#', '$'),
       hljs.COMMENT(
@@ -28,8 +27,7 @@ export default function(hljs) {
       ),
       {
         className: 'meta',
-        begin: '^@(?:BASE|USE|CLASS|OPTIONS)$',
-        relevance: 5
+        begin: '^@(?:BASE|USE|CLASS|OPTIONS)$'
       },
       {
         className: 'title',

@@ -86,8 +86,7 @@ export default function(hljs) {
       { begin: `\\b0[xX][\\da-fA-F]+(?:_[\\da-fA-F]+)*\\b` }, // Hex w/ underscore support
       // Decimals w/ underscore support, with optional fragments and scientific exponent (e) suffix.
       { begin: `(?:\\b\\d+(?:_\\d+)*(\\.(?:\\d+(?:_\\d+)*))?|\\B\\.\\d+)(?:[eE][+-]?\\d+)?` }
-    ],
-    relevance: 0
+    ]
   };
   const LITERALS = [
     "false",
@@ -583,7 +582,6 @@ export default function(hljs) {
             illegal: /[:($"]/
           }
         ],
-        relevance: 0,
         end: /\{/,
         excludeEnd: true,
         contains: [
@@ -596,14 +594,12 @@ export default function(hljs) {
       // element to be treated as its own *individual* title
       {
         beginKeywords: 'namespace',
-        relevance: 0,
         end: ';',
         illegal: /[.']/,
         contains: [ hljs.inherit(hljs.UNDERSCORE_TITLE_MODE, { scope: "title.class" }) ]
       },
       {
         beginKeywords: 'use',
-        relevance: 0,
         end: ';',
         contains: [
           {

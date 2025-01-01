@@ -24,14 +24,12 @@ export default function(hljs) {
       {
         begin: /---$/,
         end: '\\.\\.\\.$',
-        subLanguage: 'yaml',
-        relevance: 0
+        subLanguage: 'yaml'
       },
       // testcase number
       {
         className: 'number',
-        begin: ' (\\d+) ',
-        relevance: 0
+        begin: ' (\\d+) '
       },
       // testcase status and description
       {

@@ -25,8 +25,7 @@ export default function(hljs) {
         contains: [
           {
             // eat up @'s in emails to prevent them to be recognized as doctags
-            begin: /\w+@/,
-            relevance: 0
+            begin: /\w+@/
           },
           {
             className: 'doctag',
@@ -140,8 +139,7 @@ export default function(hljs) {
     },
     contains: [
       hljs.SHEBANG({
-        binary: "groovy",
-        relevance: 9
+        binary: "groovy"
       }),
       COMMENT,
       STRING,
@@ -150,21 +148,18 @@ export default function(hljs) {
       CLASS_DEFINITION,
       {
         className: 'meta',
-        begin: '@[A-Za-z]+',
-        relevance: 0
+        begin: '@[A-Za-z]+'
       },
       {
         // highlight map keys and named parameters as attrs
         className: 'attr',
-        begin: IDENT_RE + '[ \t]*:',
-        relevance: 0
+        begin: IDENT_RE + '[ \t]*:'
       },
       {
         // catch middle element of the ternary operator
         // to avoid highlight it as a label, named parameter, or map key
         begin: /\?/,
         end: /:/,
-        relevance: 0,
         contains: [
           COMMENT,
           STRING,
@@ -178,8 +173,7 @@ export default function(hljs) {
         className: 'symbol',
         begin: '^[ \t]*' + regex.lookahead(IDENT_RE + ':'),
         excludeBegin: true,
-        end: IDENT_RE + ':',
-        relevance: 0
+        end: IDENT_RE + ':'
       }
     ],
     illegal: /#|<\//

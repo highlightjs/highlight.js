@@ -33,12 +33,10 @@ export default function(hljs) {
       hljs.APOS_STRING_MODE,
       {
         className: 'type',
-        begin: '\\b[A-Z][A-Za-z0-9_]*',
-        relevance: 0
+        begin: '\\b[A-Z][A-Za-z0-9_]*'
       },
       {
-        begin: VAR_IDENT_RE + ':',
-        relevance: 0
+        begin: VAR_IDENT_RE + ':'
       },
       hljs.C_NUMBER_MODE,
       SYMBOL,

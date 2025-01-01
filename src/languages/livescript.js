@@ -79,10 +79,8 @@ export default function(hljs) {
     {
       className: 'number',
       begin: '(\\b0[xX][a-fA-F0-9_]+)|(\\b\\d(\\d|_\\d)*(\\.(\\d(\\d|_\\d)*)?)?(_*[eE]([-+]\\d(_\\d|\\d)*)?)?[_a-z]*)',
-      relevance: 0,
       starts: {
-        end: '(\\s*/)?',
-        relevance: 0
+        end: '(\\s*/)?'
       } // a number tries to eat the following slash to prevent treating it as a regexp
     },
     {
@@ -225,8 +223,7 @@ export default function(hljs) {
         begin: JS_IDENT_RE + ':',
         end: ':',
         returnBegin: true,
-        returnEnd: true,
-        relevance: 0
+        returnEnd: true
       }
     ])
   };

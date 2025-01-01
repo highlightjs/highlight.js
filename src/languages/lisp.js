@@ -17,8 +17,7 @@ export default function(hljs) {
     className: 'number',
     variants: [
       {
-        begin: LISP_SIMPLE_NUMBER_RE,
-        relevance: 0
+        begin: LISP_SIMPLE_NUMBER_RE
       },
       { begin: '#(b|B)[0-1]+(/[0-1]+)?' },
       { begin: '#(o|O)[0-7]+(/[0-7]+)?' },
@@ -43,8 +42,7 @@ export default function(hljs) {
     begin: '[:&]' + LISP_IDENT_RE
   };
   const IDENT = {
-    begin: LISP_IDENT_RE,
-    relevance: 0
+    begin: LISP_IDENT_RE
   };
   const MEC = { begin: MEC_RE };
   const QUOTED_LIST = {
@@ -89,8 +87,7 @@ export default function(hljs) {
     end: '\\)'
   };
   const BODY = {
-    endsWithParent: true,
-    relevance: 0
+    endsWithParent: true
   };
   LIST.contains = [
     {
@@ -98,7 +95,6 @@ export default function(hljs) {
       variants: [
         {
           begin: LISP_IDENT_RE,
-          relevance: 0,
         },
         { begin: MEC_RE }
       ]

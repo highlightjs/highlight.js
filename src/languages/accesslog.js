@@ -33,8 +33,7 @@ export default function(hljs) {
       // Other numbers
       {
         className: 'number',
-        begin: /\b\d+\b/,
-        relevance: 0
+        begin: /\b\d+\b/
       },
       // Requests
       {

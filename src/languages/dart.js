@@ -27,7 +27,6 @@ export default function(hljs) {
 
   const NUMBER = {
     className: 'number',
-    relevance: 0,
     variants: [
       { match: /\b[0-9][0-9_]*(\.[0-9][0-9_]*)?([eE][+-]?[0-9][0-9_]*)?\b/ },
       { match: /\b0[xX][0-9A-Fa-f][0-9A-Fa-f_]*\b/ }
@@ -230,8 +229,7 @@ export default function(hljs) {
         /\/\*\*(?!\/)/,
         /\*\//,
         {
-          subLanguage: 'markdown',
-          relevance: 0
+          subLanguage: 'markdown'
         }
       ),
       hljs.COMMENT(
@@ -240,8 +238,7 @@ export default function(hljs) {
           {
             subLanguage: 'markdown',
             begin: '.',
-            end: '$',
-            relevance: 0
+            end: '$'
           }
         ] }
       ),

@@ -82,7 +82,6 @@ export default function(hljs) {
 
   const NUMBER = {
     className: 'number',
-    relevance: 0,
     variants: [
       // decimal floating-point-literal (subsumes decimal-literal)
       { match: `\\b(${decimalDigits})(\\.(${decimalDigits}))?` + `([eE][+-]?(${decimalDigits}))?\\b` },

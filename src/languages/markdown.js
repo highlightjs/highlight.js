@@ -11,8 +11,7 @@ export default function(hljs) {
   const INLINE_HTML = {
     begin: /<\/?[A-Za-z_]/,
     end: '>',
-    subLanguage: 'xml',
-    relevance: 0
+    subLanguage: 'xml'
   };
   const HORIZONTAL_RULE = {
     begin: '^[-\\*]{3,}',
@@ -43,8 +42,7 @@ export default function(hljs) {
             begin: '^( {4}|\\t)',
             end: '(\\n)$'
           }
-        ],
-        relevance: 0
+        ]
       }
     ]
   };
@@ -79,29 +77,24 @@ export default function(hljs) {
     variants: [
       // popular internet URLs
       {
-        begin: /\[.+?\]\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/).*?\)/,
-        relevance: 2
+        begin: /\[.+?\]\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/).*?\)/
       },
       {
-        begin: regex.concat(/\[.+?\]\(/, URL_SCHEME, /:\/\/.*?\)/),
-        relevance: 2
+        begin: regex.concat(/\[.+?\]\(/, URL_SCHEME, /:\/\/.*?\)/)
       },
       // relative urls
       {
-        begin: /\[.+?\]\([./?&#].*?\)/,
-        relevance: 1
+        begin: /\[.+?\]\([./?&#].*?\)/
       },
       // too much like nested array access in so many languages
       // to have any real relevance
       {
         scope:"brokengoober",
-        begin: /\[.+?\]\[.+?\]/,
-        relevance: 0
+        begin: /\[.+?\]\[.+?\]/
       },
       // whatever else, lower relevance (might not be a link at all)
       {
-        begin: /\[.*?\]\(.*?\)/,
-        relevance: 0
+        begin: /\[.*?\]\(.*?\)/
       }
     ],
     returnBegin: true,
@@ -111,7 +104,6 @@ export default function(hljs) {
         match: /\[(?=\])/ },
       {
         className: 'string',
-        relevance: 0,
         begin: '\\[',
         end: '\\]',
         excludeBegin: true,
@@ -119,7 +111,6 @@ export default function(hljs) {
       },
       {
         className: 'link',
-        relevance: 0,
         begin: '\\]\\(',
         end: '\\)',
         excludeBegin: true,
@@ -127,7 +118,6 @@ export default function(hljs) {
       },
       {
         className: 'symbol',
-        relevance: 0,
         begin: '\\]\\[',
         end: '\\]',
         excludeBegin: true,
@@ -159,8 +149,7 @@ export default function(hljs) {
       },
       {
         begin: /_(?![_\s])/,
-        end: /_/,
-        relevance: 0
+        end: /_/
       }
     ]
   };
@@ -191,7 +180,6 @@ export default function(hljs) {
 
   const HEADER = {
     className: 'section',
-    relevance: 1,
     variants: [
       {
         begin: '^#{1,6}',

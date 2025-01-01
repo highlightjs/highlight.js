@@ -51,8 +51,7 @@ export default function(hljs) {
         end: /"/,
         contains: [
           {
-            begin: /""/,
-            relevance: 0
+            begin: /""/
           }
         ]
       },
@@ -61,8 +60,7 @@ export default function(hljs) {
         end: /'/,
         contains: [
           {
-            begin: /''/,
-            relevance: 0
+            begin: /''/
           }
         ]
       }
@@ -101,8 +99,7 @@ export default function(hljs) {
                 end: /"/,
                 contains: [
                   {
-                    begin: /""/,
-                    relevance: 0
+                    begin: /""/
                   }
                 ]
               },
@@ -111,8 +108,7 @@ export default function(hljs) {
                 end: /'/,
                 contains: [
                   {
-                    begin: /''/,
-                    relevance: 0
+                    begin: /''/
                   }
                 ]
               }

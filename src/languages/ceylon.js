@@ -94,8 +94,7 @@ export default function(hljs) {
       // verbatim string
       className: 'string',
       begin: '"""',
-      end: '"""',
-      relevance: 10
+      end: '"""'
     },
     {
       // string literal or template
@@ -113,7 +112,6 @@ export default function(hljs) {
     {
       // numeric literal
       className: 'number',
-      relevance: 0,
       variants: [
         { match: /#[0-9a-fA-F_]+/ },
         { match: /\$[01_]+/ },

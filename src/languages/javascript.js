@@ -121,8 +121,7 @@ export default function(hljs) {
       // LegacyOctalIntegerLiteral (does not include underscore separators)
       // https://tc39.es/ecma262/#sec-additional-syntax-numeric-literals
       { begin: "\\b0[0-7]+n?\\b" },
-    ],
-    relevance: 0
+    ]
   };
 
   const SUBST = {
@@ -134,7 +133,6 @@ export default function(hljs) {
   };
   const HTML_TEMPLATE = {
     begin: '\.?html`',
-    relevance: 1,
     end: '',
     starts: {
       end: '`',
@@ -148,7 +146,6 @@ export default function(hljs) {
   };
   const CSS_TEMPLATE = {
     begin: '\.?css`',
-    relevance: 1,
     end: '',
     starts: {
       end: '`',
@@ -189,7 +186,6 @@ export default function(hljs) {
       contains: [
         {
           begin: '(?=@[A-Za-z]+)',
-          relevance: 0,
           contains: [
             {
               className: 'doctag',
@@ -200,20 +196,17 @@ export default function(hljs) {
               begin: '\\{',
               end: '\\}',
               excludeEnd: true,
-              excludeBegin: true,
-              relevance: 0
+              excludeBegin: true
             },
             {
               className: 'variable',
               begin: IDENT_RE + '(?=\\s*(-)|$)',
-              endsParent: true,
-              relevance: 0
+              endsParent: true
             },
             // eat spaces (not newlines) so we can find
             // types or variables
             {
-              begin: /(?=[^\n])\s/,
-              relevance: 0
+              begin: /(?=[^\n])\s/
             }
           ]
         }
@@ -343,7 +336,6 @@ export default function(hljs) {
   const USE_STRICT = {
     label: "use_strict",
     className: 'meta',
-    relevance: 9,
     begin: /^\s*['"]use (strict|asm)['"]/
   };
 
@@ -365,7 +357,6 @@ export default function(hljs) {
         ]
       }
     ],
-    relevance: 1,
     className: {
       1: "keyword",
       3: "title.function"
@@ -394,8 +385,7 @@ export default function(hljs) {
         "import"
       ].map(x => `${x}\\s*\\(`)),
       IDENT_RE, regex.lookahead(/\s*\(/)),
-    className: "title.function",
-    relevance: 0
+    className: "title.function"
   };
 
   const PROPERTY_ACCESS = {
@@ -405,8 +395,7 @@ export default function(hljs) {
     end: IDENT_RE,
     excludeBegin: true,
     keywords: "prototype",
-    className: "property",
-    relevance: 0
+    className: "property"
   };
 
   const GETTER_OR_SETTER = {
@@ -416,7 +405,6 @@ export default function(hljs) {
       IDENT_RE,
       /(?=\()/
     ],
-    relevance: 1,
     className: {
       1: "keyword",
       3: "title.function"
@@ -465,8 +453,7 @@ export default function(hljs) {
     contains: [
       hljs.SHEBANG({
         label: "shebang",
-        binary: "node",
-        relevance: 5
+        binary: "node"
       }),
       USE_STRICT,
       hljs.APOS_STRING_MODE,
@@ -482,14 +469,12 @@ export default function(hljs) {
       CLASS_REFERENCE,
       {
         scope: 'attr',
-        match: IDENT_RE + regex.lookahead(':'),
-        relevance: 0
+        match: IDENT_RE + regex.lookahead(':')
       },
       FUNCTION_VARIABLE,
       { // "value" container
         begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
         keywords: 'return throw case',
-        relevance: 0,
         contains: [
           COMMENT,
           hljs.REGEXP_MODE,
@@ -506,8 +491,7 @@ export default function(hljs) {
                 className: 'params',
                 variants: [
                   {
-                    begin: hljs.UNDERSCORE_IDENT_RE,
-                    relevance: 0
+                    begin: hljs.UNDERSCORE_IDENT_RE
                   },
                   {
                     className: null,
@@ -527,12 +511,10 @@ export default function(hljs) {
             ]
           },
           { // could be a comma delimited list of params to a function call
-            begin: /,/,
-            relevance: 0
+            begin: /,/
           },
           {
-            match: /\s+/,
-            relevance: 0
+            match: /\s+/
           },
           { // JSX
             variants: [
@@ -585,16 +567,14 @@ export default function(hljs) {
       },
       // catch ... so it won't trigger the property rule below
       {
-        match: /\.\.\./,
-        relevance: 0
+        match: /\.\.\./
       },
       PROPERTY_ACCESS,
       // hack: prevents detection of keywords in some circumstances
       // .keyword()
       // $keyword = x
       {
-        match: '\\$' + IDENT_RE,
-        relevance: 0
+        match: '\\$' + IDENT_RE
       },
       {
         relevance: 1,

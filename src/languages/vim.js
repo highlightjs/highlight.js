@@ -83,7 +83,7 @@ export default function(hljs) {
       ended before the end of a line by another double quote and can contain
       escaped double-quotes and post-escaped line breaks.
       */
-      // Also, any double quote at the beginning of a line is a comment 
+      // Also, any double quote at the beginning of a line is a comment
       hljs.COMMENT(/^"/, '$'),
       {
         className: 'string',
@@ -105,7 +105,6 @@ export default function(hljs) {
           3: "title.function"
         },
         end: '$',
-        relevance: 0,
         contains: [
           {
             className: 'params',

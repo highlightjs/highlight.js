@@ -101,7 +101,6 @@ export default function(hljs) {
     // fka "attribute-assignment", parameters of the form 'key=value'
     className: 'attr',
     begin: HASH_PARAM_REGEX,
-    relevance: 0,
     starts: {
       begin: /=/,
       end: /=/,

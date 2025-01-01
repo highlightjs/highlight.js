@@ -47,7 +47,6 @@ export default function(hljs) {
       {
         className: 'attribute',
         begin: /\w+/,
-        relevance: 0,
         // keywords aren’t needed for highlighting per se, they only boost relevance
         // for a very generally defined mode (starts with a word, ends with line-end
         keywords: { _: [
@@ -70,7 +69,6 @@ export default function(hljs) {
         ] },
         starts: {
           end: /$/,
-          relevance: 0,
           keywords: { literal: 'on off all deny allow' },
           contains: [
             {

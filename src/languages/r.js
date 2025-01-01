@@ -154,13 +154,11 @@ export default function(hljs) {
           }),
           {
             begin: '"',
-            end: '"',
-            relevance: 0
+            end: '"'
           },
           {
             begin: "'",
-            end: "'",
-            relevance: 0
+            end: "'"
           }
         ],
       },
@@ -232,7 +230,6 @@ export default function(hljs) {
 
       {
         scope: 'operator',
-        relevance: 0,
         variants: [
           { match: OPERATORS_RE },
           { match: /%[^%]*%/ }
@@ -241,7 +238,6 @@ export default function(hljs) {
 
       {
         scope: 'punctuation',
-        relevance: 0,
         match: PUNCTUATION_RE
       },
 

@@ -61,8 +61,7 @@ export default function(hljs) {
 
   const SEMICOLON = {
     scope: "punctuation",
-    match: /;/,
-    relevance: 0
+    match: /;/
   };
 
   return {

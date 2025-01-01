@@ -40,8 +40,7 @@ export default function(hljs) {
     ]
   };
   const MODIFIERS = {
-    begin: '[*!#%]',
-    relevance: 0
+    begin: '[*!#%]'
   };
   const FUNCTIONS = {
     beginKeywords: 'module function',

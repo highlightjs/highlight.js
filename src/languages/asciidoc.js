@@ -174,8 +174,7 @@ export default function(hljs) {
           {
             begin: '<',
             end: '>',
-            subLanguage: 'xml',
-            relevance: 0
+            subLanguage: 'xml'
           }
         ]
       },
@@ -209,8 +208,7 @@ export default function(hljs) {
       {
         className: 'code',
         begin: '^[ \\t]',
-        end: '$',
-        relevance: 0
+        end: '$'
       },
       HORIZONTAL_RULE,
       // images and links

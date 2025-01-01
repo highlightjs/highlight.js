@@ -30,6 +30,5 @@ export var NUMERIC = {
 
     // BinaryIntegerLiteral
     { begin: '\\b0[bB][01](_*[01])*[lL]?\\b' },
-  ],
-  relevance: 0
+  ]
 };

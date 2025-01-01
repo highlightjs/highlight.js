@@ -18,7 +18,6 @@ export default function(hljs) {
   // ============================================
   const FUNCTION_INVOKE = {
     className: "title.function.invoke",
-    relevance: 0,
     begin: regex.concat(
       /\b/,
       /(?!let|for|while|if|else|match\b)/,
@@ -227,8 +226,7 @@ export default function(hljs) {
           { begin: '\\b0x([A-Fa-f0-9_]+)' + NUMBER_SUFFIX },
           { begin: '\\b(\\d[\\d_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?)'
                    + NUMBER_SUFFIX }
-        ],
-        relevance: 0
+        ]
       },
       {
         begin: [

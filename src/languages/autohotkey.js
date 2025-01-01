@@ -54,8 +54,7 @@ export default function(hljs) {
       {
         className: 'meta',
         begin: '^\\s*#\\w+',
-        end: '$',
-        relevance: 0
+        end: '$'
       },
       {
         className: 'built_in',

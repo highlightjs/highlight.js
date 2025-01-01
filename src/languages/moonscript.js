@@ -31,8 +31,7 @@ export default function(hljs) {
   const EXPRESSIONS = [
     hljs.inherit(hljs.C_NUMBER_MODE,
       { starts: {
-        end: '(\\s*/)?',
-        relevance: 0
+        end: '(\\s*/)?'
       } }), // a number tries to eat the following slash to prevent treating it as a regexp
     {
       className: 'string',
@@ -56,7 +55,7 @@ export default function(hljs) {
       className: 'built_in',
       begin: '@__' + hljs.IDENT_RE
     },
-    { 
+    {
       scope: "variable",
       begin: '@' + hljs.IDENT_RE // relevance booster on par with CoffeeScript
     },

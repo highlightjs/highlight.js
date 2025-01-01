@@ -62,8 +62,7 @@ export default function(hljs) {
                   hljs.APOS_STRING_MODE,
                   hljs.QUOTE_STRING_MODE,
                   {
-                    begin: '\\w+',
-                    relevance: 0
+                    begin: '\\w+'
                   }
                 ]
               }
@@ -82,14 +81,12 @@ export default function(hljs) {
                 contains: [
                   {
                     className: 'attr',
-                    begin: '\\w+',
-                    relevance: 0
+                    begin: '\\w+'
                   },
                   hljs.APOS_STRING_MODE,
                   hljs.QUOTE_STRING_MODE,
                   {
-                    begin: '\\w+',
-                    relevance: 0
+                    begin: '\\w+'
                   }
                 ]
               }

@@ -278,8 +278,7 @@ export default function(hljs) {
       },
       {
         // Only $= is a special Perl variable and one can't declare @= or %=.
-        begin: /[$%@](?!")[^\s\w{=]|\$=/,
-        relevance: 0
+        begin: /[$%@](?!")[^\s\w{=]|\$=/
       }
     ],
     contains: [ ATTR ],
@@ -297,8 +296,7 @@ export default function(hljs) {
       { match: /\b0[0-7][0-7_]*\b/ },
       { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*\b/ },
       { match: /\b0b[0-1][0-1_]*\b/ },
-    ],
-    relevance: 0
+    ]
   }
   const STRING_CONTAINS = [
     hljs.BACKSLASH_ESCAPE,
@@ -362,33 +360,27 @@ export default function(hljs) {
       variants: [
         {
           begin: 'q[qwxr]?\\s*\\(',
-          end: '\\)',
-          relevance: 0.1
+          end: '\\)'
         },
         {
           begin: 'q[qwxr]?\\s*\\[',
-          end: '\\]',
-          relevance: 0.1
+          end: '\\]'
         },
         {
           begin: 'q[qwxr]?\\s*\\{',
-          end: '\\}',
-          relevance: 0.1
+          end: '\\}'
         },
         {
           begin: 'q[qwxr]?\\s*\\|',
-          end: '\\|',
-          relevance: 0.1
+          end: '\\|'
         },
         {
           begin: 'q[qwxr]?\\s*<',
-          end: '>',
-          relevance: 0.1
+          end: '>'
         },
         {
           begin: 'qw\\s+q',
-          end: 'q',
-          relevance: 0.1
+          end: 'q'
         },
         {
           begin: '\'',
@@ -405,12 +397,10 @@ export default function(hljs) {
           contains: [ hljs.BACKSLASH_ESCAPE ]
         },
         {
-          begin: /\{\w+\}/,
-          relevance: 0
+          begin: /\{\w+\}/
         },
         {
-          begin: '-?\\w+\\s*=>',
-          relevance: 0
+          begin: '-?\\w+\\s*=>'
         }
       ]
     },
@@ -418,7 +408,6 @@ export default function(hljs) {
     { // regexp container
       begin: '(\\/\\/|' + hljs.RE_STARTERS_RE + '|\\b(split|return|print|reverse|grep)\\b)\\s*',
       keywords: 'split return print reverse grep',
-      relevance: 0,
       contains: [
         hljs.HASH_COMMENT_MODE,
         {
@@ -430,8 +419,7 @@ export default function(hljs) {
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\(", "\\)") },
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\[", "\\]") },
             { begin: PAIRED_DOUBLE_RE("s|tr|y", "\\{", "\\}") }
-          ],
-          relevance: 2
+          ]
         },
         {
           className: 'regexp',
@@ -439,8 +427,7 @@ export default function(hljs) {
             {
               // could be a comment in many languages so do not count
               // as relevant
-              begin: /(m|qr)\/\//,
-              relevance: 0
+              begin: /(m|qr)\/\//
             },
             // prefix is optional with /regex/
             { begin: PAIRED_RE("(?:m|qr)?", /\//, /\//) },
@@ -459,7 +446,6 @@ export default function(hljs) {
       beginKeywords: 'sub method',
       end: '(\\s*\\(.*?\\))?[;{]',
       excludeEnd: true,
-      relevance: 5,
       contains: [ hljs.TITLE_MODE, ATTR ]
     },
     {
@@ -467,12 +453,10 @@ export default function(hljs) {
       beginKeywords: 'class',
       end: '[;{]',
       excludeEnd: true,
-      relevance: 5,
       contains: [ hljs.TITLE_MODE, ATTR, NUMBER ]
     },
     {
-      begin: '-\\w\\b',
-      relevance: 0
+      begin: '-\\w\\b'
     },
     {
       begin: "^__DATA__$",

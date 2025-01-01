@@ -27,7 +27,6 @@ export default function(hljs) {
 
   const NUMBERS = {
     className: 'number',
-    relevance: 0,
     variants: [
       { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)', relevance: "low" },
       { begin: hljs.C_NUMBER_RE }
@@ -102,7 +101,6 @@ export default function(hljs) {
   // I'm not sure if all these key names have semantic meaning or not
   const ATTR_NO_VALUE = {
     match: /[a-z][a-z-,]+(?=;)/,
-    relevance: 0,
     scope: "attr"
   };
   const ATTR = {
@@ -120,7 +118,6 @@ export default function(hljs) {
 
   const PUNC = {
     scope: "punctuation",
-    relevance: 0,
     // `};` combined is just to avoid tons of useless punctuation nodes
     match: /\};|[;{}]/
   };

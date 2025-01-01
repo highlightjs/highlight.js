@@ -41,13 +41,11 @@ export default function(hljs) {
       hljs.NUMBER_MODE,
       {
         scope: "punctuation",
-        match: /[.]{3}/,
-        relevance: 0
+        match: /[.]{3}/
       },
       {
         scope: "punctuation",
-        begin: /[\!\(\)\:\=\[\]\{\|\}]{1}/,
-        relevance: 0
+        begin: /[\!\(\)\:\=\[\]\{\|\}]{1}/
       },
       {
         scope: "variable",

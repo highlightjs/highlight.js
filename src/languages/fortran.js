@@ -30,8 +30,7 @@ export default function(hljs) {
       { begin: regex.concat(/\b\d+/, /\.(\d*)/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX) },
       { begin: regex.concat(/\b\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX) },
       { begin: regex.concat(/\.\d+/, OPTIONAL_NUMBER_EXP, OPTIONAL_NUMBER_SUFFIX) }
-    ],
-    relevance: 0
+    ]
   };
 
   const FUNCTION_DEF = {
@@ -561,8 +560,7 @@ export default function(hljs) {
       // allow `C = value` for assignments so they aren't misdetected
       // as Fortran 77 style comments
       {
-        begin: /^C\s*=(?!=)/,
-        relevance: 0
+        begin: /^C\s*=(?!=)/
       },
       COMMENT,
       NUMBER

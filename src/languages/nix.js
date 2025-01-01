@@ -173,7 +173,6 @@ export default function(hljs) {
       "warn",
       "zipAttrsWith",
     ].map(b => `builtins\\.${b}`)),
-    relevance: 10,
   };
 
   const IDENTIFIER_REGEX = '[A-Za-z_][A-Za-z0-9_\'-]*';
@@ -214,7 +213,6 @@ export default function(hljs) {
   const OPERATOR = {
     scope: 'operator',
     match: regex.concat(OPERATOR_WITHOUT_MINUS_REGEX, /(?!-)/),
-    relevance: 0,
   };
 
   // '-' is being handled by itself to ensure we are able to tell the difference
@@ -222,7 +220,6 @@ export default function(hljs) {
   const NUMBER = {
     scope: 'number',
     match: new RegExp(`${hljs.NUMBER_RE}(?!-)`),
-    relevance: 0,
   };
   const MINUS_OPERATOR = {
     variants: [
@@ -255,7 +252,6 @@ export default function(hljs) {
         },
       },
     ],
-    relevance: 0,
   };
 
   const ATTRS = {
@@ -330,8 +326,7 @@ export default function(hljs) {
       /\/\*\*(?!\/)/,
       /\*\//,
       {
-        subLanguage: 'markdown',
-        relevance: 0
+        subLanguage: 'markdown'
       }
     ),
     BUILTINS,
@@ -350,7 +345,6 @@ export default function(hljs) {
     {
       scope: 'meta.prompt',
       match: /^nix-repl>(?=\s)/,
-      relevance: 10,
     },
     {
       scope: 'meta',

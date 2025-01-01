@@ -68,17 +68,14 @@ export default function(hljs) {
       {
         className: 'built_in',
         begin: /true|false/,
-        relevance: 0,
         starts: TRANSPOSE
       },
       {
-        begin: '[a-zA-Z][a-zA-Z_0-9]*' + TRANSPOSE_RE,
-        relevance: 0
+        begin: '[a-zA-Z][a-zA-Z_0-9]*' + TRANSPOSE_RE
       },
       {
         className: 'number',
         begin: hljs.C_NUMBER_RE,
-        relevance: 0,
         starts: TRANSPOSE
       },
       {
@@ -89,7 +86,6 @@ export default function(hljs) {
       },
       {
         begin: /\]|\}|\)/,
-        relevance: 0,
         starts: TRANSPOSE
       },
       {

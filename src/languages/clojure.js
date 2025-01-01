@@ -67,8 +67,7 @@ export default function(hljs) {
       { match: /\\(newline|space|tab|formfeed|backspace|return)/, relevance: "keyword" }, // special characters
       {
         // any non-whitespace char
-        match: /\\\S/,
-        relevance: 0
+        match: /\\\S/
       }
     ]
   };
@@ -81,8 +80,7 @@ export default function(hljs) {
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const COMMA = {
     scope: 'punctuation',
-    match: /,/,
-    relevance: 0
+    match: /,/
   };
   const COMMENT = hljs.COMMENT(
     ';',
@@ -95,8 +93,7 @@ export default function(hljs) {
   };
   const COLLECTION = {
     begin: "\\[|(#::?" + SYMBOL_RE + ")?\\{",
-    end: '[\\]\\}]',
-    relevance: 0
+    end: '[\\]\\}]'
   };
   const KEY = {
     className: 'symbol',
@@ -107,8 +104,7 @@ export default function(hljs) {
     end: '\\)'
   };
   const BODY = {
-    endsWithParent: true,
-    relevance: 0
+    endsWithParent: true
   };
   const NAME = {
     keywords: keywords,

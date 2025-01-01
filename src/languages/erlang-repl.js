@@ -26,8 +26,7 @@ export default function(hljs) {
       hljs.COMMENT('%', '$'),
       {
         className: 'number',
-        begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)',
-        relevance: 0
+        begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)'
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
@@ -40,12 +39,10 @@ export default function(hljs) {
       { begin: 'ok' },
       { begin: '!' },
       {
-        begin: '(\\b[a-z\'][a-zA-Z0-9_\']*:[a-z\'][a-zA-Z0-9_\']*)|(\\b[a-z\'][a-zA-Z0-9_\']*)',
-        relevance: 0
+        begin: '(\\b[a-z\'][a-zA-Z0-9_\']*:[a-z\'][a-zA-Z0-9_\']*)|(\\b[a-z\'][a-zA-Z0-9_\']*)'
       },
       {
-        begin: '[A-Z][a-zA-Z0-9_\']*',
-        relevance: 0
+        begin: '[A-Z][a-zA-Z0-9_\']*'
       }
     ]
   };

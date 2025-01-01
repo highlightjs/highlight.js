@@ -60,7 +60,6 @@ export default function(hljs) {
 
   const NUMBER = {
     className: 'number',
-    relevance: 0,
     variants: [
       {
         // Float
