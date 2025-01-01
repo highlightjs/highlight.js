@@ -38,6 +38,7 @@ export default function(hljs) {
     "this",
     "super"
   ];
+  // TODO: built-ins in the future, maybe?
   const CORE_CLASSES = [
     "Bool",
     "Class",
@@ -150,8 +151,7 @@ export default function(hljs) {
   // CamelCase
   const CLASS_REFERENCE = {
     match: /\b[A-Z]+[a-z]+([A-Z]+[a-z]+)*/,
-    scope: "title.class",
-    keywords: { _: CORE_CLASSES }
+    scope: "title.class"
   };
 
   // TODO: add custom number modes
