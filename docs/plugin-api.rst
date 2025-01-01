@@ -114,7 +114,7 @@ el
   The HTML element that's been highlighted.
 
 result
-  The result object returned by `highlight` or `highlightAuto`.
+  The result object returned by `highlight`.
 
 text
   The raw text that was to be highlighted.

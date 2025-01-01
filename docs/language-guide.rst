@@ -88,13 +88,11 @@ object, each property of which defines its own group of keywords:
     keywords: {
       keyword: 'else for if while',
       literal: ['false','true','null'],
-      _relevance_only: 'one two three four'
     }
   }
 
 The group name becomes the class name in the generated markup, enabling different
-theming for different kinds of keywords.  Any property starting with a ``_`` will
-only use those keywords to increase relevance, they will not be highlighted.
+theming for different kinds of keywords.
 
 To detect keywords, highlight.js breaks the processed chunk of code into separate
 words — a process called lexing. By default, "words" are matched with the regexp
@@ -156,7 +154,7 @@ Parameters for the function are:
     begin,      // begin regex
     end,        // end regex
     extra       // optional object with extra attributes to override defaults
-                // (for example {relevance: 0})
+                // (for example `{ begin: /more/ }`)
   )
 
 
@@ -204,58 +202,6 @@ Mode attributes
 ---------------
 
 Other useful attributes are defined in the :doc:`mode reference </mode-reference>`.
-
-
-.. _relevance:
-
-Relevance
----------
-
-Highlight.js tries to automatically detect the language of a code fragment.
-The heuristics is essentially simple: it tries to highlight a fragment with all the language definitions
-and the one that yields most specific modes and keywords wins. The job of a language definition
-is to help this heuristics by hinting relative relevance (or irrelevance) of modes.
-
-This is best illustrated by example. Python has special kinds of strings defined by prefix letters before the quotes:
-``r"..."``, ``u"..."``. If a code fragment contains such strings there is a good chance that it's in Python.
-So these string modes are given high relevance:
-
-::
-
-  {
-    scope: 'string',
-    begin: 'r"', end: '"',
-    relevance: 10
-  }
-
-On the other hand, conventional strings in plain single or double quotes aren't specific to any language
-and it makes sense to bring their relevance to zero to lessen statistical noise:
-
-::
-
-  {
-    scope: 'string',
-    begin: '"', end: '"',
-    relevance: 0
-  }
-
-The default value for relevance is always 1. When setting an explicit value
-typically either 10 or 0 is used. A 0 means this match should not be considered
-for language detection purposes. 0 should be used for very common matches that
-might be found in ANY language (basic numbers, strings, etc) or things that
-would otherwise create too many false positives. A 10 means "this is almost
-guaranteed to be XYZ code". 10 should be used sparingly.
-
-Keywords also influence relevance. Each of them usually has a relevance of 1, but there are some unique names
-that aren't likely to be found outside of their languages, even in the form of variable names.
-For example just having ``reinterpret_cast`` somewhere in the code is a good indicator that we're looking at C++.
-It's worth to set relevance of such keywords a bit higher. This is done with a pipe:
-
-::
-
-  {
-    keywords: 'for if reinterpret_cast|10'
-  }
 
 
 Illegal symbols
