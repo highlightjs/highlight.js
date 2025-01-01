@@ -23,7 +23,6 @@ export default function(hljs) {
     ]
   };
 
-  // TODO: actual list of keywords for relevance?
   const FUNCTION = {
     className: 'keyword',
     begin: /\$[_a-zA-Z0-9]+(?=\()/

@@ -131,10 +131,7 @@ export default function(hljs) {
   const VAR_RULE_MODE = {
     className: 'variable',
     variants: [
-      // using more strict pattern for higher relevance to increase chances of Less detection.
-      // this is *the only* Less specific statement used in most of the sources, so...
-      // (we’ll still often loose to the css-parser unless there's '//' comment,
-      // simply because 1 variable just can't beat 99 properties :)
+      // (prior) using more strict pattern for higher relevance to increase chances of Less detection.
       {
         begin: '@' + IDENT_RE + '\\s*:'
       },

@@ -249,12 +249,6 @@ export default function(hljs) {
 
       // see comment above the definition
       VAR_DECLS
-
-      // no markup
-      // relevance boosters for small snippets
-      // {begin: '\\s*=>\\s*'},
-      // {begin: '\\s*:=\\s*'},
-      // {begin: '\\s+:=\\s+'},
     ]
   };
 }

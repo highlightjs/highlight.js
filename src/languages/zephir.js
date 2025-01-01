@@ -118,9 +118,6 @@ export default function(hljs) {
         end: /;/,
         contains: [ TITLE_CLASS ]
       },
-      { 
-        begin: /=>/ // No markup, just a relevance booster
-      },
       STRING,
       NUMBER
     ]

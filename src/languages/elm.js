@@ -130,10 +130,7 @@ export default function(hljs) {
       hljs.C_NUMBER_MODE,
       CONSTRUCTOR,
       hljs.inherit(hljs.TITLE_MODE, { begin: '^[_a-z][\\w\']*' }),
-      COMMENT,
-
-      { // No markup, relevance booster
-        begin: '->|<-' }
+      COMMENT
     ],
     illegal: /;/
   };

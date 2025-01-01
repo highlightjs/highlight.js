@@ -428,8 +428,7 @@ export default function(hljs) {
       className: 'keyword',
       begin:
         '\\b(((abstract|primitive)\\s+)type|(mutable\\s+)?struct)\\b'
-    },
-    { begin: /<:/ } // relevance booster
+    }
   ];
   INTERPOLATION.contains = DEFAULT.contains;
 

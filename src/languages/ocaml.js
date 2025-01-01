@@ -67,8 +67,6 @@ export default function(hljs) {
           { match: '\\b0[bB][01_]+[Lln]?' },
           { match: '\\b[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?' }
         ]
-      },
-      { begin: /->/ // relevance booster
       }
     ]
   };

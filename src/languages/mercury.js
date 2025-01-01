@@ -92,11 +92,7 @@ export default function(hljs) {
       NUMCODE,
       hljs.NUMBER_MODE,
       ATOM,
-      STRING,
-      { // relevance booster
-        begin: /:-/ },
-      { // relevance booster
-        begin: /\.$/ }
+      STRING
     ]
   };
 }
