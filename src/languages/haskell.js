@@ -199,9 +199,7 @@ export default function(hljs) {
       hljs.inherit(hljs.TITLE_MODE, { begin: '^[_a-z][\\w\']*' }),
       // No markup, prevents infix operators from being recognized as comments.
       { begin: `(?!-)${symbol}--+|--+(?!-)${symbol}`},
-      COMMENT,
-      { // No markup, relevance booster
-        begin: '->|<-' }
+      COMMENT
     ]
   };
 }

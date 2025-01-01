@@ -45,7 +45,7 @@ export default function(hljs) {
   };
   const PLAIN_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw === 'string')
-    .concat([ "_|0" ]); // seems common, so 0 relevance
+    .concat([ "_" ]);
   const REGEX_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw !== 'string') // find regex
     .concat(Swift.keywordTypes)
@@ -271,7 +271,7 @@ export default function(hljs) {
   const TYPE = {
     match: lookahead(/\b[A-Z]/),
     contains: [
-      { // Common Apple frameworks, for relevance boost
+      { // Common Apple frameworks
         className: 'type',
         match: concat(/(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)/, Swift.identifierCharacter, '+')
       },

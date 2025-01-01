@@ -48,8 +48,8 @@ export default function(hljs) {
     begin: /0'\\s/ // 0'\s
   };
 
-  const PRED_OP = { // relevance booster
-    begin: /:-/
+  const PRED_OP = {
+    match: /:-/
   };
 
   const inner = [
@@ -74,10 +74,7 @@ export default function(hljs) {
   return {
     name: 'Prolog',
     contains: [
-      ...inner,
-      {
-        begin: /\.$/  // relevance booster
-      }
+      ...inner
     ]
   };
 }

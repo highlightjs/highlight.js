@@ -195,7 +195,7 @@ export default function(hljs) {
     contains: EXPRESSIONS.concat([
       hljs.COMMENT('\\/\\*', '\\*\\/'),
       hljs.HASH_COMMENT_MODE,
-      SYMBOLS, // relevance booster
+      SYMBOLS,
       {
         className: 'function',
         contains: [

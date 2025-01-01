@@ -258,8 +258,6 @@ export default function(hljs) {
       {
         className: 'meta',
         begin: '@[A-Za-z]+'
-      },
-      { begin: '=>' // No markup, just a relevance booster
       }
     ]
   };

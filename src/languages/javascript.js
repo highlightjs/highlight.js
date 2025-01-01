@@ -320,14 +320,7 @@ export default function(hljs) {
       // BLAH
       // this will be flagged as a UPPER_CASE_CONSTANT instead
     ),
-    className: "title.class",
-    keywords: {
-      _: [
-        // se we still get relevance credit for JS library classes
-        ...ECMAScript.TYPES,
-        ...ECMAScript.ERROR_TYPES
-      ]
-    }
+    className: "title.class"
   };
 
   const USE_STRICT = {
@@ -580,10 +573,7 @@ export default function(hljs) {
       FUNCTION_CALL,
       UPPER_CASE_CONSTANT,
       CLASS_OR_EXTENDS,
-      GETTER_OR_SETTER,
-      {
-        match: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
-      }
+      GETTER_OR_SETTER
     ]
   };
 }

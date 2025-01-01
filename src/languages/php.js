@@ -545,7 +545,7 @@ export default function(hljs) {
           { beginKeywords: 'use', },
           hljs.UNDERSCORE_TITLE_MODE,
           {
-            begin: '=>', // No markup, just a relevance booster
+            begin: '=>', // No markup, (prior) just a relevance booster
             endsParent: true
           },
           {
