@@ -93,7 +93,6 @@ export default function(hljs) {
             begin: '\\s:[a-zA-Z_0-9]*'
           },
           {
-            relevance: 1,
             begin: '\\s(' + smali_keywords.join('|') + ')'
           }
         ]
@@ -102,7 +101,6 @@ export default function(hljs) {
         className: 'built_in',
         variants: [
           {
-            relevance: 1,
             begin: '\\s(' + smali_instr_low_prio.join('|') + ')\\s' },
           {
             begin: '\\s(' + smali_instr_low_prio.join('|') + ')((-|/)[a-zA-Z0-9]+)+\\s'

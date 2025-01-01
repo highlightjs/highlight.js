@@ -102,9 +102,6 @@ export default function(hljs) {
     contains: [
       TYPE,
       // this matches "empty comments"...
-      // ...because it's far more likely this is a statement terminator in
-      // another language than an actual comment
-      hljs.COMMENT(/;\s*$/, null, { relevance: 0 }),
       hljs.COMMENT(/;/, /$/),
       {
         className: 'string',

@@ -54,8 +54,7 @@ export default function(hljs) {
 
   const CONSTRUCTOR = {
     className: 'type',
-    begin: '\\b[A-Z][\\w\']*', // TODO: other constructors (build-in, infix).
-    relevance: 0
+    begin: '\\b[A-Z][\\w\']*' // TODO: other constructors (build-in, infix).
   };
 
   const LIST = {

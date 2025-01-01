@@ -28,7 +28,7 @@ export default function(hljs) {
   const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)', relevance: "low" },
+      { begin: '\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)' },
       { begin: hljs.C_NUMBER_RE }
     ]
   };
@@ -104,7 +104,6 @@ export default function(hljs) {
     scope: "attr"
   };
   const ATTR = {
-    relevance: 0,
     match: [
       /[a-z][a-z-,]+/,
       /\s*/,

@@ -277,7 +277,6 @@ export default function(hljs) {
   };
 
   const UPPER_CASE_CONSTANT = {
-    relevance: 0,
     match: /\b[A-Z][A-Z_0-9]+\b/,
     className: "variable.constant"
   };
@@ -297,7 +296,6 @@ export default function(hljs) {
   };
 
   const OBJECT_CREATION = {
-    relevance: 0,
     match: [
       CLASS_NAME_WITH_NAMESPACE_RE,
       /\.new[. (]/
@@ -309,7 +307,6 @@ export default function(hljs) {
 
   // CamelCase
   const CLASS_REFERENCE = {
-    relevance: 0,
     match: CLASS_NAME_RE,
     scope: "title.class"
   };

@@ -272,7 +272,6 @@ export default function(hljs) {
     variants: [
       // class Car extends vehicle
       {
-        relevance: 2,
         match: [
           /class/,
           /\s+/,
@@ -291,7 +290,6 @@ export default function(hljs) {
       },
       // class Car
       {
-        relevance: 1,
         match: [
           /class/,
           /\s+/,
@@ -307,7 +305,6 @@ export default function(hljs) {
   };
 
   const CLASS_REFERENCE = {
-    relevance: 0,
     match:
     regex.either(
       // Hard coded exceptions
@@ -367,7 +364,6 @@ export default function(hljs) {
   };
 
   const UPPER_CASE_CONSTANT = {
-    relevance: 0,
     match: /\b[A-Z][A-Z_0-9]+\b/,
     className: "variable.constant"
   };
@@ -577,7 +573,6 @@ export default function(hljs) {
         match: '\\$' + IDENT_RE
       },
       {
-        relevance: 1,
         match: [ /\bconstructor(?=\s*\()/ ],
         className: { 1: "title.function" },
         contains: [ PARAMS ]

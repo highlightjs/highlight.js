@@ -19,8 +19,7 @@ export default function(hljs) {
       // FIXME these comments should be allowed to span indented lines
       hljs.COMMENT(
         '^\\s*(!=#|=#|-#|/).*$',
-        null,
-        { relevance: 0 }
+        null
       ),
       {
         begin: '^\\s*(-|=|!=)(?!#)',

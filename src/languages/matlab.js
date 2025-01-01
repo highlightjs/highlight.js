@@ -13,7 +13,6 @@ Category: scientific
 export default function(hljs) {
   const TRANSPOSE_RE = '(\'|\\.\')+';
   const TRANSPOSE = {
-    relevance: 0,
     contains: [ { begin: TRANSPOSE_RE } ]
   };
 

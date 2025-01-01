@@ -82,8 +82,7 @@ export default function(hljs) {
   const COMMENT_MODES = [
     hljs.COMMENT(
       ';',
-      '$',
-      { relevance: 0 }
+      '$'
     ),
     hljs.COMMENT('#\\|', '\\|#')
   ];

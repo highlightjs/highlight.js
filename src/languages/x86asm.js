@@ -76,8 +76,7 @@ export default function(hljs) {
     contains: [
       hljs.COMMENT(
         ';',
-        '$',
-        { relevance: 0 }
+        '$'
       ),
       {
         className: 'number',

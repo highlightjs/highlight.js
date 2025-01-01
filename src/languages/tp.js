@@ -8,8 +8,7 @@ Category: hardware
 export default function(hljs) {
   const TPID = {
     className: 'number',
-    begin: '[1-9][0-9]*', /* no leading zeros */
-    relevance: 0
+    begin: '[1-9][0-9]*' /* no leading zeros */
   };
   const TPLABEL = {
     className: 'symbol',

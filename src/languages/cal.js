@@ -42,8 +42,7 @@ export default function(hljs) {
     hljs.C_LINE_COMMENT_MODE,
     hljs.COMMENT(
       /\{/,
-      /\}/,
-      { relevance: 0 }
+      /\}/
     ),
     hljs.COMMENT(
       /\(\*/,

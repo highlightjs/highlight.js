@@ -116,8 +116,7 @@ export default function(hljs) {
       },
       hljs.COMMENT(
         /<!--/,
-        /-->/,
-        { relevance: 5 }
+        /-->/
       ),
       {
         begin: /<!\[CDATA\[/,

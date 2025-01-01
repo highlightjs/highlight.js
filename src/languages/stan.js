@@ -450,7 +450,6 @@ export default function(hljs) {
       },
       {
         // highlights the 'T' in T[,] for only Stan language distributrions
-        relevance: 1,
         match: [
           /~\s*/,
           regex.either(...DISTRIBUTIONS),

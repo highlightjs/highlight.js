@@ -16,7 +16,7 @@ export default function(hljs) {
       {
         className: 'meta',
         variants: [
-          { begin: '^TAP version (\\d+)$', relevance: "important!" },
+          { begin: '^TAP version (\\d+)$' },
           { begin: '^1\\.\\.(\\d+)$' }
         ]
       },

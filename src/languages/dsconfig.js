@@ -33,8 +33,7 @@ export default function(hljs) {
     contains: [
       {
         className: 'keyword',
-        begin: /^dsconfig(?=\s)/,
-        relevance: "important!"
+        begin: /^dsconfig(?=\s)/
       },
       {
         className: 'built_in',

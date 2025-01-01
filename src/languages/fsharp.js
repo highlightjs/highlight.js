@@ -275,8 +275,7 @@ export default function(hljs) {
         /:>/,
         /:=/, // Reference cell assignment
         /::?/, // : or ::
-        /\$/), // A single $ can be used as an operator
-      relevance: 0
+        /\$/) // A single $ can be used as an operator
     };
   }
 

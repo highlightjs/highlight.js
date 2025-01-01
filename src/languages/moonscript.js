@@ -101,7 +101,6 @@ export default function(hljs) {
       },
       {
         begin: /[\(,:=]\s*/, // anonymous function start
-        relevance: 0,
         contains: [
           {
             begin: POSSIBLE_PARAMS_RE,

@@ -82,7 +82,7 @@ export default function(hljs) {
         }
       },
       // to allow headers to work even without a preamble
-      hljs.inherit(HEADER, { relevance: 0 })
+      HEADER
     ]
   };
 }

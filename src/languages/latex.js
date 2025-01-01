@@ -91,7 +91,6 @@ export default function(hljs) {
     begin: /#+\d?/
   };
   const DOUBLE_CARET_CHAR = {
-    // relevance: 1
     variants: DOUBLE_CARET_VARIANTS };
   const SPECIAL_CATCODE = {
     className: 'built_in',
@@ -104,8 +103,7 @@ export default function(hljs) {
   };
   const COMMENT = hljs.COMMENT(
     '%',
-    '$',
-    { relevance: 0 }
+    '$'
   );
   const EVERYTHING_BUT_VERBATIM = [
     CONTROL_SEQUENCE,
@@ -126,7 +124,6 @@ export default function(hljs) {
   const ARGUMENT_BRACES = hljs.inherit(
     BRACE_GROUP_NO_VERBATIM,
     {
-      relevance: 0,
       endsParent: true,
       contains: [
         BRACE_GROUP_NO_VERBATIM,
@@ -152,7 +149,6 @@ export default function(hljs) {
     return {
       contains: [ SPACE_GOBBLER ],
       starts: {
-        relevance: 0,
         contains: arg,
         starts: starts_mode
       }
@@ -200,7 +196,6 @@ export default function(hljs) {
 
   const VERBATIM_DELIMITED_BRACES = (innerName = "string") => {
     return {
-      relevance: 0,
       begin: /\{/,
       starts: {
         endsParent: true,

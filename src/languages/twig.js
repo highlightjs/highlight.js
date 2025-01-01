@@ -202,13 +202,12 @@ export default function(hljs) {
     ]
   };
 
-  const tagNamed = (tagnames, { relevance }) => {
+  const tagNamed = (tagnames) => {
     return {
       beginScope: {
         1: 'template-tag',
         3: 'name'
       },
-      relevance: relevance || 2,
       endScope: 'template-tag',
       begin: [
         /\{%/,
@@ -227,8 +226,8 @@ export default function(hljs) {
   };
 
   const CUSTOM_TAG_RE = /[a-z_]+/;
-  const TAG = tagNamed(TAG_NAMES, { relevance: 1 });
-  const CUSTOM_TAG = tagNamed([ CUSTOM_TAG_RE ], { relevance: 1 });
+  const TAG = tagNamed(TAG_NAMES);
+  const CUSTOM_TAG = tagNamed([ CUSTOM_TAG_RE ]);
 
   return {
     name: 'Twig',

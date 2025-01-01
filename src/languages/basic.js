@@ -205,8 +205,8 @@ export default function(hljs) {
         end: /"|$/,
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
-      hljs.COMMENT(/REM(?=\s)/, /$/, { relevance: "double" }),
-      hljs.COMMENT(/'/, /$/, { relevance: 0 }),
+      hljs.COMMENT(/REM(?=\s)/, /$/),
+      hljs.COMMENT(/'/, /$/),
       {
         // Match line numbers
         className: 'symbol',

@@ -29,11 +29,10 @@ export default function(hljs) {
     };
   };
 
-  const IDENT_MODE = function(name, begin, relevance) {
+  const IDENT_MODE = function(name, begin) {
     return {
       className: name,
-      begin: begin,
-      relevance: relevance
+      begin: begin
     };
   };
 
@@ -68,7 +67,7 @@ export default function(hljs) {
     },
     modes.HEXCOLOR,
     PARENS_MODE,
-    IDENT_MODE('variable', '@@?' + IDENT_RE, 10),
+    IDENT_MODE('variable', '@@?' + IDENT_RE),
     IDENT_MODE('variable', '@\\{' + IDENT_RE + '\\}'),
     IDENT_MODE('built_in', '~?`[^`]*?`'), // inline javascript (or whatever host language) *multiline* string
     { // @media features (it’s here to not duplicate things in AT_RULE_MODE with extra PARENS_MODE overriding):
@@ -177,10 +176,10 @@ export default function(hljs) {
         className: 'selector-tag'
       },
       modes.CSS_NUMBER_MODE,
-      IDENT_MODE('selector-tag', INTERP_IDENT_RE, 0),
+      IDENT_MODE('selector-tag', INTERP_IDENT_RE),
       IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
-      IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
-      IDENT_MODE('selector-tag', '&', 0),
+      IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE),
+      IDENT_MODE('selector-tag', '&'),
       modes.ATTRIBUTE_SELECTOR_MODE,
       {
         className: 'selector-pseudo',

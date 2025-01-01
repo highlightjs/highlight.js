@@ -89,8 +89,8 @@ export default function(hljs) {
           PARAMS
         ]
       },
-      hljs.COMMENT('!', '$', { relevance: 0 }),
-      hljs.COMMENT('begin_doc', 'end_doc', { relevance: 9 }),
+      hljs.COMMENT('!', '$'),
+      hljs.COMMENT('begin_doc', 'end_doc'),
       NUMBER
     ]
   };

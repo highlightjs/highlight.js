@@ -29,7 +29,7 @@ export default function(hljs) {
     ],
     contains: [
       // relevance must be lowered so this doesn't compete with strings
-      hljs.COMMENT('"', '"', { relevance: 0.1 }),
+      hljs.COMMENT('"', '"'),
       hljs.APOS_STRING_MODE,
       {
         className: 'type',

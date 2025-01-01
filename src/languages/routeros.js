@@ -160,7 +160,7 @@ export default function(hljs) {
       {
         className: 'built_in',
         variants: [
-          { begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+', relevance: 1 },
+          { begin: '(\\.\\./|/|\\s)((' + OBJECTS.split(' ').join('|') + ');?\\s)+' },
           {
             begin: /\.\./
           }

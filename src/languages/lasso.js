@@ -40,8 +40,7 @@ export default function(hljs) {
   };
   const HTML_COMMENT = hljs.COMMENT(
     '<!--',
-    '-->',
-    { relevance: 0 }
+    '-->'
   );
   const LASSO_NOPROCESS = {
     className: 'meta',
@@ -153,8 +152,7 @@ export default function(hljs) {
         begin: '\\['
       },
       hljs.SHEBANG({
-        binary: "lasso9",
-        relevance: "important!"
+        binary: "lasso9"
       })
     ].concat(LASSO_CODE)
   };

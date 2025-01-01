@@ -11,10 +11,9 @@ export default function(hljs) {
 
   const COMMENT = { variants: [
     hljs.COMMENT('^[ \\t]*(?=#)', '$', {
-      relevance: 0,
       excludeBegin: true
     }),
-    hljs.COMMENT('[;@]', '$', { relevance: 0 }),
+    hljs.COMMENT('[;@]', '$'),
     hljs.C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE
   ] };
@@ -93,9 +92,9 @@ export default function(hljs) {
         className: 'number',
         variants: [
           { // hex
-            begin: '[#$=]?0x[0-9a-f]+', relevance: "low" },
+            begin: '[#$=]?0x[0-9a-f]+' },
           { // bin
-            begin: '[#$=]?0b[01]+', relevance: "low" },
+            begin: '[#$=]?0b[01]+' },
           { // literal
             begin: '[#$=]\\d+' },
           { // bare number

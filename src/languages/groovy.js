@@ -21,7 +21,6 @@ export default function(hljs) {
       '/\\*\\*',
       '\\*/',
       {
-        relevance: 0,
         contains: [
           {
             // eat up @'s in emails to prevent them to be recognized as doctags

@@ -32,10 +32,10 @@ export default function(hljs) {
   const PREPROCESSOR = {
     scope: "meta",
     variants: [
-      { begin: /<\?php/, relevance: 9 }, // boost for obvious PHP
+      { begin: /<\?php/ }, // boost for obvious PHP
       { begin: /<\?=/ },
       // less relevant per PSR-1 which says not to use short-tags
-      { begin: /<\?/, relevance: 0.1 },
+      { begin: /<\?/ },
       { begin: /\?>/ } // end php tag
     ]
   };
@@ -404,7 +404,6 @@ export default function(hljs) {
     match: regex.concat(IDENT_RE, regex.lookahead(':'), regex.lookahead(/(?!::)/)),
   };
   const PARAMS_MODE = {
-    relevance: 0,
     begin: /\(/,
     end: /\)/,
     keywords: KEYWORDS,
@@ -419,7 +418,6 @@ export default function(hljs) {
     ],
   };
   const FUNCTION_INVOKE = {
-    relevance: 0,
     match: [
       /\b/,
       // to prevent keywords from being confused as the function title
@@ -539,7 +537,6 @@ export default function(hljs) {
       },
       CONSTRUCTOR_CALL,
       {
-        relevance: 0,
         beginKeywords: 'fn function',
         end: /[;{]/,
         excludeEnd: true,

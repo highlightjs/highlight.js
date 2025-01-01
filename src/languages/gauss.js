@@ -109,7 +109,7 @@ export default function(hljs) {
              + 'DB_TRANSACTIONS DB_UNICODE DB_VIEWS __STDIN __STDOUT __STDERR __FILE_DIR'
   };
 
-  const AT_COMMENT_MODE = hljs.COMMENT('@', '@', { relevance: "low" });
+  const AT_COMMENT_MODE = hljs.COMMENT('@', '@');
 
   const PREPROCESSOR =
   {

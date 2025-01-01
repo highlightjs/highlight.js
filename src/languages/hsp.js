@@ -27,7 +27,7 @@ export default function(hljs) {
         contains: [ hljs.BACKSLASH_ESCAPE ]
       },
 
-      hljs.COMMENT(';', '$', { relevance: 0 }),
+      hljs.COMMENT(';', '$'),
 
       {
         // pre-processor

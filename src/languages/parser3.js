@@ -21,7 +21,6 @@ export default function(hljs) {
         /\^rem\{/,
         /\}/,
         {
-          relevance: 1.5,
           contains: [ CURLY_SUBCOMMENT ]
         }
       ),

@@ -56,8 +56,7 @@ export default function(hljs) {
   const STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, { illegal: null });
   const COMMENT = hljs.COMMENT(
     ';',
-    '$',
-    { relevance: 0 }
+    '$'
   );
   const LITERAL = {
     className: 'literal',

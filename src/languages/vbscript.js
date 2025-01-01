@@ -121,8 +121,6 @@ export default function(hljs) {
 
   const BUILT_IN_CALL = {
     begin: regex.concat(regex.either(...BUILT_IN_FUNCTIONS), "\\s*\\("),
-    // relevance 0 because this is acting as a beginKeywords really
-    relevance: 0,
     keywords: { built_in: BUILT_IN_FUNCTIONS }
   };
 
@@ -209,8 +207,7 @@ export default function(hljs) {
       hljs.inherit(hljs.QUOTE_STRING_MODE, { contains: [ { begin: '""' } ] }),
       hljs.COMMENT(
         /'/,
-        /$/,
-        { relevance: 0 }
+        /$/
       ),
       hljs.C_NUMBER_MODE
     ]

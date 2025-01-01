@@ -25,7 +25,7 @@ export default function(hljs) {
     className: 'type',
     variants: [
       { begin: '\\b[a-z\\d_]*_t\\b' },
-      { match: /\batomic_[a-z]{3,6}\b/, relevance: "half" }
+      { match: /\batomic_[a-z]{3,6}\b/ }
     ]
 
   };

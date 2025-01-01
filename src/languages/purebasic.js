@@ -47,10 +47,9 @@ export default function(hljs) {
       + 'UseModule Wend While With XIncludeFile XOr',
     contains: [
       // COMMENTS | PB IDE color: #00AAAA (Persian Green)
-      hljs.COMMENT(';', '$', { relevance: 0 }),
+      hljs.COMMENT(';', '$'),
 
       { // PROCEDURES DEFINITIONS
-        relevance: 1,
         begin: '\\b(Procedure|Declare)(C|CDLL|DLL)?\\b',
         end: '\\(',
         excludeEnd: true,

@@ -117,7 +117,6 @@ export default function(hljs) {
         // can also be done as...
         // '^/{4,}$',
         // '^/{4,}$',
-        { relevance: "double" }
       ),
       // line comment
       hljs.COMMENT(

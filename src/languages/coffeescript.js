@@ -205,7 +205,6 @@ export default function(hljs) {
       },
       CLASS_DEFINITION,
       {
-        relevance: 1,
         match: /constructor(?=:)/
       },
       {
