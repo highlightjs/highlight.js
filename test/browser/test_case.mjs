@@ -1,6 +1,6 @@
 import { promisify } from 'util';
 import { JSDOM } from 'jsdom';
-import utility  from '../utility.js';
+import { buildPath}  from '../utility.js';
 import _glob from "glob";
 const glob = promisify(_glob);
 import fs       from 'fs';
@@ -8,11 +8,11 @@ import fs       from 'fs';
 // default to the minified library if it was built, otherwise fallback to
 // the non-minified
 async function findLibrary() {
-  const files = ['highlight.min.js', 'highlight.js'];
+  const files = ['highlight.cjs.bundle.js', 'highlight.cjs.bundle.min.js'];
 
   for (let file of files) {
     try {
-      let path = utility.buildPath('..', 'build', file);
+      let path = buildPath('..', 'build', file);
       await fs.promises.stat(path);
       return path;
     } catch {}

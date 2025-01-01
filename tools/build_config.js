@@ -50,7 +50,7 @@ module.exports = {
       output: {
         name: "hljs",
         format: "iife",
-        footer: "",
+        footer: "hljs = hljs.hljs;",
         interop: false
       }
     }
