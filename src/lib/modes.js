@@ -29,7 +29,6 @@ export const SHEBANG = (opts = {}) => {
     scope: 'meta',
     begin: beginShebang,
     end: /$/,
-    relevance: 0,
     /** @type {ModeCallback} */
     "on:begin": (m, resp) => {
       if (m.index !== 0) resp.ignoreMatch();
@@ -39,7 +38,7 @@ export const SHEBANG = (opts = {}) => {
 
 // Common modes
 export const BACKSLASH_ESCAPE = {
-  begin: '\\\\[\\s\\S]', relevance: 0
+  begin: '\\\\[\\s\\S]'
 };
 export const APOS_STRING_MODE = {
   scope: 'string',
@@ -70,7 +69,6 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
   const mode = inherit(
     {
       scope: 'comment',
-      relevance: 1,
       begin,
       end,
       contains: []
@@ -138,18 +136,15 @@ export const C_BLOCK_COMMENT_MODE = COMMENT('/\\*', '\\*/');
 export const HASH_COMMENT_MODE = COMMENT('#', '$');
 export const NUMBER_MODE = {
   scope: 'number',
-  begin: NUMBER_RE,
-  relevance: 0
+  begin: NUMBER_RE
 };
 export const C_NUMBER_MODE = {
   scope: 'number',
-  begin: C_NUMBER_RE,
-  relevance: 0
+  begin: C_NUMBER_RE
 };
 export const BINARY_NUMBER_MODE = {
   scope: 'number',
-  begin: BINARY_NUMBER_RE,
-  relevance: 0
+  begin: BINARY_NUMBER_RE
 };
 export const REGEXP_MODE = {
   scope: "regexp",
@@ -160,25 +155,21 @@ export const REGEXP_MODE = {
     {
       begin: /\[/,
       end: /\]/,
-      relevance: 0,
       contains: [BACKSLASH_ESCAPE]
     }
   ]
 };
 export const TITLE_MODE = {
   scope: 'title',
-  begin: IDENT_RE,
-  relevance: 0
+  begin: IDENT_RE
 };
 export const UNDERSCORE_TITLE_MODE = {
   scope: 'title',
-  begin: UNDERSCORE_IDENT_RE,
-  relevance: 0
+  begin: UNDERSCORE_IDENT_RE
 };
 export const METHOD_GUARD = {
   // excludes method names from keyword processing
-  begin: '\\.\\s*' + UNDERSCORE_IDENT_RE,
-  relevance: 0
+  begin: '\\.\\s*' + UNDERSCORE_IDENT_RE
 };
 
 /**

@@ -14,12 +14,10 @@ export const beforeMatchExt = (mode, parent) => {
   mode.keywords = originalMode.keywords;
   mode.begin = regex.concat(originalMode.beforeMatch, regex.lookahead(originalMode.begin));
   mode.starts = {
-    relevance: 0,
     contains: [
       Object.assign(originalMode, { endsParent: true })
     ]
   };
-  mode.relevance = 0;
 
   delete originalMode.beforeMatch;
 };
