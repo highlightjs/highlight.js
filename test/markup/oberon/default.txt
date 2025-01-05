@@ -1,0 +1,77 @@
+MODULE M;
+(*a non-nested comment*)
+(*a (*nested*) comment*)
+
+   IMPORT Math;
+
+   CONST
+      (*strings*)
+      str = "a string";
+      null = 0X;
+      linefeed = 0AX;
+
+      (*integers*)
+      i1 = 0;
+      i2 = 12;
+      i3 = -12;
+      i4 = 0H;
+      i5 = 01H;
+      i6 = 0AH;
+      i7 = 0A7H;
+
+      (*real numbers*)
+      r1 = 1.;
+      r2 = 1.2;
+      r3 = 1.23;
+      r4 = 1.E0;
+      r5 = 1.2E+10;
+      r6 = 1.23E-10;
+
+   TYPE
+      T = POINTER TO RECORD END;
+
+   VAR
+      b: BOOLEAN;
+      y: BYTE;
+      ch: CHAR;
+      i: INTEGER;
+      r: REAL;
+      A: SET;
+      s: ARRAY 32 OF CHAR;
+      x: T;
+
+   PROCEDURE Func(): INTEGER;
+   BEGIN
+      A := {1, 2, 4};
+      x := NIL;
+      s[0] := 0X;
+      CASE 1 DIV 2 MOD 3 OF 0, 1: END;
+      FOR i := 0 TO 100 BY 10 DO END;
+      IF (0 IN {}) OR (x IS T) & TRUE THEN
+      ELSIF FALSE THEN
+      ELSE
+      END;
+      REPEAT UNTIL TRUE;
+      WHILE FALSE DO END;
+      r := ABS(r);
+      i := ASR(i, 1);
+      ASSERT(TRUE);
+      ch := CHR(0);
+      DEC(i);
+      EXCL(A, 0);
+      i := FLOOR(r);
+      r := FLT(i);
+      INC(i);
+      INCL(A, 0);
+      i := LEN(s);
+      i := LSL(i, 1);
+      NEW(x);
+      b := ODD(i);
+      i := ORD(ch);
+      PACK(r, 1);
+      i := ROR(i, 1);
+      UNPK(r, i)
+   RETURN 0
+   END Func;
+
+END M.
