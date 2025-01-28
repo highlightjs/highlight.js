@@ -50,7 +50,8 @@ Core Grammars:
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
-
+- fix(dart) - Added highlighting for class and function names [guuido]
+  
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
