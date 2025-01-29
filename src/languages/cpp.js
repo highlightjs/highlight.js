@@ -417,6 +417,14 @@ export default function(hljs) {
     _type_hints: TYPE_HINTS
   };
 
+  const allKeywords = [
+    ...CPP_KEYWORDS.type,
+    ...CPP_KEYWORDS.keyword,
+    ...CPP_KEYWORDS.literal,
+    ...CPP_KEYWORDS.built_in,
+    ...CPP_KEYWORDS._type_hints
+  ];
+
   const FUNCTION_DISPATCH = {
     className: 'function.dispatch',
     relevance: 0,
@@ -425,15 +433,11 @@ export default function(hljs) {
       _hint: FUNCTION_HINTS },
     begin: regex.concat(
       /\b/,
-      /(?!decltype)/,
-      /(?!if)/,
-      /(?!for)/,
-      /(?!switch)/,
-      /(?!while)/,
+      // adds all keywords dynamically
+      ...allKeywords.map(keyword => new RegExp(`(?!${keyword})`)),
       hljs.IDENT_RE,
       regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
-
   const EXPRESSION_CONTAINS = [
     FUNCTION_DISPATCH,
     PREPROCESSOR,
