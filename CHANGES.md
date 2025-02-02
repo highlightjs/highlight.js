@@ -1,7 +1,31 @@
+## Unreleased Version
+
+New Grammars:
+
+- Replace link to Odin package in SUPPORTED_LANGUAGES.md [Marian Pekár][]
+
+Developer Tools:
+
+- Since 11.10.0, the auto-detect test suite has been commented out [Josh Goebel][]
+
+Improvements:
+
+- (fix) fix illegal handling at end of input code [Josh Goebel][]
+
+CONTRIBUTORS
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Marian Pekár]: https://github.com/marianpekar
+
 ## Version 11.11.1
 
-- Fixes regression with Rust grammar.
+Core Grammars:
 
+- Fixes regression with Rust grammar. [Josh Goebel][]
+
+CONTRIBUTORS
+
+[Josh Goebel]: https://github.com/joshgoebel
 
 ## Version 11.11.0
 
