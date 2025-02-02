@@ -11,24 +11,23 @@ export default function(hljs) {
   /* missing support for heredoc-like string (OCaml 4.0.2+) */
   return {
     name: 'OCaml',
-    aliases: [ 'ml' ],
+    aliases: ['ml'],
     keywords: {
       $pattern: '[a-z_]\\w*!?',
       keyword:
-        'and as assert asr begin class constraint do done downto else end '
-        + 'exception external for fun function functor if in include '
-        + 'inherit! inherit initializer land lazy let lor lsl lsr lxor match method!|10 method '
-        + 'mod module mutable new object of open! open or private rec sig struct '
-        + 'then to try type val! val virtual when while with '
+        'and as assert asr begin class constraint do done downto else end ' +
+        'exception external for fun function functor if in include ' +
+        'inherit! inherit initializer land lazy let lor lsl lsr lxor match method!|10 method ' +
+        'mod module mutable new object of open! open or private rec sig struct ' +
+        'then to try type val! val virtual when while with ' +
         /* camlp4 */
-        + 'parser value',
+        'parser value',
       built_in:
         /* built-in types */
-        'array bool bytes char exn|5 float int int32 int64 list lazy_t|5 nativeint|5 string unit '
+        'array bool bytes char exn|5 float int int32 int64 list lazy_t|5 nativeint|5 string unit ' +
         /* (some) types in Pervasives */
-        + 'in_channel out_channel ref',
-      literal:
-        'true false'
+        'in_channel out_channel ref',
+      literal: 'true false'
     },
     illegal: /\/\/|>>/,
     contains: [
@@ -40,7 +39,7 @@ export default function(hljs) {
       hljs.COMMENT(
         '\\(\\*',
         '\\*\\)',
-        { contains: [ 'self' ] }
+        { contains: ['self'] }
       ),
       { /* type variable */
         className: 'symbol',
@@ -68,13 +67,15 @@ export default function(hljs) {
       {
         className: 'number',
         begin:
-          '\\b(0[xX][a-fA-F0-9_]+[Lln]?|'
-          + '0[oO][0-7_]+[Lln]?|'
-          + '0[bB][01_]+[Lln]?|'
-          + '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
+          '\\b(0[xX][a-fA-F0-9_]+[Lln]?|' +
+          '0[oO][0-7_]+[Lln]?|' +
+          '0[bB][01_]+[Lln]?|' +
+          '[0-9][0-9_]*([Lln]|(\\.[0-9_]*)?([eE][-+]?[0-9_]+)?)?)',
         relevance: 0
       },
-      { begin: /->/ // relevance booster
+      { 
+        begin: /->/, // relevance booster for the arrow operator
+        relevance: 10 // Increase relevance to ensure it's highlighted
       }
     ]
   };
