@@ -1,0 +1,34 @@
+module import {
+    std.RuVix.App 
+}
+
+pylib: requests
+
+trash_cleaner = true
+
+pack TextEditor {
+    init {
+        this.app = App.init(none)
+        this.effects = Effects.init(this.app)
+    }
+
+    func create_ui {
+        this.editor = this.app.create_widget('TextInput',
+            size_hint=(0.95, 0.85),
+            font_name='JetBrainsMono'
+        )
+    }
+
+    table Config {
+        'theme': "dark"
+        'font_size': 14
+        'color' := load_colors()
+    }
+}
+
+#ZigModule(
+    fn calculate(x: i32) i32 {
+        return x * 2;
+    }
+) -> fast_math
+

@@ -1,0 +1,27 @@
+<span class="hljs-keyword">module</span> <span class="hljs-keyword">import</span> { std.RuVix.App }
+
+<span class="hljs-class"><span class="hljs-keyword">pack</span> <span class="hljs-title">TextEditor</span></span> {
+    <span class="hljs-function"><span class="hljs-keyword">init</span></span> {
+        <span class="hljs-keyword">this</span>.app = App.<span class="hljs-built_in">init</span>(<span class="hljs-literal">none</span>)
+        <span class="hljs-keyword">this</span>.effects = Effects.<span class="hljs-built_in">init</span>(<span class="hljs-keyword">this</span>.app)
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">create_ui</span></span> {
+        <span class="hljs-keyword">this</span>.editor = <span class="hljs-keyword">this</span>.app.create_widget(<span class="hljs-string">'TextInput'</span>,
+            size_hint=(<span class="hljs-number">0.95</span>, <span class="hljs-number">0.85</span>),
+            font_name=<span class="hljs-string">'JetBrainsMono'</span>
+        )
+    }
+
+    <span class="hljs-class"><span class="hljs-keyword">table</span> <span class="hljs-title">Config</span></span> {
+        <span class="hljs-string">'theme'</span>: <span class="hljs-string">"dark"</span>
+        <span class="hljs-string">'font_size'</span>: <span class="hljs-number">14</span>
+        <span class="hljs-string">'color'</span> <span class="hljs-operator">:=</span> load_colors()
+    }
+}
+
+<span class="hljs-meta">#ZigModule</span>(
+    <span class="hljs-keyword">fn</span> calculate(x: <span class="hljs-type">i32</span>) <span class="hljs-type">i32</span> {
+        <span class="hljs-keyword">return</span> x * <span class="hljs-number">2</span>;
+    }
+) <span class="hljs-operator">-></span> fast_math

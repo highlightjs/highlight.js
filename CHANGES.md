@@ -1,3 +1,7 @@
+## Version 11.12.0
+New Languages:
+- Added RytonLang support with MetaTable system, Zig integration, and special operators [RejziDich]
+
 ## Version 11.11.1
 
 - Fixes regression with Rust grammar.
