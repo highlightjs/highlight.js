@@ -1,5 +1,0 @@
-[33m8c84550f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32madd-ryton-language[m[33m, [m[1;31morigin/add-ryton-language[m[33m)[m Add Ryton tests and update CHANGES.md
-[33m87532c2b[m Add Ryton language support
-[33md301848c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Replace link to Odin package in SUPPORTED_LANGUAGES.md (#4201)
-[33m62f8a60a[m (fix) fix `illegal` handling at end of input code
-[33m08cb242e[m (release) 11.1.1
