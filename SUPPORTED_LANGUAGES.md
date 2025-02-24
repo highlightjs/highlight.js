@@ -13,6 +13,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
+| Aiken                   | aiken, ak              | [highlightjs-aiken](https://github.com/yHSJ/highlightjs-aiken) |
 | Apex                    | apex                   | [highlightjs-apex](https://github.com/highlightjs/highlightjs-apex/)   |
 | Arduino (C++ w/Arduino libs) | arduino, ino           |         |
 | ARM assembler           | armasm, arm            |         |
