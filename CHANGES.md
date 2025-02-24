@@ -1,3 +1,12 @@
+## Version 11.11.2
+
+New Grammars:
+
+- added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
+
+CONTRIBUTORS
+[Josh Marchand][https://github.com/yHSJ]
+
 ## Version 11.11.1
 
 - Fixes regression with Rust grammar.
