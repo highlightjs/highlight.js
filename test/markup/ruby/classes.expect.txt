@@ -1,0 +1,7 @@
+<span class="hljs-title class_">Class</span>
+<span class="hljs-title class_">ClassName</span>
+<span class="hljs-title class_">Class_Name</span>
+<span class="hljs-title class_">ClassNAME</span>
+<span class="hljs-title class_">ClassName</span>::<span class="hljs-title class_">With</span>::<span class="hljs-title class_">Namespace</span>
+<span class="hljs-title class_">ClassName</span>::<span class="hljs-title class_">With</span>.method
+::<span class="hljs-title class_">TopLevel</span>::<span class="hljs-title class_">Class</span>

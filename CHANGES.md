@@ -1,3 +1,10 @@
+## Version 11.11.2
+
+Core Grammars:
+
+- fix(ruby) symbols, string interpolation, class names with underscores
+
+
 ## Version 11.11.1
 
 - Fixes regression with Rust grammar.

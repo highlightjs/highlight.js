@@ -11,13 +11,7 @@ export default function(hljs) {
   const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
   // TODO: move concepts like CAMEL_CASE into `modes.js`
-  const CLASS_NAME_RE = regex.either(
-    /\b([A-Z]+[a-z0-9]+)+/,
-    // ends in caps
-    /\b([A-Z]+[a-z0-9]+)+[A-Z]+/,
-  )
-  ;
-  const CLASS_NAME_WITH_NAMESPACE_RE = regex.concat(CLASS_NAME_RE, /(::\w+)*/)
+  const CLASS_NAME_RE = /\b([A-Z]+[a-z0-9_]+)+[A-Z]*/;
   // very popular ruby built-ins that one might even assume
   // are actual keywords (despite that not being the case)
   const PSEUDO_KWS = [
@@ -120,19 +114,16 @@ export default function(hljs) {
     className: 'subst',
     begin: /#\{/,
     end: /\}/,
-    keywords: RUBY_KEYWORDS
+    keywords: RUBY_KEYWORDS,
+    relevance: 10
   };
-  const STRING = {
+  const STRING_INTERPOLABLE = {
     className: 'string',
     contains: [
       hljs.BACKSLASH_ESCAPE,
       SUBST
     ],
     variants: [
-      {
-        begin: /'/,
-        end: /'/
-      },
       {
         begin: /"/,
         end: /"/
@@ -142,45 +133,45 @@ export default function(hljs) {
         end: /`/
       },
       {
-        begin: /%[qQwWx]?\(/,
-        end: /\)/
+        begin: /%[QWx]?\(/,
+        end: /\)/,
+        relevance: 2
       },
       {
-        begin: /%[qQwWx]?\[/,
-        end: /\]/
+        begin: /%[QWx]?\[/,
+        end: /\]/,
+        relevance: 2
       },
       {
-        begin: /%[qQwWx]?\{/,
-        end: /\}/
+        begin: /%[QWx]?\{/,
+        end: /\}/,
+        relevance: 2
       },
       {
-        begin: /%[qQwWx]?</,
-        end: />/
+        begin: /%[QWx]?</,
+        end: />/,
+        relevance: 2
       },
       {
-        begin: /%[qQwWx]?\//,
-        end: /\//
+        begin: /%[QWx]?\//,
+        end: /\//,
+        relevance: 2
       },
       {
-        begin: /%[qQwWx]?%/,
-        end: /%/
+        begin: /%[QWx]?%/,
+        end: /%/,
+        relevance: 2
       },
       {
-        begin: /%[qQwWx]?-/,
-        end: /-/
+        begin: /%[QWx]?-/,
+        end: /-/,
+        relevance: 2
       },
       {
-        begin: /%[qQwWx]?\|/,
-        end: /\|/
+        begin: /%[QWx]?\|/,
+        end: /\|/,
+        relevance: 2
       },
-      // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
-      // where ? is the last character of a preceding identifier, as in: `func?4`
-      { begin: /\B\?(\\\d{1,3})/ },
-      { begin: /\B\?(\\x[A-Fa-f0-9]{1,2})/ },
-      { begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/ },
-      { begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/ },
-      { begin: /\B\?\\(c|C-)[\x20-\x7e]/ },
-      { begin: /\B\?\\?\S/ },
       // heredocs
       {
         // this guard makes sure that we have an entire heredoc and not a false
@@ -200,6 +191,63 @@ export default function(hljs) {
           })
         ]
       }
+    ]
+  };
+  const STRING_NONINTERPOLABLE = {
+    className: 'string',
+    variants: [
+      {
+        begin: /'/,
+        end: /'/
+      },
+      {
+        begin: /%[qw]?\(/,
+        end: /\)/,
+        relevance: 2
+      },
+      {
+        begin: /%[qw]?\[/,
+        end: /\]/,
+        relevance: 2
+      },
+      {
+        begin: /%[qw]?\{/,
+        end: /\}/,
+        relevance: 2
+      },
+      {
+        begin: /%[qw]?</,
+        end: />/,
+        relevance: 2
+      },
+      {
+        begin: /%[qw]?\//,
+        end: /\//,
+        relevance: 2
+      },
+      {
+        begin: /%[qw]?%/,
+        end: /%/,
+        relevance: 2
+      },
+      {
+        begin: /%[qw]?-/,
+        end: /-/,
+        relevance: 2
+      },
+      {
+        begin: /%[qw]?\|/,
+        end: /\|/,
+        relevance: 2
+      },
+      // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
+      // where ? is the last character of a preceding identifier, as in: `func?4`
+      { begin: /\B\?(\\\d{1,3})/ },
+      { begin: /\B\?(\\x[A-Fa-f0-9]{1,2})/ },
+      { begin: /\B\?(\\u\{?[A-Fa-f0-9]{1,6}\}?)/ },
+      { begin: /\B\?(\\M-\\C-|\\M-\\c|\\c\\M-|\\M-|\\C-\\M-)[\x20-\x7e]/ },
+      { begin: /\B\?\\(c|C-)[\x20-\x7e]/ },
+      { begin: /\B\?\\?\S/ }
     ]
   };
 
@@ -246,7 +294,7 @@ export default function(hljs) {
   const INCLUDE_EXTEND = {
     match: [
       /(include|extend)\s+/,
-      CLASS_NAME_WITH_NAMESPACE_RE
+      CLASS_NAME_RE
     ],
     scope: {
       2: "title.class"
@@ -259,15 +307,15 @@ export default function(hljs) {
       {
         match: [
           /class\s+/,
-          CLASS_NAME_WITH_NAMESPACE_RE,
+          CLASS_NAME_RE,
           /\s+<\s+/,
-          CLASS_NAME_WITH_NAMESPACE_RE
+          CLASS_NAME_RE
         ]
       },
       {
         match: [
           /\b(class|module)\s+/,
-          CLASS_NAME_WITH_NAMESPACE_RE
+          CLASS_NAME_RE
         ]
       }
     ],
@@ -301,7 +349,7 @@ export default function(hljs) {
   const OBJECT_CREATION = {
     relevance: 0,
     match: [
-      CLASS_NAME_WITH_NAMESPACE_RE,
+      CLASS_NAME_RE,
       /\.new[. (]/
     ],
     scope: {
@@ -317,7 +365,8 @@ export default function(hljs) {
   };
 
   const RUBY_DEFAULT_CONTAINS = [
-    STRING,
+    STRING_INTERPOLABLE,
+    STRING_NONINTERPOLABLE,
     CLASS_DEFINITION,
     INCLUDE_EXTEND,
     OBJECT_CREATION,
@@ -326,7 +375,8 @@ export default function(hljs) {
     METHOD_DEFINITION,
     {
       // swallow namespace qualifiers before symbols
-      begin: hljs.IDENT_RE + '::' },
+      begin: hljs.IDENT_RE + '::'
+    },
     {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
@@ -334,12 +384,19 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: ':(?!\\s)',
+      begin: '(?<!:):(?!\\s|:)',
       contains: [
-        STRING,
-        { begin: RUBY_METHOD_RE }
+        { begin: /'/, end: /'/ },
+        {
+          begin: /"/, end: /"/,
+          contains: [
+            hljs.BACKSLASH_ESCAPE,
+            SUBST
+          ]
+         },
+        { begin: hljs.UNDERSCORE_IDENT_RE }
       ],
-      relevance: 0
+      relevance: 1
     },
     NUMBER,
     {
