@@ -60,6 +60,7 @@ Core Grammars:
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 - fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
+- enh(cpp) add C++26 keywords, `#embed`, and compiler-builtin types [Eisenwave]
 
 New Grammars:
 
