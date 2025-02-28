@@ -28,3 +28,27 @@ c = ?\u{0AF09}
 c = ?\u{AF9}
 c = ?\u{F9}
 c = ?\u{F}
+
+# Interpolable Strings
+"string"
+"string #{var}"
+`string`
+`string #{var}`
+%W[foo bar]
+%W[foo bar #{var}]
+%Q[foo bar]
+%Q[foo bar #{var}]
+%x[foo]
+%x[foo #{var}]
+<<~DOC
+  Multiline heredoc
+  Text #{var}
+DOC
+
+# Non-interpolable Strings
+'string'
+'string #{var}'
+%q[foo]
+%q[foo #{var}]
+%w[foo]
+%w[foo #{var}]

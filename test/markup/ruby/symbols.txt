@@ -1,0 +1,22 @@
+:symbol
+:Symbol
+:_leading
+:trailing_
+:contains_underscore
+:symbol_CAPS
+:"string symbol"
+:"interpolated #{test}"
+:'string symbol'
+:'not interpolated #{test}'
+method :symbol
+method(:symbol)
+method(&:symbol)
+assign=:symbol
+assign = :symbol
+:symbol, others
+:1notasymbol
+:%q[notasymbol]
+
+::notsymbol
+
+hash_symbol: value

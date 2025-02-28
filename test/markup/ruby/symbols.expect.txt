@@ -1,0 +1,22 @@
+<span class="hljs-symbol">:symbol</span>
+<span class="hljs-symbol">:Symbol</span>
+<span class="hljs-symbol">:_leading</span>
+<span class="hljs-symbol">:trailing_</span>
+<span class="hljs-symbol">:contains_underscore</span>
+<span class="hljs-symbol">:symbol_CAPS</span>
+<span class="hljs-symbol">:&quot;string symbol&quot;</span>
+<span class="hljs-symbol">:&quot;interpolated <span class="hljs-subst">#{test}</span>&quot;</span>
+<span class="hljs-symbol">:&#x27;string symbol&#x27;</span>
+<span class="hljs-symbol">:&#x27;not interpolated #{test}&#x27;</span>
+method <span class="hljs-symbol">:symbol</span>
+method(<span class="hljs-symbol">:symbol</span>)
+method(&amp;<span class="hljs-symbol">:symbol</span>)
+assign=<span class="hljs-symbol">:symbol</span>
+assign = <span class="hljs-symbol">:symbol</span>
+<span class="hljs-symbol">:symbol</span>, others
+<span class="hljs-symbol">:</span>1notasymbol
+<span class="hljs-symbol">:</span><span class="hljs-string">%q[notasymbol]</span>
+
+::notsymbol
+
+<span class="hljs-symbol">hash_symbol:</span> value

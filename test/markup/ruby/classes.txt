@@ -1,0 +1,7 @@
+Class
+ClassName
+Class_Name
+ClassNAME
+ClassName::With::Namespace
+ClassName::With.method
+::TopLevel::Class
