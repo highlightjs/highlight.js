@@ -115,7 +115,6 @@ export default function(hljs) {
     begin: /#\{/,
     end: /\}/,
     keywords: RUBY_KEYWORDS,
-    relevance: 2
   };
   const STRING_INTERPOLABLE = {
     className: 'string',
@@ -135,42 +134,34 @@ export default function(hljs) {
       {
         begin: /%[QWx]?\(/,
         end: /\)/,
-        relevance: 2
       },
       {
         begin: /%[QWx]?\[/,
         end: /\]/,
-        relevance: 2
       },
       {
         begin: /%[QWx]?\{/,
         end: /\}/,
-        relevance: 2
       },
       {
         begin: /%[QWx]?</,
         end: />/,
-        relevance: 2
       },
       {
         begin: /%[QWx]?\//,
         end: /\//,
-        relevance: 2
       },
       {
         begin: /%[QWx]?%/,
         end: /%/,
-        relevance: 2
       },
       {
         begin: /%[QWx]?-/,
         end: /-/,
-        relevance: 2
       },
       {
         begin: /%[QWx]?\|/,
         end: /\|/,
-        relevance: 2
       },
       // heredocs
       {
@@ -203,42 +194,34 @@ export default function(hljs) {
       {
         begin: /%[qw]?\(/,
         end: /\)/,
-        relevance: 2
       },
       {
         begin: /%[qw]?\[/,
         end: /\]/,
-        relevance: 2
       },
       {
         begin: /%[qw]?\{/,
         end: /\}/,
-        relevance: 2
       },
       {
         begin: /%[qw]?</,
         end: />/,
-        relevance: 2
       },
       {
         begin: /%[qw]?\//,
         end: /\//,
-        relevance: 2
       },
       {
         begin: /%[qw]?%/,
         end: /%/,
-        relevance: 2
       },
       {
         begin: /%[qw]?-/,
         end: /-/,
-        relevance: 2
       },
       {
         begin: /%[qw]?\|/,
         end: /\|/,
-        relevance: 2
       },
       // in the following expressions, \B in the beginning suppresses recognition of ?-sequences
       // where ? is the last character of a preceding identifier, as in: `func?4`
