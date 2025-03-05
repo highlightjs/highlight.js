@@ -115,7 +115,7 @@ export default function(hljs) {
     begin: /#\{/,
     end: /\}/,
     keywords: RUBY_KEYWORDS,
-    relevance: 10
+    relevance: 2
   };
   const STRING_INTERPOLABLE = {
     className: 'string',
