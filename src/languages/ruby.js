@@ -375,7 +375,7 @@ export default function(hljs) {
     METHOD_DEFINITION,
     {
       // swallow namespace qualifiers before symbols
-      begin: hljs.IDENT_RE + '::'
+      begin: '::'
     },
     {
       className: 'symbol',
@@ -384,7 +384,7 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: '(?<!:):(?!\\s|:)',
+      begin: ':(?!\\s)',
       contains: [
         { begin: /'/, end: /'/ },
         {
