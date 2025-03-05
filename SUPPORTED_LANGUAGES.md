@@ -163,6 +163,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Oak                     | oak                    | [highlightjs-oak](https://github.com/timlabs/highlightjs-oak) |
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
+| Oberon                  | obn, mod               | [highlightjs-oberon](https://github.com/miasapkarl/highlightjs-oberon) |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
 | Odin                    | odin                   |         [highlightjs-odinlang](https://github.com/marianpekar/highlightjs-odinlang) |
 | OpenGL Shading Language | glsl                   |         |
