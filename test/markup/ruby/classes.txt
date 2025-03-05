@@ -5,3 +5,9 @@ ClassNAME
 ClassName::With::Namespace
 ClassName::With.method
 ::TopLevel::Class
+
+class Class::Name < With::Inheritance
+end
+
+class A::B < C::D
+end

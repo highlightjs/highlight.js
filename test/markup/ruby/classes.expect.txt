@@ -5,3 +5,9 @@
 <span class="hljs-title class_">ClassName</span>::<span class="hljs-title class_">With</span>::<span class="hljs-title class_">Namespace</span>
 <span class="hljs-title class_">ClassName</span>::<span class="hljs-title class_">With</span>.method
 ::<span class="hljs-title class_">TopLevel</span>::<span class="hljs-title class_">Class</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Class</span>::<span class="hljs-title class_">Name</span> &lt; <span class="hljs-title class_">With</span>::<span class="hljs-title class_">Inheritance</span>
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>::<span class="hljs-title class_">B</span> &lt; <span class="hljs-title class_">C</span>::<span class="hljs-title class_">D</span>
+<span class="hljs-keyword">end</span>

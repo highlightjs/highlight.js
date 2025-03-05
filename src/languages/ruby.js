@@ -11,7 +11,7 @@ export default function(hljs) {
   const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
   // TODO: move concepts like CAMEL_CASE into `modes.js`
-  const CLASS_NAME_RE = /\b([A-Z]+[a-z0-9_]+)+[A-Z]*/;
+  const CLASS_NAME_RE = /\b([A-Z]+[a-z0-9_]*)+[A-Z]*/;
   // very popular ruby built-ins that one might even assume
   // are actual keywords (despite that not being the case)
   const PSEUDO_KWS = [
@@ -362,7 +362,7 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
+      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:(?!:)',
       relevance: 0
     },
     {
