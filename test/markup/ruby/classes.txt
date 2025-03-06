@@ -6,8 +6,8 @@ ClassName::With::Namespace
 ClassName::With.method
 ::TopLevel::Class
 
-class Class::Name < With::Inheritance
+class Foo::Bar::Baz < Qux::Quux::Corge
 end
 
-class A::B < C::D
+class Child < Parent
 end

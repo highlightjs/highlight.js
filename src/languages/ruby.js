@@ -10,8 +10,9 @@ Category: common, scripting
 export default function(hljs) {
   const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
+  const CLASS_NAME_PATTERN = '([A-Z]+[a-z0-9_]+)+[A-Z]*'
   // TODO: move concepts like CAMEL_CASE into `modes.js`
-  const CLASS_NAME_RE = /\b([A-Z]+[a-z0-9_]*)+[A-Z]*/;
+  const CLASS_NAME_RE = new RegExp(`\\b${CLASS_NAME_PATTERN}`);
   // very popular ruby built-ins that one might even assume
   // are actual keywords (despite that not being the case)
   const PSEUDO_KWS = [
@@ -274,41 +275,6 @@ export default function(hljs) {
     ]
   };
 
-  const INCLUDE_EXTEND = {
-    match: [
-      /(include|extend)\s+/,
-      CLASS_NAME_RE
-    ],
-    scope: {
-      2: "title.class"
-    },
-    keywords: RUBY_KEYWORDS
-  };
-
-  const CLASS_DEFINITION = {
-    variants: [
-      {
-        match: [
-          /class\s+/,
-          CLASS_NAME_RE,
-          /\s+<\s+/,
-          CLASS_NAME_RE
-        ]
-      },
-      {
-        match: [
-          /\b(class|module)\s+/,
-          CLASS_NAME_RE
-        ]
-      }
-    ],
-    scope: {
-      2: "title.class",
-      4: "title.class.inherited"
-    },
-    keywords: RUBY_KEYWORDS
-  };
-
   const UPPER_CASE_CONSTANT = {
     relevance: 0,
     match: /\b[A-Z][A-Z_0-9]*\b/,
@@ -329,15 +295,10 @@ export default function(hljs) {
     ]
   };
 
-  const OBJECT_CREATION = {
+  const CLASS_INHERITANCE = {
     relevance: 0,
-    match: [
-      CLASS_NAME_RE,
-      /\.new[. (]/
-    ],
-    scope: {
-      1: "title.class"
-    }
+    match: new RegExp(`(?<=\\s*class\\s+(${CLASS_NAME_PATTERN}::)*${CLASS_NAME_PATTERN}\\s*<\\s*(${CLASS_NAME_PATTERN}::)*)${CLASS_NAME_PATTERN}`),
+    className: "title.class.inherited"
   };
 
   // CamelCase
@@ -350,10 +311,8 @@ export default function(hljs) {
   const RUBY_DEFAULT_CONTAINS = [
     STRING_INTERPOLABLE,
     STRING_NONINTERPOLABLE,
-    CLASS_DEFINITION,
-    INCLUDE_EXTEND,
-    OBJECT_CREATION,
     UPPER_CASE_CONSTANT,
+    CLASS_INHERITANCE,
     CLASS_REFERENCE,
     METHOD_DEFINITION,
     {
