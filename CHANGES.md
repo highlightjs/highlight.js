@@ -59,6 +59,7 @@ Core Grammars:
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
+- fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
 
 New Grammars:
 
@@ -107,6 +108,7 @@ CONTRIBUTORS
 [Laurel King]: https://github.com/laurelthorburn
 [Kristian Ekenes]: https://github.com/ekenes
 [Danny Winrow]: https://github.com/dannywinrow
+[Eisenwave]: https://github.com/Eisenwave/
 
 
 ## Version 11.10.0
