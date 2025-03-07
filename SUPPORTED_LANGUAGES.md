@@ -13,6 +13,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | Ada                     | ada                    |         |
+| Aiken                   | aiken, ak              | [highlightjs-aiken](https://github.com/yHSJ/highlightjs-aiken) |
 | Apex                    | apex                   | [highlightjs-apex](https://github.com/highlightjs/highlightjs-apex/)   |
 | Arduino (C++ w/Arduino libs) | arduino, ino           |         |
 | ARM assembler           | armasm, arm            |         |
@@ -163,7 +164,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | OCaml                   | ocaml, ml              |         |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
-| Odin                    | odin                   |         [highlightjs-odin](https://github.com/NinjasCL/highlightjs-odin) |
+| Odin                    | odin                   |         [highlightjs-odinlang](https://github.com/marianpekar/highlightjs-odinlang) |
 | OpenGL Shading Language | glsl                   |         |
 | OpenSCAD                | openscad, scad         |         |
 | Oracle Rules Language   | ruleslanguage          |         |

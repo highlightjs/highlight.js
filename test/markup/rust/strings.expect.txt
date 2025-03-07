@@ -3,6 +3,7 @@
 <span class="hljs-string">&#x27;<span class="hljs-char escape_">\x</span>1A&#x27;</span>;
 <span class="hljs-string">&#x27;<span class="hljs-char escape_">\u</span>12AS&#x27;</span>;
 <span class="hljs-string">&#x27;<span class="hljs-char escape_">\U</span>1234ASDF&#x27;</span>;
+<span class="hljs-string">&#x27;😭&#x27;</span>;
 <span class="hljs-string">b&#x27;a&#x27;</span>;
 
 <span class="hljs-string">&quot;hello&quot;</span>;
@@ -12,6 +13,7 @@
 <span class="hljs-string">r###&quot;world&quot;###</span>;
 <span class="hljs-string">r##&quot; &quot;###
 &quot;# &quot;##</span>;
+<span class="hljs-string">&quot;😭😭😭😭&quot;</span>;
 
 <span class="hljs-string">br&quot; &quot;</span>;
 <span class="hljs-string">br#&quot;hello&quot;#</span>;
