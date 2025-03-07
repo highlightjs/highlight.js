@@ -10,9 +10,8 @@ Category: common, scripting
 export default function(hljs) {
   const regex = hljs.regex;
   const RUBY_METHOD_RE = '([a-zA-Z_]\\w*[!?=]?|[-+~]@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?)';
-  const CLASS_NAME_PATTERN = '([A-Z]+[a-z0-9_]+)+[A-Z]*'
   // TODO: move concepts like CAMEL_CASE into `modes.js`
-  const CLASS_NAME_RE = new RegExp(`\\b${CLASS_NAME_PATTERN}`);
+  const CLASS_NAME_RE = /\b([A-Z]+[a-z0-9_]+)+[A-Z]*/;
   // very popular ruby built-ins that one might even assume
   // are actual keywords (despite that not being the case)
   const PSEUDO_KWS = [
@@ -295,10 +294,9 @@ export default function(hljs) {
     ]
   };
 
-  const CLASS_INHERITANCE = {
-    relevance: 0,
-    match: new RegExp(`(?<=\\s*class\\s+(${CLASS_NAME_PATTERN}::)*${CLASS_NAME_PATTERN}\\s*<\\s*(${CLASS_NAME_PATTERN}::)*)${CLASS_NAME_PATTERN}`),
-    className: "title.class.inherited"
+  const CLASS_ANCESTOR = {
+    className: "title.class.inherited",
+    match: CLASS_NAME_RE
   };
 
   // CamelCase
@@ -308,12 +306,50 @@ export default function(hljs) {
     scope: "title.class"
   };
 
+  const CLASS_SEPARATOR = {
+    match: /::/
+  };
+
+  const CLASS_KEYWORD = {
+    match: /class/,
+    scope: "keyword"
+  };
+
+  const CLASS_INHERITANCE = {
+    begin: /\s*class\b/,
+    excludeBegin: true,
+    variants: [
+      {
+        contains: [
+          CLASS_KEYWORD,
+          {
+            begin: /\s/,
+            contains: [ CLASS_REFERENCE, CLASS_SEPARATOR ],
+          },
+          {
+            begin: /<\s*/,
+            contains:  [ CLASS_ANCESTOR, CLASS_SEPARATOR ]
+          }
+        ]
+      },
+      {
+        contains: [
+          CLASS_KEYWORD,
+          {
+            begin: /\s/,
+            contains: [ CLASS_REFERENCE, CLASS_SEPARATOR ]
+          },
+        ]
+      }
+    ]
+  };
+
   const RUBY_DEFAULT_CONTAINS = [
     STRING_INTERPOLABLE,
     STRING_NONINTERPOLABLE,
     UPPER_CASE_CONSTANT,
-    CLASS_INHERITANCE,
     CLASS_REFERENCE,
+    CLASS_INHERITANCE,
     METHOD_DEFINITION,
     {
       // swallow namespace qualifiers before symbols

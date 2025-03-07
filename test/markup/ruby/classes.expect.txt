@@ -6,8 +6,11 @@
 <span class="hljs-title class_">ClassName</span>::<span class="hljs-title class_">With</span>.method
 ::<span class="hljs-title class_">TopLevel</span>::<span class="hljs-title class_">Class</span>
 
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span>::<span class="hljs-title class_">Bar</span>::<span class="hljs-title class_">Baz</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span> &lt; <span class="hljs-title class_ inherited__">Qux</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span> &lt; ::<span class="hljs-title class_ inherited__">Qux</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span>&lt;<span class="hljs-title class_ inherited__">Qux</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span>::<span class="hljs-title class_">Bar</span> &lt; <span class="hljs-title class_ inherited__">Qux</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span> &lt; <span class="hljs-title class_ inherited__">Qux</span>::<span class="hljs-title class_ inherited__">Quux</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span>::<span class="hljs-title class_">Bar</span>::<span class="hljs-title class_">Baz</span> &lt; <span class="hljs-title class_ inherited__">Qux</span>::<span class="hljs-title class_ inherited__">Quux</span>
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Foo</span>::<span class="hljs-title class_">Bar</span>::<span class="hljs-title class_">Baz</span> &lt; <span class="hljs-title class_ inherited__">Qux</span>::<span class="hljs-title class_ inherited__">Quux</span>::<span class="hljs-title class_ inherited__">Corge</span>
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-keyword">class</span> <span class="hljs-title class_">Child</span> &lt; <span class="hljs-title class_ inherited__">Parent</span>
-<span class="hljs-keyword">end</span>
