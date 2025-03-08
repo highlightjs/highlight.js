@@ -4,8 +4,19 @@ New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 
+Themes:
+
+- Added `Night Coder Ash` theme [Ashkan Shirpour][]
+- Added `Night Coder Charcoal` theme [Ashkan Shirpour][]
+- Added `Night Coder Ember` theme [Ashkan Shirpour][]
+- Added `Night Coder Flame` theme [Ashkan Shirpour][]
+- Added `Paper` theme [Ashkan Shirpour][]
+- Added `Ice` theme [Ashkan Shirpour][]
+
 CONTRIBUTORS
 [Josh Marchand][https://github.com/yHSJ]
+
+[Ashkan Shirpour]: https://github.com/a5hk
 
 ## Version 11.11.1
 

@@ -1,0 +1,147 @@
+/*
+  Theme: Night Coder Ember
+  Author: Ashkan Shirpour
+  Repository: https://github.com/a5hk/night-coder
+*/
+
+.hljs-meta {
+  color: #c3ab85;
+}
+
+.hljs-comment {
+  color: #464b55;
+}
+
+.hljs-variable.constant_,
+.hljs-variable.language_ {
+  color: #f1836f;
+}
+
+.hljs-operator {
+  color: #f2f28c;
+}
+
+.hljs-doctag {
+  color: #abadb2;
+}
+
+.hljs-title.function_.invoke__ {
+  color: #ddc888;
+}
+
+.hljs-title.function_ {
+  color: #85c3ab;
+}
+
+.hljs-keyword,
+.hljs-meta .hljs-keyword {
+  color: #c982c1;
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-char.escape_ {
+  color: #bfa6f2;
+}
+
+.hljs-built_in {
+  color: #ff99b3;
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__ {
+  color: #829dc9;
+}
+
+.hljs-params {
+  color: #e5e6e7;
+}
+
+.hljs-property {
+  color: #e4aa81;
+}
+
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #8dbf82;
+}
+
+.hljs-type {
+  color: #0bc2cb;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #c1c2c6;
+}
+
+.hljs-attr,
+.hljs-tag .hljs-attr,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #ddc888;
+}
+
+.hljs-tag,
+.hljs-template-tag,
+.hljs-tag .hljs-name,
+.hljs-name {
+  color: #e4aa81;
+}
+
+.hljs-section {
+  color: #ddc888;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis,
+.hljs-quote {
+  font-style: italic;
+}
+
+.hljs-punctuation {
+  color: #abadb2;
+}
+
+.hljs-deletion {
+  color: #ff7575;
+}
+
+.hljs-addition {
+  color: #53ac53;
+}
+
+.hljs-subst {
+  color: #c1c2c6;
+}
+
+.hljs-bullet {
+  color: #e5e6e7;
+}
+
+.hljs-link {
+  color: #85c3ab;
+}
+
+.hljs-formula {
+  color: #c3ab85;
+}
+
+.hljs-code {
+  color: #abadb2;
+}
+
+.hljs {
+  background: #030917;
+  color: #c1c2c6;
+}

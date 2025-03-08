@@ -1,0 +1,147 @@
+/*
+  Theme: Ice
+  Author: Ashkan Shirpour
+  Repository: https://github.com/a5hk/ice
+*/
+
+.hljs-meta {
+  color: #a8a8ff;
+}
+
+.hljs-comment {
+  color: #456174;
+}
+
+.hljs-variable.constant_,
+.hljs-variable.language_ {
+  color: #b3fbff;
+}
+
+.hljs-operator {
+  color: #d1aaf8;
+}
+
+.hljs-doctag {
+  color: #aab7c0;
+}
+
+.hljs-title.function_.invoke__ {
+  color: #86f9d2;
+}
+
+.hljs-title.function_ {
+  color: #7ece98;
+}
+
+.hljs-keyword,
+.hljs-meta .hljs-keyword {
+  color: #d1aaf8;
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-char.escape_ {
+  color: #a8a8ff;
+}
+
+.hljs-built_in {
+  color: #77d8f8;
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__ {
+  color: #77d8f8;
+}
+
+.hljs-params {
+  color: #e5e9ec;
+}
+
+.hljs-property {
+  color: #2dd2ae;
+}
+
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #20dfd6;
+}
+
+.hljs-type {
+  color: #4dc3fe;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #c0cad0;
+}
+
+.hljs-attr,
+.hljs-tag .hljs-attr,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #86f9d2;
+}
+
+.hljs-tag,
+.hljs-template-tag,
+.hljs-tag .hljs-name,
+.hljs-name {
+  color: #2dd2ae;
+}
+
+.hljs-section {
+  color: #86f9d2;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis,
+.hljs-quote {
+  font-style: italic;
+}
+
+.hljs-punctuation {
+  color: #aab7c0;
+}
+
+.hljs-deletion {
+  color: #ff7575;
+}
+
+.hljs-addition {
+  color: #53ac53;
+}
+
+.hljs-subst {
+  color: #c0cad0;
+}
+
+.hljs-bullet {
+  color: #e5e9ec;
+}
+
+.hljs-link {
+  color: #d1aaf8;
+}
+
+.hljs-formula {
+  color: #a8a8ff;
+}
+
+.hljs-code {
+  color: #aab7c0;
+}
+
+.hljs {
+  background: #012841;
+  color: #c0cad0;
+}
