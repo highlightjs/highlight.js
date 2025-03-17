@@ -1412,12 +1412,13 @@ export default function(hljs) {
     variants: [
       {
         begin: [
-          /#macro\s+/,
+          /#macro/,
+          /\s+/,
           VALID_IDENTIFIER_RE
         ],
         scope: {
           1: "meta",
-          2: "variable.constant"
+          3: "variable.constant"
         },
         contains: [
           ...EXPRESSION,

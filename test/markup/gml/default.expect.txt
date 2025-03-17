@@ -1,6 +1,6 @@
-<span class="hljs-meta">#macro </span><span class="hljs-variable constant_">DEBUG</span> <span class="hljs-literal">false</span>
-<span class="hljs-meta">#macro </span><span class="hljs-variable constant_">DEBUG</span>:Debug <span class="hljs-literal">true</span>
-<span class="hljs-meta">#macro </span><span class="hljs-variable constant_">DEBUG</span>:Release <span class="hljs-literal">false</span>
+<span class="hljs-meta">#macro</span> <span class="hljs-variable constant_">DEBUG</span> <span class="hljs-literal">false</span>
+<span class="hljs-meta">#macro</span> <span class="hljs-variable constant_">DEBUG</span>:Debug <span class="hljs-literal">true</span>
+<span class="hljs-meta">#macro</span> <span class="hljs-variable constant_">DEBUG</span>:Release <span class="hljs-literal">false</span>
 
 <span class="hljs-comment">/// <span class="hljs-doctag">@description</span> Collision code</span>
 <span class="hljs-comment">/// <span class="hljs-doctag">@self </span><span class="hljs-type">{Id.Instance}</span></span>
