@@ -1414,6 +1414,28 @@ export default function(hljs) {
         begin: [
           /#macro/,
           /\s+/,
+          VALID_IDENTIFIER_RE,
+          /:/,
+          VALID_IDENTIFIER_RE
+        ],
+        scope: {
+          1: "meta",
+          3: "variable.constant",
+          4: "punctuation",
+          5: "variable.constant"
+        },
+        contains: [
+          ...EXPRESSION,
+          COMMENT,
+          {
+            match: /\\\n/
+          }
+        ],
+      },
+      {
+        begin: [
+          /#macro/,
+          /\s+/,
           VALID_IDENTIFIER_RE
         ],
         scope: {
@@ -1426,13 +1448,13 @@ export default function(hljs) {
           {
             match: /\\\n/
           }
-        ]
+        ],
       },
       {
         begin: /#(end)?region\b/,
         beginScope: "meta",
         contains: [COMMENT_LINE_INNER]
-      },
+      }
     ]
   };
 
