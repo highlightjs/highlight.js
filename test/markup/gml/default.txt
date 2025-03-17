@@ -1,7 +1,7 @@
 
 #macro DEBUG false
-#macro DEBUG:Debug true
-#macro DEBUG:Release false
+#macro Debug:DEBUG true
+#macro Release:DEBUG false
 
 /// @description Collision code
 /// @self {Id.Instance}
