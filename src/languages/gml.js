@@ -1142,8 +1142,8 @@ export default function(hljs) {
   const STRING_SUBSTITUTION = {
     begin: /{/,
     end: /}/,
-    beginScope: "char.escape",
-    endScope: "char.escape",
+    beginScope: "punctuation",
+    endScope: "punctuation",
     scope: "subst",
     contains: EXPRESSION
   };
