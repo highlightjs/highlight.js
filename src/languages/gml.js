@@ -1415,7 +1415,6 @@ export default function(hljs) {
           /#macro\s+/,
           VALID_IDENTIFIER_RE
         ],
-        end: /$/,
         scope: {
           1: "meta",
           2: "variable.constant"
