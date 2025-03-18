@@ -1185,14 +1185,14 @@ export default function(hljs) {
         ]
       },
       {
-        begin: "@'",
-        end: "'",
+        begin: /@'/,
+        end: /'/,
         relevance: 10,
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
-        begin: "@\"",
-        end: "\"",
+        begin: /@"/,
+        end: /"/,
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
