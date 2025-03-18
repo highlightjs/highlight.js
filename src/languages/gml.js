@@ -1360,7 +1360,7 @@ export default function(hljs) {
       VALID_IDENTIFIER_RE,
       /\s*{/
     ],
-    end: "}",
+    end: /}/,
     scope: {
       1: "keyword",
       3: "variable.constant"
