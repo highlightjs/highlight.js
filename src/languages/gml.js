@@ -1257,7 +1257,7 @@ export default function(hljs) {
    * for keywords such as `if (<condition>)`, so has lower priority in the mode `contains` list.
    */
   const FUNCTION_CALL = {
-    begin: [
+    match: [
       VALID_IDENTIFIER_RE,
       /\s*?/,
       /\(/
