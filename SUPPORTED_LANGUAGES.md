@@ -87,6 +87,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Fortran                 | fortran, f90, f95      |         |
 | FunC                    | func                   | [highlightjs-func](https://github.com/highlightjs/highlightjs-func) |
 | G-Code                  | gcode, nc              |         |
+| GameMaker Language      | gml                    |         |
 | Gams                    | gams, gms              |         |
 | GAUSS                   | gauss, gss             |         |
 | GDScript                | godot, gdscript        | [highlightjs-gdscript](https://github.com/highlightjs/highlightjs-gdscript) |

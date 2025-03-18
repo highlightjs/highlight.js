@@ -1,22 +1,68 @@
+
+#macro DEBUG false
+#macro Debug:DEBUG true
+#macro Release:DEBUG false
+
 /// @description Collision code
-// standard collision handling
+/// @self {Id.Instance}
+function standard_collisions() {
 
-// Horizontal collisions
-if(place_meeting(x+hspd, y, obj_wall)) {
-	while(!place_meeting(x+sign(hspd), y, obj_wall)) {
-		x += sign(hspd);
+	// standard collision handling
+
+	// Horizontal collisions
+	if(place_meeting(x+hspd, y, obj_wall)) {
+		while(!place_meeting(x+sign(hspd), y, obj_wall)) {
+			x += sign(hspd);
+		}
+		hspd = 0;
 	}
-	hspd = 0;
-}
-x += hspd;
+	x += hspd;
 
-// Vertical collisions
-if(place_meeting(x, y+vspd, collide_obj)) {
-	while(!place_meeting(x, y+sign(vspd), collide_obj)) {
-		y += sign(vspd);
+	// Vertical collisions
+	if(place_meeting(x, y+vspd, collide_obj)) {
+		while(!place_meeting(x, y+sign(vspd), collide_obj)) {
+			y += sign(vspd);
+		}
+		vspd = 0;
 	}
-	vspd = 0;
-}
-y += vspd;
+	y += vspd;
 
-show_debug_message("This is a test");
+	if (DEBUG) {
+		show_debug_message($"x: {x},\ty: {y}");
+	}
+
+}
+
+/// @description A sample constructor that does something.
+/// @param {Real} [some_data=2] Some optional data.
+function SomeConstructor(some_data = 2) constructor {
+
+	self.some_data = some_data;
+
+	/// @description Some example function!
+	/// @pure
+	/// @param {String} stuff
+	/// @returns {Bool}
+	static do_things = function(stuff) {
+		if (string_digits(stuff) != stuff) {
+			return false;
+		}
+
+		return real(stuff) == self.some_data;
+	};
+
+}
+
+/** @desc Some random enum. */
+enum AnEnum {
+	/** @desc It is zero! */
+	Zero = 0,
+	/** @desc It is one! */
+	One = 1
+}
+
+var some_constructor = new SomeConstructor(AnEnum.Zero);
+
+if (some_constructor.do_things("0")) {
+	throw "idk";
+}
