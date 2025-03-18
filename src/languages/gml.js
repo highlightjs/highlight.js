@@ -1107,8 +1107,6 @@ export default function(hljs) {
   const COMMENT_JSDOC = {
     begin: /\/\/\//,
     end: /$/,
-    scope: "comment",
-    relevance: 0,
     contains: JSDOC_ANNOTATIONS,
   };
 
@@ -1118,8 +1116,6 @@ export default function(hljs) {
   const COMMENT_BLOCK_JSDOC = {
     begin: /\/\*\*/,
     end: /\*\//,
-    scope: "comment",
-    relevance: 0,
     contains: JSDOC_ANNOTATIONS
   };
 
@@ -1127,6 +1123,8 @@ export default function(hljs) {
    * Modes for the types of comments supported in GML.
    */
   const COMMENT = {
+    scope: "comment",
+    relevance: 0,
     variants: [
       COMMENT_JSDOC,
       COMMENT_BLOCK_JSDOC,
