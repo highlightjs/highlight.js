@@ -1164,7 +1164,7 @@ export default function(hljs) {
     scope: "char.escape",
     variants: [
       { match: /\\u[a-fA-F0-9]{1,6}/ },
-      { match: /\\[^\n]/ }
+      { match: /\\\S/ }
     ]
   };
 
