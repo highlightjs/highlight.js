@@ -1172,11 +1172,11 @@ export default function(hljs) {
    * Various types of strings supported in the engine.
    */
   const STRING = {
+    scope: "string",
     variants: [
       {
         begin: /\$"/,
         end: /\"/,
-        scope: "string",
         relevance: 10,
         illegal: /\n/,
         contains: [
@@ -1185,20 +1185,17 @@ export default function(hljs) {
         ]
       },
       {
-        scope: "string",
         begin: "@'",
         end: "'",
         relevance: 10,
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
-        scope: "string",
         begin: "@\"",
         end: "\"",
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
-        scope: "string",
         begin: /"/,
         end: /"/,
         illegal: /\n/,
