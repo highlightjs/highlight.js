@@ -4,8 +4,14 @@ New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 
+Core Grammars:
+
+- enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
+
 CONTRIBUTORS
-[Josh Marchand][https://github.com/yHSJ]
+
+[Josh Marchand]: https://github.com/yHSJ
+[Max Liashuk]: https://github.com/probil
 
 ## Version 11.11.1
 
