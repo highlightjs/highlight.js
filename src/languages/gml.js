@@ -1264,7 +1264,9 @@ export default function(hljs) {
     ],
     scope: {
       1: "title.function.invoke"
-    }
+    },
+    // This is so broad it really says nothing about the language.
+    relevance: 0
   };
 
   /**
