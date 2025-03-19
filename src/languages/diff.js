@@ -17,7 +17,7 @@ export default function(hljs) {
         className: 'meta',
         relevance: 10,
         match: regex.either(
-          /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/,
+          /^@@ +-\d+(?:,\d+)? +\+\d+(?:,\d+)? +@@/,
           /^\*\*\* +\d+,\d+ +\*\*\*\*$/,
           /^--- +\d+,\d+ +----$/
         )
