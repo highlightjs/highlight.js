@@ -7,11 +7,13 @@ New Grammars:
 Core Grammars:
 
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
+- enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
 
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
 [Max Liashuk]: https://github.com/probil
+[Max Reznik]: https://github.com/reznikmm
 
 ## Version 11.11.1
 
