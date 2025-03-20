@@ -12,10 +12,26 @@ index 123456..789abc 100644
 @@ -28,2 +28,2 @@
 - removal
 + addition
-diff --git a/single_line_a.txt b/single_line_b.txt
+diff --git a/file.txt b/file.txt
 index 8baef1b..24c5735 100644
---- a/single_line_a.txt
-+++ b/single_line_b.txt
+--- a/file.txt
++++ b/file.txt
 @@ -1 +1 @@
 -removal
 +addition
+diff --git a/file.txt b/file.txt
+index f9308d8..f39c17d 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1,2 +1 @@
+-removal1
+-removal2
++addition
+diff --git a/file.txt b/file.txt
+index 1037b05..54addbd 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1,2 @@
+-removal
++addition1
++addition2
