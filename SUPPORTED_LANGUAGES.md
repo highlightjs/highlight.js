@@ -253,6 +253,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Vala                    | vala                   |         |
 | Verilog                 | verilog, v             |         |
 | Vim Script              | vim                    |         |
+| VoltScript              | voltscript, vss, lotusscript, lss | [highlightjs-voltscript](https://github.com/HCL-TECH-SOFTWARE/highlightjs-voltscript) |
 | WGSL                    | wgsl                   | [highlightjs-wgsl](https://github.com/highlightjs/highlightjs-wgsl) |
 | X#                      | xsharp, xs, prg        | [highlightjs-xsharp](https://github.com/InfomindsAg/highlightjs-xsharp) |
 | X++                     | axapta, x++            |         |
