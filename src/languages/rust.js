@@ -31,27 +31,6 @@ export default function(hljs) {
     end: /"/,
     contains: [ hljs.BACKSLASH_ESCAPE ]
   };
-  const META_DELIM_TREE = {
-    relevance: 0,
-    variants: [
-      {
-        begin: /\(/,
-        end: /\)/,
-      },
-      {
-        begin: /\[/,
-        end: /\]/,
-      },
-      {
-        begin: /\{/,
-        end: /\}/,
-      },
-    ],
-    contains: [
-      'self',
-      META_STRING,
-    ]
-  };
   const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
   const KEYWORDS = [
     "abstract",
@@ -274,7 +253,27 @@ export default function(hljs) {
         end: '\\]',
         contains: [
           META_STRING,
-          META_DELIM_TREE,
+          {
+            relevance: 0,
+            variants: [
+              {
+                begin: /\(/,
+                end: /\)/,
+              },
+              {
+                begin: /\[/,
+                end: /\]/,
+              },
+              {
+                begin: /\{/,
+                end: /\}/,
+              },
+            ],
+            contains: [
+              'self',
+              META_STRING,
+            ]
+          },
         ]
       },
       {
