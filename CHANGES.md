@@ -8,12 +8,14 @@ Core Grammars:
 
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
 - enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
+- fix(rust) ensure brackets are balanced within attributes [ewwwin][]
 
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
 [Max Liashuk]: https://github.com/probil
 [Max Reznik]: https://github.com/reznikmm
+[ewwwin]: https://github.com/ewwwin
 
 ## Version 11.11.1
 
