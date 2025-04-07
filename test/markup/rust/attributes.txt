@@ -1,0 +1,18 @@
+#[foo]
+#![foo]
+
+#[foo(bar)]
+#[foo = bar]
+#[foo("a \"b\" c")]
+#[foo(bar = [a, b, c])]
+#[foo[bar]]
+#[foo{bar}]
+
+#![no_std]
+#[doc = "example"]
+#[allow(unused, clippy::inline_always)]
+#[macro_use(foo, bar)]
+#[link(name = "CoreFoundation", kind = "framework")]
+
+#[rtic::app(device = lm3s6965, dispatchers = [UART0, UART1])]
+#[task(binds = USB_OTG1, local = [poller])]

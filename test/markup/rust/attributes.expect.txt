@@ -1,0 +1,18 @@
+<span class="hljs-meta">#[foo]</span>
+<span class="hljs-meta">#![foo]</span>
+
+<span class="hljs-meta">#[foo(bar)]</span>
+<span class="hljs-meta">#[foo = bar]</span>
+<span class="hljs-meta">#[foo(<span class="hljs-string">&quot;a \&quot;b\&quot; c&quot;</span>)]</span>
+<span class="hljs-meta">#[foo(bar = [a, b, c])]</span>
+<span class="hljs-meta">#[foo[bar]]</span>
+<span class="hljs-meta">#[foo{bar}]</span>
+
+<span class="hljs-meta">#![no_std]</span>
+<span class="hljs-meta">#[doc = <span class="hljs-string">&quot;example&quot;</span>]</span>
+<span class="hljs-meta">#[allow(unused, clippy::inline_always)]</span>
+<span class="hljs-meta">#[macro_use(foo, bar)]</span>
+<span class="hljs-meta">#[link(name = <span class="hljs-string">&quot;CoreFoundation&quot;</span>, kind = <span class="hljs-string">&quot;framework&quot;</span>)]</span>
+
+<span class="hljs-meta">#[rtic::app(device = lm3s6965, dispatchers = [UART0, UART1])]</span>
+<span class="hljs-meta">#[task(binds = USB_OTG1, local = [poller])]</span>
