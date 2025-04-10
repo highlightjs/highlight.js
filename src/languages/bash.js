@@ -38,18 +38,7 @@ export default function(hljs) {
     end: /\)/,
     contains: [ hljs.BACKSLASH_ESCAPE ]
   };
-  const COMMENT = hljs.inherit(
-    hljs.COMMENT(),
-    {
-      match: [
-        /(^|\s)/,
-        /#.*$/
-      ],
-      scope: {
-        2: 'comment'
-      }
-    }
-  );
+  const COMMENT = hljs.COMMENT(/(?<=^|\s)#/, /$/);
   const HERE_DOC = {
     begin: /<<-?\s*(?=\w+)/,
     starts: { contains: [
