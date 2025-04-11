@@ -387,7 +387,8 @@ export default function(hljs) {
       noneOf([
         ...ECMAScript.BUILT_IN_GLOBALS,
         "super",
-        "import"
+        "import",
+        "await",
       ].map(x => `${x}\\s*\\(`)),
       IDENT_RE, regex.lookahead(/\s*\(/)),
     className: "title.function",
