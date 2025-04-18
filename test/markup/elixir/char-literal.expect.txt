@@ -1,0 +1,2 @@
+<span class="hljs-keyword">defguardp</span> apostrophe?(c) <span class="hljs-keyword">when</span> c == <span class="hljs-string">?&#x27;</span>
+<span class="hljs-keyword">defguardp</span> upper?(c) <span class="hljs-keyword">when</span> (c &gt;= ?A <span class="hljs-keyword">and</span> c &lt;= ?Z)
