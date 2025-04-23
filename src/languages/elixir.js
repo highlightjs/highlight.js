@@ -230,8 +230,8 @@ export default function(hljs) {
     end: /\bdo\b|$|;/
   });
   const CHAR_LITERAL = {
-    className: 'string',
-    begin: /\?'/,
+    scope: 'string',
+    match: /\?'/,
     relevance: 0
   };
   const ELIXIR_DEFAULT_CONTAINS = [
