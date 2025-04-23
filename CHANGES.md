@@ -3,6 +3,7 @@
 New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
+- added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
 
 Core Grammars:
 
@@ -14,6 +15,7 @@ CONTRIBUTORS
 [Josh Marchand]: https://github.com/yHSJ
 [Max Liashuk]: https://github.com/probil
 [Max Reznik]: https://github.com/reznikmm
+[Chester Moses]: https://github.com/Chester-Moses-HCL
 
 ## Version 11.11.1
 
