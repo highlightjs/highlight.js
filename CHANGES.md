@@ -7,6 +7,7 @@ New Grammars:
 
 Core Grammars:
 
+- fix(bash) resolve regression in comment doctag highlighting [wolfgang42][]
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
 - enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
 
