@@ -3,9 +3,11 @@
 New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
+- added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
 
 Core Grammars:
 
+- fix(javascript) correctly highlight 'for await' again [wolfgang42][]
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
 - enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
@@ -16,6 +18,8 @@ CONTRIBUTORS
 [Max Liashuk]: https://github.com/probil
 [Max Reznik]: https://github.com/reznikmm
 [Antoine Musso]: https://github.com/hashar
+[Chester Moses]: https://github.com/Chester-Moses-HCL
+
 
 ## Version 11.11.1
 
