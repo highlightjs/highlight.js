@@ -11,6 +11,7 @@ Core Grammars:
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
 - enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
+- enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
 
 CONTRIBUTORS
 
@@ -18,6 +19,7 @@ CONTRIBUTORS
 [Max Liashuk]: https://github.com/probil
 [Max Reznik]: https://github.com/reznikmm
 [Chris Wilson]: https://github.com/sushicw
+[Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 
 

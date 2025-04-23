@@ -49,3 +49,15 @@
     <span class="hljs-attr">label</span>: <span class="hljs-string">&#x27;foo&#x27;</span>,
     <span class="hljs-attr">time</span>:<span class="hljs-title function_ invoke__">time</span>() + <span class="hljs-keyword">array</span>(<span class="hljs-number">5</span>)[<span class="hljs-number">0</span>] + <span class="hljs-title class_">Foo</span>::<span class="hljs-variable constant_">HOUR</span>,
 );
+
+<span class="hljs-title function_ invoke__">header</span>(
+    <span class="hljs-comment">// Contained C line comment</span>
+    <span class="hljs-comment">/* Contained C block comment */</span>
+    <span class="hljs-comment"># Contained hash comment</span>
+);
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params">
+    <span class="hljs-variable">$x</span>, <span class="hljs-comment">// C line comment</span>
+    <span class="hljs-comment">/* C block comment */</span>
+    <span class="hljs-variable">$y</span>, <span class="hljs-comment"># Contained hash comment</span>
+</span>) =&gt;</span> <span class="hljs-variable">$x</span> / <span class="hljs-variable">$y</span>;
