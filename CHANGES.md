@@ -3,11 +3,16 @@
 New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
+- added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
 
 Core Grammars:
 
+- fix(javascript) correctly highlight 'for await' again [wolfgang42][]
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
 - enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
+- fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
+- fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
+- enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
 - fix(rust) ensure brackets are balanced within attributes [ewwwin][]
 
 CONTRIBUTORS
@@ -15,7 +20,12 @@ CONTRIBUTORS
 [Josh Marchand]: https://github.com/yHSJ
 [Max Liashuk]: https://github.com/probil
 [Max Reznik]: https://github.com/reznikmm
+[Kevin Bloch]: https://github.com/codingthat
+[Chris Wilson]: https://github.com/sushicw
+[Antoine Musso]: https://github.com/hashar
+[Chester Moses]: https://github.com/Chester-Moses-HCL
 [ewwwin]: https://github.com/ewwwin
+
 
 ## Version 11.11.1
 

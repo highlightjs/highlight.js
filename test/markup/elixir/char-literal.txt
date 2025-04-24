@@ -1,0 +1,2 @@
+defguardp apostrophe?(c) when c == ?'
+defguardp upper?(c) when (c >= ?A and c <= ?Z)
