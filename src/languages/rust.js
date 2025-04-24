@@ -273,7 +273,7 @@ export default function(hljs) {
               'self',
               META_STRING
             ]
-          },
+          }
         ]
       },
       {
