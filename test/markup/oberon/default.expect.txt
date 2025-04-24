@@ -1,0 +1,77 @@
+<span class="hljs-keyword">MODULE</span> <span class="hljs-title">M</span>;
+<span class="hljs-comment">(*a non-nested comment*)</span>
+<span class="hljs-comment">(*a <span class="hljs-comment">(*nested*)</span> comment*)</span>
+
+   <span class="hljs-keyword">IMPORT</span> Math;
+
+   <span class="hljs-keyword">CONST</span>
+      <span class="hljs-comment">(*strings*)</span>
+      str = <span class="hljs-string">&quot;a string&quot;</span>;
+      null = <span class="hljs-string">0X</span>;
+      linefeed = <span class="hljs-string">0AX</span>;
+
+      <span class="hljs-comment">(*integers*)</span>
+      i1 = <span class="hljs-number">0</span>;
+      i2 = <span class="hljs-number">12</span>;
+      i3 = -<span class="hljs-number">12</span>;
+      i4 = <span class="hljs-number">0H</span>;
+      i5 = <span class="hljs-number">01H</span>;
+      i6 = <span class="hljs-number">0AH</span>;
+      i7 = <span class="hljs-number">0A7H</span>;
+
+      <span class="hljs-comment">(*real numbers*)</span>
+      r1 = <span class="hljs-number">1.</span>;
+      r2 = <span class="hljs-number">1.2</span>;
+      r3 = <span class="hljs-number">1.23</span>;
+      r4 = <span class="hljs-number">1.E0</span>;
+      r5 = <span class="hljs-number">1.2E+10</span>;
+      r6 = <span class="hljs-number">1.23E-10</span>;
+
+   <span class="hljs-keyword">TYPE</span>
+      T = <span class="hljs-keyword">POINTER</span> <span class="hljs-keyword">TO</span> <span class="hljs-keyword">RECORD</span> <span class="hljs-keyword">END</span>;
+
+   <span class="hljs-keyword">VAR</span>
+      b: <span class="hljs-type">BOOLEAN</span>;
+      y: <span class="hljs-type">BYTE</span>;
+      ch: <span class="hljs-type">CHAR</span>;
+      i: <span class="hljs-type">INTEGER</span>;
+      r: <span class="hljs-type">REAL</span>;
+      A: <span class="hljs-type">SET</span>;
+      s: <span class="hljs-keyword">ARRAY</span> <span class="hljs-number">32</span> <span class="hljs-keyword">OF</span> <span class="hljs-type">CHAR</span>;
+      x: T;
+
+   <span class="hljs-keyword">PROCEDURE</span> <span class="hljs-title">Func</span>(): <span class="hljs-type">INTEGER</span>;
+   <span class="hljs-keyword">BEGIN</span>
+      A := {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>};
+      x := <span class="hljs-keyword">NIL</span>;
+      s[<span class="hljs-number">0</span>] := <span class="hljs-string">0X</span>;
+      <span class="hljs-keyword">CASE</span> <span class="hljs-number">1</span> <span class="hljs-keyword">DIV</span> <span class="hljs-number">2</span> <span class="hljs-keyword">MOD</span> <span class="hljs-number">3</span> <span class="hljs-keyword">OF</span> <span class="hljs-number">0</span>, <span class="hljs-number">1</span>: <span class="hljs-keyword">END</span>;
+      <span class="hljs-keyword">FOR</span> i := <span class="hljs-number">0</span> <span class="hljs-keyword">TO</span> <span class="hljs-number">100</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">10</span> <span class="hljs-keyword">DO</span> <span class="hljs-keyword">END</span>;
+      <span class="hljs-keyword">IF</span> (<span class="hljs-number">0</span> <span class="hljs-keyword">IN</span> {}) <span class="hljs-keyword">OR</span> (x <span class="hljs-keyword">IS</span> T) &amp; <span class="hljs-keyword">TRUE</span> <span class="hljs-keyword">THEN</span>
+      <span class="hljs-keyword">ELSIF</span> <span class="hljs-keyword">FALSE</span> <span class="hljs-keyword">THEN</span>
+      <span class="hljs-keyword">ELSE</span>
+      <span class="hljs-keyword">END</span>;
+      <span class="hljs-keyword">REPEAT</span> <span class="hljs-keyword">UNTIL</span> <span class="hljs-keyword">TRUE</span>;
+      <span class="hljs-keyword">WHILE</span> <span class="hljs-keyword">FALSE</span> <span class="hljs-keyword">DO</span> <span class="hljs-keyword">END</span>;
+      r := <span class="hljs-built_in">ABS</span>(r);
+      i := <span class="hljs-built_in">ASR</span>(i, <span class="hljs-number">1</span>);
+      <span class="hljs-built_in">ASSERT</span>(<span class="hljs-keyword">TRUE</span>);
+      ch := <span class="hljs-built_in">CHR</span>(<span class="hljs-number">0</span>);
+      <span class="hljs-built_in">DEC</span>(i);
+      <span class="hljs-built_in">EXCL</span>(A, <span class="hljs-number">0</span>);
+      i := <span class="hljs-built_in">FLOOR</span>(r);
+      r := <span class="hljs-built_in">FLT</span>(i);
+      <span class="hljs-built_in">INC</span>(i);
+      <span class="hljs-built_in">INCL</span>(A, <span class="hljs-number">0</span>);
+      i := <span class="hljs-built_in">LEN</span>(s);
+      i := <span class="hljs-built_in">LSL</span>(i, <span class="hljs-number">1</span>);
+      <span class="hljs-built_in">NEW</span>(x);
+      b := <span class="hljs-built_in">ODD</span>(i);
+      i := <span class="hljs-built_in">ORD</span>(ch);
+      <span class="hljs-built_in">PACK</span>(r, <span class="hljs-number">1</span>);
+      i := <span class="hljs-built_in">ROR</span>(i, <span class="hljs-number">1</span>);
+      <span class="hljs-built_in">UNPK</span>(r, i)
+   <span class="hljs-keyword">RETURN</span> <span class="hljs-number">0</span>
+   <span class="hljs-keyword">END</span> Func;
+
+<span class="hljs-keyword">END</span> M.
