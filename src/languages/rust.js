@@ -21,7 +21,7 @@ export default function(hljs) {
     relevance: 0,
     begin: regex.concat(
       /\b/,
-      /(?!let|for|while|if|else|match\b)/,
+      /(?!(?:let|for|while|if|else|match)\b)/,
       IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
