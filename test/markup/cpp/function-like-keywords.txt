@@ -7,6 +7,8 @@ while (ch) {}
 
 for (;;) {}
 
-void f() = delete("reason");
-
 static_assert(true);
+contract_assert(false);
+
+_BitInt(64) x;
+_Atomic(int) y;
