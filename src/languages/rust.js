@@ -258,20 +258,20 @@ export default function(hljs) {
             variants: [
               {
                 begin: /\(/,
-                end: /\)/,
+                end: /\)/
               },
               {
                 begin: /\[/,
-                end: /\]/,
+                end: /\]/
               },
               {
                 begin: /\{/,
-                end: /\}/,
-              },
+                end: /\}/
+              }
             ],
             contains: [
               'self',
-              META_STRING,
+              META_STRING
             ]
           },
         ]
