@@ -14,6 +14,15 @@ Core Grammars:
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
 
+Themes:
+
+- Added `Night Coder Ash` theme [Ashkan Shirpour][]
+- Added `Night Coder Charcoal` theme [Ashkan Shirpour][]
+- Added `Night Coder Ember` theme [Ashkan Shirpour][]
+- Added `Night Coder Flame` theme [Ashkan Shirpour][]
+- Added `Paper` theme [Ashkan Shirpour][]
+- Added `Ice` theme [Ashkan Shirpour][]
+
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
@@ -24,6 +33,8 @@ CONTRIBUTORS
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 
+
+[Ashkan Shirpour]: https://github.com/a5hk
 
 ## Version 11.11.1
 
