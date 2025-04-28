@@ -1,0 +1,1 @@
+~/git-repo[branch-1.0]$ ls a.file
