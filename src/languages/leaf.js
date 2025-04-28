@@ -26,7 +26,7 @@ export default function(hljs) {
       },
       {
         scope: 'keyword',
-        match: LITERALS.join("|"),
+        match: LITERALS.map(lit => `\\b${lit}\\b`).join("|"),
       },
       {
         scope: 'variable',
