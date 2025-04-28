@@ -14,6 +14,10 @@ Core Grammars:
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
 
+Documentation:
+
+- alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
+
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
@@ -23,6 +27,7 @@ CONTRIBUTORS
 [Chris Wilson]: https://github.com/sushicw
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
+[Adam Lui]: https://github.com/adamlui
 
 
 ## Version 11.11.1
