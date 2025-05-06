@@ -1,0 +1,12 @@
+[
+  {
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;apples&quot;</span>,
+    <span class="hljs-string">&quot;count&quot;</span>: [<span class="hljs-number">12000</span>, <span class="hljs-number">20000</span>],
+    <span class="hljs-string">&quot;description&quot;</span>: {<span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;...&quot;</span>, <span class="hljs-string">&quot;sensitive&quot;</span>: <span class="hljs-literal">false</span>}
+  },
+  { <span class="hljs-comment">// Like JSON, but can also include comments and unquoted identifiers.</span>
+    <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;oranges&quot;</span>,
+    <span class="hljs-attr">count</span>: [<span class="hljs-number">17500</span>, <span class="hljs-literal">null</span>, <span class="hljs-number">0x1F2B</span>], <span class="hljs-comment">// Hexadecimal allowed</span>
+    <span class="hljs-attr">description</span>: {<span class="hljs-string">&#x27;text&#x27;</span>: <span class="hljs-string">&#x27;...&#x27;</span>, <span class="hljs-string">&#x27;sensitive&#x27;</span>: <span class="hljs-literal">false</span>} <span class="hljs-comment">/* Single-quoted strings allowed */</span>
+  }, <span class="hljs-comment">// Trailing commas allowed</span>
+]

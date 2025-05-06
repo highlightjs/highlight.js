@@ -453,11 +453,11 @@ export default function(hljs) {
 
   return {
     name: 'JavaScript',
-    aliases: ['js', 'jsx', 'mjs', 'cjs'],
+    aliases: ['js', 'json5', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     // this will be extended by TypeScript
     exports: { PARAMS_CONTAINS, CLASS_REFERENCE },
-    illegal: /#(?![$_A-z])/,
+    illegal: /#(?![$_A-Z])/i,
     contains: [
       hljs.SHEBANG({
         label: "shebang",
