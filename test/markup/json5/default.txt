@@ -1,0 +1,12 @@
+[
+  {
+    "title": "apples",
+    "count": [12000, 20000],
+    "description": {"text": "...", "sensitive": false}
+  },
+  { // Like JSON, but can also include comments and unquoted identifiers.
+    title: "oranges",
+    count: [17500, null, 0x1F2B], // Hexadecimal allowed
+    description: {'text': '...', 'sensitive': false} /* Single-quoted strings allowed */
+  }, // Trailing commas allowed
+]
