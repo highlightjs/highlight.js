@@ -74,7 +74,7 @@ After building, simply commit the `dist/your-language.min.js` that was generated
 ```
 cd extra/highlightjs-your-language
 git add dist
-git commit -m'(chore) add CDN distributable`
+git commit -m "(chore) add CDN distributable"
 git push
 ```
 
@@ -92,4 +92,4 @@ More work could be done on:
 
 - Allowing you to ONLY run your own tests, not the whole suite.
 - Allowing you to maintain a 3rd party module WITHOUT it being inside of a `highlight-js` checkout (this requires discussion though)
-- Simply make some easier tools or scripts to simply the existing process.
+- Simply make some easier tools or scripts to simplify the existing process.
