@@ -13,6 +13,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
+- fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
 
 CONTRIBUTORS
 
@@ -23,6 +24,7 @@ CONTRIBUTORS
 [Chris Wilson]: https://github.com/sushicw
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
+[Francesco Paolo Severino]: https://github.com/fpseverino
 
 
 ## Version 11.11.1
