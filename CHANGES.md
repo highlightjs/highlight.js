@@ -18,6 +18,15 @@ Documentation:
 
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
 
+Themes:
+
+- Added `Night Coder Ash` theme [Ashkan Shirpour][]
+- Added `Night Coder Charcoal` theme [Ashkan Shirpour][]
+- Added `Night Coder Ember` theme [Ashkan Shirpour][]
+- Added `Night Coder Flame` theme [Ashkan Shirpour][]
+- Added `Paper` theme [Ashkan Shirpour][]
+- Added `Ice` theme [Ashkan Shirpour][]
+
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
@@ -29,6 +38,8 @@ CONTRIBUTORS
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 [Adam Lui]: https://github.com/adamlui
 
+
+[Ashkan Shirpour]: https://github.com/a5hk
 
 ## Version 11.11.1
 
