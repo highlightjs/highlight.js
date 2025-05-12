@@ -7,11 +7,11 @@ export const MODES = (hljs) => {
     BLOCK_COMMENT: hljs.C_BLOCK_COMMENT_MODE,
     HEXCOLOR: {
       scope: 'number',
-      begin: /#(([0-9A-F]{3,4})|(([0-9A-F]{2}){3,4}))\b/i
+      begin: /#(([0-9A-Fa-f]{3,4})|(([0-9A-F]{2}){3,4}))\b/
     },
     UNICODE_RANGE: {
       scope: 'number',
-      begin: /\bU\+[0-9A-F][0-9A-F?]{0,4}(-[0-9A-F][0-9A-F]{0,4})?/i
+      begin: /\b[Uu]\+[0-9A-Fa-f][0-9A-Fa-f?]{0,4}(-[0-9A-Fa-f][0-9A-Fa-f]{0,4})?/
     },
     FUNCTION_DISPATCH: {
       className: "built_in",
