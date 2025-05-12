@@ -54,7 +54,7 @@ a[href*="example"] {}
   font-variant: no-common-ligatures proportional-nums;
   font-feature-settings: "liga" 0;
   font-variation-settings: "xhgt" 0.7;
-  /* unicode-range: U+0025-00FF, U+4??; */
+  unicode-range: U+0025-00FF, U+4??;
   /* it's not 100% clear how url and format should be highlighted universally */
   /* src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
        url("/fonts/OpenSans-Regular-webfont.woff") format("woff"); */

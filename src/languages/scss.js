@@ -79,6 +79,7 @@ export default function(hljs) {
           VARIABLE,
           modes.HEXCOLOR,
           modes.CSS_NUMBER_MODE,
+          modes.UNICODE_RANGE,
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           modes.IMPORTANT,
