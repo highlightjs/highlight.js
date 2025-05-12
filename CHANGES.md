@@ -13,7 +13,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
-- enh(javascript) add json5 as alias for javascript [Kerry Shetline][]
+- enh(json) add json5 support [Kerry Shetline][]
 
 CONTRIBUTORS
 
