@@ -6,7 +6,11 @@
   },
   { // Like JSON, but can also include comments and unquoted identifiers.
     title: "oranges",
-    count: [17500, null, 0x1F2B], // Hexadecimal allowed
-    description: {'text': '...', 'sensitive': false} /* Single-quoted strings allowed */
+     // Hexadecimal allowed, + before numbers, leading/trailing decimal point, NaN, Infinity
+    'count': [17500, null, 0x1F2B, +5, -10, .6, 6., NaN, Infinity, +Infinity, -Infinity],
+    description: {'text': '...', 'sensitive': true} /* Single-quoted strings allowed */,
+    multi_line: "Strings can\
+escape\
+new lines"
   }, // Trailing commas allowed
 ]
