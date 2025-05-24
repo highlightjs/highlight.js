@@ -4,6 +4,7 @@ New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
+- added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
 
 Core Grammars:
 
