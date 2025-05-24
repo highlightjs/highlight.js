@@ -15,6 +15,10 @@ Core Grammars:
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
 - fix(rust) ensure brackets are balanced within attributes [ewwwin][]
 
+Documentation:
+
+- alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
+
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
@@ -25,6 +29,7 @@ CONTRIBUTORS
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 [ewwwin]: https://github.com/ewwwin
+[Adam Lui]: https://github.com/adamlui
 
 
 ## Version 11.11.1
