@@ -29,6 +29,7 @@ CONTRIBUTORS
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 [Adam Lui]: https://github.com/adamlui
+[Filip Hoffmann]: https://github.com/folospior
 
 
 ## Version 11.11.1
