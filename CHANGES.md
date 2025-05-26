@@ -4,6 +4,7 @@ New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
+- added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 
 Core Grammars:
 
@@ -28,6 +29,7 @@ CONTRIBUTORS
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 [Adam Lui]: https://github.com/adamlui
+[Sebastiaan Speck]: https://github.com/sebastiaanspeck
 
 
 ## Version 11.11.1
