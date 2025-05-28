@@ -136,6 +136,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lua                     | lua, pluto             |         |
 | Luau                    | luau                   | [highlightjs-luau](https://github.com/highlightjs/highlightjs-luau) |
 | Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
+| Magik                   | magik                  | [highlightjs-magik](https://github.com/sebastiaanspeck/highlightjs-magik) |
 | Makefile                | makefile, mk, mak, make |        |
 | Markdown                | markdown, md, mkdown, mkd |      |
 | Mathematica             | mathematica, mma, wl   |         |
