@@ -16,6 +16,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
+- fix(sql) escaped single quotes breaks highlight [EN Systems][]
 
 Documentation:
 
@@ -34,6 +35,7 @@ CONTRIBUTORS
 [Adam Lui]: https://github.com/adamlui
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
+[EN Systems]: https://github.com/erikn69
 
 
 ## Version 11.11.1

@@ -29,7 +29,7 @@ export default function(hljs) {
       {
         begin: /'/,
         end: /'/,
-        contains: [ { match: /''/ } ]
+        contains: [ { match: /\\./ }, { match: /''/ } ]
       }
     ]
   };
