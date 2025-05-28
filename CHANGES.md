@@ -4,6 +4,7 @@ New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
+- added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
 - added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
 
@@ -29,6 +30,7 @@ CONTRIBUTORS
 [Chris Wilson]: https://github.com/sushicw
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
+[SungHyun Kim]: https://github.com/witch-factory
 [Adam Lui]: https://github.com/adamlui
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
