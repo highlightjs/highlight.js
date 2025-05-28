@@ -4,6 +4,7 @@ New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
+- added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
 
 Core Grammars:
 
@@ -28,6 +29,7 @@ CONTRIBUTORS
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 [Adam Lui]: https://github.com/adamlui
+[Filip Hoffmann]: https://github.com/folospior
 
 
 ## Version 11.11.1
