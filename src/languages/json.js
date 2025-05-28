@@ -1,11 +1,11 @@
 /*
 Language: JSON
 Description: JSON (JavaScript Object Notation) is a lightweight data-interchange format.
-Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
-Author: Kerry Shetline <kerry@shetline.com> (added JSON5 support)
 Websites: http://www.json.org, https://www.json5.org
 Category: common, protocols, web
 */
+
+import { EXTENDED_NUMBER_MODE } from "./lib/ecmascript";
 
 export default function(hljs) {
   const ATTRIBUTE = {
@@ -45,7 +45,7 @@ export default function(hljs) {
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,
       LITERALS_MODE,
-      hljs.EXTENDED_NUMBER_MODE,
+      EXTENDED_NUMBER_MODE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ],
