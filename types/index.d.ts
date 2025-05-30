@@ -74,7 +74,6 @@ declare module 'highlight.js' {
         HASH_COMMENT_MODE: Mode
         NUMBER_MODE: Mode
         C_NUMBER_MODE: Mode
-        EXTENDED_NUMBER_MODE: Mode
         BINARY_NUMBER_MODE: Mode
         REGEXP_MODE: Mode
         TITLE_MODE: Mode

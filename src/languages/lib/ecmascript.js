@@ -3,7 +3,7 @@ export const EXTENDED_NUMBER_RE = '([-+]?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*
 
 export const EXTENDED_NUMBER_MODE = {
   scope: 'number',
-  begin: EXTENDED_NUMBER_RE,
+  match: EXTENDED_NUMBER_RE,
   relevance: 0
 };
 
