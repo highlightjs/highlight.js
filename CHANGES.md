@@ -4,6 +4,9 @@ New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
+- added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
+- added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
+- added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
 
 Core Grammars:
 
@@ -13,6 +16,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
+- enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 
 Documentation:
@@ -29,8 +33,10 @@ CONTRIBUTORS
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 [Kerry Shetline]: https://github.com/kshetline
+[SungHyun Kim]: https://github.com/witch-factory
 [Adam Lui]: https://github.com/adamlui
-
+[Sebastiaan Speck]: https://github.com/sebastiaanspeck
+[Filip Hoffmann]: https://github.com/folospior
 
 ## Version 11.11.1
 
