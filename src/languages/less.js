@@ -67,6 +67,7 @@ export default function(hljs) {
         excludeEnd: true
       }
     },
+    modes.UNICODE_RANGE,
     modes.HEXCOLOR,
     PARENS_MODE,
     IDENT_MODE('variable', '@@?' + IDENT_RE, 10),
@@ -177,7 +178,7 @@ export default function(hljs) {
       MIXIN_GUARD_MODE,
       IDENT_MODE('keyword', 'all\\b'),
       IDENT_MODE('variable', '@\\{' + IDENT_RE + '\\}'), // otherwise it’s identified as tag
-      
+
       {
         begin: '\\b(' + css.TAGS.join('|') + ')\\b',
         className: 'selector-tag'
