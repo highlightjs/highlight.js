@@ -22,6 +22,10 @@ Documentation:
 
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
 
+Themes:
+
+- Fix: cybertopia themes render correctly in shadow DOM [hbgl][]
+
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
@@ -36,6 +40,7 @@ CONTRIBUTORS
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
 [Kerry Shetline]: https://github.com/kshetline
+[hbgl]: https://github.com/hbgl
 
 ## Version 11.11.1
 
