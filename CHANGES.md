@@ -1,5 +1,9 @@
 ## Version 11.11.2
 
+Themes:
+
+- added "vs Dark " theme [Twineee1][]
+
 New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
@@ -40,7 +44,9 @@ CONTRIBUTORS
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
 [Kerry Shetline]: https://github.com/kshetline
+[Twineee1]: https://github.com/Twineee1
 [hbgl]: https://github.com/hbgl
+
 
 ## Version 11.11.1
 
