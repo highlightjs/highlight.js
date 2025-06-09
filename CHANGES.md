@@ -1,5 +1,9 @@
 ## Version 11.11.2
 
+Themes:
+
+- added "vs Dark " theme [Twineee1][]
+
 New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
@@ -23,6 +27,10 @@ Documentation:
 
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
 
+Themes:
+
+- Fix: cybertopia themes render correctly in shadow DOM [hbgl][]
+
 CONTRIBUTORS
 
 [Josh Marchand]: https://github.com/yHSJ
@@ -37,6 +45,8 @@ CONTRIBUTORS
 [Adam Lui]: https://github.com/adamlui
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
+[Twineee1]: https://github.com/Twineee1
+[hbgl]: https://github.com/hbgl
 
 ## Version 11.11.1
 
