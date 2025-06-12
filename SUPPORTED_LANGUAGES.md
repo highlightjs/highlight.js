@@ -34,6 +34,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Bash                    | bash, sh, zsh          |         |
 | BASIC                   | basic                  |         |
 | BBCode                  | bbcode                 | [highlightjs-bbcode](https://github.com/RedGuy12/highlightjs-bbcode) |
+| Bicep                   | bicep                  | [highlightjs-bicep](https://github.com/Azure/bicep/blob/main/docs/highlighting.md#highlightjs) |
 | Blade (Laravel)         | blade                  | [highlightjs-blade](https://github.com/miken32/highlightjs-blade) |
 | BNF                     | bnf                    |         |
 | BQN                     | bqn                    | [highlightjs-bqn](https://github.com/razetime/highlightjs-bqn) |

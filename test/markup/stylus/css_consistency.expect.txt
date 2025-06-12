@@ -54,7 +54,7 @@
   <span class="hljs-attribute">font-variant</span>: no-common-ligatures proportional-nums;
   <span class="hljs-attribute">font-feature-settings</span>: <span class="hljs-string">&quot;liga&quot;</span> <span class="hljs-number">0</span>;
   <span class="hljs-attribute">font-variation-settings</span>: <span class="hljs-string">&quot;xhgt&quot;</span> <span class="hljs-number">0.7</span>;
-  <span class="hljs-comment">/* unicode-range: U+0025-00FF, U+4??; */</span>
+  <span class="hljs-attribute">unicode-range</span>: U+<span class="hljs-number">0025</span>-<span class="hljs-number">00</span>FF, U+<span class="hljs-number">4</span>??;
   <span class="hljs-comment">/* it&#x27;s not 100% clear how url and format should be highlighted universally */</span>
   <span class="hljs-comment">/* src: url(&quot;/fonts/OpenSans-Regular-webfont.woff2&quot;) format(&quot;woff2&quot;),
        url(&quot;/fonts/OpenSans-Regular-webfont.woff&quot;) format(&quot;woff&quot;); */</span>
