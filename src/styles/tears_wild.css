@@ -1,0 +1,110 @@
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+code.hljs {
+    padding:3px 5px
+}
+/*!
+ * Tears of the Wild theme
+ * Based on the Hylian Sunset theme by Hunter Crandall & ztok_theme by KrlosDev for VSCode
+ * Original author: Cornsnake <cornsnake on codeberg, corn-snake on git
+ * Last edited: June 12th, 2025
+ */
+
+.hljs-comment,
+.hljs-meta {
+    color:#8AD5BE
+}
+
+.hljs-deletion,
+.hljs-selector-pseudo,
+.hljs-variable.language {
+    color:#eb6f92
+}
+
+.hljs-selector-attr,
+.hljs-tag,
+.hljs-selector-tag,
+.hjls-type,
+.hljs-template-tag {
+    color: #76cfb3;
+    font-weight: bold;
+}
+
+.hljs-doctag,
+.hljs-regexp,
+.hljs-selector-id,
+.hljs-literal,
+.hljs-link,
+.hljs-number {
+    color: #e57337;
+}
+
+.hljs-template-variable,
+.hljs-variable {
+    color: #76cfb3;
+    font-style: italic;
+}
+
+.hljs-attr,
+.hljs-property,
+.hljs-params,
+.hljs-attribute {
+    color: #86cc85;
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-built_in,
+.hljs-operator {
+    color: #f5cb6d;
+    font-weight: bold;
+}
+
+.hljs-subst,
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_,
+.hljs-selector-class {
+    color:#9ccfd8
+}
+
+.hljs-addition,
+.hljs-bullet,
+.hljs-quote,
+.hljs-string,
+.hljs-symbol {
+    color:#66D49A;
+}
+
+.hljs-code,
+.hljs-formula,
+.hljs-section {
+    color:#ea9a97
+}
+
+.hljs-char.escape_,
+.hljs-name {
+    color:#c4a7e7
+}
+
+.hljs-punctuation {
+    color:#e0def4
+}
+
+.hljs {
+    background:#191917;
+    color:#f0f0f0
+}
+
+.hljs-emphasis {
+    font-style:italic;
+    font-weight: bolder;
+}
+
+.hljs-strong {
+    font-weight:700
+}
