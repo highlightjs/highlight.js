@@ -36,8 +36,8 @@ code.hljs {
 .hljs-regexp,
 .hljs-deletion,
 .hljs-selector-pseudo,
-.hljs-variable.language {
-    color:#eb6f92
+.hljs-variable.language_ {
+    color:#b40100;
 }
 
 .hljs-type,
@@ -114,4 +114,12 @@ code.hljs {
 
 .hljs-strong {
     font-weight:700
+}
+
+.hljs-meta .hljs-keyword {
+  color: #e1a37f;
+}
+
+.hljs-meta .hljs-string {
+  color: #7cc0be;
 }
