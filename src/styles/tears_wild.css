@@ -18,6 +18,8 @@ code.hljs {
     color:#8AD5BE
 }
 
+.hljs-doctag,
+.hljs-regexp,
 .hljs-deletion,
 .hljs-selector-pseudo,
 .hljs-variable.language {
@@ -33,12 +35,11 @@ code.hljs {
     font-weight: bold;
 }
 
-.hljs-doctag,
-.hljs-regexp,
 .hljs-selector-id,
 .hljs-literal,
 .hljs-link,
-.hljs-number {
+.hljs-number,
+.hljs-name {
     color: #e57337;
 }
 
@@ -86,8 +87,7 @@ code.hljs {
     color:#ea9a97
 }
 
-.hljs-char.escape_,
-.hljs-name {
+.hljs-char.escape_ {
     color:#c4a7e7
 }
 
