@@ -11,6 +11,7 @@ New Grammars:
 - added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
 - added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
+- added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
 
 Core Grammars:
 
@@ -48,6 +49,7 @@ CONTRIBUTORS
 [Twineee1]: https://github.com/Twineee1
 [hbgl]: https://github.com/hbgl
 [te-ing]: https://github.com/te-ing
+[Anthony Martin]: https://github.com/anthony-c-martin
 
 
 ## Version 11.11.1
