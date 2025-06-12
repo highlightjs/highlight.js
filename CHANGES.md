@@ -21,6 +21,7 @@ Core Grammars:
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
 - enh(json) add json5 support [Kerry Shetline][]
+- enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
 
 Documentation:
 
@@ -46,6 +47,7 @@ CONTRIBUTORS
 [Kerry Shetline]: https://github.com/kshetline
 [Twineee1]: https://github.com/Twineee1
 [hbgl]: https://github.com/hbgl
+[Ian Wienand]: https://github.com/ianw
 
 
 ## Version 11.11.1

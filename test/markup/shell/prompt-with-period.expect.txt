@@ -1,0 +1,1 @@
+<span class="hljs-meta prompt_">~/git-repo[branch-1.0]$ </span><span class="language-bash"><span class="hljs-built_in">ls</span> a.file</span>
