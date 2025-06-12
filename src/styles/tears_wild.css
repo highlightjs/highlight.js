@@ -1,8 +1,3 @@
-pre code.hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 1em
-}
 code.hljs {
     padding:3px 5px
 }
@@ -15,7 +10,21 @@ code.hljs {
 
 .hljs-comment,
 .hljs-meta {
-    color:#8AD5BE
+    color:#8AD5BE;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.hljs-comment {
+    opacity: 0.75;
+}
+
+.hljs-attr,
+.hljs-property,
+.hljs-params,
+.hljs-attribute {
+    color: #86cc85;
+    font-style: italic;
 }
 
 .hljs-doctag,
@@ -26,10 +35,10 @@ code.hljs {
     color:#eb6f92
 }
 
+.hljs-type,
 .hljs-selector-attr,
 .hljs-tag,
 .hljs-selector-tag,
-.hjls-type,
 .hljs-template-tag {
     color: #76cfb3;
     font-weight: bold;
@@ -43,17 +52,10 @@ code.hljs {
     color: #e57337;
 }
 
+.hjls-type,
 .hljs-template-variable,
 .hljs-variable {
     color: #76cfb3;
-    font-style: italic;
-}
-
-.hljs-attr,
-.hljs-property,
-.hljs-params,
-.hljs-attribute {
-    color: #86cc85;
     font-style: italic;
 }
 
