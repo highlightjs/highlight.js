@@ -22,6 +22,7 @@ Core Grammars:
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
 - enh(json) add json5 support [Kerry Shetline][]
+- fix(csharp) Support digit separators [te-ing][]
 
 Documentation:
 
@@ -47,6 +48,7 @@ CONTRIBUTORS
 [Kerry Shetline]: https://github.com/kshetline
 [Twineee1]: https://github.com/Twineee1
 [hbgl]: https://github.com/hbgl
+[te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 
 
