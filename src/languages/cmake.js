@@ -14,8 +14,8 @@ export default function(hljs) {
     case_insensitive: true,
     keywords: { keyword:
         // scripting commands
-        'break cmake_host_system_information cmake_minimum_required cmake_parse_arguments '
-        + 'cmake_policy configure_file continue elseif else endforeach endfunction endif endmacro '
+        'block break cmake_host_system_information cmake_minimum_required cmake_parse_arguments '
+        + 'cmake_policy configure_file continue elseif else endblock endforeach endfunction endif endmacro '
         + 'endwhile execute_process file find_file find_library find_package find_path '
         + 'find_program foreach function get_cmake_property get_directory_property '
         + 'get_filename_component get_property if include include_guard list macro '
