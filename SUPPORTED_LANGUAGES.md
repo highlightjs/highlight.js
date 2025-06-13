@@ -124,6 +124,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Julia                   | julia, jl               |         |
 | Julia REPL              | julia-repl             |         |
 | Kotlin                  | kotlin, kt             |         |
+| L4                      | l4, legal              | [highlightjs-l4](https://github.com/legalese/highlightjs-l4)
 | Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
 | Lasso                   | lasso, ls, lassoscript |         |
 | LaTeX                   | tex                    |         |
