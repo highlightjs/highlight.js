@@ -3,6 +3,7 @@
 Themes:
 
 - added "vs Dark " theme [Twineee1][]
+- added "Tears of the Wild" theme [corn-snake][]
 
 New Grammars:
 
