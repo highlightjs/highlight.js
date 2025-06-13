@@ -34,6 +34,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Bash                    | bash, sh, zsh          |         |
 | BASIC                   | basic                  |         |
 | BBCode                  | bbcode                 | [highlightjs-bbcode](https://github.com/RedGuy12/highlightjs-bbcode) |
+| Bicep                   | bicep                  | [highlightjs-bicep](https://github.com/Azure/bicep/blob/main/docs/highlighting.md#highlightjs) |
 | Blade (Laravel)         | blade                  | [highlightjs-blade](https://github.com/miken32/highlightjs-blade) |
 | BNF                     | bnf                    |         |
 | BQN                     | bqn                    | [highlightjs-bqn](https://github.com/razetime/highlightjs-bqn) |
@@ -91,6 +92,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | GAUSS                   | gauss, gss             |         |
 | GDScript                | godot, gdscript        | [highlightjs-gdscript](https://github.com/highlightjs/highlightjs-gdscript) |
 | Gherkin                 | gherkin                |         |
+| Gleam                   | gleam                  | [gleam-highlight.js](https://github.com/gleam-lang/gleam-highlight.js) |
 | Glimmer and EmberJS     | hbs, glimmer, html.hbs, html.handlebars, htmlbars | [highlightjs-glimmer](https://github.com/NullVoxPopuli/highlightjs-glimmer) |
 | GN for Ninja            | gn, gni                | [highlightjs-GN](https://github.com/highlightjs/highlightjs-GN) |
 | Go                      | go, golang             |         |
@@ -111,6 +113,8 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Inform7                 | inform7, i7            |         |
 | Ini, TOML               | ini, toml              |         |
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
+| JSON                    | json, jsonc, json5     |         |
+| JSONata                 | jsonata                | [highlightjs-jsonata](https://github.com/DevDimov/highlightjs-jsonata) |
 | IRPF90                  | irpf90                 |         |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
@@ -135,6 +139,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lua                     | lua, pluto             |         |
 | Luau                    | luau                   | [highlightjs-luau](https://github.com/highlightjs/highlightjs-luau) |
 | Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
+| Magik                   | magik                  | [highlightjs-magik](https://github.com/sebastiaanspeck/highlightjs-magik) |
 | Makefile                | makefile, mk, mak, make |        |
 | Markdown                | markdown, md, mkdown, mkd |      |
 | Mathematica             | mathematica, mma, wl   |         |
@@ -181,6 +186,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
 | PowerOn                 | poweron, po            | [highlightjs-poweron](https://github.com/libum-llc/highlightjs-poweron) |
 | PowerShell              | powershell, ps, ps1    |         |
+| Prisma                  | prisma                 | [highlightjs-prisma](https://github.com/witch-factory/highlightjs-prisma)        |
 | Processing              | processing             |         |
 | Prolog                  | prolog                 |         |
 | Properties              | properties             |         |
