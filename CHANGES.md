@@ -25,6 +25,7 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(python) add support for methods and properties [fibbo][]
 
 Documentation:
 
@@ -53,6 +54,7 @@ CONTRIBUTORS
 [Thomas Gorissen]: https://github.com/serrynaimo
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
+[fibbo]: https://github.com/fibbo
 
 
 ## Version 11.11.1
