@@ -3,6 +3,7 @@ class Shorty(dict):
         return NotImplemented
 
 x = Shorty()
+x.len()
 len(x)
 
 if __debug__:
