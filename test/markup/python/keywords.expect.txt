@@ -3,6 +3,7 @@
         <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span>
 
 x = Shorty()
+x.<span class="hljs-title function_ method__">len</span>()
 <span class="hljs-built_in">len</span>(x)
 
 <span class="hljs-keyword">if</span> <span class="hljs-literal">__debug__</span>:
