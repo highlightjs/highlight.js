@@ -1,6 +1,6 @@
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">SelfTest</span>:
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
-        <span class="hljs-variable language_">self</span>.text = <span class="hljs-literal">True</span>
+        <span class="hljs-variable language_">self</span>.<span class="hljs-property">text</span> = <span class="hljs-literal">True</span>
 
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">method</span>(<span class="hljs-params">self</span>):
         <span class="hljs-keyword">pass</span>
