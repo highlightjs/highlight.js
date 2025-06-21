@@ -1,3 +1,6 @@
+<span class="hljs-keyword">from</span> base.derive <span class="hljs-keyword">import</span> test
+<span class="hljs-keyword">import</span> base.test
+
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Shorty</span>(<span class="hljs-title class_ inherited__">dict</span>):
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">len</span>(<span class="hljs-params">self</span>):
         <span class="hljs-keyword">return</span> <span class="hljs-literal">NotImplemented</span>
