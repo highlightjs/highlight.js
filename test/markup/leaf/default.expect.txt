@@ -7,7 +7,7 @@
 
 <span class="hljs-punctuation">#</span><span class="hljs-keyword">if</span><span class="hljs-params">(<span class="hljs-keyword">count</span><span class="hljs-params">(<span class="hljs-variable">visit</span>)</span> <span class="hljs-operator">==</span> 1)</span><span class="hljs-punctuation">:</span>
     Hello new user!
-<span class="hljs-punctuation">#</span><span class="hljs-keyword">elseif</span><span class="hljs-params">(<span class="hljs-variable">title</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;Welcome back!&quot;</span>)</span><span class="hljs-punctuation">:</span>
+<span class="hljs-punctuation">#</span><span class="hljs-keyword">elseif</span><span class="hljs-params">(<span class="hljs-variable">index</span> <span class="hljs-operator">==</span> <span class="hljs-string">&quot;Welcome back!&quot;</span>)</span><span class="hljs-punctuation">:</span>
     Hello old user
 <span class="hljs-punctuation">#</span><span class="hljs-keyword">else</span><span class="hljs-punctuation">:</span>
     Unexpected page!
