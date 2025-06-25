@@ -1,16 +1,8 @@
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em
-}
-code.hljs {
-    padding:3px 5px
-}
 /*!
  * Tears of the Wild theme
  * Based on the Hylian Sunset theme by Hunter Crandall & ztok_theme by KrlosDev for VSCode
  * Original author: Cornsnake <cornsnake on codeberg, corn-snake on git
- * Last edited: June 12th, 2025
+ * Last edited: June 25th, 2025
  */
 
 .hljs-comment,
