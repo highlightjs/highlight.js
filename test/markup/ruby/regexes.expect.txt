@@ -3,3 +3,4 @@ str =~ <span class="hljs-regexp">%r{foo|bar|buz$}</span>
 str =~ <span class="hljs-regexp">%r!foo|bar$!</span>
 str =~ <span class="hljs-regexp">%r[foo|bar$]</span>
 str =~ <span class="hljs-regexp">%r(\(foo|bar\)$)</span>
+str =~ <span class="hljs-regexp">%r{(\.{2}|\A/)}</span>
