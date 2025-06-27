@@ -5,7 +5,7 @@ const css = require("css");
 const wcagContrast = require("wcag-contrast");
 const Table = require('cli-table');
 const csscolors = require('css-color-names');
-require("@colors/colors");
+const { cyan, green, yellow, magentaBright, hex } = require('ansis');
 
 const CODE = {
   name: "program code",
@@ -167,37 +167,36 @@ function check_group(group, rules) {
     return [scope, has_rule(selector, rules), skips_rule(selector, rules)];
   });
 
-
   const doesNotSupport = has_rules.map(x => x[1]).includes(false);
   const skipped = has_rules.find(x => x[2]);
   if (doesNotSupport || skipped) {
-    console.log(group.name.yellow);
+    console.log(yellow(group.name));
     if (doesNotSupport) {
-      console.log(`- Theme does not fully support.`.brightMagenta);
+      console.log(magentaBright`- Theme does not fully support.`);
     }
 
     has_rules.filter(x => !x[1]).forEach(([scope, _]) => {
       const selector = scopeToSelector(scope);
-      console.log(`- scope ${scope.cyan} is not highlighted\n  (css: ${selector.green})`);
+      console.log(`- scope ${cyan(scope)} is not highlighted\n  (css: ${green(selector)})`);
     });
     has_rules.filter(x => x[2]).forEach(([scope, _]) => {
-      console.log(` - scope ${scope.cyan} [purposely] un-highlighted.`.cyan);
+      console.log(` - scope ${cyan(scope)} [purposely] un-highlighted.`);
     });
     console.log();
   }
 }
 
-const round2 = (x) => Math.round(x*100)/100;
+const round2 = (x) => Math.round(x * 100) / 100;
 
 class CSSRule {
   constructor(rule, body) {
     this.rule = rule;
     if (rule.declarations) {
-      this.bg = rule.declarations.find(x => x.property == "background-color")?.value;
+      this.bg = rule.declarations.find(x => x.property === "background-color")?.value;
       if (!this.bg) {
-        this.bg = rule.declarations.find(x => x.property == "background")?.value;
+        this.bg = rule.declarations.find(x => x.property === "background")?.value;
       }
-      this.fg = rule.declarations.find(x => x.property =="color")?.value;
+      this.fg = rule.declarations.find(x => x.property === "color")?.value;
 
       if (this.bg) {
         this.bg = csscolors[this.bg] || this.bg;
@@ -213,54 +212,58 @@ class CSSRule {
       }
     }
   }
+
   get background() {
-    return this.bg
+    return this.bg;
   }
 
   get foreground() {
-    return this.fg
+    return this.fg;
   }
+
   get hasColor() {
     if (!this.rule.declarations) return false;
     return this.fg || this.bg;
   }
+
   toString() {
-    return ` ${this.foreground} on ${this.background}`
+    return ` ${this.foreground} on ${this.background}`;
   }
 
   contrastRatio() {
-    if (!this.foreground) return "unknown (no fg)"
-    if (!this.background) return "unknown (no bg)"
+    if (!this.foreground) return "unknown (no fg)";
+    if (!this.background) return "unknown (no bg)";
     return round2(wcagContrast.hex(this.foreground, this.background));
   }
 }
 
 function contrast_report(rules) {
-  console.log("Accessibility Report".yellow);
+  console.log(yellow`Accessibility Report`);
 
-  var hljs = rules.find (x => x.selectors && x.selectors.includes(".hljs"));
-  var body = new CSSRule(hljs);
+  const hljs = rules.find(x => x.selectors && x.selectors.includes(".hljs"));
+  const body = new CSSRule(hljs);
   const table = new Table({
-    chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
+    chars: { mid: '', 'left-mid': '', 'mid-mid': '', 'right-mid': '' },
     head: ['ratio', 'selector', 'fg', 'bg'],
-    colWidths: [7, 40, 10, 10],
+    colWidths: [7, 40, 12, 12],
     style: {
       head: ['grey']
     }
   });
 
   rules.forEach(rule => {
-    var color = new CSSRule(rule, body);
+    const color = new CSSRule(rule, body);
     if (!color.hasColor) return;
     table.push([
       color.contrastRatio(),
       rule.selectors,
-      color.foreground,
-      color.background
-    ])
+      // colorize the foreground and background colors
+      hex(color.foreground)('██') + ' ' + color.foreground,
+      hex(color.background)('██') + ' ' + color.background
+    ]);
     // console.log(r.selectors[0], color.contrastRatio(), color.toString());
-  })
-  console.log(table.toString())
+  });
+  console.log(table.toString());
 }
 
 function validate(data) {
@@ -274,6 +277,7 @@ function validate(data) {
   check_group(CODE, rules);
   check_group(OTHER, rules);
   check_group(HIGH_FIDELITY, rules);
+
 
   contrast_report(rules);
 }

@@ -6,7 +6,7 @@ const hljs = require('../build/lib/index.js');
 const path = require('path');
 const utility = require('../test/utility.js');
 const Table = require('cli-table');
-const colors = require('@colors/colors/safe.js');
+const { red, grey, green, yellow } = require('ansis');
 
 const resultTable = new Table({
   head: ['expected', 'actual', 'score', '2nd best', 'score', 'info'],
@@ -29,19 +29,19 @@ function testAutoDetection(language, index, languages) {
       if (actual.language !== expected && actual.secondBest.language !== expected) {
         return resultTable.push([
           expected,
-          colors.red(actual.language),
-          actual.relevance ? actual.relevance : colors.grey('None'),
-          colors.red(actual.secondBest.language),
-          actual.secondBest.relevance ? actual.secondBest.relevance : colors.grey('None')
+          red(actual.language),
+          actual.relevance ? actual.relevance : grey('None'),
+          red(actual.secondBest.language),
+          actual.secondBest.relevance ? actual.secondBest.relevance : grey('None')
         ]);
       }
       if (actual.language !== expected) {
         return resultTable.push([
           expected,
-          colors.yellow(actual.language),
-          actual.relevance ? actual.relevance : colors.grey('None'),
-          colors.yellow(actual.secondBest.language),
-          actual.secondBest.relevance ? actual.secondBest.relevance : colors.grey('None')
+          yellow(actual.language),
+          actual.relevance ? actual.relevance : grey('None'),
+          yellow(actual.secondBest.language),
+          actual.secondBest.relevance ? actual.secondBest.relevance : grey('None')
         ]);
       }
       // equal relevance is flagged
@@ -49,9 +49,9 @@ function testAutoDetection(language, index, languages) {
         return resultTable.push([
           expected,
           actual.language,
-          actual.relevance ? colors.yellow(actual.relevance) : colors.grey('None'),
+          actual.relevance ? yellow(actual.relevance) : grey('None'),
           actual.secondBest.language,
-          actual.secondBest.relevance ? colors.yellow(actual.secondBest.relevance) : colors.grey('None'),
+          actual.secondBest.relevance ? yellow(actual.secondBest.relevance) : grey('None'),
           "Relevance match."
         ]);
       }
@@ -65,7 +65,7 @@ if (process.env.ONLY_LANGUAGES) {
   languages = hljs.listLanguages().filter(hljs.autoDetection);
 }
 
-console.log('Checking auto-highlighting for ' + colors.grey(languages.length) + ' languages...');
+console.log('Checking auto-highlighting for ' + grey(languages.length) + ' languages...');
 languages.forEach((lang, index) => {
   if (index % 60 === 0) { console.log(""); }
   testAutoDetection(lang);
@@ -74,10 +74,10 @@ languages.forEach((lang, index) => {
 console.log("\n");
 
 if (resultTable.length === 0) {
-  console.log(colors.green('SUCCESS') + ' - ' + colors.green(languages.length) + ' of ' + colors.gray(languages.length) + ' languages passed auto-highlight check!');
+  console.log(green('SUCCESS') + ' - ' + green(languages.length) + ' of ' + grey(languages.length) + ' languages passed auto-highlight check!');
 } else {
   console.log(
-    colors.red('ISSUES') + ' - ' + colors.red(resultTable.length) + ' of ' + colors.gray(languages.length) + ' languages have potential issues.'
+    red('ISSUES') + ' - ' + red(resultTable.length) + ' of ' + grey(languages.length) + ' languages have potential issues.'
     + '\n'
     + resultTable.toString());
 }
