@@ -10,7 +10,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | 1C                      | 1c                     |         |
 | 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
 | ABAP                    | sap-abap, abap         |[highlight-sap-abap](https://github.com/highlightjs/highlightjs-sap-abap) |
-| Abc Notation            | abc                    |[highlightjs-abc](https://github.com/highlightjs/highlightjs-abc)|
+| Abc Notation            | abc                    |[highlightjs-abc](https://github.com/nocpiun/highlightjs-abc)|
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | ActionScript            | actionscript, as       |         |
