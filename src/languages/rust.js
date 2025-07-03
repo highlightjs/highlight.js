@@ -235,6 +235,17 @@ export default function(hljs) {
       },
       {
         begin: [
+          /\bsafe/,
+          /\s+/,
+          /extern/,
+        ],
+        scope: {
+          1: "keyword",
+          3: "keyword",
+        }
+      },
+      {
+        begin: [
           /fn/,
           /\s+/,
           UNDERSCORE_IDENT_RE
