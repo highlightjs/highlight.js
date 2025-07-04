@@ -233,6 +233,14 @@ export default function(hljs) {
       hljs.BACKSLASH_ESCAPE,
       SUBST,
       {
+        begin: /\[/,
+        end: /\]/,
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          { begin: /\\./ }
+        ]
+      },
+      {
         begin: /\{/, end: /\}/,
         contains: ['self', hljs.BACKSLASH_ESCAPE, SUBST],
         relevance: 0
@@ -241,10 +249,9 @@ export default function(hljs) {
     illegal: /\n/,
     variants: [
       { begin: /%r\{/, end: /\}[a-z]*/ },
-      { begin: '%r\\(', end: '\\)[a-z]*' },
-      { begin: '%r!', end: '![a-z]*' },
-      { begin: '%r\\[', end: '\\][a-z]*' },
-      { begin: '/', end: '/[a-z]*' }
+      { begin: /%r\(/, end: /\)[a-z]*/ },
+      { begin: /%r!/, end: /![a-z]*/ },
+      { begin: /%r\[/, end: /\][a-z]*/ }
     ]
   };
 
