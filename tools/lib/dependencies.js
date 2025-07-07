@@ -41,6 +41,8 @@ const isGroup = (id) => id[0] === ":";
  *
  * This also resolves any requires and dependency ordering issues.
  * The returned list can be registered sequentially and should "just work".
+ * If multiple languages have the same name, the last one wins.
+ * This gives priority to third-party packages so they can override built-in languages.
  *
  * @param {array<Lanuage>} allLanguages - full list of languages
  * @param {array<name|group_name>} includes - which languages or groups to include
@@ -50,6 +52,7 @@ const isGroup = (id) => id[0] === ":";
 const filter = (allLanguages, includes) => {
   if (!includes || includes.length === 0) { return reorderDependencies(allLanguages); }
 
+  allLanguages.reverse();
   let languages = [];
   for (const item of includes) {
     if (isGroup(item)) {
