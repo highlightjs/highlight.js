@@ -117,6 +117,16 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const BASH_ARGUMENTS = {
+    variants: [
+      {
+        className: "attr",
+        begin: /[\t\u0020](-){1,2}[\w\d-]+/,
+        relevance: 0,
+      },
+    ],
+  };
+
   const KEYWORDS = [
     "if",
     "then",
@@ -392,6 +402,7 @@ export default function(hljs) {
     contains: [
       KNOWN_SHEBANG, // to catch known shells and boost relevancy
       hljs.SHEBANG(), // to catch unknown shells but still highlight the shebang
+      BASH_ARGUMENTS,
       FUNCTION,
       ARITHMETIC,
       COMMENT,

@@ -2,11 +2,11 @@ SCRIPT_DIR=<span class="hljs-string">&quot;<span class="hljs-subst">$( cd <span 
 TLS_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$SCRIPT_DIR</span>/../src/main/resources/tls&quot;</span>
 ROOT_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$SCRIPT_DIR</span>/..&quot;</span>
 
-jshell -s - &lt;&lt; <span class="hljs-string">EOF
+jshell<span class="hljs-attr"> -s</span> - &lt;&lt; <span class="hljs-string">EOF
 System.out.printf(&quot;Procs: %s%n&quot;, getdata())
 EOF</span>
 
-jshell -s - &lt;&lt;&lt;<span class="hljs-string">&#x27;System.out.printf(&quot;Procs: %s%n&quot;, getdata())&#x27;</span>
+jshell<span class="hljs-attr"> -s</span> - &lt;&lt;&lt;<span class="hljs-string">&#x27;System.out.printf(&quot;Procs: %s%n&quot;, getdata())&#x27;</span>
 
 <span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-string">&#x27;$VARIABLE&#x27;</span>
 <span class="hljs-built_in">cat</span> &lt;&lt;&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$VARIABLE</span>&quot;</span>

@@ -1,0 +1,1 @@
+git remote set-url --push origin https://github.com/highlightjs/highlight.js.git
