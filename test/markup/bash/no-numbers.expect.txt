@@ -1,3 +1,3 @@
 <span class="hljs-comment"># numbers aren&#x27;t highlighted in bash as their semantics is</span>
 <span class="hljs-comment"># not strictly defined for command line parameters</span>
-$ <span class="hljs-built_in">tail</span> -10 access.log
+$ <span class="hljs-built_in">tail</span><span class="hljs-attr"> -10</span> access.log

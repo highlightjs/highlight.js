@@ -1,0 +1,1 @@
+git remote set-url<span class="hljs-attr"> --push</span> origin https://github.com/highlightjs/highlight.js.git
