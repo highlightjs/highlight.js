@@ -13,6 +13,7 @@ New Grammars:
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
+- added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
 
 Core Grammars:
 
@@ -53,6 +54,7 @@ CONTRIBUTORS
 [Thomas Gorissen]: https://github.com/serrynaimo
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
+[NriotHrreion]: https://github.com/NriotHrreion
 
 
 ## Version 11.11.1
