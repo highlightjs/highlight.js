@@ -26,6 +26,7 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- fix(rust) ensure brackets are balanced within attributes [ewwwin][]
 
 Documentation:
 
@@ -54,6 +55,7 @@ CONTRIBUTORS
 [Thomas Gorissen]: https://github.com/serrynaimo
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
+[ewwwin]: https://github.com/ewwwin
 [NriotHrreion]: https://github.com/NriotHrreion
 
 
