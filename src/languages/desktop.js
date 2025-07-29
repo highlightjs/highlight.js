@@ -9,7 +9,7 @@ Website: https://www.freedesktop.org/wiki/Specifications/desktop-entry-spec/
 export default function(hljs) {
   const LITERALS = {
     className: 'literal',
-    begin: /\b(true|false|Application|Link|Directory|forking|oneshot|simple)\b/,
+    begin: /\b(true|false|Application|Link|Directory|forking|oneshot|simple|OneShot)\b/,
     relevance: 0
   };
 
