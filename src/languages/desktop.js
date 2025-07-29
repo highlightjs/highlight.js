@@ -39,12 +39,6 @@ export default function(hljs) {
     relevance: 10
   };
 
-  const MIMETYPE_FORMAT = {
-    className: 'type',
-    match: /\b[a-zA-Z0-9_.+-]+\/[a-zA-Z0-9_.+-]+/,
-    relevance: 0
-  };
-
   const KEY_VALUE_PAIR = {
     begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?\s*=/,
     end: /$/,
@@ -64,7 +58,6 @@ export default function(hljs) {
       LITERALS,
       QUOTED_STRING,
       FIELD_CODES,
-      MIMETYPE_FORMAT,
       {
         className: 'punctuation',
         match: /;/,
