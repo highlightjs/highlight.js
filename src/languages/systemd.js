@@ -7,15 +7,8 @@ Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
   const LITERALS = {
-    begin: /=/,
-    end: /$/,
-    contains: [
-      {
-        className: 'literal',
-        begin: /\b(true|false|Application|Link|Directory|forking|oneshot|OneShot)\b/,
-        relevance: 0
-      }
-    ],
+    className: 'literal',
+    begin: /\b(true|false|Application|Link|Directory|forking|oneshot|OneShot)\b/,
     relevance: 0
   };
 
@@ -61,9 +54,16 @@ export default function(hljs) {
         relevance: 0
       },
       COMMENT_MODE,
-      LITERALS,
-      QUOTED_STRING,
-      FIELD_CODES,
+      {
+        begin: /(?<==\s*)/,
+        end: /$/,
+        contains: [
+          LITERALS,
+          QUOTED_STRING,
+          FIELD_CODES
+        ],
+        relevance: 0
+      },
       {
         className: 'punctuation',
         match: /;/,
