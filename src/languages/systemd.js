@@ -55,7 +55,7 @@ export default function(hljs) {
       },
       COMMENT_MODE,
       {
-        begin: /(?<==\s*)/,
+        begin: /(?==)/,
         end: /$/,
         contains: [
           LITERALS,
