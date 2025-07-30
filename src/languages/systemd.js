@@ -5,11 +5,17 @@ Contributors: Lee Yunjin <gzblues61@daum.net>
 Category: common, config
 Website: https://www.freedesktop.org/
 */
-
 export default function(hljs) {
   const LITERALS = {
-    className: 'literal',
-    begin: /=(true|false|Application|Link|Directory|forking|oneshot|OneShot)\b/,
+    begin: /=/,
+    end: /$/,
+    contains: [
+      {
+        className: 'literal',
+        begin: /\b(true|false|Application|Link|Directory|forking|oneshot|OneShot)\b/,
+        relevance: 0
+      }
+    ],
     relevance: 0
   };
 
@@ -77,4 +83,3 @@ export default function(hljs) {
     ]
   };
 }
-
