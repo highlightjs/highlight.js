@@ -38,8 +38,8 @@ export default function(hljs) {
     relevance: 10
   };
 
-  const VALUE_MODE = {
-    begin: /(?==)/,
+  const VALUE_CONTENT_MODE = {
+    begin: /(?<==)/,
     end: /$/,
     contains: [
       LITERALS,
@@ -51,13 +51,14 @@ export default function(hljs) {
   };
 
   const KEY_VALUE_PAIR = {
-    begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?\s*=/,
+    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*(=)/,
     end: /$/,
-    returnBegin: true,
     contains: [
       {
         className: 'attribute',
         begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
+        end: /\s*=/,
+        excludeEnd: true,
         relevance: 10
       },
       {
@@ -65,7 +66,7 @@ export default function(hljs) {
         match: /=/,
         relevance: 0
       },
-      VALUE_MODE
+      VALUE_CONTENT_MODE
     ]
   };
 
