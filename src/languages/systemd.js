@@ -6,7 +6,7 @@ Category: common, config
 Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
-  const LITERAL_WORDS_PATTERN = /(true|false|Application|Link|Directory|forking|oneshot|OneShot)\b/;
+  const LITERAL_WORDS_PATTERN = /(Application|Link|Directory|forking|oneshot|OneShot)\b/;
 
   const FIELD_CODES = {
     className: 'variable',
@@ -57,12 +57,12 @@ export default function(hljs) {
         contains: [
           {
             className: 'literal',
-            begin: /(^|;)\s*(Type\s*=)?\b(Application|Link|Directory)\b/,
+            begin: LITERAL_WORDS_PATTERN,
             relevance: 10
           },
           {
             className: 'literal',
-            begin: /(^|;)\s*(Terminal|StartupNotify)\s*=\s*\b(true|false)\b/,
+            begin: /\b(true|false)\b/,
             relevance: 10
           },
           QUOTED_STRING,
