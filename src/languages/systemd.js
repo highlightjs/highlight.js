@@ -38,6 +38,18 @@ export default function(hljs) {
     relevance: 10
   };
 
+  const VALUE_MODE = {
+    begin: /(?==)/,
+    end: /$/,
+    contains: [
+      LITERALS,
+      QUOTED_STRING,
+      FIELD_CODES,
+      COMMENT_MODE
+    ],
+    relevance: 0
+  };
+
   const KEY_VALUE_PAIR = {
     begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?\s*=/,
     end: /$/,
@@ -53,22 +65,7 @@ export default function(hljs) {
         match: /=/,
         relevance: 0
       },
-      COMMENT_MODE,
-      {
-        begin: /(?==)/,
-        end: /$/,
-        contains: [
-          LITERALS,
-          QUOTED_STRING,
-          FIELD_CODES
-        ],
-        relevance: 0
-      },
-      {
-        className: 'punctuation',
-        match: /;/,
-        relevance: 0
-      }
+      VALUE_MODE
     ]
   };
 
