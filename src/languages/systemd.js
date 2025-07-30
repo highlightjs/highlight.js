@@ -6,11 +6,7 @@ Category: common, config
 Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
-  const LITERALS = {
-    className: 'literal',
-    begin: /\b(true|false|Application|Link|Directory|forking|oneshot|OneShot)\b/,
-    relevance: 0
-  };
+  const LITERAL_WORDS_PATTERN = /(true|false|Application|Link|Directory|forking|oneshot|OneShot)\b/;
 
   const FIELD_CODES = {
     className: 'variable',
@@ -42,7 +38,6 @@ export default function(hljs) {
     begin: /(?<==)/,
     end: /$/,
     contains: [
-      LITERALS,
       QUOTED_STRING,
       FIELD_CODES,
       COMMENT_MODE
@@ -64,6 +59,32 @@ export default function(hljs) {
       {
         className: 'operator',
         match: /=/,
+        relevance: 0
+      },
+      {
+        begin: /(?<=^Type\s*=)/,
+        end: /$/,
+        contains: [
+          {
+            className: 'literal',
+            begin: LITERAL_WORDS_PATTERN,
+            relevance: 10
+          },
+          COMMENT_MODE
+        ],
+        relevance: 0
+      },
+      {
+        begin: /(?<=^(Terminal|StartupNotify)\s*=)/,
+        end: /$/,
+        contains: [
+          {
+            className: 'literal',
+            begin: /\b(true|false)\b/,
+            relevance: 10
+          },
+          COMMENT_MODE
+        ],
         relevance: 0
       },
       VALUE_CONTENT_MODE
