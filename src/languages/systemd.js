@@ -57,7 +57,7 @@ export default function(hljs) {
       },
       {
         className: 'literal',
-        begin: /(?<=^(Terminal|StartupNotify)\s*=)\s*\b(true|false)\b/,
+        begin: /(?<=^(Terminal|StartupNotify)\s*=)\s*\b(true|false|True|False)\b/,
         relevance: 10
       },
       QUOTED_STRING,
