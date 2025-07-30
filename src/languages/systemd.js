@@ -6,11 +6,10 @@ Category: common, config
 Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
-  const LITERAL_WORDS_PATTERN = /(Application|Link|Directory|forking|oneshot|OneShot)\b/;
-
   const FIELD_CODES = {
     className: 'variable',
-    match: /%[fFuUcCiIkKvV]/
+    match: /%[fFuUcCiIkKvV]/,
+    relevance: 0
   };
 
   const QUOTED_STRING = {
@@ -35,7 +34,7 @@ export default function(hljs) {
   };
 
   const KEY_VALUE_PAIR = {
-    begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?\s*=/,
+    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*(=)/,
     end: /$/,
     returnBegin: true,
     contains: [
@@ -52,25 +51,18 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: /(?<==\s*)/,
-        end: /$/,
-        contains: [
-          {
-            className: 'literal',
-            begin: LITERAL_WORDS_PATTERN,
-            relevance: 10
-          },
-          {
-            className: 'literal',
-            begin: /\b(true|false)\b/,
-            relevance: 10
-          },
-          QUOTED_STRING,
-          FIELD_CODES,
-          COMMENT_MODE
-        ],
-        relevance: 0
-      }
+        className: 'literal',
+        begin: /(?<=^Type\s*=)\s*\b(Application|Link|Directory|forking|oneshot|OneShot)\b/,
+        relevance: 10
+      },
+      {
+        className: 'literal',
+        begin: /(?<=^(Terminal|StartupNotify)\s*=)\s*\b(true|false)\b/,
+        relevance: 10
+      },
+      QUOTED_STRING,
+      FIELD_CODES,
+      COMMENT_MODE
     ]
   };
 
