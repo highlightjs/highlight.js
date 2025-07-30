@@ -34,20 +34,10 @@ export default function(hljs) {
     relevance: 10
   };
 
-  const VALUE_CONTENT_MODE = {
-    begin: /(?<==)/,
-    end: /$/,
-    contains: [
-      QUOTED_STRING,
-      FIELD_CODES,
-      COMMENT_MODE
-    ],
-    relevance: 0
-  };
-
   const KEY_VALUE_PAIR = {
-    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*(=)/,
+    begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?\s*=/,
     end: /$/,
+    returnBegin: true,
     contains: [
       {
         className: 'attribute',
@@ -62,32 +52,25 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        begin: /(?<=^Type\s*=)/,
+        begin: /(?<==\s*)/,
         end: /$/,
         contains: [
           {
             className: 'literal',
-            begin: LITERAL_WORDS_PATTERN,
+            begin: /(^|;)\s*(Type\s*=)?\b(Application|Link|Directory)\b/,
             relevance: 10
           },
-          COMMENT_MODE
-        ],
-        relevance: 0
-      },
-      {
-        begin: /(?<=^(Terminal|StartupNotify)\s*=)/,
-        end: /$/,
-        contains: [
           {
             className: 'literal',
-            begin: /\b(true|false)\b/,
+            begin: /(^|;)\s*(Terminal|StartupNotify)\s*=\s*\b(true|false)\b/,
             relevance: 10
           },
+          QUOTED_STRING,
+          FIELD_CODES,
           COMMENT_MODE
         ],
         relevance: 0
-      },
-      VALUE_CONTENT_MODE
+      }
     ]
   };
 
