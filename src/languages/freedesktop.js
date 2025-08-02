@@ -8,7 +8,7 @@ Website: https://www.freedesktop.org/
 export default function(hljs) {
   const FIELD_CODES = {
     className: 'variable',
-    begin: /%[a-zA-Z]/,
+    begin: /%[a-z]/i,
     relevance: 0
   };
 
