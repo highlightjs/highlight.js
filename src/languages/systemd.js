@@ -22,7 +22,7 @@ export default function(hljs) {
 
   const COMMENT = {
     className: 'comment',
-    begin: /[#;]/,
+    begin: /[#]/,
     end: /$/,
     relevance: 0
   };
