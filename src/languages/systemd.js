@@ -6,8 +6,6 @@ Category: common, config
 Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
-  const regex = hljs.regex;
-
   const FIELD_CODES = {
     className: 'variable',
     match: /%[fFuUcCiIkKvV]/,
@@ -16,10 +14,9 @@ export default function(hljs) {
 
   const STRINGS = {
     className: 'string',
+    begin: /"/,
+    end: /"/,
     contains: [ hljs.BACKSLASH_ESCAPE ],
-    variants: [
-      { begin: '"', end: '"' }
-    ],
     relevance: 0
   };
 
@@ -30,27 +27,6 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const BOOL_LITERAL = {
-    className: 'literal',
-    begin: /\b(true|false|True|False)\b/,
-    relevance: 10
-  };
-
-  const TYPE_LITERAL = {
-    className: 'literal',
-    begin: /\b(Application|Link|Directory|forking|oneshot|OneShot)\b/,
-    relevance: 10
-  };
-
-  const NUMBER = {
-    className: 'number',
-    relevance: 0,
-    variants: [
-      { begin: /([+-])?[\d]+(_[\d]+)*/ },
-      { begin: hljs.NUMBER_RE }
-    ]
-  };
-
   const SECTION = {
     className: 'section',
     begin: /^\[(Desktop Entry|Unit|Service|Install|Socket|Mount|Automount|Swap|Path|Timer|Slice|Scope|Manager|connection|ipv4|ipv6|802-3-ethernet|802-11-wireless|802-11-wireless-security|vpn|Journal|Bridge|Desktop Action\s+[A-Za-z0-9_-]+)\]/,
@@ -58,19 +34,13 @@ export default function(hljs) {
     relevance: 10
   };
 
-  const BARE_KEY = /[A-Za-z0-9_-]+/;
-  const KEY_WITH_INDEX = regex.concat(
-    BARE_KEY,
-    '(\\[[A-Za-z0-9_@.]+\\])?'
-  );
-
   const KEY_VALUE = {
-    begin: regex.concat('^', KEY_WITH_INDEX, '\\s*='),
+    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*=/,
     returnBegin: true,
     contains: [
       {
         className: 'attr',
-        begin: KEY_WITH_INDEX,
+        begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
         end: /\s*=/,
         excludeEnd: true,
         relevance: 10
@@ -81,25 +51,31 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'literal',
-        begin: /\b(Application|Link|Directory|forking|oneshot|OneShot)\b/,
-        relevance: 10
-      },
-      {
-        className: 'literal',
-        begin: /\b(true|false|True|False)\b/,
-        relevance: 10
-      },
-      STRINGS,
-      FIELD_CODES,
-      COMMENT
+        begin: /\S.*/,
+        end: /$/,
+        excludeBegin: false,
+        contains: [
+          {
+            className: 'literal',
+            match: /\b(Application|Link|Directory|forking|oneshot|OneShot|true|false|True|False)\b/,
+            relevance: 10
+          },
+          STRINGS,
+          FIELD_CODES
+          // 일반 값은 하이라이팅 없음
+        ],
+        relevance: 0
+      }
     ]
   };
 
   return {
-    name: 'Systemd/XDG',
+    name: 'Systemd (INI-like)',
     aliases: [ 'desktop', 'service', 'mount', 'socket', 'timer', 'nmconnection', 'systemd' ],
     case_insensitive: false,
+    keywords: {
+      literal: 'Application Link Directory forking oneshot OneShot true false True False'
+    },
     contains: [
       COMMENT,
       SECTION,
