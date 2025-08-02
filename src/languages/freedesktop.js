@@ -38,6 +38,7 @@ export default function(hljs) {
     returnBegin: true,
     contains: [
       {
+        FIELD_CODES,
         className: 'attr',
         begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
         end: /\s*=/,
@@ -54,8 +55,7 @@ export default function(hljs) {
         match: /\b(Application|Link|Directory|forking|oneshot|OneShot|true|false|True|False)\b/,
         relevance: 10
       },
-      STRING,
-      FIELD_CODES
+      STRING
     ]
   };
 
