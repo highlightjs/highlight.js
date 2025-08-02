@@ -6,41 +6,71 @@ Category: common, config
 Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
+  const regex = hljs.regex;
+
   const FIELD_CODES = {
     className: 'variable',
     match: /%[fFuUcCiIkKvV]/,
     relevance: 0
   };
 
-  const QUOTED_STRING = {
+  const STRINGS = {
     className: 'string',
-    begin: /"/,
-    end: /"/,
     contains: [ hljs.BACKSLASH_ESCAPE ],
+    variants: [
+      { begin: '"', end: '"' }
+    ],
     relevance: 0
   };
 
-  const COMMENT_MODE = {
+  const COMMENT = {
     className: 'comment',
-    begin: /#/,
+    begin: /[#;]/,
     end: /$/,
     relevance: 0
   };
 
-  const SECTION_HEADER = {
-    className: 'section',
-    begin: /^\[(Desktop Entry|Unit|Service|Install|Socket|Mount|Automount|Swap|Path|Timer|Slice|Scope|Manager|connection|ipv4|ipv6|802-3-ethernet|802-11-wireless|802-11-wireless-security|vpn|Journal|Bridge|Desktop Action\s+[A-Za-z0-9_-]+)\]/,
+  const BOOL_LITERAL = {
+    className: 'literal',
+    begin: /\b(true|false|True|False)\b/,
     relevance: 10
   };
 
-  const KEY_VALUE_PAIR = {
-    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*(=)/,
-    end: /$/,
+  const TYPE_LITERAL = {
+    className: 'literal',
+    begin: /\b(Application|Link|Directory|forking|oneshot|OneShot)\b/,
+    relevance: 10
+  };
+
+  const NUMBER = {
+    className: 'number',
+    relevance: 0,
+    variants: [
+      { begin: /([+-])?[\d]+(_[\d]+)*/ },
+      { begin: hljs.NUMBER_RE }
+    ]
+  };
+
+  const SECTION = {
+    className: 'section',
+    begin: /^\[(Desktop Entry|Unit|Service|Install|Socket|Mount|Automount|Swap|Path|Timer|Slice|Scope|Manager|connection|ipv4|ipv6|802-3-ethernet|802-11-wireless|802-11-wireless-security|vpn|Journal|Bridge|Desktop Action\s+[A-Za-z0-9_-]+)\]/,
+    end: /\]/,
+    relevance: 10
+  };
+
+  const BARE_KEY = /[A-Za-z0-9_-]+/;
+  const KEY_WITH_INDEX = regex.concat(
+    BARE_KEY,
+    '(\\[[A-Za-z0-9_@.]+\\])?'
+  );
+
+  const KEY_VALUE = {
+    begin: regex.concat('^', KEY_WITH_INDEX, '\\s*='),
     returnBegin: true,
     contains: [
       {
-        className: 'attribute',
-        begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
+        className: 'attr',
+        begin: KEY_WITH_INDEX,
         end: /\s*=/,
         excludeEnd: true,
         relevance: 10
@@ -52,28 +82,29 @@ export default function(hljs) {
       },
       {
         className: 'literal',
-        begin: /(?<=^Type\s*=)\s*\b(Application|Link|Directory|forking|oneshot|OneShot)\b/,
+        begin: /\b(Application|Link|Directory|forking|oneshot|OneShot)\b/,
         relevance: 10
       },
       {
         className: 'literal',
-        begin: /(?<=^(Terminal|StartupNotify)\s*=)\s*\b(true|false|True|False)\b/,
+        begin: /\b(true|false|True|False)\b/,
         relevance: 10
       },
-      QUOTED_STRING,
+      STRINGS,
       FIELD_CODES,
-      COMMENT_MODE
+      COMMENT
     ]
   };
 
   return {
-    name: 'Systemd',
-    aliases: ['desktop', 'service', 'mount', 'socket', 'timer', 'nmconnection','systemd'],
+    name: 'Systemd/XDG',
+    aliases: [ 'desktop', 'service', 'mount', 'socket', 'timer', 'nmconnection', 'systemd' ],
     case_insensitive: false,
     contains: [
-      COMMENT_MODE,
-      SECTION_HEADER,
-      KEY_VALUE_PAIR
+      COMMENT,
+      SECTION,
+      KEY_VALUE
     ]
   };
 }
+
