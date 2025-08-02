@@ -33,29 +33,42 @@ export default function(hljs) {
     relevance: 10
   };
 
-  const KEY_VALUE = {
-    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*=/,
-    returnBegin: true,
+  const KEY_NAME = {
+    className: 'attr',
+    begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
+    end: /\s*=/,
+    excludeEnd: true,
+    relevance: 10
+  };
+
+  const OPERATOR = {
+    className: 'operator',
+    match: /=/,
+    relevance: 0
+  };
+
+  const VALUE = {
+    begin: /=\s*/,
+    end: /$/,
+    excludeBegin: true,
     contains: [
-      {
-        FIELD_CODES,
-        className: 'attr',
-        begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
-        end: /\s*=/,
-        excludeEnd: true,
-        relevance: 10
-      },
-      {
-        className: 'operator',
-        match: /=/,
-        relevance: 0
-      },
+      FIELD_CODES,
+      STRING,
       {
         className: 'literal',
         match: /\b(Application|Link|Directory|forking|oneshot|OneShot|true|false|True|False)\b/,
         relevance: 10
-      },
-      STRING
+      }
+    ]
+  };
+
+  const KEY_VALUE = {
+    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*=/,
+    returnBegin: true,
+    contains: [
+      KEY_NAME,
+      OPERATOR,
+      VALUE
     ]
   };
 
