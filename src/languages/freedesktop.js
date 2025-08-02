@@ -1,6 +1,6 @@
 /*
-Language: Systemd
-Description: Systemd/XDG Entry Specification file format.
+Language: FreeDesktop Configs
+Description: FreeDesktop Config Specification file format
 Contributors: Lee Yunjin <gzblues61@daum.net>
 Category: common, config
 Website: https://www.freedesktop.org/
@@ -52,7 +52,6 @@ export default function(hljs) {
     end: /$/,
     excludeBegin: true,
     contains: [
-      FIELD_CODES,
       STRING,
       {
         className: 'literal',
@@ -67,6 +66,7 @@ export default function(hljs) {
     returnBegin: true,
     contains: [
       KEY_NAME,
+      FIELD_CODES,
       OPERATOR,
       VALUE
     ]
