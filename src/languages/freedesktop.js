@@ -60,8 +60,8 @@ export default function(hljs) {
   };
 
   return {
-    name: 'Systemd (INI-like)',
-    aliases: ['desktop', 'service', 'mount', 'socket', 'timer', 'nmconnection', 'systemd'],
+    name: 'FreeDesktop configuration format',
+    aliases: ['desktop', 'service', 'mount', 'socket', 'timer', 'nmconnection', 'systemd'. 'freedesktop'],
     case_insensitive: false,
     contains: [
       COMMENT,
