@@ -9,7 +9,7 @@ export default function(hljs) {
   const FIELD_CODES = {
     className: 'variable',
     begin: /%[a-z]/i,
-    relevance: 0
+    relevance: 1
   };
 
   const STRING = {
@@ -65,8 +65,8 @@ export default function(hljs) {
     begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*=/,
     returnBegin: true,
     contains: [
-      KEY_NAME,
       FIELD_CODES,
+      KEY_NAME,
       OPERATOR,
       VALUE
     ]
