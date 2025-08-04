@@ -383,6 +383,39 @@ export default function(hljs) {
         relevance: 0
       },
       { match: /\bor\b/, scope: "keyword" },
+      // Method calls with parentheses
+      {
+        match: [
+          /\./,
+          IDENT_RE,
+          /(?=\s*\()/
+        ],
+        scope: {
+          2: "title.function.method"
+        }
+      },
+      // Chained method calls
+      {
+        match: [
+          /\./,
+          IDENT_RE,
+          /(?=\s*\.\s*\w)/
+        ],
+        scope: {
+          2: "title.function.method"
+        }
+      },
+      {
+        match: [
+          /(?<!(?:import|from)\s+[\w.]*)/,  // Negative lookbehind for import context
+          /\./,                             // Literal dot
+          IDENT_RE,                         // Property name
+          /(?!\s*[\(\[])/                   // Not followed by ( or [
+        ],
+        scope: {
+          3: "property"
+        }
+      },
       STRING,
       COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,
