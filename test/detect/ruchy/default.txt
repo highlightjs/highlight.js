@@ -1,0 +1,92 @@
+// Ruchy language demonstration for highlight.js testing
+
+/// Documentation comment for the MessageProcessor actor
+/// This actor handles message processing with state management
+actor MessageProcessor {
+    state: Vec<String>,
+    counter: i32,
+
+    fn new() -> Self {
+        Self { 
+            state: Vec::new(),
+            counter: 0 
+        }
+    }
+
+    fn handle(&mut self, message: String) -> String {
+        self.counter += 1;
+        self.state.push(message.clone());
+        
+        // Pipeline operator demonstration
+        let result = message 
+            >> |s| s.to_uppercase()
+            >> |s| format!("Processed #{}: {}", self.counter, s)
+            >> |s| s.trim().to_string();
+            
+        result
+    }
+}
+
+struct Config {
+    name: String,
+    timeout: f64,
+    enabled: bool,
+}
+
+enum MessageType {
+    Text(String),
+    Binary(Vec<u8>),
+    Empty,
+}
+
+trait Processor {
+    fn process(&mut self, data: &str) -> Result<String, String>;
+}
+
+impl Processor for MessageProcessor {
+    fn process(&mut self, data: &str) -> Result<String, String> {
+        match data {
+            "" => Err("Empty input".to_string()),
+            s if s.len() > 1000 => Err("Input too large".to_string()),
+            _ => Ok(self.handle(data.to_string())),
+        }
+    }
+}
+
+#[async]
+fn main() {
+    // Create and spawn an actor
+    let processor = spawn(MessageProcessor::new());
+    
+    // Send messages using actor operators
+    processor <- "Hello".to_string();
+    processor <- "World".to_string();
+    
+    // Ask for response
+    let response = processor <? "Status".to_string();
+    println!("Response: {}", response);
+    
+    // Numeric literals demonstration
+    let binary = 0b1010_1010u8;
+    let hex = 0xFF_FF_FFu32;
+    let float = 3.14159f64;
+    
+    // String interpolation
+    let message = "Result: ${response}, Binary: ${binary}";
+    
+    // Pattern matching
+    let result = match MessageType::Text("hello".to_string()) {
+        MessageType::Text(s) => s.to_uppercase(),
+        MessageType::Binary(_) => "Binary data".to_string(),
+        MessageType::Empty => "No data".to_string(),
+    };
+    
+    println!("{}", result);
+}
+
+// FIXME: This is a technical debt comment
+// TODO: Implement error handling
+/* 
+   Multi-line comment with HACK keyword
+   DEBT: Refactor this code
+*/
