@@ -6,8 +6,6 @@
  Category: common
  */
 
-import { NUMERIC } from "./lib/java.js";
-
 export default function(hljs) {
   const KEYWORDS = {
     keyword:
@@ -100,10 +98,31 @@ export default function(hljs) {
     ]
   };
 
-  // https://kotlinlang.org/docs/reference/whatsnew11.html#underscores-in-numeric-literals
-  // According to the doc above, the number mode of kotlin is the same as java 8,
-  // so the code below is copied from java.js
-  const KOTLIN_NUMBER_MODE = NUMERIC;
+  const decimalDigits = '[0-9](_*[0-9])*';
+  const frac = `\\.(${decimalDigits})`;
+  const KOTLIN_NUMBER_MODE = {
+    className: 'number',
+    variants: [
+      // DecimalFloatingPointLiteral
+      // including ExponentPart
+      { begin: `(\\b(${decimalDigits})((${frac})|\\.)?|(${frac}))` +
+        `[eE][+-]?(${decimalDigits})[fF]?\\b` },
+      // excluding ExponentPart
+      { begin: `\\b(${decimalDigits})((${frac})[fF]?\\b|\\.([fF]\\b)?)` },
+      { begin: `(${frac})[fF]?\\b` },
+      { begin: `\\b(${decimalDigits})[fF]\\b` },
+  
+      // DecimalIntegerLiteral
+      { begin: '\\b(0|[1-9](_*[0-9])*)[uU]?L?\\b' },
+  
+      // HexIntegerLiteral
+      { begin: `\\b0[xX]([0-9a-fA-F](_*[0-9a-fA-F])*)[uU]?L?\\b` },
+  
+      // BinaryIntegerLiteral
+      { begin: '\\b0[bB][01](_*[01])*[uU]?L?\\b' },
+    ],
+    relevance: 0
+  };
   const KOTLIN_NESTED_COMMENT = hljs.COMMENT(
     '/\\*', '\\*/',
     { contains: [ hljs.C_BLOCK_COMMENT_MODE ] }

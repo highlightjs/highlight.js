@@ -26,6 +26,7 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- fix(kotlin) Improve number literal parsing[Florian Freitag][]
 
 Documentation:
 
