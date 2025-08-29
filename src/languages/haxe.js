@@ -74,7 +74,7 @@ export default function(hljs) {
       },
       {
         className: 'type', // function types
-        begin: /:[ \t]*/,
+        begin: ":[ \t]*(?=\\(|" + IDENT_RE + ")",
         end: /[^A-Za-z0-9_ \t\->]/,
         excludeBegin: true,
         excludeEnd: true,
@@ -82,7 +82,7 @@ export default function(hljs) {
       },
       {
         className: 'type', // types
-        begin: /:[ \t]*/,
+        begin: ":[ \t]*(?=" + IDENT_RE + ")",
         end: /\W/,
         excludeBegin: true,
         excludeEnd: true

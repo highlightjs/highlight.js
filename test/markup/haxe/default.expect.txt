@@ -98,11 +98,11 @@
         <span class="hljs-comment">// switch statements!</span>
         <span class="hljs-keyword">var</span> c:<span class="hljs-type">Color </span>= Color.Green;
         <span class="hljs-keyword">var</span> x:<span class="hljs-type">Int </span>= <span class="hljs-keyword">switch</span>(c) {
-            <span class="hljs-keyword">case</span> Red: <span class="hljs-type">0</span>;
-            <span class="hljs-keyword">case</span> Green: <span class="hljs-type">1</span>;
-            <span class="hljs-keyword">case</span> Blue: <span class="hljs-type">2</span>;
-            <span class="hljs-keyword">case</span> Rgb(r, g, b): <span class="hljs-type">3</span>;
-            <span class="hljs-keyword">case</span> <span class="hljs-literal">_</span>: <span class="hljs-type">-1</span>;
+            <span class="hljs-keyword">case</span> Red: <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">case</span> Green: <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">case</span> Blue: <span class="hljs-number">2</span>;
+            <span class="hljs-keyword">case</span> Rgb(r, g, b): <span class="hljs-number">3</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-literal">_</span>: <span class="hljs-number">-1</span>;
         }
 
         <span class="hljs-keyword">for</span>(i <span class="hljs-keyword">in</span> <span class="hljs-number">0.</span>.<span class="hljs-number">.3</span>) {
@@ -139,21 +139,24 @@
 
     <span class="hljs-keyword">private</span> <span class="hljs-keyword">inline</span> <span class="hljs-title function_"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span></span>(a:<span class="hljs-type">Int</span>, b:<span class="hljs-type">Float</span>, ?c:<span class="hljs-type">String</span>, d:<span class="hljs-type">Bool</span>=<span class="hljs-literal">false</span>):<span class="hljs-type">Dynamic </span>{
         <span class="hljs-keyword">return</span> {
-            x: <span class="hljs-type">0</span>,
+            x: <span class="hljs-number">0</span>,
             y: <span class="hljs-type">true</span>,
             z: <span class="hljs-type">false</span>,
 
-            a: <span class="hljs-type">1</span>.<span class="hljs-number">53</span>,
-            b: <span class="hljs-type">5e10</span>,
-            c: <span class="hljs-type">-12</span>,
-            d: <span class="hljs-type">1_0_0_0_0</span>,
+            a: <span class="hljs-number">1.53</span>,
+            b: <span class="hljs-number">5e10</span>,
+            c: <span class="hljs-number">-12</span>,
+            d: <span class="hljs-number">1</span>_0_0_0_0,
 
-            i: <span class="hljs-type">10000i32</span>,
-            u: <span class="hljs-type">2147483648u32</span>,
-            l: <span class="hljs-type">10000000000i64</span>,
-            f: <span class="hljs-type">5f64</span>,
+            i: <span class="hljs-number">10000i32</span>,
+            u: <span class="hljs-number">2147483648u32</span>,
+            l: <span class="hljs-number">10000000000i64</span>,
+            f: <span class="hljs-number">5f64</span>,
 
             n: <span class="hljs-type">null</span>,
+
+            s1: <span class="hljs-string">&quot;double&quot;</span>,
+            s2: <span class="hljs-string">&#x27;single&#x27;</span>,
         };
     }
 
