@@ -9,6 +9,10 @@ export const MODES = (hljs) => {
       scope: 'number',
       begin: /#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b/
     },
+    UNICODE_RANGE: {
+      scope: 'number',
+      begin: /\b[Uu]\+[0-9A-Fa-f][0-9A-Fa-f?]{0,4}(-[0-9A-Fa-f][0-9A-Fa-f]{0,4})?/
+    },
     FUNCTION_DISPATCH: {
       className: "built_in",
       begin: /[\w-]+(?=\()/
@@ -777,6 +781,7 @@ export const ATTRIBUTES = [
   'transition-timing-function',
   'translate',
   'unicode-bidi',
+  'unicode-range',
   'user-modify',
   'user-select',
   'vector-effect',

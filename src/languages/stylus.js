@@ -148,6 +148,7 @@ export default function(hljs) {
               VARIABLE,
               hljs.APOS_STRING_MODE,
               modes.CSS_NUMBER_MODE,
+              modes.UNICODE_RANGE,
               hljs.QUOTE_STRING_MODE
             ]
           }
