@@ -14,6 +14,7 @@ New Grammars:
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
 - added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
+- added 3rd party RAScript grammar to SUPPORTED_LANGUAGES [Joshua Raphael][]
 
 Core Grammars:
 
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Joshua Raphael]: https://github.com/joshraphael
 
 
 ## Version 11.11.1
