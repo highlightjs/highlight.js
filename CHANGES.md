@@ -30,6 +30,7 @@ Core Grammars:
 Documentation:
 
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
+- document the existing `pwsh` alias for PowerShell [helpimnotdrowning][]
 
 Themes:
 
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[helpimnotdrowning]: https://github.com/helpimnotdrowning
 
 
 ## Version 11.11.1
