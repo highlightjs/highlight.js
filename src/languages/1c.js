@@ -514,7 +514,7 @@ export default function(hljs) {
         returnBegin: true,
         contains: [
           {
-            className: 'title',
+            className: 'function-built_in',
             begin: UNDERSCORE_IDENT_RE
           }
         ]
