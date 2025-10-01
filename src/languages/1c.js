@@ -2,7 +2,7 @@
 Language: 1C:Enterprise
 Author: Stanislav Belov <stbelov@gmail.com>
 Description: built-in language 1C:Enterprise (v7, v8)
-Category: enterprise
+Category: enterprise, common
 */
 
 export default function(hljs) {
