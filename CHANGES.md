@@ -26,6 +26,7 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 
 Documentation:
 
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[DarkMatter-999]: https://github.com/DarkMatter-999
 
 
 ## Version 11.11.1
