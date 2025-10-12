@@ -1,0 +1,10 @@
+t"Hello {name}"
+T"Hello {name}"
+t"Hello {name!r}"
+t"Value: {value:.2f}"
+t"Value: {value:.{precision}f}"
+t"Hello {name=}"
+rt'Did you say "{trade}"?\n'
+tr'Did you say "{trade}"?\n'
+t"Hello {(lambda: name)}"
+t"Hello {await get_name()}"
