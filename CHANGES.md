@@ -3,6 +3,7 @@
 Themes:
 
 - added "vs Dark " theme [Twineee1][]
+- added `GitHub Adaptive (Light & Dark)` theme [makl11][]
 
 New Grammars:
 
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[makl11]: https://github.com/makl11
 
 
 ## Version 11.11.1
