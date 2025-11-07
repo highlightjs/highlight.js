@@ -28,6 +28,10 @@ Core Grammars:
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
 
+Developer Tools:
+
+- add support for checking a11y for themes with `light-dark(...)` colors to `tools/checkTheme.js`
+
 Documentation:
 
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
