@@ -1,0 +1,118 @@
+/*!
+  Theme: GitHub Adaptive (Light & Dark)
+  Description: A combination of @Hirse's GitHub Light and Dark themes that switches based on the user's system preference.
+  Authors: github.com, @Hirse
+*/
+
+
+:root {
+	color-scheme: light dark;
+}
+
+.hljs.light {
+	color-scheme: light;
+}
+.hljs.dark {
+	color-scheme: dark;
+}
+
+.hljs {
+	color: light-dark(#24292e, #c9d1d9);
+	background: light-dark(#ffffff, #0d1117);
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+	color: light-dark(#d73a49, #ff7b72);
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+	color: light-dark(#6f42c1, #d2a8ff);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+	color: light-dark(#005cc5, #79c0ff);
+}
+
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+	color: light-dark(#032f62, #a5d6ff);
+}
+
+.hljs-built_in,
+.hljs-symbol {
+	color: light-dark(#e36209, #ffa657);
+}
+
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+	color: light-dark(#6a737d, #8b949e);
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+	color: light-dark(#22863a, #7ee787);
+}
+
+.hljs-subst {
+	color: light-dark(#24292e, #c9d1d9);
+}
+
+.hljs-section {
+	color: light-dark(#005cc5, #1f6feb);
+	font-weight: bold;
+}
+
+.hljs-bullet {
+	color: light-dark(#735c0f, #f2cc60);
+}
+
+.hljs-emphasis {
+	color: light-dark(#24292e, #c9d1d9);
+	font-style: italic;
+}
+
+.hljs-strong {
+	color: light-dark(#24292e, #c9d1d9);
+	font-weight: bold;
+}
+
+.hljs-addition {
+	color: light-dark(#22863a, #aff5b4);
+	background-color: light-dark(#f0fff4, #033a16);
+}
+
+.hljs-deletion {
+	color: light-dark(#b31d28, #ffdcd7);
+	background-color: light-dark(#ffeef0, #67060c);
+}
+
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+}

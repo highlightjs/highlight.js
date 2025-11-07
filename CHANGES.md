@@ -3,6 +3,7 @@
 Themes:
 
 - added "vs Dark " theme [Twineee1][]
+- added `GitHub Adaptive (Light & Dark)` theme [makl11][]
 
 New Grammars:
 
@@ -26,6 +27,10 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+
+Developer Tools:
+
+- add support for checking a11y for themes with `light-dark(...)` colors to `tools/checkTheme.js`
 
 Documentation:
 
@@ -55,6 +60,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[makl11]: https://github.com/makl11
 
 
 ## Version 11.11.1

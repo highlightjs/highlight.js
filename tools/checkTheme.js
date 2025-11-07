@@ -187,6 +187,19 @@ function check_group(group, rules) {
   }
 }
 
+function is_light_dark(value) {
+  return typeof value === "string" && value.startsWith("light-dark");
+}
+
+function get_colors_from_light_dark(light_dark_value) {
+  light_dark_value = light_dark_value.trim();
+  light_dark_value = light_dark_value.substring(11, light_dark_value.length - 1);
+  let [light, dark] = light_dark_value.split(",");
+  light = light.trim();
+  dark = dark.trim();
+  return [light, dark];
+}
+
 const round2 = (x) => Math.round(x*100)/100;
 
 class CSSRule {
@@ -199,20 +212,38 @@ class CSSRule {
       }
       this.fg = rule.declarations.find(x => x.property =="color")?.value;
 
+      if (is_light_dark(this.bg)) {
+        [this.bg, this.bg_dark] = get_colors_from_light_dark(this.bg);
+      }
+      if (is_light_dark(this.fg)) {
+        [this.fg, this.fg_dark] = get_colors_from_light_dark(this.fg);
+      }
+
       if (this.bg) {
         this.bg = csscolors[this.bg] || this.bg;
       }
       if (this.fg) {
         this.fg = csscolors[this.fg] || this.fg;
       }
+      if (this.bg_dark) {
+        this.bg_dark = csscolors[this.bg_dark] || this.bg_dark;
+      }
+      if (this.fg_dark) {
+        this.fg_dark = csscolors[this.fg_dark] || this.fg_dark;
+      }
 
       // inherit from body if we're missing fg or bg
       if (this.hasColor) {
         if (!this.bg) this.bg = body.background;
         if (!this.fg) this.fg = body.foreground;
+        if (body?.hasLightDark) {
+          if (!this.bg_dark) this.bg_dark = body.backgroundDark;
+          if (!this.fg_dark) this.fg_dark = body.foregroundDark;
+        }
       }
     }
   }
+
   get background() {
     return this.bg
   }
@@ -220,17 +251,46 @@ class CSSRule {
   get foreground() {
     return this.fg
   }
+
+  get backgroundDark() {
+    return this.bg_dark;
+  }
+
+  get foregroundDark() {
+    return this.fg_dark;
+  }
+
   get hasColor() {
     if (!this.rule.declarations) return false;
     return this.fg || this.bg;
   }
+
+  get hasLightDark() {
+    if (!this.rule.declarations) return false;
+    return this.fg_dark || this.bg_dark;
+  }
+
   toString() {
+    if (this.hasLightDark) {
+      return ` light: ${this.foreground} on ${this.background}, dark: ${this.foregroundDark} on ${this.backgroundDark}`;
+    }
     return ` ${this.foreground} on ${this.background}`
   }
 
   contrastRatio() {
     if (!this.foreground) return "unknown (no fg)"
     if (!this.background) return "unknown (no bg)"
+    if (this.hasLightDark) {
+      const lightRatio = round2(wcagContrast.hex(this.foreground, this.background));
+
+      let darkRatio = "unknown";
+      if (!this.foregroundDark) darkRatio = "unknown (no fg)";
+      else if (!this.backgroundDark) darkRatio = "unknown (no bg)";
+      else darkRatio = round2(wcagContrast.hex(this.foregroundDark, this.backgroundDark));
+
+      return [lightRatio, darkRatio];
+    }
+
     return round2(wcagContrast.hex(this.foreground, this.background));
   }
 }
@@ -240,10 +300,17 @@ function contrast_report(rules) {
 
   var hljs = rules.find (x => x.selectors && x.selectors.includes(".hljs"));
   var body = new CSSRule(hljs);
+  const head = body.hasLightDark
+    ? ['ratio light', 'ratio dark', 'selector', 'fg light', 'bg light', 'fg dark', 'bg dark']
+    : ['ratio', 'selector', 'fg', 'bg'];
+  const colWidths = body.hasLightDark
+    ? [13, 12, 40, 10, 10, 10, 10]
+    : [7, 40, 10, 10];
+
   const table = new Table({
     chars: {'mid': '', 'left-mid': '', 'mid-mid': '', 'right-mid': ''},
-    head: ['ratio', 'selector', 'fg', 'bg'],
-    colWidths: [7, 40, 10, 10],
+    head,
+    colWidths,
     style: {
       head: ['grey']
     }
@@ -252,12 +319,23 @@ function contrast_report(rules) {
   rules.forEach(rule => {
     var color = new CSSRule(rule, body);
     if (!color.hasColor) return;
-    table.push([
-      color.contrastRatio(),
-      rule.selectors,
-      color.foreground,
-      color.background
-    ])
+    if (color.hasLightDark) {
+      table.push([
+        ...color.contrastRatio(),
+        rule.selectors,
+        color.foreground,
+        color.background,
+        color.foregroundDark,
+        color.backgroundDark
+      ]);
+    } else {
+      table.push([
+        color.contrastRatio(),
+        rule.selectors,
+        color.foreground,
+        color.background
+      ]);
+    }
     // console.log(r.selectors[0], color.contrastRatio(), color.toString());
   })
   console.log(table.toString())
