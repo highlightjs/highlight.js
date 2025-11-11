@@ -31,3 +31,6 @@ _ not italic_
 <span class="hljs-quote">&gt; * One (this point is italic)</span>
 <span class="hljs-quote">&gt; * Two</span>
 <span class="hljs-quote">&gt; * Three</span>
+
+No italics mid_word underscores.
+But italics for <span class="hljs-emphasis">_full_word_</span> with underscores.

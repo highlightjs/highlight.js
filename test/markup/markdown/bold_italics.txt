@@ -31,3 +31,6 @@ _ not italic_
 > * One (this point is italic)
 > * Two
 > * Three
+
+No italics mid_word underscores.
+But italics for _full_word_ with underscores.
