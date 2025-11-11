@@ -156,8 +156,8 @@ export default function(hljs) {
         end: /\*/
       },
       {
-        begin: /_(?![_\s])/,
-        end: /_/,
+        begin: /(?<![a-zA-Z0-9])_(?![_\s])/,
+        end: /_(?![a-zA-Z0-9])/,
         relevance: 0
       }
     ]
