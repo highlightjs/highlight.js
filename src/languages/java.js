@@ -30,8 +30,9 @@ function recurRegex(re, substitution, depth) {
 export default function(hljs) {
   const regex = hljs.regex;
   const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
-  const GENERIC_IDENT_RE = JAVA_IDENT_RE
-    + recurRegex('(?:<' + JAVA_IDENT_RE + '~~~(?:\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?', /~~~/g, 2);
+  const TYPE_ARG_RE = '(?:(?:' + JAVA_IDENT_RE + '~~~)|(?:\\?\\s+(?:extends|super)\\s+' + JAVA_IDENT_RE + '~~~)|(?:\\?))';
+  const GENERIC_RE = recurRegex('(?:<' + TYPE_ARG_RE + '(?:\\s*,\\s*' + TYPE_ARG_RE + ')*>)?', /~~~/g, 2);
+  const ARRAY_RE = '(?:(?:\\[])+)?';
   const MAIN_KEYWORDS = [
     'synchronized',
     'abstract',
@@ -188,6 +189,8 @@ export default function(hljs) {
       {
         begin: [
           regex.concat(/(?!else)/, JAVA_IDENT_RE),
+          GENERIC_RE,
+          ARRAY_RE,
           /\s+/,
           JAVA_IDENT_RE,
           /\s+/,
@@ -195,8 +198,8 @@ export default function(hljs) {
         ],
         className: {
           1: "type",
-          3: "variable",
-          5: "operator"
+          5: "variable",
+          7: "operator"
         }
       },
       {
@@ -223,7 +226,7 @@ export default function(hljs) {
       },
       {
         begin: [
-          '(?:' + GENERIC_IDENT_RE + '\\s+)',
+          '(?:' + JAVA_IDENT_RE + GENERIC_RE + ARRAY_RE + '\\s+)',
           hljs.UNDERSCORE_IDENT_RE,
           /\s*(?=\()/
         ],

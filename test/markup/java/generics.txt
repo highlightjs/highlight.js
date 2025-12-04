@@ -1,0 +1,8 @@
+List<String> strings = new ArrayList<>();
+Generic<Object, ?, String> g = null;
+public static <T, R> Generic<T, ?, R> map(Function<? super T, ? extends R> mapper);
+
+public interface Map<K, V> {
+  void put(K key, V value);
+  V get(K key);
+}
