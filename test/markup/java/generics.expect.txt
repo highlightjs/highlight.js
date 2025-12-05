@@ -1,9 +1,9 @@
 <span class="hljs-type">List</span>&lt;String&gt; <span class="hljs-variable">strings</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
 <span class="hljs-type">Generic</span>&lt;Object, ?, String&gt; <span class="hljs-variable">g</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T, R&gt; Generic&lt;T, ?, R&gt; <span class="hljs-title function_">map</span><span class="hljs-params">(Function&lt;? <span class="hljs-built_in">super</span> T, ? extends R&gt; mapper)</span>;
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T, R&gt; <span class="hljs-type">Generic</span>&lt;T, ?, R&gt; <span class="hljs-title function_">map</span><span class="hljs-params">(Function&lt;? <span class="hljs-built_in">super</span> T, ? extends R&gt; mapper)</span>;
 <span class="hljs-type">Map</span>&lt;? extends Key, List&lt;? <span class="hljs-built_in">super</span> Value&gt;&gt; <span class="hljs-variable">map</span> <span class="hljs-operator">=</span> getMap();
 
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Map</span>&lt;K, V&gt; {
-  <span class="hljs-keyword">void</span> <span class="hljs-title function_">put</span><span class="hljs-params">(K key, V value)</span>;
-  V <span class="hljs-title function_">get</span><span class="hljs-params">(K key)</span>;
+  <span class="hljs-type">void</span> <span class="hljs-title function_">put</span><span class="hljs-params">(K key, V value)</span>;
+  <span class="hljs-type">V</span> <span class="hljs-title function_">get</span><span class="hljs-params">(K key)</span>;
 }
