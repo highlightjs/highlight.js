@@ -26,7 +26,7 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
-- enh(java) improve support for generic and array type declarations [Hannes Wallnoefer][]
+- enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
 
 Documentation:
 
