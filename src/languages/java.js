@@ -31,8 +31,8 @@ export default function(hljs) {
   const regex = hljs.regex;
   const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
   const TYPE_ARG_RE = '(?:(?:' + JAVA_IDENT_RE + '~~~)|(?:\\?\\s+(?:extends|super)\\s+' + JAVA_IDENT_RE + '~~~)|(?:\\?))';
-  const GENERIC_RE = recurRegex('(?:\\s*<' + TYPE_ARG_RE + '(?:\\s*,\\s*' + TYPE_ARG_RE + ')*>)?', /~~~/g, 2);
-  const ARRAY_RE = '(?:(?:\\s*\\[])+)?';
+  const GENERIC_RE = recurRegex('(?:\\s*<\\s*' + TYPE_ARG_RE + '(?:\\s*,\\s*' + TYPE_ARG_RE + ')*\\s*>)?', /~~~/g, 2);
+  const ARRAY_RE = '(?:(?:\\s*\\[\\s*])+)?';
   const MAIN_KEYWORDS = [
     'synchronized',
     'abstract',

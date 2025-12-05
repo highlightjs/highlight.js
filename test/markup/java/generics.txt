@@ -2,6 +2,7 @@ List<String> strings = new ArrayList<>();
 Generic<Object, ?, String> g = null;
 public static <T, R> Generic<T, ?, R> map(Function<? super T, ? extends R> mapper);
 Map<? extends Key, List<? super Value>> map = getMap();
+static Set < Integer > getInts() { ... }
 
 public interface Map<K, V> {
   void put(K key, V value);
