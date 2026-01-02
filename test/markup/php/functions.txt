@@ -49,3 +49,15 @@ setAlarm(
     label: 'foo',
     time:time() + array(5)[0] + Foo::HOUR,
 );
+
+header(
+    // Contained C line comment
+    /* Contained C block comment */
+    # Contained hash comment
+);
+
+fn(
+    $x, // C line comment
+    /* C block comment */
+    $y, # Contained hash comment
+) => $x / $y;

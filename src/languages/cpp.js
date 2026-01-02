@@ -425,11 +425,7 @@ export default function(hljs) {
       _hint: FUNCTION_HINTS },
     begin: regex.concat(
       /\b/,
-      /(?!decltype)/,
-      /(?!if)/,
-      /(?!for)/,
-      /(?!switch)/,
-      /(?!while)/,
+      `(?!${RESERVED_KEYWORDS.join('|')})`,
       hljs.IDENT_RE,
       regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };

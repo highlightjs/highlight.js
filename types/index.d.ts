@@ -30,7 +30,7 @@ declare module 'highlight.js' {
 
     interface PublicApi {
         highlight(code: string, options: HighlightOptions): HighlightResult
-        /** @deprecated use `higlight(code, {lang: ..., ignoreIllegals: ...})` */
+        /** @deprecated use `highlight(code, {language: ..., ignoreIllegals: ...})` */
         highlight(languageName: string, code: string, ignoreIllegals?: boolean): HighlightResult
         highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
         highlightBlock: (element: HTMLElement) => void

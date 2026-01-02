@@ -11,4 +11,7 @@ function $initHighlight(block, cls) {
       return /\d+[\s/]/g;
   }
   using val = condition();
+  for await (const item of items) {
+    console.log(item);
+  }
 }

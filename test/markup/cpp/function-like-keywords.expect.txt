@@ -6,3 +6,7 @@
 <span class="hljs-keyword">while</span> (ch) {}
 
 <span class="hljs-keyword">for</span> (;;) {}
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> </span>= <span class="hljs-keyword">delete</span>(<span class="hljs-string">&quot;reason&quot;</span>);
+
+<span class="hljs-keyword">static_assert</span>(<span class="hljs-literal">true</span>);
