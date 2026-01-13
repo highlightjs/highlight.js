@@ -132,6 +132,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lean                    | lean                   | [highlightjs-lean](https://github.com/leanprover-community/highlightjs-lean) |
 | Less                    | less                   |         |
 | Liquid                  | liquid                 | [highlightjs-liquid](https://github.com/highlightjs/highlightjs-liquid) |
+| Liquidsoap              | liq                    | [highlightjs-liquidsoap](https://github.com/savonet/highlightjs-liquidsoap) |
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |

@@ -12,6 +12,7 @@ New Grammars:
 - added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
+- added 3rd party Liquidsoap grammar to SUPPORTED_LANGUAGES [Romain Beauxis][]
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
 - added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
 
@@ -47,6 +48,7 @@ CONTRIBUTORS
 [Kerry Shetline]: https://github.com/kshetline
 [SungHyun Kim]: https://github.com/witch-factory
 [Adam Lui]: https://github.com/adamlui
+[Romain Beauxis]: https://github.com/toots
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
 [Twineee1]: https://github.com/Twineee1
