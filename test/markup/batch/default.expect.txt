@@ -1,0 +1,43 @@
+@<span class="hljs-built_in">echo</span> off
+<span class="hljs-comment">rem This is a comment</span>
+<span class="hljs-comment">::This is also a comment</span>
+
+<span class="hljs-built_in">setlocal</span> enabledelayedexpansion
+<span class="hljs-built_in">set</span> name=World
+<span class="hljs-built_in">set</span> count=<span class="hljs-number">42</span>
+
+<span class="hljs-built_in">echo</span> Hello %name%!
+<span class="hljs-built_in">echo</span> Count: %count%
+
+<span class="hljs-built_in">if</span> exist <span class="hljs-string">&quot;file.txt&quot;</span> (
+    <span class="hljs-built_in">echo</span> File exists
+) <span class="hljs-built_in">else</span> (
+    <span class="hljs-built_in">echo</span> File does <span class="hljs-built_in">not</span> exist
+)
+
+<span class="hljs-built_in">if</span> <span class="hljs-built_in">not</span> <span class="hljs-built_in">defined</span> myvar (
+    <span class="hljs-built_in">echo</span> Variable <span class="hljs-built_in">not</span> <span class="hljs-built_in">defined</span>
+)
+
+<span class="hljs-built_in">for</span> /L %%i <span class="hljs-built_in">in</span> (<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>) <span class="hljs-built_in">do</span> (
+    <span class="hljs-built_in">echo</span> %%i
+)
+
+<span class="hljs-built_in">dir</span> /s
+<span class="hljs-built_in">copy</span> source.txt destination.txt
+<span class="hljs-built_in">del</span> oldfile.txt
+
+<span class="hljs-built_in">cd</span> C:\Users
+<span class="hljs-built_in">pushd</span> .
+<span class="hljs-built_in">popd</span>
+
+<span class="hljs-built_in">call</span> :subroutine
+<span class="hljs-built_in">exit</span> /b <span class="hljs-number">0</span>
+
+:subroutine
+<span class="hljs-built_in">echo</span> This is a subroutine
+<span class="hljs-built_in">goto</span> :eof
+
+<span class="hljs-built_in">tasklist</span>
+<span class="hljs-built_in">ipconfig</span> /all
+<span class="hljs-built_in">powershell</span> Get-Process
