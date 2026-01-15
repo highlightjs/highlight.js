@@ -2,7 +2,7 @@
 Language: Batch
 Author: Kenez Megyeri <m.kenz99@gmail.com>
 Website: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands
-Description: Syntax highlighting for windows batch files and scripts eg.(.bat, .batch, .cmd)
+Description: Syntax highlighting for Windows batch files and scripts eg.(.bat, .batch, .cmd)
 Category: common, scripting
 */
 
@@ -12,8 +12,8 @@ export default function(hljs) {
     name: "Batch file",
     aliases: [
       "bat",
-      "cmd",
-      "dos"
+      "batch",
+      "cmd"
     ],
     case_insensitive: true,
     keywords: {
