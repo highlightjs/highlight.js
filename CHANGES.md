@@ -1,3 +1,14 @@
+## Version 11.12.0
+
+Documentation:
+
+- referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
+
+CONTRIBUTORS
+
+[Elastic]: https://github.com/elastic
+
+
 ## Version 11.11.2
 
 Themes:
