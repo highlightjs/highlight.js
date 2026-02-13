@@ -11,7 +11,11 @@ export default function(hljs) {
   /* missing support for heredoc-like string (OCaml 4.0.2+) */
   return {
     name: 'OCaml',
-    aliases: [ 'ml' ],
+    aliases: [
+			'ocaml',
+			'caml',
+			'ml'
+		],
     keywords: {
       $pattern: '[a-z_]\\w*!?',
       keyword:

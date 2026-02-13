@@ -56,7 +56,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | COBOL                   | cobol, standard-cobol  | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
 | CODEOWNERS              | codeowners             | [highlightjs-codeowners](https://github.com/highlightjs/highlightjs-codeowners) |
 | CoffeeScript            | coffeescript, coffee, cson, iced | |
-| Coq                     | coq                    |         |
+| Rocq                    | rocq, coq              |         |
 | CpcdosC+                | cpc                    | [highlightjs-cpcdos](https://github.com/SPinti-Software/highlightjs-cpcdos) |
 | Crmsh                   | crmsh, crm, pcmk       |         |
 | Crystal                 | crystal, cr            |         |
@@ -168,7 +168,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Oak                     | oak                    | [highlightjs-oak](https://github.com/timlabs/highlightjs-oak) |
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
-| OCaml                   | ocaml, ml              |         |
+| OCaml                   | ocaml, caml, ml        |         |
 | Odin                    | odin                   |         [highlightjs-odinlang](https://github.com/marianpekar/highlightjs-odinlang) |
 | OpenGL Shading Language | glsl                   |         |
 | OpenSCAD                | openscad, scad         |         |
