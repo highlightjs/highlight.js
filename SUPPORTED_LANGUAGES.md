@@ -72,6 +72,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Django                  | django, jinja          |         |
 | DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
+| Djot                    | djot, dj               |[highlightjs-djot](https://github.com/php-collective/highlightjs-djot) |
 | DOS                     | dos, bat, cmd          |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
