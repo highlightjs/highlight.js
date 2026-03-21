@@ -1,0 +1,3 @@
+if text.contains('\\') || text.contains('/') {
+    println!("found a slash");
+}

@@ -1,0 +1,17 @@
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">longest</span>&lt;<span class="hljs-symbol">&#x27;a</span>&gt;(x: &amp;<span class="hljs-symbol">&#x27;a</span> <span class="hljs-type">str</span>, y: &amp;<span class="hljs-symbol">&#x27;a</span> <span class="hljs-type">str</span>) <span class="hljs-punctuation">-&gt;</span> &amp;<span class="hljs-symbol">&#x27;a</span> <span class="hljs-type">str</span> {
+    <span class="hljs-keyword">if</span> x.<span class="hljs-title function_ invoke__">len</span>() &gt; y.<span class="hljs-title function_ invoke__">len</span>() { x } <span class="hljs-keyword">else</span> { y }
+}
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">ImportantExcerpt</span>&lt;<span class="hljs-symbol">&#x27;a</span>&gt; {
+    part: &amp;<span class="hljs-symbol">&#x27;a</span> <span class="hljs-type">str</span>,
+}
+
+<span class="hljs-keyword">impl</span>&lt;<span class="hljs-symbol">&#x27;a</span>&gt; ImportantExcerpt&lt;<span class="hljs-symbol">&#x27;a</span>&gt; {
+    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">level</span>(&amp;<span class="hljs-keyword">self</span>) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">i32</span> {
+        <span class="hljs-number">3</span>
+    }
+}
+
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">static_lifetime</span>() <span class="hljs-punctuation">-&gt;</span> &amp;<span class="hljs-symbol">&#x27;static</span> <span class="hljs-type">str</span> {
+    <span class="hljs-string">&quot;I have a static lifetime.&quot;</span>
+}

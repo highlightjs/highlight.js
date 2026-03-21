@@ -1,0 +1,3 @@
+<span class="hljs-keyword">if</span> text.<span class="hljs-title function_ invoke__">contains</span>(<span class="hljs-string">&#x27;<span class="hljs-char escape_">\\</span>&#x27;</span>) || text.<span class="hljs-title function_ invoke__">contains</span>(<span class="hljs-string">&#x27;/&#x27;</span>) {
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;found a slash&quot;</span>);
+}

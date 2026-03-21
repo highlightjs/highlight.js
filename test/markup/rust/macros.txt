@@ -1,0 +1,16 @@
+println!("Hello, world!");
+vec![1, 2, 3];
+assert_eq!(x, y);
+dbg!(my_variable);
+
+macro_rules! say_hello {
+    () => {
+        println!("Hello!");
+    };
+}
+
+#[derive(Debug, Clone)]
+struct Point {
+    x: i32,
+    y: i32,
+}
