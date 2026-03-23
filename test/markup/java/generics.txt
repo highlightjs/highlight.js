@@ -1,3 +1,5 @@
+/* Copyright (c) 2025, Oracle and/or its affiliates. */
+
 List<String> strings = new ArrayList<>();
 Generic<Object, ?, String> g = null;
 public static <T, R> Generic<T, ?, R> map(Function<? super T, ? extends R> mapper);
