@@ -1,0 +1,16 @@
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Hello, world!&quot;</span>);
+<span class="hljs-built_in">vec!</span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-built_in">assert_eq!</span>(x, y);
+dbg!(my_variable);
+
+<span class="hljs-built_in">macro_rules!</span> say_hello {
+    () =&gt; {
+        <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Hello!&quot;</span>);
+    };
+}
+
+<span class="hljs-meta">#[derive(Debug, Clone)]</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Point</span> {
+    x: <span class="hljs-type">i32</span>,
+    y: <span class="hljs-type">i32</span>,
+}
