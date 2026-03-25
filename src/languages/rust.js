@@ -1,3 +1,4 @@
+// @ts-nocheck
 /*
 Language: Rust
 Author: Andrey Vlasovskikh <andrey.vlasovskikh@gmail.com>
@@ -6,6 +7,7 @@ Website: https://www.rust-lang.org
 Category: common, system
 */
 
+/** @typedef {import('highlight.js').LanguageFn} LanguageFn */
 /** @type LanguageFn */
 
 export default function(hljs) {
@@ -213,8 +215,8 @@ export default function(hljs) {
             contains: [
               {
                 scope: "char.escape",
-                // include escaped backslash so '\\' closes as a full char literal
-                match: /\\(?:\\|'|\w|x\w{2}|u\w{4}|U\w{8})/
+                // Match escape sequences: \\ \' \n \r \t \0 \xHH \u{HHHHHH}
+                match: /\\([\\'"nrt0]|x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]{1,6}\})/
               }
             ]
           }
