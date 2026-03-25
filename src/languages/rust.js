@@ -213,7 +213,8 @@ export default function(hljs) {
             contains: [
               {
                 scope: "char.escape",
-                match: /\\('|\w|x\w{2}|u\w{4}|U\w{8})/
+                // include escaped backslash so '\\' closes as a full char literal
+                match: /\\(?:\\|'|\w|x\w{2}|u\w{4}|U\w{8})/
               }
             ]
           }
