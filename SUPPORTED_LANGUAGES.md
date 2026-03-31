@@ -219,6 +219,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | RVT Script              | rvt, rvt-script        | [highlightjs-rvt-script](https://github.com/Sopitive/highlightjs-rvt-script) |
 | SAS                     | SAS, sas               |         |
 | Scala                   | scala                  |         |
+| Scatter                 | scatter, sct           |         |
 | Scheme                  | scheme                 |         |
 | Scilab                  | scilab, sci            |         |
 | SCSS                    | scss                   |         |
