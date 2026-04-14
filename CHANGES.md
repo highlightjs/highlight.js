@@ -26,6 +26,8 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
+
 
 Documentation:
 
@@ -55,6 +57,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Shiva Kiran Koninty]: https://github.com/skr4n
 
 
 ## Version 11.11.1

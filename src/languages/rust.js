@@ -59,6 +59,7 @@ export default function(hljs) {
     "override",
     "priv",
     "pub",
+    "raw",
     "ref",
     "return",
     "self",
