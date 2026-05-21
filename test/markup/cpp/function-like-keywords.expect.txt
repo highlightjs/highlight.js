@@ -10,3 +10,15 @@
 <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">f</span><span class="hljs-params">()</span> </span>= <span class="hljs-keyword">delete</span>(<span class="hljs-string">&quot;reason&quot;</span>);
 
 <span class="hljs-keyword">static_assert</span>(<span class="hljs-literal">true</span>);
+
+<span class="hljs-built_in">format</span>();
+
+<span class="hljs-built_in">for_this</span>();
+
+<span class="hljs-built_in">whilexyz</span>();
+
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">ifsyz</span>()) {}
+
+<span class="hljs-built_in">returnxyz</span>();
+
+<span class="hljs-built_in">thisxyz</span>();
