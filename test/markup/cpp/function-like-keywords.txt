@@ -10,3 +10,15 @@ for (;;) {}
 void f() = delete("reason");
 
 static_assert(true);
+
+format();
+
+for_this();
+
+whilexyz();
+
+if (ifsyz()) {}
+
+returnxyz();
+
+thisxyz();

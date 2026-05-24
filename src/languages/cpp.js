@@ -417,6 +417,10 @@ export default function(hljs) {
     _type_hints: TYPE_HINTS
   };
 
+  const RESERVED_KEYWORD_RE = regex.either(
+    ...RESERVED_KEYWORDS.map(keyword => keyword.replace(/\|\d+$/, ''))
+  );
+
   const FUNCTION_DISPATCH = {
     className: 'function.dispatch',
     relevance: 0,
@@ -425,7 +429,7 @@ export default function(hljs) {
       _hint: FUNCTION_HINTS },
     begin: regex.concat(
       /\b/,
-      `(?!${RESERVED_KEYWORDS.join('|')})`,
+      `(?!${RESERVED_KEYWORD_RE}\\b)`,
       hljs.IDENT_RE,
       regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
