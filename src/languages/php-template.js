@@ -4,6 +4,7 @@ Requires: xml.js, php.js
 Author: Josh Goebel <hello@joshgoebel.com>
 Website: https://www.php.net
 Category: common
+Description: Use this for PHP code embedded in HTML/XML templates. Requires PHP opening/closing tags (<?php ... ?>). For standalone PHP code without HTML, use php instead.
 */
 
 export default function(hljs) {

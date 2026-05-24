@@ -4,6 +4,7 @@ Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://www.php.net
 Category: common
+Description: Use this for any PHP code, with or without the opening <?php tag. For PHP code embedded in HTML/XML templates, use php-template instead.
 */
 
 /**
