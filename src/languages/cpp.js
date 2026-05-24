@@ -418,14 +418,13 @@ export default function(hljs) {
   };
 
   const FUNCTION_DISPATCH = {
-    className: 'function.dispatch',
     relevance: 0,
     keywords: {
       // Only for relevance, not highlighting.
       _hint: FUNCTION_HINTS },
     begin: regex.concat(
       /\b/,
-      `(?!${RESERVED_KEYWORDS.join('|')})`,
+      `(?!${RESERVED_KEYWORDS.map(k => k + '\\b').join('|')})`,
       hljs.IDENT_RE,
       regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };
@@ -561,7 +560,7 @@ export default function(hljs) {
     ],
     keywords: CPP_KEYWORDS,
     illegal: '</',
-    classNameAliases: { 'function.dispatch': 'built_in' },
+    classNameAliases: {},
     contains: [].concat(
       EXPRESSION_CONTEXT,
       FUNCTION_DECLARATION,
