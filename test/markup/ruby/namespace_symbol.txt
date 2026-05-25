@@ -1,0 +1,7 @@
+ClassName::method
+Foo::Bar
+String::new
+::Foo
+:foo
+foo :bar
+{ foo: bar }

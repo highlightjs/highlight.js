@@ -1,0 +1,7 @@
+<span class="hljs-title class_">ClassName</span>::method
+<span class="hljs-title class_">Foo</span>::<span class="hljs-title class_">Bar</span>
+<span class="hljs-title class_">String</span>::new
+::<span class="hljs-title class_">Foo</span>
+<span class="hljs-symbol">:foo</span>
+foo <span class="hljs-symbol">:bar</span>
+{ <span class="hljs-symbol">foo:</span> bar }

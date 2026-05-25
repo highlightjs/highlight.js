@@ -334,7 +334,11 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: ':(?!\\s)',
+      begin: ':(?![\\s:])',
+      'on:begin': ({ index, input }, resp) => {
+        // Avoid matching ::method as :method (issue #4294)
+        if (index > 0 && input[index - 1] === ':') resp.ignoreMatch();
+      },
       contains: [
         STRING,
         { begin: RUBY_METHOD_RE }
