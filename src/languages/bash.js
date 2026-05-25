@@ -39,27 +39,22 @@ export default function(hljs) {
     contains: [ hljs.BACKSLASH_ESCAPE ]
   };
   const COMMENT = hljs.inherit(
-    hljs.COMMENT(),
+    hljs.HASH_COMMENT_MODE,
     {
-      match: [
-        /(^|\s)/,
-        /#.*$/
-      ],
-      scope: {
-        2: 'comment'
-      }
+      // Use lookbehind assertion to ensure # is preceded by start-of-line or whitespace.
+      // This prevents matching inline content like `echo asdf#qwert` as a comment,
+      // while still correctly matching both `# comment at line start` and `echo asdf # comment`.
+      // The lookbehind does NOT consume the whitespace — it only asserts its presence,
+      // which is what we want (the whitespace should stay outside the comment span).
+      begin: /(?:^|(?<=\s))#/
     }
   );
-  const HERE_DOC = {
-    begin: /<<-?\s*(?=\w+)/,
-    starts: { contains: [
-      hljs.END_SAME_AS_BEGIN({
-        begin: /(\w+)/,
-        end: /(\w+)/,
-        className: 'string'
-      })
-    ] }
-  };
+  const HERE_DOC = hljs.END_SAME_AS_BEGIN({
+    begin: /<<-?\s*(\w+)\b(?!\s*\|)/,
+    end: /^[ \t]*(\w+)[ \t]*(?:\n|$)/,
+    contains: [ VAR, SUBST ],
+    scope: 'string'
+  });
   const QUOTE_STRING = {
     className: 'string',
     begin: /"/,
