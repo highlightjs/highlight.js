@@ -1,0 +1,9 @@
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</span><span class="language-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// This won&#x27;t be a problem anymore</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Hello!&quot;</span>;
+<span class="hljs-meta">?&gt;</span></span><span class="language-xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span>

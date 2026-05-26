@@ -23,6 +23,20 @@ export default function(hljs) {
             end: '\\*/',
             skip: true
           },
+          // Line comments must appear before string modes to prevent a quote
+          // character inside a // or # comment from being matched as a string
+          // delimiter, which would break highlighting for the rest of the block.
+          // https://github.com/highlightjs/highlight.js/issues/4152
+          {
+            begin: /\/\//,
+            end: /$/,
+            skip: true
+          },
+          {
+            begin: /#/,
+            end: /$/,
+            skip: true
+          },
           {
             begin: 'b"',
             end: '"',

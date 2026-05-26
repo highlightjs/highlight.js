@@ -1,0 +1,8 @@
+<html>
+<body>
+<?php
+// This won't be a problem anymore
+echo "Hello!";
+?>
+</body>
+</html>
