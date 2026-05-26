@@ -154,6 +154,7 @@ export const BUILT_IN_VARIABLES = [
   "console",
   "window",
   "document",
+  "self", // https://developer.mozilla.org/en-US/docs/Web/API/Window/self
   "localStorage",
   "sessionStorage",
   "module",
