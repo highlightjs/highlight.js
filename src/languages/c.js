@@ -234,7 +234,7 @@ export default function(hljs) {
   };
 
   const FUNCTION_DECLARATION = {
-    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+    begin: '(' + FUNCTION_TYPE_RE + '\\s*[\\*&]+\\s*)*(?:' + FUNCTION_TYPE_RE + '\\s*[\\*&]*\\s*)?' + FUNCTION_TITLE,
     returnBegin: true,
     end: /[{;=]/,
     excludeEnd: true,
