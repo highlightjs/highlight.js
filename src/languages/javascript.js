@@ -47,7 +47,10 @@ export default function(hljs) {
         nextChar === "<" ||
         // the , gives away that this is not HTML
         // `<T, A extends keyof T, V>`
-        nextChar === ","
+        nextChar === "," ||
+        // the [ gives away that this is a type assertion, not HTML
+        // `<string[]>` in TypeScript type assertions
+        nextChar === "["
         ) {
         response.ignoreMatch();
         return;
