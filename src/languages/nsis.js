@@ -6,8 +6,6 @@ Website: https://nsis.sourceforge.io/Main_Page
 Category: scripting
 */
 
-import * as regex from '../lib/regex.js';
-
 export default function(hljs) {
   const regex = hljs.regex;
   const LANGUAGE_CONSTANTS = [
