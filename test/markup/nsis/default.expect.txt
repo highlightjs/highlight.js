@@ -3,36 +3,59 @@
   for highlight.js
 */</span>
 
+<span class="hljs-comment">; Semicolon comment</span>
+<span class="hljs-comment"># Hash comment</span>
+
 <span class="hljs-keyword">!assert</span> <span class="hljs-variable">${NSIS_CHAR_SIZE}</span> = <span class="hljs-number">2</span> <span class="hljs-string">&quot;Unicode required&quot;</span>
 
-<span class="hljs-comment">; Includes</span>
 <span class="hljs-keyword">!include</span> MUI2.nsh
-
-<span class="hljs-comment">; Defines</span>
 <span class="hljs-keyword">!define</span> x64 <span class="hljs-string">&quot;true&quot;</span>
 
-<span class="hljs-comment">; Settings</span>
 <span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;installer_name&quot;</span>
 <span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;installer_name.exe&quot;</span>
 <span class="hljs-keyword">RequestExecutionLevel</span> <span class="hljs-literal">user</span>
 <span class="hljs-keyword">CRCCheck</span> <span class="hljs-literal">on</span>
 
-<span class="hljs-keyword">!if</span>def <span class="hljs-variable">${x64}</span>
+<span class="hljs-keyword">!ifdef</span> <span class="hljs-variable">${x64}</span>
   <span class="hljs-keyword">InstallDir</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$PROGRAMFILES64</span>\installer_name&quot;</span>
 <span class="hljs-keyword">!else</span>
   <span class="hljs-keyword">InstallDir</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$PROGRAMFILES</span>\installer_name&quot;</span>
 <span class="hljs-keyword">!endif</span>
 
-<span class="hljs-comment">; Pages</span>
-<span class="hljs-keyword">!insertmacro</span> MUI_PAGE_INSTFILES
+<span class="hljs-comment">; Prefix collisions: !if/!ifdef, !else/!elseif/!elseifdef</span>
+<span class="hljs-keyword">!if</span> <span class="hljs-number">1</span> &lt; <span class="hljs-number">2</span>
+<span class="hljs-keyword">!elseif</span> <span class="hljs-number">1</span> == <span class="hljs-number">1</span>
+<span class="hljs-keyword">!elseifdef</span> MISSING
+<span class="hljs-keyword">!endif</span>
 
-<span class="hljs-comment">; Sections</span>
+<span class="hljs-comment">; Prefix collisions: !macro/!macroend/!macroundef</span>
+<span class="hljs-keyword">!macro</span> MyMacro param1
+  <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">&quot;<span class="hljs-variable">${param1}</span>&quot;</span>
+<span class="hljs-keyword">!macroend</span>
+<span class="hljs-keyword">!insertmacro</span> MyMacro <span class="hljs-string">&quot;hello&quot;</span>
+
+<span class="hljs-comment">; Prefix collisions: HKLM/HKLM64, HKCR/HKCR32</span>
+<span class="hljs-keyword">WriteRegStr</span> <span class="hljs-params">HKLM</span> <span class="hljs-string">&quot;Software\Test&quot;</span> <span class="hljs-string">&quot;Key&quot;</span> <span class="hljs-string">&quot;Value&quot;</span>
+<span class="hljs-keyword">ReadRegStr</span> <span class="hljs-variable">$0</span> <span class="hljs-params">HKLM64</span> <span class="hljs-string">&quot;Software\Test&quot;</span> <span class="hljs-string">&quot;Key&quot;</span>
+<span class="hljs-keyword">DeleteRegKey</span> <span class="hljs-params">HKCR32</span> <span class="hljs-string">&quot;Software\Test&quot;</span>
+
+<span class="hljs-comment">; Prefix collisions: Section/SectionIn, File/FileOpen/FileClose, Exec/ExecWait</span>
 <span class="hljs-keyword">Section</span> <span class="hljs-string">&quot;section_name&quot;</span> section_index
+  <span class="hljs-keyword">SectionIn</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span>
+  <span class="hljs-keyword">File</span> /r <span class="hljs-string">&quot;data\*.*&quot;</span>
+  <span class="hljs-keyword">FileOpen</span> <span class="hljs-variable">$0</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>\file.txt&quot;</span> w
+  <span class="hljs-keyword">FileClose</span> <span class="hljs-variable">$0</span>
+  <span class="hljs-keyword">ExecWait</span> <span class="hljs-string">&#x27;&quot;setup.exe&quot;&#x27;</span> <span class="hljs-variable">$0</span>
   <span class="hljs-title function_">nsExec::ExecToLog</span> <span class="hljs-string">&quot;calc.exe&quot;</span>
+  <span class="hljs-keyword">IntOp</span> <span class="hljs-variable">$0</span> <span class="hljs-number">255</span> + <span class="hljs-number">0xFF</span>
 <span class="hljs-keyword">SectionEnd</span>
 
-<span class="hljs-comment">; Functions</span>
+<span class="hljs-comment">; Prefix collisions: MB_OK/MB_OKCANCEL, MB_YESNO/MB_YESNOCANCEL, SW_SHOW/SW_SHOWNORMAL</span>
 <span class="hljs-keyword">Function</span> <span class="hljs-title function_">.onInit</span>
+  <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_OKCANCEL</span> <span class="hljs-string">&quot;Confirm?&quot;</span>
+  <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_YESNO</span>|<span class="hljs-params">MB_ICONQUESTION</span> <span class="hljs-string">&quot;Question?&quot;</span> <span class="hljs-params">IDYES</span> +<span class="hljs-number">1</span> <span class="hljs-params">IDNO</span> +<span class="hljs-number">2</span>
+  <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_YESNOCANCEL</span>|<span class="hljs-params">MB_ICONINFORMATION</span> <span class="hljs-string">&quot;Info&quot;</span>
+  <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$DESKTOP</span>\test.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>\test.exe&quot;</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-number">0</span> <span class="hljs-params">SW_SHOWNORMAL</span>
   <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">&quot;The install button reads <span class="hljs-variable">$(^InstallBtn)</span>&quot;</span>
   <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">&#x27;Here comes a<span class="hljs-char escape_">$\n</span><span class="hljs-char escape_">$\r</span>line-break!&#x27;</span>
   <span class="hljs-keyword">DetailPrint</span> <span class="hljs-string">`Escape the dollar-sign: <span class="hljs-char escape_">$$</span>`</span>

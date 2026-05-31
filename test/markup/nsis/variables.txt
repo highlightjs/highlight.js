@@ -2,6 +2,9 @@ Var CustomVariable
 StrCpy $CustomVariable "Hello World"
 MessageBox MB_OK "$$CustomVariable is: $CustomVariable"
 
+Var /GLOBAL GlobalVar
+StrCpy $GlobalVar "Hello World"
+
 Var Variable.With.Dots
 StrCpy $Variable.With.Dots "Hello World"
 MessageBox MB_OK "$$Variable.With.Dots is: $Variable.With.Dots"
