@@ -194,7 +194,10 @@ export default function(hljs) {
   const PARAMETERS = {
     // command parameters
     className: 'params',
-    begin: regex.either(...PARAM_NAMES)
+    begin: regex.concat(
+      regex.either(...PARAM_NAMES),
+      /\b/
+    )
   };
 
   const COMPILER = {
@@ -202,7 +205,8 @@ export default function(hljs) {
     className: 'keyword',
     begin: regex.concat(
       /!/,
-      regex.either(...COMPILER_FLAGS)
+      regex.either(...COMPILER_FLAGS),
+      /\b/
     )
   };
 
