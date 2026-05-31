@@ -573,7 +573,7 @@ export default function(hljs) {
       ),
       VARIABLE_DEFINITION,
       FUNCTION_DEFINITION,
-      { beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd', },
+      { beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd PageExEnd SectionEnd SectionGroupEnd', },
       STRING,
       COMPILER,
       DEFINES,
