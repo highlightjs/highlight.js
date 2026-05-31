@@ -583,7 +583,7 @@ export default function(hljs) {
       LANGUAGES,
       PARAMETERS,
       PLUGINS,
-      hljs.NUMBER_MODE
+      hljs.C_NUMBER_MODE
     ]
   };
 }
