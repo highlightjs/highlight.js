@@ -50,16 +50,6 @@ export default function(hljs) {
       }
     }
   );
-  const HERE_DOC = {
-    begin: /<<-?\s*(?=\w+)/,
-    starts: { contains: [
-      hljs.END_SAME_AS_BEGIN({
-        begin: /(\w+)/,
-        end: /(\w+)/,
-        className: 'string'
-      })
-    ] }
-  };
   const QUOTE_STRING = {
     className: 'string',
     begin: /"/,
@@ -368,6 +358,52 @@ export default function(hljs) {
     "whoami",
     "yes"
   ];
+  const BASH_KEYWORDS = {
+    $pattern: /\b[a-z][a-z0-9._-]+\b/,
+    keyword: KEYWORDS,
+    literal: LITERALS,
+    built_in: [
+      ...SHELL_BUILT_INS,
+      ...BASH_BUILT_INS,
+      // Shell modifiers
+      "set",
+      "shopt",
+      ...ZSH_BUILT_INS,
+      ...GNU_CORE_UTILS
+    ]
+  };
+  let heredocDelimiter = "";
+  const HERE_DOC_BODY = {
+    className: 'string',
+    begin: /\n/,
+    end: /^\t*(\w+)$/m,
+    endsParent: true,
+    'on:end': (m, resp) => {
+      if (m[1] !== heredocDelimiter) resp.ignoreMatch();
+    }
+  };
+  const HERE_DOC = {
+    begin: /<<-?\s*(\w+)/,
+    'on:begin': (m) => { heredocDelimiter = m[1]; },
+    end: /\n/,
+    returnEnd: true,
+    keywords: BASH_KEYWORDS,
+    contains: [
+      ARITHMETIC,
+      COMMENT,
+      PATH_MODE,
+      QUOTE_STRING,
+      ESCAPED_QUOTE,
+      APOS_STRING,
+      ESCAPED_APOS,
+      VAR
+    ],
+    starts: {
+      contains: [
+        HERE_DOC_BODY
+      ]
+    }
+  };
 
   return {
     name: 'Bash',
@@ -375,20 +411,7 @@ export default function(hljs) {
       'sh',
       'zsh'
     ],
-    keywords: {
-      $pattern: /\b[a-z][a-z0-9._-]+\b/,
-      keyword: KEYWORDS,
-      literal: LITERALS,
-      built_in: [
-        ...SHELL_BUILT_INS,
-        ...BASH_BUILT_INS,
-        // Shell modifiers
-        "set",
-        "shopt",
-        ...ZSH_BUILT_INS,
-        ...GNU_CORE_UTILS
-      ]
-    },
+    keywords: BASH_KEYWORDS,
     contains: [
       KNOWN_SHEBANG, // to catch known shells and boost relevancy
       hljs.SHEBANG(), // to catch unknown shells but still highlight the shebang
