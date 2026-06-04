@@ -17,6 +17,7 @@ New Grammars:
 
 Core Grammars:
 
+- fix(bash) keep heredoc continuation commands outside the string span, issue #4377 [puneetdixit200][]
 - fix(javascript) correctly highlight 'for await' again [wolfgang42][]
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
 - enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[puneetdixit200]: https://github.com/puneetdixit200
 
 
 ## Version 11.11.1

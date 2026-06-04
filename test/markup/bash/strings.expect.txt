@@ -2,7 +2,7 @@ SCRIPT_DIR=<span class="hljs-string">&quot;<span class="hljs-subst">$( cd <span 
 TLS_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$SCRIPT_DIR</span>/../src/main/resources/tls&quot;</span>
 ROOT_DIR=<span class="hljs-string">&quot;<span class="hljs-variable">$SCRIPT_DIR</span>/..&quot;</span>
 
-jshell -s - &lt;&lt; <span class="hljs-string">EOF
+jshell -s - &lt;&lt; EOF<span class="hljs-string">
 System.out.printf(&quot;Procs: %s%n&quot;, getdata())
 EOF</span>
 
