@@ -26,6 +26,7 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 
 Documentation:
 
@@ -55,6 +56,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Sarath Francis]: https://github.com/sarathfrancis90
 
 
 ## Version 11.11.1
