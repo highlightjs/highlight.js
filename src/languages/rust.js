@@ -17,7 +17,7 @@ export default function(hljs) {
   const IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.IDENT_RE);
   // ============================================
   const FUNCTION_INVOKE = {
-    className: "title.function.invoke",
+    scope: "title.function.invoke",
     relevance: 0,
     begin: regex.concat(
       /\b/,
@@ -199,7 +199,7 @@ export default function(hljs) {
         illegal: null
       }),
       {
-        className: 'symbol',
+        scope: 'symbol',
         // negative lookahead to avoid matching `'`
         begin: /'[a-zA-Z_][a-zA-Z0-9_]*(?!')/
       },
@@ -220,7 +220,7 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'number',
+        scope: 'number',
         variants: [
           { begin: '\\b0b([01_]+)' + NUMBER_SUFFIX },
           { begin: '\\b0o([0-7_]+)' + NUMBER_SUFFIX },
@@ -232,22 +232,33 @@ export default function(hljs) {
       },
       {
         begin: [
+          /\bsafe/,
+          /\s+/,
+          /extern/,
+        ],
+        scope: {
+          1: "keyword",
+          3: "keyword",
+        }
+      },
+      {
+        begin: [
           /fn/,
           /\s+/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.function"
         }
       },
       {
-        className: 'meta',
+        scope: 'meta',
         begin: '#!?\\[',
         end: '\\]',
         contains: [
           {
-            className: 'string',
+            scope: 'string',
             begin: /"/,
             end: /"/,
             contains: [
@@ -263,7 +274,7 @@ export default function(hljs) {
           /(?:mut\s+)?/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "keyword",
           4: "variable"
@@ -278,7 +289,7 @@ export default function(hljs) {
           /\s+/,
           /in/
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "variable",
           5: "keyword"
@@ -290,7 +301,7 @@ export default function(hljs) {
           /\s+/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.class"
         }
@@ -301,7 +312,7 @@ export default function(hljs) {
           /\s+/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.class"
         }
@@ -315,7 +326,7 @@ export default function(hljs) {
         }
       },
       {
-        className: "punctuation",
+        scope: "punctuation",
         begin: '->'
       },
       FUNCTION_INVOKE
