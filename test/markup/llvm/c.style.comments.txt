@@ -1,0 +1,5 @@
+/* C-style comment */
+define i32 @main() {
+  ; semicolon comment
+  ret i32 0
+}

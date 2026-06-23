@@ -123,7 +123,7 @@ Core Grammars:
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 - fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
-
+- fix(llvm) fixed highlighting for C-style block comments [utam-1] 
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
