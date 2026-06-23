@@ -1,11 +1,11 @@
 <span class="hljs-meta prompt_">$ </span><span class="language-bash">docker run \
-      --publish=7474:7474 --publish=7687:7687 \
-      --volume=/neo4j/data:/data \
-      --volume=/neo4j/plugins:/plugins \
-      --volume=/neo4j/conf:/conf \
-      --volume=/logs/neo4j:/logs \
-      --user=<span class="hljs-string">&quot;<span class="hljs-subst">$(id -u neo4j)</span>:<span class="hljs-subst">$(id -g neo4j)</span>&quot;</span> \
-      --group-add=<span class="hljs-variable">$groups</span> \
+     <span class="hljs-attribute"> --publish</span>=7474:7474<span class="hljs-attribute"> --publish</span>=7687:7687 \
+     <span class="hljs-attribute"> --volume</span>=/neo4j/data:/data \
+     <span class="hljs-attribute"> --volume</span>=/neo4j/plugins:/plugins \
+     <span class="hljs-attribute"> --volume</span>=/neo4j/conf:/conf \
+     <span class="hljs-attribute"> --volume</span>=/logs/neo4j:/logs \
+     <span class="hljs-attribute"> --user</span>=<span class="hljs-string">&quot;<span class="hljs-subst">$(id -u neo4j)</span>:<span class="hljs-subst">$(id -g neo4j)</span>&quot;</span> \
+     <span class="hljs-attribute"> --group-add</span>=<span class="hljs-variable">$groups</span> \
       neo4j:3.4</span>
 <span class="hljs-meta prompt_">&gt; </span><span class="language-bash">/bin/cat \.travis.yml\
  -b | <span class="hljs-built_in">head</span> -n1</span>
