@@ -67,6 +67,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | D                       | d                      |         |
 | Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
 | Dart                    | dart                   |         |
+| DAX                    | DAX(Data Analysis Expressions) |[highlightjs-dax](https://github.com/jiaopengzi/highlightjs-dax)         |
 | Delphi                  | dpr, dfm, pas, pascal  |         |
 | Diff                    | diff, patch            |         |
 | Django                  | django, jinja          |         |
@@ -138,6 +139,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | LookML                  | lookml                 | [highlightjs-lookml](https://github.com/spectacles-ci/highlightjs-lookml) |
 | Lua                     | lua, pluto             |         |
 | Luau                    | luau                   | [highlightjs-luau](https://github.com/highlightjs/highlightjs-luau) |
+| M                    | m pq(Power Query) |[highlightjs-m](https://github.com/jiaopengzi/highlightjs-m)         |
 | Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Magik                   | magik                  | [highlightjs-magik](https://github.com/sebastiaanspeck/highlightjs-magik) |
 | Makefile                | makefile, mk, mak, make |        |
