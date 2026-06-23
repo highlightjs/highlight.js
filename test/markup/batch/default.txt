@@ -1,0 +1,43 @@
+@echo off
+rem This is a comment
+::This is also a comment
+
+setlocal enabledelayedexpansion
+set name=World
+set count=42
+
+echo Hello %name%!
+echo Count: %count%
+
+if exist "file.txt" (
+    echo File exists
+) else (
+    echo File does not exist
+)
+
+if not defined myvar (
+    echo Variable not defined
+)
+
+for /L %%i in (1,1,5) do (
+    echo %%i
+)
+
+dir /s
+copy source.txt destination.txt
+del oldfile.txt
+
+cd C:\Users
+pushd .
+popd
+
+call :subroutine
+exit /b 0
+
+:subroutine
+echo This is a subroutine
+goto :eof
+
+tasklist
+ipconfig /all
+powershell Get-Process

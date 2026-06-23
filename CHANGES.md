@@ -1,3 +1,14 @@
+## Version 11.11.3
+
+New Grammars:
+
+- added Batch file language support [Kenez Megyeri][]
+
+CONTRIBUTORS
+
+[Kenez Megyeri]: https://github.com/kenez-megyeri
+
+
 ## Version 11.11.2
 
 Parser Engine:
@@ -68,6 +79,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Kenez Megyeri]: https://github.com/kenez-megyeri
 
 
 ## Version 11.11.1
