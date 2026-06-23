@@ -1,0 +1,30 @@
+<span class="hljs-keyword">use</span> std::fmt::<span class="hljs-built_in">Debug</span>; <span class="hljs-comment">// Trait to bound with.</span>
+
+<span class="hljs-meta">#[derive(Debug)]</span>
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Ref</span>&lt;<span class="hljs-symbol">&#x27;a</span>, T: <span class="hljs-symbol">&#x27;a</span>&gt;(&amp;<span class="hljs-symbol">&#x27;a</span> T);
+<span class="hljs-comment">// `Ref` contains a reference to a generic type `T` that has</span>
+<span class="hljs-comment">// some lifetime `&#x27;a` unknown by `Ref`. `T` is bounded such that any</span>
+<span class="hljs-comment">// *references* in `T` must outlive `&#x27;a`. Additionally, the lifetime</span>
+<span class="hljs-comment">// of `Ref` may not exceed `&#x27;a`.</span>
+
+<span class="hljs-comment">// A generic function which prints using the `Debug` trait.</span>
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">print</span>&lt;T&gt;(t: T) <span class="hljs-keyword">where</span>
+    T: <span class="hljs-built_in">Debug</span> {
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;`print`: t is {:?}&quot;</span>, t);
+}
+
+<span class="hljs-comment">// Here a reference to `T` is taken where `T` implements</span>
+<span class="hljs-comment">// `Debug` and all *references* in `T` outlive `&#x27;a`. In</span>
+<span class="hljs-comment">// addition, `&#x27;a` must outlive the function.</span>
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">print_ref</span>&lt;<span class="hljs-symbol">&#x27;a</span>, T&gt;(t: &amp;<span class="hljs-symbol">&#x27;a</span> T) <span class="hljs-keyword">where</span>
+    T: <span class="hljs-built_in">Debug</span> + <span class="hljs-symbol">&#x27;a</span> {
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;`print_ref`: t is {:?}&quot;</span>, t);
+}
+
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span>() {
+    <span class="hljs-keyword">let</span> <span class="hljs-variable">x</span> = <span class="hljs-number">7</span>;
+    <span class="hljs-keyword">let</span> <span class="hljs-variable">ref_x</span> = <span class="hljs-title function_ invoke__">Ref</span>(&amp;x);
+
+    <span class="hljs-title function_ invoke__">print_ref</span>(&amp;ref_x);
+    <span class="hljs-title function_ invoke__">print</span>(ref_x);
+}

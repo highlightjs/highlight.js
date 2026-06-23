@@ -74,6 +74,10 @@ export default function(hljs) {
           keywords: { literal: 'on off all deny allow' },
           contains: [
             {
+              scope: "punctuation",
+              match: /\\\n/
+            },
+            {
               className: 'meta',
               begin: /\s\[/,
               end: /\]$/

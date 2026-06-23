@@ -199,15 +199,25 @@ export default function(hljs) {
         illegal: null
       }),
       {
-        className: 'string',
-        variants: [
-          { begin: /b?r(#*)"(.|\n)*?"\1(?!#)/ },
-          { begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ }
-        ]
+        className: 'symbol',
+        // negative lookahead to avoid matching `'`
+        begin: /'[a-zA-Z_][a-zA-Z0-9_]*(?!')/
       },
       {
-        className: 'symbol',
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
+        scope: 'string',
+        variants: [
+          { begin: /b?r(#*)"(.|\n)*?"\1(?!#)/ },
+          {
+            begin: /b?'/,
+            end: /'/,
+            contains: [
+              {
+                scope: "char.escape",
+                match: /\\('|\w|x\w{2}|u\w{4}|U\w{8})/
+              }
+            ]
+          }
+        ]
       },
       {
         className: 'number',

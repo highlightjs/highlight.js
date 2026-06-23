@@ -25,5 +25,14 @@ for(var i=1; i<100; i++) {
   }
   n+=i;
 }
-
 return n;
+
+var a = [2,4,6,8,10];
+var total = 0;
+for (var v of a) {
+  total += v;
+}
+
+var result = DistanceToCoordinate($userInput, 1038);
+
+return result.coordinate.x + total;

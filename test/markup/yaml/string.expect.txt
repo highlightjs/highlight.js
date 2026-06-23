@@ -5,3 +5,11 @@
   multi-string
   value
 </span><span class="hljs-attr">key:</span> <span class="hljs-literal">true</span>
+
+<span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;\&#x27;</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">&quot;\\&quot;</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">&quot;\&quot;
+key: value&quot;</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">value</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;<span class="hljs-char escape_">&#x27;&#x27;</span>&#x27;</span>
+<span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;some<span class="hljs-char escape_">&#x27;&#x27;</span>value&#x27;</span>

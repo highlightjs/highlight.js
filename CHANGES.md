@@ -1,3 +1,80 @@
+## Version 11.11.2
+
+Parser Engine:
+
+- fix illegal handling at end of input code [Josh Goebel][]
+
+New Grammars:
+
+- added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
+- added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
+- added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
+- added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
+- added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
+- added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
+- added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
+- added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
+
+Core Grammars:
+
+- fix(cpp) exclude keywords from function calls [Eisenwave][]
+- enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
+- enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
+- fix(javascript) correctly highlight 'for await' again [wolfgang42][]
+- fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
+- enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
+- fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
+- enh(json) add json5 support [Kerry Shetline][]
+- fix(csharp) Support digit separators [te-ing][]
+- fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
+
+Documentation:
+
+- update link to Odin grammar to maintained version [Marian Pekár][]
+- fix type `highlight` deprecated message [Brandon Dong][]
+- fixed typo and incorrect git command [SungHyun Kim][]
+- fix CONTRIBUTING.md broken badge link [SungHyun Kim][]
+- alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
+- deduplicate JSON from SUPPORTED_LANGUAGES [Lukasz Czajczyk][]
+
+Themes:
+
+- Fix: cybertopia themes render correctly in shadow DOM [hbgl][]
+- added "vs Dark " theme [Twineee1][]
+
+CONTRIBUTORS
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Marian Pekár]: https://github.com/marianpekar
+[Eisenwave]: https://github.com/Eisenwave/
+[Brandon Dong]: https://github.com/brandondong
+[SungHyun Kim]: https://github.com/witch-factory
+[Lukasz Czajczyk]: https://github.com/LukeCz
+[Josh Marchand]: https://github.com/yHSJ
+[Max Liashuk]: https://github.com/probil
+[Max Reznik]: https://github.com/reznikmm
+[Kevin Bloch]: https://github.com/codingthat
+[Chris Wilson]: https://github.com/sushicw
+[Antoine Musso]: https://github.com/hashar
+[Chester Moses]: https://github.com/Chester-Moses-HCL
+[Kerry Shetline]: https://github.com/kshetline
+[SungHyun Kim]: https://github.com/witch-factory
+[Adam Lui]: https://github.com/adamlui
+[Sebastiaan Speck]: https://github.com/sebastiaanspeck
+[Filip Hoffmann]: https://github.com/folospior
+[Twineee1]: https://github.com/Twineee1
+[hbgl]: https://github.com/hbgl
+[Thomas Gorissen]: https://github.com/serrynaimo
+[te-ing]: https://github.com/te-ing
+[Anthony Martin]: https://github.com/anthony-c-martin
+[NriotHrreion]: https://github.com/NriotHrreion
+
+
+## Version 11.11.1
+
+- Fixes regression with Rust grammar.
+
+
 ## Version 11.11.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
@@ -7,8 +84,12 @@ CAVEATS / POTENTIALLY BREAKING CHANGES
 
 Core Grammars:
 
+- fix(rust) - adds emoji support in single quote strings [joshgoebel][]
+- fix(apache) - support line continuation via `\` [Josh Goebel][]
 - fix(makefile) - allow strings inside `$()` expressions [aneesh98][]
+- enh(arcade) updated to ArcGIS Arcade version 1.29 [Kristian Ekenes][]
 - enh(css) add all properties listed on MDN (96 additions including `anchor-name`, `aspect-ratio`, `backdrop-filter`, `container`, `margin-trim`, `place-content`, `scroll-timeline`, ...) [BaliBalo][]
+- enh(excel) add built-in functions for Excel 365 release to 2024 [Danny Winrow][]
 - enh(erlang) OTP 27 triple-quoted strings [nixxquality][]
 - enh(erlang) OTP 27 doc attribute [nixxquality][]
 - enh(erlang) OTP 27 Sigil type [nixxquality][]
@@ -42,10 +123,15 @@ Core Grammars:
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
-  
+- fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
+- enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
+- fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
+
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
+- added 3rd party Odin grammar to SUPPORTED_LANGUAGES [clsource][]
+- added 3rd party Liquid grammar to SUPPORTED_LANGUAGES [Laurel King][]
 
 Developer Tools:
 
@@ -83,6 +169,12 @@ CONTRIBUTORS
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
 [guuido]: https://github.com/guuido
+[clsource]: https://github.com/clsource
+[Jake Leahy]: https://github.com/ire4ever1190
+[Laurel King]: https://github.com/laurelthorburn
+[Kristian Ekenes]: https://github.com/ekenes
+[Danny Winrow]: https://github.com/dannywinrow
+[Eisenwave]: https://github.com/Eisenwave/
 
 
 ## Version 11.10.0
