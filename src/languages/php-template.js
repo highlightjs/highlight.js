@@ -33,17 +33,16 @@ export default function(hljs) {
             end: '\'',
             skip: true
           },
+          // Allow unclosed single quotes (fixes issue #4152)
           hljs.inherit(hljs.APOS_STRING_MODE, {
             illegal: null,
             className: null,
-            contains: null,
-            skip: true
+            contains: null
           }),
           hljs.inherit(hljs.QUOTE_STRING_MODE, {
             illegal: null,
             className: null,
-            contains: null,
-            skip: true
+            contains: null
           })
         ]
       }
