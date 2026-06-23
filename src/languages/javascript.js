@@ -47,7 +47,13 @@ export default function(hljs) {
         nextChar === "<" ||
         // the , gives away that this is not HTML
         // `<T, A extends keyof T, V>`
-        nextChar === ","
+        nextChar === "," ||
+        // TypeScript type assertion with array notation
+        // `<string[]>`, `<number[]>`, `<T[]>`, etc.
+        nextChar === "[" ||
+        // TypeScript optional type assertion
+        // `<string?>`, etc.
+        nextChar === "?"
         ) {
         response.ignoreMatch();
         return;
@@ -85,6 +91,13 @@ export default function(hljs) {
           // eslint-disable-next-line no-useless-return
           return;
         }
+      }
+
+      // TypeScript type assertions with whitespace before brackets or question mark
+      // `<string []>`, `<T []>`, `<string ?>`, `<T ?>`
+      if ((m = afterMatch.match(/^\s*\[\]/)) || (m = afterMatch.match(/^\s+\?/))) {
+        response.ignoreMatch();
+        return;
       }
     }
   };
