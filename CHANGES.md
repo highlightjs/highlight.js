@@ -4,7 +4,6 @@ Parser Engine:
 
 - fix illegal handling at end of input code [Josh Goebel][]
 
-
 New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
