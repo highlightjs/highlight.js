@@ -369,6 +369,12 @@ export default function(hljs) {
     "yes"
   ];
 
+  // Match command-line options like --project, --deployment-package, -f, etc.
+  const OPTIONS = {
+    className: 'attribute',
+    begin: /--[\w-]+|-\w(?!\s*=)/,
+  };
+
   return {
     name: 'Bash',
     aliases: [
@@ -401,7 +407,8 @@ export default function(hljs) {
       ESCAPED_QUOTE,
       APOS_STRING,
       ESCAPED_APOS,
-      VAR
+      VAR,
+      OPTIONS
     ]
   };
 }

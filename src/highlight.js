@@ -751,7 +751,8 @@ const HLJS = function(hljs) {
       { el: element, language });
 
     if (element.dataset.highlighted) {
-      console.log("Element previously highlighted. To highlight again, first unset `dataset.highlighted`.", element);
+      // Already highlighted - skip to avoid false "unescaped HTML" warnings
+      // caused by hljs's own <span> tags from previous highlighting
       return;
     }
 
