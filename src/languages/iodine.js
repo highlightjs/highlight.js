@@ -1,8 +1,9 @@
 /*
-Language: Java
-Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
-Category: common, enterprise
-Website: https://www.java.com/
+Language: Iodine
+Author: Carlo Kok <ck@remobjects.com>
+Contributor: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
+Description: Iodine is RemObjects Software's Java-compatible language for the Elements compiler.
+Website: https://www.elementscompiler.com/elements/iodine/
 */
 
 import { NUMERIC as NUMBER } from "./lib/java.js";
@@ -78,6 +79,34 @@ export default function(hljs) {
     'goto',
     'when'
   ];
+  // RemObjects Elements-specific extensions
+  const ELEMENTS_KEYWORDS = [
+    '__aspect',
+    '__assembly',
+    '__module',
+    '__extension',
+    '__partial',
+    '__out',
+    '__ref',
+    '__struct',
+    '__mapped',
+    '__get',
+    '__set',
+    '__block',
+    '__strong',
+    '__weak',
+    '__unretained',
+    '__selector',
+    '__require',
+    '__ensure',
+    '__result',
+    '__old',
+    '__invariants',
+    '__autoreleasepool',
+    '__event',
+    '__add',
+    '__remove'
+  ];
 
   const BUILT_INS = [
     'super',
@@ -102,7 +131,7 @@ export default function(hljs) {
   ];
 
   const KEYWORDS = {
-    keyword: MAIN_KEYWORDS,
+    keyword: MAIN_KEYWORDS.concat(ELEMENTS_KEYWORDS),
     literal: LITERALS,
     type: TYPES,
     built_in: BUILT_INS
@@ -130,8 +159,8 @@ export default function(hljs) {
   };
 
   return {
-    name: 'Java',
-    aliases: ['jsp'],
+    name: 'Iodine',
+    aliases: ['iodine'],
     keywords: KEYWORDS,
     illegal: /<\/|#/,
     contains: [

@@ -6,18 +6,11 @@ Website: https://www.elementscompiler.com/elements/default.aspx
 Category: build-system
 */
 
-export default function(hljs) {
+export default function (hljs) {
   const OXYGENE_KEYWORDS = {
     $pattern: /\.?\w+/,
     keyword:
-      'abstract add and array as asc aspect assembly async begin break block by case class concat const copy constructor continue '
-      + 'create default delegate desc distinct div do downto dynamic each else empty end ensure enum equals event except exit extension external false '
-      + 'final finalize finalizer finally flags for forward from function future global group has if implementation implements implies in index inherited '
-      + 'inline interface into invariants is iterator join locked locking loop matching method mod module namespace nested new nil not notify nullable of '
-      + 'old on operator or order out override parallel params partial pinned private procedure property protected public queryable raise read readonly '
-      + 'record reintroduce remove repeat require result reverse sealed select self sequence set shl shr skip static step soft take then to true try tuple '
-      + 'type union unit unsafe until uses using var virtual raises volatile where while with write xor yield await mapped deprecated stdcall cdecl pascal '
-      + 'register safecall overload library platform reference packed strict published autoreleasepool selector strong weak unretained'
+      "abstract    add    and    array    as    asc    asm    aspect    assembly    async    autoreleasepool    await    begin    block    break    by    case    cdecl    class    const    constructor    continue    copy    create    default    delegate    deprecated    desc    destructor    distinct    div    do    downto    dynamic    each    else    empty    end    ensure    enum    equals    event    except    exit    extension    external    false    field    final    finalization    finalize    finalizer    finally    flags    for    forward    from    function    future    global    goto    group    has    helper    if    implementation    implements    implies    in    index    inherited    initialization    inline    interface    into    invariants    is    iterator    join    lazy    library    lifetimestrategy    locked    locking    loop    mapped    matching    method    mod    module    namespace    nested    new    nil    not    notify    nullable    of    old    on    operator    optional    or    order    otherwise    out    overload    override    packed    parallel    param    params    partial    pascal    pinned    platform    private    procedure    property    protected    public    published    queryable    raise    raises    read    readonly    record    reference    register    reintroduce    remove    repeat    require    required    result    reverse    safecall    sealed    select    selector    self    sequence    set    shl    shr    skip    soft    static    stdcall    step    strict    strong    take    then    to    true    try    tuple    type    unconstrained    unit    unmanaged    unretained    unsafe    until    uses    using    var    virtual    volatile    weak    where    while    with    write    xor    yield  "
   };
   const CURLY_COMMENT = hljs.COMMENT(
     /\{/,
@@ -29,15 +22,48 @@ export default function(hljs) {
     '\\*\\)',
     { relevance: 10 }
   );
+  const RAW_STRING = {
+    className: 'string',
+    begin: /#+("+)(?!")/,
+    end: /"+(?!")/,
+    'on:begin': (m, resp) => {
+      resp.data._quoteCount = m[1].length;
+    },
+    'on:end': (m, resp) => {
+      if (m[0].length !== resp.data._quoteCount) {
+        resp.ignoreMatch();
+      }
+    },
+    contains: [],
+    relevance: 1
+  };
+  const INTERPOLATED_DOUBLE_STRING = {
+    className: 'string',
+    begin: /\$"/,
+    end: '"',
+    contains: [{ begin: '""' }]
+  };
+  const INTERPOLATED_SINGLE_STRING = {
+    className: 'string',
+    begin: /\$'/,
+    end: '\'',
+    contains: [{ begin: '\'\'' }]
+  };
+  const DOUBLE_STRING = {
+    className: 'string',
+    begin: '"',
+    end: '"',
+    contains: [{ begin: '""' }]
+  };
   const STRING = {
     className: 'string',
     begin: '\'',
     end: '\'',
-    contains: [ { begin: '\'\'' } ]
+    contains: [{ begin: '\'\'' }]
   };
   const CHAR_STRING = {
     className: 'string',
-    begin: '(#\\d+)+'
+    begin: /(#\d+|#\$[0-9a-fA-F]+)+/
   };
   const FUNCTION = {
     beginKeywords: 'function constructor destructor procedure method',
@@ -51,6 +77,10 @@ export default function(hljs) {
         end: '\\)',
         keywords: OXYGENE_KEYWORDS,
         contains: [
+          RAW_STRING,
+          INTERPOLATED_DOUBLE_STRING,
+          INTERPOLATED_SINGLE_STRING,
+          DOUBLE_STRING,
           STRING,
           CHAR_STRING
         ]
@@ -70,11 +100,15 @@ export default function(hljs) {
     name: 'Oxygene',
     case_insensitive: true,
     keywords: OXYGENE_KEYWORDS,
-    illegal: '("|\\$[G-Zg-z]|\\/\\*|</|=>|->)',
+    illegal: '(\\$[G-Zg-z]|\\/\\*|</|=>|->)',
     contains: [
       CURLY_COMMENT,
       PAREN_COMMENT,
       hljs.C_LINE_COMMENT_MODE,
+      RAW_STRING,
+      INTERPOLATED_DOUBLE_STRING,
+      INTERPOLATED_SINGLE_STRING,
+      DOUBLE_STRING,
       STRING,
       CHAR_STRING,
       hljs.NUMBER_MODE,

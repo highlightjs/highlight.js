@@ -1,9 +1,9 @@
 /*
-Language: Visual Basic .NET
-Description: Visual Basic .NET (VB.NET) is a multi-paradigm, object-oriented programming language, implemented on the .NET Framework.
-Authors: Poren Chiang <ren.chiang@gmail.com>, Jan Pilzer
-Website: https://docs.microsoft.com/dotnet/visual-basic/getting-started
-Category: common
+Language: Mercury (VB)
+Author: Carlo Kok <ck@remobjects.com>
+Contributor: Poren Chiang <ren.chiang@gmail.com>, Jan Pilzer
+Description: Mercury is RemObjects Software's Visual Basic-compatible language for the Elements compiler, with additional platform-specific extensions.
+Website: https://www.elementscompiler.com/elements/mercury/
 */
 
 /** @type LanguageFn */
@@ -129,23 +129,23 @@ export default function (hljs) {
   };
 
   return {
-    name: 'Visual Basic .NET',
-    aliases: ['vb'],
+    name: 'Mercury',
+    aliases: ['vbmercury'],
     case_insensitive: true,
     classNameAliases: { label: 'symbol' },
     keywords: {
       keyword:
-        'addhandler alias aggregate ansi as async assembly auto binary by byref byval ' /* a-b */
-        + 'call case catch class compare const continue custom declare default delegate dim distinct do ' /* c-d */
-        + 'each equals else elseif end enum erase error event exit explicit finally for friend from function ' /* e-f */
-        + 'get global goto group handles if implements imports in inherits interface into iterator ' /* g-i */
-        + 'join key let lib loop me mid module mustinherit mustoverride mybase myclass ' /* j-m */
+        'addhandler alias aggregate ansi as ascending async assembly auto autoreleasepool binary by byref byval ' /* a-b */
+        + 'call case catch check class compare const continue custom declare default delegate descending dim distinct do dynamic ' /* c-d */
+        + 'each ensure equals else elseif end enum erase error event exit explicit extends finally for friend from function ' /* e-f */
+        + 'get global goto group handles if implements imports in index inherits interface into invariants iterator ' /* g-i */
+        + 'join key lazy let lib like long loop mappedto matching me mid mod module mustinherit mustoverride mybase myclass mymapped ' /* j-m */
         + 'namespace narrowing new next notinheritable notoverridable ' /* n */
-        + 'of off on operator option optional order overloads overridable overrides ' /* o */
-        + 'paramarray partial preserve private property protected public ' /* p */
-        + 'raiseevent readonly redim removehandler resume return ' /* r */
+        + 'of off old on operator option optional or order orelse out overloads overridable overrides ' /* o */
+        + 'paramarray partial preserve private property protected ptr public ' /* p */
+        + 'raiseevent readonly record redim removehandler require resume return ' /* r */
         + 'select set shadows shared skip static step stop structure strict sub synclock ' /* s */
-        + 'take text then throw to try unicode until using when where while widening with withevents writeonly yield' /* t-y */,
+        + 'take text then throw to try unicode unmanaged unsafe until using when where while widening with withevents writeonly yield zip' /* t-z */,
       built_in:
         // Operators https://docs.microsoft.com/dotnet/visual-basic/language-reference/operators
         'addressof and andalso await directcast gettype getxmlnamespace is isfalse isnot istrue like mod nameof new not or orelse trycast typeof xor '

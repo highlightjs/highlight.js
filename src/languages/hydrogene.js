@@ -1,9 +1,9 @@
 /*
-Language: C#
-Author: Jason Diamond <jason@diamond.name>
-Contributor: Nicolas LLOBERA <nllobera@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, David Pine <david.pine@microsoft.com>
-Website: https://docs.microsoft.com/dotnet/csharp/
-Category: common
+Language: Hydrogene
+Author: Carlo Kok <ck@remobjects.com>
+Contributor: Jason Diamond <jason@diamond.name>, Nicolas LLOBERA <nllobera@gmail.com>, Pieter Vantorre <pietervantorre@gmail.com>, David Pine <david.pine@microsoft.com>
+Description: Hydrogene is RemObjects Software's C#-compatible language for the Elements compiler, with additional platform-specific extensions.
+Website: https://www.elementscompiler.com/elements/hydrogene/
 */
 
 /** @type LanguageFn */
@@ -161,19 +161,44 @@ export default function(hljs) {
     'module',
     'assembly'
   ];
+  // RemObjects Elements-specific extensions
+  const ELEMENTS_KEYWORDS = [
+    '__autoreleasepool',
+    '__selector',
+    '__weak',
+    '__strong',
+    '__unretained',
+    '__aspect',
+    '__mapped',
+    '__inline',
+    '__extension',
+    '__require',
+    '__ensure',
+    '__result',
+    '__old',
+    '__invariants'
+  ];
 
   const KEYWORDS = {
-    keyword: NORMAL_KEYWORDS.concat(CONTEXTUAL_KEYWORDS),
+    keyword: NORMAL_KEYWORDS.concat(CONTEXTUAL_KEYWORDS).concat(ELEMENTS_KEYWORDS),
     built_in: BUILT_IN_KEYWORDS,
     literal: LITERAL_KEYWORDS
   };
-  const TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, { begin: '[a-zA-Z](\\.?\\w)*' });
+  const TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, {
+    begin: '[a-zA-Z](\\.?\\w)*'
+  });
   const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(0b[01\']+)' },
-      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)' },
-      { begin: '(-?)(\\b0[xX][a-fA-F0-9\'_]+|(\\b[\\d\'_]+(\\.[\\d\'_]*)?|\\.[\\d\'_]+)([eE][-+]?[\\d\'_]+)?)' }
+      {
+        begin: '\\b(0b[01\']+)'
+      },
+      {
+        begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)'
+      },
+      {
+        begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)'
+      }
     ],
     relevance: 0
   };
@@ -186,24 +211,36 @@ export default function(hljs) {
     className: 'string',
     begin: '@"',
     end: '"',
-    contains: [ { begin: '""' } ]
+    contains: [
+      {
+        begin: '""'
+      }
+    ]
   };
-  const VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, { illegal: /\n/ });
+  const VERBATIM_STRING_NO_LF = hljs.inherit(VERBATIM_STRING, {
+    illegal: /\n/
+  });
   const SUBST = {
     className: 'subst',
     begin: /\{/,
     end: /\}/,
     keywords: KEYWORDS
   };
-  const SUBST_NO_LF = hljs.inherit(SUBST, { illegal: /\n/ });
+  const SUBST_NO_LF = hljs.inherit(SUBST, {
+    illegal: /\n/
+  });
   const INTERPOLATED_STRING = {
     className: 'string',
     begin: /\$"/,
     end: '"',
     illegal: /\n/,
     contains: [
-      { begin: /\{\{/ },
-      { begin: /\}\}/ },
+      {
+        begin: /\{\{/
+      },
+      {
+        begin: /\}\}/
+      },
       hljs.BACKSLASH_ESCAPE,
       SUBST_NO_LF
     ]
@@ -213,18 +250,30 @@ export default function(hljs) {
     begin: /\$@"/,
     end: '"',
     contains: [
-      { begin: /\{\{/ },
-      { begin: /\}\}/ },
-      { begin: '""' },
+      {
+        begin: /\{\{/
+      },
+      {
+        begin: /\}\}/
+      },
+      {
+        begin: '""'
+      },
       SUBST
     ]
   };
   const INTERPOLATED_VERBATIM_STRING_NO_LF = hljs.inherit(INTERPOLATED_VERBATIM_STRING, {
     illegal: /\n/,
     contains: [
-      { begin: /\{\{/ },
-      { begin: /\}\}/ },
-      { begin: '""' },
+      {
+        begin: /\{\{/
+      },
+      {
+        begin: /\}\}/
+      },
+      {
+        begin: '""'
+      },
       SUBST_NO_LF
     ]
   });
@@ -244,22 +293,28 @@ export default function(hljs) {
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE,
     NUMBERS,
-    hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, { illegal: /\n/ })
+    hljs.inherit(hljs.C_BLOCK_COMMENT_MODE, {
+      illegal: /\n/
+    })
   ];
-  const STRING = { variants: [
-    RAW_STRING,
-    INTERPOLATED_VERBATIM_STRING,
-    INTERPOLATED_STRING,
-    VERBATIM_STRING,
-    hljs.APOS_STRING_MODE,
-    hljs.QUOTE_STRING_MODE
-  ] };
+  const STRING = {
+    variants: [
+      RAW_STRING,
+      INTERPOLATED_VERBATIM_STRING,
+      INTERPOLATED_STRING,
+      VERBATIM_STRING,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
 
   const GENERIC_MODIFIER = {
     begin: "<",
     end: ">",
     contains: [
-      { beginKeywords: "in out" },
+      {
+        beginKeywords: "in out"
+      },
       TITLE_MODE
     ]
   };
@@ -272,8 +327,8 @@ export default function(hljs) {
   };
 
   return {
-    name: 'C#',
-    aliases: ['cs', 'c#'],
+    name: 'Hydrogene',
+    aliases: ['hydrogene'],
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [
@@ -290,7 +345,9 @@ export default function(hljs) {
                   begin: '///',
                   relevance: 0
                 },
-                { begin: '<!--|-->' },
+                {
+                  begin: '<!--|-->'
+                },
                 {
                   begin: '</?',
                   end: '>'
@@ -306,7 +363,9 @@ export default function(hljs) {
         className: 'meta',
         begin: '#',
         end: '$',
-        keywords: { keyword: 'if else elif endif define undef warning error line region endregion pragma checksum' }
+        keywords: {
+          keyword: 'if else elif endif define undef warning error line region endregion pragma checksum'
+        }
       },
       STRING,
       NUMBERS,
@@ -316,7 +375,9 @@ export default function(hljs) {
         end: /[{;=]/,
         illegal: /[^\s:,]/,
         contains: [
-          { beginKeywords: "where class" },
+          {
+            beginKeywords: "where class"
+          },
           TITLE_MODE,
           GENERIC_MODIFIER,
           hljs.C_LINE_COMMENT_MODE,
@@ -389,7 +450,9 @@ export default function(hljs) {
             ],
             relevance: 0
           },
-          { match: /\(\)/ },
+          {
+            match: /\(\)/
+          },
           {
             className: 'params',
             begin: /\(/,

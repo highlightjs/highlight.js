@@ -546,6 +546,7 @@ export default function(hljs) {
 
   return {
     name: 'Swift',
+    aliases: ['silver'],
     keywords: KEYWORDS,
     contains: [
       ...COMMENTS,
