@@ -157,7 +157,8 @@ export const BUILT_IN_VARIABLES = [
   "localStorage",
   "sessionStorage",
   "module",
-  "global" // Node.js
+  "global", // Node.js
+  "self"
 ];
 
 const BUILT_INS = [].concat(
