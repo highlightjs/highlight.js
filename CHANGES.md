@@ -1,3 +1,11 @@
+## Version 11.11.3
+
+Documentation:
+
+- build(deps): bump python and sphinx requirements [Haowei Hsu][]
+
+[Haowei Hsu]: https://github.com/hwhsu1231
+
 ## Version 11.11.2
 
 Parser Engine:
