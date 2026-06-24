@@ -1,0 +1,13 @@
+---
+title: "This is a title"
+---
+{{# this is a comment #}}
+
+{{ for post of posts }}
+  <p>{{ post.title |> toUpperCase }}</p>
+{{ /for }}
+
+{{- set value = things.select("available=true") -}}
+{{ set x = 1 + 2 }}
+{{ set value = `Thing ${title} ${x}` }}
+{{ value }}

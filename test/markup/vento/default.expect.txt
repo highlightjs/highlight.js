@@ -1,0 +1,14 @@
+<span class="language-xml">---
+</span><span class="language-yaml"><span class="hljs-attr">title:</span> <span class="hljs-string">&quot;This is a title&quot;</span></span><span class="language-xml">
+---
+</span><span class="hljs-comment">{{# this is a comment #}}</span><span class="language-xml">
+
+{{</span><span class="language-javascript"> <span class="hljs-keyword">for</span> post <span class="hljs-keyword">of</span> posts </span><span class="language-xml">}}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{</span><span class="language-javascript"> post.<span class="hljs-property">title</span> |&gt; toUpperCase </span><span class="language-xml">}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{{</span><span class="language-javascript"> /<span class="hljs-keyword">for</span> </span><span class="language-xml">}}
+
+{{-</span><span class="language-javascript"> set value = things.<span class="hljs-title function_">select</span>(<span class="hljs-string">&quot;available=true&quot;</span>) </span><span class="language-xml">-}}
+{{</span><span class="language-javascript"> set x = <span class="hljs-number">1</span> + <span class="hljs-number">2</span> </span><span class="language-xml">}}
+{{</span><span class="language-javascript"> set value = <span class="hljs-string">`Thing <span class="hljs-subst">${title}</span> <span class="hljs-subst">${x}</span>`</span> </span><span class="language-xml">}}
+{{</span><span class="language-javascript"> value </span><span class="language-xml">}}
+</span>
