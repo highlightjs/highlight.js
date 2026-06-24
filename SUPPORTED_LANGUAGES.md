@@ -112,6 +112,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | HTTP                    | http, https            |         |
 | Hy                      | hy, hylang             |         |
 | Inform7                 | inform7, i7            |         |
+| Igor Pro                | igor, igorpro, ipf     | [highlightjs-igor-pro](https://github.com/HelloWorldDevs/highlightjs-igor-pro) |
 | Ini, TOML               | ini, toml              |         |
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
 | IRPF90                  | irpf90                 |         |
