@@ -2,6 +2,9 @@ name: Release
 
 on:
   push:
+    # FIXME: Remove this after testing
+    branches:
+      - "fix/release-pipeline"
     tags:
       - "*alpha*"
       - "*pre*"
@@ -10,27 +13,34 @@ on:
 
 permissions:
   contents: read
+  id-token: write # for OIDC token
 
 jobs:
   prerelease:
     permissions:
       contents: write # for git push
+      id-token: write # for OIDC token
 
     name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout highlight.js
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Tag is ${{ github.ref }}.
         # we have to repeat ourselves here since the environment is not actually updated
         # until the next step executes, so we can't access $TAG_NAME yet
         run: |
+          # FIXME: Remove this after testing
+          GITHUB_REF="refs/tags/11.11.2"
+          
           echo "TAG_NAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
           echo "MAJOR_VERSION=$(echo ${GITHUB_REF/refs\/tags\//} | cut -d'.' -f1)" >> $GITHUB_ENV
-      - name: Make sure we are pushing a tag...
-        if: ${{ !contains(github.ref,'refs/tags/') }}
-        run: false
+
+       # FIXME Uncomment this when done testing
+#      - name: Make sure we are pushing a tag...
+#        if: ${{ !contains(github.ref,'refs/tags/') }}
+#        run: false
         # run: echo "TAG_NAME=0.0.0-test0" >> $GITHUB_ENV
 
       - if: contains(github.ref, 'beta') || contains(github.ref, 'pre') || contains(github.ref, 'alpha')
@@ -48,28 +58,21 @@ jobs:
         env:
           TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
 
-      - name: Use Node.js 20.x
-        uses: actions/setup-node@v4
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v6
         with:
-          node-version: 20.x
+          node-version: 24.x
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false  # never use caching in release builds
       - name: Build Node.js package
         run: |
-          npm install
+          npm ci
           node ./tools/build.js -t node
           npm test
 
       - name: Publish highlight.js to NPM
-        id: publish
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          check-version: true
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./build/package.json
-          tag: ${{ env.NPM_TAG }}
-
-      - if: steps.publish.outputs.type != 'none'
         run: |
-          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+          npm publish --tag ${{ env.NPM_TAG }} --dry-run
 
         # if stable release
       - name: Stable Release
@@ -86,7 +89,7 @@ jobs:
           false
 
       - name: Checkout cdn-release
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: 'highlightjs/cdn-release'
           path: 'cdn-release'
@@ -108,16 +111,13 @@ jobs:
           git add ./DIGESTS.md
           git commit -m'Update to version ${{ env.TAG_NAME }}'
           git tag ${TAG_NAME}
-          git push -f --atomic origin ${BRANCH_NAME} ${TAG_NAME}
+          # FIXME uncomment this when done testing
+          #git push -f --atomic origin ${BRANCH_NAME} ${TAG_NAME}
 
       - name: Publish cdn-assets to NPM
-        id: publish_cdn
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          check-version: true
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./cdn-release/build/package.json
-          tag: ${{ env.NPM_TAG }}
+        run: |
+          cd ./cdn-release/build
+          npm publish --tag ${{ env.NPM_TAG }} --dry-run
 
         # log.info('Updating CDN repo at %s' % settings.HLJS_CDN_SOURCE)
         # run(['nodejs', 'tools/build.js', '--target', 'cdn', ':common'])
