@@ -47,11 +47,12 @@ The table below shows the full list of languages (and corresponding classes/alia
 | C3                      | c3                     | [highlightjs-c3](https://github.com/highlightjs/highlightjs-c3) |
 | Cache Object Script     | cos, cls               |         |
 | Candid                  | candid, did            | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
-| Cap’n Proto             | capnproto, capnp       |         |
+| Cap'n Proto             | capnproto, capnp       |         |
+| Ceylon                  | ceylon                 |         |
 | Chaos                   | chaos, kaos            | [highlightjs-chaos](https://github.com/chaos-lang/highlightjs-chaos) |
 | Chapel                  | chapel, chpl           | [highlightjs-chapel](https://github.com/chapel-lang/highlightjs-chapel) |
 | Cisco CLI               | cisco                  | [highlightjs-cisco-cli](https://github.com/BMatheas/highlightjs-cisco-cli) |
-| Clojure                 | clojure, clj           |         |
+| Clojure                 | clojure, clj, edn      |         |
 | CMake                   | cmake, cmake.in        |         |
 | COBOL                   | cobol, standard-cobol  | [highlightjs-cobol](https://github.com/otterkit/highlightjs-cobol) |
 | CODEOWNERS              | codeowners             | [highlightjs-codeowners](https://github.com/highlightjs/highlightjs-codeowners) |
