@@ -369,6 +369,12 @@ export default function(hljs) {
     "yes"
   ];
 
+  // Command line options/flags like --option or -o
+  const COMMAND_FLAGS = {
+    className: 'attr',
+    begin: /(?<=^|\s)(?:-{1,2}[a-zA-Z][a-zA-Z0-9_-]*|--[a-zA-Z][a-zA-Z0-9_-]+)(?=\s|$)/m
+  };
+
   return {
     name: 'Bash',
     aliases: [
@@ -401,7 +407,8 @@ export default function(hljs) {
       ESCAPED_QUOTE,
       APOS_STRING,
       ESCAPED_APOS,
-      VAR
+      VAR,
+      COMMAND_FLAGS
     ]
   };
 }
