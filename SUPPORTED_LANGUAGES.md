@@ -135,6 +135,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
+| LLVM IR                 | llvm                   |         |
 | LookML                  | lookml                 | [highlightjs-lookml](https://github.com/spectacles-ci/highlightjs-lookml) |
 | Lua                     | lua, pluto             |         |
 | Luau                    | luau                   | [highlightjs-luau](https://github.com/highlightjs/highlightjs-luau) |
