@@ -1,0 +1,27 @@
+// Actor model example
+actor Counter {
+    let mut count: i32 = 0;
+    
+    receive Increment(n) -> {
+        count += n;
+        println!("Count is now: {}", count);
+    }
+    
+    receive GetCount -> count
+}
+
+fn main() {
+    let counter = spawn!(Counter);
+    
+    counter <- Increment(5);
+    counter <- Increment(10);
+    
+    let result = counter <? GetCount;
+    
+    // Pipeline operator
+    data 
+        >> validate
+        >> transform 
+        >> persist
+        >> log_result;
+}
