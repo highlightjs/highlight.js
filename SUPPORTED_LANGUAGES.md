@@ -266,6 +266,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | x86 Assembly            | x86asm                 |         |
 | x86 Assembly (AT&T)     | x86asmatt              | [highlightjs-x86asmatt](https://github.com/gondow/highlightjs-x86asmatt)  |
 | XL                      | xl, tao                |         |
+| Xojo                    | xojo                   | [highlight.js-xojo](https://github.com/patricksalo/highlight.js-xojo) |
 | XQuery                  | xquery, xpath, xq, xqm |         |
 | YAML                    | yml, yaml              |         |
 | ZenScript               | zenscript, zs          |[highlightjs-zenscript](https://github.com/highlightjs/highlightjs-zenscript) |

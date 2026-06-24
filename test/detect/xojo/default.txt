@@ -1,0 +1,4 @@
+Dim name As String = "Xojo"
+If name <> "" Then
+  System.DebugLog(name)
+End If
