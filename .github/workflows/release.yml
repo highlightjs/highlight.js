@@ -7,87 +7,106 @@ on:
       - "*pre*"
       - "*beta*"
       - "1[0-9]+.[0-9]+.[0-9]+"
-
-permissions:
-  contents: read
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name to release'
+        required: true
+        type: string
+      dry_run:
+        description: 'Dry run (skip git push and npm publish)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
-  prerelease:
-    permissions:
-      contents: write # for git push
-
+  release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # for OIDC token
     steps:
-      - name: Checkout highlight.js
-        uses: actions/checkout@v5
-
-      - name: Tag is ${{ github.ref }}.
-        # we have to repeat ourselves here since the environment is not actually updated
-        # until the next step executes, so we can't access $TAG_NAME yet
+      - name: Set tag environment variables
         run: |
-          echo "TAG_NAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-          echo "MAJOR_VERSION=$(echo ${GITHUB_REF/refs\/tags\//} | cut -d'.' -f1)" >> $GITHUB_ENV
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG_REF="refs/tags/${{ github.event.inputs.tag_name }}"
+          else
+            TAG_REF="${{ github.ref }}"
+          fi
+
+          TAG_NAME="${TAG_REF/refs\/tags\//}"
+
+          echo "TAG_REF=$TAG_REF" >> "$GITHUB_ENV"
+          echo "TAG_NAME=$TAG_NAME" >> "$GITHUB_ENV"
+          echo "MAJOR_VERSION=$(echo "$TAG_NAME" | cut -d'.' -f1)" >> "$GITHUB_ENV"
+
+      - name: Set dry-run flag
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "DRY_RUN_FLAG=--dry-run" >> "$GITHUB_ENV"
+          else
+            echo "DRY_RUN_FLAG=" >> "$GITHUB_ENV"
+          fi
+
       - name: Make sure we are pushing a tag...
-        if: ${{ !contains(github.ref,'refs/tags/') }}
-        run: false
-        # run: echo "TAG_NAME=0.0.0-test0" >> $GITHUB_ENV
+        if: ${{ !contains(env.TAG_REF, 'refs/tags/') }}
+        run: exit 1
 
-      - if: contains(github.ref, 'beta') || contains(github.ref, 'pre') || contains(github.ref, 'alpha')
+      - name: Checkout highlight.js
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ env.TAG_NAME }}
+
+      - name: Set release channel and branch
         run: |
-          echo "NPM_TAG=beta" >> $GITHUB_ENV
-          echo "RELEASING=beta" >> $GITHUB_ENV
+          if [[ "${TAG_NAME}" == *beta* || "${TAG_NAME}" == *pre* || "${TAG_NAME}" == *alpha* ]]; then
+            echo "NPM_TAG=beta" >> "$GITHUB_ENV"
+            echo "RELEASING=beta" >> "$GITHUB_ENV"
+            echo "BRANCH_NAME=main" >> "$GITHUB_ENV"
+          else
+            echo "NPM_TAG=latest" >> "$GITHUB_ENV"
+            echo "RELEASING=stable" >> "$GITHUB_ENV"
+            echo "BRANCH_NAME=${MAJOR_VERSION}-stable" >> "$GITHUB_ENV"
+          fi
 
-      - if: ${{ !(contains(github.ref, 'beta') || contains(github.ref, 'pre') || contains(github.ref, 'alpha')) }}
+      - name: Validate release channel
         run: |
-          echo "NPM_TAG=latest" >> $GITHUB_ENV
-          echo "RELEASING=stable" >> $GITHUB_ENV
+          if [[ "${{ env.RELEASING }}" != "stable" && "${{ env.RELEASING }}" != "beta" ]]; then
+            echo "We seem to be releasing ${{ env.RELEASING }}."
+            exit 1
+          fi
 
-      - name: match-tag-to-package-version
-        uses: geritol/match-tag-to-package-version@0.2.0
-        env:
-          TAG_PREFIX: refs/tags/ # Optional, default prefix refs/tags/
+      - name: Match tag to package version
+        run: |
+          PACKAGE_VERSION=$(jq -r '.version' package.json)
+          if [ "$PACKAGE_VERSION" != "$TAG_NAME" ]; then
+            echo "Tag ($TAG_NAME) does not match package.json version ($PACKAGE_VERSION)"
+            exit 1
+          fi
 
-      - name: Use Node.js 20.x
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v6
         with:
-          node-version: 20.x
+          node-version: 24.x
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false  # never use caching in release builds
+
       - name: Build Node.js package
         run: |
-          npm install
+          npm ci
           node ./tools/build.js -t node
           npm test
 
       - name: Publish highlight.js to NPM
-        id: publish
-        uses: JS-DevTools/npm-publish@v4
-        with:
-          check-version: true
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./build/package.json
-          tag: ${{ env.NPM_TAG }}
-
-      - if: steps.publish.outputs.type != 'none'
         run: |
-          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
-
-        # if stable release
-      - name: Stable Release
-        if: env.RELEASING == 'stable'
-        run: echo "BRANCH_NAME=${MAJOR_VERSION}-stable" >> $GITHUB_ENV
-        # else (beta)
-      - name: Beta Release
-        if: env.RELEASING == 'beta'
-        run: echo "BRANCH_NAME=main" >> $GITHUB_ENV
-      - name: Confirm release is either stable or beta
-        if: ${{ !(env.RELEASING == 'stable' || env.RELEASING == 'beta') }}
-        run: |
-          echo We seem to be releasing `${RELEASING}`.
-          false
+          npm publish --tag ${{ env.NPM_TAG }} ${{ env.DRY_RUN_FLAG }}
 
       - name: Checkout cdn-release
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
+          persist-credentials: true
           repository: 'highlightjs/cdn-release'
           path: 'cdn-release'
           token: ${{ secrets.CDN_REPO_TOKEN }}
@@ -96,7 +115,8 @@ jobs:
       - name: Build CDN package
         run: node ./tools/build.js -t cdn :common
 
-      - name: Commmit & Push cdn-release ${{ env.TAG_NAME }}
+      - name: Commit & Push cdn-release ${{ env.TAG_NAME }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
         working-directory: ./cdn-release
         run: |
           rm -r ./build
@@ -111,30 +131,6 @@ jobs:
           git push -f --atomic origin ${BRANCH_NAME} ${TAG_NAME}
 
       - name: Publish cdn-assets to NPM
-        id: publish_cdn
-        uses: JS-DevTools/npm-publish@v4
-        with:
-          check-version: true
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./cdn-release/build/package.json
-          tag: ${{ env.NPM_TAG }}
-
-        # log.info('Updating CDN repo at %s' % settings.HLJS_CDN_SOURCE)
-        # run(['nodejs', 'tools/build.js', '--target', 'cdn', ':common'])
-        # os.chdir(settings.HLJS_CDN_SOURCE)
-        # run(['git', 'pull', '-f'])
-        # lines = run(['git', '--git-dir', os.path.join(settings.HLJS_CDN_SOURCE, '.git'), 'tag'])
-        # build_dir = os.path.join(settings.HLJS_CDN_SOURCE, 'build')
-        # if version in lines:
-        #     log.info('Tag %s already exists in the local CDN repo' % version)
-        # else:
-        #     if os.path.exists(build_dir):
-        #         shutil.rmtree(build_dir)
-        #     shutil.move(os.path.join(settings.HLJS_SOURCE, 'build'), build_dir)
-        #     run(['git', 'add', '.'])
-        #     run(['git', 'commit', '-m', 'Update to version %s' % version])
-        #     run(['git', 'tag', version])
-        # run(['git', 'push'])
-        # run(['git', 'push', '--tags'])
-        # npm_publish(build_dir)
-        # os.chdir(settings.HLJS_SOURCE)
+        run: |
+          cd ./cdn-release/build
+          npm publish --tag ${{ env.NPM_TAG }} ${{ env.DRY_RUN_FLAG }}
