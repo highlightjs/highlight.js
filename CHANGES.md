@@ -27,6 +27,7 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
+- enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
 Documentation:
 
@@ -68,6 +69,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Peter Bierma]: https://github.com/ZeroIntensity
 
 
 ## Version 11.11.1
