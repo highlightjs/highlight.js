@@ -1,3 +1,14 @@
+## Version 11.11.3
+
+Core Grammars:
+
+- fix(groovy) support underscores in numeric literals [greymoth-jp][]
+
+CONTRIBUTORS
+
+[greymoth-jp]: https://github.com/greymoth-jp
+
+
 ## Version 11.11.2
 
 Parser Engine:
