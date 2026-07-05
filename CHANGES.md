@@ -39,6 +39,8 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
+
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 
 Documentation:
@@ -81,6 +83,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Shiva Kiran Koninty]: https://github.com/skr4n
 [Ryne Andal]: https://github.com/ryneandal
 
 [JGalego]: https://github.com/JGalego
