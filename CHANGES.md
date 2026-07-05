@@ -27,6 +27,7 @@ New Grammars:
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
 - added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
+- added 3rd party MoonBit grammar to SUPPORTED_LANGUAGES [Kaida-Amethyst][]
 - added 3rd party Pkl grammar to SUPPORTED_LANGUAGES [Dan Chao][]
 - added 3rd party Igor Pro grammar to SUPPORTED_LANGUAGES [Ryne Andal][]
 - added 3rd party Why3 grammar to SUPPORTED_LANGUAGES [JGalego][]
@@ -88,6 +89,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Kaida-Amethyst]: https://github.com/Kaida-Amethyst
 [Dan Chao]: https://github.com/bioball
 [usamoi]: https://github.com/usamoi
 [Shiva Kiran Koninty]: https://github.com/skr4n

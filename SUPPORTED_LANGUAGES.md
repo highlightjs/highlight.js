@@ -160,6 +160,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | MLIR                    | mlir                   | [highlightjs-mlir](https://github.com/highlightjs/highlightjs-mlir) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
+| MoonBit                 | moonbit, mbt           | [highlightjs-moonbit](https://github.com/Kaida-Amethyst/highlightjs-moonbit)  |
 | Moonscript              | moonscript, moon       |         |
 | Motoko                  | motoko, mo             | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | N1QL                    | n1ql                   |         |
