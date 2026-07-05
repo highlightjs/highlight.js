@@ -44,6 +44,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
 - enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
 
@@ -90,6 +91,8 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[DarkMatter-999]: https://github.com/DarkMatter-999
+
 [Lehlogonolo Poole]: https://github.com/yetnt
 [Kaida-Amethyst]: https://github.com/Kaida-Amethyst
 [Dan Chao]: https://github.com/bioball
