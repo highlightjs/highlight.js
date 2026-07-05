@@ -210,6 +210,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | RakuDoc                 | pod6, rakudoc          | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
 | RakuQuoting             | rakuquoting            | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
 | RakuRegexe              | rakuregexe                           | [highlightjs-raku](https://github.com/highlightjs/highlightjs-raku) |
+| RAScript                | rascript               | [highlightjs-rascript](https://github.com/joshraphael/highlightjs-rascript) |
 | Razor CSHTML            | cshtml, razor, razor-cshtml | [highlightjs-cshtml-razor](https://github.com/highlightjs/highlightjs-cshtml-razor) |
 | ReasonML                | reasonml, re           |         |
 | Rebol & Red             | redbol, rebol, red, red-system | [highlightjs-redbol](https://github.com/oldes/highlightjs-redbol) |

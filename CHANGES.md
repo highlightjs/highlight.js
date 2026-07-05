@@ -27,6 +27,7 @@ New Grammars:
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
 - added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
+- added 3rd party RAScript grammar to SUPPORTED_LANGUAGES [Joshua Raphael][]
 - added 3rd party Jaiva grammar to SUPPORTED_LANGUAGES [Lehlogonolo Poole][]
 - added 3rd party MoonBit grammar to SUPPORTED_LANGUAGES [Kaida-Amethyst][]
 - added 3rd party Pkl grammar to SUPPORTED_LANGUAGES [Dan Chao][]
@@ -92,6 +93,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Joshua Raphael]: https://github.com/joshraphael
 [helpimnotdrowning]: https://github.com/helpimnotdrowning
 [DarkMatter-999]: https://github.com/DarkMatter-999
 
