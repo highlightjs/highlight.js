@@ -25,7 +25,7 @@ export default function(hljs) {
       IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
-  const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
+  const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(16|32|64|128))\?';
   const KEYWORDS = [
     "abstract",
     "as",
@@ -59,6 +59,7 @@ export default function(hljs) {
     "override",
     "priv",
     "pub",
+    "raw",
     "ref",
     "return",
     "self",
@@ -169,8 +170,10 @@ export default function(hljs) {
     "u64",
     "u128",
     "usize",
+    "f16",
     "f32",
     "f64",
+    "f128",
     "str",
     "char",
     "bool",
