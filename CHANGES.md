@@ -57,6 +57,7 @@ Documentation:
 - fixed typo and incorrect git command [SungHyun Kim][]
 - fix CONTRIBUTING.md broken badge link [SungHyun Kim][]
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
+- document the existing `pwsh` alias for PowerShell [helpimnotdrowning][]
 - deduplicate JSON from SUPPORTED_LANGUAGES [Lukasz Czajczyk][]
 
 Themes:
@@ -91,6 +92,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[helpimnotdrowning]: https://github.com/helpimnotdrowning
 [DarkMatter-999]: https://github.com/DarkMatter-999
 
 [Lehlogonolo Poole]: https://github.com/yetnt

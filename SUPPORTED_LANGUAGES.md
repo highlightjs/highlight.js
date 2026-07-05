@@ -192,7 +192,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
 | PowerOn                 | poweron, po            | [highlightjs-poweron](https://github.com/libum-llc/highlightjs-poweron) |
-| PowerShell              | powershell, ps, ps1    |         |
+| PowerShell              | powershell, ps, ps1, pwsh |    |
 | Prisma                  | prisma                 | [highlightjs-prisma](https://github.com/witch-factory/highlightjs-prisma)        |
 | Processing              | processing             |         |
 | Prolog                  | prolog                 |         |
