@@ -72,6 +72,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Django                  | django, jinja          |         |
 | DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
+| Djot                    | djot, dj               |[highlightjs-djot](https://github.com/php-collective/highlightjs-djot) |
 | DOS                     | dos, bat, cmd          |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
@@ -262,6 +263,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Vim Script              | vim                    |         |
 | VoltScript              | voltscript, vss, lotusscript, lss | [highlightjs-voltscript](https://github.com/HCL-TECH-SOFTWARE/highlightjs-voltscript) |
 | WGSL                    | wgsl                   | [highlightjs-wgsl](https://github.com/highlightjs/highlightjs-wgsl) |
+| Why3                    | whyml, mlw             | [highlightjs-why3](https://github.com/JGalego/highlightjs-why3) |
 | X#                      | xsharp, xs, prg        | [highlightjs-xsharp](https://github.com/InfomindsAg/highlightjs-xsharp) |
 | X++                     | axapta, x++            |         |
 | x86 Assembly            | x86asm                 |         |
