@@ -117,6 +117,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Ini, TOML               | ini, toml              |         |
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
 | IRPF90                  | irpf90                 |         |
+| Jaiva                   | jaiva, jiv, jva        | [highlightjs-jaiva](https://github.com/yetnt/highlightjs-jaiva) |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
