@@ -265,6 +265,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |
 | VBScript                | vbscript, vbs          |         |
 | Verilog                 | verilog, v             |         |
+| Veryl                   | veryl                  | [highlightjs-veryl](https://github.com/veryl-lang/veryl/tree/master/support/highlightjs) |
 | VHDL                    | vhdl                   |         |
 | Vim Script              | vim                    |         |
 | VoltScript              | voltscript, vss, lotusscript, lss | [highlightjs-voltscript](https://github.com/HCL-TECH-SOFTWARE/highlightjs-voltscript) |
