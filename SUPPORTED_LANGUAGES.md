@@ -72,6 +72,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Django                  | django, jinja          |         |
 | DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
+| Djot                    | djot, dj               |[highlightjs-djot](https://github.com/php-collective/highlightjs-djot) |
 | DOS                     | dos, bat, cmd          |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
@@ -112,9 +113,11 @@ The table below shows the full list of languages (and corresponding classes/alia
 | HTTP                    | http, https            |         |
 | Hy                      | hy, hylang             |         |
 | Inform7                 | inform7, i7            |         |
+| Igor Pro                | igor, igorpro, ipf     | [highlightjs-igor-pro](https://github.com/HelloWorldDevs/highlightjs-igor-pro) |
 | Ini, TOML               | ini, toml              |         |
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
 | IRPF90                  | irpf90                 |         |
+| Jaiva                   | jaiva, jiv, jva        | [highlightjs-jaiva](https://github.com/yetnt/highlightjs-jaiva) |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx    |         |
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
@@ -132,9 +135,11 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Lean                    | lean                   | [highlightjs-lean](https://github.com/leanprover-community/highlightjs-lean) |
 | Less                    | less                   |         |
 | Liquid                  | liquid                 | [highlightjs-liquid](https://github.com/highlightjs/highlightjs-liquid) |
+| Liquidsoap              | liq                    | [highlightjs-liquidsoap](https://github.com/savonet/highlightjs-liquidsoap) |
 | Lisp                    | lisp                   |         |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
+| LLVM IR                 | llvm                   |         |
 | LookML                  | lookml                 | [highlightjs-lookml](https://github.com/spectacles-ci/highlightjs-lookml) |
 | Lua                     | lua, pluto             |         |
 | Luau                    | luau                   | [highlightjs-luau](https://github.com/highlightjs/highlightjs-luau) |
@@ -157,6 +162,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | MLIR                    | mlir                   | [highlightjs-mlir](https://github.com/highlightjs/highlightjs-mlir) |
 | Mojolicious             | mojolicious            |         |
 | Monkey                  | monkey                 |         |
+| MoonBit                 | moonbit, mbt           | [highlightjs-moonbit](https://github.com/Kaida-Amethyst/highlightjs-moonbit)  |
 | Moonscript              | moonscript, moon       |         |
 | Motoko                  | motoko, mo             | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | N1QL                    | n1ql                   |         |
@@ -181,6 +187,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Phix                    | phix                   | [highlightjs-phix](https://github.com/highlightjs/highlightjs-phix) |
 | PHP                     | php                    |         |
 | Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
+| Pkl                     | pkl                    | [highlightjs-pkl](https://github.com/apple/highlightjs-pkl) |
 | Plaintext               | plaintext, txt, text   |         |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
@@ -261,6 +268,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Vim Script              | vim                    |         |
 | VoltScript              | voltscript, vss, lotusscript, lss | [highlightjs-voltscript](https://github.com/HCL-TECH-SOFTWARE/highlightjs-voltscript) |
 | WGSL                    | wgsl                   | [highlightjs-wgsl](https://github.com/highlightjs/highlightjs-wgsl) |
+| Why3                    | whyml, mlw             | [highlightjs-why3](https://github.com/JGalego/highlightjs-why3) |
 | X#                      | xsharp, xs, prg        | [highlightjs-xsharp](https://github.com/InfomindsAg/highlightjs-xsharp) |
 | X++                     | axapta, x++            |         |
 | x86 Assembly            | x86asm                 |         |

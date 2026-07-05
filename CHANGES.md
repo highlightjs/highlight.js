@@ -1,43 +1,78 @@
+## Version 11.11.3
+
+Core Grammars:
+
+- fix(groovy) support underscores in numeric literals [greymoth-jp][]
+
+CONTRIBUTORS
+
+[greymoth-jp]: https://github.com/greymoth-jp
+
+
 ## Version 11.11.2
 
-Themes:
+Parser Engine:
 
-- added "vs Dark " theme [Twineee1][]
+- fix illegal handling at end of input code [Josh Goebel][]
 
 New Grammars:
 
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
-- added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
-- added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
+- added 3rd party Liquidsoap grammar to SUPPORTED_LANGUAGES [Romain Beauxis][]
+- added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
+- added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
+- added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
 - added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
+- added 3rd party Jaiva grammar to SUPPORTED_LANGUAGES [Lehlogonolo Poole][]
+- added 3rd party MoonBit grammar to SUPPORTED_LANGUAGES [Kaida-Amethyst][]
+- added 3rd party Pkl grammar to SUPPORTED_LANGUAGES [Dan Chao][]
+- added 3rd party Igor Pro grammar to SUPPORTED_LANGUAGES [Ryne Andal][]
+- added 3rd party Why3 grammar to SUPPORTED_LANGUAGES [JGalego][]
 
 Core Grammars:
 
-- fix(javascript) correctly highlight 'for await' again [wolfgang42][]
+- fix(cpp) exclude keywords from function calls [Eisenwave][]
 - enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
 - enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
-- fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
+- fix(javascript) correctly highlight 'for await' again [wolfgang42][]
 - fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
 - enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
+- fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
-- fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
+- enh(rust) parse f16 and f128 literals [usamoi][]
+- enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
+
+- fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 
 Documentation:
 
+- update link to Odin grammar to maintained version [Marian Pekár][]
+- fix type `highlight` deprecated message [Brandon Dong][]
+- fixed typo and incorrect git command [SungHyun Kim][]
+- fix CONTRIBUTING.md broken badge link [SungHyun Kim][]
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
 - document the existing `pwsh` alias for PowerShell [helpimnotdrowning][]
+- deduplicate JSON from SUPPORTED_LANGUAGES [Lukasz Czajczyk][]
 
 Themes:
 
 - Fix: cybertopia themes render correctly in shadow DOM [hbgl][]
+- added "vs Dark " theme [Twineee1][]
 
 CONTRIBUTORS
 
+[Josh Goebel]: https://github.com/joshgoebel
+[Marian Pekár]: https://github.com/marianpekar
+[Eisenwave]: https://github.com/Eisenwave/
+[Brandon Dong]: https://github.com/brandondong
+[SungHyun Kim]: https://github.com/witch-factory
+[Lukasz Czajczyk]: https://github.com/LukeCz
 [Josh Marchand]: https://github.com/yHSJ
 [Max Liashuk]: https://github.com/probil
 [Max Reznik]: https://github.com/reznikmm
@@ -48,6 +83,7 @@ CONTRIBUTORS
 [Kerry Shetline]: https://github.com/kshetline
 [SungHyun Kim]: https://github.com/witch-factory
 [Adam Lui]: https://github.com/adamlui
+[Romain Beauxis]: https://github.com/toots
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
 [Twineee1]: https://github.com/Twineee1
@@ -57,7 +93,16 @@ CONTRIBUTORS
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
 [helpimnotdrowning]: https://github.com/helpimnotdrowning
+[DarkMatter-999]: https://github.com/DarkMatter-999
 
+[Lehlogonolo Poole]: https://github.com/yetnt
+[Kaida-Amethyst]: https://github.com/Kaida-Amethyst
+[Dan Chao]: https://github.com/bioball
+[usamoi]: https://github.com/usamoi
+[Shiva Kiran Koninty]: https://github.com/skr4n
+[Ryne Andal]: https://github.com/ryneandal
+
+[JGalego]: https://github.com/JGalego
 
 ## Version 11.11.1
 
