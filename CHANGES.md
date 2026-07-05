@@ -20,6 +20,8 @@ New Grammars:
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
+- added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
+- added 3rd party Liquidsoap grammar to SUPPORTED_LANGUAGES [Romain Beauxis][]
 - added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 - added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
@@ -40,6 +42,8 @@ Core Grammars:
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
+- enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
+
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 
 Documentation:
@@ -74,6 +78,7 @@ CONTRIBUTORS
 [Kerry Shetline]: https://github.com/kshetline
 [SungHyun Kim]: https://github.com/witch-factory
 [Adam Lui]: https://github.com/adamlui
+[Romain Beauxis]: https://github.com/toots
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
 [Twineee1]: https://github.com/Twineee1
@@ -83,6 +88,7 @@ CONTRIBUTORS
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
 [usamoi]: https://github.com/usamoi
+[Shiva Kiran Koninty]: https://github.com/skr4n
 [Ryne Andal]: https://github.com/ryneandal
 
 [JGalego]: https://github.com/JGalego
