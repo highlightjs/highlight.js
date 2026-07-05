@@ -6,6 +6,8 @@
  Category: system
  */
 
+import { NUMERIC } from "./lib/java.js";
+
 function variants(variants, obj = {}) {
   obj.variants = variants;
   return obj;
@@ -41,10 +43,9 @@ export default function(hljs) {
     begin: /~?\/[^\/\n]+\//,
     contains: [ hljs.BACKSLASH_ESCAPE ]
   };
-  const NUMBER = variants([
-    hljs.BINARY_NUMBER_MODE,
-    hljs.C_NUMBER_MODE
-  ]);
+  // Groovy uses the same numeric literal grammar as Java, including
+  // underscores as digit separators (e.g. 1_000, 0xFF_EC, 0b1010_0101).
+  const NUMBER = NUMERIC;
   const STRING = variants([
     {
       begin: /"""/,
