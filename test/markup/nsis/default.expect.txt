@@ -8,9 +8,13 @@
 
 <span class="hljs-keyword">!assert</span> <span class="hljs-variable">${NSIS_CHAR_SIZE}</span> = <span class="hljs-number">2</span> <span class="hljs-string">&quot;Unicode required&quot;</span>
 
+<span class="hljs-comment">; Includes</span>
 <span class="hljs-keyword">!include</span> MUI2.nsh
+
+<span class="hljs-comment">; Defines</span>
 <span class="hljs-keyword">!define</span> x64 <span class="hljs-string">&quot;true&quot;</span>
 
+<span class="hljs-comment">; Settings</span>
 <span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;installer_name&quot;</span>
 <span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;installer_name.exe&quot;</span>
 <span class="hljs-keyword">RequestExecutionLevel</span> <span class="hljs-literal">user</span>

@@ -8,9 +8,13 @@
 
 !assert ${NSIS_CHAR_SIZE} = 2 "Unicode required"
 
+; Includes
 !include MUI2.nsh
+
+; Defines
 !define x64 "true"
 
+; Settings
 Name "installer_name"
 OutFile "installer_name.exe"
 RequestExecutionLevel user
