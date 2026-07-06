@@ -3,6 +3,7 @@
 Core Grammars:
 
 - fix(groovy) support underscores in numeric literals [greymoth-jp][]
+- fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
 
 Documentation:
 
@@ -11,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [greymoth-jp]: https://github.com/greymoth-jp
+[Francesco Paolo Severino]: https://github.com/fpseverino
 [Haowei Hsu]: https://github.com/hwhsu1231
 
 
