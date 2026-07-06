@@ -20,11 +20,20 @@ New Grammars:
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
+- added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
+- added 3rd party Liquidsoap grammar to SUPPORTED_LANGUAGES [Romain Beauxis][]
 - added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 - added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
 - added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
+- added 3rd party Veryl grammar to SUPPORTED_LANGUAGES [Naoya Hatta][]
+- added 3rd party RAScript grammar to SUPPORTED_LANGUAGES [Joshua Raphael][]
+- added 3rd party Jaiva grammar to SUPPORTED_LANGUAGES [Lehlogonolo Poole][]
+- added 3rd party MoonBit grammar to SUPPORTED_LANGUAGES [Kaida-Amethyst][]
+- added 3rd party Pkl grammar to SUPPORTED_LANGUAGES [Dan Chao][]
+- added 3rd party Igor Pro grammar to SUPPORTED_LANGUAGES [Ryne Andal][]
+- added 3rd party Why3 grammar to SUPPORTED_LANGUAGES [JGalego][]
 
 Core Grammars:
 
@@ -37,6 +46,11 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
+- enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
+- enh(rust) parse f16 and f128 literals [usamoi][]
+- enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
+
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
@@ -47,6 +61,7 @@ Documentation:
 - fixed typo and incorrect git command [SungHyun Kim][]
 - fix CONTRIBUTING.md broken badge link [SungHyun Kim][]
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
+- document the existing `pwsh` alias for PowerShell [helpimnotdrowning][]
 - deduplicate JSON from SUPPORTED_LANGUAGES [Lukasz Czajczyk][]
 
 Themes:
@@ -72,6 +87,7 @@ CONTRIBUTORS
 [Kerry Shetline]: https://github.com/kshetline
 [SungHyun Kim]: https://github.com/witch-factory
 [Adam Lui]: https://github.com/adamlui
+[Romain Beauxis]: https://github.com/toots
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
 [Twineee1]: https://github.com/Twineee1
@@ -81,7 +97,20 @@ CONTRIBUTORS
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
 [Peter Bierma]: https://github.com/ZeroIntensity
+[Naoya Hatta]: https://github.com/dalance
 
+[Joshua Raphael]: https://github.com/joshraphael
+[helpimnotdrowning]: https://github.com/helpimnotdrowning
+[DarkMatter-999]: https://github.com/DarkMatter-999
+
+[Lehlogonolo Poole]: https://github.com/yetnt
+[Kaida-Amethyst]: https://github.com/Kaida-Amethyst
+[Dan Chao]: https://github.com/bioball
+[usamoi]: https://github.com/usamoi
+[Shiva Kiran Koninty]: https://github.com/skr4n
+[Ryne Andal]: https://github.com/ryneandal
+
+[JGalego]: https://github.com/JGalego
 
 ## Version 11.11.1
 
