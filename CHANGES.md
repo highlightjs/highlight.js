@@ -5,10 +5,16 @@ Core Grammars:
 - fix(groovy) support underscores in numeric literals [greymoth-jp][]
 - fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
 
+Documentation:
+
+- build(deps): bump python and sphinx requirements [Haowei Hsu][]
+
 CONTRIBUTORS
 
 [greymoth-jp]: https://github.com/greymoth-jp
 [Francesco Paolo Severino]: https://github.com/fpseverino
+[Haowei Hsu]: https://github.com/hwhsu1231
+
 
 ## Version 11.11.2
 
