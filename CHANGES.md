@@ -52,6 +52,7 @@ Core Grammars:
 - enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
 
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
+- enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
 Documentation:
 
@@ -95,6 +96,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Peter Bierma]: https://github.com/ZeroIntensity
 [Naoya Hatta]: https://github.com/dalance
 
 [Joshua Raphael]: https://github.com/joshraphael
