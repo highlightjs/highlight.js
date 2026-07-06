@@ -4,9 +4,14 @@ Core Grammars:
 
 - fix(groovy) support underscores in numeric literals [greymoth-jp][]
 
+Documentation:
+
+- build(deps): bump python and sphinx requirements [Haowei Hsu][]
+
 CONTRIBUTORS
 
 [greymoth-jp]: https://github.com/greymoth-jp
+[Haowei Hsu]: https://github.com/hwhsu1231
 
 
 ## Version 11.11.2
