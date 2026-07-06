@@ -26,7 +26,7 @@ export default function(hljs) {
       },
       {
         scope: 'keyword',
-        match: `\\b${regex.either(LITERALS...)}\\b`)
+        match: `\\b${regex.either(...LITERALS)}\\b`,
       },
       {
         scope: 'variable',
