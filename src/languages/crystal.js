@@ -159,6 +159,16 @@ export default function(hljs) {
         // a regex here would also make this variant swallow the rest of
         // the line (or file) whenever `//` appears at the start of a
         // statement, since there would be no closing delimiter to match.
+        //
+        // INTEGER_DIVISION (above, given priority over this REGEXP mode)
+        // already handles the common case where `//` starts matching at the
+        // same position as this mode, e.g. mid-expression like
+        // `something // 4`. But this outer REGEXP mode's `begin` can also
+        // start matching one character earlier, at a preceding newline
+        // (via its `\n` alternative), when `//`/`//=` is the first thing on
+        // a line; in that case INTEGER_DIVISION never gets a chance to
+        // compete, so this lookahead is what stops `//` from being
+        // misclassified as a regexp there too.
         begin: '/(?!\\/)',
         end: '/[a-z]*'
       }
