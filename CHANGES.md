@@ -47,11 +47,13 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
 - enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
 - enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
 
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
+- enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
 Documentation:
 
@@ -95,6 +97,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Peter Bierma]: https://github.com/ZeroIntensity
 [Naoya Hatta]: https://github.com/dalance
 
 [Joshua Raphael]: https://github.com/joshraphael

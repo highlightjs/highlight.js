@@ -32,6 +32,7 @@ export default function(hljs) {
     'in',
     'is',
     'lambda',
+    'lazy',
     'match',
     'nonlocal|10',
     'not',
