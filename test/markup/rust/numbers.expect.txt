@@ -11,3 +11,5 @@
 <span class="hljs-number">0.1</span>;
 <span class="hljs-number">0.1f32</span>;
 <span class="hljs-number">12E+99_f64</span>;
+<span class="hljs-number">12E+99_f16</span>;
+<span class="hljs-number">12E+99_f128</span>;

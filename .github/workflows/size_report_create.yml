@@ -9,13 +9,13 @@ jobs:
 
     steps:
       - name: Checkout Base
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.base.ref }}
           path: base
 
       - name: Checkout PR
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: pr
 
@@ -39,7 +39,7 @@ jobs:
           echo "$REPORT" > size_report/report.md
 
       - name: Save Size Report as Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: size_report
           path: ./size_report
