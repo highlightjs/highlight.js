@@ -7,7 +7,7 @@
 
 #if(count(visit) == 1):
     Hello new user!
-#elseif(title == "Welcome back!"):
+#elseif(index == "Welcome back!"):
     Hello old user
 #else:
     Unexpected page!
