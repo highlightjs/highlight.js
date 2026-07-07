@@ -8,9 +8,9 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Language                | Aliases                | Package |
 | :-----------------------| :--------------------- | :------ |
 | 1C                      | 1c                     |         |
-| 4D                      | 4d                     | [highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
-| ABAP                    | sap-abap, abap         | [highlight-sap-abap](https://github.com/highlightjs/highlightjs-sap-abap) |
-| Abc Notation            | abc                    | [highlightjs-abc](https://github.com/nocpiun/highlightjs-abc)|
+| 4D                      | 4d                     |[highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
+| ABAP                    | sap-abap, abap         |[highlight-sap-abap](https://github.com/highlightjs/highlightjs-sap-abap) |
+| Abc Notation            | abc                    |[highlightjs-abc](https://github.com/nocpiun/highlightjs-abc)|
 | ABNF                    | abnf                   |         |
 | Access logs             | accesslog              |         |
 | ActionScript            | actionscript, as       |         |
@@ -23,7 +23,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Apex                    | apex                   | [highlightjs-apex](https://github.com/highlightjs/highlightjs-apex/)   |
 | AppleScript             | applescript, osascript |         |
 | Arcade                  | arcade                 |         |
-| Arduino (C++ w/Arduino libs) | arduino, ino      |         |
+| Arduino (C++ w/Arduino libs) | arduino, ino           |         |
 | ARM assembler           | armasm, arm            |         |
 | AsciiDoc                | asciidoc, adoc         |         |
 | AspectJ                 | aspectj                |         |
@@ -110,7 +110,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Haskell                 | haskell, hs            |         |
 | Haxe                    | haxe, hx               |         |
 | High-level shader language| hlsl                | [highlightjs-hlsl](https://github.com/highlightjs/highlightjs-hlsl) |
-| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg |
+| HTML, XML               | xml, html, xhtml, rss, atom, xjb, xsd, xsl, plist, svg | |
 | HTTP                    | http, https            |         |
 | Hy                      | hy, hylang             |         |
 | Inform7                 | inform7, i7            |         |
@@ -124,11 +124,11 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Jolie                   | jolie, iol, ol         | [highlightjs-jolie](https://github.com/xiroV/highlightjs-jolie) |
 | JSON                    | json, jsonc, json5     |         |
 | JSONata                 | jsonata                | [highlightjs-jsonata](https://github.com/DevDimov/highlightjs-jsonata) |
-| Julia                   | julia, jl              |         |
+| Julia                   | julia, jl               |         |
 | Julia REPL              | julia-repl             |         |
 | Kotlin                  | kotlin, kt             |         |
-| L4                      | l4, legal              | [highlightjs-l4](https://github.com/legalese/highlightjs-l4) |
-| Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang) |
+| L4                      | l4, legal              | [highlightjs-l4](https://github.com/legalese/highlightjs-l4)
+| Lang                    |                        | [highlightjs-lang](https://github.com/highlightjs/highlightjs-lang)
 | Lasso                   | lasso, ls, lassoscript |         |
 | LaTeX                   | tex                    |         |
 | LDIF                    | ldif                   |         |
@@ -154,7 +154,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Maxima                  | maxima                 |         |
 | Maya Embedded Language  | mel                    |         |
 | Mercury                 | mercury                |         |
-| MetaPost                | metapost               | [highlightjs-metapost](https://github.com/chupinmaxime/highlightjs-metapost) |
+| MetaPost                | metapost               | [highlightjs-metapost](https://github.com/chupinmaxime/highlightjs-metapost) |        |
 | Mint                    | mint                   | [highlightjs-mint](https://github.com/mint-lang/highlightjs-mint) |
 | MIPS Assembler          | mips, mipsasm          |         |
 | mIRC Scripting Language | mirc, mrc              | [highlightjs-mirc](https://github.com/highlightjs/highlightjs-mirc) |
@@ -174,7 +174,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Nix                     | nix                    |         |
 | NSIS                    | nsis                   |         |
 | Oak                     | oak                    | [highlightjs-oak](https://github.com/timlabs/highlightjs-oak) |
-| Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl) |
+| Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
 | OCaml                   | ocaml, ml              |         |
 | Odin                    | odin                   |         [highlightjs-odinlang](https://github.com/marianpekar/highlightjs-odinlang) |
@@ -182,7 +182,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | OpenSCAD                | openscad, scad         |         |
 | Oracle Rules Language   | ruleslanguage          |         |
 | Oxygene                 | oxygene                |         |
-| Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus) |
+| Papyrus                 | papyrus, psc           |[highlightjs-papyrus](https://github.com/Pickysaurus/highlightjs-papyrus)    |
 | Parser3                 | parser3                |         |
 | Perl                    | perl, pl, pm           |         |
 | PF                      | pf, pf.conf            |         |
@@ -224,7 +224,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Roboconf                | graph, instances       |         |
 | Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
 | RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |
-| Ruby                    | ruby, rb, gemspec, podspec, thor, irb |
+| Ruby                    | ruby, rb, gemspec, podspec, thor, irb | |
 | Rust                    | rust, rs               |         |
 | RVT Script              | rvt, rvt-script        | [highlightjs-rvt-script](https://github.com/Sopitive/highlightjs-rvt-script) |
 | SAS                     | SAS, sas               |         |
@@ -271,7 +271,6 @@ The table below shows the full list of languages (and corresponding classes/alia
 | VHDL                    | vhdl                   |         |
 | Vim Script              | vim                    |         |
 | VoltScript              | voltscript, vss, lotusscript, lss | [highlightjs-voltscript](https://github.com/HCL-TECH-SOFTWARE/highlightjs-voltscript) |
-| WASM                    | wasm                   |         |
 | WGSL                    | wgsl                   | [highlightjs-wgsl](https://github.com/highlightjs/highlightjs-wgsl) |
 | Why3                    | whyml, mlw             | [highlightjs-why3](https://github.com/JGalego/highlightjs-why3) |
 | X#                      | xsharp, xs, prg        | [highlightjs-xsharp](https://github.com/InfomindsAg/highlightjs-xsharp) |
@@ -303,7 +302,6 @@ use the full name and not the alias to avoid any ambiguity.
 | LiveScript              | ls                     |
 | OCaml                   | ml                     |
 | SML                     | ml                     |
-
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
 [2]: https://github.com/highlightjs/highlight.js#importing-the-library
