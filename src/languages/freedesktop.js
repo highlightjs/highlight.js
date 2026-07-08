@@ -6,30 +6,26 @@ Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
   const FIELD_CODES = {
-    className: 'variable',
-    match: /%[a-zA-Z]/,
-    relevance: 1
+    scope: 'variable',
+    match: /%[a-zA-Z]/
   };
 
   const STRING = {
-    className: 'string',
+    scope: 'string',
     begin: /"/,
     end: /"/,
-    contains: [ hljs.BACKSLASH_ESCAPE ],
-    relevance: 0
+    contains: [ hljs.BACKSLASH_ESCAPE ]
   };
 
   const COMMENT = {
-    className: 'comment',
-    begin: /[#]/,
-    end: /$/,
-    relevance: 0
+    scope: 'comment',
+    begin: /#/,
+    end: /$/
   };
 
   const SECTION = {
-    className: 'section',
-    begin: /^\[(Desktop Entry|Unit|Service|Install|Socket|Mount|Automount|Swap|Path|Timer|Slice|Scope|Manager|connection|ipv4|wifi|wifi-security|ipv6|802-3-ethernet|802-11-wireless|802-11-wireless-security|vpn|Journal|Bridge|Desktop Action\s+[A-Za-z0-9_-]+)\]$/,
-    relevance: 10
+    scope: 'section',
+    begin: /^\[(Desktop Entry|Unit|Service|Install|Socket|Mount|Automount|Swap|Path|Timer|Slice|Scope|Manager|connection|ipv4|wifi|wifi-security|ipv6|802-3-ethernet|802-11-wireless|802-11-wireless-security|vpn|Journal|Bridge|Desktop Action\s+[A-Za-z0-9_-]+)\]$/
   };
 
   const KEY_NAME = {
