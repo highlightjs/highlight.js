@@ -28,42 +28,25 @@ export default function(hljs) {
     begin: /^\[(Desktop Entry|Unit|Service|Install|Socket|Mount|Automount|Swap|Path|Timer|Slice|Scope|Manager|connection|ipv4|wifi|wifi-security|ipv6|802-3-ethernet|802-11-wireless|802-11-wireless-security|vpn|Journal|Bridge|Desktop Action\s+[A-Za-z0-9_-]+)\]$/
   };
 
-  const KEY_NAME = {
-    className: 'attr',
-    begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
-    end: /\s*=/,
-    excludeEnd: true,
-    relevance: 10
-  };
-
   const OPERATOR = {
-    className: 'operator',
-    match: /=/,
-    relevance: 0
+    scope: 'operator',
+    match: /=/
   };
 
-  const VALUE = {
-    begin: /=\s*/,
-    end: /$/,
-    excludeBegin: true,
-    contains: [
-      STRING,
-      {
-        className: 'literal',
-        match: /\b(Application|Link|Directory|forking|oneshot|OneShot|true|false|True|False)\b/,
-        relevance: 10
-      }
-    ]
+  const LITERALS = {
+    scope: 'literal',
+    match: /\b(Application|Link|Directory|forking|oneshot|OneShot|true|false|True|False)\b/
   };
 
   const KEY_VALUE = {
-    begin: /^([A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?)\s*=/,
-    returnBegin: true,
+    begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/m,
+    beginScope: 'attr',
+    end: /$/,
     contains: [
-      FIELD_CODES,
-      KEY_NAME,
       OPERATOR,
-      VALUE
+      STRING,
+      LITERALS,
+      FIELD_CODES
     ]
   };
 
