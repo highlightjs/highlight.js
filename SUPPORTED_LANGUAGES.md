@@ -83,6 +83,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Elixir                  | elixir                 |         |
 | Elm                     | elm                    |         |
 | Erlang                  | erlang, erl            |         |
+| ES&#124;QL              | esql                   | [highlightjs-esql](https://github.com/elastic/highlightjs-esql) |
 | Excel                   | excel, xls, xlsx       |         |
 | Extempore               | extempore, xtlang, xtm | [highlightjs-xtlang](https://github.com/highlightjs/highlightjs-xtlang) |
 | F#                      | fsharp, fs, fsx, fsi, fsscript   |         |
