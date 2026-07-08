@@ -52,7 +52,7 @@ export default function(hljs) {
 
   return {
     name: 'FreeDesktop configuration format',
-    aliases: ['desktop', 'service', 'mount', 'socket', 'timer', 'nmconnection', 'systemd', 'freedesktop'],
+    aliases: ['freedesktop', 'desktop', 'systemd'],
     case_insensitive: false,
     contains: [
       COMMENT,
@@ -61,4 +61,3 @@ export default function(hljs) {
     ]
   };
 }
-
