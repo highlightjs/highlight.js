@@ -286,6 +286,10 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Zig                     | zig                    |[highlightjs-zig](https://github.com/fwx5618177/highlightjs-zig) |
 <!-- LANGLIST_END -->
 
+The following languages are included in the "common" subset:
+
+Bash, C, C++, C#, CSS, Diff, Go, GraphQL, HTML (XML), Ini (TOML), Java, JavaScript, JSON, Kotlin, Less, Lua, Makefile, Markdown, Objective C, Perl, PHP, Plaintext, Python, Python REPL, R, Ruby, Rust, SCSS, Shell, SQL, Swift, TypeScript, VB.Net, WASM, YAML
+
 <!-- document it until we can fix it -->
 ## Alias Overlap
 
@@ -298,7 +302,6 @@ use the full name and not the alias to avoid any ambiguity.
 | LiveScript              | ls                     |
 | OCaml                   | ml                     |
 | SML                     | ml                     |
-
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
 [2]: https://github.com/highlightjs/highlight.js#importing-the-library
