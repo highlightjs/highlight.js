@@ -1,8 +1,7 @@
 /*
 Language: FreeDesktop Configs
 Description: FreeDesktop Config Specification file format
-Contributors: Lee Yunjin <gzblues61@daum.net>
-Category: common, config
+Category: config
 Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
