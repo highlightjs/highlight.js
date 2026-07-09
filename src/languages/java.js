@@ -204,6 +204,12 @@ export default function(hljs) {
         scope: "keyword"
       },
       {
+        // Expression keywords prevent keyword-led expressions from being
+        // recognized as variable or method declarations.
+        beginKeywords: 'new throw return else yield assert',
+        relevance: 0
+      },
+      {
         begin: [
           JAVA_IDENT_RE,
           regex.concat(TYPE_ARGS_OPTIONAL_RE, ARRAY_BRACKETS_OPTIONAL_RE, /\s+/),
@@ -233,12 +239,6 @@ export default function(hljs) {
           hljs.C_LINE_COMMENT_MODE,
           hljs.C_BLOCK_COMMENT_MODE
         ]
-      },
-      {
-        // Expression keywords prevent 'keyword Name(...)' from being
-        // recognized as a function definition
-        beginKeywords: 'new throw return else',
-        relevance: 0
       },
       {
         begin: [
