@@ -29,10 +29,27 @@ function recurRegex(re, substitution, depth) {
 /** @type LanguageFn */
 export default function(hljs) {
   const regex = hljs.regex;
+
+  // A Java identifier consisting of letters, digits, underscore or dollar sign, not beginning with a digit
   const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
-  const TYPE_ARG_RE = '(?:(?:' + JAVA_IDENT_RE + '~~~)|(?:\\?\\s+(?:extends|super)\\s+' + JAVA_IDENT_RE + '~~~)|(?:\\?))';
-  const GENERIC_RE = recurRegex('(?:\\s*<\\s*' + TYPE_ARG_RE + '(?:\\s*,\\s*' + TYPE_ARG_RE + ')*\\s*>)?', /~~~/g, 2);
-  const ARRAY_RE = '(?:(?:\\s*\\[\\s*])+)?';
+
+  // Optional 1..n pairs of square brackets identifying an array type
+  const ARRAY_BRACKETS_OPTIONAL_RE = '(?:(?:\\s*\\[\\s*])+)?';
+
+  // A simple Java type: a type name, optionally followed by type arguments and/or array brackets
+  // '<@@@>' is replaced with the pattern for optional type arguments by recurRegex below.
+  const SIMPLE_TYPE_RE = JAVA_IDENT_RE + '<@@@>' + ARRAY_BRACKETS_OPTIONAL_RE;
+
+  // A bounded (? extends Number) or unbounded (?) wildcard type
+  const WILDCARD_TYPE_RE = '\\?(?:\\s+(?:extends|super)\\s+' + SIMPLE_TYPE_RE + ')?';
+
+  // A Java type argument, consisting of a wildcard type or type
+  const TYPE_ARG_RE = '(?:' + WILDCARD_TYPE_RE + '|' + SIMPLE_TYPE_RE + ')';
+
+  // Pattern for optional generic type arguments in angle brackets with up to 2 levels of nested type arguments
+  const TYPE_ARGS_OPTIONAL_RE = recurRegex('(?:\\s*<\\s*' + TYPE_ARG_RE + '(?:\\s*,\\s*' + TYPE_ARG_RE + ')*\\s*>)?',
+                                           /<@@@>/g, 2);
+
   const MAIN_KEYWORDS = [
     'synchronized',
     'abstract',
@@ -188,16 +205,17 @@ export default function(hljs) {
       },
       {
         begin: [
-          regex.concat(/(?!else)/, JAVA_IDENT_RE),
-          regex.concat(GENERIC_RE, ARRAY_RE, /\s+/),
           JAVA_IDENT_RE,
-          /\s+/,
+          regex.concat(TYPE_ARGS_OPTIONAL_RE, ARRAY_BRACKETS_OPTIONAL_RE, /\s+/),
+          JAVA_IDENT_RE,
+          ARRAY_BRACKETS_OPTIONAL_RE,
+          /\s*/,
           /=(?!=)/
         ],
         className: {
           1: "type",
           3: "variable",
-          5: "operator"
+          6: "operator"
         }
       },
       {
@@ -225,7 +243,7 @@ export default function(hljs) {
       {
         begin: [
           JAVA_IDENT_RE,
-          regex.concat(GENERIC_RE, ARRAY_RE, /\s+/),
+          regex.concat(TYPE_ARGS_OPTIONAL_RE, ARRAY_BRACKETS_OPTIONAL_RE, /\s+/),
           JAVA_IDENT_RE,
           /\s*(?=\()/
         ],
