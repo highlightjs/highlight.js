@@ -43,7 +43,7 @@ export default function(hljs) {
   // A bounded (? extends Number) or unbounded (?) wildcard type
   const WILDCARD_TYPE_RE = '\\?(?:\\s+(?:extends|super)\\s+' + SIMPLE_TYPE_RE + ')?';
 
-  // A Java type argument, consisting of a wildcard type or type
+  // A Java type argument, consisting of a wildcard or simple type
   const TYPE_ARG_RE = '(?:' + WILDCARD_TYPE_RE + '|' + SIMPLE_TYPE_RE + ')';
 
   // Pattern for optional generic type arguments in angle brackets with up to 2 levels of nested type arguments
