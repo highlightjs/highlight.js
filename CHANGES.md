@@ -3,9 +3,11 @@
 Documentation:
 
 - referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
+- added 3rd party Cedar grammar to SUPPORTED_LANGUAGES [Dhruv Maniya][]
 
 CONTRIBUTORS
 
+[Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
 
 

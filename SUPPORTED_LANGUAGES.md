@@ -48,6 +48,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Cache Object Script     | cos, cls               |         |
 | Candid                  | candid, did            | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | Cap’n Proto             | capnproto, capnp       |         |
+| Cedar                   | cedar, cedarschema     | [highlightjs-cedar](https://github.com/cedar-policy/highlightjs-cedar) |
 | Chaos                   | chaos, kaos            | [highlightjs-chaos](https://github.com/chaos-lang/highlightjs-chaos) |
 | Chapel                  | chapel, chpl           | [highlightjs-chapel](https://github.com/chapel-lang/highlightjs-chapel) |
 | Cisco CLI               | cisco                  | [highlightjs-cisco-cli](https://github.com/BMatheas/highlightjs-cisco-cli) |
