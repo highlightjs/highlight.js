@@ -5,6 +5,8 @@ Category: config
 Website: https://www.freedesktop.org/
 */
 export default function(hljs) {
+  const regex = hljs.regex;
+
   const FIELD_CODES = {
     scope: 'variable',
     match: /%[a-zA-Z]/
@@ -39,7 +41,10 @@ export default function(hljs) {
   };
 
   const KEY_VALUE = {
-    begin: /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/m,
+    begin: regex.concat(
+      /^[A-Za-z0-9_-]+(\[[A-Za-z0-9_@.]+\])?/,
+      regex.lookahead(/\s*=/)
+    ),
     beginScope: 'attr',
     end: /$/,
     contains: [
@@ -51,8 +56,8 @@ export default function(hljs) {
   };
 
   return {
-    name: 'FreeDesktop configuration format',
-    aliases: ['freedesktop', 'desktop', 'systemd'],
+    name: 'FreeDesktop config',
+    aliases: ['desktop', 'systemd'],
     case_insensitive: false,
     contains: [
       COMMENT,
