@@ -1,5 +1,9 @@
 ## Version 11.12.0
 
+Core Grammars:
+
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
+
 Documentation:
 
 - referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
@@ -7,6 +11,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
 

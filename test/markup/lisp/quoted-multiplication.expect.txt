@@ -1,0 +1,4 @@
+(<span class="hljs-name">+</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>)
+(<span class="hljs-name">defvar</span> *lines*)
+&#x27;(* <span class="hljs-number">6</span> <span class="hljs-number">7</span>)
+(<span class="hljs-name">+</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>)

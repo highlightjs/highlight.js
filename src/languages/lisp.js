@@ -34,10 +34,6 @@ export default function(hljs) {
     ';', '$',
     { relevance: 0 }
   );
-  const VARIABLE = {
-    begin: '\\*',
-    end: '\\*'
-  };
   const KEYWORD = {
     className: 'symbol',
     begin: '[:&]' + LISP_IDENT_RE
@@ -62,7 +58,6 @@ export default function(hljs) {
     contains: [
       NUMBER,
       STRING,
-      VARIABLE,
       KEYWORD,
       QUOTED_LIST,
       IDENT
@@ -113,7 +108,6 @@ export default function(hljs) {
     NUMBER,
     STRING,
     COMMENT,
-    VARIABLE,
     KEYWORD,
     MEC,
     IDENT
