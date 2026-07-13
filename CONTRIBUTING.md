@@ -26,13 +26,13 @@ Contributions are what make the open source community such an amazing place to l
 
 **You do not have to be a programmer.** There are many ways to contribute::
 
-- Hang out on our [Discord](https://discord.gg/M24EbU7ja9) and help answers questions as they come up
+- Hang out on our [Discord](https://discord.gg/M24EbU7ja9) and help answer questions as they come up
 - Report [new issues or bugs](https://github.com/highlightjs/highlight.js/issues/new/choose) or join the existing discussion on open issues
 - Submit pull requests to resolve issues
 - Write [plugins](https://highlightjs.readthedocs.io/en/latest/plugin-api.html) that extend our core functionality
 - Author [language definitions](https://github.com/highlightjs/highlight.js/blob/master/extra/3RD_PARTY_QUICK_START.md) to improve our language support
 - Design [new themes](https://highlightjs.readthedocs.io/en/latest/theme-guide.html) to make our highlighting extra beautiful
-- Improve our documentation to better explain all the things to all the peoples
+- Improve our documentation to better explain all the things to everyone
 
 ### Our Philosophy
 
@@ -123,4 +123,3 @@ npm run test-browser
 There's a developer tool ([tools/developer.html](https://github.com/highlightjs/highlight.js/blob/master/tools/developer.html)) for visually testing and debugging language definitions. It requires a browser build to be present. (ie `npm run build-browser` first)
 
 For more details, see [Building and Testing](https://highlightjs.readthedocs.io/en/latest/building-testing.html) in our docs.
-
