@@ -1,4 +1,5 @@
 (<span class="hljs-name">+</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>)
 (<span class="hljs-name">defvar</span> <span class="hljs-variable">*lines*</span>)
+(<span class="hljs-name">list</span> ******** **)
 &#x27;(* <span class="hljs-number">6</span> <span class="hljs-number">7</span>)
 (<span class="hljs-name">+</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>)

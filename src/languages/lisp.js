@@ -36,7 +36,7 @@ export default function(hljs) {
   );
   const VARIABLE = {
     scope: 'variable',
-    match: /\*(?:[^\s()*]+\*|\*+)/
+    match: /\*[^\s()*]+\*/
   };
   const KEYWORD = {
     className: 'symbol',
