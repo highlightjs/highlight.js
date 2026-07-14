@@ -1,0 +1,8 @@
+/* Copyright (c) 2025, Oracle and/or its affiliates. */
+
+String[] helloWorld = new String() {"hello", "world"};
+int[][] matrix = {{1, 2}, {3, 4}};
+String names[] = new String[] {"Alice", "Bob"};
+int table[][] = {{1, 2}, {3, 4}};
+private byte[] getBytes();
+public Object [ ] [ ] [ ] cubic() { ... }

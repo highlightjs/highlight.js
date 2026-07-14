@@ -1,0 +1,8 @@
+<span class="hljs-comment">/* Copyright (c) 2025, Oracle and/or its affiliates. */</span>
+
+<span class="hljs-type">String</span>[] <span class="hljs-variable">helloWorld</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>() {<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;world&quot;</span>};
+<span class="hljs-type">int</span>[][] <span class="hljs-variable">matrix</span> <span class="hljs-operator">=</span> {{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}, {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>}};
+<span class="hljs-type">String</span> <span class="hljs-variable">names</span>[] <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[] {<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;Bob&quot;</span>};
+<span class="hljs-type">int</span> <span class="hljs-variable">table</span>[][] <span class="hljs-operator">=</span> {{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}, {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>}};
+<span class="hljs-keyword">private</span> <span class="hljs-type">byte</span>[] <span class="hljs-title function_">getBytes</span><span class="hljs-params">()</span>;
+<span class="hljs-keyword">public</span> <span class="hljs-type">Object</span> [ ] [ ] [ ] <span class="hljs-title function_">cubic</span><span class="hljs-params">()</span> { ... }
