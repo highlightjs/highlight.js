@@ -3,6 +3,7 @@
 Core Grammars:
 
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+- fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
 
 Documentation:
 
@@ -13,6 +14,7 @@ CONTRIBUTORS
 
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
+[MarkXian]: https://github.com/MarkXian
 [Sarath Francis]: https://github.com/sarathfrancis90
 
 

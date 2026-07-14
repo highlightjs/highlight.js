@@ -21,3 +21,5 @@ qt5_use_modules(myproject Widgets)
 #[[This is a bracket comment.
 It runs until the close bracket.]]
 message("First Argument\n" #[[Bracket Comment]] "Second Argument")
+
+add_subdirectory(3rdparty/foo)
