@@ -1,5 +1,10 @@
 ## Version 11.12.0
 
+Core Grammars:
+
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
+- fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+
 Documentation:
 
 - referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
@@ -7,8 +12,10 @@ Documentation:
 
 CONTRIBUTORS
 
+[arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
+[Sarath Francis]: https://github.com/sarathfrancis90
 
 
 ## Version 11.11.3
