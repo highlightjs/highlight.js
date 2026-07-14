@@ -6,7 +6,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 
 <!-- LANGLIST -->
 | Language                        | Aliases                                                     | Package |
-| :--------------------------------| :------------------------------------------------------------ | :------ |
+| :------------------------------ | :---------------------------------------------------------- | :------ |
 | 1C                              | 1c                                                          |  |
 | 4D                              | 4d                                                          | [highlightjs-4d](https://github.com/highlightjs/highlightjs-4d) |
 | ABAP                            | sap-abap, abap                                              | [highlight-sap-abap](https://github.com/highlightjs/highlightjs-sap-abap) |
@@ -322,8 +322,18 @@ use the full name and not the alias to avoid any ambiguity.
 | :-----------------------| :--------------------- |
 | Lasso                   | ls                     |
 | LiveScript              | ls                     |
+| M (Power Query)         | m                      |
+| Mercury                 | m                      |
 | OCaml                   | ml                     |
 | SML                     | ml                     |
+| Glimmer and EmberJS     | hbs                    |
+| Handlebars              | hbs                    |
+| Glimmer and EmberJS     | html.hbs               |
+| Handlebars              | html.hbs               |
+| Glimmer and EmberJS     | html.handlebars        |
+| Handlebars              | html.handlebars        |
+| Glimmer and EmberJS     | htmlbars               |
+| Handlebars              | htmlbars               |
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
 [2]: https://github.com/highlightjs/highlight.js#importing-the-library
