@@ -6,6 +6,7 @@ Core Grammars:
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
 - fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
+- fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
 
 Documentation:
 
