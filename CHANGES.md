@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 
 Documentation:
@@ -11,6 +12,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
 [Sarath Francis]: https://github.com/sarathfrancis90
