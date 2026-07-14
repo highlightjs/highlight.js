@@ -7,14 +7,15 @@ Core Grammars:
 
 Documentation:
 
-- referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
+- added 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Styx0x6][]
 - added 3rd party Cedar grammar to SUPPORTED_LANGUAGES [Dhruv Maniya][]
+- referenced missing built-in grammar and aliases to SUPPORTED_LANGUAGES [Styx0x6][]
 
 CONTRIBUTORS
 
 [arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
-[Elastic]: https://github.com/elastic
+[Styx0x6]: https://github.com/styx0x6
 [Sarath Francis]: https://github.com/sarathfrancis90
 
 
