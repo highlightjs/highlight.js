@@ -1,5 +1,10 @@
 ## Version 11.12.0
 
+Core Grammars:
+
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
+- fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+
 Documentation:
 
 - referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
@@ -7,8 +12,10 @@ Documentation:
 
 CONTRIBUTORS
 
+[arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
+[Sarath Francis]: https://github.com/sarathfrancis90
 
 
 ## Version 11.11.3
@@ -66,6 +73,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
 - enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
 - enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
@@ -116,6 +124,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Hannes Wallnoefer]: https://github.com/hns
 [Peter Bierma]: https://github.com/ZeroIntensity
 [Naoya Hatta]: https://github.com/dalance
 
