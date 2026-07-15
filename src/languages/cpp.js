@@ -106,6 +106,7 @@ export default function(hljs) {
         begin: /\\\n/,
         relevance: 0
       },
+      NUMBERS,
       hljs.inherit(STRINGS, { className: 'string' }),
       {
         className: 'string',

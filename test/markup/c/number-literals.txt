@@ -42,5 +42,7 @@
 6ULL 6Ull 6uLL 6ull
 7LLU 7LLu 7llU 7llu
 
+#define C23_DIGIT_SEPARATOR 10'000
+
 // Character array.
 char word[] = { '3', '\0' };
