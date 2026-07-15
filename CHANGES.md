@@ -4,6 +4,7 @@ Core Grammars:
 
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+- fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
 
 Documentation:
 
@@ -16,6 +17,7 @@ CONTRIBUTORS
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
 [Sarath Francis]: https://github.com/sarathfrancis90
+[Mark Xian]: https://github.com/xianjianlf2
 
 
 ## Version 11.11.3
