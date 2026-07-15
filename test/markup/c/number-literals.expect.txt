@@ -42,5 +42,7 @@
 <span class="hljs-number">6ULL</span> <span class="hljs-number">6Ull</span> <span class="hljs-number">6uLL</span> <span class="hljs-number">6ull</span>
 <span class="hljs-number">7LLU</span> <span class="hljs-number">7LLu</span> <span class="hljs-number">7llU</span> <span class="hljs-number">7llu</span>
 
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> C23_DIGIT_SEPARATOR <span class="hljs-number">10&#x27;000</span></span>
+
 <span class="hljs-comment">// Character array.</span>
 <span class="hljs-type">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> };

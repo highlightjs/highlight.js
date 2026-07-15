@@ -1,5 +1,6 @@
 #include <iostream>
 #define foo 1<<16
+#define CPP14_DIGIT_SEPARATOR 10'000
 
 #ifdef DEBUG
 TYPE1 foo(void)
