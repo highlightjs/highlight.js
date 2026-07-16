@@ -57,9 +57,7 @@ export default function(hljs) {
       hljs.HASH_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
       {
-        className: 'number',
-        // require a word boundary so digits that merely begin an
-        // identifier (e.g. the `3` in `3rdparty`) are not highlighted
+        scope: 'number',
         begin: /\b\d+(\.\d+)?\b/,
         relevance: 0
       }
