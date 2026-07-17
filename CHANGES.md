@@ -2,8 +2,10 @@
 
 Core Grammars:
 
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
+- fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
 
 Documentation:
 
@@ -12,10 +14,12 @@ Documentation:
 
 CONTRIBUTORS
 
+[arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
 [MarkXian]: https://github.com/MarkXian
 [Sarath Francis]: https://github.com/sarathfrancis90
+[Mark Xian]: https://github.com/xianjianlf2
 
 
 ## Version 11.11.3
@@ -73,6 +77,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
 - enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
 - enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
@@ -123,6 +128,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Hannes Wallnoefer]: https://github.com/hns
 [Peter Bierma]: https://github.com/ZeroIntensity
 [Naoya Hatta]: https://github.com/dalance
 
