@@ -56,7 +56,11 @@ export default function(hljs) {
       hljs.COMMENT(/#\[\[/, /]]/),
       hljs.HASH_COMMENT_MODE,
       hljs.QUOTE_STRING_MODE,
-      hljs.NUMBER_MODE
+      {
+        scope: 'number',
+        begin: /\b\d+(\.\d+)?\b/,
+        relevance: 0
+      }
     ]
   };
 }
