@@ -1,0 +1,10 @@
+<span class="hljs-built_in">int</span> bin = <span class="hljs-number">0b1010_1010</span>;
+<span class="hljs-built_in">int</span> binSeparatorFirst = <span class="hljs-number">0b_1010_1010</span>;
+<span class="hljs-built_in">ulong</span> hex = <span class="hljs-number">0xFF_FFUL</span>;
+<span class="hljs-built_in">uint</span> hexSuffix = <span class="hljs-number">0xFFu</span>;
+<span class="hljs-built_in">ulong</span> decSuffix = <span class="hljs-number">1_000_000UL</span>;
+<span class="hljs-built_in">decimal</span> price = <span class="hljs-number">19.99m</span>;
+<span class="hljs-built_in">double</span> ratio = <span class="hljs-number">3.14d</span>;
+<span class="hljs-built_in">decimal</span> big = <span class="hljs-number">1.5e10M</span>;
+<span class="hljs-built_in">int</span> _count = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">int</span> index = point._1;
