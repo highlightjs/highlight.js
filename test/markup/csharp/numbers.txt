@@ -6,5 +6,6 @@ ulong decSuffix = 1_000_000UL;
 decimal price = 19.99m;
 double ratio = 3.14d;
 decimal big = 1.5e10M;
+// _count and point._1 are identifiers, not numbers
 int _count = 0;
 int index = point._1;

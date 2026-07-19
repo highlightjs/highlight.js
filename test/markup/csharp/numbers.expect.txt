@@ -6,5 +6,6 @@
 <span class="hljs-built_in">decimal</span> price = <span class="hljs-number">19.99m</span>;
 <span class="hljs-built_in">double</span> ratio = <span class="hljs-number">3.14d</span>;
 <span class="hljs-built_in">decimal</span> big = <span class="hljs-number">1.5e10M</span>;
+<span class="hljs-comment">// _count and point._1 are identifiers, not numbers</span>
 <span class="hljs-built_in">int</span> _count = <span class="hljs-number">0</span>;
 <span class="hljs-built_in">int</span> index = point._1;
