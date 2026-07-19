@@ -1,2 +1,3 @@
-myst-parser == 0.15.0
-sphinx-rtd-theme == 0.5.2
+sphinx == 9.1.0
+myst-parser == 5.1.0
+sphinx-rtd-theme == 3.1.0

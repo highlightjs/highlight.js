@@ -53,3 +53,7 @@
 9'0UZ 9'0Uz 9'0uZ 9'0uz
 
 char word[] = { '3', '\0' }; // Make sure digit separators don't mess up chars.
+
+/* Digits inside identifiers must not be highlighted as numbers. */
+a1.foo()
+int a1 = b2.size();

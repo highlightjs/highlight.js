@@ -53,3 +53,7 @@
 <span class="hljs-number">9&#x27;0UZ</span> <span class="hljs-number">9&#x27;0Uz</span> <span class="hljs-number">9&#x27;0uZ</span> <span class="hljs-number">9&#x27;0uz</span>
 
 <span class="hljs-type">char</span> word[] = { <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;\0&#x27;</span> }; <span class="hljs-comment">// Make sure digit separators don&#x27;t mess up chars.</span>
+
+<span class="hljs-comment">/* Digits inside identifiers must not be highlighted as numbers. */</span>
+a1.<span class="hljs-built_in">foo</span>()
+<span class="hljs-type">int</span> a1 = b2.<span class="hljs-built_in">size</span>();

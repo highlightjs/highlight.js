@@ -1,0 +1,13 @@
+.hljs{filter: saturate(2)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+.hljs-comment,.hljs-doctag,.hljs-quote{color:color-mix(in srgb, currentColor, green)}
+.hljs-formula,.hljs-keyword{color:color-mix(in srgb, currentColor, purple)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:color-mix(in srgb, currentColor, pink)}
+.hljs-literal{color:color-mix(in srgb, currentColor, cyan)}
+.hljs-number{color:color-mix(in srgb, currentColor, lime)}
+.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:color-mix(in srgb, currentColor, orange)}
+.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:color-mix(in srgb, currentColor, blue)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:color-mix(in srgb, currentColor, olive)}
+.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:color-mix(in srgb, currentColor, yellow)}
