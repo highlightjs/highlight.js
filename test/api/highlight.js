@@ -54,4 +54,20 @@ describe('.highlight()', () => {
       '<span class="hljs-type">int</span> z)</span>;'
     );
   });
+  it('should detect C++ functions with a trailing return type', () => {
+    const code = 'auto main() -> int {\n  auto i = 42; // test\n  return i;\n}';
+    const result = hljs.highlightAuto(code, [ 'cpp' ]);
+
+    should(result.language).equal(
+      'cpp',
+      'C++ trailing return type was not auto-detected'
+    );
+    result.illegal.should.equal(false);
+  });
+  it('should keep standalone hyphens illegal in C++ function declarations', () => {
+    const code = 'auto main() - int { return 0; }';
+    const result = hljs.highlight(code, { language: 'cpp', ignoreIllegals: false });
+
+    result.illegal.should.equal(true);
+  });
 });
