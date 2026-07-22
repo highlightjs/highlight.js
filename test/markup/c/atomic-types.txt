@@ -1,0 +1,7 @@
+atomic_int x;
+atomic_bool flag;
+atomic_uint counter;
+atomic_store(&x, 1);
+atomic_load(&x);
+atomic_init(&x, 0);
+atomic_fetch_add(&x, 2);
