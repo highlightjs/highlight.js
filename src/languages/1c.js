@@ -456,7 +456,8 @@ export default function(hljs) {
   const META = {
     className: 'meta',
 
-    begin: '#|&',
+    begin: /^[ \t]*(?=[#&])/,
+    excludeBegin: true,
     end: '$',
     keywords: {
       $pattern: UNDERSCORE_IDENT_RE,
