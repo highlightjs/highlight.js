@@ -101,6 +101,15 @@ Themes:
 - Fix: cybertopia themes render correctly in shadow DOM [hbgl][]
 - added "vs Dark " theme [Twineee1][]
 
+Themes:
+
+- Added `Night Coder Ash` theme [Ashkan Shirpour][]
+- Added `Night Coder Charcoal` theme [Ashkan Shirpour][]
+- Added `Night Coder Ember` theme [Ashkan Shirpour][]
+- Added `Night Coder Flame` theme [Ashkan Shirpour][]
+- Added `Paper` theme [Ashkan Shirpour][]
+- Added `Ice` theme [Ashkan Shirpour][]
+
 CONTRIBUTORS
 
 [Josh Goebel]: https://github.com/joshgoebel
@@ -144,6 +153,8 @@ CONTRIBUTORS
 [Ryne Andal]: https://github.com/ryneandal
 
 [JGalego]: https://github.com/JGalego
+
+[Ashkan Shirpour]: https://github.com/a5hk
 
 ## Version 11.11.1
 

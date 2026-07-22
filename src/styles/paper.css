@@ -1,0 +1,147 @@
+/*
+  Theme: Paper
+  Author: Ashkan Shirpour
+  Repository: https://github.com/a5hk/paper
+*/
+
+.hljs-meta {
+  color: #675332;
+}
+
+.hljs-comment {
+  color: #b9b6aa;
+}
+
+.hljs-variable.constant_,
+.hljs-variable.language_ {
+  color: #c91d1d;
+}
+
+.hljs-operator {
+  color: #981aff;
+}
+
+.hljs-doctag {
+  color: #54534d;
+}
+
+.hljs-title.function_.invoke__ {
+  color: #9e4200;
+}
+
+.hljs-title.function_ {
+  color: #007aa3;
+}
+
+.hljs-keyword,
+.hljs-meta .hljs-keyword {
+  color: #c20aac;
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-char.escape_ {
+  color: #a100d6;
+}
+
+.hljs-built_in {
+  color: #2059cb;
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__ {
+  color: #2059cb;
+}
+
+.hljs-params {
+  color: #1a1918;
+}
+
+.hljs-property {
+  color: #956a04;
+}
+
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #3b7203;
+}
+
+.hljs-type {
+  color: #2059cb;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #3e3d39;
+}
+
+.hljs-attr,
+.hljs-tag .hljs-attr,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #9e4200;
+}
+
+.hljs-tag,
+.hljs-template-tag,
+.hljs-tag .hljs-name,
+.hljs-name {
+  color: #956a04;
+}
+
+.hljs-section {
+  color: #9e4200;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis,
+.hljs-quote {
+  font-style: italic;
+}
+
+.hljs-punctuation {
+  color: #54534d;
+}
+
+.hljs-deletion {
+  color: #ff7575;
+}
+
+.hljs-addition {
+  color: #6547b8;
+}
+
+.hljs-subst {
+  color: #3e3d39;
+}
+
+.hljs-bullet {
+  color: #1a1918;
+}
+
+.hljs-link {
+  color: #c20aac;
+}
+
+.hljs-formula {
+  color: #675332;
+}
+
+.hljs-code {
+  color: #54534d;
+}
+
+.hljs {
+  background: #fcf8e8;
+  color: #3e3d39;
+}
