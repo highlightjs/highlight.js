@@ -154,6 +154,7 @@ export const BUILT_IN_VARIABLES = [
   "console",
   "window",
   "document",
+  "self",
   "localStorage",
   "sessionStorage",
   "module",
