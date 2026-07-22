@@ -75,7 +75,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
 | Djot                    | djot, dj               |[highlightjs-djot](https://github.com/php-collective/highlightjs-djot) |
-| DOS                     | dos, bat, cmd          |         |
+| DOS                     | dos, bat, batch, cmd   |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
 | Dust                    | dust, dst              |         |
