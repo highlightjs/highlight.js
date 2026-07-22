@@ -221,24 +221,29 @@ export default function(hljs) {
       {
         begin: /([uU]|[rR])'/,
         end: /'/,
+        illegal: /\n/,
         relevance: 10
       },
       {
         begin: /([uU]|[rR])"/,
         end: /"/,
+        illegal: /\n/,
         relevance: 10
       },
       {
         begin: /([bB]|[bB][rR]|[rR][bB])'/,
-        end: /'/
+        end: /'/,
+        illegal: /\n/
       },
       {
         begin: /([bB]|[bB][rR]|[rR][bB])"/,
-        end: /"/
+        end: /"/,
+        illegal: /\n/
       },
       {
         begin: /([fF][rR]|[rR][fF]|[fF])'/,
         end: /'/,
+        illegal: /\n/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
           LITERAL_BRACKET,
@@ -248,6 +253,7 @@ export default function(hljs) {
       {
         begin: /([fF][rR]|[rR][fF]|[fF])"/,
         end: /"/,
+        illegal: /\n/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
           LITERAL_BRACKET,
