@@ -1,0 +1,2 @@
+<span class="hljs-meta">&amp;<span class="hljs-keyword">НаКлиенте</span></span>
+РегистрНакопления.ВыручкаИСебестоимостьПродаж.Обороты<span class="hljs-punctuation">(</span>&amp;НачалоПериода<span class="hljs-punctuation">,</span> &amp;КонецПериода<span class="hljs-punctuation">,</span> <span class="hljs-punctuation">,</span> <span class="hljs-punctuation">)</span> КАК ВыручкаИСебестоимостьПродажОбороты

@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- fix(1c) limit compiler directives to the start of a line, issue #4226 [alencristen][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
@@ -17,6 +18,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[alencristen]: https://github.com/alencristen
 [arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
