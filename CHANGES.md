@@ -89,6 +89,7 @@ Core Grammars:
 
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
+- fix(kotlin) Improve number literal parsing [Florian Freitag][]
 
 Documentation:
 
@@ -142,6 +143,7 @@ CONTRIBUTORS
 
 [Lehlogonolo Poole]: https://github.com/yetnt
 [Kaida-Amethyst]: https://github.com/Kaida-Amethyst
+[Florian Freitag]: https://github.com/flofriday
 [Dan Chao]: https://github.com/bioball
 [usamoi]: https://github.com/usamoi
 [Shiva Kiran Koninty]: https://github.com/skr4n
