@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- fix(c, cpp) recognize digit separators in preprocessor definitions, issue #4443 [Dhruv Maniya][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
