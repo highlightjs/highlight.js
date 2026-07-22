@@ -243,6 +243,16 @@ export default function(hljs) {
     ]
   };
 
+
+  const BLOCK_PARAMS = {
+      className: 'params',
+      begin: /(do|\{)\s\|(?!=)/,
+      end: /\|/,
+      excludeBegin: true,
+      excludeEnd: true,
+      keywords: RUBY_KEYWORDS,
+  };
+
   const INCLUDE_EXTEND = {
     match: [
       /(include|extend)\s+/,
@@ -326,7 +336,9 @@ export default function(hljs) {
     METHOD_DEFINITION,
     {
       // swallow namespace qualifiers before symbols
-      begin: hljs.IDENT_RE + '::' },
+      begin: hljs.IDENT_RE + '::'
+    },
+    BLOCK_PARAMS,
     {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
@@ -347,15 +359,6 @@ export default function(hljs) {
       // @ident@ or $ident$ that might indicate this is not ruby at all
       className: "variable",
       begin: '(\\$\\W)|((\\$|@@?)(\\w+))(?=[^@$?])' + `(?![A-Za-z])(?![@$?'])`
-    },
-    {
-      className: 'params',
-      begin: /\|(?!=)/,
-      end: /\|/,
-      excludeBegin: true,
-      excludeEnd: true,
-      relevance: 0, // this could be a lot of things (in other languages) other than params
-      keywords: RUBY_KEYWORDS
     },
     { // regexp container
       begin: '(' + hljs.RE_STARTERS_RE + '|unless)\\s*',
@@ -398,7 +401,6 @@ export default function(hljs) {
 
   SUBST.contains = RUBY_DEFAULT_CONTAINS;
   PARAMS.contains = RUBY_DEFAULT_CONTAINS;
-
   // >>
   // ?>
   const SIMPLE_PROMPT = "[>?]>";
