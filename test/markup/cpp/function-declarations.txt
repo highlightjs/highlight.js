@@ -23,3 +23,7 @@ void A(): a(10) {}
 explicit A(): a(10) {}
 
 extern void f(int), g(char);
+
+void throwing(int x) noexcept(false);
+void deleted() = delete("reason");
+void contracts(int x) pre(x > 10) post(r : r != 0);
