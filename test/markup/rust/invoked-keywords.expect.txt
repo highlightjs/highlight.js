@@ -7,3 +7,4 @@
 <span class="hljs-keyword">for</span> <span class="hljs-variable">a</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">10</span> {}
 <span class="hljs-keyword">match</span> <span class="hljs-type">str</span> {}
 <span class="hljs-keyword">match</span> (<span class="hljs-type">str</span>) {}
+<span class="hljs-title function_ invoke__">foreach</span>(x)
