@@ -1,8 +1,9 @@
 /*
-Language: Java
-Author: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
-Category: common, enterprise
-Website: https://www.java.com/
+Language: Iodine
+Author: Carlo Kok <ck@remobjects.com>
+Contributor: Vsevolod Solovyov <vsevolod.solovyov@gmail.com>
+Description: Iodine is RemObjects Software's Java-compatible language for the Elements compiler.
+Website: https://www.elementscompiler.com/elements/iodine/
 */
 
 import { NUMERIC as NUMBER } from "./lib/java.js";
@@ -29,27 +30,9 @@ function recurRegex(re, substitution, depth) {
 /** @type LanguageFn */
 export default function(hljs) {
   const regex = hljs.regex;
-
-  // A Java identifier consisting of letters, digits, underscore or dollar sign, not beginning with a digit
   const JAVA_IDENT_RE = '[\u00C0-\u02B8a-zA-Z_$][\u00C0-\u02B8a-zA-Z_$0-9]*';
-
-  // Optional 1..n pairs of square brackets identifying an array type
-  const ARRAY_BRACKETS_OPTIONAL_RE = '(?:(?:\\s*\\[\\s*])+)?';
-
-  // A simple Java type: a type name, optionally followed by type arguments and/or array brackets
-  // '<@@@>' is replaced with the pattern for optional type arguments by recurRegex below.
-  const SIMPLE_TYPE_RE = JAVA_IDENT_RE + '<@@@>' + ARRAY_BRACKETS_OPTIONAL_RE;
-
-  // A bounded (? extends Number) or unbounded (?) wildcard type
-  const WILDCARD_TYPE_RE = '\\?(?:\\s+(?:extends|super)\\s+' + SIMPLE_TYPE_RE + ')?';
-
-  // A Java type argument, consisting of a wildcard or simple type
-  const TYPE_ARG_RE = '(?:' + WILDCARD_TYPE_RE + '|' + SIMPLE_TYPE_RE + ')';
-
-  // Pattern for optional generic type arguments in angle brackets with up to 2 levels of nested type arguments
-  const TYPE_ARGS_OPTIONAL_RE = recurRegex('(?:\\s*<\\s*' + TYPE_ARG_RE + '(?:\\s*,\\s*' + TYPE_ARG_RE + ')*\\s*>)?',
-                                           /<@@@>/g, 2);
-
+  const GENERIC_IDENT_RE = JAVA_IDENT_RE
+    + recurRegex('(?:<' + JAVA_IDENT_RE + '~~~(?:\\s*,\\s*' + JAVA_IDENT_RE + '~~~)*>)?', /~~~/g, 2);
   const MAIN_KEYWORDS = [
     'synchronized',
     'abstract',
@@ -96,6 +79,34 @@ export default function(hljs) {
     'goto',
     'when'
   ];
+  // RemObjects Elements-specific extensions
+  const ELEMENTS_KEYWORDS = [
+    '__aspect',
+    '__assembly',
+    '__module',
+    '__extension',
+    '__partial',
+    '__out',
+    '__ref',
+    '__struct',
+    '__mapped',
+    '__get',
+    '__set',
+    '__block',
+    '__strong',
+    '__weak',
+    '__unretained',
+    '__selector',
+    '__require',
+    '__ensure',
+    '__result',
+    '__old',
+    '__invariants',
+    '__autoreleasepool',
+    '__event',
+    '__add',
+    '__remove'
+  ];
 
   const BUILT_INS = [
     'super',
@@ -120,7 +131,7 @@ export default function(hljs) {
   ];
 
   const KEYWORDS = {
-    keyword: MAIN_KEYWORDS,
+    keyword: MAIN_KEYWORDS.concat(ELEMENTS_KEYWORDS),
     literal: LITERALS,
     type: TYPES,
     built_in: BUILT_INS
@@ -148,8 +159,8 @@ export default function(hljs) {
   };
 
   return {
-    name: 'Java',
-    aliases: ['jsp'],
+    name: 'Iodine',
+    aliases: ['iodine'],
     keywords: KEYWORDS,
     illegal: /<\/|#/,
     contains: [
@@ -204,24 +215,17 @@ export default function(hljs) {
         scope: "keyword"
       },
       {
-        // Expression keywords prevent keyword-led expressions from being
-        // recognized as variable or method declarations.
-        beginKeywords: 'new throw return else yield assert',
-        relevance: 0
-      },
-      {
         begin: [
+          regex.concat(/(?!else)/, JAVA_IDENT_RE),
+          /\s+/,
           JAVA_IDENT_RE,
-          regex.concat(TYPE_ARGS_OPTIONAL_RE, ARRAY_BRACKETS_OPTIONAL_RE, /\s+/),
-          JAVA_IDENT_RE,
-          ARRAY_BRACKETS_OPTIONAL_RE,
-          /\s*/,
+          /\s+/,
           /=(?!=)/
         ],
         className: {
           1: "type",
           3: "variable",
-          6: "operator"
+          5: "operator"
         }
       },
       {
@@ -241,16 +245,18 @@ export default function(hljs) {
         ]
       },
       {
+        // Expression keywords prevent 'keyword Name(...)' from being
+        // recognized as a function definition
+        beginKeywords: 'new throw return else',
+        relevance: 0
+      },
+      {
         begin: [
-          JAVA_IDENT_RE,
-          regex.concat(TYPE_ARGS_OPTIONAL_RE, ARRAY_BRACKETS_OPTIONAL_RE, /\s+/),
-          JAVA_IDENT_RE,
+          '(?:' + GENERIC_IDENT_RE + '\\s+)',
+          hljs.UNDERSCORE_IDENT_RE,
           /\s*(?=\()/
         ],
-        className: {
-          1: "type",
-          3: "title.function"
-        },
+        className: { 2: "title.function" },
         keywords: KEYWORDS,
         contains: [
           {
