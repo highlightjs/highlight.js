@@ -1,0 +1,14 @@
+[Desktop Entry]
+# Sample XDG desktop entry
+Name=My Application
+Comment=A simple demo launcher
+Type=Application
+Exec=/usr/bin/myapp %f
+Icon=myapp-icon
+Terminal=false
+StartupNotify=true
+Categories=Utility;TextEditor;
+
+[Desktop Action Open]
+Name=Open File
+Exec=/usr/bin/myapp --open %f

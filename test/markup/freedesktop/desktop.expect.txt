@@ -1,0 +1,14 @@
+<span class="hljs-section">[Desktop Entry]</span>
+<span class="hljs-comment"># Sample XDG desktop entry</span>
+<span class="hljs-attr">Name</span><span class="hljs-operator">=</span>My <span class="hljs-literal">Application</span>
+<span class="hljs-attr">Comment</span><span class="hljs-operator">=</span>A simple demo launcher
+<span class="hljs-attr">Type</span><span class="hljs-operator">=</span><span class="hljs-literal">Application</span>
+<span class="hljs-attr">Exec</span><span class="hljs-operator">=</span>/usr/bin/myapp <span class="hljs-variable">%f</span>
+<span class="hljs-attr">Icon</span><span class="hljs-operator">=</span>myapp-icon
+<span class="hljs-attr">Terminal</span><span class="hljs-operator">=</span><span class="hljs-literal">false</span>
+<span class="hljs-attr">StartupNotify</span><span class="hljs-operator">=</span><span class="hljs-literal">true</span>
+<span class="hljs-attr">Categories</span><span class="hljs-operator">=</span>Utility;TextEditor;
+
+<span class="hljs-section">[Desktop Action Open]</span>
+<span class="hljs-attr">Name</span><span class="hljs-operator">=</span>Open File
+<span class="hljs-attr">Exec</span><span class="hljs-operator">=</span>/usr/bin/myapp --open <span class="hljs-variable">%f</span>
