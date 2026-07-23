@@ -10,6 +10,7 @@ Core Grammars:
 - fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
 - fix(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
 - enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
+- enh(python) Support t-strings [Nicolas Le Cam][]
 
 Documentation:
 
@@ -26,6 +27,7 @@ CONTRIBUTORS
 [MarkXian]: https://github.com/MarkXian
 [Sarath Francis]: https://github.com/sarathfrancis90
 [Mark Xian]: https://github.com/xianjianlf2
+[Nicolas Le Cam]: https://github.com/KuSh
 
 
 ## Version 11.11.3
@@ -88,7 +90,6 @@ Core Grammars:
 - enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
 - enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
-
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
