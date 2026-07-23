@@ -38,6 +38,7 @@ Core Grammars:
 Documentation:
 
 - build(deps): bump python and sphinx requirements [Haowei Hsu][]
+- docs: switch sphinx theme to shibuya [Haowei Hsu][]
 
 CONTRIBUTORS
 
