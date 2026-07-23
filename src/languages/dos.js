@@ -132,6 +132,7 @@ export default function(hljs) {
     name: 'Batch file (DOS)',
     aliases: [
       'bat',
+      'batch',
       'cmd'
     ],
     case_insensitive: true,

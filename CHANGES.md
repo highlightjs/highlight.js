@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
@@ -18,6 +19,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[Hashim Khan]: https://github.com/Hashim1999164
 [arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
