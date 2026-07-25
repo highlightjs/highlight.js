@@ -25,9 +25,37 @@ export default function(hljs) {
     end: /$/
   };
 
+  const SECTIONS = [
+    'Desktop Entry',
+    'Unit',
+    'Service',
+    'Install',
+    'Socket',
+    'Mount',
+    'Automount',
+    'Swap',
+    'Path',
+    'Timer',
+    'Slice',
+    'Scope',
+    'Manager',
+    'connection',
+    'ipv4',
+    'wifi',
+    'wifi-security',
+    'ipv6',
+    '802-3-ethernet',
+    '802-11-wireless',
+    '802-11-wireless-security',
+    'vpn',
+    'Journal',
+    'Bridge',
+    'Desktop Action\\s+[A-Za-z0-9_-]+'
+  ];
+
   const SECTION = {
     scope: 'section',
-    begin: /^\[(Desktop Entry|Unit|Service|Install|Socket|Mount|Automount|Swap|Path|Timer|Slice|Scope|Manager|connection|ipv4|wifi|wifi-security|ipv6|802-3-ethernet|802-11-wireless|802-11-wireless-security|vpn|Journal|Bridge|Desktop Action\s+[A-Za-z0-9_-]+)\]$/
+    begin: new RegExp('^\\[(' + SECTIONS.join('|') + ')\\]$')
   };
 
   const OPERATOR = {
@@ -35,9 +63,22 @@ export default function(hljs) {
     match: /=/
   };
 
-  const LITERALS = {
+  const LITERALS = [
+    'Application',
+    'Link',
+    'Directory',
+    'forking',
+    'oneshot',
+    'OneShot',
+    'true',
+    'false',
+    'True',
+    'False'
+  ];
+
+  const LITERAL = {
     scope: 'literal',
-    match: /\b(Application|Link|Directory|forking|oneshot|OneShot|true|false|True|False)\b/
+    match: new RegExp('\\b(' + LITERALS.join('|') + ')\\b')
   };
 
   const KEY_VALUE = {
@@ -50,7 +91,7 @@ export default function(hljs) {
     contains: [
       OPERATOR,
       STRING,
-      LITERALS,
+      LITERAL,
       FIELD_CODES
     ]
   };
