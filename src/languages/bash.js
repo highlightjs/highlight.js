@@ -145,6 +145,13 @@ export default function(hljs) {
   // to consume paths to prevent keyword matches inside them
   const PATH_MODE = { match: /(\/[a-z._-]+)+/ };
 
+  // Command long options (--option) - only match long options to avoid conflicts
+  const OPTION = {
+    className: 'attribute',
+    begin: /\s--[\w-]+/,
+    relevance: 0
+  };
+
   // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
   const SHELL_BUILT_INS = [
     "break",
@@ -397,6 +404,7 @@ export default function(hljs) {
       COMMENT,
       HERE_DOC,
       PATH_MODE,
+      OPTION,
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,
