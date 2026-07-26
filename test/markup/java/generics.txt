@@ -12,3 +12,8 @@ public interface Map<K, V> {
   void put(K key, V value);
   V get(K key);
 }
+
+interface FooBar {
+  List<String> foo();
+  List<java.lang.String> bar();
+}

@@ -38,7 +38,7 @@ export default function(hljs) {
 
   // A simple Java type: a type name, optionally followed by type arguments and/or array brackets
   // '<@@@>' is replaced with the pattern for optional type arguments by recurRegex below.
-  const SIMPLE_TYPE_RE = JAVA_IDENT_RE + '<@@@>' + ARRAY_BRACKETS_OPTIONAL_RE;
+  const SIMPLE_TYPE_RE = JAVA_IDENT_RE + '(?:\\.' + JAVA_IDENT_RE + ')*<@@@>' + ARRAY_BRACKETS_OPTIONAL_RE;
 
   // A bounded (? extends Number) or unbounded (?) wildcard type
   const WILDCARD_TYPE_RE = '\\?(?:\\s+(?:extends|super)\\s+' + SIMPLE_TYPE_RE + ')?';
