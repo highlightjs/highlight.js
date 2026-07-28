@@ -89,9 +89,13 @@ export default function(hljs) {
         end: '\'',
         illegal: '.'
       },
+      // https://en.cppreference.com/w/cpp/language/string_literal
+      // a d-char-sequence never contains parentheses, backslashes or whitespace;
+      // quotes are excluded as well so the closing delimiter cannot swallow the
+      // quote that actually terminates the literal
       hljs.END_SAME_AS_BEGIN({
-        begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
-        end: /\)([^()\\ ]{0,16})"/
+        begin: /(?:u8?|U|L)?R"([^()\\\s"]{0,16})\(/,
+        end: /\)([^()\\\s"]{0,16})"/
       })
     ]
   };
