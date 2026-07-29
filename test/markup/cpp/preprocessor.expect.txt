@@ -1,6 +1,10 @@
 <span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-keyword">define</span> foo <span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">16</span></span>
 <span class="hljs-meta">#<span class="hljs-keyword">define</span> CPP14_DIGIT_SEPARATOR <span class="hljs-number">10&#x27;000</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> CONTINUED_DIGIT_SEPARATOR <span class="hljs-number">10&#x27;\
+000</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">if</span> 1&#x27;000 &gt; 0</span>
+<span class="hljs-meta">#<span class="hljs-keyword">endif</span></span>
 
 <span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> DEBUG</span>
 <span class="hljs-function">TYPE1 <span class="hljs-title">foo</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span>

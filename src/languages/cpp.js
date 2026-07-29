@@ -94,26 +94,53 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const CONTINUED_PREPROCESSOR_NUMBER = {
+    className: 'number',
+    begin: /[+-]?\b[0-9](?:'?[0-9])*(?:'\\\n[0-9](?:'?[0-9])*)+/,
+    relevance: 0
+  };
+
+  const UNHIGHLIGHTED_PREPROCESSOR_NUMBER = {
+    begin: /[+-]?\b[0-9](?:'?[0-9])*/,
+    relevance: 0
+  };
+
+  const PREPROCESSOR_CONTAINS = [
+    {
+      begin: /\\\n/,
+      relevance: 0
+    },
+    hljs.inherit(STRINGS, { className: 'string' }),
+    {
+      className: 'string',
+      begin: /<.*?>/
+    },
+    C_LINE_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE
+  ];
+
   const PREPROCESSOR = {
     className: 'meta',
-    begin: /#\s*[a-z]+\b/,
     end: /$/,
     keywords: { keyword:
         'if else elif endif define undef warning error line '
         + 'pragma _Pragma ifdef ifndef include' },
-    contains: [
+    variants: [
       {
-        begin: /\\\n/,
-        relevance: 0
+        begin: /#\s*define\b/,
+        contains: [
+          CONTINUED_PREPROCESSOR_NUMBER,
+          NUMBERS,
+          ...PREPROCESSOR_CONTAINS
+        ]
       },
-      NUMBERS,
-      hljs.inherit(STRINGS, { className: 'string' }),
       {
-        className: 'string',
-        begin: /<.*?>/
-      },
-      C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+        begin: /#\s*[a-z]+\b/,
+        contains: [
+          UNHIGHLIGHTED_PREPROCESSOR_NUMBER,
+          ...PREPROCESSOR_CONTAINS
+        ]
+      }
     ]
   };
 
