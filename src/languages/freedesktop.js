@@ -53,6 +53,8 @@ export default function(hljs) {
     'Desktop Action\\s+[A-Za-z0-9_-]+'
   ];
 
+  SECTIONS.sort().reverse();
+
   const SECTION = {
     scope: 'section',
     begin: new RegExp('^\\[(' + SECTIONS.join('|') + ')\\]$')
