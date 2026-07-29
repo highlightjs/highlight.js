@@ -11,6 +11,7 @@ Core Grammars:
 - fix(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
 - fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
+- fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
 - enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
 - enh(python) Support t-strings [Nicolas Le Cam][]
 
@@ -31,6 +32,7 @@ CONTRIBUTORS
 [Mark Xian]: https://github.com/xianjianlf2
 [Nicolas Le Cam]: https://github.com/KuSh
 [Konstantin Baltsat]: https://github.com/Baltsat
+[David Pavlovschii]: https://github.com/davidpavlovschi
 
 
 ## Version 11.11.3
