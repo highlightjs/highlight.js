@@ -31,7 +31,7 @@ export default function(hljs) {
     keywords: {
       $pattern: hljs.UNDERSCORE_IDENT_RE,
       literal: "true false nil",
-      keyword: "and break do else elseif end for goto if in local not or repeat return then until while",
+      keyword: "and break do else elseif end for goto if in local global not or repeat return then until while",
       built_in:
         // Metatags and globals:
         '_G _ENV _VERSION __index __newindex __mode __call __metatable __tostring __len '

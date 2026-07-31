@@ -127,7 +127,9 @@ export default function(hljs) {
     name: 'Kotlin',
     aliases: [
       'kt',
-      'kts'
+      'kts',
+      'ktm',
+      'ktx'
     ],
     keywords: KEYWORDS,
     contains: [

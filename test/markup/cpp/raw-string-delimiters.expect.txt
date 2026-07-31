@@ -1,0 +1,11 @@
+<span class="hljs-comment">// quotes inside a raw string must not be mistaken for its closing delimiter</span>
+<span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">s</span><span class="hljs-params">({<span class="hljs-string">R&quot;(JKhf2n&quot;v; 0&gt;qwv&gt;q &quot; JKhf2n&quot;l0 &quot;v42HHf&amp;g )&quot;</span>,<span class="hljs-string">&quot;4U \&quot;N *+ &quot;</span>})</span></span>;
+<span class="hljs-type">int</span> after_empty_delimiter;
+
+<span class="hljs-comment">// the same, with a named delimiter</span>
+<span class="hljs-keyword">auto</span> v = {<span class="hljs-string">R&quot;a(bla)a&quot;</span>,<span class="hljs-string">&quot;&quot;</span>};
+<span class="hljs-type">int</span> after_named_delimiter;
+
+<span class="hljs-comment">// a delimiter-looking sequence inside the literal does not end it</span>
+<span class="hljs-keyword">auto</span> json = <span class="hljs-string">R&quot;json({&quot;key&quot;: &quot;})json_no&quot;, &quot;value&quot;: 1})json&quot;</span>;
+<span class="hljs-type">int</span> after_json;

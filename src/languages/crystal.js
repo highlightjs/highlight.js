@@ -154,16 +154,23 @@ export default function(hljs) {
           hljs.BACKSLASH_ESCAPE,
           SUBST
         ],
-        variants: [
-          {
-            begin: '//[a-z]*',
-            relevance: 0
-          },
-          {
-            begin: '/(?!\\/)',
-            end: '/[a-z]*'
-          }
-        ]
+        // Unlike Ruby, Crystal has no "empty regex" (`//`) literal syntax,
+        // since `//` is already used for integer division. Treating it as
+        // a regex here would also make this variant swallow the rest of
+        // the line (or file) whenever `//` appears at the start of a
+        // statement, since there would be no closing delimiter to match.
+        //
+        // INTEGER_DIVISION (above, given priority over this REGEXP mode)
+        // already handles the common case where `//` starts matching at the
+        // same position as this mode, e.g. mid-expression like
+        // `something // 4`. But this outer REGEXP mode's `begin` can also
+        // start matching one character earlier, at a preceding newline
+        // (via its `\n` alternative), when `//`/`//=` is the first thing on
+        // a line; in that case INTEGER_DIVISION never gets a chance to
+        // compete, so this lookahead is what stops `//` from being
+        // misclassified as a regexp there too.
+        begin: '/(?!\\/)',
+        end: '/[a-z]*'
       }
     ],
     relevance: 0
@@ -208,11 +215,21 @@ export default function(hljs) {
     end: '\\]',
     contains: [ hljs.inherit(hljs.QUOTE_STRING_MODE, { className: 'string' }) ]
   };
+  // Unlike Ruby, Crystal uses `//` (and `//=`) as the integer division
+  // operator. Without this mode taking precedence, the REGEXP heuristic
+  // below (borrowed from Ruby, where `//` doesn't have a special meaning)
+  // would mistake it for the start of an (empty) regex literal and swallow
+  // the remainder of the line, or even the file.
+  const INTEGER_DIVISION = {
+    begin: /\/\/=?/,
+    relevance: 0
+  };
   const CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,
     STRING,
     Q_STRING,
     REGEXP2,
+    INTEGER_DIVISION,
     REGEXP,
     ATTRIBUTE,
     VARIABLE,

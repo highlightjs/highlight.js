@@ -44,6 +44,8 @@ node ./tools/build.js -t node
 npm run test
 ```
 
+(don't forget to run `npm install` before you use npm scripts like test or build for the first time.)
+
 Running the tests this way runs the complete suite of tests for all languages. You can set the `ONLY_EXTRA` environment variable to focus the tests on just the language(s) you are currently working on in the `extra` folder.
 
 ```bash

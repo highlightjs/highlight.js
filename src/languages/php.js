@@ -3,6 +3,10 @@ Language: PHP
 Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://www.php.net
+Description: Use this for plain PHP code, i.e. code that does not include the
+             surrounding `<?php ... ?>` tags. If your snippet mixes PHP with
+             HTML markup and the opening/closing tags, use `php-template`
+             instead.
 Category: common
 */
 

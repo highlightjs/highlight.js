@@ -1,0 +1,4 @@
+<span class="hljs-keyword">unsafe</span> <span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> {
+<span class="hljs-keyword">unsafe</span> <span class="hljs-keyword">fn</span> <span class="hljs-title function_">foo</span>();
+safe <span class="hljs-keyword">fn</span> <span class="hljs-title function_">foo</span>();
+}
