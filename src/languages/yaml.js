@@ -136,8 +136,12 @@ export default function(hljs) {
       //
       // Indentation of subsequent lines must be the same to
       // be considered part of the block
+      //
+      // Empty lines (and lines containing only spaces) do not end the block,
+      // they are part of its content - but only when another indented line
+      // follows, so that blank lines trailing the block are left alone.
       className: 'string',
-      begin: '[\\|>]([1-9]?[+-])?[ ]*\\n( +)[^ ][^\\n]*\\n(\\2[^\\n]+\\n?)*'
+      begin: '[\\|>]([1-9]?[+-])?[ ]*\\n(?:[ ]*\\n)*( +)[^ ][^\\n]*\\n((?:[ ]*\\n)*\\2[^\\n]+\\n?)*'
     },
     { // Ruby/Rails erb
       begin: '<%[%=-]?',
