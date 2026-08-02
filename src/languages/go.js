@@ -8,6 +8,7 @@ Category: common, system
 */
 
 export default function(hljs) {
+  const regex = hljs.regex;
   const LITERALS = [
     "true",
     "false",
@@ -86,6 +87,22 @@ export default function(hljs) {
     literal: LITERALS,
     built_in: BUILT_INS
   };
+  const PARAMS = {
+    scope: 'params',
+    begin: /\(/,
+    end: /\)/,
+    endsParent: true,
+    keywords: KEYWORDS,
+    illegal: /["']/
+  };
+  // a method's receiver, ie the `(c *exec.Cmd)` of `func (c *exec.Cmd) Run()` -
+  // it must not end the function mode, otherwise the method name that follows
+  // it is never seen; only a parenthesized group directly followed by
+  // `name(` qualifies, so a plain function's argument list is unaffected
+  const RECEIVER = hljs.inherit(PARAMS, {
+    begin: regex.concat(/\(/, regex.lookahead(/[^)]+\)\s*(?!func\b)[a-zA-Z_]\w*\s*\(/)),
+    endsParent: false
+  });
   return {
     name: 'Go',
     aliases: [ 'golang' ],
@@ -142,15 +159,9 @@ export default function(hljs) {
         end: '\\s*(\\{|$)',
         excludeEnd: true,
         contains: [
+          RECEIVER,
           hljs.TITLE_MODE,
-          {
-            className: 'params',
-            begin: /\(/,
-            end: /\)/,
-            endsParent: true,
-            keywords: KEYWORDS,
-            illegal: /["']/
-          }
+          PARAMS
         ]
       }
     ]
