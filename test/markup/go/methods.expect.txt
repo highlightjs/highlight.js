@@ -1,0 +1,15 @@
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *exec.Cmd)</span> <span class="hljs-title">Run</span><span class="hljs-params">()</span></span> <span class="hljs-type">error</span>
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(m sync.Mutex)</span> <span class="hljs-title">Lock</span><span class="hljs-params">()</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(*sync.Mutex)</span> <span class="hljs-title">Unlock</span><span class="hljs-params">()</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(s *Stack[T])</span> <span class="hljs-title">Push</span><span class="hljs-params">(v T)</span></span> {
+  s.items = <span class="hljs-built_in">append</span>(s.items, v)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(mt MyType)</span> <span class="hljs-title">MyFunc</span><span class="hljs-params">(<span class="hljs-type">int</span>, <span class="hljs-type">float32</span>)</span></span> (<span class="hljs-type">int</span>, io.Reader, <span class="hljs-type">error</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>, <span class="hljs-literal">nil</span>, <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">middleware</span><span class="hljs-params">(h Handler)</span></span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(<span class="hljs-type">int32</span>)</span></span> <span class="hljs-type">int32</span>
