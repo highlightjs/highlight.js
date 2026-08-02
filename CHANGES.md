@@ -14,6 +14,7 @@ Core Grammars:
 - fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
 - enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
 - enh(python) Support t-strings [Nicolas Le Cam][]
+- fix(go) highlight the name of a method with a receiver, e.g. `func (c *exec.Cmd) Run()`, issue #4196 [Ali Asgher][]
 
 Documentation:
 
@@ -33,6 +34,7 @@ CONTRIBUTORS
 [Nicolas Le Cam]: https://github.com/KuSh
 [Konstantin Baltsat]: https://github.com/Baltsat
 [David Pavlovschii]: https://github.com/davidpavlovschi
+[Ali Asgher]: https://github.com/alliasgher
 
 
 ## Version 11.11.3
