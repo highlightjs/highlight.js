@@ -9,6 +9,7 @@ Core Grammars:
 - fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
 - fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
 - fix(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
+- fix(java) recognize fully qualified names in generic type arguments, issue #3677 [Konstantin Baltsat][]
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
 - fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
 - fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]

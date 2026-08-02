@@ -12,3 +12,8 @@
   <span class="hljs-type">void</span> <span class="hljs-title function_">put</span><span class="hljs-params">(K key, V value)</span>;
   <span class="hljs-type">V</span> <span class="hljs-title function_">get</span><span class="hljs-params">(K key)</span>;
 }
+
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">FooBar</span> {
+  <span class="hljs-type">List</span>&lt;String&gt; <span class="hljs-title function_">foo</span><span class="hljs-params">()</span>;
+  <span class="hljs-type">List</span>&lt;java.lang.String&gt; <span class="hljs-title function_">bar</span><span class="hljs-params">()</span>;
+}
