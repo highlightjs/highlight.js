@@ -3,6 +3,7 @@
 Core Grammars:
 
 - enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
+- remove obsolete built-in Flix grammar, issue #4440 [Dhruv Maniya][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
