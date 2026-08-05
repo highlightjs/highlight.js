@@ -6,8 +6,6 @@
  Category: common
  */
 
-import { NUMERIC } from "./lib/java.js";
-
 export default function(hljs) {
   const KEYWORDS = {
     keyword:
@@ -100,10 +98,30 @@ export default function(hljs) {
     ]
   };
 
-  // https://kotlinlang.org/docs/reference/whatsnew11.html#underscores-in-numeric-literals
-  // According to the doc above, the number mode of kotlin is the same as java 8,
-  // so the code below is copied from java.js
-  const KOTLIN_NUMBER_MODE = NUMERIC;
+  const decimalDigits = '[0-9](_*[0-9])*';
+  const fractional = `\\.(${decimalDigits})`;
+  const KOTLIN_NUMBER_MODE = {
+    scope: 'number',
+    variants: [
+      // DecimalFloatingPointLiteral
+      // including ExponentPart
+      { match: new RegExp(`(\\b(${decimalDigits})((${fractional})|\\.)?|(${fractional}))` +
+        `[eE][+-]?(${decimalDigits})[fF]?\\b`) },
+      // excluding ExponentPart
+      { match: new RegExp(`\\b(${decimalDigits})((${fractional})[fF]?\\b|\\.([fF]\\b)?)`) },
+      { match: new RegExp(`(${fractional})[fF]?\\b`) },
+      { match: new RegExp(`\\b(${decimalDigits})[fF]\\b`) },
+
+      // DecimalIntegerLiteral
+      { match: /\b(0|[1-9](_*[0-9])*)[uU]?L?\b/ },
+
+      // HexIntegerLiteral
+      { match: /\b0[xX]([0-9a-fA-F](_*[0-9a-fA-F])*)[uU]?L?\b/ },
+
+      // BinaryIntegerLiteral
+      { match: /\b0[bB][01](_*[01])*[uU]?L?\b/ },
+    ],
+  };
   const KOTLIN_NESTED_COMMENT = hljs.COMMENT(
     '/\\*', '\\*/',
     { contains: [ hljs.C_BLOCK_COMMENT_MODE ] }
