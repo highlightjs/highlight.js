@@ -140,6 +140,13 @@ export default function(hljs) {
   };
 
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+  // How many type tokens (`static`, `const`, `unsigned`, `long`, ...) may
+  // appear in front of a function name.  This has to be bounded: with an
+  // unbounded quantifier the group consumes an arbitrarily long run of words,
+  // and when no function title follows it the engine retries the title at
+  // every token boundary of that run - quadratic in the length of the run, so
+  // quadratic in the size of the document.  See #4362.
+  const MAX_FUNCTION_TYPE_TOKENS = 12;
 
   const C_KEYWORDS = [
     "asm",
@@ -280,7 +287,7 @@ export default function(hljs) {
   };
 
   const FUNCTION_DECLARATION = {
-    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+){1,' + MAX_FUNCTION_TYPE_TOKENS + '}' + FUNCTION_TITLE,
     returnBegin: true,
     end: /[{;=]/,
     excludeEnd: true,
