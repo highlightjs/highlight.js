@@ -12,6 +12,7 @@ Core Grammars:
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
 - fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
 - fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
+- fix(ruby) don't treat the scope resolution operator `::` as a symbol, issue #4294 [Hashim Khan][]
 - enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
 - enh(python) Support t-strings [Nicolas Le Cam][]
 
