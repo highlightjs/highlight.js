@@ -5,6 +5,7 @@ Core Grammars:
 - enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+- fix(rust) reuse the string rules inside attributes so raw and byte strings are highlighted there, issue #3817 [Maksim Zhukau][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
 - fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
 - fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
@@ -33,6 +34,7 @@ CONTRIBUTORS
 [Nicolas Le Cam]: https://github.com/KuSh
 [Konstantin Baltsat]: https://github.com/Baltsat
 [David Pavlovschii]: https://github.com/davidpavlovschi
+[Maksim Zhukau]: https://github.com/MaksZhukov
 
 
 ## Version 11.11.3
