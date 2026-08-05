@@ -101,7 +101,7 @@ jobs:
 
       - name: Publish highlight.js to NPM
         run: |
-          npm publish --tag ${{ env.NPM_TAG }} ${{ env.DRY_RUN_FLAG }}
+          npm publish ./build --tag ${{ env.NPM_TAG }} ${{ env.DRY_RUN_FLAG }}
 
       - name: Checkout cdn-release
         uses: actions/checkout@v7
