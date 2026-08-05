@@ -28,6 +28,10 @@ if (p) {
 #endif
 }
 
+// Test : digit separators in integer literals
+#define MILLION 1'000'000
+int x = 1'000'000;
+
 // this is a continued\
 comment.
 end
