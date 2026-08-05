@@ -12,7 +12,6 @@
 # serve to show the default.
 
 import sys, os
-import sphinx_rtd_theme
 import myst_parser
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -28,7 +27,6 @@ import myst_parser
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
-  "sphinx_rtd_theme",
   "myst_parser"
 ]
 
@@ -96,15 +94,31 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'shibuya'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+  "accent_color": "red",
+  "show_ai_links": False,
+  "github_url": "https://github.com/highlightjs/highlight.js",
+  "discord_url": "https://discord.gg/M24EbU7ja9",
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
+
+# A dictionary of values to pass into the template engine's context for all pages.
+#
+html_context = {
+    # Edit this page
+    "source_type": "github",
+    "source_user": "highlightjs",
+    "source_repo": "highlight.js",
+    "source_version": "main",
+    "source_docs_path": "/docs/",
+}
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
