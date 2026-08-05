@@ -3,11 +3,10 @@
 const hljs = require('../../build');
 hljs.debugMode(); // tests run in debug mode so errors are raised
 
-// The C/C++ `FUNCTION_DECLARATION` matcher looks for a run of type tokens
-// followed by a function name.  That run used to be unbounded, so a long line
-// of plain words (which never reaches a function name) made the regex engine
-// retry the function name at every token boundary of the run: quadratic in the
-// size of the input.  32 KB took ~30s, 64 KB took ~2 minutes.  See #4362.
+// While the run of type tokens in `FUNCTION_DECLARATION` was unbounded, a long
+// line of plain words took quadratic time to highlight: the engine retried the
+// function name at every token boundary of the run, at every start offset.
+// 32 KB of it took ~19s.  See #4362.
 describe("function declaration backtracking", function() {
   const LANGUAGES = [
     'c',
@@ -15,10 +14,8 @@ describe("function declaration backtracking", function() {
     'arduino' // inherits from cpp
   ];
 
-  // 32 KB of words that never form a function declaration.  Highlighting this
-  // is a few tens of milliseconds once the run is bounded; the budget is
-  // deliberately loose so slow CI machines don't make this flaky, while still
-  // being orders of magnitude below the quadratic behavior.
+  // 32 KB of words that never form a function declaration.  The budget is
+  // loose so a slow machine can't make this flaky; the bug overshot it by 18x.
   const attack = 'a '.repeat(16 * 1024);
   const BUDGET_MS = 1000;
 
@@ -39,8 +36,6 @@ describe("function declaration backtracking", function() {
     });
   });
 
-  // ...and the declarations we do care about are still recognized, including
-  // ones with a healthy pile of qualifiers in front of the name.
   it("should still find the function title after many type tokens", function() {
     const declaration = 'static const volatile unsigned long long int * const * restrict fn(void);';
 
