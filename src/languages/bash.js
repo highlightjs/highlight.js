@@ -145,6 +145,14 @@ export default function(hljs) {
   // to consume paths to prevent keyword matches inside them
   const PATH_MODE = { match: /(\/[a-z._-]+)+/ };
 
+  // Match command-line options (short: -o, long: --option, --option=value)
+  // to ensure consistent highlighting across continuation lines.
+  const OPTION = {
+    className: 'attr',
+    begin: /(?:^|\s)--?\w[\w-]*(?:=?\S*)?\s*/,
+    relevance: 0
+  };
+
   // http://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
   const SHELL_BUILT_INS = [
     "break",
@@ -397,6 +405,7 @@ export default function(hljs) {
       COMMENT,
       HERE_DOC,
       PATH_MODE,
+      OPTION,
       QUOTE_STRING,
       ESCAPED_QUOTE,
       APOS_STRING,
