@@ -1,0 +1,19 @@
+[connection]
+# Sample NetworkManager connection profile
+id=Home Wi-Fi
+uuid=7c3b1c2c-5c2c-4c2c-8c2c-2c2c2c2c2c2c
+type=wifi
+interface-name=wlp2s0
+
+[wifi]
+mode=infrastructure
+ssid=MyHomeNetwork
+
+[wifi-security]
+key-mgmt=wpa-psk
+
+[ipv4]
+method=auto
+
+[ipv6]
+method=auto

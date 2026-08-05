@@ -48,6 +48,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Cache Object Script     | cos, cls               |         |
 | Candid                  | candid, did            | [highlightjs-motoko](https://github.com/rvanasa/highlightjs-motoko) |
 | Cap’n Proto             | capnproto, capnp       |         |
+| Cedar                   | cedar, cedarschema     | [highlightjs-cedar](https://github.com/cedar-policy/highlightjs-cedar) |
 | Chaos                   | chaos, kaos            | [highlightjs-chaos](https://github.com/chaos-lang/highlightjs-chaos) |
 | Chapel                  | chapel, chpl           | [highlightjs-chapel](https://github.com/chapel-lang/highlightjs-chapel) |
 | Cisco CLI               | cisco                  | [highlightjs-cisco-cli](https://github.com/BMatheas/highlightjs-cisco-cli) |
@@ -67,13 +68,14 @@ The table below shows the full list of languages (and corresponding classes/alia
 | D                       | d                      |         |
 | Dafny                   | dafny                  | [highlightjs-dafny](https://github.com/ConsenSys/highlightjs-dafny)|
 | Dart                    | dart                   |         |
+| DAX (Data Analysis Expressions) | dax            |[highlightjs-dax](https://github.com/jiaopengzi/highlightjs-dax)         |
 | Delphi                  | dpr, dfm, pas, pascal  |         |
 | Diff                    | diff, patch            |         |
 | Django                  | django, jinja          |         |
 | DNS Zone file           | dns, zone, bind        |         |
 | Dockerfile              | dockerfile, docker     |         |
 | Djot                    | djot, dj               |[highlightjs-djot](https://github.com/php-collective/highlightjs-djot) |
-| DOS                     | dos, bat, cmd          |         |
+| DOS                     | dos, bat, batch, cmd   |         |
 | dsconfig                | dsconfig               |         |
 | DTS (Device Tree)       | dts                    |         |
 | Dust                    | dust, dst              |         |
@@ -82,6 +84,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Elixir                  | elixir                 |         |
 | Elm                     | elm                    |         |
 | Erlang                  | erlang, erl            |         |
+| ES&#124;QL              | esql                   | [highlightjs-esql](https://github.com/elastic/highlightjs-esql) |
 | Excel                   | excel, xls, xlsx       |         |
 | Extempore               | extempore, xtlang, xtm | [highlightjs-xtlang](https://github.com/highlightjs/highlightjs-xtlang) |
 | F#                      | fsharp, fs, fsx, fsi, fsscript   |         |
@@ -143,6 +146,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | LookML                  | lookml                 | [highlightjs-lookml](https://github.com/spectacles-ci/highlightjs-lookml) |
 | Lua                     | lua, pluto             |         |
 | Luau                    | luau                   | [highlightjs-luau](https://github.com/highlightjs/highlightjs-luau) |
+| M (Power Query)         | m, pq                   |[highlightjs-m](https://github.com/jiaopengzi/highlightjs-m)         |
 | Macaulay2               | macaulay2              | [highlightjs-macaulay2](https://github.com/d-torrance/highlightjs-macaulay2) |
 | Magik                   | magik                  | [highlightjs-magik](https://github.com/sebastiaanspeck/highlightjs-magik) |
 | Makefile                | makefile, mk, mak, make |        |
@@ -284,6 +288,10 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Zig                     | zig                    |[highlightjs-zig](https://github.com/fwx5618177/highlightjs-zig) |
 <!-- LANGLIST_END -->
 
+The following languages are included in the "common" subset:
+
+Bash, C, C++, C#, CSS, Diff, Go, GraphQL, HTML (XML), Ini (TOML), Java, JavaScript, JSON, Kotlin, Less, Lua, Makefile, Markdown, Objective C, Perl, PHP, Plaintext, Python, Python REPL, R, Ruby, Rust, SCSS, Shell, SQL, Swift, TypeScript, VB.Net, WASM, YAML
+
 <!-- document it until we can fix it -->
 ## Alias Overlap
 
@@ -296,7 +304,6 @@ use the full name and not the alias to avoid any ambiguity.
 | LiveScript              | ls                     |
 | OCaml                   | ml                     |
 | SML                     | ml                     |
-
 
 [1]: https://github.com/highlightjs/highlight.js#getting-the-library
 [2]: https://github.com/highlightjs/highlight.js#importing-the-library

@@ -1,12 +1,56 @@
+## Version 11.12.0
+
+Core Grammars:
+
+- enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
+- fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+- fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
+- fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
+- fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
+- fix(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
+- fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
+- fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
+- fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
+- enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
+- enh(python) Support t-strings [Nicolas Le Cam][]
+
+Documentation:
+
+- referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
+- added 3rd party Cedar grammar to SUPPORTED_LANGUAGES [Dhruv Maniya][]
+
+CONTRIBUTORS
+
+[Hashim Khan]: https://github.com/Hashim1999164
+[arturict]: https://github.com/arturict
+[Dhruv Maniya]: https://github.com/iamdhrv
+[Elastic]: https://github.com/elastic
+[Hugo van Kemenade]: https://github.com/hugovk
+[MarkXian]: https://github.com/MarkXian
+[Sarath Francis]: https://github.com/sarathfrancis90
+[Mark Xian]: https://github.com/xianjianlf2
+[Nicolas Le Cam]: https://github.com/KuSh
+[Konstantin Baltsat]: https://github.com/Baltsat
+[David Pavlovschii]: https://github.com/davidpavlovschi
+
+
 ## Version 11.11.3
 
 Core Grammars:
 
 - fix(groovy) support underscores in numeric literals [greymoth-jp][]
+- fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
+
+Documentation:
+
+- build(deps): bump python and sphinx requirements [Haowei Hsu][]
 
 CONTRIBUTORS
 
 [greymoth-jp]: https://github.com/greymoth-jp
+[Francesco Paolo Severino]: https://github.com/fpseverino
+[Haowei Hsu]: https://github.com/hwhsu1231
 
 
 ## Version 11.11.2
@@ -46,11 +90,11 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
+- enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
 - enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
 - enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
 - enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
-
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
@@ -96,6 +140,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
+[Hannes Wallnoefer]: https://github.com/hns
 [Peter Bierma]: https://github.com/ZeroIntensity
 [Naoya Hatta]: https://github.com/dalance
 
@@ -148,6 +193,9 @@ Core Grammars:
 - enh(nix) support markdown comments [h7x4][]
 - enh(nix) support basic function params [h7x4][]
 - enh(nix) better parsing of attrsets [h7x4][]
+- enh(nsis) add missing language features [idleberg][]
+- enh(nsis) add test cases [idleberg][]
+- fix(nsis) prevent overlapping keywords to conflict [idleberg][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]

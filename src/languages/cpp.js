@@ -42,9 +42,13 @@ export default function(hljs) {
         end: '\'',
         illegal: '.'
       },
+      // https://en.cppreference.com/w/cpp/language/string_literal
+      // a d-char-sequence never contains parentheses, backslashes or whitespace;
+      // quotes are excluded as well so the closing delimiter cannot swallow the
+      // quote that actually terminates the literal
       hljs.END_SAME_AS_BEGIN({
-        begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
-        end: /\)([^()\\ ]{0,16})"/
+        begin: /(?:u8?|U|L)?R"([^()\\\s"]{0,16})\(/,
+        end: /\)([^()\\\s"]{0,16})"/
       })
     ]
   };
@@ -57,12 +61,12 @@ export default function(hljs) {
         "[+-]?(?:" // Leading sign.
           // Decimal.
           + "(?:"
-            +"[0-9](?:'?[0-9])*\\.(?:[0-9](?:'?[0-9])*)?"
+            + "\\b[0-9](?:'?[0-9])*\\.(?:[0-9](?:'?[0-9])*)?"
             + "|\\.[0-9](?:'?[0-9])*"
           + ")(?:[Ee][+-]?[0-9](?:'?[0-9])*)?"
-          + "|[0-9](?:'?[0-9])*[Ee][+-]?[0-9](?:'?[0-9])*"
+          + "|\\b[0-9](?:'?[0-9])*[Ee][+-]?[0-9](?:'?[0-9])*"
           // Hexadecimal.
-          + "|0[Xx](?:"
+          + "|\\b0[Xx](?:"
             +"[0-9A-Fa-f](?:'?[0-9A-Fa-f])*(?:\\.(?:[0-9A-Fa-f](?:'?[0-9A-Fa-f])*)?)?"
             + "|\\.[0-9A-Fa-f](?:'?[0-9A-Fa-f])*"
           + ")[Pp][+-]?[0-9](?:'?[0-9])*"
