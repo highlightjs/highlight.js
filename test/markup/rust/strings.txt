@@ -24,3 +24,8 @@ br#"hello"#;
 br##"foo"##;
 
 #[error("\" appears in a string")]
+#[doc = r#"a "quoted" word"#]
+#[doc = b"bytes"]
+#[doc = r##"multi
+line "# raw"##]
+#[foo(Bar<'a>)]
