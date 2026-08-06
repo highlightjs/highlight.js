@@ -103,7 +103,7 @@ export default function(hljs) {
     begin: /#\s*[a-z]+\b/,
     end: /$/,
     keywords: { keyword:
-        'if else elif endif define undef warning error line '
+        'if else elif embed endif define undef warning error line '
         + 'pragma _Pragma ifdef ifndef include' },
     contains: [
       {
@@ -155,6 +155,7 @@ export default function(hljs) {
     'constexpr',
     'constinit',
     'continue',
+    'contract_assert',
     'decltype',
     'default',
     'delete',
@@ -185,8 +186,10 @@ export default function(hljs) {
     'or',
     'or_eq',
     'override',
+    'pre',
     'private',
     'protected',
+    'post',
     'public',
     'reflexpr',
     'register',
@@ -216,7 +219,9 @@ export default function(hljs) {
     'volatile',
     'while',
     'xor',
-    'xor_eq'
+    'xor_eq',
+    '_Atomic',
+    '_BitInt'
   ];
 
   // https://en.cppreference.com/w/cpp/keyword
