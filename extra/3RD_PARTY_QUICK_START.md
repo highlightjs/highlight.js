@@ -10,7 +10,7 @@ So you'd like to create and share your own language definition for Highlight.js.
 - [ ] Clone the main [highlight-js](https://github.com/highlightjs/highlight.js) repository from GitHub
 - [ ] Read our [Language Contributor Checklist](https://highlightjs.readthedocs.io/en/latest/language-contribution.html)
 - [ ] Review the [Language Definition Guide](https://highlightjs.readthedocs.io/en/latest/language-guide.html)
-- [ ] Start with our [repository template](https://github.com/highlightjs/highlightjs-language-template) to more easily follow the suggested layout. (this isn't ready yet!)
+- [ ] Start with our [repository template](https://github.com/sebastiaanspeck/highlightjs-language-template) to more easily follow the suggested layout. (this isn't ready yet!)
 
 ## Create your repository
 
