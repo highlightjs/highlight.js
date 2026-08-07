@@ -97,6 +97,14 @@ const HLJS = function(hljs) {
 
     classes += block.parentNode ? block.parentNode.className : '';
 
+    // noHighlightRe takes precedence over languageDetectRe so that an explicit
+    // exclusion (e.g. `no-highlight` or `nohighlight`) always wins, even when it
+    // appears alongside a matching `language-*` / `lang-*` class.
+    const noHighlight = classes
+      .split(/\s+/)
+      .find((_class) => shouldNotHighlight(_class));
+    if (noHighlight) return 'no-highlight';
+
     // language-* takes precedence over non-prefixed class names.
     const match = options.languageDetectRe.exec(classes);
     if (match) {
@@ -110,7 +118,7 @@ const HLJS = function(hljs) {
 
     return classes
       .split(/\s+/)
-      .find((_class) => shouldNotHighlight(_class) || getLanguage(_class));
+      .find((_class) => getLanguage(_class));
   }
 
   /**
