@@ -98,6 +98,32 @@ export default function(hljs) {
     relevance: 0
   };
 
+  // `#include` is the only preprocessor directive that takes an angle-bracket
+  // quoted header (`#include <header>`). Scoping that rule to `#include` keeps
+  // the greedy `<...>` match from eating a `>` that belongs to the body of
+  // another directive (e.g. `#define what do { cout << ">"; } while (0)`),
+  // which would otherwise leave an unbalanced `"` and break highlighting for
+  // the rest of the file. See issue #3505.
+  const PREPROCESSOR_INCLUDE = {
+    className: 'meta',
+    begin: /#\s*include\b/,
+    end: /$/,
+    keywords: { keyword: 'include' },
+    contains: [
+      {
+        begin: /\\\n/,
+        relevance: 0
+      },
+      hljs.inherit(STRINGS, { className: 'string' }),
+      {
+        className: 'string',
+        begin: /<.*?>/
+      },
+      C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ]
+  };
+
   const PREPROCESSOR = {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
@@ -111,10 +137,6 @@ export default function(hljs) {
         relevance: 0
       },
       hljs.inherit(STRINGS, { className: 'string' }),
-      {
-        className: 'string',
-        begin: /<.*?>/
-      },
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
@@ -436,6 +458,7 @@ export default function(hljs) {
 
   const EXPRESSION_CONTAINS = [
     FUNCTION_DISPATCH,
+    PREPROCESSOR_INCLUDE,
     PREPROCESSOR,
     CPP_PRIMITIVE_TYPES,
     C_LINE_COMMENT_MODE,
@@ -548,6 +571,7 @@ export default function(hljs) {
       CPP_PRIMITIVE_TYPES,
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
+      PREPROCESSOR_INCLUDE,
       PREPROCESSOR
     ]
   };
@@ -572,6 +596,7 @@ export default function(hljs) {
       FUNCTION_DISPATCH,
       EXPRESSION_CONTAINS,
       [
+        PREPROCESSOR_INCLUDE,
         PREPROCESSOR,
         { // containers: ie, `vector <int> rooms (9);`
           begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function|flat_map|flat_set)\\s*<(?!<)',
