@@ -1,0 +1,57 @@
+# Example gettext translation catalog
+# Copyright (C) 2026 Example Project
+# This file is distributed under the same license as the project.
+# Translator: Example Translator <translator@example.com>
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Example Project 1.0\n"
+"Report-Msgid-Bugs-To: https://example.com/bugs\n"
+"POT-Creation-Date: 2026-08-08 12:00+0000\n"
+"PO-Revision-Date: 2026-08-08 12:00+0000\n"
+"Last-Translator: Example Translator <translator@example.com>\n"
+"Language-Team: Portuguese <translations@example.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Shown in the file menu when there are unsaved changes.
+#: src/window.c:42 src/menu.c:17
+#, fuzzy, c-format, no-wrap
+#| msgctxt "menu item"
+#| msgid "Save document"
+msgctxt "file menu"
+msgid "Save _As &Close <b>%1$s</b> (%d file)"
+msgid_plural "Save _As &Close <b>%1$s</b> (%d files)"
+msgstr[0] "Salvar _como e &fechar <b>%1$s</b> (%d arquivo)"
+msgstr[1] "Salvar _como e &fechar <b>%1$s</b> (%d arquivos)"
+
+#. Python mapping placeholders must be retained by translators.
+#: src/notifications.py:88
+#, python-format
+msgctxt "notification"
+msgid "Hello %(name)s, you have %(count)d new message."
+msgid_plural "Hello %(name)s, you have %(count)d new messages."
+msgstr[0] "Ola %(name)s, voce tem %(count)d nova mensagem."
+msgstr[1] "Ola %(name)s, voce tem %(count)d novas mensagens."
+
+msgid ""
+"A multiline message with an escaped quote: \"\n"
+"It also contains a tab \t and a backslash \\."
+msgstr ""
+"Uma mensagem com varias linhas.\n"
+"Tambem contem uma tabulacao \t e uma barra invertida \\."
+
+# Translator comment with no automatic metadata.
+#: src/preferences.ui
+#, no-c-format
+msgid "Preferences"
+msgstr "Preferencias"
+
+#~ #. This translation was removed from the template.
+#~ #: src/legacy.c:9
+#~ #, c-format
+#~ msgid "Obsolete message"
+#~ msgstr "Mensagem obsoleta"

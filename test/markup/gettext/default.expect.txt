@@ -1,0 +1,57 @@
+<span class="hljs-comment"># Example gettext translation catalog</span>
+<span class="hljs-comment"># Copyright (C) 2026 Example Project</span>
+<span class="hljs-comment"># This file is distributed under the same license as the project.</span>
+<span class="hljs-comment"># Translator: Example Translator &lt;translator@example.com&gt;</span>
+<span class="hljs-comment">#, <span class="hljs-doctag">fuzzy</span></span>
+<span class="hljs-keyword">msgid</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">msgstr</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-string">&quot;Project-Id-Version: Example Project 1.0<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Report-Msgid-Bugs-To: https://example.com/bugs<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;POT-Creation-Date: 2026-08-08 12:00+0000<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;PO-Revision-Date: 2026-08-08 12:00+0000<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Last-Translator: Example Translator &lt;translator@example.com&gt;<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Language-Team: Portuguese &lt;translations@example.com&gt;<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Language: pt<span class="hljs-char escape_">_B</span>R<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;MIME-Version: 1.0<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Content-Type: text/plain; charset=UTF-8<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Content-Transfer-Encoding: 8bit<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Plural-Forms: nplurals=2; plural=(n != 1);<span class="hljs-char escape_">\n</span>&quot;</span>
+
+<span class="hljs-comment">#. Shown in the file menu when there are unsaved changes.</span>
+<span class="hljs-comment">#: src/window.c:42 src/menu.c:17</span>
+<span class="hljs-comment">#, <span class="hljs-doctag">fuzzy</span>, c-format, no-wrap</span>
+<span class="hljs-comment">#| msgctxt &quot;menu item&quot;</span>
+<span class="hljs-comment">#| msgid &quot;Save document&quot;</span>
+<span class="hljs-keyword">msgctxt</span> <span class="hljs-string">&quot;file menu&quot;</span>
+<span class="hljs-keyword">msgid</span> <span class="hljs-string">&quot;Save <span class="hljs-char escape_">_A</span>s <span class="hljs-char escape_">&amp;C</span>lose <span class="hljs-char escape_">&lt;b&gt;</span><span class="hljs-char escape_">%1$s</span><span class="hljs-char escape_">&lt;/b&gt;</span> (<span class="hljs-char escape_">%d</span> file)&quot;</span>
+<span class="hljs-keyword">msgid_plural</span> <span class="hljs-string">&quot;Save <span class="hljs-char escape_">_A</span>s <span class="hljs-char escape_">&amp;C</span>lose <span class="hljs-char escape_">&lt;b&gt;</span><span class="hljs-char escape_">%1$s</span><span class="hljs-char escape_">&lt;/b&gt;</span> (<span class="hljs-char escape_">%d</span> files)&quot;</span>
+<span class="hljs-keyword">msgstr</span>[0] <span class="hljs-string">&quot;Salvar <span class="hljs-char escape_">_c</span>omo e <span class="hljs-char escape_">&amp;f</span>echar <span class="hljs-char escape_">&lt;b&gt;</span><span class="hljs-char escape_">%1$s</span><span class="hljs-char escape_">&lt;/b&gt;</span> (<span class="hljs-char escape_">%d</span> arquivo)&quot;</span>
+<span class="hljs-keyword">msgstr</span>[1] <span class="hljs-string">&quot;Salvar <span class="hljs-char escape_">_c</span>omo e <span class="hljs-char escape_">&amp;f</span>echar <span class="hljs-char escape_">&lt;b&gt;</span><span class="hljs-char escape_">%1$s</span><span class="hljs-char escape_">&lt;/b&gt;</span> (<span class="hljs-char escape_">%d</span> arquivos)&quot;</span>
+
+<span class="hljs-comment">#. Python mapping placeholders must be retained by translators.</span>
+<span class="hljs-comment">#: src/notifications.py:88</span>
+<span class="hljs-comment">#, python-format</span>
+<span class="hljs-keyword">msgctxt</span> <span class="hljs-string">&quot;notification&quot;</span>
+<span class="hljs-keyword">msgid</span> <span class="hljs-string">&quot;Hello <span class="hljs-char escape_">%(name)s</span>, you have <span class="hljs-char escape_">%(count)d</span> new message.&quot;</span>
+<span class="hljs-keyword">msgid_plural</span> <span class="hljs-string">&quot;Hello <span class="hljs-char escape_">%(name)s</span>, you have <span class="hljs-char escape_">%(count)d</span> new messages.&quot;</span>
+<span class="hljs-keyword">msgstr</span>[0] <span class="hljs-string">&quot;Ola <span class="hljs-char escape_">%(name)s</span>, voce tem <span class="hljs-char escape_">%(count)d</span> nova mensagem.&quot;</span>
+<span class="hljs-keyword">msgstr</span>[1] <span class="hljs-string">&quot;Ola <span class="hljs-char escape_">%(name)s</span>, voce tem <span class="hljs-char escape_">%(count)d</span> novas mensagens.&quot;</span>
+
+<span class="hljs-keyword">msgid</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-string">&quot;A multiline message with an escaped quote: <span class="hljs-char escape_">\&quot;</span><span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;It also contains a tab <span class="hljs-char escape_">\t</span> and a backslash <span class="hljs-char escape_">\\</span>.&quot;</span>
+<span class="hljs-keyword">msgstr</span> <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-string">&quot;Uma mensagem com varias linhas.<span class="hljs-char escape_">\n</span>&quot;</span>
+<span class="hljs-string">&quot;Tambem contem uma tabulacao <span class="hljs-char escape_">\t</span> e uma barra invertida <span class="hljs-char escape_">\\</span>.&quot;</span>
+
+<span class="hljs-comment"># Translator comment with no automatic metadata.</span>
+<span class="hljs-comment">#: src/preferences.ui</span>
+<span class="hljs-comment">#, no-c-format</span>
+<span class="hljs-keyword">msgid</span> <span class="hljs-string">&quot;Preferences&quot;</span>
+<span class="hljs-keyword">msgstr</span> <span class="hljs-string">&quot;Preferencias&quot;</span>
+
+<span class="hljs-comment">#~ #. This translation was removed from the template.</span>
+<span class="hljs-comment">#~ #: src/legacy.c:9</span>
+<span class="hljs-comment">#~ #, c-format</span>
+<span class="hljs-comment">#~ msgid &quot;Obsolete message&quot;</span>
+<span class="hljs-comment">#~ msgstr &quot;Mensagem obsoleta&quot;</span>

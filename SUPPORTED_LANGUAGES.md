@@ -100,6 +100,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Gleam                   | gleam                  | [gleam-highlight.js](https://github.com/gleam-lang/gleam-highlight.js) |
 | Glimmer and EmberJS     | hbs, glimmer, html.hbs, html.handlebars, htmlbars | [highlightjs-glimmer](https://github.com/NullVoxPopuli/highlightjs-glimmer) |
 | GN for Ninja            | gn, gni                | [highlightjs-GN](https://github.com/highlightjs/highlightjs-GN) |
+| GNU Gettext             | gettext, po, pot       |         |
 | Go                      | go, golang             |         |
 | Golo                    | golo, gololang         |         |
 | Gradle                  | gradle                 |         |
