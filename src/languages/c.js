@@ -118,18 +118,18 @@ export default function(hljs) {
   // which would otherwise leave an unbalanced `"` and break highlighting for
   // the rest of the file. See issue #3505.
   const PREPROCESSOR_INCLUDE = {
-    className: 'meta',
+    scope: 'meta',
     begin: /#\s*include\b/,
     end: /$/,
     keywords: { keyword: 'include' },
     contains: [
       {
+        // the `\` at the end of a line signaling continuation
         begin: /\\\n/,
-        relevance: 0
       },
-      hljs.inherit(STRINGS, { className: 'string' }),
+      STRINGS,
       {
-        className: 'string',
+        scope: 'string',
         begin: /<.*?>/
       },
       C_LINE_COMMENT_MODE,
@@ -154,6 +154,11 @@ export default function(hljs) {
       hljs.C_BLOCK_COMMENT_MODE
     ]
   };
+
+  const PREPROCESSORS = [
+    PREPROCESSOR_INCLUDE,
+    PREPROCESSOR
+  ];
 
   const TITLE_MODE = {
     className: 'title',
@@ -262,8 +267,7 @@ export default function(hljs) {
   };
 
   const EXPRESSION_CONTAINS = [
-    PREPROCESSOR_INCLUDE,
-    PREPROCESSOR,
+    ...PREPROCESSORS,
     TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
@@ -359,8 +363,7 @@ export default function(hljs) {
       TYPES,
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      PREPROCESSOR_INCLUDE,
-      PREPROCESSOR
+      ...PREPROCESSORS
     ]
   };
 
@@ -377,8 +380,7 @@ export default function(hljs) {
       FUNCTION_DECLARATION,
       EXPRESSION_CONTAINS,
       [
-        PREPROCESSOR_INCLUDE,
-        PREPROCESSOR,
+        ...PREPROCESSORS,
         {
           begin: hljs.IDENT_RE + '::',
           keywords: KEYWORDS
@@ -395,7 +397,6 @@ export default function(hljs) {
       ]),
     exports: {
       preprocessor: PREPROCESSOR,
-      preprocessorInclude: PREPROCESSOR_INCLUDE,
       strings: STRINGS,
       keywords: KEYWORDS
     }
