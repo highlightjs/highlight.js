@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- enh(gettext) add GNU Gettext PO and POT syntax highlighting [Pablo1Gustavo][]
 - enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
@@ -22,6 +23,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[Pablo1Gustavo]: https://github.com/Pablo1Gustavo
 [Hashim Khan]: https://github.com/Hashim1999164
 [arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv

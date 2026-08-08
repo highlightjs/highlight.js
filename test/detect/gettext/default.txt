@@ -1,0 +1,32 @@
+# Example gettext translation catalog
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Example Project 1.0\n"
+"Report-Msgid-Bugs-To: https://example.com/bugs\n"
+"POT-Creation-Date: 2026-08-08 12:00+0000\n"
+"PO-Revision-Date: 2026-08-08 12:00+0000\n"
+"Last-Translator: Example Translator <translator@example.com>\n"
+"Language-Team: Portuguese <translations@example.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Shown in the file menu when there are unsaved changes.
+#: src/window.c:42 src/menu.c:17
+#, c-format
+#| msgid "Save document"
+msgctxt "file menu"
+msgid "Save _As &Close <b>%1$s</b> (%d file)"
+msgid_plural "Save _As &Close <b>%1$s</b> (%d files)"
+msgstr[0] "Salvar _como e &fechar <b>%1$s</b> (%d arquivo)"
+msgstr[1] "Salvar _como e &fechar <b>%1$s</b> (%d arquivos)"
+
+#, python-format
+msgid "Hello %(name)s, you have %(count)d new message."
+msgstr "Ola %(name)s, voce tem %(count)d nova mensagem."
+
+#~ msgid "Obsolete message"
+#~ msgstr "Mensagem obsoleta"
