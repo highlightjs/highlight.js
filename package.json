@@ -47,6 +47,7 @@
     "build": "node ./tools/build.js -t node",
     "build-cdn": "node ./tools/build.js -t cdn",
     "build-browser": "node ./tools/build.js -t browser :common",
+    "build-esm": "node ./tools/build_esm.js",
     "devtool": "npx http-server",
     "test": "mocha test",
     "test-markup": "mocha test/markup",
