@@ -4,8 +4,14 @@ import { hljs } from "../../build/lib/all.js";
 
 export default function() {
   describe('line encoding', () => {
-    it('highlight: should normalize line encoding', () => {
+    it('highlight: should normalize CRLF to LF', () => {
       const text = "this is\r\na test";
+      let result = hljs.highlight(text, {language: "plaintext"});
+      result.value.should.equal("this is\na test");
+    });
+
+    it('highlight: should normalize bare CR to LF', () => {
+      const text = "this is\ra test";
       let result = hljs.highlight(text, {language: "plaintext"});
       result.value.should.equal("this is\na test");
     });

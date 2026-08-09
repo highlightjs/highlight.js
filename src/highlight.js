@@ -148,7 +148,8 @@ const HighlightJS = function() {
     // just be changing the object it was passed
     fire("before:highlight", context);
 
-    context.code = context.code.replace(/\r\n/g,"\n");
+    // normalize newlines so grammars only see LF (#3298)
+    context.code = context.code.replace(/\r\n?/g, "\n");
 
     // a before plugin can usurp the result completely by providing it's own
     // in which case we don't even need to call highlight
@@ -219,7 +220,7 @@ const HighlightJS = function() {
       } else {
         // TODO: hook for language detector
         let lang = top.subLanguage.length ? top.subLanguage[0] : null;
-        result = highlight(modeBuffer, {language: lang} )
+        result = highlight(modeBuffer, {language: lang} );
         // result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
       }
 
