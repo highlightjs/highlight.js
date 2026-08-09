@@ -521,12 +521,18 @@ const HLJS = function(hljs) {
         }
       }
 
-      // edge case for when illegal matches $ (end of line) which is technically
+      // edge case for when illegal matches $ (end of line/text) which is technically
       // a 0 width match but not a begin/end match so it's not caught by the
-      // first handler (when ignoreIllegals is true)
+      // first handler (when `ignoreIllegals` is true)
       if (match.type === "illegal" && lexeme === "") {
-        // advance so we aren't stuck in an infinite loop
-        modeBuffer += "\n";
+        if (match.index === codeToHighlight.length) {
+          // we have matched the end of the text, so we can stop without
+          // hacking modeBuffer
+        } else {
+          // matched literal `\n` (with `$`) so we must manually add the newline
+          // itself to the modeBuffer so it is not lost when we advance the cursor
+          modeBuffer += "\n";
+        }
         return 1;
       }
 

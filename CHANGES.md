@@ -1,3 +1,175 @@
+## Version 11.12.0
+
+Core Grammars:
+
+- enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
+- fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+- fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
+- fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
+- fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
+- fix(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
+- fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
+- fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
+- fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
+- enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
+- enh(python) Support t-strings [Nicolas Le Cam][]
+- fix(c, cpp) scope the angle-bracket header string to `#include` so a `#define` body containing `>` no longer swallows the following quote and breaks highlighting of the rest of the file, issue #3505 [Pablo][]
+- fix(c, cpp) bound the run of type tokens in front of a function name, which made highlighting a long line of plain words take quadratic time (ReDoS), issue #4362 [Jayesh Bhade][]
+- fix(gherkin) update keyword list [Hirse][]
+- fix(gherkin) variables can't contain whitespace [Hirse][]
+- enh(gherkin) docstrings can use backticks [Hirse][]
+
+Documentation:
+
+- referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
+- added 3rd party Cedar grammar to SUPPORTED_LANGUAGES [Dhruv Maniya][]
+
+CONTRIBUTORS
+
+[Hashim Khan]: https://github.com/Hashim1999164
+[arturict]: https://github.com/arturict
+[Dhruv Maniya]: https://github.com/iamdhrv
+[Elastic]: https://github.com/elastic
+[Hugo van Kemenade]: https://github.com/hugovk
+[MarkXian]: https://github.com/MarkXian
+[Sarath Francis]: https://github.com/sarathfrancis90
+[Mark Xian]: https://github.com/xianjianlf2
+[Nicolas Le Cam]: https://github.com/KuSh
+[Konstantin Baltsat]: https://github.com/Baltsat
+[David Pavlovschii]: https://github.com/davidpavlovschi
+[Pablo]: https://github.com/MsfPablo
+[Jayesh Bhade]: https://github.com/Jaybhade
+[Hirse]: https://github.com/Hirse
+
+
+## Version 11.11.3
+
+Core Grammars:
+
+- fix(groovy) support underscores in numeric literals [greymoth-jp][]
+- fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
+
+Documentation:
+
+- build(deps): bump python and sphinx requirements [Haowei Hsu][]
+
+CONTRIBUTORS
+
+[greymoth-jp]: https://github.com/greymoth-jp
+[Francesco Paolo Severino]: https://github.com/fpseverino
+[Haowei Hsu]: https://github.com/hwhsu1231
+
+
+## Version 11.11.2
+
+Parser Engine:
+
+- fix illegal handling at end of input code [Josh Goebel][]
+
+New Grammars:
+
+- added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
+- added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
+- added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
+- added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
+- added 3rd party Liquidsoap grammar to SUPPORTED_LANGUAGES [Romain Beauxis][]
+- added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
+- added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
+- added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
+- added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
+- added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
+- added 3rd party Veryl grammar to SUPPORTED_LANGUAGES [Naoya Hatta][]
+- added 3rd party RAScript grammar to SUPPORTED_LANGUAGES [Joshua Raphael][]
+- added 3rd party Jaiva grammar to SUPPORTED_LANGUAGES [Lehlogonolo Poole][]
+- added 3rd party MoonBit grammar to SUPPORTED_LANGUAGES [Kaida-Amethyst][]
+- added 3rd party Pkl grammar to SUPPORTED_LANGUAGES [Dan Chao][]
+- added 3rd party Igor Pro grammar to SUPPORTED_LANGUAGES [Ryne Andal][]
+- added 3rd party Why3 grammar to SUPPORTED_LANGUAGES [JGalego][]
+
+Core Grammars:
+
+- fix(cpp) exclude keywords from function calls [Eisenwave][]
+- enh(csp) add missing directives / keywords from MDN (7 more) [Max Liashuk][]
+- enh(ada) add new `parallel` keyword, allow `[]` for Ada 2022 [Max Reznik][]
+- fix(javascript) correctly highlight 'for await' again [wolfgang42][]
+- fix(diff) fix unified diff hunk header regex to allow unpaired numbers [Chris Wilson][]
+- enh(php) support single line and hash comments in attributes, constructor and functions [Antoine Musso][]
+- fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
+- enh(json) add json5 support [Kerry Shetline][]
+- fix(csharp) Support digit separators [te-ing][]
+- enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
+- enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
+- enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
+- enh(rust) parse f16 and f128 literals [usamoi][]
+- enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
+- fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
+- enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
+
+Documentation:
+
+- update link to Odin grammar to maintained version [Marian Pekár][]
+- fix type `highlight` deprecated message [Brandon Dong][]
+- fixed typo and incorrect git command [SungHyun Kim][]
+- fix CONTRIBUTING.md broken badge link [SungHyun Kim][]
+- alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
+- document the existing `pwsh` alias for PowerShell [helpimnotdrowning][]
+- deduplicate JSON from SUPPORTED_LANGUAGES [Lukasz Czajczyk][]
+
+Themes:
+
+- Fix: cybertopia themes render correctly in shadow DOM [hbgl][]
+- added "vs Dark " theme [Twineee1][]
+
+CONTRIBUTORS
+
+[Josh Goebel]: https://github.com/joshgoebel
+[Marian Pekár]: https://github.com/marianpekar
+[Eisenwave]: https://github.com/Eisenwave/
+[Brandon Dong]: https://github.com/brandondong
+[SungHyun Kim]: https://github.com/witch-factory
+[Lukasz Czajczyk]: https://github.com/LukeCz
+[Josh Marchand]: https://github.com/yHSJ
+[Max Liashuk]: https://github.com/probil
+[Max Reznik]: https://github.com/reznikmm
+[Kevin Bloch]: https://github.com/codingthat
+[Chris Wilson]: https://github.com/sushicw
+[Antoine Musso]: https://github.com/hashar
+[Chester Moses]: https://github.com/Chester-Moses-HCL
+[Kerry Shetline]: https://github.com/kshetline
+[SungHyun Kim]: https://github.com/witch-factory
+[Adam Lui]: https://github.com/adamlui
+[Romain Beauxis]: https://github.com/toots
+[Sebastiaan Speck]: https://github.com/sebastiaanspeck
+[Filip Hoffmann]: https://github.com/folospior
+[Twineee1]: https://github.com/Twineee1
+[hbgl]: https://github.com/hbgl
+[Thomas Gorissen]: https://github.com/serrynaimo
+[te-ing]: https://github.com/te-ing
+[Anthony Martin]: https://github.com/anthony-c-martin
+[NriotHrreion]: https://github.com/NriotHrreion
+[Hannes Wallnoefer]: https://github.com/hns
+[Peter Bierma]: https://github.com/ZeroIntensity
+[Naoya Hatta]: https://github.com/dalance
+
+[Joshua Raphael]: https://github.com/joshraphael
+[helpimnotdrowning]: https://github.com/helpimnotdrowning
+[DarkMatter-999]: https://github.com/DarkMatter-999
+
+[Lehlogonolo Poole]: https://github.com/yetnt
+[Kaida-Amethyst]: https://github.com/Kaida-Amethyst
+[Dan Chao]: https://github.com/bioball
+[usamoi]: https://github.com/usamoi
+[Shiva Kiran Koninty]: https://github.com/skr4n
+[Ryne Andal]: https://github.com/ryneandal
+
+[JGalego]: https://github.com/JGalego
+
+## Version 11.11.1
+
+- Fixes regression with Rust grammar.
+
+
 ## Version 11.11.0
 
 CAVEATS / POTENTIALLY BREAKING CHANGES
@@ -29,6 +201,9 @@ Core Grammars:
 - enh(nix) support markdown comments [h7x4][]
 - enh(nix) support basic function params [h7x4][]
 - enh(nix) better parsing of attrsets [h7x4][]
+- enh(nsis) add missing language features [idleberg][]
+- enh(nsis) add test cases [idleberg][]
+- fix(nsis) prevent overlapping keywords to conflict [idleberg][]
 - fix(c) - Fixed hex numbers with decimals  [Dxuian]
 - fix(typescript) - Fixedoptional property not highlighted correctly  [Dxuian]
 - fix(ruby) - fix `|=` operator false positives (as block arguments) [Aboobacker MK]
@@ -47,6 +222,8 @@ Core Grammars:
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 - fix(dart) - Added highlighting for class and function names [guuido]
   
+- fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
+- fix(llvm) fixed highlighting for C-style block comments [utam-1] 
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
@@ -94,6 +271,7 @@ CONTRIBUTORS
 [Laurel King]: https://github.com/laurelthorburn
 [Kristian Ekenes]: https://github.com/ekenes
 [Danny Winrow]: https://github.com/dannywinrow
+[Eisenwave]: https://github.com/Eisenwave/
 
 
 ## Version 11.10.0

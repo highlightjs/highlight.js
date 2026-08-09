@@ -44,12 +44,14 @@
              <span class="hljs-attr">fields</span>: [
                  <span class="hljs-string">&#x27;authorEmail&#x27;</span> =&gt; <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\Email</span>,
                  <span class="hljs-string">&#x27;shortDesc&#x27;</span> =&gt; [
-                     <span class="hljs-comment">/*something*/</span>
+                     <span class="hljs-comment">// C line comment</span>
                      <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\NotBlank</span>,
+                     <span class="hljs-comment">/* C block comment */</span>
                      <span class="hljs-keyword">new</span> <span class="hljs-title class_">Assert\Length</span>(
                          <span class="hljs-attr">max</span>: <span class="hljs-number">200</span>,
                          <span class="hljs-attr">maxMessage</span>: <span class="hljs-string">&#x27;Your short desc is too long&#x27;</span>
                      )
+                     <span class="hljs-comment"># Hash comment</span>
                  ],
              ],
              <span class="hljs-attr">allowMissingFields</span>: <span class="hljs-literal">true</span>,

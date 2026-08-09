@@ -7,7 +7,7 @@ package body Sqlite.Simple is
       Error_Message : String := Null_Ignore_Value (Error_Message_C);
    begin
 
-      Named : for Index in Foo..Bar loop
+      Named : parallel for Index in Foo..Bar loop
           Put ("Hi[]{}");
       end loop Named;
 

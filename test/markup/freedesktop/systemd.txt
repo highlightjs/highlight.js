@@ -1,0 +1,15 @@
+[Unit]
+# Sample systemd service unit
+Description=Blog server daemon
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/blog-server start
+ExecStop=/usr/local/bin/blog-server stop
+Restart=on-failure
+User=www-data
+WorkingDirectory=/var/www/blog
+
+[Install]
+WantedBy=multi-user.target

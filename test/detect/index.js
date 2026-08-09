@@ -17,7 +17,8 @@ function testAutoDetection(language, { detectPath }) {
     const dir = await fs.stat(languagePath);
     dir.isDirectory().should.be.true();
 
-    const filenames = await fs.readdir(languagePath);
+    const filenames = (await fs.readdir(languagePath))
+      .filter(fn => fn !== '.DS_Store');
     await Promise.all(filenames
       .map(async function(example) {
         const filename = path.join(languagePath, example);

@@ -17,15 +17,15 @@ export default function(hljs) {
   const IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.IDENT_RE);
   // ============================================
   const FUNCTION_INVOKE = {
-    className: "title.function.invoke",
+    scope: "title.function.invoke",
     relevance: 0,
     begin: regex.concat(
       /\b/,
-      /(?!let|for|while|if|else|match\b)/,
+      /(?!(?:let|for|while|if|else|match)\b)/,
       IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
-  const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
+  const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(16|32|64|128))\?';
   const KEYWORDS = [
     "abstract",
     "as",
@@ -59,6 +59,7 @@ export default function(hljs) {
     "override",
     "priv",
     "pub",
+    "raw",
     "ref",
     "return",
     "self",
@@ -169,8 +170,10 @@ export default function(hljs) {
     "u64",
     "u128",
     "usize",
+    "f16",
     "f32",
     "f64",
+    "f128",
     "str",
     "char",
     "bool",
@@ -199,6 +202,11 @@ export default function(hljs) {
         illegal: null
       }),
       {
+        scope: 'symbol',
+        // negative lookahead to avoid matching `'`
+        begin: /'[a-zA-Z_][a-zA-Z0-9_]*(?!')/
+      },
+      {
         scope: 'string',
         variants: [
           { begin: /b?r(#*)"(.|\n)*?"\1(?!#)/ },
@@ -208,18 +216,14 @@ export default function(hljs) {
             contains: [
               {
                 scope: "char.escape",
-                match: /\\(\w|x\w{2}|u\w{4}|U\w{8})/
+                match: /\\('|"|\\|\w|x\w{2}|u\w{4}|U\w{8})/
               }
             ]
           }
         ]
       },
       {
-        className: 'symbol',
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
-      },
-      {
-        className: 'number',
+        scope: 'number',
         variants: [
           { begin: '\\b0b([01_]+)' + NUMBER_SUFFIX },
           { begin: '\\b0o([0-7_]+)' + NUMBER_SUFFIX },
@@ -231,22 +235,33 @@ export default function(hljs) {
       },
       {
         begin: [
+          /\bsafe/,
+          /\s+/,
+          /extern/,
+        ],
+        scope: {
+          1: "keyword",
+          3: "keyword",
+        }
+      },
+      {
+        begin: [
           /fn/,
           /\s+/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.function"
         }
       },
       {
-        className: 'meta',
+        scope: 'meta',
         begin: '#!?\\[',
         end: '\\]',
         contains: [
           {
-            className: 'string',
+            scope: 'string',
             begin: /"/,
             end: /"/,
             contains: [
@@ -262,7 +277,7 @@ export default function(hljs) {
           /(?:mut\s+)?/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "keyword",
           4: "variable"
@@ -277,7 +292,7 @@ export default function(hljs) {
           /\s+/,
           /in/
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "variable",
           5: "keyword"
@@ -289,7 +304,7 @@ export default function(hljs) {
           /\s+/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.class"
         }
@@ -300,7 +315,7 @@ export default function(hljs) {
           /\s+/,
           UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.class"
         }
@@ -314,7 +329,7 @@ export default function(hljs) {
         }
       },
       {
-        className: "punctuation",
+        scope: "punctuation",
         begin: '->'
       },
       FUNCTION_INVOKE
