@@ -70,7 +70,7 @@
     "commander": "^12.1.0",
     "css": "^3.0.0",
     "css-color-names": "^1.0.1",
-    "deep-freeze-es6": "^3.0.2",
+    "deep-freeze-es6": "^5.0.0",
     "del": "^8.0.0",
     "dependency-resolver": "^2.0.1",
     "eslint": "^8.57.0",
