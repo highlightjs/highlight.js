@@ -1,8 +1,8 @@
-<span class="hljs-class"><span class="hljs-keyword">data</span> <span class="hljs-type">Expr</span> a <span class="hljs-keyword">where</span></span>
+<span class="hljs-keyword">data</span> <span class="hljs-type">Expr</span> a <span class="hljs-keyword">where</span>
   <span class="hljs-type">Lit</span> :: <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">Expr</span> <span class="hljs-type">Int</span>
 
-<span class="hljs-class"><span class="hljs-keyword">newtype</span> <span class="hljs-type">Identity</span> a <span class="hljs-keyword">where</span></span>
+<span class="hljs-keyword">newtype</span> <span class="hljs-type">Identity</span> a <span class="hljs-keyword">where</span>
   <span class="hljs-type">Identity</span> :: a -&gt; <span class="hljs-type">Identity</span> a
 
-<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-keyword">family</span> <span class="hljs-type">Element</span> c <span class="hljs-keyword">where</span></span>
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">family</span> <span class="hljs-type">Element</span> c <span class="hljs-keyword">where</span>
   <span class="hljs-type">Element</span> [a] = a
