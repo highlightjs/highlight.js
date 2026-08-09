@@ -17,6 +17,7 @@ const fs = require('fs');
 const { clean } = require('./lib/makestuff.js');
 const { emitThemes } = require('./esm/emit_themes.js');
 const { emitLanguages } = require('./esm/emit_languages.js');
+const { bundleCore } = require('./esm/bundle_core.js');
 
 const MODES = ['npm', 'cdn', 'all'];
 const ROOT = path.dirname(__dirname);
@@ -84,14 +85,19 @@ async function buildMode(m) {
   });
   console.log(`build_esm: languages count=${langStats.count}`);
 
+  console.log('build_esm: bundling core.');
+  const coreStats = await bundleCore({ minify: doMinify });
+  console.log(`build_esm: core ${coreStats.file}${coreStats.minFile ? ` + ${coreStats.minFile}` : ''}`);
+
   const marker = {
     pipeline: 'build_esm',
-    step: 'A3-languages',
+    step: 'A4-core',
     mode: m,
     minify: doMinify,
     languages: languageFilter.length ? languageFilter : null,
     themes: themeStats,
     languageCount: langStats.count,
+    core: coreStats,
     createdAt: new Date().toISOString()
   };
   fs.writeFileSync(
