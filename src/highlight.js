@@ -3,8 +3,6 @@ Syntax highlighting with language autodetection.
 https://highlightjs.org/
 */
 
-// @ts-ignore
-import deepFreeze from 'deep-freeze-es6';
 import Response from './lib/response.js';
 import TokenTreeEmitter from './lib/token_tree.js';
 import * as regex from './lib/regex.js';
@@ -1030,7 +1028,7 @@ const HLJS = function(hljs) {
     // @ts-ignore
     if (typeof MODES[key] === "object") {
       // @ts-ignore
-      deepFreeze(MODES[key]);
+      utils.deepFreeze(MODES[key]);
     }
   }
 
