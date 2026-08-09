@@ -231,13 +231,11 @@ export default function(hljs) {
   );
 
   const CLASS_REFERENCE = {
-    relevance: 0,
     match: CLASS_NAME_RE,
     scope: "title.class"
   };
 
   const FUNCTION_REFERENCE = {
-    relevance: 0,
     match: /[a-z][A-Za-z0-9]*(?=\()/,
     scope: "title.function"
   };
@@ -284,8 +282,6 @@ export default function(hljs) {
       {
         className: 'meta',
         begin: '@[A-Za-z]+'
-      },
-      { begin: '=>' // No markup, just a relevance booster
       }
     ]
   };
