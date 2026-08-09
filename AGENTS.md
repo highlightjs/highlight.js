@@ -46,6 +46,31 @@ Do not claim assistance on commits that were fully human.
 
 When a PR **touches** a mode that still sets `relevance`, remove `relevance` from that mode (or ask the author to remove it) as part of the change—same “touch it, modernize it” rule as `className` → `scope`.
 
+### Prefer lookarounds over `on:begin` / `on:end` callbacks
+
+When a rule is really “match this, except these cases,” prefer **pure regex** (especially negative lookahead/lookbehind) over `"on:begin"` / `"on:end"` callbacks that call `ignoreMatch()`.
+
+Callbacks run in JS on every candidate match and are harder to optimize; lookarounds stay in the regex engine.
+
+```js
+// preferred — exclude statement keywords that look like calls
+{
+  match: /\b(?!(?:if|for|while|switch)\b)[a-z_][A-Za-z0-9_]*(?=\()/,
+  scope: "title.function"
+}
+
+// avoid when a lookahead suffices
+{
+  match: /\b[a-z_][A-Za-z0-9_]*(?=\()/,
+  scope: "title.function",
+  "on:begin": (m, resp) => {
+    if (/^(?:if|for|while|switch)$/.test(m[0])) resp.ignoreMatch();
+  }
+}
+```
+
+Callbacks are still fine when the decision needs sets, multi-match state, paired begin/end checks, or other logic regex cannot express cleanly.
+
 ### `scope` vs `beginScope` / `endScope`
 
 These are **not** interchangeable (see `docs/mode-reference.rst`):
