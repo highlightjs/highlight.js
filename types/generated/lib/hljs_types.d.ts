@@ -1,6 +1,3 @@
-export type VuePlugin = {
-    install: (vue: any) => void;
-};
 export type RegexEitherOptions = {
     capture?: boolean;
 };
@@ -208,7 +205,6 @@ export type PublicApi = {
     debugMode: () => void;
     safeMode: () => void;
     versionString: string;
-    vuePlugin: () => VuePlugin;
     regex: {
         concat: (...args: (RegExp | string)[]) => string;
         lookahead: (re: RegExp | string) => string;

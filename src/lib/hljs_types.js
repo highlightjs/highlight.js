@@ -4,11 +4,6 @@
  */
 
 /**
- * @typedef {object} VuePlugin
- * @property {(vue: any) => void} install
- */
-
-/**
  * @typedef {object} RegexEitherOptions
  * @property {boolean} [capture]
  */
@@ -252,7 +247,6 @@
  * @property {() => void} debugMode
  * @property {() => void} safeMode
  * @property {string} versionString
- * @property {() => VuePlugin} vuePlugin
  * @property {{
  *   concat: (...args: (RegExp | string)[]) => string,
  *   lookahead: (re: RegExp | string) => string,

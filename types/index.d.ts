@@ -7,7 +7,6 @@ export { default } from './generated/highlight.js';
 
 // Public API types only (private aliases: import from 'highlight.js/private').
 export type {
-  VuePlugin,
   RegexEitherOptions,
   HighlightOptions,
   illegalData,
