@@ -14,6 +14,20 @@ Given a blog post named "Random" with Markdown body
   consectetur adipiscing elit.
   ```
 
+Given a typed docstring
+  """markdown
+  body
+  """ trailing
+  still in docstring
+  """
+
+Given a typed backtick docstring
+  ```markdown
+  body
+  ``` trailing
+  still in docstring
+  ```
+
 Given the following users exist:
   | name   | email              | twitter         |
   | Aslak  | aslak@cucumber.io  | @aslak_hellesoy |

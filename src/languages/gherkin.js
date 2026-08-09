@@ -70,12 +70,13 @@ export default function(hljs) {
         variants: [
           {
             // Optional content type after opener, e.g. """markdown
+            // Closer must be alone on the line (indent + delimiter only).
             begin: /^[ \t]*"""\w*/,
-            end: /^[ \t]*"""/
+            end: /^[ \t]*"""[ \t]*$/
           },
           {
             begin: /^[ \t]*```\w*/,
-            end: /^[ \t]*```/
+            end: /^[ \t]*```[ \t]*$/
           }
         ]
       },
