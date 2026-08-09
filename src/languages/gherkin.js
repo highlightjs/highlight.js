@@ -10,67 +10,106 @@ const VARIABLE = {
   begin: /<[^>\s]+>/
 };
 
+// Leading indent is part of multi-match (unscoped); Gherkin keywords are line-head only.
+// https://cucumber.io/docs/gherkin/reference/
+const LINE_START = /^[ \t]*/;
+
 export default function(hljs) {
+  const STEP_KEYWORDS = {
+    begin: [
+      LINE_START,
+      /\b(?:Given|When|Then|And|But)\b/
+    ],
+    beginScope: {
+      2: 'keyword'
+    },
+    end: /$/,
+    contains: [
+      VARIABLE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
+
+  const STAR_STEP = {
+    begin: [
+      LINE_START,
+      /\*(?=[ \t])/
+    ],
+    beginScope: {
+      2: 'keyword'
+    },
+    end: /$/,
+    contains: [
+      VARIABLE,
+      hljs.QUOTE_STRING_MODE
+    ]
+  };
+
   return {
     name: 'Gherkin',
     aliases: [ 'feature' ],
-    // No global keywords since they're all situational
+    // No global keywords — they are line-head structural tokens only
     contains: [
       {
-        // Eat whitespace at the start of the line
-        begin: /^[ \t]+/,
-        relevance: 0,
+        scope: 'comment',
+        begin: /^[ \t]*#/,
+        end: /$/
       },
       {
-        // "Business Need" and "Ability" are not part of the spec above, but are included in the English "translation"
-        // https://cucumber.io/docs/gherkin/languages/#gherkin-dialect-en-content
+        // One or more tags on a line (after optional indent)
         begin: [
-          /(Feature|Business Need|Ability|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
-          /:/
+          LINE_START,
+          /@[^@\s]+(?:[ \t]+@[^@\s]+)*/
         ],
         beginScope: {
-          1: 'keyword',
-          2: 'punctuation',
-        },
-        end: /$/,
-        relevance: 10,
-        contains: [ VARIABLE ]
+          2: 'meta'
+        }
       },
-      {
-        begin: /(?:Given|When|Then|And|But)\b/,
-        beginScope: 'keyword',
-        end: /$/,
-        contains: [ VARIABLE ]
-      },
-      {
-        begin: /\*(?=[ \t])/,
-        relevance: 0,
-        beginScope: 'keyword',
-        end: /$/,
-        contains: [ VARIABLE ]
-      },
-      {
-        scope: 'meta',
-        begin: /@[^@\s]+/
-      },
-      hljs.HASH_COMMENT_MODE,
       {
         scope: 'string',
         variants: [
           {
-            begin: /"""/,
-            end: /"""/
+            // Optional content type after opener, e.g. """markdown
+            begin: /^[ \t]*"""\w*/,
+            end: /^[ \t]*"""/
           },
           {
-            begin: /```/,
-            end: /```/
+            begin: /^[ \t]*```\w*/,
+            end: /^[ \t]*```/
           }
         ]
       },
       {
-        begin: /\|.*\|$/,
-        scope: 'string'
+        // "Business Need" and "Ability" are English dialect aliases, not primary keywords:
+        // https://cucumber.io/docs/gherkin/languages/#gherkin-dialect-en-content
+        begin: [
+          LINE_START,
+          /(Feature|Business Need|Ability|Rule|Examples?|Scenario(?:s| Outline| Template)?|Background)/,
+          /:/
+        ],
+        beginScope: {
+          2: 'keyword',
+          3: 'punctuation'
+        },
+        end: /$/,
+        contains: [
+          VARIABLE,
+          hljs.QUOTE_STRING_MODE
+        ]
       },
+      STEP_KEYWORDS,
+      STAR_STEP,
+      {
+        begin: /\|/,
+        end: /\|\w*$/,
+        contains: [
+          {
+            scope: 'string',
+            begin: /[^|]+/,
+            contains: [ VARIABLE ]
+          }
+        ]
+      }
     ]
   };
 }

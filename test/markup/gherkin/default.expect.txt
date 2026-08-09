@@ -12,14 +12,14 @@
     <span class="hljs-keyword">When</span> I press <span class="hljs-variable">&lt;button&gt;</span>
     <span class="hljs-keyword">Then</span> the result should be <span class="hljs-variable">&lt;output&gt;</span> on the screen
     <span class="hljs-keyword">And</span> I have a string like
-    <span class="hljs-string">&quot;&quot;&quot;
+<span class="hljs-string">    &quot;&quot;&quot;
     Here is
     some
     multiline text
     &quot;&quot;&quot;</span>
 
   <span class="hljs-keyword">Examples</span><span class="hljs-punctuation">:</span>
-    <span class="hljs-string">| input_1 | input_2 | button | output |</span>
-    <span class="hljs-string">| 20      | 30      | add    | 50     |</span>
-    <span class="hljs-string">| 2       | 5       | add    | 7      |</span>
-    <span class="hljs-string">| 0       | 40      | add    | 40     |</span>
+    |<span class="hljs-string"> input_1 </span>|<span class="hljs-string"> input_2 </span>|<span class="hljs-string"> button </span>|<span class="hljs-string"> output </span>|
+    |<span class="hljs-string"> 20      </span>|<span class="hljs-string"> 30      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 50     </span>|
+    |<span class="hljs-string"> 2       </span>|<span class="hljs-string"> 5       </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 7      </span>|
+    |<span class="hljs-string"> 0       </span>|<span class="hljs-string"> 40      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 40     </span>|
