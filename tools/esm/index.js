@@ -1,6 +1,7 @@
 'use strict';
 
-// Placeholder package for build_esm helpers (A2+).
-// Intentionally empty until emit/bundle steps land.
+const { emitThemes } = require('./emit_themes.js');
 
-module.exports = {};
+module.exports = {
+  emitThemes
+};

@@ -9,14 +9,13 @@
  *     highlight.js
  *     languages/*.js
  *     themes/**
- *
- * A1: scaffold only — cleans output dir and writes a marker. Emit steps land later.
  */
 
 const { program } = require('commander');
 const path = require('path');
 const fs = require('fs');
 const { clean } = require('./lib/makestuff.js');
+const { emitThemes } = require('./esm/emit_themes.js');
 
 const MODES = ['npm', 'cdn', 'all'];
 const ROOT = path.dirname(__dirname);
@@ -67,19 +66,24 @@ async function buildMode(m) {
   }
 
   const buildDir = modeBuildDir(m);
-  // Keep BUILD_DIR local to this pipeline so we never clobber legacy build/ used by tests
-  // unless the user deliberately points --out at build/.
   process.env.BUILD_DIR = buildDir;
 
   console.log(`build_esm: mode=${m} out=${buildDir}`);
   await clean(buildDir);
 
+  fs.mkdirSync(path.join(buildDir, 'languages'), { recursive: true });
+
+  console.log('build_esm: writing themes.');
+  const themeStats = emitThemes();
+  console.log(`build_esm: themes css=${themeStats.css} other=${themeStats.other}`);
+
   const marker = {
     pipeline: 'build_esm',
-    step: 'A1-scaffold',
+    step: 'A2-themes',
     mode: m,
     minify: opts.minify !== false,
     languages: languages.length ? languages : null,
+    themes: themeStats,
     createdAt: new Date().toISOString()
   };
   fs.writeFileSync(
@@ -87,11 +91,7 @@ async function buildMode(m) {
     `${JSON.stringify(marker, null, 2)}\n`
   );
 
-  // Placeholders for the agreed layout (filled in A2–A4)
-  fs.mkdirSync(path.join(buildDir, 'languages'), { recursive: true });
-  fs.mkdirSync(path.join(buildDir, 'themes'), { recursive: true });
-
-  console.log(`build_esm: wrote scaffold under ${buildDir}`);
+  console.log(`build_esm: wrote under ${buildDir}`);
 }
 
 async function main() {
