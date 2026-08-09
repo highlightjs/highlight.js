@@ -1,5 +1,5 @@
-/** @typedef {import('highlight.js').Mode} Mode */
-/** @typedef {import('highlight.js').ModeCallback} ModeCallback */
+/** @typedef {import('./hljs_types.js').Mode} Mode */
+/** @typedef {import('./hljs_types.js').ModeCallback} ModeCallback */
 /** @type {RegExp} */
 export const MATCH_NOTHING_RE: RegExp;
 /** @type {string} */
@@ -47,5 +47,5 @@ export const UNDERSCORE_TITLE_MODE: Mode;
 /** @type {Mode} */
 export const METHOD_GUARD: Mode;
 export function END_SAME_AS_BEGIN(mode: Mode): Mode;
-export type Mode = import("highlight.js").Mode;
-export type ModeCallback = import("highlight.js").ModeCallback;
+export type Mode = import("./hljs_types.js").Mode;
+export type ModeCallback = import("./hljs_types.js").ModeCallback;

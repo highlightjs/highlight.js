@@ -13,15 +13,13 @@
     "skipLibCheck": true,
     "rootDir": "./src",
     "outDir": "./types/generated",
-    "baseUrl": ".",
-    "paths": {
-      "highlight.js": ["./types/index.d.ts"],
-      "highlight.js/*": ["./types/index.d.ts"]
-    }
+    "lib": ["es2016", "dom"],
+    "resolveJsonModule": true,
+    "noEmitOnError": false,
+    "maxNodeModuleJsDepth": 0
   },
   "include": [
-    "src/lib/regex.js",
-    "src/lib/utils.js",
-    "src/lib/modes.js"
+    "src/highlight.js",
+    "src/lib/**/*.js"
   ]
 }

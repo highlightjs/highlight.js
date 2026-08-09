@@ -152,10 +152,15 @@ async function buildNode(options) {
   mkdir("scss/base16");
   mkdir("styles/base16");
   mkdir("types");
+  mkdir("types/generated");
 
 
   CORE_FILES.forEach(file => {
     install(`./${file}`, file);
+  });
+  // emitted declarations (JSDoc → .d.ts)
+  glob.sync("**/*", { cwd: "./types/generated", nodir: true }).forEach((file) => {
+    install(`./types/generated/${file}`, `types/generated/${file}`);
   });
   install("./src/core.d.ts", "lib/core.d.ts");
   install("./src/core.d.ts", "lib/common.d.ts");

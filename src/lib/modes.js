@@ -1,8 +1,8 @@
 import { inherit } from './utils.js';
 import * as regex from './regex.js';
 
-/** @typedef {import('highlight.js').Mode} Mode */
-/** @typedef {import('highlight.js').ModeCallback} ModeCallback */
+/** @typedef {import('./hljs_types.js').Mode} Mode */
+/** @typedef {import('./hljs_types.js').ModeCallback} ModeCallback */
 
 // Common regexps
 /** @type {RegExp} */

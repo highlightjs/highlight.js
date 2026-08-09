@@ -2,6 +2,7 @@ import * as regex from "../regex.js";
 
 // allow beforeMatch to act as a "qualifier" for the match
 // the full match begin must be [beforeMatch][begin]
+/** @type {import('../hljs_types.js').CompilerExt} */
 export const beforeMatchExt = (mode, parent) => {
   if (!mode.beforeMatch) return;
   // starts conflicts with endsParent which we need to make sure the child
@@ -9,10 +10,13 @@ export const beforeMatchExt = (mode, parent) => {
   if (mode.starts) throw new Error("beforeMatch cannot be used with starts");
 
   const originalMode = Object.assign({}, mode);
-  Object.keys(mode).forEach((key) => { delete mode[key]; });
+  Object.keys(mode).forEach((key) => { delete /** @type {any} */ (mode)[key]; });
 
   mode.keywords = originalMode.keywords;
-  mode.begin = regex.concat(originalMode.beforeMatch, regex.lookahead(originalMode.begin));
+  mode.begin = regex.concat(
+    originalMode.beforeMatch,
+    regex.lookahead(/** @type {string | RegExp} */ (originalMode.begin))
+  );
   mode.starts = {
     relevance: 0,
     contains: [
