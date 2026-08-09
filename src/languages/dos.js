@@ -149,7 +149,7 @@ export default function(hljs) {
       {
         className: 'function',
         begin: LABEL.begin,
-        end: /goto\s*:eof/i,
+        end: /goto\s*:eof/,
         contains: [
           hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
           COMMENT
