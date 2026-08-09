@@ -1,0 +1,7 @@
+goto :main
+:main
+echo hello
+goto :eof
+:cleanup
+del temp.txt
+goto:eof

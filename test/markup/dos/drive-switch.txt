@@ -1,0 +1,7 @@
+rem This highlight works.
+copy file.txt other.txt
+rem After next line it should still highlight.
+D:
+cd "D:\Folder"
+md Tmp
+del Tmp\*.* /q
