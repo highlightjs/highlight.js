@@ -326,8 +326,7 @@ export default function(hljs) {
     METHOD_DEFINITION,
     {
       // swallow the scope resolution operator so `::` is not read as a symbol
-      begin: '::',
-      relevance: 0
+      begin: '::'
     },
     {
       className: 'symbol',
