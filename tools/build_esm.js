@@ -19,6 +19,7 @@ const { emitThemes } = require('./esm/emit_themes.js');
 const { emitLanguages } = require('./esm/emit_languages.js');
 const { bundleCore } = require('./esm/bundle_core.js');
 const { emitPackage } = require('./esm/package_json.js');
+const { writeAliasMap } = require('./esm/build_alias_map.js');
 
 const MODES = ['npm', 'cdn', 'all'];
 const ROOT = path.dirname(__dirname);
@@ -74,6 +75,10 @@ async function buildMode(m) {
 
   console.log(`build_esm: mode=${m} out=${buildDir} minify=${doMinify}`);
   await clean(buildDir);
+
+  console.log('build_esm: extracting grammar aliases.');
+  const aliasStats = writeAliasMap();
+  console.log(`build_esm: alias map keys=${aliasStats.count}`);
 
   console.log('build_esm: writing themes.');
   const themeStats = emitThemes();

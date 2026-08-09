@@ -14,6 +14,7 @@ import starters from './starters.mjs'
 import underscoreIdent from './underscoreIdent.mjs'
 import multiClassMatch from './multiClassMatch.mjs'
 import normalizeLineEncoding from './normalizeLineEncoding.mjs'
+import loadLanguage from './loadLanguage.mjs'
 
 describe('api', function() {
   beginKeywords.apply(this);
@@ -30,4 +31,5 @@ describe('api', function() {
   underscoreIdent.apply(this);
   multiClassMatch.apply(this);
   normalizeLineEncoding.apply(this);
+  loadLanguage.apply(this);
 });

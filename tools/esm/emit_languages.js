@@ -68,40 +68,13 @@ async function emitLanguages(options = {}) {
   names.sort();
   meta.sort((a, b) => a.name.localeCompare(b.name));
 
+  // Canonical registry for tooling + alias maps (no languages/index or all barrel).
   fs.writeFileSync(
     path.join(process.env.BUILD_DIR, 'languages.json'),
     `${JSON.stringify({ languages: meta }, null, 2)}\n`
   );
 
-  // Registry helper next to grammar files (dynamic import per name).
-  const indexSrc = `${headerIndex(packageJSON.version)}
-const languages = ${JSON.stringify(names, null, 2)};
-
-/** @returns {readonly string[]} */
-export function listLanguages() {
-  return languages;
-}
-
-/**
- * @param {string} name
- * @returns {Promise<(hljs: object) => object>}
- */
-export function loadLanguage(name) {
-  if (!languages.includes(name)) {
-    return Promise.reject(new Error(\`Unknown language: \${name}\`));
-  }
-  return import(\`./\${name}.js\`).then((m) => m.default);
-}
-
-export default languages;
-`;
-  fs.writeFileSync(path.join(process.env.BUILD_DIR, 'languages', 'index.js'), indexSrc);
-
   return { count: names.length, names };
-}
-
-function headerIndex(version) {
-  return `/*! Highlight.js v${version} language registry */\n`;
 }
 
 async function bundleLanguageESM(language) {

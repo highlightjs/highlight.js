@@ -34,7 +34,6 @@ function generateExports() {
     },
     './languages/*': './languages/*.js',
     './languages/*.js': './languages/*.js',
-    './languages/index.js': './languages/index.js',
     './languages.json': './languages.json',
     './themes/*': './themes/*',
     './types/*': './types/*'

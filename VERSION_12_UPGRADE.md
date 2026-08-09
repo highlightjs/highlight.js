@@ -27,6 +27,34 @@ Themes may include changes to improve accessibility (increase contrast).  If you
 TODO: complete
 
 
+### DOM highlighting is async; grammars can load on demand
+
+`highlightElement` and `highlightAll` return **Promises**. They may dynamically
+import grammar modules when a language is not yet registered.
+
+```js
+hljs.configure({ grammarPath: '/assets/languages/' });
+await hljs.highlightAll();
+// or
+await hljs.highlightElement(document.querySelector('pre code'));
+```
+
+- **`highlight(code, { language })` stays synchronous** — the language must
+  already be registered (or load it first with `await hljs.loadLanguage(...)`).
+- Built-in aliases (`js` → `javascript`, etc.) are baked into the core build.
+- Third-party grammars: teach the loader with `registerAliases`:
+
+```js
+hljs.registerAliases(['uc'], {
+  languageName: 'unicorn',
+  url: 'https://cdn.example/unicorn.js' // optional; else grammarPath + "unicorn.js"
+});
+await hljs.loadLanguage('uc');
+```
+
+See the API docs for `registerAliases`, `loadLanguage`, and `grammarPath`.
+
+
 ### Language auto-detection (`highlightAuto`) has been removed
 
 `hljs.highlightAuto()` is no longer available. Highlight.js no longer performs

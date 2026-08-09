@@ -97,7 +97,7 @@ let overrides = [
 let my_config = {
   files: ["src/*.js", "src/lib/**/*.js"],
   languageOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: "module",
     globals: browserAndNodeGlobals
   },

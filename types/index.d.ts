@@ -30,14 +30,16 @@ declare module 'highlight.js' {
 
     interface PublicApi {
         highlight(code: string, options: HighlightOptions): HighlightResult
-        highlightElement: (element: HTMLElement) => void
+        highlightElement: (element: HTMLElement) => Promise<void>
         configure: (options: Partial<HLJSOptions>) => void
-        highlightAll: () => void
+        highlightAll: () => Promise<void>
         registerLanguage: (languageName: string, language: LanguageFn) => void
         unregisterLanguage: (languageName: string) => void
         listLanguages: () => string[]
-        registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void
+        registerAliases: (aliasList: string | string[], options: { languageName: string, url?: string }) => void
         getLanguage: (languageName: string) => Language | undefined
+        loadLanguage: (nameOrAlias: string, options?: { grammarPath?: string }) => Promise<Language | undefined>
+        loadLanguages: (namesOrAliases: string[], options?: { grammarPath?: string }) => Promise<Array<Language | undefined>>
         inherit: <T>(original: T, ...args: Record<string, any>[]) => T
         addPlugin: (plugin: HLJSPlugin) => void
         removePlugin: (plugin: HLJSPlugin) => void
@@ -133,6 +135,7 @@ declare module 'highlight.js' {
         languageDetectRe: RegExp
         classPrefix: string
         cssSelector: string
+        grammarPath?: string | null
         __emitter: EmitterConstructor
         ignoreUnescapedHTML?: boolean
         throwUnescapedHTML?: boolean

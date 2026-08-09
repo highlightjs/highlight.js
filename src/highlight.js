@@ -14,6 +14,7 @@ import { compileLanguage } from './lib/mode_compiler.js';
 import * as packageJSON from '../package.json';
 import * as logger from "./lib/logger.js";
 import HTMLInjectionError from "./lib/html_injection_error.js";
+import GRAMMAR_ALIASES from './lib/grammar_aliases.js';
 
 
 /**
@@ -53,6 +54,12 @@ const HighlightJS = function() {
   const languages = Object.create(null);
   /** @type {Record<string, string>} */
   const aliases = Object.create(null);
+  /**
+   * Dynamic-load catalog: lowercase alias/id → { id, url? }.
+   * Filled by registerAliases (3rd-party) and consulted by loadLanguage.
+   * @type {Record<string, { id: string, url?: string }>}
+   */
+  const grammarModules = Object.create(null);
   /** @type {HLJSPlugin[]} */
   const plugins = [];
 
@@ -73,10 +80,16 @@ const HighlightJS = function() {
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     cssSelector: 'pre code',
+    // prefix for dynamic grammar imports, e.g. "https://cdn.example/languages/"
+    // final URL = grammarPath + canonicalId + ".js"
+    grammarPath: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
     __emitter: TokenTreeEmitter
   };
+
+  /** @type {Map<string, Promise<Language|undefined>>} */
+  const languageLoads = new Map();
 
   /* Utility functions */
 
@@ -89,7 +102,11 @@ const HighlightJS = function() {
   }
 
   /**
-   * @param {HighlightedHTMLElement} block - the HTML element to determine language for
+   * Detect requested language name from element classes (may be alias or unknown).
+   * Does not require the grammar to already be registered (v12 lazy load).
+   *
+   * @param {HighlightedHTMLElement} block
+   * @returns {string|undefined}
    */
   function blockLanguage(block) {
     let classes = block.className + ' ';
@@ -99,17 +116,138 @@ const HighlightJS = function() {
     // language-* takes precedence over non-prefixed class names.
     const match = options.languageDetectRe.exec(classes);
     if (match) {
-      const language = getLanguage(match[1]);
-      if (!language) {
-        logger.warn(LANGUAGE_NOT_FOUND.replace("{}", match[1]));
-        logger.warn("Falling back to no-highlight mode for this block.", block);
-      }
-      return language ? match[1] : 'no-highlight';
+      return match[1];
     }
 
     return classes
       .split(/\s+/)
-      .find((_class) => shouldNotHighlight(_class) || getLanguage(_class));
+      .find((_class) => shouldNotHighlight(_class) || getLanguage(_class) || resolveGrammarId(_class));
+  }
+
+  /**
+   * @param {string} nameOrAlias
+   * @returns {string|undefined} canonical grammar id (filename without .js)
+   */
+  function resolveGrammarId(nameOrAlias) {
+    if (!nameOrAlias) return;
+    const key = String(nameOrAlias).toLowerCase();
+    if (grammarModules[key]) return grammarModules[key].id;
+    if (GRAMMAR_ALIASES[key]) return GRAMMAR_ALIASES[key];
+    // runtime alias from registerAliases / registerLanguage
+    if (aliases[key]) return aliases[key];
+  }
+
+  /**
+   * @param {string} nameOrAlias
+   * @param {string} canonicalId
+   * @returns {string|undefined} explicit module URL if registered
+   */
+  function resolveGrammarUrl(nameOrAlias, canonicalId) {
+    const keys = [
+      String(nameOrAlias || '').toLowerCase(),
+      String(canonicalId || '').toLowerCase()
+    ];
+    for (const key of keys) {
+      if (key && grammarModules[key] && grammarModules[key].url) {
+        return grammarModules[key].url;
+      }
+    }
+  }
+
+  /**
+   * @param {string} [path]
+   * @returns {string}
+   */
+  function normalizeGrammarPath(path) {
+    if (path == null || path === '') {
+      throw new Error(
+        'grammarPath is not configured. '
+        + 'Call hljs.configure({ grammarPath: "https://example/languages/" }) '
+        + 'or pass { grammarPath } to loadLanguage(), '
+        + 'or registerAliases(name, { languageName, url }).'
+      );
+    }
+    return path.endsWith('/') ? path : `${path}/`;
+  }
+
+  /**
+   * Record a loadable module id (and optional URL) for dynamic import.
+   * @param {string} lookupName - alias or canonical id (lookup key)
+   * @param {string} languageName - canonical id / registerLanguage name
+   * @param {string} [url]
+   */
+  function rememberGrammarModule(lookupName, languageName, url) {
+    const key = String(lookupName).toLowerCase();
+    const prev = grammarModules[key];
+    const entry = { id: languageName };
+    const resolvedUrl = url || (prev && prev.url);
+    // eslint-disable-next-line no-undefined
+    if (resolvedUrl !== undefined && resolvedUrl !== null && resolvedUrl !== '') {
+      entry.url = resolvedUrl;
+    }
+    grammarModules[key] = entry;
+  }
+
+  /**
+   * Dynamically import and register a language grammar module.
+   * Dedupes concurrent loads of the same canonical id.
+   *
+   * @param {string} nameOrAlias
+   * @param {{ grammarPath?: string }} [opts]
+   * @returns {Promise<Language|undefined>}
+   */
+  function loadLanguage(nameOrAlias, opts = {}) {
+    const canonical = resolveGrammarId(nameOrAlias);
+    if (!canonical) {
+      return Promise.reject(
+        new Error(LANGUAGE_NOT_FOUND.replace("{}", nameOrAlias))
+      );
+    }
+
+    if (getLanguage(canonical) || getLanguage(nameOrAlias)) {
+      return Promise.resolve(getLanguage(canonical) || getLanguage(nameOrAlias));
+    }
+
+    const existing = languageLoads.get(canonical);
+    if (existing) return existing;
+
+    let url = resolveGrammarUrl(nameOrAlias, canonical);
+    if (!url) {
+      try {
+        // eslint-disable-next-line no-undefined
+        const pathOpt = opts.grammarPath !== undefined ? opts.grammarPath : options.grammarPath;
+        url = `${normalizeGrammarPath(pathOpt)}${canonical}.js`;
+      } catch (err) {
+        return Promise.reject(err);
+      }
+    }
+
+    const pending = import(url)
+      .then((mod) => {
+        const fn = mod && mod.default;
+        if (typeof fn !== 'function') {
+          throw new Error(`Grammar module for '${canonical}' does not export a default language function (${url})`);
+        }
+        registerLanguage(canonical, fn);
+        return getLanguage(canonical);
+      })
+      .finally(() => {
+        languageLoads.delete(canonical);
+      });
+
+    languageLoads.set(canonical, pending);
+    return pending;
+  }
+
+  /**
+   * @param {string[]} namesOrAliases
+   * @param {{ grammarPath?: string }} [opts]
+   * @returns {Promise<Array<Language|undefined>>}
+   */
+  function loadLanguages(namesOrAliases, opts = {}) {
+    return Promise.all(
+      (namesOrAliases || []).map((name) => loadLanguage(name, opts))
+    );
   }
 
   /**
@@ -622,15 +760,17 @@ const HighlightJS = function() {
 
   /**
    * Applies highlighting to a DOM node containing code.
+   * Async in v12: may load the grammar via grammarPath, then paint.
    *
    * @param {HighlightedHTMLElement} element - the HTML element to highlight
+   * @returns {Promise<void>}
   */
-  function highlightElement(element) {
+  async function highlightElement(element) {
     /** @type HTMLElement */
     let node = null;
     const language = blockLanguage(element);
 
-    if (shouldNotHighlight(language)) return;
+    if (!language || shouldNotHighlight(language)) return;
 
     fire("before:highlightElement",
       { el: element, language });
@@ -661,6 +801,10 @@ const HighlightJS = function() {
       }
     }
 
+    if (!getLanguage(language)) {
+      await loadLanguage(language);
+    }
+
     node = element;
     const text = node.textContent;
     const result = highlight(text, { language, ignoreIllegals: true });
@@ -684,29 +828,26 @@ const HighlightJS = function() {
     options = inherit(options, userOptions);
   }
 
-  let wantsHighlight = false;
-
   /**
-   * auto-highlights all pre>code elements on the page
+   * Auto-highlight all matching elements on the page.
+   * Async in v12: loads grammars as needed (deduped), then paints.
+   *
+   * @returns {Promise<void>}
    */
   function highlightAll() {
-    function boot() {
-      // if a highlight was requested before DOM was loaded, do now
-      highlightAll();
-    }
-
     // if we are called too early in the loading process
-    if (document.readyState === "loading") {
-      // make sure the event listener is only added once
-      if (!wantsHighlight) {
-        window.addEventListener('DOMContentLoaded', boot, false);
-      }
-      wantsHighlight = true;
-      return;
+    if (typeof document !== "undefined" && document.readyState === "loading") {
+      return new Promise((resolve, reject) => {
+        window.addEventListener('DOMContentLoaded', () => {
+          highlightAll().then(resolve, reject);
+        }, { once: true });
+      });
     }
 
-    const blocks = document.querySelectorAll(options.cssSelector);
-    blocks.forEach(highlightElement);
+    const blocks = Array.from(document.querySelectorAll(options.cssSelector));
+    // parallel per-element; loadLanguage dedupes in-flight imports
+    return Promise.all(blocks.map((el) => highlightElement(/** @type {HighlightedHTMLElement} */ (el))))
+      .then(() => {});
   }
 
   /**
@@ -751,6 +892,11 @@ const HighlightJS = function() {
         delete aliases[alias];
       }
     }
+    for (const key of Object.keys(grammarModules)) {
+      if (grammarModules[key].id === languageName) {
+        delete grammarModules[key];
+      }
+    }
   }
 
   /**
@@ -770,15 +916,34 @@ const HighlightJS = function() {
   }
 
   /**
+   * Register aliases (and optional module URL) for a language.
+   *
+   * - Always updates getLanguage() resolution once the language is loaded.
+   * - Also teaches loadLanguage() how to resolve alias → canonical id.
+   * - Optional `url` skips grammarPath and imports that module directly
+   *   (third-party grammars).
    *
    * @param {string|string[]} aliasList - single alias or list of aliases
-   * @param {{languageName: string}} opts
+   * @param {{ languageName: string, url?: string }} opts
    */
-  function registerAliases(aliasList, { languageName }) {
+  function registerAliases(aliasList, { languageName, url } = {}) {
+    if (!languageName) {
+      throw new Error('registerAliases requires { languageName }');
+    }
     if (typeof aliasList === 'string') {
       aliasList = [aliasList];
     }
-    aliasList.forEach(alias => { aliases[alias.toLowerCase()] = languageName; });
+    if (!aliasList) {
+      aliasList = [];
+    }
+
+    // canonical id is always loadable by its own name
+    rememberGrammarModule(languageName, languageName, url);
+
+    aliasList.forEach((alias) => {
+      aliases[alias.toLowerCase()] = languageName;
+      rememberGrammarModule(alias, languageName, url);
+    });
   }
 
   /**
@@ -823,6 +988,8 @@ const HighlightJS = function() {
     listLanguages,
     getLanguage,
     registerAliases,
+    loadLanguage,
+    loadLanguages,
     inherit,
     addPlugin,
     removePlugin
