@@ -3,13 +3,20 @@
 Core Grammars:
 
 - fix(1c) limit compiler directives to the start of a line, issue #4226 [alencristen][]
+- enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
 - fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
 - fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
 - fix(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
+- fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
+- fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
+- fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
 - enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
+- enh(python) Support t-strings [Nicolas Le Cam][]
+- fix(c, cpp) scope the angle-bracket header string to `#include` so a `#define` body containing `>` no longer swallows the following quote and breaks highlighting of the rest of the file, issue #3505 [Pablo][]
+- fix(c, cpp) bound the run of type tokens in front of a function name, which made highlighting a long line of plain words take quadratic time (ReDoS), issue #4362 [Jayesh Bhade][]
 
 Documentation:
 
@@ -19,6 +26,7 @@ Documentation:
 CONTRIBUTORS
 
 [alencristen]: https://github.com/alencristen
+[Hashim Khan]: https://github.com/Hashim1999164
 [arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
 [Elastic]: https://github.com/elastic
@@ -26,6 +34,11 @@ CONTRIBUTORS
 [MarkXian]: https://github.com/MarkXian
 [Sarath Francis]: https://github.com/sarathfrancis90
 [Mark Xian]: https://github.com/xianjianlf2
+[Nicolas Le Cam]: https://github.com/KuSh
+[Konstantin Baltsat]: https://github.com/Baltsat
+[David Pavlovschii]: https://github.com/davidpavlovschi
+[Pablo]: https://github.com/MsfPablo
+[Jayesh Bhade]: https://github.com/Jaybhade
 
 
 ## Version 11.11.3
@@ -88,7 +101,6 @@ Core Grammars:
 - enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
 - enh(rust) parse f16 and f128 literals [usamoi][]
 - enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
-
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
 - enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
@@ -207,7 +219,7 @@ Core Grammars:
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 - fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
-
+- fix(llvm) fixed highlighting for C-style block comments [utam-1] 
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]

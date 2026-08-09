@@ -199,7 +199,7 @@ export default function(hljs) {
         relevance: 10
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])'''/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'''/,
         end: /'''/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -209,7 +209,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])"""/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])"""/,
         end: /"""/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -237,7 +237,7 @@ export default function(hljs) {
         end: /"/
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])'/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'/,
         end: /'/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -246,7 +246,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])"/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])"/,
         end: /"/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
