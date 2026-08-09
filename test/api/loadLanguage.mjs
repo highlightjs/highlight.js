@@ -7,8 +7,9 @@ import { hljs } from "../../build/lib/all.js";
 
 export default function() {
   describe('loadLanguage / registerAliases loader', () => {
-    const esmLangDir = path.resolve('build/esm/languages');
-    const hasEsm = fs.existsSync(path.join(esmLangDir, 'javascript.js'));
+    // Legacy node build emits grammars here; matches default import.meta.url layout for core.js
+    const langDir = path.resolve('build/lib/languages');
+    const hasLangs = fs.existsSync(path.join(langDir, 'javascript.js'));
 
     it('rejects unknown language name', async () => {
       let err = null;
@@ -21,19 +22,19 @@ export default function() {
       String(err.message).should.match(/language/i);
     });
 
-    it('default grammarPath is unused when url is provided', async function() {
-      if (!hasEsm) this.skip();
+    it('registerAliases with url loads module', async function() {
+      if (!hasLangs) this.skip();
 
-      const url = pathToFileURL(path.join(esmLangDir, 'javascript.js')).href;
+      const url = pathToFileURL(path.join(langDir, 'javascript.js')).href;
       hljs.registerAliases('zz_js_via_url', { languageName: 'javascript', url });
       const lang = await hljs.loadLanguage('zz_js_via_url');
       should.exist(lang);
     });
 
-    it('registerAliases with url loads module when language not yet registered', async function() {
-      if (!hasEsm) this.skip();
+    it('registerAliases with url loads when language not yet registered', async function() {
+      if (!hasLangs) this.skip();
 
-      const url = pathToFileURL(path.join(esmLangDir, 'python.js')).href;
+      const url = pathToFileURL(path.join(langDir, 'python.js')).href;
       hljs.registerAliases(['zz_pyy'], { languageName: 'zz_python_dyn', url });
 
       await hljs.loadLanguage('zz_pyy');
@@ -43,15 +44,24 @@ export default function() {
       r.value.should.match(/hljs-keyword/);
     });
 
-    it('loadLanguage with explicit grammarPath loads built-in by alias', async function() {
-      if (!hasEsm) this.skip();
+    it('loadLanguage with explicit grammarPath loads by name', async function() {
+      if (!hasLangs) this.skip();
 
-      // Use a name that is not already registered under a unique alias path —
-      // load via grammarPath pointing at esm languages (canonical javascript).
-      const grammarPath = pathToFileURL(esmLangDir + path.sep).href;
-      // bash may already be in all.js; loading again is fine (short-circuit).
+      const grammarPath = pathToFileURL(langDir + path.sep).href;
       await hljs.loadLanguage('bash', { grammarPath });
       should.exist(hljs.getLanguage('bash'));
+    });
+
+    it('default grammarPath loads sibling languages/ from core module', async function() {
+      if (!hasLangs) this.skip();
+
+      // Fresh instance via core only (no langs pre-registered)
+      const { HighlightJS } = await import('../../build/lib/core.js');
+      const core = HighlightJS();
+      await core.loadLanguage('xml');
+      should.exist(core.getLanguage('xml'));
+      const r = core.highlight('<a/>', { language: 'xml' });
+      r.value.should.match(/hljs-tag|hljs-name/);
     });
   });
 }
