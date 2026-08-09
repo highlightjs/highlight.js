@@ -47,10 +47,11 @@ export default function(hljs) {
     "TXT"
   ];
 
-  // RFC 1035: \DDD or \X
+  // RFC 1035: \DDD, or \X where X is not a digit (disjoint → safe under +)
+  const ESCAPE_RE = /\\(?:\d{3}|[^\d\n])/;
   const ESCAPE = {
     scope: 'char.escape',
-    match: /\\(?:\d{3}|.)/
+    match: ESCAPE_RE
   };
 
   const PUNCTUATION = {
@@ -82,7 +83,7 @@ export default function(hljs) {
           /\bTXT\b/,
           /\s+/,
           // one unquoted token (stopgap; multi-string / full RDATA mode later)
-          /(?!")(?:\\(?:\d{3}|.)|[^\s;"()\\])+/
+          /(?!")(?:\\(?:\d{3}|[^\d\n])|[^\s;"()\\])+/
         ],
         scope: {
           1: "keyword",
