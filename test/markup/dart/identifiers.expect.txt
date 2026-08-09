@@ -1,0 +1,14 @@
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">foo_bar</span>() {}
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">_foo</span>() {}
+
+<span class="hljs-keyword">if</span>(<span class="hljs-keyword">true</span>) {}
+<span class="hljs-keyword">for</span>(;;) {}
+<span class="hljs-keyword">while</span>(<span class="hljs-keyword">false</span>) {}
+<span class="hljs-keyword">switch</span>(x) {}
+<span class="hljs-keyword">catch</span>(e) {}
+<span class="hljs-keyword">assert</span>(<span class="hljs-keyword">true</span>);
+
+<span class="hljs-title class_">_Foo</span> value;
+Foo_bar incomplete;
+<span class="hljs-title class_">Foo</span>&lt;<span class="hljs-title class_">Bar</span>?&gt; generic;
+<span class="hljs-title class_">Foo</span>.<span class="hljs-title function_">named</span>();

@@ -224,10 +224,13 @@ export default function(hljs) {
     $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
   };
 
-  const CLASS_NAME_RE = regex.either(
-    /\b([A-Z]+[a-z0-9]+)+/,
-    // ends in caps
-    /\b([A-Z]+[a-z0-9]+)+[A-Z]+/,
+  const CLASS_NAME_RE = regex.concat(
+    /\b_?/,
+    regex.either(
+      /(?:[A-Z]+[a-z0-9]+)+/,
+      /(?:[A-Z]+[a-z0-9]+)+[A-Z]+/
+    ),
+    /(?![A-Za-z0-9_])/
   );
 
   const CLASS_REFERENCE = {
@@ -235,9 +238,14 @@ export default function(hljs) {
     scope: "title.class"
   };
 
+  const NOT_FUNCTION_CALL = /^(?:assert|catch|for|if|switch|while)$/;
+
   const FUNCTION_REFERENCE = {
-    match: /[a-z][A-Za-z0-9]*(?=\()/,
-    scope: "title.function"
+    match: /\b[a-z_][A-Za-z0-9_]*(?=\()/,
+    scope: "title.function",
+    "on:begin": (m, resp) => {
+      if (NOT_FUNCTION_CALL.test(m[0])) resp.ignoreMatch();
+    }
   };
 
   return {
