@@ -455,7 +455,7 @@ export default function(hljs) {
   // meta : инструкции препроцессора, директивы компиляции
   const META = {
     className: 'meta',
-
+    // convert to lookbehind in v12: begin: /(?<=^[ \t]*)[#&]/
     begin: /^[ \t]*(?=[#&])/,
     excludeBegin: true,
     end: '$',
