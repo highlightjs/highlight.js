@@ -16,3 +16,4 @@
 
 <span class="hljs-meta">#[rtic::app(device = lm3s6965, dispatchers = [UART0, UART1])]</span>
 <span class="hljs-meta">#[task(binds = USB_OTG1, local = [poller])]</span>
+<span class="hljs-meta">#[arg(short, long, default_values_t = [66, 77])]</span>
