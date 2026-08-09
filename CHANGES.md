@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- enh(dns) highlight registered CAA property tags, issue #4475 [Joey Huang][]
 - enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
@@ -28,6 +29,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[Joey Huang]: https://github.com/oiahoon
 [Hashim Khan]: https://github.com/Hashim1999164
 [arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
