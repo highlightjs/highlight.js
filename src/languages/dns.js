@@ -60,9 +60,9 @@ export default function(hljs) {
 
   const STRING = {
     scope: 'string',
-    begin: '"',
-    end: '"',
-    illegal: '\\n',
+    begin: /"/,
+    end: /"/,
+    illegal: /\n/,
     contains: [ ESCAPE ]
   };
 
