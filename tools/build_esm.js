@@ -16,6 +16,7 @@ const path = require('path');
 const fs = require('fs');
 const { clean } = require('./lib/makestuff.js');
 const { emitThemes } = require('./esm/emit_themes.js');
+const { emitLanguages } = require('./esm/emit_languages.js');
 
 const MODES = ['npm', 'cdn', 'all'];
 const ROOT = path.dirname(__dirname);
@@ -36,19 +37,20 @@ program
     ''
   )
   .allowUnknownOption(false)
-  .argument('[languages...]', 'optional language id filter (reserved for later steps)')
+  .argument('[languages...]', 'optional language id filter')
   .addHelpText('after', `
 Examples:
   node tools/build_esm.js
   node tools/build_esm.js --mode cdn
-  node tools/build_esm.js --mode all
-  npm run build-esm -- --mode npm
+  node tools/build_esm.js javascript python
+  npm run build-esm -- --no-minify
 `)
   .parse(process.argv);
 
 const opts = program.opts();
 const mode = String(opts.mode || 'npm').toLowerCase();
-const languages = program.args;
+const languageFilter = program.args;
+const doMinify = opts.minify !== false;
 
 function modeBuildDir(m) {
   if (opts.out) {
@@ -68,22 +70,28 @@ async function buildMode(m) {
   const buildDir = modeBuildDir(m);
   process.env.BUILD_DIR = buildDir;
 
-  console.log(`build_esm: mode=${m} out=${buildDir}`);
+  console.log(`build_esm: mode=${m} out=${buildDir} minify=${doMinify}`);
   await clean(buildDir);
-
-  fs.mkdirSync(path.join(buildDir, 'languages'), { recursive: true });
 
   console.log('build_esm: writing themes.');
   const themeStats = emitThemes();
   console.log(`build_esm: themes css=${themeStats.css} other=${themeStats.other}`);
 
+  console.log('build_esm: writing languages.');
+  const langStats = await emitLanguages({
+    languages: languageFilter,
+    minify: doMinify
+  });
+  console.log(`build_esm: languages count=${langStats.count}`);
+
   const marker = {
     pipeline: 'build_esm',
-    step: 'A2-themes',
+    step: 'A3-languages',
     mode: m,
-    minify: opts.minify !== false,
-    languages: languages.length ? languages : null,
+    minify: doMinify,
+    languages: languageFilter.length ? languageFilter : null,
     themes: themeStats,
+    languageCount: langStats.count,
     createdAt: new Date().toISOString()
   };
   fs.writeFileSync(
