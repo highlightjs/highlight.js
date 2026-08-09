@@ -16,7 +16,7 @@ assignees: ''
 Please include sample code or step-by-step instructions to reproduce the bug you are seeing.  If you attach a screenshot PLEASE also provide any actually code shown in plaintext as well so that we can easily copy/paste if necessary to help resolve the issue.
 
 A jsfiddle can sometimes be even better.  You can fork an example test case:
-https://jsfiddle.net/ajoshguy/gfzujpyt/
+https://jsfiddle.net/ajoshguy/cjhvre2k/
 -->
 
 
