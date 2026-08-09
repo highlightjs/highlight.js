@@ -78,7 +78,7 @@ export default function(hljs) {
     case_insensitive: true,
     keywords: KEYWORDS,
     contains: [
-      hljs.COMMENT(';', '$', { relevance: 0 }),
+      hljs.COMMENT(';', '$'),
       {
         match: [
           /\bCAA\b/,

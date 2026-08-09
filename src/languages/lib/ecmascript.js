@@ -3,8 +3,7 @@ export const EXTENDED_NUMBER_RE = '([-+]?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*
 
 export const EXTENDED_NUMBER_MODE = {
   scope: 'number',
-  match: EXTENDED_NUMBER_RE,
-  relevance: 0
+  match: EXTENDED_NUMBER_RE
 };
 
 const KEYWORDS = [

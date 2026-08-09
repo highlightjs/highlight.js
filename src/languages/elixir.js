@@ -228,8 +228,7 @@ export default function(hljs) {
   });
   const CHAR_LITERAL = {
     scope: 'string',
-    match: /\?'/,
-    relevance: 0
+    match: /\?'/
   };
   const ELIXIR_DEFAULT_CONTAINS = [
     CHAR_LITERAL,

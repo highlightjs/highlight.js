@@ -217,8 +217,7 @@ export default function(hljs) {
   // would mistake it for the start of an (empty) regex literal and swallow
   // the remainder of the line, or even the file.
   const INTEGER_DIVISION = {
-    begin: /\/\/=?/,
-    relevance: 0
+    begin: /\/\/=?/
   };
   const CRYSTAL_DEFAULT_CONTAINS = [
     EXPANSION,

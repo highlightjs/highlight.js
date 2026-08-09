@@ -197,8 +197,7 @@ export default function(hljs) {
       {
         // Expression keywords prevent keyword-led expressions from being
         // recognized as variable or method declarations.
-        beginKeywords: 'new throw return else yield assert',
-        relevance: 0
+        beginKeywords: 'new throw return else yield assert'
       },
       {
         begin: [

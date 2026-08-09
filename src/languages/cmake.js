@@ -58,8 +58,7 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       {
         scope: 'number',
-        begin: /\b\d+(\.\d+)?\b/,
-        relevance: 0
+        begin: /\b\d+(\.\d+)?\b/
       }
     ]
   };
