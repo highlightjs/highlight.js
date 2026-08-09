@@ -1,0 +1,11 @@
+<span class="hljs-keyword">Feature</span><span class="hljs-punctuation">:</span> negatives
+<span class="hljs-comment">  # real comment</span>
+  <span class="hljs-meta">@one @two</span>
+  <span class="hljs-keyword">Scenario</span><span class="hljs-punctuation">:</span> prose should not keyword mid-line
+    <span class="hljs-keyword">Given</span> the banner says Feature: coming soon
+    <span class="hljs-keyword">And</span> the label is <span class="hljs-string">&quot;Given enough time&quot;</span>
+    <span class="hljs-keyword">When</span> status is When ready
+    <span class="hljs-keyword">And</span> value is foo # not a line comment
+    <span class="hljs-keyword">And</span> email is user@example.com
+    <span class="hljs-keyword">And</span> pipe stays plain: a | b
+    *nospace is not a step
