@@ -1,5 +1,6 @@
 const fs = require("fs").promises;
 const fss = require("fs");
+const path = require("path");
 const config = require("./build_config.js");
 const glob = require("glob-promise");
 const { getLanguages } = require("./lib/language.js");
@@ -164,7 +165,9 @@ async function buildNode(options) {
   });
   // emitted declarations (JSDoc → .d.ts)
   glob.sync("**/*", { cwd: "./types/generated", nodir: true }).forEach((file) => {
-    install(`./types/generated/${file}`, `types/generated/${file}`);
+    const dest = `types/generated/${file}`;
+    mkdir(path.dirname(dest));
+    install(`./types/generated/${file}`, dest);
   });
   install("./src/core.d.ts", "lib/core.d.ts");
   install("./src/core.d.ts", "lib/common.d.ts");
