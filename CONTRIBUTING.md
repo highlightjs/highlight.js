@@ -16,6 +16,7 @@
 - [Fixing Issues (PRs)](#fixing-issues-prs)
   - [In a nutshell](#in-a-nutshell)
   - [Build and Test](#build-and-test)
+- [AI-assisted contributions](#ai-assisted-contributions)
 
 
 ## Welcome
@@ -88,6 +89,12 @@ Highlight.js is developed in JavaScript, so you'll need the usual suspects: [Nod
 6. Push the branch (`git push origin my-branch`).
 7. Open a Pull Request from your fork back to this repository.
 
+
+### AI-assisted contributions
+
+AI tools are fine. You are still the author: review before you submit, understand
+your change, and do not dump unexamined machine output on maintainers. Full
+policy: [docs/ai-contributions.md](docs/ai-contributions.md).
 
 ### Keep in Mind <!-- omit in toc -->
 
