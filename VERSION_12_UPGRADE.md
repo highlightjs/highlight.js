@@ -33,10 +33,12 @@ TODO: complete
 import grammar modules when a language is not yet registered.
 
 ```js
+// default: loads ./languages/*.js next to the core module (import.meta.url)
+await hljs.highlightAll();
+
+// or set an explicit prefix
 hljs.configure({ grammarPath: '/assets/languages/' });
 await hljs.highlightAll();
-// or
-await hljs.highlightElement(document.querySelector('pre code'));
 ```
 
 - **`highlight(code, { language })` stays synchronous** — the language must

@@ -91,10 +91,11 @@ Configures global options:
 * ``grammarPath``: URL/path **prefix** for dynamic grammar modules used by
   ``loadLanguage`` / async DOM highlighting. Final module URL is
   ``grammarPath + canonicalId + ".js"`` (a trailing ``/`` is added if missing).
-  Example: ``"https://cdn.example/highlight.js/languages/"``. Required for
-  dynamic loading unless each grammar is given an explicit ``url`` via
-  ``registerAliases``. There is no default — unset ``grammarPath`` causes
-  load attempts to reject.
+  Example: ``"https://cdn.example/highlight.js/languages/"``.
+  When unset, defaults to a ``languages/`` directory next to the core module
+  (derived from ``import.meta.url``), which matches the normal npm/CDN layout.
+  Override when grammars are hosted elsewhere, or pass a per-call
+  ``grammarPath`` / ``registerAliases({ url })``.
 * ``ignoreUnescapedHTML``: do not log warnings to console about unescaped HTML in code blocks
 * ``throwUnescapedHTML``: throw a ``HTMLInjectionError`` when ``highlightElement`` is asked to highlight content that includes unescaped HTML
 

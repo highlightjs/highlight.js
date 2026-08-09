@@ -80,7 +80,7 @@ const HighlightJS = function() {
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     cssSelector: 'pre code',
-    // prefix for dynamic grammar imports, e.g. "https://cdn.example/languages/"
+    // prefix for dynamic grammar imports; null = derive from import.meta.url
     // final URL = grammarPath + canonicalId + ".js"
     grammarPath: null,
     // beta configuration options, subject to change, welcome to discuss
@@ -155,17 +155,21 @@ const HighlightJS = function() {
   }
 
   /**
-   * @param {string} [path]
+   * Default grammar directory: sibling `languages/` next to this module.
+   * @returns {string}
+   */
+  function defaultGrammarPath() {
+    return new URL('./languages/', import.meta.url).href;
+  }
+
+  /**
+   * @param {string|null|undefined} [path]
    * @returns {string}
    */
   function normalizeGrammarPath(path) {
-    if (path == null || path === '') {
-      throw new Error(
-        'grammarPath is not configured. '
-        + 'Call hljs.configure({ grammarPath: "https://example/languages/" }) '
-        + 'or pass { grammarPath } to loadLanguage(), '
-        + 'or registerAliases(name, { languageName, url }).'
-      );
+    // eslint-disable-next-line no-undefined
+    if (path === undefined || path === null || path === '') {
+      path = defaultGrammarPath();
     }
     return path.endsWith('/') ? path : `${path}/`;
   }
