@@ -250,7 +250,7 @@ declare module 'highlight.js' {
         parent?: Mode
         starts?:Mode
         lexemes?: string | RegExp
-        keywords?: string | string[] | Record<string, string | string[]>
+        keywords?: string | string[] | Record<string, string | string[] | RegExp>
         beginKeywords?: string
         relevance?: number
         illegal?: string | RegExp | Array<string | RegExp>

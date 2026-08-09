@@ -4,3 +4,10 @@
   l = O1;
 <span class="hljs-keyword">else</span>
   a = <span class="hljs-number">01</span>;
+
+<span class="hljs-comment">// other keyword-led assignments should not be detected as variable creation</span>
+<span class="hljs-type">int</span> <span class="hljs-variable">foo</span><span class="hljs-operator">=</span><span class="hljs-number">3</span>;
+<span class="hljs-keyword">return</span> foo=bar;
+<span class="hljs-keyword">return</span> foo = bar;
+<span class="hljs-keyword">yield</span> foo=bar;
+<span class="hljs-keyword">assert</span> foo=bar;

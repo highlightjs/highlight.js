@@ -161,12 +161,18 @@ export default function(hljs) {
     literal: LITERAL_KEYWORDS
   };
   const TITLE_MODE = hljs.inherit(hljs.TITLE_MODE, { begin: '[a-zA-Z](\\.?\\w)*' });
+  // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
+  // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
+  // `_` separators sit between digits, and may also follow the `0x`/`0b` prefix
+  const DIGITS = '\\d(_*\\d)*';
+  const INTEGER_SUFFIX = '([uU][lL]?|[lL][uU]?)?';
+  const REAL_SUFFIX = '([fFdDmM]|[uU][lL]?|[lL][uU]?)?';
   const NUMBERS = {
     className: 'number',
     variants: [
-      { begin: '\\b(0b[01\']+)' },
-      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)(u|U|l|L|ul|UL|f|F|b|B)' },
-      { begin: '(-?)(\\b0[xX][a-fA-F0-9\'_]+|(\\b[\\d\'_]+(\\.[\\d\'_]*)?|\\.[\\d\'_]+)([eE][-+]?[\\d\'_]+)?)' }
+      { begin: '\\b0[bB]_*[01](_*[01])*' + INTEGER_SUFFIX },
+      { begin: '(-?)\\b0[xX]_*[a-fA-F0-9](_*[a-fA-F0-9])*' + INTEGER_SUFFIX },
+      { begin: '(-?)(\\b' + DIGITS + '(\\.(' + DIGITS + ')?)?|\\.' + DIGITS + ')([eE][-+]?' + DIGITS + ')?' + REAL_SUFFIX }
     ],
     relevance: 0
   };
