@@ -40,7 +40,7 @@ function skipIfHasPrecedingDot(match, response) {
  *
  * @type {CompilerExt}
  */
-export function scopeClassName(mode, _parent) {
+export function scopeClassName(mode, _parent) { // eslint-disable-line no-unused-vars
   // eslint-disable-next-line no-undefined
   if (mode.className !== undefined) {
     mode.scope = mode.className;
@@ -71,7 +71,7 @@ export function beginKeywords(mode, parent) {
  * Allow `illegal` to contain an array of illegal values
  * @type {CompilerExt}
  */
-export function compileIllegal(mode, _parent) {
+export function compileIllegal(mode, _parent) { // eslint-disable-line no-unused-vars
   if (!Array.isArray(mode.illegal)) return;
 
   mode.illegal = regex.either(...mode.illegal);
@@ -81,7 +81,7 @@ export function compileIllegal(mode, _parent) {
  * `match` to match a single expression for readability
  * @type {CompilerExt}
  */
-export function compileMatch(mode, _parent) {
+export function compileMatch(mode, _parent) { // eslint-disable-line no-unused-vars
   if (!mode.match) return;
   if (mode.begin || mode.end) throw new Error("begin & end are not supported with match");
 

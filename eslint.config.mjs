@@ -1,9 +1,16 @@
 import globals from "globals";
 import js from "@eslint/js";
-import standard from "eslint-config-standard";
 import typescript from "@typescript-eslint/eslint-plugin";
 import plugin_import from "eslint-plugin-import";
 import typescript_parser from "@typescript-eslint/parser";
+
+const browserAndNodeGlobals = {
+  ...globals.browser,
+  ...globals.node,
+  ...globals.es6,
+  should: "readonly",
+  hljs: "readonly"
+};
 
 let overrides = [
   {
@@ -31,39 +38,36 @@ let overrides = [
     }
   },
   {
-    files: ["src/languages/*.js"],
+    // Grammars: parse + basic sanity only (legacy .eslintrc.lang.js intent).
+    // Do not enforce style here — avoids mass grammar reformats.
+    // ecmaVersion 2018 allows unicode property escapes used by some grammars.
+    files: ["src/languages/**/*.js"],
+    languageOptions: {
+      ecmaVersion: 2018,
+      sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es6
+      }
+    },
     rules: {
+      "no-unused-vars": "off",
       "no-unused-expressions": "off",
-      // languages are all over the map and we don't want to
-      // do a mass edit so turn off the most egregious rule violations
-      // indent: "off",
-      camelcase: "off",
       "no-control-regex": "off",
       "no-useless-escape": "off",
-      "comma-dangle": "off",
-      "array-bracket-spacing": ["error", "always"
-        // {
-        //   objectsInArrays: true
-        // }
-      ],
-      // "object-curly-spacing": "warn",
-      // "key-spacing": "off",
-      // "array-bracket-spacing": ["warn"],
-      "array-bracket-newline": ["warn", {
-        multiline: true,
-        minItems: 2
-      }],
-      "array-element-newline": "warn",
-      "object-curly-newline": [1, {
-        minProperties: 2
-      }],
-      "object-property-newline": [2,
-        { allowAllPropertiesOnSameLine: false }
-      ]
+      "no-empty": "off",
+      "no-cond-assign": "off",
+      "no-misleading-character-class": "off"
     }
   },
   {
     files: ["demo/**/*.js"],
+    languageOptions: {
+      ecmaVersion: 2018,
+      sourceType: "module",
+      globals: browserAndNodeGlobals
+    }
   },
   {
     files: ["test/**/*.js"],
@@ -78,7 +82,11 @@ let overrides = [
     files: ["tools/**/*.js"],
     ignores: ["tools/vendor/*.js"],
     languageOptions: {
-      ecmaVersion: 2020
+      ecmaVersion: 2020,
+      sourceType: "commonjs",
+      globals: {
+        ...globals.node
+      }
     },
     rules: {
       camelcase: "off"
@@ -86,18 +94,12 @@ let overrides = [
   }
 ]
 
-let my_config =  {
-  files: ["src/*.js"],
+let my_config = {
+  files: ["src/*.js", "src/lib/**/*.js"],
   languageOptions: {
     ecmaVersion: 2018,
     sourceType: "module",
-    globals: {
-      ...globals.browser,
-      ...globals.node,
-      ...globals.es6,
-      should: "readonly",
-      hljs: "readonly"
-    }
+    globals: browserAndNodeGlobals
   },
   plugins: {
     typescript: typescript
@@ -132,7 +134,6 @@ let my_config =  {
 
 export default [
   js.configs.recommended,
-  // standard,
   my_config,
   ...overrides
 ]

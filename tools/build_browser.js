@@ -65,7 +65,7 @@ async function buildBrowser(options) {
 
   log("Preparing languages.");
   await Promise.all(
-    languages.map(async(lang) => {
+    languages.map(async() => {
       // await lang.compile({ terser: config.terser });
       process.stdout.write(".");
     })

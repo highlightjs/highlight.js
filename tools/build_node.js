@@ -48,7 +48,7 @@ async function buildESMIndex(name, languages) {
   await fs.writeFile(`${process.env.BUILD_DIR}/lib/${name}.js`, index);
 }
 
-async function buildNodeLanguage(language, options) {
+async function buildNodeLanguage(language, _options) { // eslint-disable-line no-unused-vars
   const EMIT = `function emitWarning() {
     if (!emitWarning.warned) {
       emitWarning.warned = true;
@@ -98,7 +98,7 @@ async function buildESMUtils() {
   });
 }
 
-async function buildNodeHighlightJS(options) {
+async function buildNodeHighlightJS(_options) { // eslint-disable-line no-unused-vars
   const input = { ...config.rollup.core.input, input: `src/highlight.js` };
   const output = { ...config.rollup.node.output, format: "es", file: `${process.env.BUILD_DIR}/lib/core.js` };
   // output.footer = "highlight.HighlightJS = highlight;\nhighlight.default = highlight;";

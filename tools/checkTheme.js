@@ -175,11 +175,11 @@ function check_group(group, rules) {
       console.log(magentaBright`- Theme does not fully support.`);
     }
 
-    has_rules.filter(x => !x[1]).forEach(([scope, _]) => {
+    has_rules.filter(x => !x[1]).forEach(([scope]) => {
       const selector = scopeToSelector(scope);
       console.log(`- scope ${cyan(scope)} is not highlighted\n  (css: ${green(selector)})`);
     });
-    has_rules.filter(x => x[2]).forEach(([scope, _]) => {
+    has_rules.filter(x => x[2]).forEach(([scope]) => {
       console.log(` - scope ${cyan(scope)} [purposely] un-highlighted.`);
     });
     console.log();
