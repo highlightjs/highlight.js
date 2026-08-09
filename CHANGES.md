@@ -16,6 +16,9 @@ Core Grammars:
 - enh(python) Support t-strings [Nicolas Le Cam][]
 - fix(c, cpp) scope the angle-bracket header string to `#include` so a `#define` body containing `>` no longer swallows the following quote and breaks highlighting of the rest of the file, issue #3505 [Pablo][]
 - fix(c, cpp) bound the run of type tokens in front of a function name, which made highlighting a long line of plain words take quadratic time (ReDoS), issue #4362 [Jayesh Bhade][]
+- fix(gherkin) update keyword list [Hirse][]
+- fix(gherkin) variables can't contain whitespace [Hirse][]
+- enh(gherkin) docstrings can use backticks [Hirse][]
 
 Documentation:
 
@@ -37,6 +40,7 @@ CONTRIBUTORS
 [David Pavlovschii]: https://github.com/davidpavlovschi
 [Pablo]: https://github.com/MsfPablo
 [Jayesh Bhade]: https://github.com/Jaybhade
+[Hirse]: https://github.com/Hirse
 
 
 ## Version 11.11.3
@@ -527,9 +531,6 @@ Grammars:
 - enh(cmake) support bracket comments [Hirse][]
 - enh(java) add yield keyword to java [MBoegers][]
 - enh(java) add permits keyword to java [MBoegers][]
-- fix(gherkin) update keyword list [Hirse][]
-- fix(gherkin) variables can't contain whitespace [Hirse][]
-- ehn(gherkin) docstrings can use backticks [Hirse][]
 - fix(javascript/typescript) correct identifier matching when using numbers [Lachlan Heywood][]
 
 Improvements:
