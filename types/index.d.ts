@@ -13,40 +13,53 @@ declare module 'highlight.js/private' {
     type KeywordData = [string, number];
     type KeywordDict = Record<string, KeywordData>
 }
+
 declare module 'highlight.js' {
 
     import { KeywordDict } from "highlight.js/private";
 
     export type HLJSApi = PublicApi & ModesAPI
 
-    export interface VuePlugin {
-        install: (vue: any) => void
-    }
-
     // perhaps make this an interface?
     type RegexEitherOptions = {
         capture?: boolean
     }
 
+    export interface LoadLanguageOptions {
+        grammarPath?: string
+    }
+
+    export interface RegisterAliasesOptions {
+        languageName: string
+        /** Full module URL for dynamic import (skips grammarPath). */
+        url?: string
+    }
+
     interface PublicApi {
         highlight(code: string, options: HighlightOptions): HighlightResult
+        /** v12: may load grammar then paint; rejects on load failure. */
         highlightElement: (element: HTMLElement) => Promise<void>
         configure: (options: Partial<HLJSOptions>) => void
+        /** v12: may load grammars then paint; rejects if any block fails. */
         highlightAll: () => Promise<void>
         registerLanguage: (languageName: string, language: LanguageFn) => void
         unregisterLanguage: (languageName: string) => void
         listLanguages: () => string[]
-        registerAliases: (aliasList: string | string[], options: { languageName: string, url?: string }) => void
+        /**
+         * Register aliases for getLanguage and (v12) the dynamic loader.
+         * Optional `url` points loadLanguage at a module (third-party grammars).
+         */
+        registerAliases: (aliasList: string | string[], options: RegisterAliasesOptions) => void
         getLanguage: (languageName: string) => Language | undefined
-        loadLanguage: (nameOrAlias: string, options?: { grammarPath?: string }) => Promise<Language | undefined>
-        loadLanguages: (namesOrAliases: string[], options?: { grammarPath?: string }) => Promise<Array<Language | undefined>>
+        /** Dynamically import + register a grammar (deduped). */
+        loadLanguage: (nameOrAlias: string, options?: LoadLanguageOptions) => Promise<Language | undefined>
+        loadLanguages: (namesOrAliases: string[], options?: LoadLanguageOptions) => Promise<Array<Language | undefined>>
         inherit: <T>(original: T, ...args: Record<string, any>[]) => T
         addPlugin: (plugin: HLJSPlugin) => void
         removePlugin: (plugin: HLJSPlugin) => void
         debugMode: () => void
         safeMode: () => void
         versionString: string
-        vuePlugin: () => VuePlugin
         regex: {
             concat: (...args: (RegExp | string)[]) => string,
             lookahead: (re: RegExp | string) => string,
@@ -54,7 +67,6 @@ declare module 'highlight.js' {
             optional: (re: RegExp | string) => string,
             anyNumberOfTimes: (re: RegExp | string) => string
         }
-        newInstance: () => HLJSApi
     }
 
     interface ModesAPI {
@@ -135,6 +147,10 @@ declare module 'highlight.js' {
         languageDetectRe: RegExp
         classPrefix: string
         cssSelector: string
+        /**
+         * Prefix for dynamic grammar modules (`prefix + id + ".js"`).
+         * When null/omitted, defaults to `./languages/` beside the core module.
+         */
         grammarPath?: string | null
         __emitter: EmitterConstructor
         ignoreUnescapedHTML?: boolean
@@ -248,13 +264,52 @@ declare module 'highlight.js' {
         label?: string
     }
 
-    const hljs : HLJSApi;
-    export default hljs;
+    /** Factory / constructable highlighter (v12 ESM core export). */
+    export interface HighlightJSConstructor {
+        new (): HLJSApi
+        (): HLJSApi
+    }
 
+    export const HighlightJS: HighlightJSConstructor;
+
+    /** Default ready-to-use instance (same as default export). */
+    export const hljs: HLJSApi;
+
+    const _default: HLJSApi;
+    export default _default;
 }
 
+// v12 package layout: highlight.js/languages/<id>.js
+declare module 'highlight.js/languages/*' {
+    import { LanguageFn } from "highlight.js";
+    const defineLanguage: LanguageFn;
+    export default defineLanguage;
+}
+
+// Explicit .js suffix (Node16/NodeNext moduleResolution)
+declare module 'highlight.js/languages/*.js' {
+    import { LanguageFn } from "highlight.js";
+    const defineLanguage: LanguageFn;
+    export default defineLanguage;
+}
+
+// Legacy deep paths (v11 / transitional node build)
 declare module 'highlight.js/lib/languages/*' {
     import { LanguageFn } from "highlight.js";
     const defineLanguage: LanguageFn;
     export default defineLanguage;
+}
+
+declare module 'highlight.js/lib/core' {
+    import { HighlightJSConstructor, HLJSApi } from "highlight.js";
+    export const HighlightJS: HighlightJSConstructor;
+    const hljs: HLJSApi;
+    export default hljs;
+}
+
+declare module 'highlight.js/lib/core.js' {
+    import { HighlightJSConstructor, HLJSApi } from "highlight.js";
+    export const HighlightJS: HighlightJSConstructor;
+    const hljs: HLJSApi;
+    export default hljs;
 }

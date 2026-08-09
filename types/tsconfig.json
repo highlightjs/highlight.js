@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true,
+    "lib": ["ES2020", "DOM"],
+    "types": [],
+    "skipLibCheck": false
+  },
+  "files": ["./smoke.ts", "./index.d.ts"]
+}

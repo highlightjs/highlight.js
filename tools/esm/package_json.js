@@ -124,7 +124,7 @@ function emitPackage(options = {}) {
     }
   }
 
-  // Core-oriented d.ts used by some consumers / older paths
+  // Core-oriented d.ts for deep imports / tooling
   const coreDts = path.join(ROOT, 'src', 'core.d.ts');
   if (fs.existsSync(coreDts)) {
     install(coreDts, 'highlight.d.ts');
