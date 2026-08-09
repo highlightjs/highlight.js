@@ -140,6 +140,11 @@ export default function(hljs) {
   };
 
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+  // Bounded on purpose: an unbounded quantifier here consumes an arbitrarily
+  // long run of words, and when no function title follows it the engine retries
+  // the title at every token boundary of that run - quadratic in the size of
+  // the document.  See #4362.
+  const MAX_FUNCTION_TYPE_TOKENS = 12;
 
   const C_KEYWORDS = [
     "asm",
@@ -280,7 +285,7 @@ export default function(hljs) {
   };
 
   const FUNCTION_DECLARATION = {
-    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+){1,' + MAX_FUNCTION_TYPE_TOKENS + '}' + FUNCTION_TITLE,
     returnBegin: true,
     end: /[{;=]/,
     excludeEnd: true,
