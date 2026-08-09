@@ -220,6 +220,8 @@ Core Grammars:
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
+ - enh(dns) character strings (with escapes), DNS classes, grouping parens; fix unquoted TXT vs `;` comments [Checconio][]
+
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 - fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
@@ -266,6 +268,7 @@ CONTRIBUTORS
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
 [guuido]: https://github.com/guuido
+[Checconio]: https://github.com/Checconio
 [clsource]: https://github.com/clsource
 [Jake Leahy]: https://github.com/ire4ever1190
 [Laurel King]: https://github.com/laurelthorburn
