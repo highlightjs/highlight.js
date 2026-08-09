@@ -3,3 +3,5 @@ Scenario Outline: Add two numbers
   And I have entered <input_2> into the calculator
   And first < second and second > first
   Then second <- first
+  Examples:
+    | <input_1> | plain |

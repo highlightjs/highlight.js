@@ -100,13 +100,15 @@ export default function(hljs) {
       STEP_KEYWORDS,
       STAR_STEP,
       {
-        begin: /\|/,
-        end: /\|\w*$/,
+        // Data tables: line-head `| … |` rows (Gherkin secondary keyword)
+        begin: /^[ \t]*\|/,
+        end: /$/,
         contains: [
+          VARIABLE,
           {
+            // Text runs between pipes; `<vars>` matched first above
             scope: 'string',
-            begin: /[^|]+/,
-            contains: [ VARIABLE ]
+            match: /[^|<\n]+/
           }
         ]
       }
