@@ -15,6 +15,7 @@ Core Grammars:
 - enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
 - enh(python) Support t-strings [Nicolas Le Cam][]
 - fix(c, cpp) scope the angle-bracket header string to `#include` so a `#define` body containing `>` no longer swallows the following quote and breaks highlighting of the rest of the file, issue #3505 [Pablo][]
+- fix(c, cpp) bound the run of type tokens in front of a function name, which made highlighting a long line of plain words take quadratic time (ReDoS), issue #4362 [Jayesh Bhade][]
 
 Documentation:
 
@@ -35,6 +36,7 @@ CONTRIBUTORS
 [Konstantin Baltsat]: https://github.com/Baltsat
 [David Pavlovschii]: https://github.com/davidpavlovschi
 [Pablo]: https://github.com/MsfPablo
+[Jayesh Bhade]: https://github.com/Jaybhade
 
 
 ## Version 11.11.3
