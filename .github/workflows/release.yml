@@ -87,7 +87,7 @@ jobs:
           fi
 
       - name: Use Node.js 24.x
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24.x
           registry-url: 'https://registry.npmjs.org'
@@ -101,7 +101,11 @@ jobs:
 
       - name: Publish highlight.js to NPM
         run: |
-          npm publish ./build --tag ${{ env.NPM_TAG }} ${{ env.DRY_RUN_FLAG }}
+          if npm view "highlight.js@${TAG_NAME}" version >/dev/null 2>&1; then
+            echo "highlight.js@${TAG_NAME} already on npm; skipping publish"
+          else
+            npm publish ./build --tag "${NPM_TAG}" ${DRY_RUN_FLAG}
+          fi
 
       - name: Checkout cdn-release
         uses: actions/checkout@v7
@@ -132,5 +136,8 @@ jobs:
 
       - name: Publish cdn-assets to NPM
         run: |
-          cd ./cdn-release/build
-          npm publish --tag ${{ env.NPM_TAG }} ${{ env.DRY_RUN_FLAG }}
+          if npm view "@highlightjs/cdn-assets@${TAG_NAME}" version >/dev/null 2>&1; then
+            echo "@highlightjs/cdn-assets@${TAG_NAME} already on npm; skipping publish"
+          else
+            npm publish ./cdn-release/build --tag "${NPM_TAG}" ${DRY_RUN_FLAG}
+          fi
