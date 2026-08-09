@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "strict": false,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "rootDir": "./src",
+    "outDir": "./types/generated",
+    "baseUrl": ".",
+    "paths": {
+      "highlight.js": ["./types/index.d.ts"],
+      "highlight.js/*": ["./types/index.d.ts"]
+    }
+  },
+  "include": [
+    "src/lib/regex.js",
+    "src/lib/utils.js",
+    "src/lib/modes.js"
+  ]
+}
