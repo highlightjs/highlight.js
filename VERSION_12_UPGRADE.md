@@ -27,6 +27,30 @@ Themes may include changes to improve accessibility (increase contrast).  If you
 TODO: complete
 
 
+### Language auto-detection (`highlightAuto`) has been removed
+
+`hljs.highlightAuto()` is no longer available. Highlight.js no longer performs
+language auto-detection. Always pass an explicit language when highlighting:
+
+```js
+// before (v11)
+const result = hljs.highlightAuto(code);
+
+// after (v12)
+const result = hljs.highlight(code, { language: 'javascript' });
+```
+
+For DOM highlighting, put the language on the element (`class="language-js"` /
+`lang-js`). `highlightElement` / `highlightAll` no longer fall back to guessing
+the language when none is specified.
+
+Related removals in the same area:
+
+- `autoDetection()` API
+- `configure({ languages: [...] })` subsetting for auto-detection
+- relevance scoring on highlight results and grammar modes
+
+
 ### The older `highlight` API that was deprecated with 10.7 is no longer supported
 
 ```js

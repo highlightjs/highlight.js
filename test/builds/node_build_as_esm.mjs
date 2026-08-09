@@ -4,7 +4,6 @@ const API = [
   "getLanguage",
   "registerLanguage",
   "highlight",
-  "highlightAuto",
   "highlightAll",
   "highlightElement",
 ];

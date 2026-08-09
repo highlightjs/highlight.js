@@ -4,10 +4,10 @@ const API = [
   "getLanguage",
   "registerLanguage",
   "highlight",
-  "highlightAuto",
   "highlightAll",
-  "highlightElement"
+  "highlightElement",
 ];
+
 
 const assert = (f,msg) => {
   if (!f()) {

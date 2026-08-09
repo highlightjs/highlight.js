@@ -30,21 +30,14 @@ declare module 'highlight.js' {
 
     interface PublicApi {
         highlight(code: string, options: HighlightOptions): HighlightResult
-        /** @deprecated use `highlight(code, {language: ..., ignoreIllegals: ...})` */
-        highlight(languageName: string, code: string, ignoreIllegals?: boolean): HighlightResult
-        highlightAuto: (code: string, languageSubset?: string[]) => AutoHighlightResult
-        highlightBlock: (element: HTMLElement) => void
         highlightElement: (element: HTMLElement) => void
         configure: (options: Partial<HLJSOptions>) => void
-        initHighlighting: () => void
-        initHighlightingOnLoad: () => void
         highlightAll: () => void
         registerLanguage: (languageName: string, language: LanguageFn) => void
         unregisterLanguage: (languageName: string) => void
         listLanguages: () => string[]
         registerAliases: (aliasList: string | string[], { languageName } : {languageName: string}) => void
         getLanguage: (languageName: string) => Language | undefined
-        autoDetection: (languageName: string) => boolean
         inherit: <T>(original: T, ...args: Record<string, any>[]) => T
         addPlugin: (plugin: HLJSPlugin) => void
         removePlugin: (plugin: HLJSPlugin) => void
@@ -95,19 +88,15 @@ declare module 'highlight.js' {
 
     export interface HighlightResult {
         code?: string
-        relevance : number
         value : string
         language? : string
         illegal : boolean
         errorRaised? : Error
-        // * for auto-highlight
-        secondBest? : Omit<HighlightResult, 'second_best'>
         // private
         _illegalBy? : illegalData
         _emitter : Emitter
         _top? : Language | CompiledMode
     }
-    export interface AutoHighlightResult extends HighlightResult {}
 
     export interface illegalData {
         message: string
@@ -128,9 +117,6 @@ declare module 'highlight.js' {
         'before:highlight'?: (context: BeforeHighlightContext) => void,
         'after:highlightElement'?: (data: { el: Element, result: HighlightResult, text: string}) => void,
         'before:highlightElement'?: (data: { el: Element, language: string}) => void,
-        // TODO: Old API, remove with v12
-        'after:highlightBlock'?: (data: { block: Element, result: HighlightResult, text: string}) => void,
-        'before:highlightBlock'?: (data: { block: Element, language: string}) => void,
     }
 
     interface EmitterConstructor {
@@ -147,7 +133,6 @@ declare module 'highlight.js' {
         languageDetectRe: RegExp
         classPrefix: string
         cssSelector: string
-        languages?: string[]
         __emitter: EmitterConstructor
         ignoreUnescapedHTML?: boolean
         throwUnescapedHTML?: boolean
@@ -189,7 +174,7 @@ declare module 'highlight.js' {
         __addSublanguage(emitter: Emitter, subLanguageName: string): void
     }
 
-    export type HighlightedHTMLElement = HTMLElement & {result?: object, secondBest?: object, parentNode: HTMLElement}
+    export type HighlightedHTMLElement = HTMLElement & {result?: object, parentNode: HTMLElement}
 
     /* modes */
 
@@ -251,7 +236,6 @@ declare module 'highlight.js' {
         lexemes?: string | RegExp
         keywords?: string | string[] | Record<string, string | string[] | RegExp>
         beginKeywords?: string
-        relevance?: number
         illegal?: string | RegExp | Array<string | RegExp>
         variants?: Mode[]
         cachedVariants?: Mode[]

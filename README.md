@@ -109,12 +109,12 @@ To skip highlighting of a code block completely, use the `nohighlight` class:
 
 ### Node.js on the Server
 
-The bare minimum to auto-detect the language and highlight some code.
+The bare minimum to highlight some code with a known language.
 
 ```js
 // load the library and ALL languages
 hljs = require('highlight.js');
-html = hljs.highlightAuto('<h1>Hello World!</h1>').value
+html = hljs.highlight('<h1>Hello World!</h1>', {language: 'xml'}).value
 ```
 
 To load only a "common" subset of popular languages:
@@ -123,13 +123,7 @@ To load only a "common" subset of popular languages:
 hljs = require('highlight.js/lib/common');
 ```
 
-To highlight code with a specific language, use `highlight`:
-
-```js
-html = hljs.highlight('<h1>Hello World!</h1>', {language: 'xml'}).value
-```
-
-See [Importing the Library](#importing-the-library) for more examples of `require` vs `import` usage, etc.  For more information about the result object returned by `highlight` or `highlightAuto` refer to the [api docs](https://highlightjs.readthedocs.io/en/latest/api.html).
+See [Importing the Library](#importing-the-library) for more examples of `require` vs `import` usage, etc.  For more information about the result object returned by `highlight` refer to the [api docs](https://highlightjs.readthedocs.io/en/latest/api.html).
 
 
 
@@ -231,7 +225,7 @@ In worker.js:
 ```js
 onmessage = (event) => {
   importScripts('<path>/highlight.min.js');
-  const result = self.hljs.highlightAuto(event.data);
+  const result = self.hljs.highlight(event.data, { language: 'xml' });
   postMessage(result.value);
 };
 ```
@@ -248,7 +242,7 @@ Requiring the top-level library will load all languages:
 ```js
 // require the highlight.js library, including all languages
 const hljs = require('./highlight.js');
-const highlightedCode = hljs.highlightAuto('<span>Hello World!</span>').value
+const highlightedCode = hljs.highlight('<span>Hello World!</span>', {language: 'xml'}).value
 ```
 
 For a smaller footprint, load our common subset of languages (the same set used for our default web build).

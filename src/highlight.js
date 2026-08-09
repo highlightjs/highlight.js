@@ -1,5 +1,5 @@
 /*
-Syntax highlighting with language autodetection.
+Syntax highlighting.
 https://highlightjs.org/
 */
 
@@ -32,7 +32,6 @@ import HTMLInjectionError from "./lib/html_injection_error.js";
 @typedef {import('highlight.js/private').KeywordData} KeywordData
 @typedef {import('highlight.js/private').EnhancedMatch} EnhancedMatch
 @typedef {import('highlight.js/private').AnnotatedError} AnnotatedError
-@typedef {import('highlight.js').AutoHighlightResult} AutoHighlightResult
 @typedef {import('highlight.js').HighlightOptions} HighlightOptions
 @typedef {import('highlight.js').HighlightResult} HighlightResult
 */
@@ -74,7 +73,6 @@ const HighlightJS = function() {
     languageDetectRe: /\blang(?:uage)?-([\w-]+)\b/i,
     classPrefix: 'hljs-',
     cssSelector: 'pre code',
-    languages: null,
     // beta configuration options, subject to change, welcome to discuss
     // https://github.com/highlightjs/highlight.js/issues/1086
     __emitter: TokenTreeEmitter
@@ -799,11 +797,6 @@ const HighlightJS = function() {
     }
   }
 
-  function errorHighlightAuto() {
-    logger.error("highlightAuto has been removed in v12.0.");
-    logger.error("Please use highlight(code) to manually highlight.");
-  }
-
   /**
    *
    * @param {PluginEvent} event
@@ -821,7 +814,6 @@ const HighlightJS = function() {
   /* Interface definition */
   Object.assign(hljs, {
     highlight,
-    highlightAuto: errorHighlightAuto,
     highlightAll,
     highlightElement,
     configure,

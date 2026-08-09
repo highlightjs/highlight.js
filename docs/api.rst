@@ -40,8 +40,8 @@ Applies highlighting to a DOM node containing code.
 This function is the one to use to apply highlighting dynamically after page load
 or within initialization code of third-party JavaScript frameworks.
 
-The function uses language detection by default but you can specify the language
-in the ``class`` attribute of the DOM node. See the :doc:`scopes reference
+The language must be specified via the ``class`` attribute of the DOM node
+(for example ``language-python`` or ``lang-python``). See the :doc:`scopes reference
 </scope-reference>` for all available language names and scopes.
 
 
@@ -71,7 +71,6 @@ configure
 Configures global options:
 
 * ``classPrefix``: a string prefix added before class names in the generated markup, used for backwards compatibility with stylesheets.
-* ``languages``: an array of language names and aliases restricting auto detection to only these languages.
 * ``languageDetectRe``: a regex to configure how CSS class names map to language (allows class names like say `color-as-php` vs the default of `language-php`, etc.)
 * ``noHighlightRe``: a regex to configure which CSS classes are to be skipped completely.
 * ``cssSelector``: a CSS selector to configure which elements are affected by ``hljs.highlightAll``. Defaults to ``'pre code'``.
@@ -209,36 +208,14 @@ removePlugin
 Remove the specified plugin from this instance.  ``plugin`` must be exactly the same object that was passed to ``addPlugin``.
 
 
-Deprecated API
+Removed in v12
 --------------
 
-highlight
-^^^^^^^^^
+The following APIs were removed in Highlight.js 12.0:
 
-.. deprecated:: 10.7 This will be removed entirely in v12.
-
-::
-
-  highlight(languageName, code)
-
-
-Please see the :ref:`newer API<newerapi>` shown above.
-
-
-highlightBlock
-^^^^^^^^^^^^^^
-
-.. deprecated:: 11.0 Please use ``highlightElement()`` instead.
-
-
-initHighlighting
-^^^^^^^^^^^^^^^^
-
-.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
-
-
-
-initHighlightingOnLoad
-^^^^^^^^^^^^^^^^^^^^^^
-
-.. deprecated:: 10.6 Please use ``highlightAll()`` instead.
+* ``highlightAuto`` (language auto-detection)
+* ``highlightBlock`` (use ``highlightElement``)
+* ``initHighlighting`` / ``initHighlightingOnLoad`` (use ``highlightAll``)
+* the older ``highlight(language, code, ignoreIllegals)`` signature
+* ``autoDetection``
+* ``configure({ languages })`` auto-detection subsetting
