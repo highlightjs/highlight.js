@@ -2,3 +2,15 @@
 @  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">&quot;v=spf1 a mx ~all&quot;</span>
 @  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">&quot;v=DMARC1;p=reject&quot;</span>
 @  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">brave-ledger-verification=807e569d632d84c67b73c1847321ce63</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">&quot;a<span class="hljs-char escape_">\&quot;</span>b&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">foo\;bar</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-punctuation">(</span>
+  <span class="hljs-string">&quot;part-one&quot;</span>
+  <span class="hljs-string">&quot;part-two&quot;</span>
+<span class="hljs-punctuation">)</span>
+@  <span class="hljs-type">in</span>  <span class="hljs-keyword">txt</span>  <span class="hljs-string">&quot;lowercase&quot;</span>
+CHicago.example.  <span class="hljs-type">IN</span>  <span class="hljs-keyword">A</span>  <span class="hljs-number">192.0.2.1</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">AAAA</span>  <span class="hljs-number">2001:db8::</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">AAAA</span>  <span class="hljs-number">::</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">192x0y2z1</span>
+@  <span class="hljs-type">HS</span>  <span class="hljs-keyword">A</span>  <span class="hljs-number">192.0.2.9</span>

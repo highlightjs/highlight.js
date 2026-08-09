@@ -2,3 +2,15 @@
 @  IN  TXT  "v=spf1 a mx ~all"
 @  IN  TXT  "v=DMARC1;p=reject"
 @  IN  TXT  brave-ledger-verification=807e569d632d84c67b73c1847321ce63
+@  IN  TXT  "a\"b"
+@  IN  TXT  foo\;bar
+@  IN  TXT  (
+  "part-one"
+  "part-two"
+)
+@  in  txt  "lowercase"
+CHicago.example.  IN  A  192.0.2.1
+@  IN  AAAA  2001:db8::
+@  IN  AAAA  ::
+@  IN  TXT  192x0y2z1
+@  HS  A  192.0.2.9

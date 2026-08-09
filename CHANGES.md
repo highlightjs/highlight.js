@@ -39,7 +39,7 @@ Core Grammars:
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
-- enh(dns) add support for character strings and modification of DNS registration type recognition [Checconio][]
+ - enh(dns) character strings (with escapes), DNS classes, grouping parens; fix unquoted TXT vs `;` comments [Checconio][]
 
 New Grammars:
 
