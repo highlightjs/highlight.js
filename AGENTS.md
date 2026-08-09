@@ -40,6 +40,12 @@ Do not claim assistance on commits that were fully human.
 { match: /\bfoo\b/, className: "keyword" }
 ```
 
+### Drop `relevance` when touching a mode
+
+`relevance` on modes is **deprecated**. Do not add new `relevance` fields.
+
+When a PR **touches** a mode that still sets `relevance`, remove `relevance` from that mode (or ask the author to remove it) as part of the change—same “touch it, modernize it” rule as `className` → `scope`.
+
 ### `scope` vs `beginScope` / `endScope`
 
 These are **not** interchangeable (see `docs/mode-reference.rst`):
