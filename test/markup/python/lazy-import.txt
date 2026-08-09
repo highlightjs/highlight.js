@@ -1,0 +1,2 @@
+lazy import foo
+lazy from foo import bar

@@ -1,0 +1,10 @@
+<span class="hljs-string">t&quot;Hello <span class="hljs-subst">{name}</span>&quot;</span>
+<span class="hljs-string">T&quot;Hello <span class="hljs-subst">{name}</span>&quot;</span>
+<span class="hljs-string">t&quot;Hello <span class="hljs-subst">{name!r}</span>&quot;</span>
+<span class="hljs-string">t&quot;Value: <span class="hljs-subst">{value:<span class="hljs-number">.2</span>f}</span>&quot;</span>
+<span class="hljs-string">t&quot;Value: <span class="hljs-subst">{value:.{precision}</span>f}&quot;</span>
+<span class="hljs-string">t&quot;Hello <span class="hljs-subst">{name=}</span>&quot;</span>
+<span class="hljs-string">rt&#x27;Did you say &quot;<span class="hljs-subst">{trade}</span>&quot;?\n&#x27;</span>
+<span class="hljs-string">tr&#x27;Did you say &quot;<span class="hljs-subst">{trade}</span>&quot;?\n&#x27;</span>
+<span class="hljs-string">t&quot;Hello <span class="hljs-subst">{(<span class="hljs-keyword">lambda</span>: name)}</span>&quot;</span>
+<span class="hljs-string">t&quot;Hello <span class="hljs-subst">{<span class="hljs-keyword">await</span> get_name()}</span>&quot;</span>

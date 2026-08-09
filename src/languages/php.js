@@ -3,6 +3,10 @@ Language: PHP
 Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://www.php.net
+Description: Use this for plain PHP code, i.e. code that does not include the
+             surrounding `<?php ... ?>` tags. If your snippet mixes PHP with
+             HTML markup and the opening/closing tags, use `php-template`
+             instead.
 Category: common
 */
 
@@ -414,6 +418,8 @@ export default function(hljs) {
       VARIABLE,
       LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
       hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.HASH_COMMENT_MODE,
       STRING,
       NUMBER,
       CONSTRUCTOR_CALL,
@@ -438,6 +444,8 @@ export default function(hljs) {
     NAMED_ARGUMENT,
     LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
     hljs.C_BLOCK_COMMENT_MODE,
+    hljs.C_LINE_COMMENT_MODE,
+    hljs.HASH_COMMENT_MODE,
     STRING,
     NUMBER,
     CONSTRUCTOR_CALL,
@@ -566,6 +574,8 @@ export default function(hljs) {
               VARIABLE,
               LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
               hljs.C_BLOCK_COMMENT_MODE,
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.HASH_COMMENT_MODE,
               STRING,
               NUMBER
             ]

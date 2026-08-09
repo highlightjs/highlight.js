@@ -10,6 +10,9 @@ octal := <span class="hljs-number">0600</span>
 octal_underscore := <span class="hljs-number">0_600</span>
 octal_o := <span class="hljs-number">0o600</span>
 octal_upper_o := <span class="hljs-number">0O600</span>
+binary := <span class="hljs-number">0b1010</span>
+binary_upper := <span class="hljs-number">0B1010</span>
+binary_underscore := <span class="hljs-number">0b1010_1100</span>
 hex_mixed_case := <span class="hljs-number">0xBadFace</span>
 hex_underscore := <span class="hljs-number">0xBad_Face</span>
 hex_many_underscore := <span class="hljs-number">0x_67_7a_2f_cc_40_c6</span>

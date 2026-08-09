@@ -1,0 +1,11 @@
+// quotes inside a raw string must not be mistaken for its closing delimiter
+const char *empty = R"(JKhf2n"v; 0>qwv>q " JKhf2n"l0 "v42HHf&g )";
+int after_empty_delimiter;
+
+// the same, with a named delimiter
+const char *named = R"a(bla)a";
+int after_named_delimiter;
+
+// a delimiter-looking sequence inside the literal does not end it
+const char *json = R"json({"key": "})json_no", "value": 1})json";
+int after_json;

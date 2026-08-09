@@ -73,9 +73,10 @@ export default function(hljs) {
           modes.HEXCOLOR,
           modes.IMPORTANT,
           modes.CSS_NUMBER_MODE,
+          modes.UNICODE_RANGE,
           ...STRINGS,
           // needed to highlight these as strings and to avoid issues with
-          // illegal characters that might be inside urls that would tigger the
+          // illegal characters that might be inside urls that would trigger the
           // languages illegal stack
           {
             begin: /(url|data-uri)\(/,

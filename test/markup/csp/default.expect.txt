@@ -1,5 +1,13 @@
 <span class="hljs-attribute">Content-Security-Policy</span>:
     <span class="hljs-keyword">default-src</span> <span class="hljs-string">&#x27;self&#x27;</span>;
     <span class="hljs-keyword">style-src</span> <span class="hljs-string">&#x27;self&#x27;</span> css.example.com;
+    <span class="hljs-keyword">style-src-attr</span> <span class="hljs-string">&#x27;none&#x27;</span>;
+    <span class="hljs-keyword">style-src-elem</span> https://example.com/;
     <span class="hljs-keyword">img-src</span> *.example.com;
+    <span class="hljs-keyword">fenced-frame-src</span> https://example.com/;
+    <span class="hljs-keyword">report-to</span> name-of-endpoint;
+    <span class="hljs-keyword">require-trusted-types-for</span> <span class="hljs-string">&#x27;script&#x27;</span>;
+    <span class="hljs-keyword">script-src</span> <span class="hljs-string">&#x27;self&#x27;</span>;
+    <span class="hljs-keyword">script-src-attr</span> <span class="hljs-string">&#x27;none&#x27;</span>;
+    <span class="hljs-keyword">script-src-elem</span> https://example.com/;
     <span class="hljs-keyword">script-src</span> <span class="hljs-string">&#x27;unsafe-eval&#x27;</span> <span class="hljs-string">&#x27;self&#x27;</span> js.example.com <span class="hljs-string">&#x27;nonce-Nc3n83cnSAd3wc3Sasdfn939hc3&#x27;</span>

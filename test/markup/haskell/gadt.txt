@@ -1,0 +1,8 @@
+data Expr a where
+  Lit :: Int -> Expr Int
+
+newtype Identity a where
+  Identity :: a -> Identity a
+
+type family Element c where
+  Element [a] = a

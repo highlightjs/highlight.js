@@ -25,5 +25,14 @@
   }
   n+=i;
 }
-
 <span class="hljs-keyword">return</span> n;
+
+<span class="hljs-keyword">var</span> a = [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">10</span>];
+<span class="hljs-keyword">var</span> total = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> v <span class="hljs-keyword">of</span> a) {
+  total += v;
+}
+
+<span class="hljs-keyword">var</span> result = <span class="hljs-built_in">DistanceToCoordinate</span>(<span class="hljs-symbol">$userInput</span>, <span class="hljs-number">1038</span>);
+
+<span class="hljs-keyword">return</span> result.coordinate.x + total;

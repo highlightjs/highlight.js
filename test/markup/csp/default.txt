@@ -1,5 +1,13 @@
 Content-Security-Policy:
     default-src 'self';
     style-src 'self' css.example.com;
+    style-src-attr 'none';
+    style-src-elem https://example.com/;
     img-src *.example.com;
+    fenced-frame-src https://example.com/;
+    report-to name-of-endpoint;
+    require-trusted-types-for 'script';
+    script-src 'self';
+    script-src-attr 'none';
+    script-src-elem https://example.com/;
     script-src 'unsafe-eval' 'self' js.example.com 'nonce-Nc3n83cnSAd3wc3Sasdfn939hc3'

@@ -1,0 +1,15 @@
+<span class="hljs-section">[Unit]</span>
+<span class="hljs-comment"># Sample systemd service unit</span>
+<span class="hljs-attr">Description</span><span class="hljs-operator">=</span>Blog server daemon
+<span class="hljs-attr">After</span><span class="hljs-operator">=</span>network.target
+
+<span class="hljs-section">[Service]</span>
+<span class="hljs-attr">Type</span><span class="hljs-operator">=</span><span class="hljs-literal">forking</span>
+<span class="hljs-attr">ExecStart</span><span class="hljs-operator">=</span>/usr/local/bin/blog-server start
+<span class="hljs-attr">ExecStop</span><span class="hljs-operator">=</span>/usr/local/bin/blog-server stop
+<span class="hljs-attr">Restart</span><span class="hljs-operator">=</span>on-failure
+<span class="hljs-attr">User</span><span class="hljs-operator">=</span>www-data
+<span class="hljs-attr">WorkingDirectory</span><span class="hljs-operator">=</span>/var/www/blog
+
+<span class="hljs-section">[Install]</span>
+<span class="hljs-attr">WantedBy</span><span class="hljs-operator">=</span>multi-user.target

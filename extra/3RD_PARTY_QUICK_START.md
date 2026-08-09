@@ -40,9 +40,11 @@ Switching back to your clone of the `highlight-js` core repository now, `git clo
 To test (detect and markup tests), just build Highlight.js and test it.  Your tests should be automatically run with the full suite:
 
 ```bash
-node ./tools/build.js -t node
+npm run build
 npm run test
 ```
+
+(don't forget to run `npm install` before you use npm scripts like test or build for the first time.)
 
 Running the tests this way runs the complete suite of tests for all languages. You can set the `ONLY_EXTRA` environment variable to focus the tests on just the language(s) you are currently working on in the `extra` folder.
 
@@ -62,7 +64,7 @@ Users will expect your package to include a minified CDN distributable in your `
 *The Highlight.js CDN build process will build this file for you automatically.* You can simply commit and push your repo, and done.
 
 ```bash
-node ./tools/build.js -t cdn
+npm run build-cdn
 
 ...
 Building extra/highlightjs-your-language/dist/your-language.min.js.
@@ -74,7 +76,7 @@ After building, simply commit the `dist/your-language.min.js` that was generated
 ```
 cd extra/highlightjs-your-language
 git add dist
-git commit -m'(chore) add CDN distributable`
+git commit -m "(chore) add CDN distributable"
 git push
 ```
 
@@ -92,4 +94,4 @@ More work could be done on:
 
 - Allowing you to ONLY run your own tests, not the whole suite.
 - Allowing you to maintain a 3rd party module WITHOUT it being inside of a `highlight-js` checkout (this requires discussion though)
-- Simply make some easier tools or scripts to simply the existing process.
+- Simply make some easier tools or scripts to simplify the existing process.
