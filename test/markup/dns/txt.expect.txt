@@ -1,0 +1,4 @@
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">google-site-verification=aU4dDNsp6XuXfh2</span><span class="hljs-comment">;notgoodbob</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">&quot;v=spf1 a mx ~all&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">&quot;v=DMARC1;p=reject&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">brave-ledger-verification=807e569d632d84c67b73c1847321ce63</span>

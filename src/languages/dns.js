@@ -82,7 +82,8 @@ export default function(hljs) {
         match: [
           /TXT/,
           /\s+/,
-          /(?!")\S+($|(?=;))/
+          // unquoted; `;` starts a comment (RFC 1035), not string data
+          /(?!")[^\s;]+/
         ],
         scope: {
           1: "keyword",
