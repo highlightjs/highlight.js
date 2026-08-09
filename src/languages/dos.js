@@ -14,8 +14,19 @@ export default function(hljs) {
   );
   const LABEL = {
     className: 'symbol',
-    begin: '^\\s*:[A-Za-z._?][A-Za-z0-9_$#@~.?]*',
+    begin: /^\s*:[A-Za-z._?][A-Za-z0-9_$#@~.?]*/,
     relevance: 0
+  };
+  const GOTO = {
+    match: [
+      /\bgoto\b/,
+      /\s*/,
+      /:?[A-Za-z._?][A-Za-z0-9_$#@~.?]*/
+    ],
+    scope: {
+      1: 'keyword',
+      3: 'symbol'
+    }
   };
   const KEYWORDS = [
     "if",
@@ -146,15 +157,8 @@ export default function(hljs) {
         className: 'variable',
         begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
       },
-      {
-        className: 'function',
-        begin: LABEL.begin,
-        end: /goto\s*:eof/,
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
-          COMMENT
-        ]
-      },
+      GOTO,
+      LABEL,
       {
         className: 'number',
         begin: '\\b\\d+',
