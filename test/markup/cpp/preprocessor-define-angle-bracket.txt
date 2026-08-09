@@ -1,0 +1,9 @@
+#define what do { cout << ">"; } while (0)
+#include <iostream>
+#include <vector>
+#define DBG(x) do { std::cerr << x << "\n"; } while (0)
+
+int main() {
+  std::cout << "hello > world" << std::endl;
+  return 0;
+}
