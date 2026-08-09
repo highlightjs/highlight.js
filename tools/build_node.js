@@ -107,6 +107,9 @@ const generatePackageExports = () => ({
     ...dual("./lib/index.js"),
   },
   "./package.json": "./package.json",
+  "./private": {
+    "types": "./types/private.d.ts"
+  },
   "./lib/common": dual("./lib/common.js"),
   "./lib/core": dual("./lib/core.js"),
   "./lib/languages/*": dual("./lib/languages/*.js"),
@@ -144,7 +147,8 @@ const CORE_FILES = [
   "SUPPORTED_LANGUAGES.md",
   "SECURITY.md",
   "CHANGES.md",
-  "types/index.d.ts"
+  "types/index.d.ts",
+  "types/private.d.ts"
 ];
 
 async function buildNode(options) {
