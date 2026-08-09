@@ -1,0 +1,50 @@
+<span class="hljs-comment">// attribute values: {/* */} is a JS comment expression</span>
+<span class="hljs-keyword">return</span> (
+  <span class="hljs-tag">&lt;<span class="hljs-name">ClassicBasic</span>
+    <span class="hljs-attr">value</span>={<span class="hljs-comment">/* ... */</span>}
+    onChange={<span class="hljs-comment">/* ... */</span>}
+    editorState={<span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>.<span class="hljs-property">editorState</span>}
+    onStateChange={<span class="hljs-function"><span class="hljs-params">editorState</span> =&gt;</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>({ editorState })}
+  /&gt;</span>
+);
+
+<span class="hljs-comment">// line and block comments between attributes (inside the opening tag)</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+  <span class="hljs-comment">// prevent editor losing focus</span>
+  <span class="hljs-attr">onMouseDown</span>={<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> e.<span class="hljs-title function_">preventDefault</span>()}
+  /* also a block comment between attrs */
+  onClick={<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(<span class="hljs-function"><span class="hljs-params">s</span> =&gt;</span> <span class="hljs-title function_">update</span>(s, <span class="hljs-string">&#x27;editorState.bold.value&#x27;</span>, <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> !value));
+  }}
+&gt;</span>
+  Toggle bold
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>;
+
+<span class="hljs-comment">// multi-line block comment between attributes</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Comp</span>
+  <span class="hljs-comment">/* multi
+     line */</span>
+  <span class="hljs-attr">foo</span>={<span class="hljs-number">1</span>}
+  bar={<span class="hljs-string">&quot;ok&quot;</span>}
+/&gt;</span>;
+
+<span class="hljs-comment">// {/* */} as a child expression (not text)</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  {<span class="hljs-comment">/* block comment in children */</span>}
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
+
+<span class="hljs-comment">// children text that looks like // is NOT a comment</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  // this is text content
+  <span class="hljs-tag">&lt;<span class="hljs-name">X</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
+
+<span class="hljs-comment">// self-closing with mixed attrs and comments</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span>
+  <span class="hljs-attr">src</span>={url}
+  // lazy load
+  loading=<span class="hljs-string">&quot;lazy&quot;</span>
+  <span class="hljs-comment">/* width hint */</span>
+  <span class="hljs-attr">width</span>={<span class="hljs-comment">/* px */</span> <span class="hljs-number">100</span>}
+/&gt;</span>;
