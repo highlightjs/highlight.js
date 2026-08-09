@@ -21,12 +21,22 @@ They are tools. You are still the author.
    contributing guidelines still apply. Tooling does not lower the bar.
 
 5. **Transparency (encouraged).** If a contribution was substantially
-   tool-assisted, say so in the PR description or a commit trailer, for
-   example:
+   tool-assisted, say so in the PR description or a commit trailer.
+   Prefer model, effort/reasoning level, and context window when known:
 
    ```text
-   Assisted-by: <tool name>
+   Assisted-by: <model> (<effort>) [<context>]
    ```
+
+   Examples:
+
+   ```text
+   Assisted-by: Grok 4.5 (low) [512k]
+   Assisted-by: Claude Sonnet 4 (high) [200k]
+   Assisted-by: Copilot
+   ```
+
+   A bare tool name is fine when the rest is unknown.
 
 ## Not allowed
 
