@@ -8,7 +8,7 @@ export default function () {
   });
 
   it('should add language class name to block',  () => {
-    const expected = 'some-class hljs language-xml',
+    const expected = 'some-class language-xml hljs',
           actual   = this.blocks[0];
 
     actual.should.equal(expected);
