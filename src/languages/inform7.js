@@ -3,6 +3,7 @@ Language: Inform 7
 Author: Bruno Dias <bruno.r.dias@gmail.com>
 Description: Language definition for Inform 7, a DSL for writing parser interactive fiction.
 Website: http://inform7.com
+Category: gaming
 */
 
 export default function(hljs) {

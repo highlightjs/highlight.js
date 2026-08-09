@@ -88,7 +88,11 @@ export default function(hljs) {
         excludeBegin: true,
         excludeEnd: true,
         relevance: 0,
-        contains: [ TYPE ]
+        contains: [ 
+          TYPE, 
+          hljs.C_LINE_COMMENT_MODE, 
+          hljs.C_BLOCK_COMMENT_MODE, 
+        ]
       },
       {
         className: 'params',
@@ -97,7 +101,11 @@ export default function(hljs) {
         excludeBegin: true,
         excludeEnd: true,
         relevance: 0,
-        contains: [ TYPE ]
+        contains: [ 
+          TYPE, 
+          hljs.C_LINE_COMMENT_MODE, 
+          hljs.C_BLOCK_COMMENT_MODE, 
+        ]
       },
       NAME
     ]
@@ -151,6 +159,34 @@ export default function(hljs) {
     beginScope: { 2: "keyword", }
   };
 
+  // glob all non-whitespace characters as a "string"
+  // sourced from https://github.com/scala/docs.scala-lang/pull/2845
+  const DIRECTIVE_VALUE = {
+    className: 'string',
+    begin: /\S+/,
+  }
+
+  // directives
+  // sourced from https://github.com/scala/docs.scala-lang/pull/2845
+  const USING_DIRECTIVE = {
+    begin: [
+      '//>',
+      /\s+/,
+      /using/,
+      /\s+/,
+      /\S+/
+    ],
+    beginScope: {
+      1: "comment",
+      3: "keyword",
+      5: "type"
+    },
+    end: /$/,
+    contains: [
+      DIRECTIVE_VALUE,
+    ]
+  }
+
   return {
     name: 'Scala',
     keywords: {
@@ -158,6 +194,7 @@ export default function(hljs) {
       keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit export enum given transparent'
     },
     contains: [
+      USING_DIRECTIVE,
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       STRING,

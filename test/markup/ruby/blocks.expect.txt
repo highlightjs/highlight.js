@@ -1,0 +1,7 @@
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].each <span class="hljs-keyword">do</span> |<span class="hljs-params">num</span>|
+  puts num
+<span class="hljs-keyword">end</span>
+
+names |= users.map <span class="hljs-keyword">do</span> |<span class="hljs-params">user</span>|
+  user.name
+<span class="hljs-keyword">end</span>

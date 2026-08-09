@@ -21,7 +21,7 @@ const SPAN_CLOSE = '</span>';
 const emitsWrappingTags = (node) => {
   // rarely we can have a sublanguage where language is undefined
   // TODO: track down why
-  return !!node.scope || (node.sublanguage && node.language);
+  return !!node.scope;
 };
 
 /**
@@ -30,6 +30,11 @@ const emitsWrappingTags = (node) => {
  * @param {{prefix:string}} options
  */
 const scopeToCSSClass = (name, { prefix }) => {
+  // sub-language
+  if (name.startsWith("language:")) {
+    return name.replace("language:", "language-");
+  }
+  // tiered scope: comment.line
   if (name.includes(".")) {
     const pieces = name.split(".");
     return [
@@ -37,6 +42,7 @@ const scopeToCSSClass = (name, { prefix }) => {
       ...(pieces.map((x, i) => `${x}${"_".repeat(i + 1)}`))
     ].join(" ");
   }
+  // simple scope
   return `${prefix}${name}`;
 };
 
@@ -69,12 +75,8 @@ export default class HTMLRenderer {
   openNode(node) {
     if (!emitsWrappingTags(node)) return;
 
-    let className = "";
-    if (node.sublanguage) {
-      className = `language-${node.language}`;
-    } else {
-      className = scopeToCSSClass(node.scope, { prefix: this.classPrefix });
-    }
+    const className = scopeToCSSClass(node.scope,
+      { prefix: this.classPrefix });
     this.span(className);
   }
 

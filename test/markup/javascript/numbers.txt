@@ -75,3 +75,24 @@ x0.e1
 0b1e1
 0N
 00.
+
+// numbers in identifiers
+const num = $1
+const num = $0n9
+const num = $abc012
+const num = $0x9
+const num = $0o0
+const num = $09
+const num = $9.09
+const num = $a9
+const num = 1
+const num = 0n9
+const num = 0x9
+const num = 0o0
+const num = 09
+const num = 9.09
+const num = a9
+
+// numbers in identifiers in template strings
+cosnt string = `${$0}`
+cosnt string = `${0}`

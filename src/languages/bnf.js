@@ -1,6 +1,7 @@
 /*
 Language: Backus–Naur Form
 Website: https://en.wikipedia.org/wiki/Backus–Naur_form
+Category: syntax
 Author: Oleg Efimov <efimovov@gmail.com>
 */
 

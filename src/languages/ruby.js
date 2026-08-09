@@ -4,7 +4,7 @@ Description: Ruby is a dynamic, open source programming language with a focus on
 Website: https://www.ruby-lang.org/
 Author: Anton Kovalyov <anton@kovalyov.net>
 Contributors: Peter Leonov <gojpeg@yandex.ru>, Vasily Polovnyov <vast@whiteants.net>, Loren Segal <lsegal@soen.ca>, Pascal Hurni <phi@ruby-reactive.org>, Cedric Sohrauer <sohrauer@googlemail.com>
-Category: common
+Category: common, scripting
 */
 
 export default function(hljs) {
@@ -350,7 +350,7 @@ export default function(hljs) {
     },
     {
       className: 'params',
-      begin: /\|/,
+      begin: /\|(?!=)/,
       end: /\|/,
       excludeBegin: true,
       excludeEnd: true,

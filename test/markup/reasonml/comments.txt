@@ -1,0 +1,10 @@
+let t = 2; // Line comment
+
+/* Regular comment */
+let t = 2;
+
+type t =
+  | A(string)
+  | B(int);
+/* A("foo") -> { TAG: 0, _0: "Foo" } */
+/* B(2) -> { TAG: 1, _0: 2 } */

@@ -20,3 +20,9 @@ let readCacheServiceConfigAndDecode = (configJson) =>
   | Some(data) =>
     data |> Js.Dict.map((. json) => CachingServiceConfig.decode(json))
   };
+
+let ofSyntax = s =>
+  switch (s) {
+  | OCaml => "OCaml"
+  | Reason => "Reason"
+  };

@@ -3,7 +3,10 @@
  Author: Guillaume Laforge <glaforge@gmail.com>
  Description: Groovy programming language implementation inspired from Vsevolod's Java mode
  Website: https://groovy-lang.org
+ Category: system
  */
+
+import { NUMERIC } from "./lib/java.js";
 
 function variants(variants, obj = {}) {
   obj.variants = variants;
@@ -40,10 +43,9 @@ export default function(hljs) {
     begin: /~?\/[^\/\n]+\//,
     contains: [ hljs.BACKSLASH_ESCAPE ]
   };
-  const NUMBER = variants([
-    hljs.BINARY_NUMBER_MODE,
-    hljs.C_NUMBER_MODE
-  ]);
+  // Groovy uses the same numeric literal grammar as Java, including
+  // underscores as digit separators (e.g. 1_000, 0xFF_EC, 0b1010_0101).
+  const NUMBER = NUMERIC;
   const STRING = variants([
     {
       begin: /"""/,
@@ -66,7 +68,7 @@ export default function(hljs) {
 
   const CLASS_DEFINITION = {
     match: [
-      /(class|interface|trait|enum|extends|implements)/,
+      /(class|interface|trait|enum|record|extends|implements)/,
       /\s+/,
       hljs.UNDERSCORE_IDENT_RE
     ],
@@ -126,7 +128,8 @@ export default function(hljs) {
     "import",
     "package",
     "return",
-    "instanceof"
+    "instanceof",
+    "var"
   ];
 
   return {

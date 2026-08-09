@@ -2,6 +2,7 @@
 Language: SAS
 Author: Mauricio Caceres <mauricio.caceres.bravo@gmail.com>
 Description: Syntax Highlighting for SAS
+Category: scientific
 */
 
 /** @type LanguageFn */

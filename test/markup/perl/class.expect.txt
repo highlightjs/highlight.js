@@ -1,0 +1,10 @@
+<span class="hljs-keyword">use</span> <span class="hljs-number">v5.38</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span>::<span class="hljs-title">Subclass</span><span class="hljs-attr"> :isa(Example::Base 2.345)</span> </span>{
+    <span class="hljs-keyword">field</span> <span class="hljs-variable">$_config<span class="hljs-attr"> :param</span><span class="hljs-attr"> :param</span><span class="hljs-attr"> :param</span></span>;
+    <span class="hljs-keyword">field</span> <span class="hljs-variable">$_name<span class="hljs-attr"> : param</span></span> = <span class="hljs-string">&#x27;Test&#x27;</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">method</span> <span class="hljs-title">test</span>() </span>{
+        <span class="hljs-variable">$_name</span> == <span class="hljs-string">&#x27;Test&#x27;</span> ? <span class="hljs-string">&#x27;y&#x27;</span> : <span class="hljs-string">&#x27;n&#x27;</span>;
+    }
+}

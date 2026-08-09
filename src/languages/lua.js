@@ -2,7 +2,7 @@
 Language: Lua
 Description: Lua is a powerful, efficient, lightweight, embeddable scripting language.
 Author: Andrew Fedorov <dmmdrs@mail.ru>
-Category: common, scripting
+Category: common, gaming, scripting
 Website: https://www.lua.org
 */
 
@@ -27,10 +27,11 @@ export default function(hljs) {
   ];
   return {
     name: 'Lua',
+    aliases: ['pluto'],
     keywords: {
       $pattern: hljs.UNDERSCORE_IDENT_RE,
       literal: "true false nil",
-      keyword: "and break do else elseif end for goto if in local not or repeat return then until while",
+      keyword: "and break do else elseif end for goto if in local global not or repeat return then until while",
       built_in:
         // Metatags and globals:
         '_G _ENV _VERSION __index __newindex __mode __call __metatable __tostring __len '

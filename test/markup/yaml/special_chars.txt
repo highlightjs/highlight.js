@@ -1,0 +1,19 @@
+# quoted keys
+"*":
+  - "**/.env"
+
+# unquoted keys
+*:
+  - "**/.env"
+
+# special chars in keys:
+git@github.com:*/copilot:
+  - "/__tests__/**"
+
+# leading special chars in a key
+*/copilot:
+  - "/__tests__/**"
+   
+@gitlab.com:gitlab-org/gitlab-runner.git:
+  - "/__tests__/**"
+   

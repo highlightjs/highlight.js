@@ -11,3 +11,26 @@
 <span class="hljs-string">f&quot;{{ }}&quot;</span>
 <span class="hljs-keyword">if</span><span class="hljs-string">&quot;text&quot;</span>==<span class="hljs-string">&quot;text&quot;</span>:
     <span class="hljs-string">&quot;good&quot;</span>
+<span class="hljs-string">rf&quot;https://www.<span class="hljs-subst">{domain}</span>.com&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">fr&quot;&quot;&quot;
+<span class="hljs-meta">... </span>https://www.example.com/{{age}/360}
+...
+&quot;&quot;&quot;</span>
+<span class="hljs-string">br&quot;https://&quot;</span>
+<span class="hljs-keyword">or</span> <span class="hljs-string">br&quot;https://&quot;</span>
+<span class="hljs-string">rb&quot;https://&quot;</span>
+<span class="hljs-keyword">or</span> <span class="hljs-string">rb&quot;https://&quot;</span>
+test()<span class="hljs-keyword">or</span><span class="hljs-string">&quot;&quot;</span>
+
+<span class="hljs-string">&quot;my ...
+... name&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;my ...
+... name&quot;</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;kkds&quot;</span>+<span class="hljs-string">&quot;kdjsa&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;kkds&quot;</span>+<span class="hljs-string">b&quot;kdjsa&quot;</span>)
+<span class="hljs-built_in">print</span>(test()<span class="hljs-keyword">or</span><span class="hljs-string">&quot;kdjs&quot;</span>)
+<span class="hljs-built_in">print</span>(test()<span class="hljs-keyword">or</span> <span class="hljs-string">&quot;kdjs&quot;</span>)
+<span class="hljs-built_in">print</span>(test()<span class="hljs-keyword">or</span> <span class="hljs-string">f&quot;kdjs&quot;</span>)
+test()<span class="hljs-keyword">or</span><span class="hljs-string">&quot;me&quot;</span>
+<span class="hljs-built_in">print</span>(test()<span class="hljs-keyword">or</span><span class="hljs-string">&quot;me&quot;</span>)

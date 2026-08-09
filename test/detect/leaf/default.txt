@@ -1,21 +1,14 @@
-#empty(friends) {
-    Try adding some friends!
-} ##loop(friends, "friend") {
-    <li> #(friend.name) </li>
-}
+#(variable)
+#extend("template"): I'm added to a base template! #endextend
+#import("body")
+#count(friends)
 
-#someTag(parameter.list, goes, "here") {
-    This is an optional body here
-}
+#for(friend in friends): <li>#(friend.name)</li> #endfor
 
-#index(friends, "0") {
-    Hello, #(self)!
-} ##else() {
-    Nobody's there!
-}
-
-#()
-
-#raw() {
-    <li> Hello </li>
-}
+#if(count(visit) == 1):
+    Hello new user!
+#elseif(title == "Welcome back!"):
+    Hello old user
+#else:
+    Unexpected page!
+#endif

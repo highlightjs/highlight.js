@@ -3,6 +3,9 @@ Language: PHP Template
 Requires: xml.js, php.js
 Author: Josh Goebel <hello@joshgoebel.com>
 Website: https://www.php.net
+Description: Use this for HTML (or other markup) with embedded PHP, i.e. code
+             that includes the `<?php ... ?>` (or `<?= ... ?>`) tags. For
+             plain PHP code without the surrounding tags, use `php` instead.
 Category: common
 */
 

@@ -11,3 +11,26 @@ f"{name + f'{name}'}"
 f"{{ }}"
 if"text"=="text":
     "good"
+rf"https://www.{domain}.com"
+>>> fr"""
+... https://www.example.com/{{age}/360}
+...
+"""
+br"https://"
+or br"https://"
+rb"https://"
+or rb"https://"
+test()or""
+
+"my ...
+... name"
+>>> "my ...
+... name"
+
+print("kkds"+"kdjsa")
+print("kkds"+b"kdjsa")
+print(test()or"kdjs")
+print(test()or "kdjs")
+print(test()or f"kdjs")
+test()or"me"
+print(test()or"me")

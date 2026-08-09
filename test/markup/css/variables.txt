@@ -7,3 +7,9 @@ body {
  --textBlue: blue;
  color: var(--textBlue);
 }
+
+body {
+ --_margin-top: 1rem;
+ margin-top: var(--_margin-top);
+}
+

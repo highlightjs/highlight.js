@@ -7,18 +7,25 @@ Category: common, system
 */
 
 /** @type LanguageFn */
+
 export default function(hljs) {
   const regex = hljs.regex;
+  // ============================================
+  // Added to support the r# keyword, which is a raw identifier in Rust.
+  const RAW_IDENTIFIER = /(r#)?/;
+  const UNDERSCORE_IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.UNDERSCORE_IDENT_RE);
+  const IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.IDENT_RE);
+  // ============================================
   const FUNCTION_INVOKE = {
-    className: "title.function.invoke",
+    scope: "title.function.invoke",
     relevance: 0,
     begin: regex.concat(
       /\b/,
-      /(?!let\b)/,
-      hljs.IDENT_RE,
+      /(?!(?:let|for|while|if|else|match)\b)/,
+      IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
-  const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
+  const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(16|32|64|128))\?';
   const KEYWORDS = [
     "abstract",
     "as",
@@ -52,6 +59,7 @@ export default function(hljs) {
     "override",
     "priv",
     "pub",
+    "raw",
     "ref",
     "return",
     "self",
@@ -64,6 +72,7 @@ export default function(hljs) {
     "try",
     "type",
     "typeof",
+    "union",
     "unsafe",
     "unsized",
     "use",
@@ -123,6 +132,7 @@ export default function(hljs) {
     "debug_assert!",
     "debug_assert_eq!",
     "env!",
+    "eprintln!",
     "panic!",
     "file!",
     "format!",
@@ -160,8 +170,10 @@ export default function(hljs) {
     "u64",
     "u128",
     "usize",
+    "f16",
     "f32",
     "f64",
+    "f128",
     "str",
     "char",
     "bool",
@@ -190,18 +202,28 @@ export default function(hljs) {
         illegal: null
       }),
       {
-        className: 'string',
+        scope: 'symbol',
+        // negative lookahead to avoid matching `'`
+        begin: /'[a-zA-Z_][a-zA-Z0-9_]*(?!')/
+      },
+      {
+        scope: 'string',
         variants: [
           { begin: /b?r(#*)"(.|\n)*?"\1(?!#)/ },
-          { begin: /b?'\\?(x\w{2}|u\w{4}|U\w{8}|.)'/ }
+          {
+            begin: /b?'/,
+            end: /'/,
+            contains: [
+              {
+                scope: "char.escape",
+                match: /\\('|"|\\|\w|x\w{2}|u\w{4}|U\w{8})/
+              }
+            ]
+          }
         ]
       },
       {
-        className: 'symbol',
-        begin: /'[a-zA-Z_][a-zA-Z0-9_]*/
-      },
-      {
-        className: 'number',
+        scope: 'number',
         variants: [
           { begin: '\\b0b([01_]+)' + NUMBER_SUFFIX },
           { begin: '\\b0o([0-7_]+)' + NUMBER_SUFFIX },
@@ -213,24 +235,38 @@ export default function(hljs) {
       },
       {
         begin: [
+          /\bsafe/,
+          /\s+/,
+          /extern/,
+        ],
+        scope: {
+          1: "keyword",
+          3: "keyword",
+        }
+      },
+      {
+        begin: [
           /fn/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.function"
         }
       },
       {
-        className: 'meta',
+        scope: 'meta',
         begin: '#!?\\[',
         end: '\\]',
         contains: [
           {
-            className: 'string',
+            scope: 'string',
             begin: /"/,
-            end: /"/
+            end: /"/,
+            contains: [
+              hljs.BACKSLASH_ESCAPE
+            ]
           }
         ]
       },
@@ -239,9 +275,9 @@ export default function(hljs) {
           /let/,
           /\s+/,
           /(?:mut\s+)?/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "keyword",
           4: "variable"
@@ -252,11 +288,11 @@ export default function(hljs) {
         begin: [
           /for/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE,
+          UNDERSCORE_IDENT_RE,
           /\s+/,
           /in/
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "variable",
           5: "keyword"
@@ -266,9 +302,9 @@ export default function(hljs) {
         begin: [
           /type/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.class"
         }
@@ -277,9 +313,9 @@ export default function(hljs) {
         begin: [
           /(?:trait|enum|struct|union|impl|for)/,
           /\s+/,
-          hljs.UNDERSCORE_IDENT_RE
+          UNDERSCORE_IDENT_RE
         ],
-        className: {
+        scope: {
           1: "keyword",
           3: "title.class"
         }
@@ -293,7 +329,7 @@ export default function(hljs) {
         }
       },
       {
-        className: "punctuation",
+        scope: "punctuation",
         begin: '->'
       },
       FUNCTION_INVOKE

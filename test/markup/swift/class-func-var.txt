@@ -1,0 +1,15 @@
+class func f1() -> Void { }
+
+class func f2<T: Comparable>() -> T { }
+
+class func f3<T>(
+  _ p1: Int,
+  p2: String
+) async throws -> [T] { }
+
+class var v1: Int { get set }
+
+class var v2: String {
+  get { return "test" }
+  set { }
+}

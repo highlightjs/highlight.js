@@ -15,7 +15,7 @@ highlight
 Core highlighting function.  Accepts the code to highlight (string) and a list of options (object).
 The ``language`` parameter must be present and specify the language name or alias
 of the grammar to be used for highlighting.
-The ``ignoreIllegals`` is an optional parameter than when true forces highlighting
+The ``ignoreIllegals`` is an optional parameter that when ``true`` forces highlighting
 to finish even in case of detecting illegal syntax for the
 language instead of throwing an exception.
 
@@ -73,6 +73,12 @@ highlightAll
 Applies highlighting to all elements on a page matching the configured ``cssSelector``.
 The default ``cssSelector`` value is ``'pre code'``, which highlights all code blocks.
 This can be called before or after the page's ``onload`` event has fired.
+
+
+newInstance
+-----------
+
+Returns a new instance of the highlighter with default configuration.
 
 
 configure
@@ -202,6 +208,25 @@ For example, if a new version suddenly had a serious bug (or breaking change) th
 
 * **In Safe Mode** all other languages would continue to highlight just fine. The broken language would appear as a code block, but without any highlighting (as if it were plaintext).
 * **In Debug Mode** all highlighting would stop and a JavaScript error would be thrown.
+
+addPlugin
+---------
+
+::
+
+  addPlugin(plugin)
+
+Add a plugin to this instance of Highlight.js.  See the :doc:`plugin api </plugin-api>` for additional plugin information.
+
+
+removePlugin
+---------
+
+::
+
+  removePlugin(plugin)
+
+Remove the specified plugin from this instance.  ``plugin`` must be exactly the same object that was passed to ``addPlugin``.
 
 
 Deprecated API

@@ -20,5 +20,15 @@ css`
   }
 `;
 
+gql`query { viewer { id } }`;
+
+gql`
+  type Project {
+    name: String
+    tagline: String
+    contributors: [User]
+  }
+`;
+
 // Ensure that we're back in TypeScript mode.
 var foo = 10;

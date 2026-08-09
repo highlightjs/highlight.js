@@ -2,6 +2,7 @@
 Language: SubUnit
 Author: Sergey Bronnikov <sergeyb@bronevichok.ru>
 Website: https://pypi.org/project/python-subunit/
+Category: protocols
 */
 
 export default function(hljs) {

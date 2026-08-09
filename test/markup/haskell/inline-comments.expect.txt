@@ -1,0 +1,97 @@
+ <span class="hljs-comment">-- These are not comments, as the symbols, together with double dashes, form a legal lexemes.</span>
+
+ <span class="hljs-comment">-- Using ascii symbols</span>
+ --!
+ !--!
+ !--
+ #---
+ ---#
+ #---#
+ $----
+ ----$
+ $----$
+ %--
+ --%
+ %--%
+ &amp;---
+ ---&amp;
+ &amp;--&amp;
+ --*
+ *--
+ *--*
+ --+
+ +--
+ +--+
+ --.
+ .--
+ .--.
+ --/
+ /--
+ /--/
+ --&lt;
+ &lt;--
+ &lt;--&lt;
+ --=
+ =--
+ =--=
+ --&gt;
+ &gt;--
+ &gt;--&gt;
+ --?
+ ?--?
+ ?--
+ --@
+ @--@
+ @--
+ \--
+ --\
+ \--\
+ ^--
+ --^
+ ^--^
+ ~--
+ --~
+ ~--~
+ <span class="hljs-comment">-- Using unicode symbols</span>
+ ⅀--
+ --¬
+ ⅄--±
+ <span class="hljs-comment">-- Using unicode punctuation</span>
+ §--
+ --؉
+ ܅--๏
+
+ <span class="hljs-comment">-- However these are comments as they consist of `special` symbols or `_`, `:`, `&quot;`, `&#x27;`</span>
+ <span class="hljs-comment">-- or otherwise don&#x27;t form a legal lexeme together with the dashes.</span>
+ <span class="hljs-comment">--undefined</span>
+ <span class="hljs-comment">--(</span>
+ <span class="hljs-comment">---)</span>
+ <span class="hljs-comment">----_</span>
+ <span class="hljs-comment">--:</span>
+ <span class="hljs-comment">--&quot;</span>
+ <span class="hljs-comment">--&#x27;</span>
+ <span class="hljs-comment">--,</span>
+ <span class="hljs-comment">--;</span>
+ <span class="hljs-comment">--[</span>
+ <span class="hljs-comment">--]</span>
+ <span class="hljs-comment">--`</span>
+ <span class="hljs-comment">--|</span>
+ <span class="hljs-comment">--{</span>
+ <span class="hljs-comment">--}</span>
+ undefined<span class="hljs-comment">--</span>
+ (<span class="hljs-comment">--</span>
+ )<span class="hljs-comment">---</span>
+ _<span class="hljs-comment">----</span>
+ :<span class="hljs-comment">--</span>
+ <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">--</span>
+ &#x27;&#x27;<span class="hljs-comment">--</span>
+ ,<span class="hljs-comment">--</span>
+ ;<span class="hljs-comment">--</span>
+ [<span class="hljs-comment">--</span>
+ ]<span class="hljs-comment">--</span>
+ `<span class="hljs-comment">--</span>
+ |<span class="hljs-comment">--</span>
+ <span class="hljs-comment">{-- Well, this one is a block comment, so we have to terminate it -}</span>
+ }<span class="hljs-comment">--</span>
+ <span class="hljs-comment">---</span>
+ <span class="hljs-comment">----</span>

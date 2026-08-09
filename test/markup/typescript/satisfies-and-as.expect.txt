@@ -1,0 +1,2 @@
+<span class="hljs-keyword">const</span> test3 = <span class="hljs-string">&#x27;test3&#x27;</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">ValidName</span>
+<span class="hljs-keyword">const</span> test4 = <span class="hljs-string">&#x27;test4&#x27;</span> <span class="hljs-keyword">satisfies</span> <span class="hljs-title class_">ValidName</span>

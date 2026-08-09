@@ -1,0 +1,17 @@
+// String raw literals since C# 11. <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/raw-string>
+
+string longMessage1 = """"
+    This is a long message.
+    It has several lines.
+        Some are indented
+                more than others.
+    Some have """quoted text""" in them. \"
+    """";
+    
+string longMessage2 = """
+    This is a long message.
+    It has several lines.
+        Some are indented
+                more than others.
+    Some have ""quoted text"" in them. \"
+    """;

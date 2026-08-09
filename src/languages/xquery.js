@@ -348,7 +348,8 @@ export default function(_hljs) {
     name: 'XQuery',
     aliases: [
       'xpath',
-      'xq'
+      'xq',
+      'xqm'
     ],
     case_insensitive: false,
     illegal: /(proc)|(abstract)|(extends)|(until)|(#)/,

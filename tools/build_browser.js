@@ -24,7 +24,7 @@ const getDefaultHeader = () => ({
 function buildHeader(args = getDefaultHeader()) {
   return "/*!\n"
   + `  Highlight.js v${args.version} (git: ${args.git_sha})\n`
-  + `  (c) ${config.copyrightYears} ${args.author.name} and other contributors\n`
+  + `  (c) ${config.copyrightYears} ${args.author} and other contributors\n`
   + `  License: ${args.license}\n`
   + ` */`;
 }
@@ -169,9 +169,11 @@ function installDemoStyles() {
 
   glob.sync("**", { cwd: "./src/styles" }).forEach((file) => {
     const stat = fss.statSync(`./src/styles/${file}`);
+    if (stat.isDirectory()) return;
+
     if (file.endsWith(".css")) {
       installCleanCSS(`./src/styles/${file}`, `demo/styles/${file}`);
-    } else if (!stat.isDirectory) {
+    } else {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `demo/styles/${file}`);
     }

@@ -7,3 +7,8 @@
  <span class="hljs-attr">--textBlue</span>: blue;
  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--textBlue);
 }
+
+<span class="hljs-selector-tag">body</span> {
+ <span class="hljs-attr">--_margin-top</span>: <span class="hljs-number">1rem</span>;
+ <span class="hljs-attribute">margin-top</span>: <span class="hljs-built_in">var</span>(--_margin-top);
+}

@@ -1,0 +1,4 @@
+//> using scala 3.3.0
+//> using options -source:future -Xfatal-warnings
+//> using test.resourceDir ./resources
+// using foo bar <-- this should not be highlighted

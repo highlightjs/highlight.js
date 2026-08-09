@@ -141,7 +141,8 @@ function installStyles() {
     if (stat.isDirectory()) return;
 
     if (file.endsWith(".css")) {
-      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`);
+      installCleanCSS(`./src/styles/${file}`, `styles/${file}`, { minify: false });
+      installCleanCSS(`./src/styles/${file}`, `styles/${file.replace(".css", ".min.css")}`, { minify: true });
     } else {
       // images, backgrounds, etc
       install(`./src/styles/${file}`, `styles/${file}`);
@@ -162,14 +163,17 @@ async function buildDistributable(language, options) {
 }
 
 async function buildCDNLanguage(language, options) {
-  const name = `languages/${language.name}.min.js`;
-
+  const name = `languages/${language.name}${options.minify ? '.min' : ''}.js`;
   await language.compile({ terser: config.terser });
-  shas[name] = bundling.sha384(language.minified);
-  await fs.writeFile(`${process.env.BUILD_DIR}/${name}`, language.minified);
+
+  const source = options.minify ? language.minified : language.module;
+  shas[name] = bundling.sha384(source);
+  await fs.writeFile(`${process.env.BUILD_DIR}/${name}`, source);
+
   if (options.esm) {
-    shas[`es/${name}`] = bundling.sha384(language.minifiedESM);
-    await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}`, language.minifiedESM);
+    const sourceESM = options.minify ? language.minifiedESM : language.esm;
+    shas[`es/${name}`] = bundling.sha384(sourceESM);
+    await fs.writeFile(`${process.env.BUILD_DIR}/es/${name}`, sourceESM);
   }
 }
 

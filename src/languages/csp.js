@@ -3,6 +3,7 @@ Language: CSP
 Description: Content Security Policy definition highlighting
 Author: Taras <oxdef@oxdef.info>
 Website: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+Category: web
 
 vim: ts=2 sw=2 st=2
 */
@@ -14,6 +15,7 @@ export default function(hljs) {
     "child-src",
     "connect-src",
     "default-src",
+    "fenced-frame-src",
     "font-src",
     "form-action",
     "frame-ancestors",
@@ -23,10 +25,16 @@ export default function(hljs) {
     "media-src",
     "object-src",
     "plugin-types",
+    "report-to",
     "report-uri",
+    "require-trusted-types-for",
     "sandbox",
     "script-src",
+    "script-src-attr",
+    "script-src-elem",
     "style-src",
+    "style-src-attr",
+    "style-src-elem",
     "trusted-types",
     "unsafe-hashes",
     "worker-src"

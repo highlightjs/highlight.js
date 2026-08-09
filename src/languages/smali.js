@@ -3,6 +3,7 @@ Language: Smali
 Author: Dennis Titze <dennis.titze@gmail.com>
 Description: Basic Smali highlighting
 Website: https://github.com/JesusFreke/smali
+Category: assembler
 */
 
 export default function(hljs) {

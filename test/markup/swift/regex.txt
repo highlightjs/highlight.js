@@ -1,0 +1,103 @@
+/escape\/slash/
+/escape \/ slash \/ /
+/hello/
+/hello world/
+/\w+\s+(\d+)\s+\w+/
+/(.+?): (.+)/
+/(?<identifier>[[:alpha:]]\w*) = (?<hex>[0-9A-F]+)/
+let p = /hello/
+let n = /hello/ + /world/ - /nice/
+let q = /hello/ / 2
+(/hello/)
+method(value: /hello/)
+method(/hello/, world)
+method(/hello/, /world/)
+foo(/a, b/) // Will become regex literal '/a, b/'
+qux(/, !/)  // Will become regex literal '/, !/'
+qux(/,/)    // Will become regex literal '/,/'
+let g = hasSubscript[/]/2 // Will become regex literal '/]/'
+let h = /0; let f = 1/ // Will become the regex literal '/0; let y = 1/'
+let i = /^x/           // Will become the regex literal '/^x/'
+
+// extended literals
+#/raw\/slashes/#
+#/raw \/ slashes \/ /#
+#/hello/#
+#/he/llo/#
+##/hello/##
+##/he/llo/##
+###/hello/###
+###/he/llo/###
+####/hello/####
+####/he/llo/####
+#/hello world/#
+#/\w+\s+(\d+)\s+\w+/#
+#/(.+?): (.+)/#
+let p = #/hello/#
+let n = #/hello/# + /world/ - #/nice/#
+let q = #/hello/# / 2
+(#/hello/#)
+method(value: #/hello/#)
+method(#/hello/#, world)
+method(#/hello/#, #/world/#)
+#/regex with #not a comment/#
+
+// multiline extended literals
+let regex = #/
+  # Match a line of the format e.g "DEBIT  03/03/2022  Totally Legit Shell Corp  $2,000,000.00"
+  (?<kind>    \w+)                \s\s+
+  (?<date>    \S+)                \s\s+
+  (?<account> (?: (?!\s\s) . )+)  \s\s+ # Note that account names may contain spaces.
+  (?<amount>  .*)
+/#
+#/
+  #regex comment
+  # regex comment
+  ## regex comment
+  this is another extended regex literal
+  /this is still in the regex/
+  123
+  12 / 2
+  (/hello/)
+  backslash escape literal newline\
+  newline explicit\n
+  nice
+/#
+##/
+  #regex comment
+  # regex comment
+  #/ regex comment
+  multiline
+/##
+###/
+  #regex comment
+  # regex comment
+  #/ regex comment
+  multiline
+/###
+
+// whitespace
+2 / 2 / 2     // not a regex
+2 /     2    / 2     // not a regex
+2 /2/ 2       // is a regex
+2 /2 / 2      // is a regex
+2 / 2/ 2      // not a regex
+2 #/ 2 /# 2   // is a regex
+/\ escaped leading whitespace/ // is a regex
+x+/y/ // infix operator, not a regex
+x + /y/ // is a regex
+x+#/y/# // is a regex
+
+// structural
+struct Planet {
+  var d = /test/
+  var e = #/test/#
+  var n: Any {
+    /test/ + #/test/#
+  }
+}
+
+// unterminated
+/something
+another line
+/

@@ -16,7 +16,7 @@ function testLanguage(language, {testDir}) {
       path.join(testDir, '*.expect.txt') :
       utility.buildPath('markup', language, '*.expect.txt');
     const filePath = where;
-    const filenames = glob.sync(filePath);
+    const filenames = glob.sync(filePath, {windowsPathsNoEscape: true});
 
     filenames.forEach(function(filename) {
       const testName = path.basename(filename, '.expect.txt');

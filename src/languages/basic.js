@@ -3,6 +3,7 @@ Language: BASIC
 Author: Raphaël Assénat <raph@raphnet.net>
 Description: Based on the BASIC reference from the Tandy 1000 guide
 Website: https://en.wikipedia.org/wiki/Tandy_1000
+Category: system
 */
 
 /** @type LanguageFn */
@@ -197,7 +198,13 @@ export default function(hljs) {
       keyword: KEYWORDS
     },
     contains: [
-      hljs.QUOTE_STRING_MODE,
+      {
+        // Match strings that start with " and end with " or a line break
+        scope: 'string',
+        begin: /"/,
+        end: /"|$/,
+        contains: [ hljs.BACKSLASH_ESCAPE ]
+      },
       hljs.COMMENT('REM', '$', { relevance: 10 }),
       hljs.COMMENT('\'', '$', { relevance: 0 }),
       {

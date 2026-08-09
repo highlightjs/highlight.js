@@ -1,15 +1,20 @@
-import Foundation
+/// A generic stack for equatable items.
+public struct Stack<T>: Equatable where T: Equatable {
+  private(set) var items: [T]
 
-@objc class Person: Entity {
-  var name: String!
-  var age:  Int!
-
-  init(name: String, age: Int) {
-    /* /* ... */ */
+  public init(items: [T] = []) {
+    self.items = items
   }
 
-  // Return a descriptive string for this person
-  func description(offset: Int = 0) -> String {
-    return "\(name) is \(age + offset) years old"
+  public mutating func push(item: T) { items.append(item) }
+
+  /* /* ... */ */
+
+  fileprivate var description: String {
+    if items.isEmpty {
+      "The stack is empty"
+    } else {
+      "\(items.count) items in the stack"
+    }
   }
 }

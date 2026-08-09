@@ -1,0 +1,97 @@
+ -- These are not comments, as the symbols, together with double dashes, form a legal lexemes.
+
+ -- Using ascii symbols
+ --!
+ !--!
+ !--
+ #---
+ ---#
+ #---#
+ $----
+ ----$
+ $----$
+ %--
+ --%
+ %--%
+ &---
+ ---&
+ &--&
+ --*
+ *--
+ *--*
+ --+
+ +--
+ +--+
+ --.
+ .--
+ .--.
+ --/
+ /--
+ /--/
+ --<
+ <--
+ <--<
+ --=
+ =--
+ =--=
+ -->
+ >--
+ >-->
+ --?
+ ?--?
+ ?--
+ --@
+ @--@
+ @--
+ \--
+ --\
+ \--\
+ ^--
+ --^
+ ^--^
+ ~--
+ --~
+ ~--~
+ -- Using unicode symbols
+ ⅀--
+ --¬
+ ⅄--±
+ -- Using unicode punctuation
+ §--
+ --؉
+ ܅--๏
+
+ -- However these are comments as they consist of `special` symbols or `_`, `:`, `"`, `'`
+ -- or otherwise don't form a legal lexeme together with the dashes.
+ --undefined
+ --(
+ ---)
+ ----_
+ --:
+ --"
+ --'
+ --,
+ --;
+ --[
+ --]
+ --`
+ --|
+ --{
+ --}
+ undefined--
+ (--
+ )---
+ _----
+ :--
+ ""--
+ ''--
+ ,--
+ ;--
+ [--
+ ]--
+ `--
+ |--
+ {-- Well, this one is a block comment, so we have to terminate it -}
+ }--
+ ---
+ ----

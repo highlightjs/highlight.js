@@ -1,4 +1,12 @@
 export const IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+export const EXTENDED_NUMBER_RE = '([-+]?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)|NaN|[-+]?Infinity'; // 0x..., 0..., decimal, float
+
+export const EXTENDED_NUMBER_MODE = {
+  scope: 'number',
+  match: EXTENDED_NUMBER_RE,
+  relevance: 0
+};
+
 const KEYWORDS = [
   "as", // for exports
   "in",
@@ -40,7 +48,9 @@ const KEYWORDS = [
   "import",
   "from",
   "export",
-  "extends"
+  "extends",
+  // It's reached stage 3, which is "recommended for implementation":
+  "using"
 ];
 const LITERALS = [
   "true",
@@ -145,7 +155,9 @@ export const BUILT_IN_VARIABLES = [
   "window",
   "document",
   "localStorage",
+  "sessionStorage",
   "module",
+  "self",
   "global" // Node.js
 ];
 

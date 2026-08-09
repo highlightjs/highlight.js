@@ -1,0 +1,3 @@
+def something()
+    something // 4
+end

@@ -7,7 +7,7 @@
       Error_Message : <span class="hljs-type">String</span> := Null_Ignore_Value (Error_Message_C);
    <span class="hljs-keyword">begin</span>
 
-      Named : <span class="hljs-keyword">for</span> Index <span class="hljs-keyword">in</span> Foo..Bar <span class="hljs-keyword">loop</span>
+      Named : <span class="hljs-type">parallel</span> <span class="hljs-keyword">for</span> Index <span class="hljs-keyword">in</span> Foo..Bar <span class="hljs-keyword">loop</span>
           Put (<span class="hljs-string">&quot;Hi[]{}&quot;</span>);
       <span class="hljs-keyword">end</span> <span class="hljs-keyword">loop</span> Named;
 

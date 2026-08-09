@@ -1,0 +1,22 @@
+/* type variables */
+type t('a) = list('a);
+let f = (a: list('a)): 'a => List.hd(a);
+
+/* polymorphic variants */
+type t = [ | `A | `B];
+
+/* variants */
+type result =
+  | Sat
+  | Unsat
+  | Unknown;
+
+/* module and module types */
+module type S = {let compute: unit => unit;};
+module Impl: S = {
+  let compute = () => ();
+};
+
+/* types with attributes */
+[@bs.deriving jsConverter]
+type action = [ | `Click | [@bs.as "submit"] `Submit | `Cancel];

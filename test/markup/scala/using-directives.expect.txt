@@ -1,0 +1,4 @@
+<span class="hljs-comment">//&gt;</span> <span class="hljs-keyword">using</span> <span class="hljs-type">scala</span> <span class="hljs-string">3.3.0</span>
+<span class="hljs-comment">//&gt;</span> <span class="hljs-keyword">using</span> <span class="hljs-type">options</span> <span class="hljs-string">-source:future</span> <span class="hljs-string">-Xfatal-warnings</span>
+<span class="hljs-comment">//&gt;</span> <span class="hljs-keyword">using</span> <span class="hljs-type">test.resourceDir</span> <span class="hljs-string">./resources</span>
+<span class="hljs-comment">// using foo bar &lt;-- this should not be highlighted</span>

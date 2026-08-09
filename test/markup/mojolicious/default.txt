@@ -1,4 +1,4 @@
-%layout 'bootstrap';
+% layout 'bootstrap';
 % title "Import your subs";
 %= form_for '/settings/import' => (method => 'post', enctype => 'multipart/form-data') => begin
      %= file_field 'opmlfile' => multiple => 'true'

@@ -1,0 +1,17 @@
+<span class="hljs-comment">// String raw literals since C# 11. &lt;https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/raw-string&gt;</span>
+
+<span class="hljs-built_in">string</span> longMessage1 = <span class="hljs-string">&quot;&quot;&quot;&quot;
+    This is a long message.
+    It has several lines.
+        Some are indented
+                more than others.
+    Some have &quot;&quot;&quot;quoted text&quot;&quot;&quot; in them. \&quot;
+    &quot;&quot;&quot;&quot;</span>;
+    
+<span class="hljs-built_in">string</span> longMessage2 = <span class="hljs-string">&quot;&quot;&quot;
+    This is a long message.
+    It has several lines.
+        Some are indented
+                more than others.
+    Some have &quot;&quot;quoted text&quot;&quot; in them. \&quot;
+    &quot;&quot;&quot;</span>;

@@ -5,3 +5,11 @@ key: |
   multi-string
   value
 key: true
+
+key: '\'
+key: "\\"
+key: "\"
+key: value"
+key: value
+key: ''''
+key: 'some''value'

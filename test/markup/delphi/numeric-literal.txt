@@ -1,0 +1,18 @@
+const
+  CDecimal = 123456;
+  CFloat = 123.456;
+  CHexadecimal = $ABC123;
+  COctal = &123456;
+  CBinary = %000111;
+
+  CDecimalWithSeparator = 123_456;
+  CFloatWithSeparator = 12_3.78_9;
+  CHexadecimalWithSeparator = $ABC_123;
+  COctalWithSeparator = &123_456;
+  CBinaryWithSeparator = %000_111;
+
+  CHexadecimalWithOnlySeparator = $_;
+  CBinaryWithOnlySeparator = %_;
+
+  CHexadecimalWithNoDigits = $;
+  CBinaryWithNoDigits = %;

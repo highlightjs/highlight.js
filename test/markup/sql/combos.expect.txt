@@ -1,0 +1,118 @@
+<span class="hljs-comment">-- Basic Table with a Single Primary Key</span>
+<span class="hljs-keyword">CREATE    TABLE</span>    users    (
+    id    <span class="hljs-type">INT</span>    <span class="hljs-keyword">PRIMARY   KEY</span>,
+    username   <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
+    email    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>)
+);
+
+<span class="hljs-comment">-- Table with Composite Primary Key</span>
+<span class="hljs-keyword">CREATE     TABLE</span>     orders     (
+    order_id     <span class="hljs-type">INT</span>,
+    user_id     <span class="hljs-type">INT</span>,
+    <span class="hljs-keyword">PRIMARY   KEY</span>   (order_id,     user_id)
+);
+
+<span class="hljs-comment">-- Table with Primary Key and Auto Increment</span>
+<span class="hljs-keyword">CREATE   TABLE</span>   products    (
+    product_id   <span class="hljs-type">INT</span>    <span class="hljs-keyword">PRIMARY   KEY</span>    AUTO_INCREMENT,
+    name    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    price    <span class="hljs-type">DECIMAL</span>(<span class="hljs-number">10</span>, <span class="hljs-number">2</span>)
+);
+
+<span class="hljs-comment">-- Table with Primary Key and Foreign Key</span>
+<span class="hljs-keyword">CREATE   TABLE</span>     order_items     (
+    item_id    <span class="hljs-type">INT</span>,
+    order_id    <span class="hljs-type">INT</span>,
+    product_id     <span class="hljs-type">INT</span>,
+    <span class="hljs-keyword">PRIMARY    KEY</span>   (item_id),
+    <span class="hljs-keyword">FOREIGN     KEY</span>   (order_id)   <span class="hljs-keyword">REFERENCES</span>    orders(order_id)
+);
+
+<span class="hljs-comment">-- Table with Date and Primary Key</span>
+<span class="hljs-keyword">CREATE     TABLE</span>    events    (
+    event_id    <span class="hljs-type">INT</span>     <span class="hljs-keyword">PRIMARY    KEY</span>,
+    event_name    <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    event_date   <span class="hljs-type">DATE</span>
+);
+
+<span class="hljs-comment">-- Basic Table with a Single Primary Key</span>
+<span class="hljs-keyword">CREATE
+TABLE</span>
+users
+(
+id
+<span class="hljs-type">INT</span>
+<span class="hljs-keyword">PRIMARY
+KEY</span>,
+username
+<span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
+email
+<span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>)
+);
+
+<span class="hljs-comment">-- Table with Composite Primary Key</span>
+<span class="hljs-keyword">CREATE
+TABLE</span>
+orders
+(
+order_id
+<span class="hljs-type">INT</span>,
+user_id
+<span class="hljs-type">INT</span>,
+<span class="hljs-keyword">PRIMARY
+KEY</span>
+(order_id,
+user_id)
+);
+
+<span class="hljs-comment">-- Table with Primary Key and Auto Increment</span>
+<span class="hljs-keyword">CREATE
+TABLE</span>
+products
+(
+product_id
+<span class="hljs-type">INT</span>
+<span class="hljs-keyword">PRIMARY
+KEY</span>
+AUTO_INCREMENT,
+name
+<span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+price
+<span class="hljs-type">DECIMAL</span>(<span class="hljs-number">10</span>, <span class="hljs-number">2</span>)
+);
+
+<span class="hljs-comment">-- Table with Primary Key and Foreign Key</span>
+<span class="hljs-keyword">CREATE
+TABLE</span>
+order_items
+(
+item_id
+<span class="hljs-type">INT</span>,
+order_id
+<span class="hljs-type">INT</span>,
+product_id
+<span class="hljs-type">INT</span>,
+<span class="hljs-keyword">PRIMARY
+KEY</span>
+(item_id),
+<span class="hljs-keyword">FOREIGN
+KEY</span>
+(order_id)
+<span class="hljs-keyword">REFERENCES</span>
+orders(order_id)
+);
+
+<span class="hljs-comment">-- Table with Date and Primary Key</span>
+<span class="hljs-keyword">CREATE
+TABLE</span>
+events
+(
+event_id
+<span class="hljs-type">INT</span>
+<span class="hljs-keyword">PRIMARY
+KEY</span>,
+event_name
+<span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+event_date
+<span class="hljs-type">DATE</span> <span class="hljs-type">with  timezone</span>
+);

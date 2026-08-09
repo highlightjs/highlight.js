@@ -133,7 +133,7 @@ export default function(hljs) {
     contains: [] // defined later
   };
   const HTML_TEMPLATE = {
-    begin: 'html`',
+    begin: '\.?html`',
     end: '',
     starts: {
       end: '`',
@@ -146,7 +146,7 @@ export default function(hljs) {
     }
   };
   const CSS_TEMPLATE = {
-    begin: 'css`',
+    begin: '\.?css`',
     end: '',
     starts: {
       end: '`',
@@ -156,6 +156,19 @@ export default function(hljs) {
         SUBST
       ],
       subLanguage: 'css'
+    }
+  };
+  const GRAPHQL_TEMPLATE = {
+    begin: '\.?gql`',
+    end: '',
+    starts: {
+      end: '`',
+      returnEnd: false,
+      contains: [
+        hljs.BACKSLASH_ESCAPE,
+        SUBST
+      ],
+      subLanguage: 'graphql'
     }
   };
   const TEMPLATE_STRING = {
@@ -219,7 +232,10 @@ export default function(hljs) {
     hljs.QUOTE_STRING_MODE,
     HTML_TEMPLATE,
     CSS_TEMPLATE,
+    GRAPHQL_TEMPLATE,
     TEMPLATE_STRING,
+    // Skip numbers when they are part of a variable name
+    { match: /\$\d+/ },
     NUMBER,
     // This is intentional:
     // See https://github.com/highlightjs/highlight.js/issues/3288
@@ -240,7 +256,7 @@ export default function(hljs) {
   const PARAMS_CONTAINS = SUBST_AND_COMMENTS.concat([
     // eat recursive parens in sub expressions
     {
-      begin: /\(/,
+      begin: /(\s*)\(/,
       end: /\)/,
       keywords: KEYWORDS,
       contains: ["self"].concat(SUBST_AND_COMMENTS)
@@ -248,7 +264,8 @@ export default function(hljs) {
   ]);
   const PARAMS = {
     className: 'params',
-    begin: /\(/,
+    // convert this to negative lookbehind in v12
+    begin: /(\s*)\(/, // to match the parms with
     end: /\)/,
     excludeBegin: true,
     excludeEnd: true,
@@ -370,9 +387,10 @@ export default function(hljs) {
       noneOf([
         ...ECMAScript.BUILT_IN_GLOBALS,
         "super",
-        "import"
-      ]),
-      IDENT_RE, regex.lookahead(/\(/)),
+        "import",
+        "await",
+      ].map(x => `${x}\\s*\\(`)),
+      IDENT_RE, regex.lookahead(/\s*\(/)),
     className: "title.function",
     relevance: 0
   };
@@ -434,12 +452,12 @@ export default function(hljs) {
   };
 
   return {
-    name: 'Javascript',
+    name: 'JavaScript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     // this will be extended by TypeScript
     exports: { PARAMS_CONTAINS, CLASS_REFERENCE },
-    illegal: /#(?![$_A-z])/,
+    illegal: /#(?![$_A-Za-z])/,
     contains: [
       hljs.SHEBANG({
         label: "shebang",
@@ -451,13 +469,16 @@ export default function(hljs) {
       hljs.QUOTE_STRING_MODE,
       HTML_TEMPLATE,
       CSS_TEMPLATE,
+      GRAPHQL_TEMPLATE,
       TEMPLATE_STRING,
       COMMENT,
+      // Skip numbers when they are part of a variable name
+      { match: /\$\d+/ },
       NUMBER,
       CLASS_REFERENCE,
       {
-        className: 'attr',
-        begin: IDENT_RE + regex.lookahead(':'),
+        scope: 'attr',
+        match: IDENT_RE + regex.lookahead(':'),
         relevance: 0
       },
       FUNCTION_VARIABLE,
@@ -490,7 +511,7 @@ export default function(hljs) {
                     skip: true
                   },
                   {
-                    begin: /\(/,
+                    begin: /(\s*)\(/,
                     end: /\)/,
                     excludeBegin: true,
                     excludeEnd: true,

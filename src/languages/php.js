@@ -3,6 +3,10 @@ Language: PHP
 Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
 Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: https://www.php.net
+Description: Use this for plain PHP code, i.e. code that does not include the
+             surrounding `<?php ... ?>` tags. If your snippet mixes PHP with
+             HTML markup and the opening/closing tags, use `php-template`
+             instead.
 Category: common
 */
 
@@ -22,12 +26,15 @@ export default function(hljs) {
   const PASCAL_CASE_CLASS_NAME_RE = regex.concat(
     /(\\?[A-Z][a-z0-9_\x7f-\xff]+|\\?[A-Z]+(?=[A-Z][a-z0-9_\x7f-\xff])){1,}/,
     NOT_PERL_ETC);
+  const UPCASE_NAME_RE = regex.concat(
+    /[A-Z]+/,
+    NOT_PERL_ETC);
   const VARIABLE = {
     scope: 'variable',
     match: '\\$+' + IDENT_RE,
   };
   const PREPROCESSOR = {
-    scope: 'meta',
+    scope: "meta",
     variants: [
       { begin: /<\?php/, relevance: 10 }, // boost for obvious PHP
       { begin: /<\?=/ },
@@ -51,10 +58,18 @@ export default function(hljs) {
     illegal: null,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
   });
-  const HEREDOC = hljs.END_SAME_AS_BEGIN({
-    begin: /<<<[ \t]*(\w+)\n/,
+
+  const HEREDOC = {
+    begin: /<<<[ \t]*(?:(\w+)|"(\w+)")\n/,
     end: /[ \t]*(\w+)\b/,
     contains: hljs.QUOTE_STRING_MODE.contains.concat(SUBST),
+    'on:begin': (m, resp) => { resp.data._beginMatch = m[1] || m[2]; },
+    'on:end': (m, resp) => { if (resp.data._beginMatch !== m[1]) resp.ignoreMatch(); },
+  };
+
+  const NOWDOC = hljs.END_SAME_AS_BEGIN({
+    begin: /<<<[ \t]*'(\w+)'\n/,
+    end: /[ \t]*(\w+)\b/,
   });
   // list of valid whitespaces because non-breaking space might be part of a IDENT_RE
   const WHITESPACE = '[ \t\n]';
@@ -63,7 +78,8 @@ export default function(hljs) {
     variants: [
       DOUBLE_QUOTED,
       SINGLE_QUOTED,
-      HEREDOC
+      HEREDOC,
+      NOWDOC
     ]
   };
   const NUMBER = {
@@ -402,6 +418,8 @@ export default function(hljs) {
       VARIABLE,
       LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
       hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.HASH_COMMENT_MODE,
       STRING,
       NUMBER,
       CONSTRUCTOR_CALL,
@@ -426,13 +444,20 @@ export default function(hljs) {
     NAMED_ARGUMENT,
     LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
     hljs.C_BLOCK_COMMENT_MODE,
+    hljs.C_LINE_COMMENT_MODE,
+    hljs.HASH_COMMENT_MODE,
     STRING,
     NUMBER,
     CONSTRUCTOR_CALL,
   ];
 
   const ATTRIBUTES = {
-    begin: regex.concat(/#\[\s*/, PASCAL_CASE_CLASS_NAME_RE),
+    begin: regex.concat(/#\[\s*\\?/,
+      regex.either(
+        PASCAL_CASE_CLASS_NAME_RE,
+        UPCASE_NAME_RE
+      )
+    ),
     beginScope: "meta",
     end: /]/,
     endScope: "meta",
@@ -462,7 +487,10 @@ export default function(hljs) {
       ...ATTRIBUTE_CONTAINS,
       {
         scope: 'meta',
-        match: PASCAL_CASE_CLASS_NAME_RE
+        variants: [
+          { match: PASCAL_CASE_CLASS_NAME_RE },
+          { match: UPCASE_NAME_RE }
+        ]
       }
     ]
   };
@@ -542,9 +570,12 @@ export default function(hljs) {
             keywords: KEYWORDS,
             contains: [
               'self',
+              ATTRIBUTES,
               VARIABLE,
               LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
               hljs.C_BLOCK_COMMENT_MODE,
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.HASH_COMMENT_MODE,
               STRING,
               NUMBER
             ]

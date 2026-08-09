@@ -1,0 +1,2 @@
+<span class="hljs-comment"># Escaped apostrophe is not a string</span>
+<span class="hljs-built_in">echo</span> \&#x27;not-a-highlighted-string\&#x27;

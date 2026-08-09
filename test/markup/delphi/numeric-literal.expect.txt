@@ -1,0 +1,18 @@
+<span class="hljs-keyword">const</span>
+  CDecimal = <span class="hljs-number">123456</span>;
+  CFloat = <span class="hljs-number">123.456</span>;
+  CHexadecimal = <span class="hljs-number">$ABC123</span>;
+  COctal = <span class="hljs-number">&amp;123456</span>;
+  CBinary = <span class="hljs-number">%000111</span>;
+
+  CDecimalWithSeparator = <span class="hljs-number">123_456</span>;
+  CFloatWithSeparator = <span class="hljs-number">12_3.78_9</span>;
+  CHexadecimalWithSeparator = <span class="hljs-number">$ABC_123</span>;
+  COctalWithSeparator = <span class="hljs-number">&amp;123_456</span>;
+  CBinaryWithSeparator = <span class="hljs-number">%000_111</span>;
+
+  CHexadecimalWithOnlySeparator = <span class="hljs-number">$_</span>;
+  CBinaryWithOnlySeparator = <span class="hljs-number">%_</span>;
+
+  CHexadecimalWithNoDigits = <span class="hljs-number">$</span>;
+  CBinaryWithNoDigits = <span class="hljs-number">%</span>;

@@ -4,7 +4,12 @@ var identity = function(foo) {
   return foo;
 };
 
+var identity2 = function (foo) { // seperate the params and function keyword
+  return foo;
+};
+
 function println(value: string);
+function println (value: string);// seperate the params and function keyword
 
 function getArray(): number[] {
   return [1, 2];
@@ -24,3 +29,22 @@ const array = [1, 2, 3].reduce<number[]>((acc, next) => [...acc, next], []);
 const bad = ((a=2, b=5) => [...a, b]);
 sides.every((length,width=(3+2+(4/5))) => length > 0 );
 
+// test props types with interface, types, and etc.
+interface Rect {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
+function boundingRect(rect: Rect) {}
+function boundingRect (rect: Rect) {}
+function boundingRect(rect: Rect): Rect {}
+function boundingRect (rect: Rect): Rect {}
+function boundingRects(rects: Rect[]) {}
+function boundingRects (rects: Rect[]) {}
+function boundingRects(rects: Rect[]): Rect {}
+function boundingRects (rects: Rect[]): Rect {}
+function boundingRects(rects: Array<Rect>): Rect {}
+function boundingRects (rects: Array<Rect>): Rect {}
+function boundingRects (rects: Array<Rect>) {}

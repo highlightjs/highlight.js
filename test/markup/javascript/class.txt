@@ -38,3 +38,29 @@ OutT
 InT
 CSSParserT
 IResponseTsS
+
+// this class to show that the params may be seperated with space after the function name and highlighted as params also.
+class Car extends Vehicle {
+  constructor (speed, cost) {
+    super(speed);
+
+    var c = Symbol('cost');
+    this[c] = cost;
+
+    this.intro = `This is a car runs at
+      ${speed}.`;
+  }
+
+  join () {
+  }
+
+  other (a = ( ( 3 + 2 ) ) ) {
+    console.log(a)
+  }
+
+  something (a = ( ( 3 + 2 ) ), b = 1 ) {
+    console.log(a)
+  }
+
+  onemore (a=(3+2, b=(5*9))) {}
+}

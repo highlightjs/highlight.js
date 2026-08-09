@@ -1,0 +1,9 @@
+maybe
+    {ok, A} ?= a(),
+    true = A >= 0,
+    {ok, B} ?= b(),
+    A + B
+else
+    error -> error;
+    wrong -> error
+end

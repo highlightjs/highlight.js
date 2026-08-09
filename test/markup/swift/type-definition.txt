@@ -1,6 +1,61 @@
 class TestClass {}
+class TestClass: Superclass {}
+class TestClass: Superclass, Conform1, Conform2 {}
+class TestClass<T> {}
+class TestClass<T, U> {}
+class TestClass<repeat each T> {}
+class TestClass<T> where T: Equatable {}
+class TestClass<T>: Superclass where T: Equatable {}
+
+class
+MoreThanOneLine
+{}
+
+class
+MoreThanOneLineInherit
+:
+Superclass
+{}
+
+class
+MoreThanOneLineInherit
+:
+Superclass1,
+Superclass2
+{}
+
+class
+MoreThanOneLineInherit:
+Superclass
+{}
+
+final class
+MoreThanOneLineGeneric<T>
+where
+T: Param
+{}
+
+class Outer {
+  class Inner<T> {}
+  class InnerInherit: Superclass {}
+}
+
 struct TestStruct {}
+struct TestStruct: Conform {}
+struct TestStruct<T, U> {}
+
 enum TestEnum {}
+enum TestEnum: Conform {}
+enum TestEnum<T, U> {}
+
 actor TestActor {}
+actor TestActor: Conform {}
+actor TestActor<T, U> {}
+
 extension TestExtension {}
+extension TestExtension: Conform {}
+extension TestExtension<T, U> {}
+
 protocol TestProtocol {}
+protocol TestProtocol: Conform {}
+protocol TestProtocol<T, U> {}

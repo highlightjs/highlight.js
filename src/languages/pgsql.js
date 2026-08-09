@@ -14,6 +14,7 @@ Description:
     - Function names deliberately are not highlighted. There is no way to tell function
       call from other constructs, hence we can't highlight _all_ function names. And
       some names highlighted while others not looks ugly.
+Category: database
 */
 
 export default function(hljs) {

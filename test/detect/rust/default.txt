@@ -12,5 +12,12 @@ impl From<&'a str> for State {
             "closed" => State::Closed,
             _ => unreachable!(),
         }
+
+        if (str == "trans") {
+            State::Transient;
+        }
+        else if str == "start" {
+            State::Start;
+        }
     }
 }

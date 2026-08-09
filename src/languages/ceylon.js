@@ -2,6 +2,7 @@
 Language: Ceylon
 Author: Lucas Werkmeister <mail@lucaswerkmeister.de>
 Website: https://ceylon-lang.org
+Category: system
 */
 
 /** @type LanguageFn */

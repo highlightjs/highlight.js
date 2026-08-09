@@ -4,7 +4,12 @@
   <span class="hljs-keyword">return</span> foo;
 };
 
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">println</span>(<span class="hljs-params">value: <span class="hljs-built_in">string</span></span>);
+<span class="hljs-keyword">var</span> identity2 = <span class="hljs-keyword">function</span> (<span class="hljs-params">foo</span>) { <span class="hljs-comment">// seperate the params and function keyword</span>
+  <span class="hljs-keyword">return</span> foo;
+};
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">println</span>(<span class="hljs-params"><span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span></span>);
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">println</span> (<span class="hljs-params"><span class="hljs-attr">value</span>: <span class="hljs-built_in">string</span></span>);<span class="hljs-comment">// seperate the params and function keyword</span>
 
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">getArray</span>(<span class="hljs-params"></span>): <span class="hljs-built_in">number</span>[] {
   <span class="hljs-keyword">return</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
@@ -23,4 +28,24 @@
 <span class="hljs-keyword">const</span> array = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>].<span class="hljs-property">reduce</span>&lt;<span class="hljs-built_in">number</span>[]&gt;(<span class="hljs-function">(<span class="hljs-params">acc, next</span>) =&gt;</span> [...acc, next], []);
 <span class="hljs-keyword">const</span> bad = (<span class="hljs-function">(<span class="hljs-params">a=<span class="hljs-number">2</span>, b=<span class="hljs-number">5</span></span>) =&gt;</span> [...a, b]);
 sides.<span class="hljs-title function_">every</span>(<span class="hljs-function">(<span class="hljs-params">length,width=(<span class="hljs-number">3</span>+<span class="hljs-number">2</span>+(<span class="hljs-number">4</span>/<span class="hljs-number">5</span>))</span>) =&gt;</span> length &gt; <span class="hljs-number">0</span> );
+
+<span class="hljs-comment">// test props types with interface, types, and etc.</span>
+<span class="hljs-keyword">interface</span> <span class="hljs-title class_">Rect</span> {
+  <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">y</span>: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">w</span>: <span class="hljs-built_in">number</span>;
+  <span class="hljs-attr">h</span>: <span class="hljs-built_in">number</span>;
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRect</span>(<span class="hljs-params"><span class="hljs-attr">rect</span>: <span class="hljs-title class_">Rect</span></span>) {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRect</span> (<span class="hljs-params"><span class="hljs-attr">rect</span>: <span class="hljs-title class_">Rect</span></span>) {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRect</span>(<span class="hljs-params"><span class="hljs-attr">rect</span>: <span class="hljs-title class_">Rect</span></span>): <span class="hljs-title class_">Rect</span> {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRect</span> (<span class="hljs-params"><span class="hljs-attr">rect</span>: <span class="hljs-title class_">Rect</span></span>): <span class="hljs-title class_">Rect</span> {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRects</span>(<span class="hljs-params"><span class="hljs-attr">rects</span>: <span class="hljs-title class_">Rect</span>[]</span>) {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRects</span> (<span class="hljs-params"><span class="hljs-attr">rects</span>: <span class="hljs-title class_">Rect</span>[]</span>) {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRects</span>(<span class="hljs-params"><span class="hljs-attr">rects</span>: <span class="hljs-title class_">Rect</span>[]</span>): <span class="hljs-title class_">Rect</span> {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRects</span> (<span class="hljs-params"><span class="hljs-attr">rects</span>: <span class="hljs-title class_">Rect</span>[]</span>): <span class="hljs-title class_">Rect</span> {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRects</span>(<span class="hljs-params"><span class="hljs-attr">rects</span>: <span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">Rect</span>&gt;</span>): <span class="hljs-title class_">Rect</span> {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRects</span> (<span class="hljs-params"><span class="hljs-attr">rects</span>: <span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">Rect</span>&gt;</span>): <span class="hljs-title class_">Rect</span> {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">boundingRects</span> (<span class="hljs-params"><span class="hljs-attr">rects</span>: <span class="hljs-title class_">Array</span>&lt;<span class="hljs-title class_">Rect</span>&gt;</span>) {}
 

@@ -1,0 +1,7 @@
+<span class="hljs-type">atomic_int</span> x;
+<span class="hljs-type">atomic_bool</span> flag;
+<span class="hljs-type">atomic_uint</span> counter;
+atomic_store(&amp;x, <span class="hljs-number">1</span>);
+atomic_load(&amp;x);
+atomic_init(&amp;x, <span class="hljs-number">0</span>);
+atomic_fetch_add(&amp;x, <span class="hljs-number">2</span>);

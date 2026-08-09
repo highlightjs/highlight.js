@@ -1,0 +1,12 @@
+<span class="hljs-keyword">const</span>
+  CDecimalCharacterString = <span class="hljs-string">#123</span>;
+  CHexadecimalCharacterString = <span class="hljs-string">#$7B</span>;
+  COctalCharacterString = <span class="hljs-string">#&amp;123</span>;
+  CBinaryCharacterString = <span class="hljs-string">#%1111011</span>;
+
+  CDecimalCharacterStringWithSeparator = <span class="hljs-string">#1_23</span>;
+  CHexadecimalCharacterStringWithSeparator = <span class="hljs-string">#$7_B</span>;
+  COctalCharacterStringWithSeparator = <span class="hljs-string">#&amp;123</span>;
+  CBinaryCharacterStringWithSeparator = <span class="hljs-string">#%1_111011</span>;
+
+  CMultipleCharacterStrings = <span class="hljs-string">#123</span><span class="hljs-string">#$ABC</span><span class="hljs-string">#&amp;765</span><span class="hljs-string">#%0011001</span>;

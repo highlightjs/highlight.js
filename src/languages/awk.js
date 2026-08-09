@@ -3,6 +3,7 @@ Language: Awk
 Author: Matthew Daly <matthewbdaly@gmail.com>
 Website: https://www.gnu.org/software/gawk/manual/gawk.html
 Description: language definition for Awk scripts
+Category: scripting
 */
 
 /** @type LanguageFn */

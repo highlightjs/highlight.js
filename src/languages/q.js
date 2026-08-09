@@ -4,6 +4,7 @@ Description: Q is a vector-based functional paradigm programming language built 
              (K/Q/Kdb+ from Kx Systems)
 Author: Sergey Vidyuk <svidyuk@gmail.com>
 Website: https://kx.com/connect-with-us/developers/
+Category: enterprise, functional, database
 */
 
 export default function(hljs) {

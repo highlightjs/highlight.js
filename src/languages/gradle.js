@@ -3,6 +3,7 @@ Language: Gradle
 Description: Gradle is an open-source build automation tool focused on flexibility and performance.
 Website: https://gradle.org
 Author: Damian Mee <mee.damian@gmail.com>
+Category: build-system
 */
 
 export default function(hljs) {

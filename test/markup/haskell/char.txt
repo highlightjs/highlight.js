@@ -1,0 +1,19 @@
+-- simple string
+t1 = "starscout"
+
+-- simple char
+t2 = 'm'
+
+-- char and string
+t3 = 'm' : "oonbow"
+
+-- escaping
+t4 = '\"' : 'x' : "y"
+t5 = '\'' : 'x' : "y"
+
+-- should not parse as chars or strings
+t6 = ''
+t7 = 'a
+t8 = ''a
+t9 = a'
+t10 = a''

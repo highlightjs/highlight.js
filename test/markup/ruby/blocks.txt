@@ -1,0 +1,7 @@
+[1, 2, 3].each do |num|
+  puts num
+end
+
+names |= users.map do |user|
+  user.name
+end

@@ -1,0 +1,7 @@
+func expand<each T, repeat each U>(value: (repeat each T), other: each U, another: repeat each T) -> (repeat (each T)?) {
+  return (repeat each value, each value)
+}
+
+let x: (repeat each T) -> Bool = { }
+
+(each U, repeat each T)

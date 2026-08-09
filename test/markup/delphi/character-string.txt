@@ -1,0 +1,12 @@
+const
+  CDecimalCharacterString = #123;
+  CHexadecimalCharacterString = #$7B;
+  COctalCharacterString = #&123;
+  CBinaryCharacterString = #%1111011;
+
+  CDecimalCharacterStringWithSeparator = #1_23;
+  CHexadecimalCharacterStringWithSeparator = #$7_B;
+  COctalCharacterStringWithSeparator = #&123;
+  CBinaryCharacterStringWithSeparator = #%1_111011;
+
+  CMultipleCharacterStrings = #123#$ABC#&765#%0011001;

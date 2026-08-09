@@ -1,0 +1,6 @@
+class SelfTest:
+    def __init__(self):
+        self.text = True
+
+    def method(self):
+        pass

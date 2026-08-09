@@ -32,6 +32,7 @@ export default function(hljs) {
     'in',
     'is',
     'lambda',
+    'lazy',
     'match',
     'nonlocal|10',
     'not',
@@ -48,7 +49,9 @@ export default function(hljs) {
   const BUILT_INS = [
     '__import__',
     'abs',
+    'aiter',
     'all',
+    'anext',
     'any',
     'ascii',
     'bin',
@@ -71,6 +74,7 @@ export default function(hljs) {
     'filter',
     'float',
     'format',
+    'frozendict',
     'frozenset',
     'getattr',
     'globals',
@@ -103,6 +107,7 @@ export default function(hljs) {
     'repr',
     'reversed',
     'round',
+    'sentinel',
     'set',
     'setattr',
     'slice',
@@ -194,7 +199,7 @@ export default function(hljs) {
         relevance: 10
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])'''/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'''/,
         end: /'''/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -204,7 +209,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])"""/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])"""/,
         end: /"""/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -232,7 +237,7 @@ export default function(hljs) {
         end: /"/
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])'/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'/,
         end: /'/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -241,7 +246,7 @@ export default function(hljs) {
         ]
       },
       {
-        begin: /([fF][rR]|[rR][fF]|[fF])"/,
+        begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])"/,
         end: /"/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
@@ -367,13 +372,14 @@ export default function(hljs) {
     ],
     unicodeRegex: true,
     keywords: KEYWORDS,
-    illegal: /(<\/|->|\?)|=>/,
+    illegal: /(<\/|\?)|=>/,
     contains: [
       PROMPT,
       NUMBER,
       {
         // very common convention
-        begin: /\bself\b/
+        scope: 'variable.language',
+        match: /\bself\b/
       },
       {
         // eat "if" prior to string so that it won't accidentally be
@@ -381,6 +387,7 @@ export default function(hljs) {
         beginKeywords: "if",
         relevance: 0
       },
+      { match: /\bor\b/, scope: "keyword" },
       STRING,
       COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,
