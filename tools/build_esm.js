@@ -18,6 +18,7 @@ const { clean } = require('./lib/makestuff.js');
 const { emitThemes } = require('./esm/emit_themes.js');
 const { emitLanguages } = require('./esm/emit_languages.js');
 const { bundleCore } = require('./esm/bundle_core.js');
+const { emitPackage } = require('./esm/package_json.js');
 
 const MODES = ['npm', 'cdn', 'all'];
 const ROOT = path.dirname(__dirname);
@@ -89,15 +90,20 @@ async function buildMode(m) {
   const coreStats = await bundleCore({ minify: doMinify });
   console.log(`build_esm: core ${coreStats.file}${coreStats.minFile ? ` + ${coreStats.minFile}` : ''}`);
 
+  console.log('build_esm: writing package.json.');
+  const pkg = emitPackage({ mode: m });
+  console.log(`build_esm: package ${pkg.name}@${pkg.version}`);
+
   const marker = {
     pipeline: 'build_esm',
-    step: 'A4-core',
+    step: 'A5-package',
     mode: m,
     minify: doMinify,
     languages: languageFilter.length ? languageFilter : null,
     themes: themeStats,
     languageCount: langStats.count,
     core: coreStats,
+    packageName: pkg.name,
     createdAt: new Date().toISOString()
   };
   fs.writeFileSync(
