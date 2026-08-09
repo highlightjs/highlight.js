@@ -65,10 +65,13 @@ jobs:
             echo "NPM_TAG=beta" >> "$GITHUB_ENV"
             echo "RELEASING=beta" >> "$GITHUB_ENV"
             echo "BRANCH_NAME=main" >> "$GITHUB_ENV"
-          else
+          elif [[ "${TAG_NAME}" =~ ^1[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "NPM_TAG=latest" >> "$GITHUB_ENV"
             echo "RELEASING=stable" >> "$GITHUB_ENV"
             echo "BRANCH_NAME=${MAJOR_VERSION}-stable" >> "$GITHUB_ENV"
+          else
+            echo "Unrecognized tag '${TAG_NAME}' (expected 1x.y.z stable or *alpha*/*pre*/*beta* prerelease)."
+            exit 1
           fi
 
       - name: Validate release channel
