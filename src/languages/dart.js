@@ -238,14 +238,9 @@ export default function(hljs) {
     scope: "title.class"
   };
 
-  const NOT_FUNCTION_CALL = /^(?:assert|catch|for|if|switch|while)$/;
-
   const FUNCTION_REFERENCE = {
-    match: /\b[a-z_][A-Za-z0-9_]*(?=\()/,
-    scope: "title.function",
-    "on:begin": (m, resp) => {
-      if (NOT_FUNCTION_CALL.test(m[0])) resp.ignoreMatch();
-    }
+    match: /\b(?!(?:assert|catch|for|if|switch|while)\b)[a-z_][A-Za-z0-9_]*(?=\()/,
+    scope: "title.function"
   };
 
   return {
