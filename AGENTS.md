@@ -185,3 +185,12 @@ Notes:
   `<name>.expect.txt`. Expect files compare `hljs.highlight(...).value` (trimmed).
 - Do not commit `build/` artifacts from local rebuilds unless the project
   explicitly expects it (normally CI builds).
+
+## Style / hygiene
+
+### Trailing whitespace
+
+**Ignore trailing whitespace** (and minor EOF newline nits from `git diff --check`)
+unless you are already editing that exact line for a real change. Do not open
+cleanup-only commits or block reviews on trailing spaces. Prefer leaving
+historical noise alone over drive-by whitespace diffs.
