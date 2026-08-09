@@ -67,6 +67,8 @@ export default function(hljs) {
     contains: [ ESCAPE ]
   };
 
+  const CAA_PROPERTY_TAG = /\b(?:issuewild|issue|iodef|contactemail|contactphone|issuevmc|issuemail)\b/;
+
   return {
     name: 'DNS Zone',
     aliases: [
@@ -77,6 +79,20 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       hljs.COMMENT(';', '$', { relevance: 0 }),
+      {
+        match: [
+          /\bCAA\b/,
+          /[ \t]+/,
+          /\d+/,
+          /[ \t]+/,
+          CAA_PROPERTY_TAG
+        ],
+        scope: {
+          1: 'keyword',
+          3: 'number',
+          5: 'attr'
+        }
+      },
       STRING,
       {
         match: [
