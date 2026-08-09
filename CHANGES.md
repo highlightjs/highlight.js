@@ -19,6 +19,7 @@ Core Grammars:
 - fix(gherkin) update keyword list [Hirse][]
 - fix(gherkin) variables can't contain whitespace [Hirse][]
 - enh(gherkin) docstrings can use backticks [Hirse][]
+- fix(dart) add highlighting for class and function names [guuido][]
 
 Documentation:
 
@@ -41,6 +42,7 @@ CONTRIBUTORS
 [Pablo]: https://github.com/MsfPablo
 [Jayesh Bhade]: https://github.com/Jaybhade
 [Hirse]: https://github.com/Hirse
+[guuido]: https://github.com/guuido
 
 
 ## Version 11.11.3
