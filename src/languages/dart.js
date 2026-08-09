@@ -232,18 +232,14 @@ export default function(hljs) {
 
   const CLASS_REFERENCE = {
     relevance: 0,
-    variants: [
-      {
-        match: CLASS_NAME_RE,
-        scope: "title.class"
-      } 
-    ]
+    match: CLASS_NAME_RE,
+    scope: "title.class"
   };
 
   const FUNCTION_REFERENCE = {
     relevance: 0,
     match: /[a-z][A-Za-z0-9]*(?=\()/,
-    className: "title.function",
+    scope: "title.function"
   };
 
   return {

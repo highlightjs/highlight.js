@@ -19,6 +19,7 @@ Core Grammars:
 - fix(gherkin) update keyword list [Hirse][]
 - fix(gherkin) variables can't contain whitespace [Hirse][]
 - enh(gherkin) docstrings can use backticks [Hirse][]
+- fix(dart) add highlighting for class and function names [guuido][]
 
 Documentation:
 
@@ -41,6 +42,7 @@ CONTRIBUTORS
 [Pablo]: https://github.com/MsfPablo
 [Jayesh Bhade]: https://github.com/Jaybhade
 [Hirse]: https://github.com/Hirse
+[guuido]: https://github.com/guuido
 
 
 ## Version 11.11.3
@@ -220,8 +222,6 @@ Core Grammars:
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
-- fix(dart) - Added highlighting for class and function names [guuido]
-  
 - fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
 - fix(llvm) fixed highlighting for C-style block comments [utam-1] 
 New Grammars:
