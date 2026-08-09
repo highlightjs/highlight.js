@@ -1,4 +1,4 @@
-import hljs from "../../build/es/index.js";
+import { hljs } from "../../build/lib/all.js";
 hljs.debugMode(); // tests run in debug mode so errors are raised
 
 // While the run of type tokens in `FUNCTION_DECLARATION` was unbounded, a long
