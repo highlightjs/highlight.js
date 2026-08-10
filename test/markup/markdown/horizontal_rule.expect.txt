@@ -1,0 +1,21 @@
+Text before the break.
+
+***
+
+Text between breaks.
+
+___
+
+Text between breaks.
+
+  ***
+
+Indented up to three spaces is still a break.
+
+<span class="hljs-strong">**<span class="hljs-emphasis">*This is still bold and italic*</span>**</span>
+
+<span class="hljs-strong">**This is still bold**</span>
+
+<span class="hljs-emphasis">*This is still italic*</span>
+
+Text after the break.
