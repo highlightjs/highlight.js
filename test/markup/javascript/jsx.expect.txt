@@ -1,25 +1,25 @@
-<span class="hljs-keyword">var</span> jsx = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span>/&gt;</span></span>;
-<span class="hljs-keyword">var</span> jsx = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">child</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span></span>;
-<span class="hljs-keyword">var</span> jsx = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span>&gt;</span>...<span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span></span>;
-<span class="hljs-keyword">var</span> jsx = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
-<span class="hljs-keyword">var</span> jsx = <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">pre-node</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">child</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre-node</span>&gt;</span></span>;
+<span class="hljs-keyword">var</span> jsx = <span class="hljs-tag">&lt;<span class="hljs-name">node</span>/&gt;</span>;
+<span class="hljs-keyword">var</span> jsx = <span class="hljs-tag">&lt;<span class="hljs-name">node</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">child</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span>;
+<span class="hljs-keyword">var</span> jsx = <span class="hljs-tag">&lt;<span class="hljs-name">node</span>&gt;</span>...<span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span>;
+<span class="hljs-keyword">var</span> jsx = <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
+<span class="hljs-keyword">var</span> jsx = <span class="hljs-tag">&lt;<span class="hljs-name">pre-node</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">child</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">pre-node</span>&gt;</span>;
 
 <span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
 
-<span class="hljs-keyword">return</span> (<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">attr</span>=<span class="hljs-string">&quot;value&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span></span>);
+<span class="hljs-keyword">return</span> (<span class="hljs-tag">&lt;<span class="hljs-name">node</span> <span class="hljs-attr">attr</span>=<span class="hljs-string">&quot;value&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">node</span>&gt;</span>);
 
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">n</span> = (<span class="hljs-params"></span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">X</span> /&gt;</span></span>
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">m</span> = (<span class="hljs-params"></span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">X</span> <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;&quot;</span> /&gt;</span></span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">n</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">X</span> /&gt;</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">m</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">X</span> <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;&quot;</span> /&gt;</span>
 
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Component</span> {
   <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
     <span class="hljs-keyword">return</span> (
-      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">BrowserRouter</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">BrowserRouter</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/about&quot;</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{About}</span> /&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/contact&quot;</span> <span class="hljs-attr">component</span>=<span class="hljs-string">{Contact}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/about&quot;</span> <span class="hljs-attr">component</span>={<span class="hljs-title class_">About</span>} /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/contact&quot;</span> <span class="hljs-attr">component</span>={<span class="hljs-title class_">Contact</span>} /&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">BrowserRouter</span>&gt;</span></span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">BrowserRouter</span>&gt;</span>
     );
   }
 }

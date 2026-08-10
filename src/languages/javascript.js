@@ -24,68 +24,130 @@ export default function(hljs) {
   };
 
   const IDENT_RE = ECMAScript.IDENT_RE;
-  const FRAGMENT = {
-    begin: '<>',
-    end: '</>'
+  // JSX tag names: Component, div, ns:tag, member.tag, dashes
+  const JSX_TAG_NAME_RE = /[A-Za-z_$][\w$.:-]*/;
+  /**
+   * Scan forward from `<` to find this tag's terminator (`>` or `/>`),
+   * skipping strings, comments, and `{...}` expressions so `=>` etc. do not
+   * false-trigger.
+   * @param {string} input
+   * @param {number} from index of `<`
+   * @returns {{end: number, selfClosing: boolean} | null}
+   */
+  const scanJsxTagEnd = (input, from) => {
+    let i = from + 1; // after <
+    // skip / of closing tag
+    if (input[i] === '/') i++;
+    let depth = 0;
+    let quote = /** @type {string | null} */ (null);
+    while (i < input.length) {
+      const c = input[i];
+      if (quote) {
+        if (c === '\\') {
+          i += 2;
+          continue;
+        }
+        if (c === quote) quote = null;
+        i++;
+        continue;
+      }
+      if (c === '"' || c === "'") {
+        quote = c;
+        i++;
+        continue;
+      }
+      if (c === '{') {
+        depth++;
+        i++;
+        continue;
+      }
+      if (c === '}') {
+        if (depth > 0) depth--;
+        i++;
+        continue;
+      }
+      if (depth > 0) {
+        i++;
+        continue;
+      }
+      // line comment inside tag
+      if (c === '/' && input[i + 1] === '/') {
+        const nl = input.indexOf('\n', i);
+        i = nl === -1 ? input.length : nl;
+        continue;
+      }
+      // block comment inside tag
+      if (c === '/' && input[i + 1] === '*') {
+        const end = input.indexOf('*/', i + 2);
+        i = end === -1 ? input.length : end + 2;
+        continue;
+      }
+      if (c === '<' ) {
+        // nested `<` is not valid here for our purposes
+        return null;
+      }
+      if (c === '>') {
+        return { end: i, selfClosing: false };
+      }
+      if (c === '/' && input[i + 1] === '>') {
+        return { end: i + 1, selfClosing: true };
+      }
+      i++;
+    }
+    return null;
   };
-  // to avoid some special cases inside isTrulyOpeningTag
-  const XML_SELF_CLOSING = /<[A-Za-z0-9\\._:-]+\s*\/>/;
-  const XML_TAG = {
-    begin: /<[A-Za-z0-9\\._:-]+/,
-    end: /\/[A-Za-z0-9\\._:-]+>|\/>/,
-    /**
-     * @param {RegExpMatchArray} match
-     * @param {CallbackResponse} response
-     */
-    isTrulyOpeningTag: (match, response) => {
-      const afterMatchIndex = match[0].length + match.index;
-      const nextChar = match.input[afterMatchIndex];
-      if (
-        // HTML should not include another raw `<` inside a tag
-        // nested type?
-        // `<Array<Array<number>>`, etc.
-        nextChar === "<" ||
-        // the , gives away that this is not HTML
-        // `<T, A extends keyof T, V>`
-        nextChar === ","
-        ) {
+
+  /**
+   * Discriminate JSX tags from TypeScript generics / comparisons.
+   * `match` is the leading `<` only (name is a child mode).
+   * @param {RegExpMatchArray} match
+   * @param {CallbackResponse} response
+   */
+  const isTrulyOpeningTag = (match, response) => {
+    const afterLt = match.input.slice(match.index + match[0].length);
+    const nameMatch = afterLt.match(/^[A-Za-z_$][\w$.:-]*/);
+    if (!nameMatch) {
+      response.ignoreMatch();
+      return;
+    }
+    const afterNameIndex = match.index + match[0].length + nameMatch[0].length;
+    const nextChar = match.input[afterNameIndex];
+    if (
+      // nested type: `<Array<Array<number>>`
+      nextChar === "<" ||
+      // type params: `<T, A extends keyof T, V>`
+      nextChar === ","
+    ) {
+      response.ignoreMatch();
+      return;
+    }
+
+    // `<something>` — need a matching close tag later
+    if (nextChar === ">") {
+      // hasClosingTag expects match[0] like `<Name`
+      const fakeMatch = {
+        0: match.input.slice(match.index, afterNameIndex),
+        input: match.input,
+        index: match.index
+      };
+      if (!hasClosingTag(/** @type {any} */ (fakeMatch), { after: afterNameIndex })) {
         response.ignoreMatch();
-        return;
       }
+      return;
+    }
 
-      // `<something>`
-      // Quite possibly a tag, lets look for a matching closing tag...
-      if (nextChar === ">") {
-        // if we cannot find a matching closing tag, then we
-        // will ignore it
-        if (!hasClosingTag(match, { after: afterMatchIndex })) {
-          response.ignoreMatch();
-        }
-      }
+    const afterName = match.input.substring(afterNameIndex);
 
-      // `<blah />` (self-closing)
-      // handled by simpleSelfClosing rule
+    // `<T = any>(key?: string) => ...`
+    if (afterName.match(/^\s*=/)) {
+      response.ignoreMatch();
+      return;
+    }
 
-      let m;
-      const afterMatch = match.input.substring(afterMatchIndex);
-
-      // some more template typing stuff
-      //  <T = any>(key?: string) => Modify<
-      if ((m = afterMatch.match(/^\s*=/))) {
-        response.ignoreMatch();
-        return;
-      }
-
-      // `<From extends string>`
-      // technically this could be HTML, but it smells like a type
-      // NOTE: This is ugh, but added specifically for https://github.com/highlightjs/highlight.js/issues/3276
-      if ((m = afterMatch.match(/^\s+extends\s+/))) {
-        if (m.index === 0) {
-          response.ignoreMatch();
-          // eslint-disable-next-line no-useless-return
-          return;
-        }
-      }
+    // `<From extends string>` (https://github.com/highlightjs/highlight.js/issues/3276)
+    const extendsMatch = afterName.match(/^\s+extends\s+/);
+    if (extendsMatch && extendsMatch.index === 0) {
+      response.ignoreMatch();
     }
   };
   const KEYWORDS = {
@@ -451,6 +513,185 @@ export default function(hljs) {
     ]
   };
 
+  // Native JSX (not xml sublanguage): tags, attrs, // and /* */ inside open
+  // tags, and {...} expressions that re-enter JS (including nested JSX).
+  //
+  // Pairing model: open tag mode `starts` a children mode; the children mode
+  // ends via endsParent on the matching close tag. Nested elements are full
+  // child modes (not bare open/close), so </child> cannot terminate <parent>.
+  const JSX_ELEMENT = { variants: [] };
+
+  const JSX_EXPRESSION = {
+    begin: /\{/,
+    end: /\}/,
+    keywords: KEYWORDS,
+    contains: [
+      COMMENT,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      TEMPLATE_STRING,
+      { match: /\$\d+/ },
+      NUMBER,
+      {
+        className: 'function',
+        begin: FUNC_LEAD_IN_RE,
+        returnBegin: true,
+        end: '\\s*=>',
+        contains: [
+          {
+            className: 'params',
+            variants: [
+              {
+                begin: hljs.UNDERSCORE_IDENT_RE,
+                relevance: 0
+              },
+              {
+                className: null,
+                begin: /\(\s*\)/,
+                skip: true
+              },
+              {
+                begin: /(\s*)\(/,
+                end: /\)/,
+                excludeBegin: true,
+                excludeEnd: true,
+                keywords: KEYWORDS,
+                contains: PARAMS_CONTAINS
+              }
+            ]
+          }
+        ]
+      },
+      PROPERTY_ACCESS,
+      FUNCTION_CALL,
+      CLASS_REFERENCE,
+      UPPER_CASE_CONSTANT,
+      JSX_ELEMENT,
+      // nested braces (objects, blocks)
+      "self"
+    ]
+  };
+
+  const JSX_TAG_INTERNALS = {
+    endsWithParent: true,
+    illegal: /</,
+    relevance: 0,
+    contains: [
+      COMMENT,
+      {
+        className: 'attr',
+        begin: JSX_TAG_NAME_RE,
+        relevance: 0
+      },
+      {
+        begin: /=\s*/,
+        relevance: 0,
+        endsWithParent: true,
+        contains: [
+          {
+            className: 'string',
+            endsParent: true,
+            variants: [
+              { begin: /"/, end: /"/ },
+              { begin: /'/, end: /'/ }
+            ]
+          },
+          JSX_EXPRESSION
+        ]
+      }
+    ]
+  };
+
+  const JSX_CLOSE_TAG = {
+    className: 'tag',
+    begin: regex.concat(
+      /<\//,
+      regex.lookahead(regex.concat(JSX_TAG_NAME_RE, />/))
+    ),
+    end: />/,
+    endsParent: true,
+    contains: [
+      {
+        className: 'name',
+        begin: JSX_TAG_NAME_RE,
+        relevance: 0
+      }
+    ]
+  };
+
+  /**
+   * @param {boolean} selfClosing
+   * @param {boolean} paired after `>` continue into children until close tag
+   */
+  const jsxOpenTag = (selfClosing, paired) => {
+    /** @type {Mode} */
+    const mode = {
+      className: 'tag',
+      begin: regex.concat(
+        /</,
+        regex.lookahead(JSX_TAG_NAME_RE)
+      ),
+      end: selfClosing ? /\/>/ : />/,
+      contains: [
+        {
+          className: 'name',
+          begin: JSX_TAG_NAME_RE,
+          relevance: 0,
+          starts: JSX_TAG_INTERNALS
+        }
+      ],
+      'on:begin': (match, response) => {
+        isTrulyOpeningTag(match, response);
+        if (response.isMatchIgnored) return;
+        const scanned = scanJsxTagEnd(match.input, match.index);
+        if (!scanned) {
+          response.ignoreMatch();
+          return;
+        }
+        if (selfClosing && !scanned.selfClosing) response.ignoreMatch();
+        if (paired && scanned.selfClosing) response.ignoreMatch();
+      }
+    };
+    if (paired) {
+      mode.starts = {
+        end: hljs.MATCH_NOTHING_RE,
+        contains: [
+          JSX_EXPRESSION,
+          JSX_ELEMENT,
+          JSX_CLOSE_TAG
+        ]
+      };
+    }
+    return mode;
+  };
+
+  const JSX_SELF_CLOSING_TAG = jsxOpenTag(true, false);
+  const JSX_PAIRED_TAG = jsxOpenTag(false, true);
+
+  JSX_ELEMENT.variants = [
+    {
+      // <> children </>
+      className: 'tag',
+      begin: /<>/,
+      starts: {
+        end: hljs.MATCH_NOTHING_RE,
+        contains: [
+          JSX_EXPRESSION,
+          JSX_ELEMENT,
+          {
+            className: 'tag',
+            begin: /<\/>/,
+            endsParent: true
+          }
+        ]
+      }
+    },
+    JSX_SELF_CLOSING_TAG,
+    JSX_PAIRED_TAG
+  ];
+
+  const JSX = JSX_ELEMENT;
+
   return {
     name: 'JavaScript',
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
@@ -530,28 +771,7 @@ export default function(hljs) {
             match: /\s+/,
             relevance: 0
           },
-          { // JSX
-            variants: [
-              { begin: FRAGMENT.begin, end: FRAGMENT.end },
-              { match: XML_SELF_CLOSING },
-              {
-                begin: XML_TAG.begin,
-                // we carefully check the opening tag to see if it truly
-                // is a tag and not a false positive
-                'on:begin': XML_TAG.isTrulyOpeningTag,
-                end: XML_TAG.end
-              }
-            ],
-            subLanguage: 'xml',
-            contains: [
-              {
-                begin: XML_TAG.begin,
-                end: XML_TAG.end,
-                skip: true,
-                contains: ['self']
-              }
-            ]
-          }
+          JSX
         ],
       },
       FUNCTION_DEFINITION,

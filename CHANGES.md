@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- enh(javascript, typescript) native JSX grammar (no XML sublanguage): comments in tags and `{/* */}`, issue #1625 [Josh Goebel][]
 - enh(dns) highlight registered CAA property tags, issue #4475 [Joey Huang][]
 - enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]

@@ -1,0 +1,50 @@
+// attribute values: {/* */} is a JS comment expression
+return (
+  <ClassicBasic
+    value={/* ... */}
+    onChange={/* ... */}
+    editorState={this.state.editorState}
+    onStateChange={editorState => this.setState({ editorState })}
+  />
+);
+
+// line and block comments between attributes (inside the opening tag)
+<button
+  // prevent editor losing focus
+  onMouseDown={e => e.preventDefault()}
+  /* also a block comment between attrs */
+  onClick={() => {
+    this.setState(s => update(s, 'editorState.bold.value', value => !value));
+  }}
+>
+  Toggle bold
+</button>;
+
+// multi-line block comment between attributes
+<Comp
+  /* multi
+     line */
+  foo={1}
+  bar={"ok"}
+/>;
+
+// {/* */} as a child expression (not text)
+<div>
+  {/* block comment in children */}
+  <span />
+</div>;
+
+// children text that looks like // is NOT a comment
+<div>
+  // this is text content
+  <X />
+</div>;
+
+// self-closing with mixed attrs and comments
+<img
+  src={url}
+  // lazy load
+  loading="lazy"
+  /* width hint */
+  width={/* px */ 100}
+/>;
