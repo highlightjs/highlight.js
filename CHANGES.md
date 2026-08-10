@@ -22,6 +22,7 @@ Core Grammars:
 - fix(gherkin) variables can't contain whitespace [Hirse][]
 - enh(gherkin) docstrings can use backticks [Hirse][]
 - fix(dart) add highlighting for class and function names [guuido][]
+- fix(markdown) don't treat a `***` or `___` thematic break as the start of bold text, issue #3719 [Mayank Gupta][]
 
 Documentation:
 
@@ -46,6 +47,7 @@ CONTRIBUTORS
 [Jayesh Bhade]: https://github.com/Jaybhade
 [Hirse]: https://github.com/Hirse
 [guuido]: https://github.com/guuido
+[Mayank Gupta]: https://github.com/Mynk11
 
 
 ## Version 11.11.3
