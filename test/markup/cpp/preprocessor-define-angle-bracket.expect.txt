@@ -1,0 +1,9 @@
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> what do { cout &lt;&lt; <span class="hljs-string">&quot;&gt;&quot;</span>; } while (0)</span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> DBG(x) do { std::cerr &lt;&lt; x &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>; } while (0)</span>
+
+<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+  std::cout &lt;&lt; <span class="hljs-string">&quot;hello &gt; world&quot;</span> &lt;&lt; std::endl;
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}

@@ -2,6 +2,7 @@
 
 Core Grammars:
 
+- enh(dns) highlight registered CAA property tags, issue #4475 [Joey Huang][]
 - enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
@@ -12,8 +13,16 @@ Core Grammars:
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
 - fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
 - fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
+- fix(ruby) don't treat the scope resolution operator `::` as a symbol, issue #4294 [Hashim Khan][]
 - enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
 - enh(python) Support t-strings [Nicolas Le Cam][]
+- fix(c, cpp) scope the angle-bracket header string to `#include` so a `#define` body containing `>` no longer swallows the following quote and breaks highlighting of the rest of the file, issue #3505 [Pablo][]
+- fix(c, cpp) bound the run of type tokens in front of a function name, which made highlighting a long line of plain words take quadratic time (ReDoS), issue #4362 [Jayesh Bhade][]
+- fix(gherkin) update keyword list [Hirse][]
+- fix(gherkin) variables can't contain whitespace [Hirse][]
+- enh(gherkin) docstrings can use backticks [Hirse][]
+- fix(dart) add highlighting for class and function names [guuido][]
+- fix(markdown) don't treat a `***` or `___` thematic break as the start of bold text, issue #3719 [Mayank Gupta][]
 
 Documentation:
 
@@ -22,6 +31,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[Joey Huang]: https://github.com/oiahoon
 [Hashim Khan]: https://github.com/Hashim1999164
 [arturict]: https://github.com/arturict
 [Dhruv Maniya]: https://github.com/iamdhrv
@@ -33,6 +43,11 @@ CONTRIBUTORS
 [Nicolas Le Cam]: https://github.com/KuSh
 [Konstantin Baltsat]: https://github.com/Baltsat
 [David Pavlovschii]: https://github.com/davidpavlovschi
+[Pablo]: https://github.com/MsfPablo
+[Jayesh Bhade]: https://github.com/Jaybhade
+[Hirse]: https://github.com/Hirse
+[guuido]: https://github.com/guuido
+[Mayank Gupta]: https://github.com/Mynk11
 
 
 ## Version 11.11.3
@@ -210,10 +225,12 @@ Core Grammars:
 - fix(nix) handle backslash string escapes [h7x4][]
 - fix(nix) don't mix escapes for `"` and `''` strings [h7x4][]
 - fix(swift) - Fixed syntax highlighting for class func/var declarations [guuido]
+ - enh(dns) character strings (with escapes), DNS classes, grouping parens; fix unquoted TXT vs `;` comments [Checconio][]
+
 - fix(yaml) - Fixed wrong escaping behavior in single quoted strings [guuido]
 - enh(nim) - Add `concept` and `defer` to list of Nim keywords [Jake Leahy]
 - fix(cpp) - Exclude keywords from highlighting as function calls [Eisenwave]
-
+- fix(llvm) fixed highlighting for C-style block comments [utam-1] 
 New Grammars:
 
 - added 3rd party TTCN-3 grammar to SUPPORTED_LANGUAGES [Osmocom][]
@@ -256,6 +273,7 @@ CONTRIBUTORS
 [Lavan]: https://github.com/jvlavan
 [Somya]: https://github.com/somya-05
 [guuido]: https://github.com/guuido
+[Checconio]: https://github.com/Checconio
 [clsource]: https://github.com/clsource
 [Jake Leahy]: https://github.com/ire4ever1190
 [Laurel King]: https://github.com/laurelthorburn

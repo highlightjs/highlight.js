@@ -1,0 +1,8 @@
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> DBG(x) do { printf(<span class="hljs-string">&quot;got &gt; %d\n&quot;</span>, x); } while (0)</span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/types.h&gt;</span></span>
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> {
+  DBG(<span class="hljs-number">42</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
