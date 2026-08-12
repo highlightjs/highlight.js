@@ -1,0 +1,3 @@
+// If multi-line macros aren't working, `a` would be wrongly highlighted as a struct literal member.
+#macro MULTILINE_CASE case \
+                      a:

@@ -1,0 +1,3 @@
+<span class="hljs-comment">// If multi-line macros aren&#x27;t working, `a` would be wrongly highlighted as a struct literal member.</span>
+<span class="hljs-meta">#macro</span> <span class="hljs-variable constant_">MULTILINE_CASE</span> <span class="hljs-keyword">case</span> \
+                      a:
