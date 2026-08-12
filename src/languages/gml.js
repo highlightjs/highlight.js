@@ -3355,7 +3355,7 @@ export default function(hljs) {
    * Regex for a dot separating some LHS and RHS expression with optional whitespace (as this is
    * supported in the engine.)
    */
-  const DOT_ACCESSOR_RE = /\b(\s*)\.(\s*)\b/;
+  const DOT_ACCESSOR_RE = /(\s*)\.(\s*)\b/;
 
   /**
    * Expressions, which form part of a valid statement.
