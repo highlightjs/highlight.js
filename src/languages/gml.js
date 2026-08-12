@@ -3381,7 +3381,6 @@ export default function(hljs) {
         1: "doctag",
         2: "type",
       },
-      relevance: 0,
     },
     {
       match: [
@@ -3398,7 +3397,6 @@ export default function(hljs) {
         4: "params",
         5: "params",
       },
-      relevance: 0,
     }
   ];
 
@@ -3425,7 +3423,6 @@ export default function(hljs) {
    */
   const COMMENT = {
     scope: "comment",
-    relevance: 0,
     variants: [
       COMMENT_JSDOC,
       COMMENT_BLOCK_JSDOC,
@@ -3476,7 +3473,6 @@ export default function(hljs) {
       {
         begin: /\$"/,
         end: /\"/,
-        relevance: 10,
         illegal: /\n/,
         contains: [
           STRING_ESCAPE,
@@ -3486,7 +3482,6 @@ export default function(hljs) {
       {
         begin: /@'/,
         end: /'/,
-        relevance: 10,
         contains: [STRING_NUMERICAL_SUBSTITUTION]
       },
       {
@@ -3498,7 +3493,6 @@ export default function(hljs) {
         begin: /"/,
         end: /"/,
         illegal: /\n/,
-        relevance: 0,
         contains: [
           STRING_ESCAPE,
           STRING_NUMERICAL_SUBSTITUTION
@@ -3515,9 +3509,9 @@ export default function(hljs) {
     variants: [
       { match: /(\B|^)\$[0-9a-fA-F]+/ },
       { match: /(\B|^)#[0-9a-fA-F]+/ },
-      { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*/, relevance: 0 },
-      { match: /\b0b[01][01_]*/, relevance: 0 },
-      { match: /\b[0-9][0-9_.]*/, relevance: 0 }
+      { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*/ },
+      { match: /\b0b[01][01_]*/ },
+      { match: /\b[0-9][0-9_.]*/ }
     ]
   };
 
@@ -3564,8 +3558,6 @@ export default function(hljs) {
     scope: {
       1: "title.function.invoke"
     },
-    // This is so broad it really says nothing about the language.
-    relevance: 0
   };
 
   /**
@@ -3574,7 +3566,6 @@ export default function(hljs) {
   const USER_ASSET_CONSTANT = {
     scope: "variable.constant",
     end: VALID_IDENTIFIER_RE,
-    relevance: 2,
     variants: [
       { begin: "spr_" },
       { begin: "obj_" },
