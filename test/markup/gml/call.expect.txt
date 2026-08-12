@@ -1,0 +1,17 @@
+<span class="hljs-title function_ invoke__">func</span>();
+<span class="hljs-title function_ invoke__">func</span> ();
+<span class="hljs-title function_ invoke__">func</span>(
+	
+);
+<span class="hljs-title function_ invoke__">func</span>
+(
+	<span class="hljs-title function_ invoke__">func</span>(
+
+	)
+);
+<span class="hljs-title function_ invoke__">func</span>(a);
+<span class="hljs-title function_ invoke__">func</span>(a, <span class="hljs-literal">undefined</span>, b);
+<span class="hljs-title function_ invoke__">func</span>(a,          , b);
+
+struct.<span class="hljs-title function_ invoke__">func</span>();
+array[<span class="hljs-number">0</span>].<span class="hljs-title function_ invoke__">func</span>(a, b);
