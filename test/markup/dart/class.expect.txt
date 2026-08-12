@@ -1,0 +1,10 @@
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+  <span class="hljs-title class_">String</span> name;
+  <span class="hljs-built_in">int</span> age;
+
+  <span class="hljs-title class_">Person</span>(<span class="hljs-keyword">this</span>.name, <span class="hljs-keyword">this</span>.age);
+
+  <span class="hljs-keyword">void</span> <span class="hljs-title function_">introduce</span>() {
+    <span class="hljs-title function_">print</span>(<span class="hljs-string">&#x27;My name is <span class="hljs-subst">$name</span> and I am <span class="hljs-subst">$age</span> years old.&#x27;</span>);
+  }
+}

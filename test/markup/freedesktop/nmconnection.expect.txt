@@ -1,0 +1,19 @@
+<span class="hljs-section">[connection]</span>
+<span class="hljs-comment"># Sample NetworkManager connection profile</span>
+<span class="hljs-attr">id</span><span class="hljs-operator">=</span>Home Wi-Fi
+<span class="hljs-attr">uuid</span><span class="hljs-operator">=</span>7c3b1c2c-5c2c-4c2c-8c2c-2c2c2c2c2c2c
+<span class="hljs-attr">type</span><span class="hljs-operator">=</span>wifi
+<span class="hljs-attr">interface-name</span><span class="hljs-operator">=</span>wlp2s0
+
+<span class="hljs-section">[wifi]</span>
+<span class="hljs-attr">mode</span><span class="hljs-operator">=</span>infrastructure
+<span class="hljs-attr">ssid</span><span class="hljs-operator">=</span>MyHomeNetwork
+
+<span class="hljs-section">[wifi-security]</span>
+<span class="hljs-attr">key-mgmt</span><span class="hljs-operator">=</span>wpa-psk
+
+<span class="hljs-section">[ipv4]</span>
+<span class="hljs-attr">method</span><span class="hljs-operator">=</span>auto
+
+<span class="hljs-section">[ipv6]</span>
+<span class="hljs-attr">method</span><span class="hljs-operator">=</span>auto

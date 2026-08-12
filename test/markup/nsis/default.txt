@@ -3,6 +3,9 @@
   for highlight.js
 */
 
+; Semicolon comment
+# Hash comment
+
 !assert ${NSIS_CHAR_SIZE} = 2 "Unicode required"
 
 ; Includes
@@ -23,16 +26,40 @@ CRCCheck on
   InstallDir "$PROGRAMFILES\installer_name"
 !endif
 
-; Pages
-!insertmacro MUI_PAGE_INSTFILES
+; Prefix collisions: !if/!ifdef, !else/!elseif/!elseifdef
+!if 1 < 2
+!elseif 1 == 1
+!elseifdef MISSING
+!endif
 
-; Sections
+; Prefix collisions: !macro/!macroend/!macroundef
+!macro MyMacro param1
+  DetailPrint "${param1}"
+!macroend
+!insertmacro MyMacro "hello"
+
+; Prefix collisions: HKLM/HKLM64, HKCR/HKCR32
+WriteRegStr HKLM "Software\Test" "Key" "Value"
+ReadRegStr $0 HKLM64 "Software\Test" "Key"
+DeleteRegKey HKCR32 "Software\Test"
+
+; Prefix collisions: Section/SectionIn, File/FileOpen/FileClose, Exec/ExecWait
 Section "section_name" section_index
+  SectionIn 1 2
+  File /r "data\*.*"
+  FileOpen $0 "$INSTDIR\file.txt" w
+  FileClose $0
+  ExecWait '"setup.exe"' $0
   nsExec::ExecToLog "calc.exe"
+  IntOp $0 255 + 0xFF
 SectionEnd
 
-; Functions
+; Prefix collisions: MB_OK/MB_OKCANCEL, MB_YESNO/MB_YESNOCANCEL, SW_SHOW/SW_SHOWNORMAL
 Function .onInit
+  MessageBox MB_OKCANCEL "Confirm?"
+  MessageBox MB_YESNO|MB_ICONQUESTION "Question?" IDYES +1 IDNO +2
+  MessageBox MB_YESNOCANCEL|MB_ICONINFORMATION "Info"
+  CreateShortCut "$DESKTOP\test.lnk" "$INSTDIR\test.exe" "" "" 0 SW_SHOWNORMAL
   DetailPrint "The install button reads $(^InstallBtn)"
   DetailPrint 'Here comes a$\n$\rline-break!'
   DetailPrint `Escape the dollar-sign: $$`

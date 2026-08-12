@@ -1,0 +1,6 @@
+<span class="hljs-keyword">def</span> million = <span class="hljs-number">1_000_000</span>
+<span class="hljs-keyword">def</span> hex = <span class="hljs-number">0xCAFE_BABE</span>
+<span class="hljs-keyword">def</span> binary = <span class="hljs-number">0b0010_0101</span>
+<span class="hljs-keyword">def</span> fraction = <span class="hljs-number">3.141_592</span>
+<span class="hljs-keyword">def</span> big = <span class="hljs-number">100_000L</span>
+<span class="hljs-keyword">def</span> plain = <span class="hljs-number">1234</span>

@@ -325,8 +325,9 @@ export default function(hljs) {
     CLASS_REFERENCE,
     METHOD_DEFINITION,
     {
-      // swallow namespace qualifiers before symbols
-      begin: hljs.IDENT_RE + '::' },
+      // swallow the scope resolution operator so `::` is not read as a symbol
+      begin: '::'
+    },
     {
       className: 'symbol',
       begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',

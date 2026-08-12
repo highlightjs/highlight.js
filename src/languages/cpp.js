@@ -42,9 +42,13 @@ export default function(hljs) {
         end: '\'',
         illegal: '.'
       },
+      // https://en.cppreference.com/w/cpp/language/string_literal
+      // a d-char-sequence never contains parentheses, backslashes or whitespace;
+      // quotes are excluded as well so the closing delimiter cannot swallow the
+      // quote that actually terminates the literal
       hljs.END_SAME_AS_BEGIN({
-        begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
-        end: /\)([^()\\ ]{0,16})"/
+        begin: /(?:u8?|U|L)?R"([^()\\\s"]{0,16})\(/,
+        end: /\)([^()\\\s"]{0,16})"/
       })
     ]
   };
@@ -57,12 +61,12 @@ export default function(hljs) {
         "[+-]?(?:" // Leading sign.
           // Decimal.
           + "(?:"
-            +"[0-9](?:'?[0-9])*\\.(?:[0-9](?:'?[0-9])*)?"
+            + "\\b[0-9](?:'?[0-9])*\\.(?:[0-9](?:'?[0-9])*)?"
             + "|\\.[0-9](?:'?[0-9])*"
           + ")(?:[Ee][+-]?[0-9](?:'?[0-9])*)?"
-          + "|[0-9](?:'?[0-9])*[Ee][+-]?[0-9](?:'?[0-9])*"
+          + "|\\b[0-9](?:'?[0-9])*[Ee][+-]?[0-9](?:'?[0-9])*"
           // Hexadecimal.
-          + "|0[Xx](?:"
+          + "|\\b0[Xx](?:"
             +"[0-9A-Fa-f](?:'?[0-9A-Fa-f])*(?:\\.(?:[0-9A-Fa-f](?:'?[0-9A-Fa-f])*)?)?"
             + "|\\.[0-9A-Fa-f](?:'?[0-9A-Fa-f])*"
           + ")[Pp][+-]?[0-9](?:'?[0-9])*"
@@ -94,6 +98,32 @@ export default function(hljs) {
     relevance: 0
   };
 
+  // `#include` is the only preprocessor directive that takes an angle-bracket
+  // quoted header (`#include <header>`). Scoping that rule to `#include` keeps
+  // the greedy `<...>` match from eating a `>` that belongs to the body of
+  // another directive (e.g. `#define what do { cout << ">"; } while (0)`),
+  // which would otherwise leave an unbalanced `"` and break highlighting for
+  // the rest of the file. See issue #3505.
+  const PREPROCESSOR_INCLUDE = {
+    scope: 'meta',
+    begin: /#\s*include\b/,
+    end: /$/,
+    keywords: { keyword: 'include' },
+    contains: [
+      {
+        // the `\` at the end of a line signaling continuation
+        begin: /\\\n/,
+      },
+      STRINGS,
+      {
+        scope: 'string',
+        begin: /<.*?>/
+      },
+      C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ]
+  };
+
   const PREPROCESSOR = {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
@@ -107,14 +137,15 @@ export default function(hljs) {
         relevance: 0
       },
       hljs.inherit(STRINGS, { className: 'string' }),
-      {
-        className: 'string',
-        begin: /<.*?>/
-      },
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
     ]
   };
+
+  const PREPROCESSORS = [
+    PREPROCESSOR_INCLUDE,
+    PREPROCESSOR
+  ];
 
   const TITLE_MODE = {
     className: 'title',
@@ -123,6 +154,11 @@ export default function(hljs) {
   };
 
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+  // Bounded on purpose: an unbounded quantifier here consumes an arbitrarily
+  // long run of words, and when no function title follows it the engine retries
+  // the title at every token boundary of that run - quadratic in the size of
+  // the document.  See #4362.
+  const MAX_FUNCTION_TYPE_TOKENS = 12;
 
   // https://en.cppreference.com/w/cpp/keyword
   const RESERVED_KEYWORDS = [
@@ -432,7 +468,7 @@ export default function(hljs) {
 
   const EXPRESSION_CONTAINS = [
     FUNCTION_DISPATCH,
-    PREPROCESSOR,
+    ...PREPROCESSORS,
     CPP_PRIMITIVE_TYPES,
     C_LINE_COMMENT_MODE,
     hljs.C_BLOCK_COMMENT_MODE,
@@ -473,7 +509,7 @@ export default function(hljs) {
 
   const FUNCTION_DECLARATION = {
     className: 'function',
-    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+){1,' + MAX_FUNCTION_TYPE_TOKENS + '}' + FUNCTION_TITLE,
     returnBegin: true,
     end: /[{;=]/,
     excludeEnd: true,
@@ -544,7 +580,7 @@ export default function(hljs) {
       CPP_PRIMITIVE_TYPES,
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
-      PREPROCESSOR
+      ...PREPROCESSORS
     ]
   };
 
@@ -568,7 +604,7 @@ export default function(hljs) {
       FUNCTION_DISPATCH,
       EXPRESSION_CONTAINS,
       [
-        PREPROCESSOR,
+        ...PREPROCESSORS,
         { // containers: ie, `vector <int> rooms (9);`
           begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function|flat_map|flat_set)\\s*<(?!<)',
           end: '>',

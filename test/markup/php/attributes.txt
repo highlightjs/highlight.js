@@ -44,12 +44,14 @@ class Book
              fields: [
                  'authorEmail' => new Assert\Email,
                  'shortDesc' => [
-                     /*something*/
+                     // C line comment
                      new Assert\NotBlank,
+                     /* C block comment */
                      new Assert\Length(
                          max: 200,
                          maxMessage: 'Your short desc is too long'
                      )
+                     # Hash comment
                  ],
              ],
              allowMissingFields: true,

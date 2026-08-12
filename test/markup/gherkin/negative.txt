@@ -1,0 +1,11 @@
+Feature: negatives
+  # real comment
+  @one @two
+  Scenario: prose should not keyword mid-line
+    Given the banner says Feature: coming soon
+    And the label is "Given enough time"
+    When status is When ready
+    And value is foo # not a line comment
+    And email is user@example.com
+    And pipe stays plain: a | b
+    *nospace is not a step

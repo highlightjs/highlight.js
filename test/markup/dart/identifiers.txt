@@ -1,0 +1,14 @@
+void foo_bar() {}
+void _foo() {}
+
+if(true) {}
+for(;;) {}
+while(false) {}
+switch(x) {}
+catch(e) {}
+assert(true);
+
+_Foo value;
+Foo_bar incomplete;
+Foo<Bar?> generic;
+Foo.named();
