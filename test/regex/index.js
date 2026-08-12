@@ -3,7 +3,7 @@
 const hljs = require('../../build');
 const { BFS, parseRegex, regexFor } = require('./lib/util.js');
 const { visitRegExpAST } = require('regexpp');
-const { JS, Words, NFA, CharSet } = require('refa');
+const { JS, Words, NFA, CharSet, isDisjointWith, getIntersectionWords } = require('refa');
 const { firstOf, underAStar, isFirstMatch, isAlwaysZeroWidth} = require('./lib/analysis.js');
 
 hljs.debugMode();
@@ -124,7 +124,7 @@ function testLanguage(languageName) {
             const current = toNFA(a);
             current.withoutEmptyWord();
 
-            if (!total.isDisjointWith(current)) {
+            if (!isDisjointWith(total, current)) {
               reportError(`${rulePath}: The alternative \`${a.raw}\` is not disjoint with at least one previous alternative.`
                 + ` This will cause exponential backtracking.`
                 + `\n\nTo fix this issue, you have to rewrite the ${node.type} \`${node.raw}\`.`
@@ -179,8 +179,8 @@ function testLanguage(languageName) {
             const twoStar = nfa.copy();
             twoStar.quantify(2, Infinity);
 
-            if (!nfa.isDisjointWith(twoStar)) {
-              const example = Words.fromUnicodeToString(firstOf(NFA.intersectionWords(nfa, twoStar)));
+            if (!isDisjointWith(nfa, twoStar)) {
+              const example = Words.fromUnicodeToString(firstOf(getIntersectionWords(nfa, twoStar)));
 
               reportError(`${rulePath}: The quantifier \`${node.raw}\` ambiguous for all words ${JSON.stringify(example)}.repeat(n) for any n>1.`
                 + ` This will cause exponential backtracking.`
