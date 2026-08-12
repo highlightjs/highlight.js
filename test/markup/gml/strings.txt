@@ -1,6 +1,7 @@
 ""
 "hi"
 "\"\r\n\\"
+"\u1234"
 
 // Argument number template substitution:
 "{0} {1} {2}"

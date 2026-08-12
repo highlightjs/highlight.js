@@ -1,6 +1,7 @@
 <span class="hljs-string">&quot;&quot;</span>
 <span class="hljs-string">&quot;hi&quot;</span>
 <span class="hljs-string">&quot;<span class="hljs-char escape_">\&quot;</span><span class="hljs-char escape_">\r</span><span class="hljs-char escape_">\n</span><span class="hljs-char escape_">\\</span>&quot;</span>
+<span class="hljs-string">&quot;<span class="hljs-char escape_">\u1234</span>&quot;</span>
 
 <span class="hljs-comment">// Argument number template substitution:</span>
 <span class="hljs-string">&quot;<span class="hljs-subst">{</span><span class="hljs-number">0</span><span class="hljs-subst">}</span> <span class="hljs-subst">{</span><span class="hljs-number">1</span><span class="hljs-subst">}</span> <span class="hljs-subst">{</span><span class="hljs-number">2</span><span class="hljs-subst">}</span>&quot;</span>
