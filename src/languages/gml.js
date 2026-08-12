@@ -2185,7 +2185,6 @@ export default function(hljs) {
     "vertex_format_add_position",
     "vertex_format_add_position_3d",
     "vertex_format_add_texcoord",
-    "vertex_format_add_textcoord",
     "vertex_format_begin",
     "vertex_format_delete",
     "vertex_format_end",
