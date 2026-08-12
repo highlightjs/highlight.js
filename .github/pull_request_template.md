@@ -8,3 +8,4 @@
 
 ### Checklist
 - [ ] Added markup tests, or they don't apply here because...
+- [ ] I have read and followed our [AI-assisted contributions](../docs/ai-contributions.md) policy (human review, no slop)
