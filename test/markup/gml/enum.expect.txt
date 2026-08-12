@@ -1,0 +1,6 @@
+<span class="hljs-keyword">enum</span> <span class="hljs-variable constant_">Example</span> {
+	<span class="hljs-variable constant_">A</span>,
+	<span class="hljs-variable constant_">B</span> = <span class="hljs-number">3</span>,
+	<span class="hljs-comment">// Shouldn&#x27;t work.</span>
+	<span class="hljs-variable constant_">C</span> = func(),
+}
