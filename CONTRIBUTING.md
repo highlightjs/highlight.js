@@ -106,9 +106,6 @@ Please open a new issue before your PR (or join the discussion on the existing i
 - Change only what needs to be changed; don't re-lint or rewrite whole files when fixing small bugs
 - Linting or major re-organization needs a dedicated commit
 
-*After* you make your changes, we have some housekeeping tasks for you - like updating the [changelog](https://github.com/highlightjs/highlight.js/blob/main/CHANGES.md). The PR template will be your guide.
-
-
 ### Build and Test
 
 When contributing a PR (that doesn't make any specific changes to browser features) it's usually sufficient to build and test only the Node.js build.  Our CI process will guarantee that the browser build is still green.

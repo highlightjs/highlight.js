@@ -1,0 +1,21 @@
+Text before the break.
+
+***
+
+Text between breaks.
+
+___
+
+Text between breaks.
+
+  ***
+
+Indented up to three spaces is still a break.
+
+***This is still bold and italic***
+
+**This is still bold**
+
+*This is still italic*
+
+Text after the break.

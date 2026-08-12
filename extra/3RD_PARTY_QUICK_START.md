@@ -37,6 +37,8 @@ Switching back to your clone of the `highlight-js` core repository now, `git clo
 
 > 3rd party language directories placed in `extra` should not be committed to the highlight-js repository (by default they are ignored, just don't override that behavior.)
 
+If your grammar uses the same name as a built-in language, the build prefers the copy from `extra` so third-party packages can intentionally override core grammars.
+
 To test (detect and markup tests), just build Highlight.js and test it.  Your tests should be automatically run with the full suite:
 
 ```bash

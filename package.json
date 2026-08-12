@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "11.11.2",
+  "version": "11.12.0",
   "author": "Josh Goebel <hello@joshgoebel.com>",
   "contributors": [
     "Josh Goebel <hello@joshgoebel.com>",
@@ -58,7 +58,7 @@
     "node": ">=12.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@types/mocha": "^10.0.2",
@@ -85,7 +85,7 @@
     "jsdom": "^25.0.1",
     "lodash": "^4.17.20",
     "mocha": "^11.0.1",
-    "refa": "^0.4.1",
+    "refa": "^0.12.1",
     "rollup": "^4.0.2",
     "should": "^13.2.3",
     "terser": "^5.21.0",
