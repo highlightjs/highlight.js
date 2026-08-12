@@ -22,17 +22,17 @@ They are tools. You are still the author.
 
 5. **Transparency (encouraged).** If a contribution was substantially
    tool-assisted, say so in the PR description or a commit trailer.
-   Prefer model, effort/reasoning level, and context window when known:
+   Prefer model and effort/reasoning level when known:
 
    ```text
-   Assisted-by: <model> (<effort>) [<context>]
+   Assisted-by: <model> (<effort>)
    ```
 
    Examples:
 
    ```text
-   Assisted-by: Grok 4.5 (low) [512k]
-   Assisted-by: Claude Sonnet 4 (high) [200k]
+   Assisted-by: Grok 4.5 (low)
+   Assisted-by: Claude Sonnet 4 (high)
    Assisted-by: Copilot
    ```
 
@@ -52,6 +52,33 @@ You are responsible for ensuring you have the right to contribute the material
 under this project’s license. Regenerating copyrighted material with a tool
 does not make it free to relicense. Do not submit content you are not allowed
 to contribute.
+
+## Handling violations (maintainers)
+
+Having a policy does not mean everyone follows it. Maintainers should respond
+consistently when a contribution looks non-compliant (unreviewed tool dump,
+extractive bulk churn, automated good-first-issue farming, etc.).
+
+1. **Request changes** with a short, reusable reply (adapt as needed):
+
+   > This PR doesn't appear to comply with our policy on tool-generated
+   > content, and requires additional justification for why it is valuable
+   > enough to the project for us to review it. Please see our policy on
+   > AI-assisted contributions:
+   > https://github.com/highlightjs/highlight.js/blob/main/docs/ai-contributions.md
+
+2. **Close the PR** if it is clearly off-track and not moving toward a
+   reviewable, high-value change (or leave it closed after the author does
+   not meaningfully address the request). Prefer closing over endless debate
+   on extractive threads.
+
+3. **Repeated abuse:** on a second clear violation from the same account,
+   escalate to repo admins to restrict the account from opening further PRs
+   (block / interaction limits as appropriate on GitHub).
+
+Whether a change is worth the review cost is a maintainer judgment call. The
+goal is to protect scarce review time while staying open to people who will
+learn, shrink the diff, and raise the value of the contribution.
 
 ## Credits
 

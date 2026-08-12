@@ -7,20 +7,20 @@ substantially tool-assisted, include an `Assisted-by` trailer on the commit
 and/or PR body (eat our own dogfood):
 
 ```text
-Assisted-by: <model> (<effort>) [<context>]
+Assisted-by: <model> (<effort>)
 ```
 
 | Piece | Meaning | Examples |
 | --- | --- | --- |
 | model | Product / model id | `Grok 4.5`, `Claude Sonnet 4` |
 | effort | Reasoning / effort setting if any | `low`, `medium`, `high`, `max` |
-| context | Context window or budget if known | `512k`, `200k` |
 
 Examples:
 
 ```text
-Assisted-by: Grok 4.5 (low) [512k]
-Assisted-by: Claude Opus 4 (high) [200k]
+Assisted-by: Grok 4.5 (low)
+Assisted-by: Claude Opus 4 (high)
+Assisted-by: Copilot
 ```
 
 Omit unknown pieces rather than guessing (`Assisted-by: Copilot` is fine).
