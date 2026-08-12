@@ -3462,8 +3462,16 @@ export default function(hljs) {
    * etc.
    */
   const STRING_NUMERICAL_SUBSTITUTION = {
-    match: /{[0-9]+}/,
-    scope: "subst"
+	match: [
+		/{/,
+		/[0-9]+/,
+		/}/,
+	],
+    scope: {
+		1: "subst",
+		2: "number",
+		3: "subst",
+	}
   };
 
   /**
