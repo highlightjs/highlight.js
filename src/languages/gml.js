@@ -2697,6 +2697,7 @@ export default function(hljs) {
     "fa_middle",
     "fa_right",
     "fa_top",
+	"fa_none",
     "fa_archive",
     "fa_directory",
     "fa_hidden",
