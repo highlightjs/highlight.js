@@ -3377,8 +3377,8 @@ export default function(hljs) {
     },
     {
       match: [
-        /@(self|context) */,
-        JSDOC_TYPE_PARAM_RE
+        /@(self|context) +/,
+        VALID_IDENTIFIER_RE,
       ],
       scope: {
         1: "doctag",
