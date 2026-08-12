@@ -3688,6 +3688,7 @@ export default function(hljs) {
       keywords: {
         keyword: KEYWORDS,
         literal: LITERALS,
+		"title.function": BUILT_IN_FUNCTIONS,
         "variable.language": LANGUAGE_VARIABLES
       },
     },
