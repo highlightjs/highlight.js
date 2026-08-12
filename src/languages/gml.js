@@ -3520,7 +3520,7 @@ export default function(hljs) {
   const NUMBER = {
     scope: "number",
     variants: [
-      { match: /(\B|^)\$[0-9a-fA-F]+/ },
+      { match: /(\B|^)\$[0-9a-fA-F][0-9a-fA-F_]*/ },
       { match: /(\B|^)#[0-9a-fA-F]+/ },
       { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*/ },
       { match: /\b0b[01][01_]*/ },
