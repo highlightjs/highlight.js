@@ -2634,7 +2634,7 @@ export default function(hljs) {
     "fa_middle",
     "fa_right",
     "fa_top",
-	"fa_none",
+  "fa_none",
     "fa_archive",
     "fa_directory",
     "fa_hidden",
@@ -3078,7 +3078,7 @@ export default function(hljs) {
    * or in a dot access on an instance's struct.
    */
   const LANGUAGE_INSTANCE_VARIABLES = [
-	"x",
+  "x",
     "y",
     "xprevious",
     "yprevious",
@@ -3087,15 +3087,15 @@ export default function(hljs) {
     "hspeed",
     "vspeed",
     "direction",
-	"drawn_by_sequence",
-	"event_number",
-	"event_object",
-	"event_type",
-	"speed",
+  "drawn_by_sequence",
+  "event_number",
+  "event_object",
+  "event_type",
+  "speed",
     "friction",
     "gravity",
     "gravity_direction",
-	"path_index",
+  "path_index",
     "path_position",
     "path_positionprevious",
     "path_speed",
@@ -3103,7 +3103,7 @@ export default function(hljs) {
     "path_orientation",
     "path_endaction",
     "object_index",
-	"id",
+  "id",
     "image_alpha",
     "image_angle",
     "image_blend",
@@ -3112,7 +3112,7 @@ export default function(hljs) {
     "image_speed",
     "image_xscale",
     "image_yscale",
-	"in_collision_tree",
+  "in_collision_tree",
     "in_sequence",
     "solid",
     "persistent",
@@ -3122,13 +3122,13 @@ export default function(hljs) {
     "layer",
     "instance_count",
     "instance_id",
-	"alarm",
-	"timeline_index",
+  "alarm",
+  "timeline_index",
     "timeline_position",
     "timeline_speed",
     "timeline_running",
     "timeline_loop",
-	"sprite_index",
+  "sprite_index",
     "sprite_width",
     "sprite_height",
     "sprite_xoffset",
@@ -3137,7 +3137,7 @@ export default function(hljs) {
     "bbox_right",
     "bbox_top",
     "bbox_bottom",
-	"phy_rotation",
+  "phy_rotation",
     "phy_position_x",
     "phy_position_y",
     "phy_angular_velocity",
@@ -3165,13 +3165,13 @@ export default function(hljs) {
     "phy_col_normal_y",
     "phy_position_xprevious",
     "phy_position_yprevious",
-	"player_id",
+  "player_id",
     "player_local",
     "player_avatar_url",
     "player_avatar_sprite",
     "player_user_id",
     "player_type",
-	"sequence_instance",
+  "sequence_instance",
   ];
 
   // many of these look like enumerables to me (see comments below)
@@ -3196,7 +3196,7 @@ export default function(hljs) {
     "argument14",
     "argument15",
     "argument_count",
-	"debug_mode",
+  "debug_mode",
     "display_aa",
     "font_texture_page_size",
     "fps",
@@ -3389,16 +3389,16 @@ export default function(hljs) {
    * etc.
    */
   const STRING_NUMERICAL_SUBSTITUTION = {
-	match: [
-		/{/,
-		/[0-9]+/,
-		/}/,
-	],
+    match: [
+      /{/,
+      /[0-9]+/,
+      /}/
+    ],
     scope: {
-		1: "subst",
-		2: "number",
-		3: "subst",
-	}
+      1: "subst",
+      2: "number",
+      3: "subst"
+    }
   };
 
   /**
@@ -3460,7 +3460,7 @@ export default function(hljs) {
       { match: /\b0x[0-9a-fA-F_]+/ },
       { match: /\b0b[01_]+/ },
       { match: /\b[0-9][0-9_]*\.[0-9][0-9_]*/ },
-      { match: /\b[0-9][0-9_]*\.?/ },
+      { match: /\b[0-9][0-9_]*\.?/ }
     ]
   };
 
@@ -3483,14 +3483,14 @@ export default function(hljs) {
         2: "title.function.invoke"
       }
     },
-	{
+    {
       match: [
         DOT_ACCESSOR_RE,
-        LANGUAGE_INSTANCE_VARIABLES.join('|'),
+        LANGUAGE_INSTANCE_VARIABLES.join('|')
       ],
       scope: {
         2: "variable.language"
-      },
+      }
     },
     {
       match: [
@@ -3499,8 +3499,8 @@ export default function(hljs) {
       ],
       scope: {
         2: "property"
-      },
-    },
+      }
+    }
   ];
 
   /**
@@ -3510,12 +3510,12 @@ export default function(hljs) {
   const FUNCTION_CALL = {
     match: [
       VALID_IDENTIFIER_RE,
-      /\s*?/,
+      /\s*/,
       /\(/
     ],
     scope: {
       1: "title.function.invoke"
-    },
+    }
   };
 
   /**
@@ -3523,11 +3523,7 @@ export default function(hljs) {
    */
   const USER_ASSET_CONSTANT = {
     scope: "variable.constant",
-    end: VALID_IDENTIFIER_RE,
-    variants: [
-      { begin: "spr_" },
-      { begin: "obj_" },
-    ]
+    match: /(?:spr_|obj_)[a-zA-Z0-9_]+/
   };
 
   /**
@@ -3559,7 +3555,7 @@ export default function(hljs) {
     },
     contains: EXPRESSION
   };
-  
+
   /**
    * A struct variable declaration, of `<ident>:`
    */
@@ -3571,7 +3567,7 @@ export default function(hljs) {
     ],
     scope: {
       2: "variable"
-    },
+    }
   };
 
   /**
@@ -3582,10 +3578,10 @@ export default function(hljs) {
    */
   const FUNCTION_DECLARATION = {
     match: [
-      "function",
+      /function/,
       /\s+/,
       VALID_IDENTIFIER_RE,
-      /\s*?\(/
+      /\s*\(/
     ],
     scope: {
       1: "keyword",
@@ -3646,10 +3642,10 @@ export default function(hljs) {
       keywords: {
         keyword: KEYWORDS,
         literal: LITERALS,
-		"title.function": BUILT_IN_FUNCTIONS,
+        "title.function": BUILT_IN_FUNCTIONS,
         "variable.language": LANGUAGE_VARIABLES
-      },
-    },
+      }
+    }
   );
 
   /**
@@ -3678,7 +3674,7 @@ export default function(hljs) {
           {
             match: /\\\n/
           }
-        ],
+        ]
       },
       {
         begin: [
@@ -3696,7 +3692,7 @@ export default function(hljs) {
           {
             match: /\\\n/
           }
-        ],
+        ]
       },
       {
         begin: /#(end)?region\b/,
