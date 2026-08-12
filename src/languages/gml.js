@@ -1,18 +1,17 @@
 /*
 Language: GML
-Description: Game Maker Language for GameMaker (rev. 2023.1)
-Website: https://manual.yoyogames.com/
+Description: Game Maker Language for GameMaker (rev. 2024.11)
+Website: https://manual.gamemaker.io/
 Category: scripting
 */
 
 export default function(hljs) {
+
   const KEYWORDS = [
-    "#endregion",
-    "#macro",
-    "#region",
     "and",
     "begin",
     "break",
+    "catch",
     "case",
     "constructor",
     "continue",
@@ -22,10 +21,9 @@ export default function(hljs) {
     "do",
     "else",
     "end",
-    "enum",
     "exit",
+    "finally",
     "for",
-    "function",
     "globalvar",
     "if",
     "mod",
@@ -37,17 +35,55 @@ export default function(hljs) {
     "static",
     "switch",
     "then",
+    "throw",
+    "try",
     "until",
     "var",
     "while",
     "with",
-    "xor"
+    "xor",
   ];
-
-  const BUILT_INS = [
+  
+  const BUILT_IN_FUNCTIONS = [
     "abs",
+    "achievement_available",
+    "achievement_event",
+    "achievement_get_challenges",
+    "achievement_get_info",
+    "achievement_get_pic",
+    "achievement_increment",
+    "achievement_load_friends",
+    "achievement_load_leaderboard",
+    "achievement_load_progress",
+    "achievement_login",
+    "achievement_login_status",
+    "achievement_logout",
+    "achievement_post",
+    "achievement_post_score",
+    "achievement_reset",
+    "achievement_send_challenge",
+    "achievement_show",
+    "achievement_show_achievements",
+    "achievement_show_challenge_notifications",
+    "achievement_show_leaderboards",
+    "ads_disable",
+    "ads_enable",
+    "ads_engagement_active",
+    "ads_engagement_available",
+    "ads_engagement_launch",
+    "ads_event",
+    "ads_event_preload",
+    "ads_get_display_height",
+    "ads_get_display_width",
+    "ads_interstitial_available",
+    "ads_interstitial_display",
+    "ads_move",
+    "ads_set_reward_callback",
+    "ads_setup",
     "alarm_get",
     "alarm_set",
+    "analytics_event",
+    "analytics_event_ext",
     "angle_difference",
     "animcurve_channel_evaluate",
     "animcurve_channel_new",
@@ -98,6 +134,7 @@ export default function(hljs) {
     "array_reverse",
     "array_reverse_ext",
     "array_set",
+    "array_shift",
     "array_shuffle",
     "array_shuffle_ext",
     "array_sort",
@@ -176,21 +213,27 @@ export default function(hljs) {
     "audio_listener_set_velocity",
     "audio_listener_velocity",
     "audio_master_gain",
+    "audio_music_gain",
+    "audio_music_is_playing",
     "audio_pause_all",
+    "audio_pause_music",
     "audio_pause_sound",
     "audio_pause_sync_group",
     "audio_play_in_sync_group",
+    "audio_play_music",
     "audio_play_sound",
     "audio_play_sound_at",
     "audio_play_sound_ext",
     "audio_play_sound_on",
     "audio_queue_sound",
     "audio_resume_all",
+    "audio_resume_music",
     "audio_resume_sound",
     "audio_resume_sync_group",
     "audio_set_listener_mask",
     "audio_set_master_gain",
     "audio_sound_gain",
+    "audio_sound_get_asset",
     "audio_sound_get_audio_group",
     "audio_sound_get_gain",
     "audio_sound_get_listener_mask",
@@ -210,6 +253,7 @@ export default function(hljs) {
     "audio_start_recording",
     "audio_start_sync_group",
     "audio_stop_all",
+    "audio_stop_music",
     "audio_stop_recording",
     "audio_stop_sound",
     "audio_stop_sync_group",
@@ -217,8 +261,10 @@ export default function(hljs) {
     "audio_sync_group_get_track_pos",
     "audio_sync_group_is_paused",
     "audio_sync_group_is_playing",
+    "audio_system",
     "audio_system_is_available",
     "audio_system_is_initialised",
+    "audio_throw_on_error",
     "base64_decode",
     "base64_encode",
     "bool",
@@ -245,7 +291,9 @@ export default function(hljs) {
     "buffer_get_alignment",
     "buffer_get_size",
     "buffer_get_surface",
+    "buffer_get_surface_depth",
     "buffer_get_type",
+    "buffer_get_used_size",
     "buffer_load",
     "buffer_load_async",
     "buffer_load_ext",
@@ -260,6 +308,7 @@ export default function(hljs) {
     "buffer_save_ext",
     "buffer_seek",
     "buffer_set_surface",
+    "buffer_set_surface_depth",
     "buffer_set_used_size",
     "buffer_sha1",
     "buffer_sizeof",
@@ -315,9 +364,6 @@ export default function(hljs) {
     "clipboard_get_text",
     "clipboard_has_text",
     "clipboard_set_text",
-    "cloud_file_save",
-    "cloud_string_save",
-    "cloud_synchronise",
     "code_is_compiled",
     "collision_circle",
     "collision_circle_list",
@@ -403,8 +449,10 @@ export default function(hljs) {
     "dbg_slider",
     "dbg_slider_int",
     "dbg_sprite",
+    "dbg_sprite_button",
     "dbg_text",
     "dbg_text_input",
+    "dbg_text_separator",
     "dbg_view",
     "dbg_view_delete",
     "dbg_view_exists",
@@ -412,6 +460,9 @@ export default function(hljs) {
     "dcos",
     "debug_event",
     "debug_get_callstack",
+    "debug_input_playback",
+    "debug_input_record",
+    "debug_input_save",
     "degtorad",
     "device_get_tilt_x",
     "device_get_tilt_y",
@@ -465,11 +516,15 @@ export default function(hljs) {
     "draw_circle_colour",
     "draw_clear",
     "draw_clear_alpha",
+    "draw_clear_depth",
+    "draw_clear_ext",
+    "draw_clear_stencil",
     "draw_ellipse",
     "draw_ellipse_color",
     "draw_ellipse_colour",
     "draw_enable_drawevent",
     "draw_enable_skeleton_blendmodes",
+    "draw_enable_svg_aa",
     "draw_enable_swf_aa",
     "draw_flush",
     "draw_get_alpha",
@@ -479,6 +534,7 @@ export default function(hljs) {
     "draw_get_font",
     "draw_get_halign",
     "draw_get_lighting",
+    "draw_get_svg_aa_level",
     "draw_get_swf_aa_level",
     "draw_get_valign",
     "draw_getpixel",
@@ -521,6 +577,7 @@ export default function(hljs) {
     "draw_set_font",
     "draw_set_halign",
     "draw_set_lighting",
+    "draw_set_svg_aa_level",
     "draw_set_swf_aa_level",
     "draw_set_valign",
     "draw_skeleton",
@@ -760,6 +817,71 @@ export default function(hljs) {
     "filename_ext",
     "filename_name",
     "filename_path",
+    "flexpanel_calculate_layout",
+    "flexpanel_create_node",
+    "flexpanel_delete_node",
+    "flexpanel_node_get_child",
+    "flexpanel_node_get_child_hash",
+    "flexpanel_node_get_data",
+    "flexpanel_node_get_name",
+    "flexpanel_node_get_num_children",
+    "flexpanel_node_get_parent",
+    "flexpanel_node_get_struct",
+    "flexpanel_node_insert_child",
+    "flexpanel_node_layout_get_position",
+    "flexpanel_node_remove_all_children",
+    "flexpanel_node_remove_child",
+    "flexpanel_node_set_name",
+    "flexpanel_node_style_get_align_content",
+    "flexpanel_node_style_get_align_items",
+    "flexpanel_node_style_get_align_self",
+    "flexpanel_node_style_get_aspect_ratio",
+    "flexpanel_node_style_get_border",
+    "flexpanel_node_style_get_direction",
+    "flexpanel_node_style_get_display",
+    "flexpanel_node_style_get_flex",
+    "flexpanel_node_style_get_flex_basis",
+    "flexpanel_node_style_get_flex_direction",
+    "flexpanel_node_style_get_flex_grow",
+    "flexpanel_node_style_get_flex_shrink",
+    "flexpanel_node_style_get_flex_wrap",
+    "flexpanel_node_style_get_gap",
+    "flexpanel_node_style_get_height",
+    "flexpanel_node_style_get_justify_content",
+    "flexpanel_node_style_get_margin",
+    "flexpanel_node_style_get_max_height",
+    "flexpanel_node_style_get_max_width",
+    "flexpanel_node_style_get_min_height",
+    "flexpanel_node_style_get_min_width",
+    "flexpanel_node_style_get_padding",
+    "flexpanel_node_style_get_position",
+    "flexpanel_node_style_get_position_type",
+    "flexpanel_node_style_get_width",
+    "flexpanel_node_style_set_align_content",
+    "flexpanel_node_style_set_align_items",
+    "flexpanel_node_style_set_align_self",
+    "flexpanel_node_style_set_aspect_ratio",
+    "flexpanel_node_style_set_border",
+    "flexpanel_node_style_set_direction",
+    "flexpanel_node_style_set_display",
+    "flexpanel_node_style_set_flex",
+    "flexpanel_node_style_set_flex_basis",
+    "flexpanel_node_style_set_flex_direction",
+    "flexpanel_node_style_set_flex_grow",
+    "flexpanel_node_style_set_flex_shrink",
+    "flexpanel_node_style_set_flex_wrap",
+    "flexpanel_node_style_set_gap",
+    "flexpanel_node_style_set_height",
+    "flexpanel_node_style_set_justify_content",
+    "flexpanel_node_style_set_margin",
+    "flexpanel_node_style_set_max_height",
+    "flexpanel_node_style_set_max_width",
+    "flexpanel_node_style_set_min_height",
+    "flexpanel_node_style_set_min_width",
+    "flexpanel_node_style_set_padding",
+    "flexpanel_node_style_set_position",
+    "flexpanel_node_style_set_position_type",
+    "flexpanel_node_style_set_width",
     "floor",
     "font_add",
     "font_add_enable_aa",
@@ -813,6 +935,7 @@ export default function(hljs) {
     "gamepad_button_check_released",
     "gamepad_button_count",
     "gamepad_button_value",
+    "gamepad_enumerate",
     "gamepad_get_axis_deadzone",
     "gamepad_get_button_threshold",
     "gamepad_get_description",
@@ -879,6 +1002,8 @@ export default function(hljs) {
     "gpu_get_alphatestenable",
     "gpu_get_alphatestref",
     "gpu_get_blendenable",
+    "gpu_get_blendequation",
+    "gpu_get_blendequation_sepalpha",
     "gpu_get_blendmode",
     "gpu_get_blendmode_dest",
     "gpu_get_blendmode_destalpha",
@@ -891,7 +1016,17 @@ export default function(hljs) {
     "gpu_get_cullmode",
     "gpu_get_depth",
     "gpu_get_fog",
+    "gpu_get_scissor",
+    "gpu_get_sprite_cull",
     "gpu_get_state",
+    "gpu_get_stencil_depth_fail",
+    "gpu_get_stencil_enable",
+    "gpu_get_stencil_fail",
+    "gpu_get_stencil_func",
+    "gpu_get_stencil_pass",
+    "gpu_get_stencil_read_mask",
+    "gpu_get_stencil_ref",
+    "gpu_get_stencil_write_mask",
     "gpu_get_tex_filter",
     "gpu_get_tex_filter_ext",
     "gpu_get_tex_max_aniso",
@@ -920,6 +1055,8 @@ export default function(hljs) {
     "gpu_set_alphatestenable",
     "gpu_set_alphatestref",
     "gpu_set_blendenable",
+    "gpu_set_blendequation",
+    "gpu_set_blendequation_sepalpha",
     "gpu_set_blendmode",
     "gpu_set_blendmode_ext",
     "gpu_set_blendmode_ext_sepalpha",
@@ -928,7 +1065,17 @@ export default function(hljs) {
     "gpu_set_cullmode",
     "gpu_set_depth",
     "gpu_set_fog",
+    "gpu_set_scissor",
+    "gpu_set_sprite_cull",
     "gpu_set_state",
+    "gpu_set_stencil_depth_fail",
+    "gpu_set_stencil_enable",
+    "gpu_set_stencil_fail",
+    "gpu_set_stencil_func",
+    "gpu_set_stencil_pass",
+    "gpu_set_stencil_read_mask",
+    "gpu_set_stencil_ref",
+    "gpu_set_stencil_write_mask",
     "gpu_set_tex_filter",
     "gpu_set_tex_filter_ext",
     "gpu_set_tex_max_aniso",
@@ -958,10 +1105,12 @@ export default function(hljs) {
     "highscore_name",
     "highscore_value",
     "http_get",
+    "http_get_connect_timeout",
     "http_get_file",
     "http_get_request_crossorigin",
     "http_post_string",
     "http_request",
+    "http_set_connect_timeout",
     "http_set_request_crossorigin",
     "iap_acquire",
     "iap_activate",
@@ -1092,6 +1241,7 @@ export default function(hljs) {
     "layer_get_depth",
     "layer_get_element_layer",
     "layer_get_element_type",
+    "layer_get_flexpanel_node",
     "layer_get_forced_depth",
     "layer_get_fx",
     "layer_get_hspeed",
@@ -1102,6 +1252,7 @@ export default function(hljs) {
     "layer_get_script_end",
     "layer_get_shader",
     "layer_get_target_room",
+    "layer_get_type",
     "layer_get_visible",
     "layer_get_vspeed",
     "layer_get_x",
@@ -1167,6 +1318,46 @@ export default function(hljs) {
     "layer_sprite_xscale",
     "layer_sprite_y",
     "layer_sprite_yscale",
+    "layer_text_alpha",
+    "layer_text_angle",
+    "layer_text_blend",
+    "layer_text_charspacing",
+    "layer_text_create",
+    "layer_text_destroy",
+    "layer_text_exists",
+    "layer_text_font",
+    "layer_text_frameh",
+    "layer_text_framew",
+    "layer_text_get_alpha",
+    "layer_text_get_angle",
+    "layer_text_get_blend",
+    "layer_text_get_charspacing",
+    "layer_text_get_font",
+    "layer_text_get_frameh",
+    "layer_text_get_framew",
+    "layer_text_get_halign",
+    "layer_text_get_id",
+    "layer_text_get_linespacing",
+    "layer_text_get_text",
+    "layer_text_get_valign",
+    "layer_text_get_wrap",
+    "layer_text_get_x",
+    "layer_text_get_xorigin",
+    "layer_text_get_xscale",
+    "layer_text_get_y",
+    "layer_text_get_yorigin",
+    "layer_text_get_yscale",
+    "layer_text_halign",
+    "layer_text_linespacing",
+    "layer_text_text",
+    "layer_text_valign",
+    "layer_text_wrap",
+    "layer_text_x",
+    "layer_text_xorigin",
+    "layer_text_xscale",
+    "layer_text_y",
+    "layer_text_yorigin",
+    "layer_text_yscale",
     "layer_tile_alpha",
     "layer_tile_blend",
     "layer_tile_change",
@@ -1204,6 +1395,7 @@ export default function(hljs) {
     "log10",
     "log2",
     "logn",
+    "mac_refresh_receipt_validation",
     "make_color_hsv",
     "make_color_rgb",
     "make_colour_hsv",
@@ -1217,6 +1409,7 @@ export default function(hljs) {
     "matrix_build_projection_perspective",
     "matrix_build_projection_perspective_fov",
     "matrix_get",
+    "matrix_inverse",
     "matrix_multiply",
     "matrix_set",
     "matrix_stack_clear",
@@ -1368,18 +1561,18 @@ export default function(hljs) {
     "part_type_alpha3",
     "part_type_blend",
     "part_type_clear",
-    "part_type_color1",
-    "part_type_color2",
-    "part_type_color3",
     "part_type_color_hsv",
     "part_type_color_mix",
     "part_type_color_rgb",
-    "part_type_colour1",
-    "part_type_colour2",
-    "part_type_colour3",
+    "part_type_color1",
+    "part_type_color2",
+    "part_type_color3",
     "part_type_colour_hsv",
     "part_type_colour_mix",
     "part_type_colour_rgb",
+    "part_type_colour1",
+    "part_type_colour2",
+    "part_type_colour3",
     "part_type_create",
     "part_type_death",
     "part_type_destroy",
@@ -1439,6 +1632,7 @@ export default function(hljs) {
     "physics_apply_local_force",
     "physics_apply_local_impulse",
     "physics_apply_torque",
+    "physics_debug",
     "physics_draw_debug",
     "physics_fixture_add_point",
     "physics_fixture_bind",
@@ -1521,6 +1715,7 @@ export default function(hljs) {
     "physics_particle_set_max_count",
     "physics_particle_set_radius",
     "physics_pause_enable",
+    "physics_raycast",
     "physics_remove_fixture",
     "physics_set_density",
     "physics_set_friction",
@@ -1547,6 +1742,12 @@ export default function(hljs) {
     "position_meeting",
     "power",
     "ptr",
+    "push_cancel_local_notification",
+    "push_get_application_badge_number",
+    "push_get_first_local_notification",
+    "push_get_next_local_notification",
+    "push_local_notification",
+    "push_set_application_badge_number",
     "radtodeg",
     "random",
     "random_get_seed",
@@ -1575,7 +1776,6 @@ export default function(hljs) {
     "rollback_set_player_prefs",
     "rollback_start_game",
     "rollback_sync_on_frame",
-    "rollback_use_late_join",
     "rollback_use_manual_start",
     "rollback_use_player_prefs",
     "rollback_use_random_input",
@@ -1595,6 +1795,8 @@ export default function(hljs) {
     "room_next",
     "room_previous",
     "room_restart",
+    "room_set_background_color",
+    "room_set_background_colour",
     "room_set_camera",
     "room_set_height",
     "room_set_persistent",
@@ -1639,6 +1841,7 @@ export default function(hljs) {
     "shader_set_uniform_matrix_array",
     "shaders_are_supported",
     "shop_leave_rating",
+    "show_debug_log",
     "show_debug_message",
     "show_debug_message_ext",
     "show_debug_overlay",
@@ -1672,7 +1875,6 @@ export default function(hljs) {
     "skeleton_attachment_exists",
     "skeleton_attachment_get",
     "skeleton_attachment_replace",
-    "skeleton_attachment_replace_color",
     "skeleton_attachment_replace_colour",
     "skeleton_attachment_set",
     "skeleton_bone_data_get",
@@ -1713,6 +1915,7 @@ export default function(hljs) {
     "sprite_get_bbox_mode",
     "sprite_get_bbox_right",
     "sprite_get_bbox_top",
+    "sprite_get_convex_hull",
     "sprite_get_height",
     "sprite_get_info",
     "sprite_get_name",
@@ -1788,12 +1991,14 @@ export default function(hljs) {
     "string_width",
     "string_width_ext",
     "struct_exists",
+    "struct_exists_from_hash",
     "struct_foreach",
     "struct_get",
     "struct_get_from_hash",
     "struct_get_names",
     "struct_names_count",
     "struct_remove",
+    "struct_remove_from_hash",
     "struct_set",
     "struct_set_from_hash",
     "surface_copy",
@@ -1808,11 +2013,14 @@ export default function(hljs) {
     "surface_get_format",
     "surface_get_height",
     "surface_get_target",
+    "surface_get_target_depth",
     "surface_get_target_ext",
     "surface_get_texture",
+    "surface_get_texture_depth",
     "surface_get_width",
     "surface_getpixel",
     "surface_getpixel_ext",
+    "surface_has_depth",
     "surface_reset_target",
     "surface_resize",
     "surface_save",
@@ -1913,6 +2121,9 @@ export default function(hljs) {
     "url_open",
     "url_open_ext",
     "url_open_full",
+    "uwp_appbar_add_element",
+    "uwp_appbar_enable",
+    "uwp_appbar_remove_element",
     "uwp_device_touchscreen_available",
     "uwp_livetile_badge_clear",
     "uwp_livetile_badge_notification",
@@ -2038,6 +2249,8 @@ export default function(hljs) {
     "window_get_y",
     "window_handle",
     "window_has_focus",
+    "window_minimise",
+    "window_minimize",
     "window_mouse_get_delta_x",
     "window_mouse_get_delta_y",
     "window_mouse_get_locked",
@@ -2045,6 +2258,8 @@ export default function(hljs) {
     "window_mouse_get_y",
     "window_mouse_set",
     "window_mouse_set_locked",
+    "window_post_message",
+    "window_restore",
     "window_set_caption",
     "window_set_color",
     "window_set_colour",
@@ -2062,18 +2277,20 @@ export default function(hljs) {
     "window_view_mouse_get_y",
     "window_views_mouse_get_x",
     "window_views_mouse_get_y",
-    "winphone_tile_background_color",
-    "winphone_tile_background_colour",
     "zip_add_file",
     "zip_create",
     "zip_save",
     "zip_unzip",
-    "zip_unzip_async"
+    "zip_unzip_async",
   ];
-  const SYMBOLS = [
-    "AudioEffect",
-    "AudioEffectType",
-    "AudioLFOType",
+  
+  const LITERALS = [
+    "audiogroup_default", 
+    "GM_is_sandboxed", 
+    "self", 
+    "other", 
+    "all", 
+    "noone", 
     "GM_build_date",
     "GM_build_type",
     "GM_is_sandboxed",
@@ -2084,8 +2301,6 @@ export default function(hljs) {
     "_GMFILE_",
     "_GMFUNCTION_",
     "_GMLINE_",
-    "alignmentH",
-    "alignmentV",
     "all",
     "animcurvetype_bezier",
     "animcurvetype_catmullrom",
@@ -2094,6 +2309,7 @@ export default function(hljs) {
     "asset_font",
     "asset_object",
     "asset_path",
+    "asset_particlesystem",
     "asset_room",
     "asset_script",
     "asset_sequence",
@@ -2103,8 +2319,8 @@ export default function(hljs) {
     "asset_tiles",
     "asset_timeline",
     "asset_unknown",
-    "audio_3D",
-    "audio_bus_main",
+    "audio_3d",
+    "audio_bus_main", 
     "audio_falloff_exponent_distance",
     "audio_falloff_exponent_distance_clamped",
     "audio_falloff_exponent_distance_scaled",
@@ -2198,7 +2414,6 @@ export default function(hljs) {
     "c_white",
     "c_yellow",
     "cache_directory",
-    "characterSpacing",
     "cmpfunc_always",
     "cmpfunc_equal",
     "cmpfunc_greater",
@@ -2207,8 +2422,6 @@ export default function(hljs) {
     "cmpfunc_lessequal",
     "cmpfunc_never",
     "cmpfunc_notequal",
-    "coreColor",
-    "coreColour",
     "cr_appstart",
     "cr_arrow",
     "cr_beam",
@@ -2243,8 +2456,6 @@ export default function(hljs) {
     "display_portrait_flipped",
     "dll_cdecl",
     "dll_stdcall",
-    "dropShadowEnabled",
-    "dropShadowEnabled",
     "ds_type_grid",
     "ds_type_list",
     "ds_type_map",
@@ -2263,8 +2474,6 @@ export default function(hljs) {
     "ef_snow",
     "ef_spark",
     "ef_star",
-    "effectsEnabled",
-    "effectsEnabled",
     "ev_alarm",
     "ev_animation_end",
     "ev_animation_event",
@@ -2284,9 +2493,6 @@ export default function(hljs) {
     "ev_async_web_image_load",
     "ev_async_web_networking",
     "ev_async_web_steam",
-    "ev_audio_playback",
-    "ev_audio_playback_ended",
-    "ev_audio_recording",
     "ev_boundary",
     "ev_boundary_view0",
     "ev_boundary_view1",
@@ -2301,11 +2507,9 @@ export default function(hljs) {
     "ev_collision",
     "ev_create",
     "ev_destroy",
-    "ev_dialog_async",
     "ev_draw",
     "ev_draw_begin",
     "ev_draw_end",
-    "ev_draw_normal",
     "ev_draw_post",
     "ev_draw_pre",
     "ev_end_of_path",
@@ -2389,8 +2593,6 @@ export default function(hljs) {
     "ev_mouse_wheel_down",
     "ev_mouse_wheel_up",
     "ev_no_button",
-    "ev_no_more_health",
-    "ev_no_more_lives",
     "ev_other",
     "ev_outside",
     "ev_outside_view0",
@@ -2401,20 +2603,15 @@ export default function(hljs) {
     "ev_outside_view5",
     "ev_outside_view6",
     "ev_outside_view7",
-    "ev_pre_create",
-    "ev_push_notification",
     "ev_right_button",
     "ev_right_press",
     "ev_right_release",
     "ev_room_end",
     "ev_room_start",
-    "ev_social",
     "ev_step",
     "ev_step_begin",
     "ev_step_end",
     "ev_step_normal",
-    "ev_system_event",
-    "ev_trigger",
     "ev_user0",
     "ev_user1",
     "ev_user10",
@@ -2431,38 +2628,23 @@ export default function(hljs) {
     "ev_user7",
     "ev_user8",
     "ev_user9",
-    "ev_web_async",
-    "ev_web_cloud",
-    "ev_web_iap",
-    "ev_web_image_load",
-    "ev_web_networking",
-    "ev_web_sound_load",
-    "ev_web_steam",
-    "fa_archive",
     "fa_bottom",
     "fa_center",
-    "fa_directory",
-    "fa_hidden",
     "fa_left",
     "fa_middle",
-    "fa_none",
-    "fa_readonly",
     "fa_right",
-    "fa_sysfile",
     "fa_top",
+  "fa_none",
+    "fa_archive",
+    "fa_directory",
+    "fa_hidden",
+    "fa_readonly",
+    "fa_sysfile",
     "fa_volumeid",
     "false",
-    "frameSizeX",
-    "frameSizeY",
     "gamespeed_fps",
     "gamespeed_microseconds",
     "global",
-    "glowColor",
-    "glowColour",
-    "glowEnabled",
-    "glowEnabled",
-    "glowEnd",
-    "glowStart",
     "gp_axis_acceleration_x",
     "gp_axis_acceleration_y",
     "gp_axis_acceleration_z",
@@ -2545,11 +2727,8 @@ export default function(hljs) {
     "layerelementtype_tile",
     "layerelementtype_tilemap",
     "layerelementtype_undefined",
-    "leaderboard_type_number",
-    "leaderboard_type_time_mins_secs",
     "lighttype_dir",
     "lighttype_point",
-    "lineSpacing",
     "m_axisx",
     "m_axisx_gui",
     "m_axisy",
@@ -2608,9 +2787,6 @@ export default function(hljs) {
     "nineslice_stretch",
     "nineslice_top",
     "noone",
-    "of_challenge_lose",
-    "of_challenge_tie",
-    "of_challenge_win",
     "os_android",
     "os_gdk",
     "os_gxgames",
@@ -2621,26 +2797,14 @@ export default function(hljs) {
     "os_permission_denied",
     "os_permission_denied_dont_request",
     "os_permission_granted",
-    "os_ps3",
     "os_ps4",
     "os_ps5",
-    "os_psvita",
     "os_switch",
     "os_tvos",
     "os_unknown",
-    "os_uwp",
-    "os_win8native",
     "os_windows",
-    "os_winphone",
-    "os_xboxone",
     "os_xboxseriesxs",
     "other",
-    "outlineColor",
-    "outlineColour",
-    "outlineDist",
-    "outlineEnabled",
-    "outlineEnabled",
-    "paragraphSpacing",
     "path_action_continue",
     "path_action_restart",
     "path_action_reverse",
@@ -2728,7 +2892,6 @@ export default function(hljs) {
     "pt_shape_square",
     "pt_shape_star",
     "rollback_chat_message",
-    "rollback_connect_error",
     "rollback_connect_info",
     "rollback_connected_to_peer",
     "rollback_connection_rejected",
@@ -2779,11 +2942,6 @@ export default function(hljs) {
     "seqtracktype_spriteframes",
     "seqtracktype_string",
     "seqtracktype_text",
-    "shadowColor",
-    "shadowColour",
-    "shadowOffsetX",
-    "shadowOffsetY",
-    "shadowSoftness",
     "sprite_add_ext_error_cancelled",
     "sprite_add_ext_error_decompressfailed",
     "sprite_add_ext_error_loadfailed",
@@ -2807,21 +2965,21 @@ export default function(hljs) {
     "tf_anisotropic",
     "tf_linear",
     "tf_point",
-    "thickness",
     "tile_flip",
     "tile_index_mask",
     "tile_mirror",
     "tile_rotate",
-    "time_source_expire_after",
-    "time_source_expire_nearest",
-    "time_source_game",
+    "tileset_get_name",
     "time_source_global",
-    "time_source_state_active",
+    "time_source_game",
+    "time_source_units_seconds",
+    "time_source_units_frames",
+    "time_source_expire_nearest",
+    "time_source_expire_after",
     "time_source_state_initial",
+    "time_source_state_active",
     "time_source_state_paused",
     "time_source_state_stopped",
-    "time_source_units_frames",
-    "time_source_units_seconds",
     "timezone_local",
     "timezone_utc",
     "tm_countvsyncs",
@@ -2913,13 +3071,113 @@ export default function(hljs) {
     "vk_subtract",
     "vk_tab",
     "vk_up",
-    "wallpaper_config",
-    "wallpaper_subscription_data",
-    "wrap"
   ];
-  const LANGUAGE_VARIABLES = [
-    "alarm",
-    "application_surface",
+
+  /**
+   * Variables which are implicitly present on object instances, and are highlighted both standalone
+   * or in a dot access on an instance's struct.
+   */
+  const LANGUAGE_INSTANCE_VARIABLES = [
+  "x",
+    "y",
+    "xprevious",
+    "yprevious",
+    "xstart",
+    "ystart",
+    "hspeed",
+    "vspeed",
+    "direction",
+  "drawn_by_sequence",
+  "event_number",
+  "event_object",
+  "event_type",
+  "speed",
+    "friction",
+    "gravity",
+    "gravity_direction",
+  "path_index",
+    "path_position",
+    "path_positionprevious",
+    "path_speed",
+    "path_scale",
+    "path_orientation",
+    "path_endaction",
+    "object_index",
+  "id",
+    "image_alpha",
+    "image_angle",
+    "image_blend",
+    "image_index",
+    "image_number",
+    "image_speed",
+    "image_xscale",
+    "image_yscale",
+  "in_collision_tree",
+    "in_sequence",
+    "solid",
+    "persistent",
+    "mask_index",
+    "depth",
+    "visible",
+    "layer",
+    "instance_count",
+    "instance_id",
+  "alarm",
+  "timeline_index",
+    "timeline_position",
+    "timeline_speed",
+    "timeline_running",
+    "timeline_loop",
+  "sprite_index",
+    "sprite_width",
+    "sprite_height",
+    "sprite_xoffset",
+    "sprite_yoffset",
+    "bbox_left",
+    "bbox_right",
+    "bbox_top",
+    "bbox_bottom",
+  "phy_rotation",
+    "phy_position_x",
+    "phy_position_y",
+    "phy_angular_velocity",
+    "phy_linear_velocity_x",
+    "phy_linear_velocity_y",
+    "phy_speed_x",
+    "phy_speed_y",
+    "phy_speed",
+    "phy_angular_damping",
+    "phy_linear_damping",
+    "phy_bullet",
+    "phy_fixed_rotation",
+    "phy_active",
+    "phy_mass",
+    "phy_inertia",
+    "phy_com_x",
+    "phy_com_y",
+    "phy_dynamic",
+    "phy_kinematic",
+    "phy_sleeping",
+    "phy_collision_points",
+    "phy_collision_x",
+    "phy_collision_y",
+    "phy_col_normal_x",
+    "phy_col_normal_y",
+    "phy_position_xprevious",
+    "phy_position_yprevious",
+  "player_id",
+    "player_local",
+    "player_avatar_url",
+    "player_avatar_sprite",
+    "player_user_id",
+    "player_type",
+  "sequence_instance",
+  ];
+
+  // many of these look like enumerables to me (see comments below)
+  const LANGUAGE_GLOBAL_VARIABLES = [
+    "wallpaper_config", 
+    "wallpaper_subscription_data", 
     "argument",
     "argument0",
     "argument1",
@@ -2938,191 +3196,538 @@ export default function(hljs) {
     "argument14",
     "argument15",
     "argument_count",
-    "async_load",
-    "background_color",
-    "background_colour",
-    "background_showcolor",
-    "background_showcolour",
-    "bbox_bottom",
-    "bbox_left",
-    "bbox_right",
-    "bbox_top",
-    "browser_height",
-    "browser_width",
-    "colour?ColourTrack",
-    "current_day",
-    "current_hour",
-    "current_minute",
-    "current_month",
-    "current_second",
-    "current_time",
-    "current_weekday",
-    "current_year",
-    "cursor_sprite",
-    "debug_mode",
-    "delta_time",
-    "depth",
-    "direction",
+  "debug_mode",
     "display_aa",
-    "drawn_by_sequence",
-    "event_action",
-    "event_data",
-    "event_number",
-    "event_object",
-    "event_type",
     "font_texture_page_size",
     "fps",
     "fps_real",
-    "friction",
-    "game_display_name",
-    "game_id",
-    "game_project_name",
-    "game_save_id",
-    "gravity",
-    "gravity_direction",
+    "current_time",
+    "current_year",
+    "current_month",
+    "current_day",
+    "current_weekday",
+    "current_hour",
+    "current_minute",
+    "current_second",
+    "room",
+    "room_first",
+    "room_last",
+    "room_width",
+    "room_height",
+    "room_caption",
+    "room_persistent",
+    "score",
+    "lives",
     "health",
-    "hspeed",
-    "iap_data",
-    "id",
-    "image_alpha",
-    "image_angle",
-    "image_blend",
-    "image_index",
-    "image_number",
-    "image_speed",
-    "image_xscale",
-    "image_yscale",
-    "in_collision_tree",
-    "in_sequence",
-    "instance_count",
-    "instance_id",
+    "application_surface",
     "keyboard_key",
     "keyboard_lastchar",
     "keyboard_lastkey",
     "keyboard_string",
-    "layer",
-    "lives",
-    "longMessage",
-    "managed",
-    "mask_index",
-    "message",
-    "mouse_button",
-    "mouse_lastbutton",
     "mouse_x",
     "mouse_y",
-    "object_index",
-    "os_browser",
-    "os_device",
-    "os_type",
-    "os_version",
-    "path_endaction",
-    "path_index",
-    "path_orientation",
-    "path_position",
-    "path_positionprevious",
-    "path_scale",
-    "path_speed",
-    "persistent",
-    "phy_active",
-    "phy_angular_damping",
-    "phy_angular_velocity",
-    "phy_bullet",
-    "phy_col_normal_x",
-    "phy_col_normal_y",
-    "phy_collision_points",
-    "phy_collision_x",
-    "phy_collision_y",
-    "phy_com_x",
-    "phy_com_y",
-    "phy_dynamic",
-    "phy_fixed_rotation",
-    "phy_inertia",
-    "phy_kinematic",
-    "phy_linear_damping",
-    "phy_linear_velocity_x",
-    "phy_linear_velocity_y",
-    "phy_mass",
-    "phy_position_x",
-    "phy_position_xprevious",
-    "phy_position_y",
-    "phy_position_yprevious",
-    "phy_rotation",
-    "phy_sleeping",
-    "phy_speed",
-    "phy_speed_x",
-    "phy_speed_y",
-    "player_avatar_sprite",
-    "player_avatar_url",
-    "player_id",
-    "player_local",
-    "player_type",
-    "player_user_id",
+    "mouse_button",
+    "mouse_lastbutton",
+    "cursor_sprite",
+    "view_enabled",
+    "view_current",
+    "view_visible",
+    "view_xview",
+    "view_yview",
+    "view_wview",
+    "view_hview",
+    "view_xport",
+    "view_yport",
+    "view_wport",
+    "view_hport",
+    "view_hborder",
+    "view_vborder",
+    "view_hspeed",
+    "view_vspeed",
+    "view_object",
+    "view_surface_id",
+    "view_camera",
+    "game_display_name",
+    "game_project_name",
+    "game_save_id",
+    "working_directory",
+    "temp_directory",
     "program_directory",
-    "rollback_api_server",
-    "rollback_confirmed_frame",
+    "browser_width",
+    "browser_height",
+    "os_type",
+    "os_device",
+    "os_browser",
+    "os_version",
+    "async_load",
+    "delta_time",
+    "webgl_enabled",
+    "event_data",
+    "managed",
     "rollback_current_frame",
     "rollback_event_id",
     "rollback_event_param",
     "rollback_game_running",
-    "room",
-    "room_first",
-    "room_height",
-    "room_last",
-    "room_persistent",
-    "room_speed",
-    "room_width",
-    "score",
-    "script",
-    "sequence_instance",
-    "solid",
-    "speed",
-    "sprite_height",
-    "sprite_index",
-    "sprite_width",
-    "sprite_xoffset",
-    "sprite_yoffset",
-    "stacktrace",
-    "temp_directory",
-    "timeline_index",
-    "timeline_loop",
-    "timeline_position",
-    "timeline_running",
-    "timeline_speed",
-    "view_camera",
-    "view_current",
-    "view_enabled",
-    "view_hport",
-    "view_surface_id",
-    "view_visible",
-    "view_wport",
-    "view_xport",
-    "view_yport",
-    "visible",
-    "vspeed",
-    "webgl_enabled",
-    "working_directory",
-    "x",
-    "xprevious",
-    "xstart",
-    "y",
-    "yprevious",
-    "ystart"
+    "rollback_confirmed_frame",
+    "rollback_api_server",
   ];
+
+  const LANGUAGE_VARIABLES = LANGUAGE_GLOBAL_VARIABLES.concat(LANGUAGE_INSTANCE_VARIABLES);
+
+  /**
+   * Regex for some sort of identifier - i.e, a valid name of something in code.
+   */
+  const VALID_IDENTIFIER_RE = /[a-zA-Z_][a-zA-Z0-9_]*/;
+  /**
+   * Regex for a dot separating some LHS and RHS expression with optional whitespace (as this is
+   * supported in the engine.)
+   */
+  const DOT_ACCESSOR_RE = /(\s*)\.(\s*)\b/;
+
+  /**
+   * Expressions, which form part of a valid statement.
+   * @type {Object[]}
+   */
+  const EXPRESSION = [];
+
+  /**
+   * A single-line comment.
+   */
+  const COMMENT_LINE = hljs.COMMENT('//', /$/);
+
+  const JSDOC_TYPE_PARAM_RE = /{ *[a-zA-Z_][a-zA-Z0-9_\.<>\|]* *} */;
+
+  const JSDOC_ANNOTATIONS = [
+    {
+      match: /@((desc(ription)?)|ignore|pure|deprecated|(func(tion)?))\b/,
+      scope: "doctag"
+    },
+    {
+      match: [
+        /@(self|context) +/,
+        VALID_IDENTIFIER_RE,
+      ],
+      scope: {
+        1: "doctag",
+        2: "type",
+      }
+    },
+    {
+      match: [
+        /(@return)s? */,
+        JSDOC_TYPE_PARAM_RE
+      ],
+      scope: {
+        1: "doctag",
+        2: "type",
+      },
+    },
+    {
+      match: [
+        /@((param(eter)?)|arg(ument)?) */,
+        JSDOC_TYPE_PARAM_RE,
+        /\[?/,
+        VALID_IDENTIFIER_RE,
+        /(( *=[^\n]+?)?\])? *?/
+      ],
+      scope: {
+        1: "doctag",
+        2: "type",
+        3: "params",
+        4: "params",
+        5: "params",
+      },
+    }
+  ];
+
+  /**
+   * A comment that documents a function using the same style as JSDoc for JavaScript.
+   */
+  const COMMENT_JSDOC = {
+    begin: /\/\/\//,
+    end: /$/,
+    contains: JSDOC_ANNOTATIONS,
+  };
+
+  /**
+   * A comment that documents a function using the same style as JSDoc for JavaScript.
+   */
+  const COMMENT_BLOCK_JSDOC = {
+    begin: /\/\*\*/,
+    end: /\*\//,
+    contains: JSDOC_ANNOTATIONS
+  };
+
+  /**
+   * Modes for the types of comments supported in GML.
+   */
+  const COMMENT = {
+    scope: "comment",
+    variants: [
+      COMMENT_JSDOC,
+      COMMENT_BLOCK_JSDOC,
+      COMMENT_LINE,
+      hljs.C_BLOCK_COMMENT_MODE,
+    ]
+  };
+
+  /**
+   * A template string substitution. `contains` is filled in after `EXPRESSION` is defined due to
+   * nesting.
+   */
+  const STRING_SUBSTITUTION = {
+    begin: /{/,
+    end: /}/,
+    beginScope: "punctuation",
+    endScope: "punctuation",
+    scope: "subst",
+    contains: EXPRESSION
+  };
+
+  /**
+   * A template string substitution for use with the older `string()` optional args with `"{0}"`,
+   * etc.
+   */
+  const STRING_NUMERICAL_SUBSTITUTION = {
+    match: [
+      /{/,
+      /[0-9]+/,
+      /}/
+    ],
+    scope: {
+      1: "subst",
+      2: "number",
+      3: "subst"
+    }
+  };
+
+  /**
+   * An escape sequence in a string.
+   */
+  const STRING_ESCAPE = {
+    scope: "char.escape",
+    variants: [
+      { match: /\\u[a-fA-F0-9]{1,6}/ },
+      { match: /\\\S/ }
+    ]
+  };
+
+  /**
+   * Various types of strings supported in the engine.
+   */
+  const STRING = {
+    scope: "string",
+    variants: [
+      {
+        begin: /\$"/,
+        end: /"/,
+        illegal: /\n/,
+        contains: [
+          STRING_ESCAPE,
+          STRING_SUBSTITUTION
+        ]
+      },
+      {
+        begin: /@'/,
+        end: /'/,
+        contains: [STRING_NUMERICAL_SUBSTITUTION]
+      },
+      {
+        begin: /@"/,
+        end: /"/,
+        contains: [STRING_NUMERICAL_SUBSTITUTION]
+      },
+      {
+        begin: /"/,
+        end: /"/,
+        illegal: /\n/,
+        contains: [
+          STRING_ESCAPE,
+          STRING_NUMERICAL_SUBSTITUTION
+        ]
+      }
+    ]
+  };
+
+  /**
+   * Various representations of numbers
+   */
+  const NUMBER = {
+    scope: "number",
+    variants: [
+      { match: /(\B|^)\$[0-9a-fA-F][0-9a-fA-F_]*/ },
+      { match: /(\B|^)#[0-9a-fA-F]{6}/ },
+      { match: /\b0x[0-9a-fA-F_]+/ },
+      { match: /\b0b[01_]+/ },
+      { match: /\b[0-9][0-9_]*\.[0-9][0-9_]*/ },
+      { match: /\b[0-9][0-9_]*\.?/ }
+    ]
+  };
+
+  const COMMENT_LINE_INNER = {
+    match: /[^\n]+/,
+    scope: "comment"
+  };
+
+  /**
+   * Dot accessor usage.
+   */
+  const PROP_ACCESS = [
+    {
+      match: [
+        DOT_ACCESSOR_RE,
+        VALID_IDENTIFIER_RE,
+        /\s*\(/
+      ],
+      scope: {
+        2: "title.function.invoke"
+      }
+    },
+    {
+      match: [
+        DOT_ACCESSOR_RE,
+        LANGUAGE_INSTANCE_VARIABLES.join('|')
+      ],
+      scope: {
+        2: "variable.language"
+      }
+    },
+    {
+      match: [
+        DOT_ACCESSOR_RE,
+        VALID_IDENTIFIER_RE
+      ],
+      scope: {
+        2: "property"
+      }
+    }
+  ];
+
+  /**
+   * Function call sites, just looking for `<ident>(`. This creates false positives
+   * for keywords such as `if (<condition>)`, so has lower priority in the mode `contains` list.
+   */
+  const FUNCTION_CALL = {
+    match: [
+      VALID_IDENTIFIER_RE,
+      /\s*/,
+      /\(/
+    ],
+    scope: {
+      1: "title.function.invoke"
+    }
+  };
+
+  /**
+   * The manual likes using `obj_` and such to define assets. Sneaky trick to make it look nicer :P
+   */
+  const USER_ASSET_CONSTANT = {
+    scope: "variable.constant",
+    match: /(?:spr_|obj_)[a-zA-Z0-9_]+/
+  };
+
+  /**
+   * Match for the accessor for a `ds_map`. This exists to disambiguate from ternaries, which would
+   * otherwise consume the match for a struct literal member.
+   */
+  const DS_MAP_ACCESS = {
+    match: /\[\?/
+  };
+
+  /**
+   * A ternary expression, matching partial ternary as `? <EXPRESSION> :`.
+   * Effectively exists to prevent {@link STRUCT_LITERAL_MEMBER} from stealing `<EXPRESSION> :`.
+   */
+  const TERNARY = {
+    begin: /\?/,
+    end: /:/,
+    contains: EXPRESSION
+  };
+
+  const SWITCH_CASE = {
+    begin: [
+      /case/,
+      /\s+/
+    ],
+    end: /:/,
+    scope: {
+      1: "keyword"
+    },
+    contains: EXPRESSION
+  };
+
+  /**
+   * A struct variable declaration, of `<ident>:`
+   */
+  const STRUCT_LITERAL_MEMBER = {
+    match: [
+      /\b/,
+      VALID_IDENTIFIER_RE,
+      /\s*:/
+    ],
+    scope: {
+      2: "variable"
+    }
+  };
+
+  /**
+   * A function declaration matching for:
+   * ```gml
+   * function <ident>(
+   * ```
+   */
+  const FUNCTION_DECLARATION = {
+    match: [
+      /function/,
+      /\s+/,
+      VALID_IDENTIFIER_RE,
+      /\s*\(/
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    }
+  };
+
+  /**
+   * An enum definition in the form:
+   * ```gml
+   * enum <ident> {
+   *     <ident> [= <expr>][,]
+   * }
+   * ```
+   */
+  const ENUM_DEFINITION = {
+    begin: [
+      /enum/,
+      /\s+/,
+      VALID_IDENTIFIER_RE,
+      /\s*{/
+    ],
+    end: /}/,
+    scope: {
+      1: "keyword",
+      3: "variable.constant"
+    },
+    contains: [
+      COMMENT,
+      {
+        begin: [
+          VALID_IDENTIFIER_RE,
+          /\s*=\s*/
+        ],
+        end: /,|$|}/,
+        scope: {
+          1: "variable.constant"
+        },
+        contains: [NUMBER]
+      },
+      {
+        match: VALID_IDENTIFIER_RE,
+        scope: "variable.constant"
+      }
+    ]
+  };
+
+  EXPRESSION.push(
+    STRING,
+    DS_MAP_ACCESS,
+    TERNARY,
+    PROP_ACCESS,
+    NUMBER,
+    FUNCTION_CALL,
+    USER_ASSET_CONSTANT,
+    {
+      match: VALID_IDENTIFIER_RE,
+      keywords: {
+        keyword: KEYWORDS,
+        literal: LITERALS,
+        "title.function": BUILT_IN_FUNCTIONS,
+        "variable.language": LANGUAGE_VARIABLES
+      }
+    }
+  );
+
+  /**
+   * Pre-processor modes for macro definitions and regions.
+   */
+  const PREPROCESSOR = {
+    end: /$/,
+    variants: [
+      {
+        begin: [
+          /#macro/,
+          /\s+/,
+          VALID_IDENTIFIER_RE,
+          /:/,
+          VALID_IDENTIFIER_RE
+        ],
+        scope: {
+          1: "meta",
+          3: "variable.constant",
+          4: "punctuation",
+          5: "variable.constant"
+        },
+        contains: [
+          ...EXPRESSION,
+          COMMENT,
+          {
+            match: /\\\n/
+          }
+        ]
+      },
+      {
+        begin: [
+          /#macro/,
+          /\s+/,
+          VALID_IDENTIFIER_RE
+        ],
+        scope: {
+          1: "meta",
+          3: "variable.constant"
+        },
+        contains: [
+          ...EXPRESSION,
+          COMMENT,
+          {
+            match: /\\\n/
+          }
+        ]
+      },
+      {
+        begin: /#(end)?region\b/,
+        beginScope: "meta",
+        contains: [COMMENT_LINE_INNER]
+      }
+    ]
+  };
+
   return {
     name: 'GML',
-    case_insensitive: false, // language is case-insensitive
     keywords: {
       keyword: KEYWORDS,
-      built_in: BUILT_INS,
-      symbol: SYMBOLS,
+      literal: LITERALS,
+      "title.function": BUILT_IN_FUNCTIONS,
       "variable.language": LANGUAGE_VARIABLES
     },
     contains: [
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE,
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE,
-      hljs.C_NUMBER_MODE
+      COMMENT,
+      PREPROCESSOR,
+      NUMBER,
+      STRING,
+      ENUM_DEFINITION,
+      SWITCH_CASE,
+      {
+        // Prevent keywords being taken by function calls.
+        beginKeywords: KEYWORDS.join(" ")
+      },
+      DS_MAP_ACCESS,
+      TERNARY,
+      STRUCT_LITERAL_MEMBER,
+      FUNCTION_DECLARATION,
+      FUNCTION_CALL,
+      USER_ASSET_CONSTANT,
+      PROP_ACCESS
     ]
   };
 }

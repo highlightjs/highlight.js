@@ -1,0 +1,41 @@
+""
+"hi"
+"\"\r\n\\"
+"\u1234"
+
+// Argument number template substitution:
+"{0} {1} {2}"
+"\\{0\\}"
+
+// Template literals:
+$""
+$"hi"
+$"\"\r\n\\"
+$"{"test"}"
+$"{1 + 2}"
+$"{show_debug_message}"
+$"\{show_debug_message\}"
+
+// Verbatim literals (multi-line):
+@""
+@"hi"
+@"\r\n\\"
+@"'"
+@"
+"
+@"
+1
+2
+3
+"
+
+@''
+@'hi'
+@'"'
+@'
+'
+@'
+1
+2
+3
+'

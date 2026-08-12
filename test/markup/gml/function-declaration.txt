@@ -1,0 +1,3 @@
+function example() {}
+function example(a, b = 2) {}
+function Thing(a) constructor {}

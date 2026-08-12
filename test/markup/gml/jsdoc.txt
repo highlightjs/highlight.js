@@ -1,0 +1,105 @@
+/// @func func(a)
+/// @function func(a)
+/// 
+/// @pure
+/// @ignore
+/// @deprecated
+/// 
+/// @desc Test
+/// @description Test
+/// Further comment.
+/// 
+/// @self Example
+/// @context Example
+/// 
+/// @param {Real} a
+/// @param {Real} a Description text
+/// @parameter {Real} a
+/// @parameter {Real} a Description text
+/// @arg {Real} a
+/// @arg {Real} a Description text
+/// @argument {Real} a
+/// @argument {Real} a Description text
+/// 
+/// @return {Bool|Struct.Example}
+/// @returns {Array}
+/// @returns {Array<Real>}
+/// @returns {Array<Real|Bool|Undefined>}
+
+/**
+ * @func func(a)
+ * @function func(a)
+ * 
+ * @pure
+ * @ignore
+ * @deprecated
+ * 
+ * @desc Test
+ * @description Test
+ * Further comment.
+ * 
+ * @self Example
+ * @context Example
+ * 
+ * @param {Real} a
+ * @parameter {Real} a
+ * @arg {Real} a
+ * @argument {Real} a
+ * 
+ * @return {Bool|Struct.Example}
+ * @returns {Array}
+ * @returns {Array<Real>}
+ * @returns {Array<Real|Bool|Undefined>}
+ */
+
+// Should do nothing:
+
+// @func func(a)
+// @function func(a)
+// 
+// @pure
+// @ignore
+// @deprecated
+// 
+// @desc Test
+// @description Test
+// Further comment.
+// 
+// @self Example
+// @context Example
+// 
+// @param {Real} a
+// @parameter {Real} a
+// @arg {Real} a
+// @argument {Real} a
+// 
+// @return {Bool|Struct.Example}
+// @returns {Array}
+// @returns {Array<Real>}
+// @returns {Array<Real|Bool|Undefined>}
+
+/*
+ * @func func(a)
+ * @function func(a)
+ * 
+ * @pure
+ * @ignore
+ * @deprecated
+ * 
+ * @desc Test
+ * @description Test
+ * Further comment.
+ * 
+ * @self Example
+ * @context Example
+ * 
+ * @param {Real} a
+ * @parameter {Real} a
+ * @arg {Real} a
+ * @argument {Real} a
+ * 
+ * @return {Bool|Struct.Example}
+ * @returns {Array}
+ * @returns {Array<Real>}
+ * @returns {Array<Real|Bool|Undefined>}
+ */
