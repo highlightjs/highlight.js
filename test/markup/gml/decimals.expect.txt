@@ -1,0 +1,8 @@
+<span class="hljs-number">0</span>
+<span class="hljs-number">0.</span>
+<span class="hljs-number">0.1</span>
+<span class="hljs-number">10.10</span>
+<span class="hljs-number">1_0</span>
+<span class="hljs-number">1__0</span>
+<span class="hljs-number">1_.0</span>
+<span class="hljs-number">1_.0_0</span>
