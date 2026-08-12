@@ -1,0 +1,9 @@
+#000000
+#abcdef
+#ABCDEF
+
+// Unsupported in GML:
+#0
+#123
+#AB_CD_EF
+#1234567

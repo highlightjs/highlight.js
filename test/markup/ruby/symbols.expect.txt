@@ -1,0 +1,10 @@
+<span class="hljs-symbol">:symbol</span>
+<span class="hljs-symbol">:<span class="hljs-string">&quot;quoted symbol&quot;</span></span>
+{ <span class="hljs-symbol">name:</span> <span class="hljs-string">&quot;ruby&quot;</span>, <span class="hljs-symbol">version:</span> <span class="hljs-number">3</span> }
+obj.send(<span class="hljs-symbol">:to_s</span>)
+
+<span class="hljs-title class_">Foo</span>::<span class="hljs-title class_">Bar</span>
+<span class="hljs-title class_">Foo</span>::<span class="hljs-title class_">Bar</span>::baz(<span class="hljs-number">1</span>)
+<span class="hljs-title class_">ClassName</span>::method
+<span class="hljs-title class_">Math</span>::<span class="hljs-variable constant_">PI</span>
+::<span class="hljs-title class_">TopLevel</span>.new

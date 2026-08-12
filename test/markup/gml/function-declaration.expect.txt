@@ -1,0 +1,3 @@
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">example</span>() {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">example</span>(a, b = <span class="hljs-number">2</span>) {}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Thing</span>(a) <span class="hljs-keyword">constructor</span> {}
