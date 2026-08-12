@@ -3689,7 +3689,7 @@ export default function(hljs) {
         scope: {
           1: "variable.constant"
         },
-        contains: EXPRESSION
+        contains: [NUMBER]
       },
       {
         match: VALID_IDENTIFIER_RE,
