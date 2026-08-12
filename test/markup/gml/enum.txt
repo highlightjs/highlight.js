@@ -1,0 +1,6 @@
+enum Example {
+	A,
+	B = 3,
+	// Shouldn't work.
+	C = func(),
+}
