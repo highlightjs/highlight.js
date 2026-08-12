@@ -97,7 +97,7 @@ function testLanguage(languageName) {
          */
         function toNFA(element, debug = false) {
           const { expression, maxCharacter } = parser.parseElement(element, {
-            backreferences: "resolve",
+            backreferences: "disable",
             assertions: "disable",
           });
           return NFA.fromRegex(expression, { maxCharacter });
