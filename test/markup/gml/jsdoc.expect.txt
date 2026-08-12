@@ -1,0 +1,106 @@
+<span class="hljs-comment">/// <span class="hljs-doctag">@func</span> func(a)</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@function</span> func(a)</span>
+<span class="hljs-comment">/// </span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@pure</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@ignore</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@deprecated</span></span>
+<span class="hljs-comment">/// </span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@desc</span> Test</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@description</span> Test</span>
+<span class="hljs-comment">/// Further comment.</span>
+<span class="hljs-comment">/// </span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@self </span><span class="hljs-type">Example</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@context </span><span class="hljs-type">Example</span></span>
+<span class="hljs-comment">/// </span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@param </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span> Description text</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@parameter </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@parameter </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span> Description text</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@arg </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@arg </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span> Description text</span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@argument </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@argument </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span> Description text</span>
+<span class="hljs-comment">/// </span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@return </span><span class="hljs-type">{Bool|Struct.Example}</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@returns </span><span class="hljs-type">{Array}</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@returns </span><span class="hljs-type">{Array&lt;Real&gt;}</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@returns </span><span class="hljs-type">{Array&lt;Real|Bool|Undefined&gt;}</span></span>
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@func</span> func(a)
+ * <span class="hljs-doctag">@function</span> func(a)
+ * 
+ * <span class="hljs-doctag">@pure</span>
+ * <span class="hljs-doctag">@ignore</span>
+ * <span class="hljs-doctag">@deprecated</span>
+ * 
+ * <span class="hljs-doctag">@desc</span> Test
+ * <span class="hljs-doctag">@description</span> Test
+ * Further comment.
+ * 
+ * <span class="hljs-doctag">@self </span><span class="hljs-type">Example</span>
+ * <span class="hljs-doctag">@context </span><span class="hljs-type">Example</span>
+ * 
+ * <span class="hljs-doctag">@param </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span>
+ * <span class="hljs-doctag">@parameter </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span>
+ * <span class="hljs-doctag">@arg </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span>
+ * <span class="hljs-doctag">@argument </span><span class="hljs-type">{Real} </span><span class="hljs-params">a</span>
+ * 
+ * <span class="hljs-doctag">@return </span><span class="hljs-type">{Bool|Struct.Example}</span>
+ * <span class="hljs-doctag">@returns </span><span class="hljs-type">{Array}</span>
+ * <span class="hljs-doctag">@returns </span><span class="hljs-type">{Array&lt;Real&gt;}</span>
+ * <span class="hljs-doctag">@returns </span><span class="hljs-type">{Array&lt;Real|Bool|Undefined&gt;}</span>
+ */</span>
+
+<span class="hljs-comment">// Should do nothing:</span>
+
+<span class="hljs-comment">// @func func(a)</span>
+<span class="hljs-comment">// @function func(a)</span>
+<span class="hljs-comment">// </span>
+<span class="hljs-comment">// @pure</span>
+<span class="hljs-comment">// @ignore</span>
+<span class="hljs-comment">// @deprecated</span>
+<span class="hljs-comment">// </span>
+<span class="hljs-comment">// @desc Test</span>
+<span class="hljs-comment">// @description Test</span>
+<span class="hljs-comment">// Further comment.</span>
+<span class="hljs-comment">// </span>
+<span class="hljs-comment">// @self Example</span>
+<span class="hljs-comment">// @context Example</span>
+<span class="hljs-comment">// </span>
+<span class="hljs-comment">// @param {Real} a</span>
+<span class="hljs-comment">// @parameter {Real} a</span>
+<span class="hljs-comment">// @arg {Real} a</span>
+<span class="hljs-comment">// @argument {Real} a</span>
+<span class="hljs-comment">// </span>
+<span class="hljs-comment">// @return {Bool|Struct.Example}</span>
+<span class="hljs-comment">// @returns {Array}</span>
+<span class="hljs-comment">// @returns {Array&lt;Real&gt;}</span>
+<span class="hljs-comment">// @returns {Array&lt;Real|Bool|Undefined&gt;}</span>
+
+<span class="hljs-comment">/*
+ * @func func(a)
+ * @function func(a)
+ * 
+ * @pure
+ * @ignore
+ * @deprecated
+ * 
+ * @desc Test
+ * @description Test
+ * Further comment.
+ * 
+ * @self Example
+ * @context Example
+ * 
+ * @param {Real} a
+ * @parameter {Real} a
+ * @arg {Real} a
+ * @argument {Real} a
+ * 
+ * @return {Bool|Struct.Example}
+ * @returns {Array}
+ * @returns {Array&lt;Real&gt;}
+ * @returns {Array&lt;Real|Bool|Undefined&gt;}
+ */</span>
+ 
