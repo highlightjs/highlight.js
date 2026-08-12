@@ -21,7 +21,11 @@ jobs:
       matrix:
         # All 'LTS' and 'Current' versions (https://nodejs.org/en/about/previous-releases)
         node-version: [20.x, 22.x, 24.x, 26.x]
-        build-how: ["node", "browser", "browser -n", "cdn :common"]
+        build-how: ["node", "browser", "cdn :common"]
+        include:
+          # unminified browser build once on Current is enough
+          - node-version: 26.x
+            build-how: "browser -n"
 
     steps:
     - uses: actions/checkout@v7
