@@ -8,4 +8,3 @@
 
 ### Checklist
 - [ ] Added markup tests, or they don't apply here because...
-- [ ] Updated the changelog at `CHANGES.md`
