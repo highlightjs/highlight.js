@@ -1,0 +1,2 @@
+<span class="hljs-comment">// <span class="hljs-doctag">FIXME:</span> ternary eats the `:` in the struct literal here.</span>
+cond ? { <span class="hljs-variable">x</span>: <span class="hljs-number">1</span> } : <span class="hljs-variable language_">y</span>

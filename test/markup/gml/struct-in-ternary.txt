@@ -1,0 +1,2 @@
+// FIXME: ternary eats the `:` in the struct literal here.
+cond ? { x: 1 } : y
