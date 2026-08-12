@@ -3493,7 +3493,7 @@ export default function(hljs) {
     variants: [
       {
         begin: /\$"/,
-        end: /\"/,
+        end: /"/,
         illegal: /\n/,
         contains: [
           STRING_ESCAPE,
