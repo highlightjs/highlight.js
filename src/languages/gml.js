@@ -3534,6 +3534,15 @@ export default function(hljs) {
         2: "title.function.invoke"
       }
     },
+	{
+      match: [
+        DOT_ACCESSOR_RE,
+        '/' + LANGUAGE_VARIABLES.join('|') + '/',
+      ],
+      scope: {
+        2: "variable.language"
+      },
+    },
     {
       match: [
         DOT_ACCESSOR_RE,
@@ -3541,7 +3550,7 @@ export default function(hljs) {
       ],
       scope: {
         2: "property"
-      }
+      },
     },
   ];
 
