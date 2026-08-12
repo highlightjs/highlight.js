@@ -1,0 +1,41 @@
+<span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-string">&quot;hi&quot;</span>
+<span class="hljs-string">&quot;<span class="hljs-char escape_">\&quot;</span><span class="hljs-char escape_">\r</span><span class="hljs-char escape_">\n</span><span class="hljs-char escape_">\\</span>&quot;</span>
+<span class="hljs-string">&quot;<span class="hljs-char escape_">\u1234</span>&quot;</span>
+
+<span class="hljs-comment">// Argument number template substitution:</span>
+<span class="hljs-string">&quot;<span class="hljs-subst">{</span><span class="hljs-number">0</span><span class="hljs-subst">}</span> <span class="hljs-subst">{</span><span class="hljs-number">1</span><span class="hljs-subst">}</span> <span class="hljs-subst">{</span><span class="hljs-number">2</span><span class="hljs-subst">}</span>&quot;</span>
+<span class="hljs-string">&quot;<span class="hljs-char escape_">\\</span>{0<span class="hljs-char escape_">\\</span>}&quot;</span>
+
+<span class="hljs-comment">// Template literals:</span>
+<span class="hljs-string">$&quot;&quot;</span>
+<span class="hljs-string">$&quot;hi&quot;</span>
+<span class="hljs-string">$&quot;<span class="hljs-char escape_">\&quot;</span><span class="hljs-char escape_">\r</span><span class="hljs-char escape_">\n</span><span class="hljs-char escape_">\\</span>&quot;</span>
+<span class="hljs-string">$&quot;<span class="hljs-subst"><span class="hljs-punctuation">{</span><span class="hljs-string">&quot;test&quot;</span><span class="hljs-punctuation">}</span></span>&quot;</span>
+<span class="hljs-string">$&quot;<span class="hljs-subst"><span class="hljs-punctuation">{</span><span class="hljs-number">1</span> + <span class="hljs-number">2</span><span class="hljs-punctuation">}</span></span>&quot;</span>
+<span class="hljs-string">$&quot;<span class="hljs-subst"><span class="hljs-punctuation">{</span><span class="hljs-title function_">show_debug_message</span><span class="hljs-punctuation">}</span></span>&quot;</span>
+<span class="hljs-string">$&quot;<span class="hljs-char escape_">\{</span>show_debug_message<span class="hljs-char escape_">\}</span>&quot;</span>
+
+<span class="hljs-comment">// Verbatim literals (multi-line):</span>
+<span class="hljs-string">@&quot;&quot;</span>
+<span class="hljs-string">@&quot;hi&quot;</span>
+<span class="hljs-string">@&quot;\r\n\\&quot;</span>
+<span class="hljs-string">@&quot;&#x27;&quot;</span>
+<span class="hljs-string">@&quot;
+&quot;</span>
+<span class="hljs-string">@&quot;
+1
+2
+3
+&quot;</span>
+
+<span class="hljs-string">@&#x27;&#x27;</span>
+<span class="hljs-string">@&#x27;hi&#x27;</span>
+<span class="hljs-string">@&#x27;&quot;&#x27;</span>
+<span class="hljs-string">@&#x27;
+&#x27;</span>
+<span class="hljs-string">@&#x27;
+1
+2
+3
+&#x27;</span>

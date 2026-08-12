@@ -1,0 +1,7 @@
+a.<span class="hljs-property">b</span>
+a.<span class="hljs-variable language_">x</span>
+<span class="hljs-literal">self</span>.<span class="hljs-property">b</span>
+<span class="hljs-literal">self</span>.<span class="hljs-variable language_">x</span>
+
+a.<span class="hljs-property">b</span>.<span class="hljs-property">c</span>
+a.<span class="hljs-property">b</span>.<span class="hljs-property">c</span>[<span class="hljs-number">1</span>].<span class="hljs-property">d</span>[$ <span class="hljs-string">&quot;e&quot;</span>].<span class="hljs-property">f</span>
