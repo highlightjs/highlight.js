@@ -3158,6 +3158,9 @@ export default function(hljs) {
     "vspeed",
     "direction",
 	"drawn_by_sequence",
+	"event_number",
+	"event_object",
+	"event_type",
 	"speed",
     "friction",
     "gravity",
@@ -3238,6 +3241,7 @@ export default function(hljs) {
     "player_avatar_sprite",
     "player_user_id",
     "player_type",
+	"sequence_instance",
   ];
 
   // many of these look like enumerables to me (see comments below)
@@ -3262,6 +3266,7 @@ export default function(hljs) {
     "argument14",
     "argument15",
     "argument_count",
+	"debug_mode",
     "display_aa",
     "font_texture_page_size",
     "fps",
