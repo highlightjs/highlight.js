@@ -4,7 +4,7 @@
 #macro Release:DEBUG false
 
 /// @description Collision code
-/// @self {Id.Instance}
+/// @self obj_player
 function standard_collisions() {
 
 	// standard collision handling

@@ -3,7 +3,7 @@
 <span class="hljs-meta">#macro</span> <span class="hljs-variable constant_">Release</span><span class="hljs-punctuation">:</span><span class="hljs-variable constant_">DEBUG</span> <span class="hljs-literal">false</span>
 
 <span class="hljs-comment">/// <span class="hljs-doctag">@description</span> Collision code</span>
-<span class="hljs-comment">/// <span class="hljs-doctag">@self </span><span class="hljs-type">{Id.Instance}</span></span>
+<span class="hljs-comment">/// <span class="hljs-doctag">@self </span><span class="hljs-type">obj_player</span></span>
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">standard_collisions</span>() {
 
 	<span class="hljs-comment">// standard collision handling</span>
