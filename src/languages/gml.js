@@ -3522,8 +3522,8 @@ export default function(hljs) {
     variants: [
       { match: /(\B|^)\$[0-9a-fA-F][0-9a-fA-F_]*/ },
       { match: /(\B|^)#[0-9a-fA-F]{6}/ },
-      { match: /\b0x[0-9a-fA-F][0-9a-fA-F_]*/ },
-      { match: /\b0b[01][01_]*/ },
+      { match: /\b0x[0-9a-fA-F_]+/ },
+      { match: /\b0b[01_]+/ },
       { match: /\b[0-9][0-9_]*\.[0-9][0-9_]*/ },
       { match: /\b[0-9][0-9_]*\.?/ },
     ]
