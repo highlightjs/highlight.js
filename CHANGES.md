@@ -1,71 +1,153 @@
 ## Version 11.12.0
 
-Core Grammars:
+Parser Engine:
 
-- enh(dns) highlight registered CAA property tags, issue #4475 [Joey Huang][]
-- enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
-- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
-- fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
-- fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [MarkXian][]
-- fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
-- fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [MarkXian][]
-- fix(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
-- fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
-- fix(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
-- fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, which broke highlighting of everything after the literal, issue #3585 [David Pavlovschii][]
-- fix(ruby) don't treat the scope resolution operator `::` as a symbol, issue #4294 [Hashim Khan][]
-- enh(python) add missing builtins: `aiter` and `anext` (Python 3.10), `frozendict` and `sentinel` (Python 3.15) [Hugo van Kemenade][]
-- enh(python) Support t-strings [Nicolas Le Cam][]
-- fix(c, cpp) scope the angle-bracket header string to `#include` so a `#define` body containing `>` no longer swallows the following quote and breaks highlighting of the rest of the file, issue #3505 [Pablo][]
-- fix(c, cpp) bound the run of type tokens in front of a function name, which made highlighting a long line of plain words take quadratic time (ReDoS), issue #4362 [Jayesh Bhade][]
-- fix(gherkin) update keyword list [Hirse][]
-- fix(gherkin) variables can't contain whitespace [Hirse][]
-- enh(gherkin) docstrings can use backticks [Hirse][]
-- fix(dart) add highlighting for class and function names [guuido][]
-- fix(markdown) don't treat a `***` or `___` thematic break as the start of bold text, issue #3719 [Mayank Gupta][]
+- fix(parser) count named capture groups when rewriting backreferences [spokodev][]
 
-Documentation:
+New Grammars:
 
-- referenced missing 3rd party ES|QL grammar to SUPPORTED_LANGUAGES [Elastic][]
+- add FreeDesktop config file (`.desktop` / systemd) grammar [gg582][]
 - added 3rd party Cedar grammar to SUPPORTED_LANGUAGES [Dhruv Maniya][]
-
-CONTRIBUTORS
-
-[Joey Huang]: https://github.com/oiahoon
-[Hashim Khan]: https://github.com/Hashim1999164
-[arturict]: https://github.com/arturict
-[Dhruv Maniya]: https://github.com/iamdhrv
-[Elastic]: https://github.com/elastic
-[Hugo van Kemenade]: https://github.com/hugovk
-[MarkXian]: https://github.com/MarkXian
-[Sarath Francis]: https://github.com/sarathfrancis90
-[Mark Xian]: https://github.com/xianjianlf2
-[Nicolas Le Cam]: https://github.com/KuSh
-[Konstantin Baltsat]: https://github.com/Baltsat
-[David Pavlovschii]: https://github.com/davidpavlovschi
-[Pablo]: https://github.com/MsfPablo
-[Jayesh Bhade]: https://github.com/Jaybhade
-[Hirse]: https://github.com/Hirse
-[guuido]: https://github.com/guuido
-[Mayank Gupta]: https://github.com/Mynk11
-
-
-## Version 11.11.3
+- added 3rd party DAX and M (Power Query) grammars to SUPPORTED_LANGUAGES [jiaopengzi][]
+- added 3rd party Djot grammar to SUPPORTED_LANGUAGES [Mark Scherer][]
+- added 3rd party Igor Pro grammar to SUPPORTED_LANGUAGES [Ryne Andal][]
+- added 3rd party Jaiva grammar to SUPPORTED_LANGUAGES [Lehlogonolo Poole][]
+- added 3rd party Liquidsoap grammar to SUPPORTED_LANGUAGES [Romain Beauxis][]
+- added 3rd party MoonBit grammar to SUPPORTED_LANGUAGES [Kaida-Amethyst][]
+- added 3rd party Pkl grammar to SUPPORTED_LANGUAGES [Dan Chao][]
+- added 3rd party RAScript grammar to SUPPORTED_LANGUAGES [Joshua Raphael][]
+- added 3rd party Veryl grammar to SUPPORTED_LANGUAGES [Naoya Hatta][]
+- added 3rd party Why3 grammar to SUPPORTED_LANGUAGES [JGalego][]
+- added 3rd party Xojo grammar to SUPPORTED_LANGUAGES [patricksalo][]
+- referenced existing 3rd party ES|QL grammar in SUPPORTED_LANGUAGES [Styx0x6][]
 
 Core Grammars:
 
-- fix(groovy) support underscores in numeric literals [greymoth-jp][]
+- fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [Mark Xian][]
+- fix(c, cpp) bound the run of type tokens in front of a function name (ReDoS), issue #4362 [Jayesh Bhade][]
+- fix(c, cpp) scope angle-bracket header string to `#include`, issue #3505 [Pablo][]
+- fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, issue #3585 [David Pavlovschii][]
+- enh(cmake) add `block` and `endblock` keywords [Anonymous Maarten][]
+- fix(cmake) only highlight standalone numbers, not digits that begin an identifier (e.g. `3rdparty`), issue #4170 [Mark Xian][]
+- fix(cpp) require a word boundary before numeric literals so digits inside identifiers aren't highlighted as numbers, issue #4231 [Mark Xian][]
+- fix(crystal) stop treating integer division `//` as a regex literal [Zain Asif][]
+- enh(csharp) support digit separators in binary literals and numeric type suffixes, and stop highlighting the leading `_` of an identifier, issue #4258 [Sarath Francis][]
+- enh(css) add corner-shape properties [Hama Tanveer][]
+- enh(css) support six-digit `unicode-range` values [Konstantin Baltsat][]
+- enh(dart) add highlighting for class and function names [guuido][]
+- enh(dns) highlight registered CAA property tags, issue #4475 [Joey Huang][]
+- enh(dns) improve grammar: character strings, TXT, classes, escapes, addresses [Checconio][]
+- enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
+- enh(gherkin) update keyword list [Hirse][]
+- enh(gherkin) variables can't contain whitespace [Hirse][]
+- enh(gherkin) docstrings can use backticks [Hirse][]
+- enh(go) recognize binary integer literals [spokodev][]
+- enh(groovy) support underscores in numeric literals [greymoth][]
+- fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
+- enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
+- enh(javascript) add `self` to built-in variables [Dsaquel][]
+- enh(kotlin) add `ktm` and `ktx` aliases [DarkMatter-999][]
 - fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
+- fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
+- enh(llvm) support block C-style comments [utam-1][]
+- enh(lua) add Lua 5.5 `global` keyword [Nibiri][]
+- fix(markdown) don't treat a `***` or `___` thematic break as the start of bold text, issue #3719 [Mayank Gupta][]
+- enh(nsis) enhance NSIS rules [Jan T. Sott][]
+- enh(python) add missing builtins: `aiter` and `anext` (3.10), `frozendict` and `sentinel` (3.15) [Hugo van Kemenade][]
+- enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
+- enh(python) support t-strings [Nicolas Le Cam][]
+- fix(ruby) don't treat the scope resolution operator `::` as a symbol, issue #4294 [Hashim Khan][]
+- enh(rust) add `safe` keyword [Frances Wingerter][]
+- enh(rust) include the `raw` borrow operator in keywords [Shiva Kiran Koninty][]
+- enh(rust) parse f16 and f128 literals [usamoi][]
+- fix(rust) allow function invocations whose names start with a keyword [Xia Li-yao][]
+- fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
+- enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
+- enh(sqf) update to Arma 3 v2.22 [LouMontana][]
+- fix(xml) remove recursive sublanguage references to prevent ReDoS [petejm][]
 
 Documentation:
 
-- build(deps): bump python and sphinx requirements [Haowei Hsu][]
+- docs(php) explain the difference between `php` and `php-template` [Zain Asif][]
+- document LLVM IR in SUPPORTED_LANGUAGES [Jan Schultke][]
+- document the existing `pwsh` alias for PowerShell [helpimnotdrowning][]
+- list languages with category "common" in SUPPORTED_LANGUAGES [Marc Bernard][]
+- remind contributors to run `npm i` [Proliecan][]
+- fix typos in README.CDN.md [Zitrone][]
+
+Themes:
+
+- added Equinox theme [Griffon Langyer][]
+
+Build / Tooling:
+
+- (build) allow third-party packages to override default languages [Lysxia][]
+- (build) use Trusted Publishers in the publishing pipeline [allejo][]
+- fix(types) allow RegExp in `Mode.keywords` [KJyang-0114][]
+- refactor(tools) replace `@colors/colors` with ansis [webdiscus][]
+- chore: dependency updates
 
 CONTRIBUTORS
 
-[greymoth-jp]: https://github.com/greymoth-jp
+[spokodev]: https://github.com/spokodev
+[gg582]: https://github.com/gg582
+[Dhruv Maniya]: https://github.com/iamdhrv
+[jiaopengzi]: https://github.com/jiaopengzi
+[Mark Scherer]: https://github.com/dereuromark
+[Ryne Andal]: https://github.com/ryneandal
+[Lehlogonolo Poole]: https://github.com/yetnt
+[Romain Beauxis]: https://github.com/toots
+[Kaida-Amethyst]: https://github.com/Kaida-Amethyst
+[Dan Chao]: https://github.com/bioball
+[Joshua Raphael]: https://github.com/joshraphael
+[Naoya Hatta]: https://github.com/dalance
+[JGalego]: https://github.com/JGalego
+[patricksalo]: https://github.com/patricksalo
+[Styx0x6]: https://github.com/styx0x6
+[Mark Xian]: https://github.com/xianjianlf2
+[Jayesh Bhade]: https://github.com/Jaybhade
+[Pablo]: https://github.com/MsfPablo
+[David Pavlovschii]: https://github.com/davidpavlovschi
+[Anonymous Maarten]: https://github.com/madebr
+[Zain Asif]: https://github.com/zain-asif-dev
+[Sarath Francis]: https://github.com/sarathfrancis90
+[Hama Tanveer]: https://github.com/ezforhamza
+[Konstantin Baltsat]: https://github.com/Baltsat
+[guuido]: https://github.com/guuido
+[Joey Huang]: https://github.com/oiahoon
+[Checconio]: https://github.com/Checconio
+[Hashim Khan]: https://github.com/Hashim1999164
+[Hirse]: https://github.com/Hirse
+[greymoth]: https://github.com/mahirhir
+[Hannes Wallnoefer]: https://github.com/hns
+[Dsaquel]: https://github.com/Dsaquel
+[DarkMatter-999]: https://github.com/DarkMatter-999
 [Francesco Paolo Severino]: https://github.com/fpseverino
-[Haowei Hsu]: https://github.com/hwhsu1231
+[arturict]: https://github.com/arturict
+[utam-1]: https://github.com/utam-1
+[Nibiri]: https://github.com/NibiriTheMan
+[Mayank Gupta]: https://github.com/Mynk11
+[Jan T. Sott]: https://github.com/idleberg
+[Hugo van Kemenade]: https://github.com/hugovk
+[Peter Bierma]: https://github.com/ZeroIntensity
+[Nicolas Le Cam]: https://github.com/KuSh
+[Frances Wingerter]: https://github.com/fw-immunant
+[Shiva Kiran Koninty]: https://github.com/skr4n
+[usamoi]: https://github.com/usamoi
+[Xia Li-yao]: https://github.com/Lysxia
+[Ian Wienand]: https://github.com/ianw
+[LouMontana]: https://github.com/LouMontana
+[petejm]: https://github.com/petejm
+[Jan Schultke]: https://github.com/eisenwave
+[helpimnotdrowning]: https://github.com/helpimnotdrowning
+[Marc Bernard]: https://github.com/mbtools
+[Proliecan]: https://github.com/Proliecan
+[Zitrone]: https://github.com/quantenzitrone
+[Griffon Langyer]: https://github.com/rfon6ngy
+[Lysxia]: https://github.com/Lysxia
+[allejo]: https://github.com/allejo
+[KJyang-0114]: https://github.com/KJyang-0114
+[webdiscus]: https://github.com/webdiscus
 
 
 ## Version 11.11.2
@@ -79,20 +161,11 @@ New Grammars:
 - added 3rd party Aiken grammar to SUPPORTED_LANGUAGES [Josh Marchand][]
 - added 3rd party VoltScript grammar to SUPPORTED_LANGUAGES [Chester Moses][]
 - added 3rd party Gleam grammar to SUPPORTED_LANGUAGES [Filip Hoffmann][]
-- added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
-- added 3rd party Liquidsoap grammar to SUPPORTED_LANGUAGES [Romain Beauxis][]
 - added 3rd party Magik grammar to SUPPORTED_LANGUAGES [Sebastiaan Speck][]
 - added 3rd party Prisma grammar to SUPPORTED_LANGUAGES [SungHyun Kim][]
 - added 3rd party Bicep grammar to SUPPORTED_LANGUAGES [Anthony Martin][]
 - added 3rd party L4 grammar to SUPPORTED_LANGUAGES [Thomas Gorissen][]
 - added 3rd party Abc Notation grammar to SUPPORTED_LANGUAGES [NriotHrreion][]
-- added 3rd party Veryl grammar to SUPPORTED_LANGUAGES [Naoya Hatta][]
-- added 3rd party RAScript grammar to SUPPORTED_LANGUAGES [Joshua Raphael][]
-- added 3rd party Jaiva grammar to SUPPORTED_LANGUAGES [Lehlogonolo Poole][]
-- added 3rd party MoonBit grammar to SUPPORTED_LANGUAGES [Kaida-Amethyst][]
-- added 3rd party Pkl grammar to SUPPORTED_LANGUAGES [Dan Chao][]
-- added 3rd party Igor Pro grammar to SUPPORTED_LANGUAGES [Ryne Andal][]
-- added 3rd party Why3 grammar to SUPPORTED_LANGUAGES [JGalego][]
 
 Core Grammars:
 
@@ -105,13 +178,7 @@ Core Grammars:
 - fix(ex) adds support for `?'` char literal and missing `defguardp` keyword [Kevin Bloch][]
 - enh(json) add json5 support [Kerry Shetline][]
 - fix(csharp) Support digit separators [te-ing][]
-- enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
-- enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
-- enh(kotlin) Add `ktm` and `ktx` as an alias for Kotlin [DarkMatter-999][]
-- enh(rust) parse f16 and f128 literals [usamoi][]
-- enh(rust) Include the raw borrow operator in keywords. [Shiva Kiran Koninty][]
 - fix(css) `unicode-range` parsing, issue #4253 [Kerry Shetline][]
-- enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 
 Documentation:
 
@@ -120,7 +187,6 @@ Documentation:
 - fixed typo and incorrect git command [SungHyun Kim][]
 - fix CONTRIBUTING.md broken badge link [SungHyun Kim][]
 - alphabetized languages + upper-cased BASIC in SUPPORTED_LANGUAGES.md [Adam Lui][]
-- document the existing `pwsh` alias for PowerShell [helpimnotdrowning][]
 - deduplicate JSON from SUPPORTED_LANGUAGES [Lukasz Czajczyk][]
 
 Themes:
@@ -144,9 +210,7 @@ CONTRIBUTORS
 [Antoine Musso]: https://github.com/hashar
 [Chester Moses]: https://github.com/Chester-Moses-HCL
 [Kerry Shetline]: https://github.com/kshetline
-[SungHyun Kim]: https://github.com/witch-factory
 [Adam Lui]: https://github.com/adamlui
-[Romain Beauxis]: https://github.com/toots
 [Sebastiaan Speck]: https://github.com/sebastiaanspeck
 [Filip Hoffmann]: https://github.com/folospior
 [Twineee1]: https://github.com/Twineee1
@@ -155,22 +219,7 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
-[Hannes Wallnoefer]: https://github.com/hns
-[Peter Bierma]: https://github.com/ZeroIntensity
-[Naoya Hatta]: https://github.com/dalance
 
-[Joshua Raphael]: https://github.com/joshraphael
-[helpimnotdrowning]: https://github.com/helpimnotdrowning
-[DarkMatter-999]: https://github.com/DarkMatter-999
-
-[Lehlogonolo Poole]: https://github.com/yetnt
-[Kaida-Amethyst]: https://github.com/Kaida-Amethyst
-[Dan Chao]: https://github.com/bioball
-[usamoi]: https://github.com/usamoi
-[Shiva Kiran Koninty]: https://github.com/skr4n
-[Ryne Andal]: https://github.com/ryneandal
-
-[JGalego]: https://github.com/JGalego
 
 ## Version 11.11.1
 
