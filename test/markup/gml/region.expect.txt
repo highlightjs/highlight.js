@@ -1,0 +1,7 @@
+<span class="hljs-meta">#region</span>
+<span class="hljs-comment">// Some code...</span>
+<span class="hljs-meta">#endregion</span>
+
+<span class="hljs-meta">#region</span><span class="hljs-comment"> Named region</span>
+<span class="hljs-comment">// Some code...</span>
+<span class="hljs-meta">#endregion</span><span class="hljs-comment"> Optional ending comment</span>

@@ -1,0 +1,9 @@
+<span class="hljs-number">#000000</span>
+<span class="hljs-number">#abcdef</span>
+<span class="hljs-number">#ABCDEF</span>
+
+<span class="hljs-comment">// Unsupported in GML:</span>
+#<span class="hljs-number">0</span>
+#<span class="hljs-number">123</span>
+#AB_CD_EF
+<span class="hljs-number">#123456</span>7

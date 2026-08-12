@@ -1,0 +1,7 @@
+#region
+// Some code...
+#endregion
+
+#region Named region
+// Some code...
+#endregion Optional ending comment

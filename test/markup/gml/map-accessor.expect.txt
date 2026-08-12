@@ -1,0 +1,2 @@
+map[? <span class="hljs-string">&quot;key&quot;</span>] = <span class="hljs-number">2</span>;
+map[? key] = <span class="hljs-number">2</span>;
