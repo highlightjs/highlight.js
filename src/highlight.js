@@ -129,7 +129,7 @@ const HLJS = function(hljs) {
    * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
    * @property {string} code - the original raw code
-    * @property {CompiledMode[]} top - mode stack (continuation)
+   * @property {CompiledMode[]} top - mode stack (continuation)
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals) {
