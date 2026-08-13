@@ -218,27 +218,29 @@ export default function(hljs) {
           SUBST
         ]
       },
+      // `$` is EOL (grammars compile with the `m` flag). Python single-line
+      // strings cannot span lines, so recover at EOL instead of leaking.
       {
         begin: /([uU]|[rR])'/,
-        end: /'/,
+        end: /'|$/,
         relevance: 10
       },
       {
         begin: /([uU]|[rR])"/,
-        end: /"/,
+        end: /"|$/,
         relevance: 10
       },
       {
         begin: /([bB]|[bB][rR]|[rR][bB])'/,
-        end: /'/
+        end: /'|$/
       },
       {
         begin: /([bB]|[bB][rR]|[rR][bB])"/,
-        end: /"/
+        end: /"|$/
       },
       {
         begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'/,
-        end: /'/,
+        end: /'|$/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
           LITERAL_BRACKET,
@@ -247,15 +249,15 @@ export default function(hljs) {
       },
       {
         begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])"/,
-        end: /"/,
+        end: /"|$/,
         contains: [
           hljs.BACKSLASH_ESCAPE,
           LITERAL_BRACKET,
           SUBST
         ]
       },
-      hljs.APOS_STRING_MODE,
-      hljs.QUOTE_STRING_MODE
+      hljs.inherit(hljs.APOS_STRING_MODE, { end: /'|$/ }),
+      hljs.inherit(hljs.QUOTE_STRING_MODE, { end: /"|$/ })
     ]
   };
 

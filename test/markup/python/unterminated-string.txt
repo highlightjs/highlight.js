@@ -1,0 +1,20 @@
+# 1. valid string
+a = 'abc'
+print(a)
+
+# 2. invalid string should not paint the next line
+b = 'abc
+print(b)
+
+# 3. prefixed variants should recover too
+c = r'abc
+print(c)
+d = b"abc
+print(d)
+e = f'abc
+print(e)
+
+# 4. triple quotes may still span lines
+f = '''abc
+def'''
+print(f)

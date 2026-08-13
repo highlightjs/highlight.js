@@ -22,10 +22,10 @@
 <span class="hljs-keyword">or</span> <span class="hljs-string">rb&quot;https://&quot;</span>
 test()<span class="hljs-keyword">or</span><span class="hljs-string">&quot;&quot;</span>
 
-<span class="hljs-string">&quot;my ...
-... name&quot;</span>
-<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;my ...
-... name&quot;</span>
+<span class="hljs-string">&quot;my ...</span>
+<span class="hljs-meta">... </span>name<span class="hljs-string">&quot;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;my ...</span>
+<span class="hljs-meta">... </span>name<span class="hljs-string">&quot;</span>
 
 <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;kkds&quot;</span>+<span class="hljs-string">&quot;kdjsa&quot;</span>)
 <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;kkds&quot;</span>+<span class="hljs-string">b&quot;kdjsa&quot;</span>)

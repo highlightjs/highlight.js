@@ -56,6 +56,7 @@ Core Grammars:
 - enh(python) add missing builtins: `aiter` and `anext` (3.10), `frozendict` and `sentinel` (3.15) [Hugo van Kemenade][]
 - enh(python) correctly highlight `lazy import` syntax from PEP 810 [Peter Bierma][]
 - enh(python) support t-strings [Nicolas Le Cam][]
+- fix(python) don't let unterminated single-line strings swallow the next line, issue #4331 [Xusnitdinov Azizbek][]
 - fix(ruby) don't treat the scope resolution operator `::` as a symbol, issue #4294 [Hashim Khan][]
 - enh(rust) add `safe` keyword [Frances Wingerter][]
 - enh(rust) include the `raw` borrow operator in keywords [Shiva Kiran Koninty][]
@@ -105,6 +106,7 @@ CONTRIBUTORS
 [patricksalo]: https://github.com/patricksalo
 [Styx0x6]: https://github.com/styx0x6
 [Mark Xian]: https://github.com/xianjianlf2
+[Xusnitdinov Azizbek]: https://github.com/xusnitdinov
 [Jayesh Bhade]: https://github.com/Jaybhade
 [Pablo]: https://github.com/MsfPablo
 [David Pavlovschii]: https://github.com/davidpavlovschi

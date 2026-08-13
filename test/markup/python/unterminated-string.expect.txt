@@ -1,0 +1,20 @@
+<span class="hljs-comment"># 1. valid string</span>
+a = <span class="hljs-string">&#x27;abc&#x27;</span>
+<span class="hljs-built_in">print</span>(a)
+
+<span class="hljs-comment"># 2. invalid string should not paint the next line</span>
+b = <span class="hljs-string">&#x27;abc</span>
+<span class="hljs-built_in">print</span>(b)
+
+<span class="hljs-comment"># 3. prefixed variants should recover too</span>
+c = <span class="hljs-string">r&#x27;abc</span>
+<span class="hljs-built_in">print</span>(c)
+d = <span class="hljs-string">b&quot;abc</span>
+<span class="hljs-built_in">print</span>(d)
+e = <span class="hljs-string">f&#x27;abc</span>
+<span class="hljs-built_in">print</span>(e)
+
+<span class="hljs-comment"># 4. triple quotes may still span lines</span>
+f = <span class="hljs-string">&#x27;&#x27;&#x27;abc
+def&#x27;&#x27;&#x27;</span>
+<span class="hljs-built_in">print</span>(f)
