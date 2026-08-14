@@ -25,6 +25,22 @@ export default function(hljs) {
       IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
+  const META_COMMENT = [
+    hljs.C_LINE_COMMENT_MODE,
+    hljs.COMMENT('/\\*', '\\*/', { contains: [ 'self' ] })
+  ];
+  const META_STRING = [
+    {
+      scope: 'string',
+      begin: /"/,
+      end: /"/,
+      contains: [ hljs.BACKSLASH_ESCAPE ]
+    },
+    {
+      scope: 'string',
+      begin: /b?r(#*)"(.|\n)*?"\1(?!#)/
+    }
+  ];
   const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(16|32|64|128))\?';
   const KEYWORDS = [
     "abstract",
@@ -260,12 +276,27 @@ export default function(hljs) {
         begin: '#!?\\[',
         end: '\\]',
         contains: [
+          ...META_COMMENT,
+          ...META_STRING,
           {
-            scope: 'string',
-            begin: /"/,
-            end: /"/,
+            variants: [
+              {
+                begin: /\(/,
+                end: /\)/
+              },
+              {
+                begin: /\[/,
+                end: /\]/
+              },
+              {
+                begin: /\{/,
+                end: /\}/
+              }
+            ],
             contains: [
-              hljs.BACKSLASH_ESCAPE
+              'self',
+              ...META_COMMENT,
+              ...META_STRING
             ]
           }
         ]
