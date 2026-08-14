@@ -227,25 +227,26 @@ export default function(hljs) {
     ]
   };
 
+  const REGEXP_CONTAINS = [
+    hljs.BACKSLASH_ESCAPE,
+    SUBST,
+    {
+      begin: /\[/,
+      end: /\]/,
+      contains: [
+        hljs.BACKSLASH_ESCAPE
+      ]
+    },
+    {
+      begin: /\{/,
+      end: /\}/,
+      contains: [ 'self', hljs.BACKSLASH_ESCAPE, SUBST ]
+    }
+  ];
+
   const REGEXP = {
-    className: 'regexp',
-    contains: [
-      hljs.BACKSLASH_ESCAPE,
-      SUBST,
-      {
-        begin: /\[/,
-        end: /\]/,
-        contains: [
-          hljs.BACKSLASH_ESCAPE,
-          { begin: /\\./ }
-        ]
-      },
-      {
-        begin: /\{/, end: /\}/,
-        contains: ['self', hljs.BACKSLASH_ESCAPE, SUBST],
-        relevance: 0
-      }
-    ],
+    scope: 'regexp',
+    contains: REGEXP_CONTAINS,
     illegal: /\n/,
     variants: [
       { begin: /%r\{/, end: /\}[a-z]*/ },
@@ -392,11 +393,8 @@ export default function(hljs) {
       keywords: 'unless',
       contains: [
         {
-          className: 'regexp',
-          contains: [
-            hljs.BACKSLASH_ESCAPE,
-            SUBST
-          ],
+          scope: 'regexp',
+          contains: REGEXP_CONTAINS,
           illegal: /\n/,
           variants: [
             {
