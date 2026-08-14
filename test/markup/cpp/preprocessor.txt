@@ -1,5 +1,6 @@
 #include <iostream>
 #define foo 1<<16
+#embed "payload.bin"
 
 #ifdef DEBUG
 TYPE1 foo(void)
