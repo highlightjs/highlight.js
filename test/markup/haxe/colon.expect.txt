@@ -1,0 +1,2 @@
+<span class="hljs-keyword">var</span> obj = { y: <span class="hljs-literal">true</span>, z: <span class="hljs-literal">false</span>, n: <span class="hljs-literal">null</span>, t: <span class="hljs-type">Int</span> };
+<span class="hljs-keyword">var</span> cb:<span class="hljs-type">Void</span>-&gt;<span class="hljs-keyword">Void</span> = <span class="hljs-literal">null</span>;
