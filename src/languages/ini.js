@@ -13,7 +13,9 @@ export default function(hljs) {
     relevance: 0,
     variants: [
       { begin: /([+-]+)?[\d]+_[\d_]+/ },
-      { begin: hljs.NUMBER_RE }
+      // A word or `.` before the number means it is part of a larger bare
+      // value (e.g. the `2` in `TLSv1.2`), not a real number. See issue #4038.
+      { begin: regex.concat(/(?<![\w.])/, hljs.NUMBER_RE) }
     ]
   };
   const COMMENTS = hljs.COMMENT();
