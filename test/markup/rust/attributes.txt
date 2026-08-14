@@ -17,3 +17,8 @@
 #[rtic::app(device = lm3s6965, dispatchers = [UART0, UART1])]
 #[task(binds = USB_OTG1, local = [poller])]
 #[arg(short, long, default_values_t = [66, 77])]
+
+#[doc = r#"see ] inside raw"#]
+#[foo(/* ] in block */ bar)]
+#[foo(// ] in line
+bar)]
