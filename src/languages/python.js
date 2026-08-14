@@ -389,6 +389,7 @@ export default function(hljs) {
       },
       { match: /\bor\b/, scope: "keyword" },
       {
+        // convert this to negative lookbehind in v12
         beginKeywords: "from import",
         end: /$/,
         keywords: "from import as",
