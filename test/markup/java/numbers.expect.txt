@@ -82,11 +82,11 @@
 
 
 <span class="hljs-comment">// expressions containing numeric literals</span>
-fn(<span class="hljs-number">.5</span>);
-fn(<span class="hljs-number">5.</span>);
+<span class="hljs-title function_ invoke__">fn</span>(<span class="hljs-number">.5</span>);
+<span class="hljs-title function_ invoke__">fn</span>(<span class="hljs-number">5.</span>);
 
 <span class="hljs-comment">// expressions not containing numeric literals</span>
-fn(x0.d);
+<span class="hljs-title function_ invoke__">fn</span>(x0.d);
 
 <span class="hljs-comment">// invalid pseudo-numeric literals</span>
 <span class="hljs-type">int</span>[] <span class="hljs-variable">badNonDecimalIntegers</span> <span class="hljs-operator">=</span>      { 08,  0_8,  019,     0x0g,      0B02, };

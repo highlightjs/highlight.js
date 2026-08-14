@@ -37,9 +37,9 @@ describe('.highlight()', () => {
     result.value.should.equal(
       '<span class="hljs-keyword">public</span> ' +
       '<span class="hljs-type">void</span> <span class="hljs-title function_">moveTo</span>' +
-      '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
-      '<span class="hljs-type">int</span> y, ' +
-      '<span class="hljs-type">int</span> z)</span>;'
+      '<span class="hljs-params">(<span class="hljs-type">int</span> <span class="hljs-variable">x</span>, ' +
+      '<span class="hljs-type">int</span> <span class="hljs-variable">y</span>, ' +
+      '<span class="hljs-type">int</span> <span class="hljs-variable">z</span>)</span>;'
     );
   });
   it('should works without continuation', () => {
@@ -49,9 +49,9 @@ describe('.highlight()', () => {
     result.value.should.equal(
       '<span class="hljs-keyword">public</span> ' +
       '<span class="hljs-type">void</span> <span class="hljs-title function_">moveTo</span>' +
-      '<span class="hljs-params">(<span class="hljs-type">int</span> x, ' +
-      '<span class="hljs-type">int</span> y, ' +
-      '<span class="hljs-type">int</span> z)</span>;'
+      '<span class="hljs-params">(<span class="hljs-type">int</span> <span class="hljs-variable">x</span>, ' +
+      '<span class="hljs-type">int</span> <span class="hljs-variable">y</span>, ' +
+      '<span class="hljs-type">int</span> <span class="hljs-variable">z</span>)</span>;'
     );
   });
 });

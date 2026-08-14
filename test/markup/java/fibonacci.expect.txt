@@ -1,0 +1,14 @@
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Fibonacci</span> {
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">fibonacci</span><span class="hljs-params">(<span class="hljs-type">int</span> <span class="hljs-variable">n</span>)</span> {
+    <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, b = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) {
+      System.out.<span class="hljs-title function_ invoke__">print</span>(a + <span class="hljs-string">&quot; &quot;</span>);
+      <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> a + b;
+      a = b;
+      b = sum;
+    }
+  }
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">String</span>[] <span class="hljs-variable">args</span>)</span> {
+    <span class="hljs-title function_ invoke__">fibonacci</span>(<span class="hljs-number">10</span>); <span class="hljs-comment">// Prints first 10 numbers</span>
+  }
+}

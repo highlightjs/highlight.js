@@ -45,6 +45,7 @@ Core Grammars:
 - enh(groovy) support underscores in numeric literals [greymoth][]
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
 - enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
+- fix(java) tokenize method invocations and parameter types, issue #4229 [Arron Zou][]
 - enh(javascript) add `self` to built-in variables [Dsaquel][]
 - enh(kotlin) add `ktm` and `ktx` aliases [DarkMatter-999][]
 - fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
@@ -120,6 +121,7 @@ CONTRIBUTORS
 [Hirse]: https://github.com/Hirse
 [greymoth]: https://github.com/mahirhir
 [Hannes Wallnoefer]: https://github.com/hns
+[Arron Zou]: https://github.com/arronKler
 [Dsaquel]: https://github.com/Dsaquel
 [DarkMatter-999]: https://github.com/DarkMatter-999
 [Francesco Paolo Severino]: https://github.com/fpseverino

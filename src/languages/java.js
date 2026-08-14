@@ -137,13 +137,42 @@ export default function(hljs) {
       }
     ]
   };
+  // Simple `Type name` / `Type[] name` parameters. Avoids generic type
+  // arguments so `super`/`extends` bounds stay keyword-highlighted.
+  const PARAM_DECLARATION = {
+    match: [
+      regex.concat(
+        /\b/,
+        /(?!(?:super|extends|implements|final|new|return|throw|else|yield|assert|case)\b)/,
+        JAVA_IDENT_RE
+      ),
+      ARRAY_BRACKETS_OPTIONAL_RE,
+      /\s+/,
+      JAVA_IDENT_RE
+    ],
+    scope: {
+      1: "type",
+      4: "variable"
+    }
+  };
+  const FUNCTION_INVOKE = {
+    match: regex.concat(
+      /\b/,
+      /(?!(?:if|for|while|switch|catch|synchronized|try|when|this|super)\b)/,
+      JAVA_IDENT_RE,
+      regex.lookahead(/\s*\(/)
+    ),
+    scope: "title.function.invoke"
+  };
   const PARAMS = {
-    className: 'params',
+    scope: 'params',
     begin: /\(/,
     end: /\)/,
     keywords: KEYWORDS,
-    relevance: 0,
-    contains: [ hljs.C_BLOCK_COMMENT_MODE ],
+    contains: [
+      hljs.C_BLOCK_COMMENT_MODE,
+      PARAM_DECLARATION
+    ],
     endsParent: true
   };
 
@@ -254,13 +283,13 @@ export default function(hljs) {
         keywords: KEYWORDS,
         contains: [
           {
-            className: 'params',
+            scope: 'params',
             begin: /\(/,
             end: /\)/,
             keywords: KEYWORDS,
-            relevance: 0,
             contains: [
               ANNOTATION,
+              PARAM_DECLARATION,
               hljs.APOS_STRING_MODE,
               hljs.QUOTE_STRING_MODE,
               NUMBER,
@@ -271,6 +300,7 @@ export default function(hljs) {
           hljs.C_BLOCK_COMMENT_MODE
         ]
       },
+      FUNCTION_INVOKE,
       NUMBER,
       ANNOTATION
     ]

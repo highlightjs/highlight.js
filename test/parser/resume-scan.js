@@ -8,7 +8,7 @@ describe("bugs", function() {
     it("should continue to highlight later matches", () => {
       const result = hljs.highlight('ImmutablePair.of(Stuff.class, "bar")', {language: 'java'});
       result.value.should.equal(
-        'ImmutablePair.of(Stuff.class, <span class="hljs-string">&quot;bar&quot;</span>)'
+        'ImmutablePair.<span class="hljs-title function_ invoke__">of</span>(Stuff.class, <span class="hljs-string">&quot;bar&quot;</span>)'
       );
     });
     // previously the match rule was resumed but it would scan ahead too far and ignore
@@ -18,7 +18,7 @@ describe("bugs", function() {
     it("BUT should not skip ahead too far", () => {
       const result = hljs.highlight('ImmutablePair.of(Stuff.class, "bar");\n23', {language: 'java'});
       result.value.should.equal(
-        'ImmutablePair.of(Stuff.class, <span class="hljs-string">&quot;bar&quot;</span>);\n' +
+        'ImmutablePair.<span class="hljs-title function_ invoke__">of</span>(Stuff.class, <span class="hljs-string">&quot;bar&quot;</span>);\n' +
         '<span class="hljs-number">23</span>'
       );
     });
