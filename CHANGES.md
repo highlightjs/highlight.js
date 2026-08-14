@@ -46,6 +46,7 @@ Core Grammars:
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
 - enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
 - enh(javascript) add `self` to built-in variables [Dsaquel][]
+- fix(typescript) do not treat type assertions like `<string[]>` as HTML tags, issue #4301 [Arron Zou][]
 - enh(kotlin) add `ktm` and `ktx` aliases [DarkMatter-999][]
 - fix(leaf) fix bug in Leaf keyword highlighting [Francesco Paolo Severino][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
@@ -148,6 +149,7 @@ CONTRIBUTORS
 [allejo]: https://github.com/allejo
 [KJyang-0114]: https://github.com/KJyang-0114
 [webdiscus]: https://github.com/webdiscus
+[Arron Zou]: https://github.com/arronKler
 
 
 ## Version 11.11.2
