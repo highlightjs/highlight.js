@@ -12,3 +12,10 @@ public interface Map<K, V> {
   void put(K key, V value);
   V get(K key);
 }
+
+interface FooBar {
+  List<String> foo();
+  List<java.lang.String> bar();
+  Map<java.lang.String, java.util.List<String>> nested();
+  List<? extends java.lang.Number> bounded();
+}
