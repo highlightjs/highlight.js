@@ -115,6 +115,4 @@ other meta data if necessary. The format is free:
 
   */
 
-Also update CHANGES.md with your contribution.
-
 Send your contribution as a pull request on GitHub.

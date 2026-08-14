@@ -1,0 +1,10 @@
+:symbol
+:"quoted symbol"
+{ name: "ruby", version: 3 }
+obj.send(:to_s)
+
+Foo::Bar
+Foo::Bar::baz(1)
+ClassName::method
+Math::PI
+::TopLevel.new

@@ -1,0 +1,13 @@
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">0</span>  <span class="hljs-attr">issue</span>  <span class="hljs-string">&quot;letsencrypt.org&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">0</span>  <span class="hljs-attr">issuewild</span>  <span class="hljs-string">&quot;;&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">128</span>  <span class="hljs-attr">iodef</span>  <span class="hljs-string">&quot;mailto:security@example.com&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">0</span>  <span class="hljs-attr">contactemail</span>  <span class="hljs-string">&quot;admin@example.com&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">0</span>  <span class="hljs-attr">contactphone</span>  <span class="hljs-string">&quot;+1-555-555-0100&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">0</span>  <span class="hljs-attr">issuevmc</span>  <span class="hljs-string">&quot;example-ca.test&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">0</span>  <span class="hljs-attr">issuemail</span>  <span class="hljs-string">&quot;;&quot;</span>
+@  <span class="hljs-type">in</span>  <span class="hljs-keyword">caa</span>  <span class="hljs-number">0</span>  <span class="hljs-attr">ISSUE</span>  <span class="hljs-string">&quot;example-ca.test&quot;</span>
+issue  <span class="hljs-type">IN</span>  <span class="hljs-keyword">TXT</span>  <span class="hljs-string">&quot;not a CAA property tag&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  <span class="hljs-number">0</span>  custom  <span class="hljs-string">&quot;example-ca.test&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>  issue  <span class="hljs-string">&quot;missing flag&quot;</span>
+@  <span class="hljs-type">IN</span>  <span class="hljs-keyword">CAA</span>
+<span class="hljs-number">0</span>  issue  <span class="hljs-string">&quot;different record&quot;</span>
