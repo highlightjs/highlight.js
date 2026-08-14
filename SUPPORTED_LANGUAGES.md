@@ -194,7 +194,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Object Constraint Language | ocl                 | [highlightjs-ocl](https://github.com/nhomble/highlightjs-ocl)        |
 | Objective C             | objectivec, mm, objc, obj-c, obj-c++, objective-c++ |    |
 | OCaml                   | ocaml, ml              |         |
-| Odin                    | odin                   |         [highlightjs-odinlang](https://github.com/marianpekar/highlightjs-odinlang) |
+| Odin                    | odin, odinlang         |         |
 | OpenGL Shading Language | glsl                   |         |
 | OpenSCAD                | openscad, scad         |         |
 | Oracle Rules Language   | ruleslanguage          |         |
