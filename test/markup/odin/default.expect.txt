@@ -1,0 +1,22 @@
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;core:fmt&quot;</span>
+
+<span class="hljs-title function_">main</span> :: <span class="hljs-keyword">proc</span>() {
+	program := <span class="hljs-string">&quot;+ + * 😃 - /&quot;</span>
+	accumulator := <span class="hljs-number">0</span>
+
+	<span class="hljs-keyword">for</span> token <span class="hljs-keyword">in</span> program {
+		<span class="hljs-keyword">switch</span> token {
+		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;+&#x27;</span>: accumulator += <span class="hljs-number">1</span>
+		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;-&#x27;</span>: accumulator -= <span class="hljs-number">1</span>
+		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;*&#x27;</span>: accumulator *= <span class="hljs-number">2</span>
+		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/&#x27;</span>: accumulator /= <span class="hljs-number">2</span>
+		<span class="hljs-keyword">case</span> &#x27;😃&#x27;: accumulator *= accumulator
+		<span class="hljs-keyword">case</span>: <span class="hljs-comment">// Ignore everything else</span>
+		}
+	}
+
+	fmt.printf(<span class="hljs-string">&quot;The program \&quot;%s\&quot; calculates the value %d\n&quot;</span>,
+	           program, accumulator)
+}
