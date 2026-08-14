@@ -88,11 +88,15 @@ export default function(hljs) {
         excludeEnd: true
       },
       {
-        className: 'type', // instantiation
-        beginKeywords: 'new',
-        end: /\W/,
-        excludeBegin: true,
-        excludeEnd: true
+        match: [
+          /\bnew\b/,
+          /\s+/,
+          IDENT_RE + '(?:\\.' + IDENT_RE + ')*'
+        ],
+        scope: {
+          1: "keyword",
+          3: "type"
+        }
       },
       {
         className: 'title.class', // enums
