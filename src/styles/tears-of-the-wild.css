@@ -49,7 +49,6 @@
     color: #e57337;
 }
 
-.hjls-type,
 .hljs-template-variable,
 .hljs-variable {
     color: #76cfb3;
@@ -69,7 +68,7 @@
 .hljs-title.class_.inherited__,
 .hljs-title.function_,
 .hljs-selector-class {
-    color:#9ccfd8
+    color:#9ccfd8;
 }
 
 .hljs-addition,
@@ -83,20 +82,20 @@
 .hljs-code,
 .hljs-formula,
 .hljs-section {
-    color:#ea9a97
+    color:#ea9a97;
 }
 
 .hljs-char.escape_ {
-    color:#c4a7e7
+    color:#c4a7e7;
 }
 
 .hljs-punctuation {
-    color:#e0def4
+    color:#e0def4;
 }
 
 .hljs {
     background:#191917;
-    color:#f0f0f0
+    color:#f0f0f0;
 }
 
 .hljs-emphasis {
@@ -105,7 +104,7 @@
 }
 
 .hljs-strong {
-    font-weight:700
+    font-weight:700;
 }
 
 .hljs-meta .hljs-keyword {
