@@ -70,12 +70,14 @@ const dir = {};
 
 commander
   .usage('[options] [<language>...]')
+  .argument('[language...]', 'languages to build')
   .option('-n, --no-minify', 'Disable minification')
   .option('--no-esm', 'Disable building ESM')
   .option('-t, --target <name>',
     'Build for target '
     + '[all, browser, cdn, node]',
     'browser')
+  .allowExcessArguments(false)
   .parse(process.argv);
 
 const TARGET = commander.opts().target.toLowerCase();
