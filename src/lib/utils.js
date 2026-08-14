@@ -34,3 +34,20 @@ export function inherit(original, ...objects) {
   return /** @type {T} */ (result);
 }
 
+/**
+ * @template T
+ * @param {T} obj
+ * @returns {T}
+ */
+export function deepFreeze(obj) {
+  if (obj === null || typeof obj !== "object" || Object.isFrozen(obj)) {
+    return obj;
+  }
+  Object.freeze(obj);
+  for (const name of Object.getOwnPropertyNames(obj)) {
+    // @ts-ignore
+    deepFreeze(obj[name]);
+  }
+  return obj;
+}
+
