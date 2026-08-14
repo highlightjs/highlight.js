@@ -1,8 +1,12 @@
+from base.derive import test
+import base.test
+
 class Shorty(dict):
     def len(self):
         return NotImplemented
 
 x = Shorty()
+x.len()
 len(x)
 
 if __debug__:
