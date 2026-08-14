@@ -17,7 +17,7 @@ You do **not** need a clone of highlight.js to write, test, or package a third-p
 
 Each grammar is developed in its own repo. This helps keep grammar definitions and maintenance independent of the core work. Host that repository yourself (or with your language community).
 
-We do not host new third-party grammar repos in the highlight.js organization. When your grammar is ready, open a PR that adds it to [`SUPPORTED_LANGUAGES.md`](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md) so people can find it.
+We no longer host new third-party grammar repos in the highlight.js organization. When your grammar is ready, open a PR that adds it to [`SUPPORTED_LANGUAGES.md`](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md) so people can find it.
 
 Setup your directory structure to follow the template (it already does this for you):
 
