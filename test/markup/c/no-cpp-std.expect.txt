@@ -1,0 +1,40 @@
+<span class="hljs-comment">/* C++ std names must not highlight as C built-ins */</span>
+string name;
+wstring wide;
+<span class="hljs-type">int</span> array[<span class="hljs-number">8</span>];
+<span class="hljs-type">int</span> vector;
+<span class="hljs-type">int</span> deque;
+<span class="hljs-type">int</span> list;
+<span class="hljs-type">int</span> queue;
+<span class="hljs-type">int</span> stack;
+<span class="hljs-type">int</span> map;
+<span class="hljs-type">int</span> set;
+<span class="hljs-type">int</span> pair;
+<span class="hljs-type">int</span> bitset;
+<span class="hljs-type">int</span> multiset;
+<span class="hljs-type">int</span> multimap;
+<span class="hljs-type">int</span> unordered_set;
+<span class="hljs-type">int</span> unordered_map;
+<span class="hljs-type">int</span> priority_queue;
+<span class="hljs-type">void</span> *auto_ptr;
+<span class="hljs-type">void</span> *shared_ptr;
+<span class="hljs-type">void</span> *unique_ptr;
+<span class="hljs-type">void</span> *initializer_list;
+<span class="hljs-type">void</span> *future;
+<span class="hljs-type">void</span> *make_pair;
+std stream;
+cin in;
+cout out;
+cerr err;
+clog log_stream;
+stringstream ss;
+istringstream iss;
+ostringstream oss;
+endl endline;
+terminate done;
+
+<span class="hljs-comment">/* C library names stay built-ins */</span>
+<span class="hljs-type">char</span> *buf = <span class="hljs-built_in">malloc</span>(<span class="hljs-number">16</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, buf);
+<span class="hljs-built_in">free</span>(buf);
+FILE *in_file = <span class="hljs-built_in">stdin</span>;
