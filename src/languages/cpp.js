@@ -108,11 +108,9 @@ export default function(hljs) {
     scope: 'meta',
     begin: /#\s*include\b/,
     end: /$/,
-    keywords: {
-      keyword: [
-        'include'
-      ]
-    },
+    keywords: [
+      'include'
+    ],
     contains: [
       {
         // the `\` at the end of a line signaling continuation
@@ -132,25 +130,23 @@ export default function(hljs) {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
     end: /$/,
-    keywords: {
-      keyword: [
-        'if',
-        'else',
-        'elif',
-        'embed',
-        'endif',
-        'define',
-        'undef',
-        'warning',
-        'error',
-        'line',
-        'pragma',
-        '_Pragma',
-        'ifdef',
-        'ifndef',
-        'include'
-      ]
-    },
+    keywords: [
+      'if',
+      'else',
+      'elif',
+      'embed',
+      'endif',
+      'define',
+      'undef',
+      'warning',
+      'error',
+      'line',
+      'pragma',
+      '_Pragma',
+      'ifdef',
+      'ifndef',
+      'include'
+    ],
     contains: [
       {
         begin: /\\\n/,
@@ -275,8 +271,10 @@ export default function(hljs) {
     '_BitInt'
   ];
 
+  // WHY: strip `|N` relevance suffixes (e.g. const_cast|10) so `|10` is not
+  // compiled as an extra empty/numeric alternative in this lookahead.
   const FUNCTION_TITLE = regex.optional(NAMESPACE_RE)
-    + `\\b(?!(?:${RESERVED_KEYWORDS.map((k) => k.replace(/\|.*/, '')).join('|')})\\b)`
+    + `\\b(?!(?:${RESERVED_KEYWORDS.map((k) => k.replace(/\|\d+/, '')).join('|')})\\b)`
     + hljs.IDENT_RE + '\\s*\\(';
 
   // https://en.cppreference.com/w/cpp/keyword

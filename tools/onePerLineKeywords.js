@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Expand space-separated `keywords: { keyword: 'a b' + 'c' }` strings
- * into one-keyword-per-line arrays. Usage:
+ * Expand `keywords: { keyword: ... }` into a bare one-per-line array
+ * when that is the only scope (default `keyword`). Usage:
  *   node tools/onePerLineKeywords.js src/languages/cpp.js
  */
 const fs = require("fs");
@@ -13,22 +13,23 @@ if (!file) {
 }
 
 const src = fs.readFileSync(file, "utf8");
-const re = /keywords:\s*\{\s*keyword:\s*((?:'[^']*'\s*\+\s*)*'[^']*')\s*\}/g;
+const re = /keywords:\s*\{\s*keyword:\s*(?:((?:'[^']*'\s*\+\s*)*'[^']*')|\[([^\]]*)\])\s*\}/g;
 
 let count = 0;
-const out = src.replace(re, (_m, strings) => {
+const out = src.replace(re, (_m, strings, listBody) => {
   count += 1;
-  const words = [...strings.matchAll(/'([^']*)'/g)]
+  const raw = strings || listBody;
+  const words = [...raw.matchAll(/'([^']*)'/g)]
     .map((x) => x[1])
     .join(" ")
     .trim()
     .split(/\s+/);
-  const items = words.map((w) => `        '${w}'`).join(",\n");
-  return `keywords: {\n      keyword: [\n${items}\n      ]\n    }`;
+  const items = words.map((w) => `      '${w}'`).join(",\n");
+  return `keywords: [\n${items}\n    ]`;
 });
 
 if (count === 0) {
-  console.error(`no concatenated keyword strings found in ${file}`);
+  console.error(`no single-scope keyword lists found in ${file}`);
   process.exit(1);
 }
 
