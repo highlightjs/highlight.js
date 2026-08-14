@@ -133,29 +133,20 @@ export default function(hljs) {
       relevance: 10
     },
     { // multi line string
-      // Blocks start with a | or > followed by a newline
-      //
-      // Indentation of subsequent lines must be the same to
-      // be considered part of the block
-      //
-      // Empty lines (and lines containing only spaces) do not end the block
-      // when another indented line follows. Trailing blanks stay outside
-      // so the next key is still a key.
-      //
-      // WHY: extra blank-line groups are non-capturing so \2 stays the
-      // indent group `( +)`. If they captured, indent would be \3 and
-      // \2 could match empty, so the block would swallow following keys.
+      // WHY: blank-line pieces stay non-capturing so \2 is the indent
+      // group `( +)`. Capturing them would make indent \3 and \2 empty,
+      // so the block would swallow following keys.
       scope: 'string',
       begin: regex.concat(
-        /[\|>]/,
-        /([1-9]?[+-])?/,
-        /[ ]*\n/,
-        regex.anyNumberOfTimes(/[ ]*\n/),
-        /( +)/,
-        /[^ ][^\n]*\n/,
-        regex.anyNumberOfTimes(
-          regex.concat(regex.anyNumberOfTimes(/[ ]*\n/), /\2[^\n]+\n?/)
-        )
+        /[\|>]/, // | or > indicator
+        /([1-9]?[+-])?/, // optional chomp / indent indicator
+        /(?:[ ]*\n)+/, // header newline plus leading blank lines
+        /( +)/, // indent of the first content line (\2)
+        /[^ ][^\n]*\n/, // first non-blank content line
+        regex.anyNumberOfTimes(regex.concat(
+          regex.anyNumberOfTimes(/[ ]*\n/), // blank lines between content
+          /\2[^\n]+\n?/ // same indent; final newline optional
+        ))
       )
     },
     { // Ruby/Rails erb
