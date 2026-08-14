@@ -44,7 +44,6 @@ Core Grammars:
 - enh(gherkin) docstrings can use backticks [Hirse][]
 - enh(go) recognize binary integer literals [spokodev][]
 - enh(groovy) support underscores in numeric literals [greymoth][]
-- fix(haxe) restore highlighting of type after new keyword [Josh Tynjala][]
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
 - enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
 - enh(javascript) add `self` to built-in variables [Dsaquel][]
@@ -121,7 +120,6 @@ CONTRIBUTORS
 [Checconio]: https://github.com/Checconio
 [Hashim Khan]: https://github.com/Hashim1999164
 [Hirse]: https://github.com/Hirse
-[Josh Tynjala]: https://github.com/joshtynjala
 [greymoth]: https://github.com/mahirhir
 [Hannes Wallnoefer]: https://github.com/hns
 [Dsaquel]: https://github.com/Dsaquel
@@ -232,7 +230,6 @@ CONTRIBUTORS
 [te-ing]: https://github.com/te-ing
 [Anthony Martin]: https://github.com/anthony-c-martin
 [NriotHrreion]: https://github.com/NriotHrreion
-[Josh Tynjala]: https://github.com/joshtynjala
 
 
 [Ashkan Shirpour]: https://github.com/a5hk
