@@ -1,0 +1,10 @@
+from base.derive import test
+from pkg.sub import name as alias
+import base.test
+import pkg.sub  # comment
+
+x.len()
+sys.path
+obj.foo.bar()
+self.text
+yield from gen.attr

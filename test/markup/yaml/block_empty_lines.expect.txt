@@ -1,0 +1,26 @@
+<span class="hljs-attr">nested:</span>
+  <span class="hljs-attr">literal:</span> <span class="hljs-string">|
+    still: a string
+
+    not: anymore
+</span><span class="hljs-attr">folded:</span> <span class="hljs-string">&gt;
+  first line
+
+  second line
+</span><span class="hljs-attr">leading-blank:</span> <span class="hljs-string">|
+
+  alpha
+  beta
+</span><span class="hljs-attr">blank-has-spaces:</span> <span class="hljs-string">|
+  alpha
+  
+  beta
+</span><span class="hljs-attr">multiple-blanks:</span> <span class="hljs-string">|
+  alpha
+
+
+  beta
+</span><span class="hljs-attr">trailing-blank:</span> <span class="hljs-string">|
+  alpha
+</span>
+<span class="hljs-attr">next_key:</span> <span class="hljs-string">after</span>

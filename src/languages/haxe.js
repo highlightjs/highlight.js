@@ -73,26 +73,25 @@ export default function(hljs) {
         keywords: { keyword: 'if else elseif end error' }
       },
       {
-        className: 'type', // function types
-        begin: /:[ \t]*/,
-        end: /[^A-Za-z0-9_ \t\->]/,
-        excludeBegin: true,
-        excludeEnd: true,
-        relevance: 0
+        match: [
+          /:/,
+          /[ \t]*/,
+          '(?!(?:true|false|null)\\b)' + IDENT_RE
+        ],
+        scope: {
+          3: "type"
+        }
       },
       {
-        className: 'type', // types
-        begin: /:[ \t]*/,
-        end: /\W/,
-        excludeBegin: true,
-        excludeEnd: true
-      },
-      {
-        className: 'type', // instantiation
-        beginKeywords: 'new',
-        end: /\W/,
-        excludeBegin: true,
-        excludeEnd: true
+        match: [
+          /\bnew\b/,
+          /\s+/,
+          IDENT_RE + '(?:\\.' + IDENT_RE + ')*'
+        ],
+        scope: {
+          1: "keyword",
+          3: "type"
+        }
       },
       {
         className: 'title.class', // enums

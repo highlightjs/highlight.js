@@ -117,6 +117,11 @@ export default function(hljs) {
     relevance: 0
   };
 
+  const BASH_ARGUMENTS = {
+    match: [ /\s+/, /-{1,2}[\w-]+/ ],
+    scope: { 2: "attr" }
+  };
+
   const KEYWORDS = [
     "if",
     "then",
@@ -395,6 +400,7 @@ export default function(hljs) {
       FUNCTION,
       ARITHMETIC,
       COMMENT,
+      BASH_ARGUMENTS,
       HERE_DOC,
       PATH_MODE,
       QUOTE_STRING,
