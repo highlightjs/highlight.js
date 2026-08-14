@@ -8,6 +8,7 @@ Website: https://yaml.org
 Category: common, config
 */
 export default function(hljs) {
+  const regex = hljs.regex;
   const LITERALS = 'true false yes no null';
 
   // YAML spec allows non-reserved URI characters in tags.
@@ -132,12 +133,21 @@ export default function(hljs) {
       relevance: 10
     },
     { // multi line string
-      // Blocks start with a | or > followed by a newline
-      //
-      // Indentation of subsequent lines must be the same to
-      // be considered part of the block
-      className: 'string',
-      begin: '[\\|>]([1-9]?[+-])?[ ]*\\n( +)[^ ][^\\n]*\\n(\\2[^\\n]+\\n?)*'
+      // WHY: blank-line pieces stay non-capturing so \2 is the indent
+      // group `( +)`. Capturing them would make indent \3 and \2 empty,
+      // so the block would swallow following keys.
+      scope: 'string',
+      begin: regex.concat(
+        /[\|>]/, // | or > indicator
+        /([1-9]?[+-])?/, // optional chomp / indent indicator
+        /(?:[ ]*\n)+/, // header newline plus leading blank lines
+        /( +)/, // indent of the first content line (\2)
+        /[^ ][^\n]*\n/, // first non-blank content line
+        regex.anyNumberOfTimes(regex.concat(
+          regex.anyNumberOfTimes(/[ ]*\n/), // blank lines between content
+          /\2[^\n]+\n?/ // same indent; final newline optional
+        ))
+      )
     },
     { // Ruby/Rails erb
       begin: '<%[%=-]?',
