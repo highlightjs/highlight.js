@@ -16,8 +16,8 @@
 &gt;=
 &lt;=&gt;
 ===
-<span class="hljs-regexp">//</span>
-<span class="hljs-regexp">//</span>=
+//
+//=
 &amp;+
 &amp;-
 &amp;*

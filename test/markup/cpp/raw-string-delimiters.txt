@@ -1,0 +1,11 @@
+// quotes inside a raw string must not be mistaken for its closing delimiter
+vector<string> s({R"(JKhf2n"v; 0>qwv>q " JKhf2n"l0 "v42HHf&g )","4U \"N *+ "});
+int after_empty_delimiter;
+
+// the same, with a named delimiter
+auto v = {R"a(bla)a",""};
+int after_named_delimiter;
+
+// a delimiter-looking sequence inside the literal does not end it
+auto json = R"json({"key": "})json_no", "value": 1})json";
+int after_json;

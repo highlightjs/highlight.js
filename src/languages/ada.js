@@ -7,7 +7,7 @@ Description: Ada is a general-purpose programming language that has great suppor
              the newest standard being Ada2012.
 */
 
-// We try to support full Ada2012
+// We try to support full Ada 2022
 //
 // We highlight all appearances of types, keywords, literals (string, char, number, bool)
 // and titles (user defined function/procedure/package)
@@ -37,7 +37,7 @@ export default function(hljs) {
   const ID_REGEX = '[A-Za-z](_?[A-Za-z0-9.])*';
 
   // bad chars, only allowed in literals
-  const BAD_CHARS = `[]\\{\\}%#'"`;
+  const BAD_CHARS = `\\{\\}%#'"`;
 
   // Ada doesn't have block comments, only line comments
   const COMMENTS = hljs.COMMENT('--', '$');
@@ -146,7 +146,8 @@ export default function(hljs) {
     "do",
     "mod",
     "requeue",
-    "xor"
+    "xor",
+    "parallel"
   ];
 
   return {

@@ -27,4 +27,6 @@ fn main() {
 
     print_ref(&ref_x);
     print(ref_x);
+
+    let y = &raw const x;
 }

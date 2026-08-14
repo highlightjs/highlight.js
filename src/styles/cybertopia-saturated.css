@@ -4,7 +4,7 @@
   Repository: https://github.com/noraj/cybertopia-highlightjs
 */
 
-:root {
+:root, :host {
   --hljs-bg: #101010;
   --hljs-mono-1: #abb2bf;
   --hljs-mono-3: #5c6370;

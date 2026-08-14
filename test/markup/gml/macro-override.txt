@@ -1,0 +1,2 @@
+#macro CHEATS false
+#macro Debug:CHEATS true

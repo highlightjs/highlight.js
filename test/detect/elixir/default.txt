@@ -10,6 +10,7 @@ guy = Person.new first_name: "Guy"
 guy.name
 
 defmodule ListServer do
+  defguardp apostrophe?(c) when c == ?'
   @moduledoc """
   This module provides an easy to use ListServer, useful for keeping
   lists of things.

@@ -49,7 +49,6 @@ Add any other context or useful information...
 
 Submit a PR that:
 
-- [ ] adds mention of your new language to `CHANGES.md`
 - [ ] updates `SUPPORTED_LANGUAGES.md` in the main library
 
 

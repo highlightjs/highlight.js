@@ -121,6 +121,10 @@ export default function(hljs) {
             relevance: 0
           },
           {
+            match: /-?\b0[bB](_?[01])*i?/, // leading 0b binary
+            relevance: 0
+          },
+          {
             match: /-?\.\d(_?\d)*([eE][+-]?\d(_?\d)*)?i?/, // decimal without a present digit before . (making a digit afterwards required)
             relevance: 0
           },

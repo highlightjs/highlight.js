@@ -3,7 +3,7 @@
 [![discord](https://badgen.net/badge/icon/discord?icon=discord&label&color=pink)](https://discord.gg/M24EbU7ja9)
 [![open issues](https://badgen.net/github/open-issues/highlightjs/highlight.js?label=issues)](https://github.com/highlightjs/highlight.js/issues)
 [![help welcome issues](https://badgen.net/github/label-issues/highlightjs/highlight.js/help%20welcome/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+welcome%22)
-[![good first issue](https://badgen.net/github/label-issues/highlightjs/highlight.js/good%20first%20issue/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen+is%3Aissue+label%3A%22beginner+friendly%22)
+[![good first issue](https://badgen.net/github/label-issues/highlightjs/highlight.js/good%20first%20issue/open)](https://github.com/highlightjs/highlight.js/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22good%20first%20issue%22)
 
 **Contents**
 
@@ -16,6 +16,7 @@
 - [Fixing Issues (PRs)](#fixing-issues-prs)
   - [In a nutshell](#in-a-nutshell)
   - [Build and Test](#build-and-test)
+- [AI-assisted contributions](#ai-assisted-contributions)
 
 
 ## Welcome
@@ -89,6 +90,12 @@ Highlight.js is developed in JavaScript, so you'll need the usual suspects: [Nod
 7. Open a Pull Request from your fork back to this repository.
 
 
+### AI-assisted contributions
+
+AI tools are fine. You are still the author: review before you submit, understand
+your change, and do not dump unexamined machine output on maintainers. Full
+policy: [docs/ai-contributions.md](docs/ai-contributions.md).
+
 ### Keep in Mind <!-- omit in toc -->
 
 Please open a new issue before your PR (or join the discussion on the existing issue), so we can explore and discuss the topic at hand. Your time is important, and we need to be sure it's well-spent.
@@ -98,9 +105,6 @@ Please open a new issue before your PR (or join the discussion on the existing i
 - You should usually add markup tests (ie. whenever you've made a significant grammar change or fixed a bug). Simply adding `keywords` can be an exception to this rule.
 - Change only what needs to be changed; don't re-lint or rewrite whole files when fixing small bugs
 - Linting or major re-organization needs a dedicated commit
-
-*After* you make your changes, we have some housekeeping tasks for you - like updating the [changelog](https://github.com/highlightjs/highlight.js/blob/main/CHANGES.md). The PR template will be your guide.
-
 
 ### Build and Test
 

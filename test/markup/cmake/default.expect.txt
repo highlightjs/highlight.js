@@ -21,3 +21,5 @@
 <span class="hljs-comment">#[[This is a bracket comment.
 It runs until the close bracket.]]</span>
 <span class="hljs-keyword">message</span>(<span class="hljs-string">&quot;First Argument\n&quot;</span> <span class="hljs-comment">#[[Bracket Comment]]</span> <span class="hljs-string">&quot;Second Argument&quot;</span>)
+
+<span class="hljs-keyword">add_subdirectory</span>(3rdparty/foo)
