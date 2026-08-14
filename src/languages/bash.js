@@ -397,10 +397,10 @@ export default function(hljs) {
     contains: [
       KNOWN_SHEBANG, // to catch known shells and boost relevancy
       hljs.SHEBANG(), // to catch unknown shells but still highlight the shebang
-      BASH_ARGUMENTS,
       FUNCTION,
       ARITHMETIC,
       COMMENT,
+      BASH_ARGUMENTS,
       HERE_DOC,
       PATH_MODE,
       QUOTE_STRING,
