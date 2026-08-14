@@ -1,0 +1,6 @@
+def million = 1_000_000
+def hex = 0xCAFE_BABE
+def binary = 0b0010_0101
+def fraction = 3.141_592
+def big = 100_000L
+def plain = 1234

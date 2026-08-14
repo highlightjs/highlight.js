@@ -1,0 +1,9 @@
+<span class="hljs-number">0b0</span>
+<span class="hljs-number">0b1</span>
+<span class="hljs-number">0b10001</span>
+<span class="hljs-number">0b_1_0___001_</span>
+
+<span class="hljs-comment">// Shouldn&#x27;t work:</span>
+<span class="hljs-number">0</span>b2
+<span class="hljs-number">0</span>ba
+<span class="hljs-number">0</span>b

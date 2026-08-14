@@ -11,7 +11,7 @@ export const MODES = (hljs) => {
     },
     UNICODE_RANGE: {
       scope: 'number',
-      begin: /\b[Uu]\+[0-9A-Fa-f][0-9A-Fa-f?]{0,4}(-[0-9A-Fa-f][0-9A-Fa-f]{0,4})?/
+      begin: /\b[Uu]\+[0-9A-Fa-f][0-9A-Fa-f?]{0,5}(-[0-9A-Fa-f][0-9A-Fa-f]{0,5})?/
     },
     FUNCTION_DISPATCH: {
       className: "built_in",
@@ -446,6 +446,11 @@ export const ATTRIBUTES = [
   'container-type',
   'content',
   'content-visibility',
+  'corner-bottom-left-shape',
+  'corner-bottom-right-shape',
+  'corner-shape',
+  'corner-top-left-shape',
+  'corner-top-right-shape',
   'counter-increment',
   'counter-reset',
   'counter-set',

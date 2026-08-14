@@ -1,0 +1,13 @@
+@  IN  CAA  0  issue  "letsencrypt.org"
+@  IN  CAA  0  issuewild  ";"
+@  IN  CAA  128  iodef  "mailto:security@example.com"
+@  IN  CAA  0  contactemail  "admin@example.com"
+@  IN  CAA  0  contactphone  "+1-555-555-0100"
+@  IN  CAA  0  issuevmc  "example-ca.test"
+@  IN  CAA  0  issuemail  ";"
+@  in  caa  0  ISSUE  "example-ca.test"
+issue  IN  TXT  "not a CAA property tag"
+@  IN  CAA  0  custom  "example-ca.test"
+@  IN  CAA  issue  "missing flag"
+@  IN  CAA
+0  issue  "different record"

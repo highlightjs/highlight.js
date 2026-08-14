@@ -1,0 +1,14 @@
+/* Copyright (c) 2025, Oracle and/or its affiliates. */
+
+List<String> strings = new ArrayList<>();
+List<String[]> arrayStrings = new ArrayList<>();
+Generic<Object, ?, String> g = null;
+public static <T, R> Generic<T, ?, R> map(Function<? super T, ? extends R> mapper);
+Map<? extends Key, List<? super Value>> map = getMap();
+Map<? extends Key[], List<? super Value[]>> arrayMap = getMap();
+static Set < Integer > getInts() { ... }
+
+public interface Map<K, V> {
+  void put(K key, V value);
+  V get(K key);
+}

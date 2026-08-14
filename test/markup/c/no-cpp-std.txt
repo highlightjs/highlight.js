@@ -1,0 +1,40 @@
+/* C++ std names must not highlight as C built-ins */
+string name;
+wstring wide;
+int array[8];
+int vector;
+int deque;
+int list;
+int queue;
+int stack;
+int map;
+int set;
+int pair;
+int bitset;
+int multiset;
+int multimap;
+int unordered_set;
+int unordered_map;
+int priority_queue;
+void *auto_ptr;
+void *shared_ptr;
+void *unique_ptr;
+void *initializer_list;
+void *future;
+void *make_pair;
+std stream;
+cin in;
+cout out;
+cerr err;
+clog log_stream;
+stringstream ss;
+istringstream iss;
+ostringstream oss;
+endl endline;
+terminate done;
+
+/* C library names stay built-ins */
+char *buf = malloc(16);
+printf("%s\n", buf);
+free(buf);
+FILE *in_file = stdin;

@@ -6,6 +6,7 @@ Category: template
 */
 
 export default function(hljs) {
+  const regex = hljs.regex;
   const IDENT = /([A-Za-z_][A-Za-z_0-9]*)?/;
   const LITERALS = [
     'true',
@@ -26,7 +27,7 @@ export default function(hljs) {
       },
       {
         scope: 'keyword',
-        match: LITERALS.join("|"),
+        match: `\\b${regex.either(...LITERALS)}\\b`,
       },
       {
         scope: 'variable',

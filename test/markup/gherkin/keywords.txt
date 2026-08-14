@@ -1,0 +1,34 @@
+Feature: some feature
+
+  Rule: some rule
+
+    Background:
+      Given some background
+
+    Example: an example
+      Given the conditions
+      And some other conditions
+      * same as and
+      But not these conditions
+      When something happens
+      And something else
+      Then I do this
+
+    Scenario: same as example
+      Given the conditions
+      And some other conditions
+      * same as and
+      But not these conditions
+      When something happens
+      And something else
+      Then I do this
+
+  Scenario Outline: some outline
+    Examples: part of outline
+      When a
+      Then b
+
+  Scenario Template: same as scenario outline
+    Scenarios: same as examples
+      When a
+      Then b

@@ -1,0 +1,1 @@
+<span class="hljs-keyword">case</span> <span class="hljs-literal">true</span>: <span class="hljs-keyword">break</span>;

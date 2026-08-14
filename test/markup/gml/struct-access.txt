@@ -1,0 +1,7 @@
+a.b
+a.x
+self.b
+self.x
+
+a.b.c
+a.b.c[1].d[$ "e"].f

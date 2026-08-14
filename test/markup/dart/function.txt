@@ -1,0 +1,11 @@
+void greet(String name) {
+  print('Hello, $name!');
+}
+
+void dummy(Foo obj) {
+  return obj;
+}
+
+int add(int a, int b) {
+  return a + b;
+}
