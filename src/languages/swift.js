@@ -47,9 +47,12 @@ export default function(hljs) {
     className: { 2: "keyword" }
   };
   const KEYWORD_PROP_GUARD = {
-    // Consume .keyword to prevent highlighting properties as keywords. .methods are highlighted seperately
-    match: concat(/\./, either(...Swift.keywords), negativeLookahead(TRAILING_PAREN_REGEX)),
-    relevance: 0
+    match: [
+      /\./,
+      either(...Swift.keywords),
+      negativeLookahead(TRAILING_PAREN_REGEX)
+    ],
+    scope: { 2: "property" }
   };
   const PLAIN_KEYWORDS = Swift.keywords
     .filter(kw => typeof kw === 'string')
@@ -523,37 +526,37 @@ export default function(hljs) {
 
   const METHODS_ONLY = [...Swift.keywords, ...Swift.builtIns];
   const FUNCTION_CALL = {
-    relevance: 0,
     variants: [
       {
-        // Functions and macro calls
-        scope: "title.function",
-        keywords: KEYWORDS,
+        match: [
+          /\./,
+          FUNCTION_IDENT,
+          lookahead(TRAILING_PAREN_REGEX)
+        ],
+        scope: { 2: "title.function.invoke" }
+      },
+      {
+        match: [
+          /\./,
+          FUNCTION_IDENT,
+          negativeLookahead(TRAILING_PAREN_REGEX)
+        ],
+        scope: { 2: "property" }
+      },
+      {
+        scope: "title.function.invoke",
         match: concat(
           either(/\b/, /#/),
           noneOf(METHODS_ONLY.map(x => concat(x, TRAILING_PAREN_REGEX))),
           FUNCTION_IDENT,
-          lookahead(TRAILING_PAREN_REGEX),
-        ),
+          lookahead(TRAILING_PAREN_REGEX)
+        )
       },
       {
-        // Keywords/built-ins that only can appear as a method call
-        // e.g. foo.if()
-        match: [
-          /\./,
-          either(...METHODS_ONLY),
-          TRAILING_PAREN_REGEX,
-        ],
-        scope: {
-          2: "title.function",
-        }
-      },
-      {
-        // Quoted methods calls, e.g. `foo`()
-        scope: "title.function",
+        scope: "title.function.invoke",
         match: concat(
           QUOTED_IDENTIFIER.match,
-          lookahead(TRAILING_PAREN_REGEX),
+          lookahead(TRAILING_PAREN_REGEX)
         )
       }
     ]
