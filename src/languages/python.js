@@ -388,7 +388,12 @@ export default function(hljs) {
         relevance: 0
       },
       { match: /\bor\b/, scope: "keyword" },
-      // Method calls with parentheses
+      {
+        beginKeywords: "from import",
+        end: /$/,
+        keywords: "from import as",
+        contains: [ hljs.HASH_COMMENT_MODE ]
+      },
       {
         match: [
           /\./,
@@ -399,26 +404,14 @@ export default function(hljs) {
           2: "title.function.method"
         }
       },
-      // Chained method calls
       {
         match: [
           /\./,
           IDENT_RE,
-          /(?=\s*\.\s*\w)/
+          /(?!\s*[\(\[])/
         ],
         scope: {
-          2: "title.function.method"
-        }
-      },
-      {
-        match: [
-          /(?<!(?:import|from)\s+[\w.]*)/,  // Negative lookbehind for import context
-          /\./,                             // Literal dot
-          IDENT_RE,                         // Property name
-          /(?!\s*[\(\[])/                   // Not followed by ( or [
-        ],
-        scope: {
-          3: "property"
+          2: "property"
         }
       },
       STRING,
