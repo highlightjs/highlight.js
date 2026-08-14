@@ -402,7 +402,7 @@ export default function(hljs) {
           /(?=\s*\()/
         ],
         scope: {
-          2: "title.function.method"
+          2: "title.function.invoke"
         }
       },
       {

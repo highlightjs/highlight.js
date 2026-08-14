@@ -3,8 +3,8 @@
 <span class="hljs-keyword">import</span> base.test
 <span class="hljs-keyword">import</span> pkg.sub  <span class="hljs-comment"># comment</span>
 
-x.<span class="hljs-title function_ method__">len</span>()
+x.<span class="hljs-title function_ invoke__">len</span>()
 sys.<span class="hljs-property">path</span>
-obj.<span class="hljs-property">foo</span>.<span class="hljs-title function_ method__">bar</span>()
+obj.<span class="hljs-property">foo</span>.<span class="hljs-title function_ invoke__">bar</span>()
 <span class="hljs-variable language_">self</span>.<span class="hljs-property">text</span>
 <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> gen.attr
