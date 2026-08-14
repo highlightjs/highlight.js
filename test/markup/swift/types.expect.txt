@@ -23,7 +23,7 @@
 <span class="hljs-type">Array</span>&lt;<span class="hljs-type">Array</span>&lt;<span class="hljs-type">Int</span>?&gt;&gt;
 [<span class="hljs-type">String</span>: <span class="hljs-type">Int</span>]
 <span class="hljs-type">Dictionary</span>&lt;<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>&gt;
-<span class="hljs-type">Swift</span>.<span class="hljs-type">Array</span>&lt;<span class="hljs-type">Int</span>&gt;.<span class="hljs-type">Element</span>
+<span class="hljs-type">Swift</span>.<span class="hljs-property">Array</span><span class="hljs-operator">&lt;</span><span class="hljs-type">Int</span><span class="hljs-operator">&gt;</span>.<span class="hljs-property">Element</span>
 
 <span class="hljs-comment">// Tuples</span>
 ()
