@@ -3,3 +3,17 @@ str =~ <span class="hljs-regexp">%r{foo|bar|buz$}</span>
 str =~ <span class="hljs-regexp">%r!foo|bar$!</span>
 str =~ <span class="hljs-regexp">%r[foo|bar$]</span>
 str =~ <span class="hljs-regexp">%r(\(foo|bar\)$)</span>
+str =~ <span class="hljs-regexp">%r{(\.{2}|\A/)}</span>
+str =~ <span class="hljs-regexp">/[{}]/</span>
+str =~ <span class="hljs-regexp">/[\]]/</span>
+str =~ <span class="hljs-regexp">/[/]/</span>
+str =~ <span class="hljs-regexp">/[a-z]{3}/</span>
+str =~ <span class="hljs-regexp">%r{[{}]+}</span>
+str =~ <span class="hljs-regexp">/<span class="hljs-subst">#{var}</span>[{}]/</span>
+
+<span class="hljs-symbol">format:</span> { <span class="hljs-symbol">without:</span> <span class="hljs-regexp">%r{(\.{2}|\A/)}</span> }
+
+<span class="hljs-regexp">%r{a{2,3}}</span>
+<span class="hljs-regexp">%r{foo\}bar}</span>
+<span class="hljs-regexp">%r{<span class="hljs-subst">#{var}</span>x}</span>
+<span class="hljs-regexp">%r{a{<span class="hljs-subst">#{n}</span>}}</span>

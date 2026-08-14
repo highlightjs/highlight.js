@@ -227,6 +227,35 @@ export default function(hljs) {
     ]
   };
 
+  const REGEXP_CONTAINS = [
+    hljs.BACKSLASH_ESCAPE,
+    SUBST,
+    {
+      begin: /\[/,
+      end: /\]/,
+      contains: [
+        hljs.BACKSLASH_ESCAPE
+      ]
+    },
+    {
+      begin: /\{/,
+      end: /\}/,
+      contains: [ 'self', hljs.BACKSLASH_ESCAPE, SUBST ]
+    }
+  ];
+
+  const REGEXP = {
+    scope: 'regexp',
+    contains: REGEXP_CONTAINS,
+    illegal: /\n/,
+    variants: [
+      { begin: /%r\{/, end: /\}[a-z]*/ },
+      { begin: /%r\(/, end: /\)[a-z]*/ },
+      { begin: /%r!/, end: /![a-z]*/ },
+      { begin: /%r\[/, end: /\][a-z]*/ }
+    ]
+  };
+
   const PARAMS = {
     variants: [
       {
@@ -324,6 +353,7 @@ export default function(hljs) {
     UPPER_CASE_CONSTANT,
     CLASS_REFERENCE,
     METHOD_DEFINITION,
+    REGEXP,
     {
       // swallow the scope resolution operator so `::` is not read as a symbol
       begin: '::'
@@ -363,32 +393,13 @@ export default function(hljs) {
       keywords: 'unless',
       contains: [
         {
-          className: 'regexp',
-          contains: [
-            hljs.BACKSLASH_ESCAPE,
-            SUBST
-          ],
+          scope: 'regexp',
+          contains: REGEXP_CONTAINS,
           illegal: /\n/,
           variants: [
             {
               begin: '/',
               end: '/[a-z]*'
-            },
-            {
-              begin: /%r\{/,
-              end: /\}[a-z]*/
-            },
-            {
-              begin: '%r\\(',
-              end: '\\)[a-z]*'
-            },
-            {
-              begin: '%r!',
-              end: '![a-z]*'
-            },
-            {
-              begin: '%r\\[',
-              end: '\\][a-z]*'
             }
           ]
         }
