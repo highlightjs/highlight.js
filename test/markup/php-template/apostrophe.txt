@@ -1,0 +1,11 @@
+<html>
+<body>
+<?php
+// This won't be highlighted unless there is another
+// single apostrophe later.
+echo 'it\'s fine';
+?>
+<p>Some HTML <?= '\code' ?></p>
+<span><?php echo $name; // don't ?></span>
+</body>
+</html>

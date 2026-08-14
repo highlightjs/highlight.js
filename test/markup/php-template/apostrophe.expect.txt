@@ -1,0 +1,12 @@
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</span><span class="language-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// This won&#x27;t be highlighted unless there is another</span>
+<span class="hljs-comment">// single apostrophe later.</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;it\&#x27;s fine&#x27;</span>;
+<span class="hljs-meta">?&gt;</span></span><span class="language-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Some HTML </span><span class="language-php"><span class="hljs-meta">&lt;?=</span> <span class="hljs-string">&#x27;\code&#x27;</span> <span class="hljs-meta">?&gt;</span></span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span></span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$name</span>; <span class="hljs-comment">// don&#x27;t ?&gt;</span></span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span>

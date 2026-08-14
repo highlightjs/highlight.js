@@ -23,6 +23,7 @@ New Grammars:
 
 Core Grammars:
 
+- fix(php-template) do not let a quote in a line comment or an escaped quote in a string swallow the rest of the template, issue #4152 [arronKler][]
 - fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [Mark Xian][]
 - fix(c, cpp) bound the run of type tokens in front of a function name (ReDoS), issue #4362 [Jayesh Bhade][]
 - fix(c, cpp) scope angle-bracket header string to `#include`, issue #3505 [Pablo][]
@@ -89,6 +90,7 @@ Build / Tooling:
 
 CONTRIBUTORS
 
+[arronKler]: https://github.com/arronKler
 [spokodev]: https://github.com/spokodev
 [gg582]: https://github.com/gg582
 [Dhruv Maniya]: https://github.com/iamdhrv

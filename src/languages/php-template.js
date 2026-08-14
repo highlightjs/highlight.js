@@ -26,6 +26,19 @@ export default function(hljs) {
             end: '\\*/',
             skip: true
           },
+          // Quotes in // or # comments must not start a skip-string.
+          // Stop before ?> so `// note ?>` still closes the PHP block.
+          // `#(?!\[)` leaves PHP 8 attributes (`#[...]`) to the PHP grammar.
+          {
+            begin: /\/\//,
+            end: /$|(?=\?>)/,
+            skip: true
+          },
+          {
+            begin: /#(?!\[)/,
+            end: /$|(?=\?>)/,
+            skip: true
+          },
           {
             begin: 'b"',
             end: '"',
@@ -39,13 +52,13 @@ export default function(hljs) {
           hljs.inherit(hljs.APOS_STRING_MODE, {
             illegal: null,
             className: null,
-            contains: null,
+            contains: [ { begin: /\\./, skip: true } ],
             skip: true
           }),
           hljs.inherit(hljs.QUOTE_STRING_MODE, {
             illegal: null,
             className: null,
-            contains: null,
+            contains: [ { begin: /\\./, skip: true } ],
             skip: true
           })
         ]
