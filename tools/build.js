@@ -71,7 +71,7 @@ const dir = {};
 commander
   .usage('[options] [<language>...]')
   .option('-n, --no-minify', 'Disable minification')
-  .option('-ne, --no-esm', 'Disable building ESM')
+  .option('--no-esm', 'Disable building ESM')
   .option('-t, --target <name>',
     'Build for target '
     + '[all, browser, cdn, node]',
