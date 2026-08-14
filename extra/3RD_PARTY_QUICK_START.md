@@ -15,10 +15,9 @@ You do **not** need a clone of highlight.js to write, test, or package a third-p
 
 ## Create your repository
 
-Each grammar is developed in its own repo. This helps keep grammar definitions and maintenance independent of the core work.
-Determine if you will host the repository yourself or you want it to be part of the [highlightjs organization on GitHub](https://github.com/highlightjs).
+Each grammar is developed in its own repo. This helps keep grammar definitions and maintenance independent of the core work. Host that repository yourself (or with your language community).
 
-> To host your new grammar with the highlightjs organization, [create an issue](https://github.com/highlightjs/highlight.js/issues/new/choose) using the language request template and provide a description of your grammar and your intent to host it. We will follow up in that issue.
+We do not host new third-party grammar repos in the highlight.js organization. When your grammar is ready, open a PR that adds it to [`SUPPORTED_LANGUAGES.md`](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md) so people can find it.
 
 Setup your directory structure to follow the template (it already does this for you):
 
@@ -62,8 +61,6 @@ That writes `extra/your-repo/dist/your-grammar.min.js` via the core compiler. Co
 
 ## Publishing
 
-We're happy to host 3rd party module repos inside the `highlightjs` organization on GitHub.  Just [file an issue](https://github.com/highlightjs/highlight.js/issues/new/choose) and request a repository.
-
-Please also consider publishing your package to NPM. This will make it much easier for many using Node.js or bundlers to use your package.
+Please consider publishing your package to NPM. This will make it much easier for many using Node.js or bundlers to use your package.
 
 When your grammar is ready, create a PR that adds it to our [`SUPPORTED_LANGUAGES.md`](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md) file.
