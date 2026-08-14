@@ -73,19 +73,14 @@ export default function(hljs) {
         keywords: { keyword: 'if else elseif end error' }
       },
       {
-        className: 'type', // function types
-        begin: ":[ \t]*(?=\\(|" + IDENT_RE + ")",
-        end: /[^A-Za-z0-9_ \t\->]/,
-        excludeBegin: true,
-        excludeEnd: true,
-        relevance: 0
-      },
-      {
-        className: 'type', // types
-        begin: ":[ \t]*(?=" + IDENT_RE + ")",
-        end: /\W/,
-        excludeBegin: true,
-        excludeEnd: true
+        match: [
+          /:/,
+          /[ \t]*/,
+          '(?!(?:true|false|null)\\b)' + IDENT_RE
+        ],
+        scope: {
+          3: "type"
+        }
       },
       {
         match: [

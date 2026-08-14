@@ -1,0 +1,2 @@
+var obj = { y: true, z: false, n: null, t: Int };
+var cb:Void->Void = null;
