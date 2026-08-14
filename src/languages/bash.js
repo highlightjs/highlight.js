@@ -118,13 +118,8 @@ export default function(hljs) {
   };
 
   const BASH_ARGUMENTS = {
-    variants: [
-      {
-        className: "attr",
-        begin: /[\t\u0020](-){1,2}[\w\d-]+/,
-        relevance: 0,
-      },
-    ],
+    match: [ /\s+/, /-{1,2}[\w-]+/ ],
+    scope: { 2: "attr" }
   };
 
   const KEYWORDS = [
