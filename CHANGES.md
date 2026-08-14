@@ -24,6 +24,7 @@ New Grammars:
 Core Grammars:
 
 - fix(c) only match real `atomic_*` type names, not C11 atomic functions, issue #3837 [Mark Xian][]
+- fix(c) do not highlight C++ std types as built-ins, issue #4103 [Arron Zou][]
 - fix(c, cpp) bound the run of type tokens in front of a function name (ReDoS), issue #4362 [Jayesh Bhade][]
 - fix(c, cpp) scope angle-bracket header string to `#include`, issue #3505 [Pablo][]
 - fix(c, cpp) stop a raw string's closing delimiter from swallowing quotes, issue #3585 [David Pavlovschii][]
@@ -105,6 +106,7 @@ CONTRIBUTORS
 [patricksalo]: https://github.com/patricksalo
 [Styx0x6]: https://github.com/styx0x6
 [Mark Xian]: https://github.com/xianjianlf2
+[Arron Zou]: https://github.com/arronKler
 [Jayesh Bhade]: https://github.com/Jaybhade
 [Pablo]: https://github.com/MsfPablo
 [David Pavlovschii]: https://github.com/davidpavlovschi

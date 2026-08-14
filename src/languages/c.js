@@ -261,42 +261,12 @@ export default function(hljs) {
     "NULL"
   ];
 
+  // C library names only. C++ std types belong in cpp.js (#4103).
   const C_BUILT_INS = [
-    "std",
-    "string",
-    "wstring",
-    "cin",
-    "cout",
-    "cerr",
-    "clog",
     "stdin",
     "stdout",
     "stderr",
-    "stringstream",
-    "istringstream",
-    "ostringstream",
-    "auto_ptr",
-    "deque",
-    "list",
-    "queue",
-    "stack",
-    "vector",
-    "map",
-    "set",
-    "pair",
-    "bitset",
-    "multiset",
-    "multimap",
-    "unordered_set",
-    "unordered_map",
-    "unordered_multiset",
-    "unordered_multimap",
-    "priority_queue",
-    "make_pair",
-    "array",
-    "shared_ptr",
     "abort",
-    "terminate",
     "abs",
     "acos",
     "asin",
@@ -316,7 +286,6 @@ export default function(hljs) {
     "free",
     "frexp",
     "fscanf",
-    "future",
     "isalnum",
     "isalpha",
     "iscntrl",
@@ -369,10 +338,7 @@ export default function(hljs) {
     "tan",
     "vfprintf",
     "vprintf",
-    "vsprintf",
-    "endl",
-    "initializer_list",
-    "unique_ptr"
+    "vsprintf"
   ];
 
   const KEYWORDS = {
