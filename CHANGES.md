@@ -1,3 +1,14 @@
+## Version 11.12.1
+
+Documentation:
+
+- docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
+- docs: revamp the docs landing page using sphinx-design [Haowei Hsu][]
+
+CONTRIBUTORS
+
+[Haowei Hsu]: https://github.com/hwhsu1231
+
 ## Version 11.12.0
 
 Parser Engine:
