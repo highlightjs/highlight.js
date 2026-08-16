@@ -89,7 +89,7 @@
     "should": "^13.2.3",
     "terser": "^5.21.0",
     "tiny-worker": "^2.3.0",
-    "typescript": "^5.2.2",
+    "typescript": "^7.0.2",
     "wcag-contrast": "^3.0.0"
   }
 }
