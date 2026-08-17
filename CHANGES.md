@@ -4,6 +4,7 @@ Core Grammars:
 
 - enh(dns) highlight registered CAA property tags, issue #4475 [Joey Huang][]
 - fix(dos) match labels as `:name` so drive switches like `D:` do not break highlighting, issue #4134 [Josh Goebel][]
+- enh(dos) highlight `::` line comments [Josh Goebel][]
 - enh(dos) add `batch` as an alias, issue #4395 [Hashim Khan][]
 - fix(lisp) preserve highlighting after quoted multiplication expressions [arturict][]
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]

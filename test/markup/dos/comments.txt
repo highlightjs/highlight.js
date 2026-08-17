@@ -1,3 +1,5 @@
 rem comment
   rem comment
 copy a.txt b.txt > rem not_a_comment
+:: colon comment
+	:: indented colon comment

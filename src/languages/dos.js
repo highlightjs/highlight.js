@@ -12,6 +12,9 @@ export default function(hljs) {
     /^\s*@?rem\b/, /$/,
     { relevance: 10 }
   );
+  const DOUBLE_COLON_COMMENT = hljs.COMMENT(
+    /^\s*::/, /$/
+  );
   const LABEL = {
     className: 'symbol',
     begin: /^\s*:[A-Za-z._?][A-Za-z0-9_$#@~.?]*/,
@@ -157,6 +160,7 @@ export default function(hljs) {
         className: 'variable',
         begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
       },
+      DOUBLE_COLON_COMMENT,
       GOTO,
       LABEL,
       {
