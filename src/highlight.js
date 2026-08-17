@@ -333,7 +333,7 @@ const HLJS = function(hljs) {
      * @param {number} stackIndex - index in modeStack of the mode to potentially end
      * @param {RegExpMatchArray} match - the latest match
      * @param {string} matchPlusRemainder - match plus remainder of content
-     * @returns {number | void} - stack index of mode to close through, or void to continue
+     * @returns {number | null} - stack index of mode to close through, or null to continue
      */
     function endOfMode(stackIndex, match, matchPlusRemainder) {
       const mode = modeStack[stackIndex];
@@ -358,6 +358,7 @@ const HLJS = function(hljs) {
       if (mode.endsWithParent && stackIndex > 0) {
         return endOfMode(stackIndex - 1, match, matchPlusRemainder);
       }
+      return null;
     }
 
     /**
@@ -423,7 +424,7 @@ const HLJS = function(hljs) {
       const matchPlusRemainder = codeToHighlight.substring(match.index);
 
       const endIndex = endOfMode(modeStack.length - 1, match, matchPlusRemainder);
-      if (endIndex === undefined) { return NO_MATCH; }
+      if (endIndex === null) { return NO_MATCH; }
 
       const endMode = modeStack[endIndex];
       const origin = top;
