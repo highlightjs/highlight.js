@@ -1,0 +1,7 @@
+<span class="hljs-comment">rem This highlight works.</span>
+<span class="hljs-built_in">copy</span> file.txt other.txt
+<span class="hljs-comment">rem After next line it should still highlight.</span>
+D:
+<span class="hljs-built_in">cd</span> &quot;D:\Folder&quot;
+<span class="hljs-built_in">md</span> Tmp
+<span class="hljs-built_in">del</span> Tmp\*.* /q

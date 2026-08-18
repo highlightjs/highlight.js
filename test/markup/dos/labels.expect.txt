@@ -1,0 +1,7 @@
+<span class="hljs-keyword">goto</span> <span class="hljs-symbol">:main</span>
+<span class="hljs-symbol">:main</span>
+<span class="hljs-built_in">echo</span> hello
+<span class="hljs-keyword">goto</span> <span class="hljs-symbol">:eof</span>
+<span class="hljs-symbol">:cleanup</span>
+<span class="hljs-built_in">del</span> temp.txt
+<span class="hljs-keyword">goto</span><span class="hljs-symbol">:eof</span>

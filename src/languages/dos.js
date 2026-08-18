@@ -12,10 +12,24 @@ export default function(hljs) {
     /^\s*@?rem\b/, /$/,
     { relevance: 10 }
   );
+  const DOUBLE_COLON_COMMENT = hljs.COMMENT(
+    /^\s*::/, /$/
+  );
   const LABEL = {
     className: 'symbol',
-    begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
+    begin: /^\s*:[A-Za-z._?][A-Za-z0-9_$#@~.?]*/,
     relevance: 0
+  };
+  const GOTO = {
+    match: [
+      /\bgoto\b/,
+      /\s*/,
+      /:?[A-Za-z._?][A-Za-z0-9_$#@~.?]*/
+    ],
+    scope: {
+      1: 'keyword',
+      3: 'symbol'
+    }
   };
   const KEYWORDS = [
     "if",
@@ -146,15 +160,9 @@ export default function(hljs) {
         className: 'variable',
         begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
       },
-      {
-        className: 'function',
-        begin: LABEL.begin,
-        end: 'goto:eof',
-        contains: [
-          hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
-          COMMENT
-        ]
-      },
+      DOUBLE_COLON_COMMENT,
+      GOTO,
+      LABEL,
       {
         className: 'number',
         begin: '\\b\\d+',
