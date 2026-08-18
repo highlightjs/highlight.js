@@ -6,7 +6,7 @@
     "syntax"
   ],
   "homepage": "https://highlightjs.org/",
-  "version": "11.11.2",
+  "version": "11.12.0",
   "author": "Josh Goebel <hello@joshgoebel.com>",
   "contributors": [
     "Josh Goebel <hello@joshgoebel.com>",
@@ -55,10 +55,10 @@
     "test-parser": "mocha test/parser"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=20.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@types/mocha": "^10.0.2",
@@ -67,10 +67,9 @@
     "ansis": "^4.3.1",
     "clean-css": "^5.3.2",
     "cli-table": "^0.3.1",
-    "commander": "^12.1.0",
+    "commander": "^14.0.3",
     "css": "^3.0.0",
     "css-color-names": "^1.0.1",
-    "deep-freeze-es6": "^3.0.2",
     "del": "^8.0.0",
     "dependency-resolver": "^2.0.1",
     "eslint": "^8.57.0",
@@ -82,10 +81,10 @@
     "glob-promise": "^6.0.5",
     "handlebars": "^4.7.8",
     "http-server": "^14.1.1",
-    "jsdom": "^25.0.1",
+    "jsdom": "^30.0.1",
     "lodash": "^4.17.20",
     "mocha": "^11.0.1",
-    "refa": "^0.4.1",
+    "refa": "^0.12.1",
     "rollup": "^4.0.2",
     "should": "^13.2.3",
     "terser": "^5.21.0",

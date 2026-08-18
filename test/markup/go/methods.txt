@@ -1,0 +1,15 @@
+func (c *exec.Cmd) Run() error
+
+func (m sync.Mutex) Lock()
+
+func (*sync.Mutex) Unlock()
+
+func (s *Stack[T]) Push(v T) {
+  s.items = append(s.items, v)
+}
+
+func (mt MyType) MyFunc(int, float32) (int, io.Reader, error) {
+  return 0, nil, nil
+}
+
+func middleware(h Handler) func(int32) int32

@@ -1,0 +1,17 @@
+func();
+func ();
+func(
+	
+);
+func
+(
+	func(
+
+	)
+);
+func(a);
+func(a, undefined, b);
+func(a,          , b);
+
+struct.func();
+array[0].func(a, b);

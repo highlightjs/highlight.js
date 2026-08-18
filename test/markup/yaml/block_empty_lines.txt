@@ -1,0 +1,26 @@
+nested:
+  literal: |
+    still: a string
+
+    not: anymore
+folded: >
+  first line
+
+  second line
+leading-blank: |
+
+  alpha
+  beta
+blank-has-spaces: |
+  alpha
+  
+  beta
+multiple-blanks: |
+  alpha
+
+
+  beta
+trailing-blank: |
+  alpha
+
+next_key: after

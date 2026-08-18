@@ -25,6 +25,10 @@ export default function(hljs) {
       IDENT_RE,
       regex.lookahead(/\s*\(/))
   };
+  const META_COMMENT = [
+    hljs.C_LINE_COMMENT_MODE,
+    hljs.COMMENT('/\\*', '\\*/', { contains: [ 'self' ] })
+  ];
   const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(16|32|64|128))\?';
   const KEYWORDS = [
     "abstract",
@@ -157,6 +161,25 @@ export default function(hljs) {
     "assert_ne!",
     "debug_assert_ne!"
   ];
+  const QUOTE_STRING = hljs.inherit(hljs.QUOTE_STRING_MODE, {
+    begin: /b?"/,
+    illegal: null
+  });
+  const RAW_STRING = {
+    scope: 'string',
+    begin: /b?r(#{0,255})"(.|\n)*?"\1(?!#)/
+  };
+  const CHARACTER = {
+    scope: 'string',
+    begin: /b?'/,
+    end: /'/,
+    contains: [
+      {
+        scope: "char.escape",
+        match: /\\('|"|\\|\w|x\w{2}|u\w{4}|U\w{8})/
+      }
+    ]
+  };
   const TYPES = [
     "i8",
     "i16",
@@ -197,31 +220,14 @@ export default function(hljs) {
     contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.COMMENT('/\\*', '\\*/', { contains: [ 'self' ] }),
-      hljs.inherit(hljs.QUOTE_STRING_MODE, {
-        begin: /b?"/,
-        illegal: null
-      }),
+      QUOTE_STRING,
       {
         scope: 'symbol',
         // negative lookahead to avoid matching `'`
         begin: /'[a-zA-Z_][a-zA-Z0-9_]*(?!')/
       },
-      {
-        scope: 'string',
-        variants: [
-          { begin: /b?r(#*)"(.|\n)*?"\1(?!#)/ },
-          {
-            begin: /b?'/,
-            end: /'/,
-            contains: [
-              {
-                scope: "char.escape",
-                match: /\\('|"|\\|\w|x\w{2}|u\w{4}|U\w{8})/
-              }
-            ]
-          }
-        ]
-      },
+      RAW_STRING,
+      CHARACTER,
       {
         scope: 'number',
         variants: [
@@ -260,12 +266,31 @@ export default function(hljs) {
         begin: '#!?\\[',
         end: '\\]',
         contains: [
+          ...META_COMMENT,
+          QUOTE_STRING,
+          RAW_STRING,
+          CHARACTER,
           {
-            scope: 'string',
-            begin: /"/,
-            end: /"/,
+            variants: [
+              {
+                begin: /\(/,
+                end: /\)/
+              },
+              {
+                begin: /\[/,
+                end: /\]/
+              },
+              {
+                begin: /\{/,
+                end: /\}/
+              }
+            ],
             contains: [
-              hljs.BACKSLASH_ESCAPE
+              'self',
+              ...META_COMMENT,
+              QUOTE_STRING,
+              RAW_STRING,
+              CHARACTER
             ]
           }
         ]

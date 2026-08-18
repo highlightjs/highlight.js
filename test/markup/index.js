@@ -21,8 +21,12 @@ function testLanguage(language, {testDir}) {
     filenames.forEach(function(filename) {
       const testName = path.basename(filename, '.expect.txt');
       const sourceName = filename.replace(/\.expect/, '');
+      // `name.skip.txt` + `name.skip.expect.txt` marks an unsupported edge case
+      // (see docs/building-testing.rst). Kept for a roadmap without failing CI.
+      const skipped = testName.endsWith('.skip');
+      const run = skipped ? it.skip : it;
 
-      it(`should markup ${testName}`, function(done) {
+      run(`should markup ${testName}`, function(done) {
         const sourceFile = fs.readFile(sourceName, 'utf-8');
         const expectedFile = fs.readFile(filename, 'utf-8');
 

@@ -22,5 +22,12 @@
 <span class="hljs-string">br&quot; &quot;</span>;
 <span class="hljs-string">br#&quot;hello&quot;#</span>;
 <span class="hljs-string">br##&quot;foo&quot;##</span>;
+<span class="hljs-string">r################&quot;many hashes&quot;################</span>;
 
 <span class="hljs-meta">#[error(<span class="hljs-string">&quot;\&quot; appears in a string&quot;</span>)]</span>
+<span class="hljs-meta">#[doc = <span class="hljs-string">r#&quot;a &quot;quoted&quot; word&quot;#</span>]</span>
+<span class="hljs-meta">#[doc = <span class="hljs-string">b&quot;bytes&quot;</span>]</span>
+<span class="hljs-meta">#[doc = <span class="hljs-string">r##&quot;multi
+line &quot;# raw&quot;##</span>]</span>
+<span class="hljs-meta">#[foo(Bar&lt;<span class="hljs-string">&#x27;a&gt;)]
+</span></span>

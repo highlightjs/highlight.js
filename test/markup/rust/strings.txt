@@ -22,5 +22,11 @@ r##" "###
 br" ";
 br#"hello"#;
 br##"foo"##;
+r################"many hashes"################;
 
 #[error("\" appears in a string")]
+#[doc = r#"a "quoted" word"#]
+#[doc = b"bytes"]
+#[doc = r##"multi
+line "# raw"##]
+#[foo(Bar<'a>)]

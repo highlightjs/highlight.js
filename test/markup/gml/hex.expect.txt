@@ -1,0 +1,4 @@
+<span class="hljs-number">$0</span>
+<span class="hljs-number">$abcdef</span>
+<span class="hljs-number">$ABCDEF</span>
+<span class="hljs-number">$0_1__A</span>

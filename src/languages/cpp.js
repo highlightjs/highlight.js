@@ -108,7 +108,9 @@ export default function(hljs) {
     scope: 'meta',
     begin: /#\s*include\b/,
     end: /$/,
-    keywords: { keyword: 'include' },
+    keywords: [
+      'include'
+    ],
     contains: [
       {
         // the `\` at the end of a line signaling continuation
@@ -128,9 +130,23 @@ export default function(hljs) {
     className: 'meta',
     begin: /#\s*[a-z]+\b/,
     end: /$/,
-    keywords: { keyword:
-        'if else elif endif define undef warning error line '
-        + 'pragma _Pragma ifdef ifndef include' },
+    keywords: [
+      'if',
+      'else',
+      'elif',
+      'embed',
+      'endif',
+      'define',
+      'undef',
+      'warning',
+      'error',
+      'line',
+      'pragma',
+      '_Pragma',
+      'ifdef',
+      'ifndef',
+      'include'
+    ],
     contains: [
       {
         begin: /\\\n/,
@@ -153,7 +169,6 @@ export default function(hljs) {
     relevance: 0
   };
 
-  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
   // Bounded on purpose: an unbounded quantifier here consumes an arbitrarily
   // long run of words, and when no function title follows it the engine retries
   // the title at every token boundary of that run - quadratic in the size of
@@ -187,6 +202,7 @@ export default function(hljs) {
     'constexpr',
     'constinit',
     'continue',
+    'contract_assert',
     'decltype',
     'default',
     'delete',
@@ -217,8 +233,10 @@ export default function(hljs) {
     'or',
     'or_eq',
     'override',
+    'pre',
     'private',
     'protected',
+    'post',
     'public',
     'reflexpr',
     'register',
@@ -248,8 +266,16 @@ export default function(hljs) {
     'volatile',
     'while',
     'xor',
-    'xor_eq'
+    'xor_eq',
+    '_Atomic',
+    '_BitInt'
   ];
+
+  // WHY: strip `|N` relevance suffixes (e.g. const_cast|10) so `|10` is not
+  // compiled as an extra empty/numeric alternative in this lookahead.
+  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE)
+    + `\\b(?!(?:${RESERVED_KEYWORDS.map((k) => k.replace(/\|\d+/, '')).join('|')})\\b)`
+    + hljs.IDENT_RE + '\\s*\\(';
 
   // https://en.cppreference.com/w/cpp/keyword
   const RESERVED_TYPES = [
@@ -453,15 +479,18 @@ export default function(hljs) {
     _type_hints: TYPE_HINTS
   };
 
+  const RESERVED_KEYWORD_RE = regex.either(
+    ...RESERVED_KEYWORDS.map(keyword => keyword.replace(/\|\d+$/, ''))
+  );
+
   const FUNCTION_DISPATCH = {
-    className: 'function.dispatch',
-    relevance: 0,
+    scope: 'function.dispatch',
     keywords: {
       // Only for relevance, not highlighting.
       _hint: FUNCTION_HINTS },
     begin: regex.concat(
       /\b/,
-      `(?!${RESERVED_KEYWORDS.join('|')})`,
+      `(?!${RESERVED_KEYWORD_RE}\\b)`,
       hljs.IDENT_RE,
       regex.lookahead(/(<[^<>]+>|)\s*\(/))
   };

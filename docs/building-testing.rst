@@ -103,6 +103,21 @@ To generate reference rendering use the Developer tool located at
 ``tools/developer.html``. Make sure to explicitly select your language in the
 drop-down menu, as automatic detection is unlikely to work in this case.
 
+Skipped markup tests (unsupported edge cases)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The suite must not ship failing markup tests. For edge cases that are not
+supported yet (or are tracked as future work), commit the pair with a
+``.skip`` suffix on the base name:
+
+* ``test/markup/<language>/<test_name>.skip.txt``
+* ``test/markup/<language>/<test_name>.skip.expect.txt``
+
+These are registered with Mocha as skipped tests: they appear in the report
+but do not fail CI. Prefer this over omitting the case entirely so the gap
+stays visible. Link a tracking issue in the PR or a nearby comment when you
+add a skip.
+
 
 Building and Testing with Docker
 --------------------------------

@@ -3,3 +3,17 @@ str =~ %r{foo|bar|buz$}
 str =~ %r!foo|bar$!
 str =~ %r[foo|bar$]
 str =~ %r(\(foo|bar\)$)
+str =~ %r{(\.{2}|\A/)}
+str =~ /[{}]/
+str =~ /[\]]/
+str =~ /[/]/
+str =~ /[a-z]{3}/
+str =~ %r{[{}]+}
+str =~ /#{var}[{}]/
+
+format: { without: %r{(\.{2}|\A/)} }
+
+%r{a{2,3}}
+%r{foo\}bar}
+%r{#{var}x}
+%r{a{#{n}}}

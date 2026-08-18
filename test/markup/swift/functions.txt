@@ -17,6 +17,9 @@ func f3(
   p5: @attribute String? = "text"
 ) { }
 
+func `escaped`() {}
+func `if`() {}
+
 init<X: A>(_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
 init?(_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
 init! (_ p: @attribute inout (x: Int, var: Int) = (0, 0)) { }
@@ -30,3 +33,64 @@ protocol Comparable: Equatable {
   static func > (lhs: Self, rhs: Self) -> Bool
   static func >= (lhs: Self, rhs: Self) -> Bool
 }
+
+// paren spacing
+obj.fn(1)
+obj.fn (1)
+obj.prop
+(1) // newline break, this is no longer a function
+
+// builtins
+abs(1)
+swap(&a, &b)
+zip(a, b)
+obj.abs(1)
+obj.swap(&a, &b)
+obj.zip(a, b)
+obj.abs  (1)
+obj.abs
+(1)
+
+// methods
+method()
+method(1)
+method(param: 1)
+obj.method()
+obj .method()
+obj.method(1)
+obj.method(param: 1)
+obj.prop.method()
+obj.prop .method()
+obj.prop.method(1)
+obj.prop.method(param: 1)
+obj.prop.method(
+  param: 1
+)
+obj.prop
+  .method()
+
+// keywords
+obj.if(condition: true)
+obj.if // variable
+obj .if // variable
+`if`()
+obj.`if`()
+obj.`if` ()
+`notKeyword`()
+obj.`notKeyword`()
+obj.`notKeyword` ()
+
+// number sign keywords are fine
+column()
+keyPath()
+sourceLocation()
+obj.column()
+obj.keyPath()
+obj.sourceLocation()
+
+// attribute keywords are fine
+frozen()
+discardableResult()
+obj.frozen()
+obj.discardableResult()
+

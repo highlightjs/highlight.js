@@ -10,3 +10,19 @@ for (;;) {}
 void f() = delete("reason");
 
 static_assert(true);
+contract_assert(false);
+
+_BitInt(64) x;
+_Atomic(int) y;
+
+format();
+
+for_this();
+
+whilexyz();
+
+if (ifsyz()) {}
+
+returnxyz();
+
+thisxyz();

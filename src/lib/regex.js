@@ -29,6 +29,14 @@ export function lookahead(re) {
  * @param {RegExp | string } re
  * @returns {string}
  */
+export function negativeLookahead(re) {
+  return concat('(?!', re, ')');
+}
+
+/**
+ * @param {RegExp | string } re
+ * @returns {string}
+ */
 export function anyNumberOfTimes(re) {
   return concat('(?:', re, ')*');
 }

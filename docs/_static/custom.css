@@ -1,0 +1,26 @@
+/* Center homepage title, lead text, and buttons */
+
+.landing-page h1 {
+  text-align: center;
+}
+
+.landing-page .lead {
+  text-align: center;
+}
+
+.landing-page .container.buttons > p {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Enlarge and center homepage toctree caption text */
+
+.landing-page .toctree-wrapper p.caption {
+  text-align: center;
+  padding: 0 0 .8rem 0;
+}
+
+.landing-page .toctree-wrapper .caption .caption-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}

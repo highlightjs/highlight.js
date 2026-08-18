@@ -388,6 +388,33 @@ export default function(hljs) {
         relevance: 0
       },
       { match: /\bor\b/, scope: "keyword" },
+      {
+        // convert this to negative lookbehind in v12
+        beginKeywords: "from import",
+        end: /$/,
+        keywords: "from import as",
+        contains: [ hljs.HASH_COMMENT_MODE ]
+      },
+      {
+        match: [
+          /\./,
+          IDENT_RE,
+          /(?=\s*\()/
+        ],
+        scope: {
+          2: "title.function.invoke"
+        }
+      },
+      {
+        match: [
+          /\./,
+          IDENT_RE,
+          /(?!\s*[\(\[])/
+        ],
+        scope: {
+          2: "property"
+        }
+      },
       STRING,
       COMMENT_TYPE,
       hljs.HASH_COMMENT_MODE,
