@@ -32,6 +32,8 @@ export const keywords = [
   // strings below will be fed into the regular `keywords` engine while regex
   // will result in additional modes being created to scan for those keywords to
   // avoid conflicts with other rules
+  '__abstract', '__await', '__catch', '__COLUMN__', '__event', '__external', '__FILE__', '__ensure', '__field', '__invariants', '__lock', '__old', '__reintroduce', '__require__result', '__using',
+  '__finally', '__FUNCTION__', '__inline', '__LINE__', '__mapped', '__out', '__partial', '__throw', '__try', '__yield',
   'actor',
   'any', // contextual
   'associatedtype',
