@@ -1,0 +1,8 @@
+<span class="hljs-tag">%<span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.list</span></span>
+<span class="hljs-tag">  <span class="hljs-selector-class">.item</span></span> plain class
+<span class="hljs-tag">  <span class="hljs-selector-class">.item</span><span class="hljs-selector-class">.selected</span>{<span class="hljs-attr">:title</span>=&gt;<span class="hljs-string">&#x27;yes&#x27;</span>}</span> class with attrs
+<span class="hljs-tag">  <span class="hljs-selector-id">#main</span></span> an id
+<span class="hljs-tag">  <span class="hljs-selector-id">#footer</span><span class="hljs-selector-class">.dark</span>{<span class="hljs-attr">:id</span>=&gt;<span class="hljs-string">&quot;f&quot;</span>}</span> id, class and attrs
+<span class="hljs-tag">    <span class="hljs-selector-class">.nested</span></span>
+<span class="hljs-tag">      %<span class="hljs-selector-tag">h1</span><span class="hljs-selector-class">.good</span></span> explicit tags still work
+  #{<span class="language-ruby">interpolation</span>} is not a div
