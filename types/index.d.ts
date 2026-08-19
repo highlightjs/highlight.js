@@ -105,7 +105,7 @@ declare module 'highlight.js' {
         // private
         _illegalBy? : illegalData
         _emitter : Emitter
-        _top? : Language | CompiledMode
+        _top? : Language | CompiledMode | CompiledMode[]
     }
     export interface AutoHighlightResult extends HighlightResult {}
 

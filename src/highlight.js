@@ -129,7 +129,7 @@ const HLJS = function(hljs) {
    * @property {number} relevance - the relevance score
    * @property {string} value - the highlighted HTML code
    * @property {string} code - the original raw code
-   * @property {CompiledMode} top - top of the current mode stack
+   * @property {CompiledMode[]} top - mode stack (continuation)
    * @property {boolean} illegal - indicates whether any illegal matches were found
   */
   function highlight(codeOrLanguageName, optionsOrCode, ignoreIllegals) {
@@ -179,9 +179,9 @@ const HLJS = function(hljs) {
    * @param {string} languageName - the language to use for highlighting
    * @param {string} codeToHighlight - the code to highlight
    * @param {boolean?} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
-   * @param {CompiledMode?} [continuation] - current continuation mode, if any
-   * @returns {HighlightResult} - result of the highlight operation
-  */
+    * @param {CompiledMode[]?} [continuation] - mode stack to resume, if any
+    * @returns {HighlightResult} - result of the highlight operation
+   */
   function _highlight(languageName, codeToHighlight, ignoreIllegals, continuation) {
     const keywordHits = Object.create(null);
 
@@ -246,7 +246,7 @@ const HLJS = function(hljs) {
           return;
         }
         result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage]);
-        continuations[top.subLanguage] = /** @type {CompiledMode} */ (result._top);
+        continuations[top.subLanguage] = /** @type {CompiledMode[]} */ (result._top);
       } else {
         result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
       }
@@ -324,17 +324,19 @@ const HLJS = function(hljs) {
         }
       }
 
-      top = Object.create(mode, { parent: { value: top } });
+      modeStack.push(mode);
+      top = mode;
       return top;
     }
 
     /**
-     * @param {CompiledMode } mode - the mode to potentially end
+     * @param {number} stackIndex - index in modeStack of the mode to potentially end
      * @param {RegExpMatchArray} match - the latest match
      * @param {string} matchPlusRemainder - match plus remainder of content
-     * @returns {CompiledMode | void} - the next mode, or if void continue on in current mode
+     * @returns {number | null} - stack index of mode to close through, or null to continue
      */
-    function endOfMode(mode, match, matchPlusRemainder) {
+    function endOfMode(stackIndex, match, matchPlusRemainder) {
+      const mode = modeStack[stackIndex];
       let matched = regex.startsWith(mode.endRe, matchPlusRemainder);
 
       if (matched) {
@@ -345,17 +347,18 @@ const HLJS = function(hljs) {
         }
 
         if (matched) {
-          while (mode.endsParent && mode.parent) {
-            mode = mode.parent;
+          while (modeStack[stackIndex].endsParent && stackIndex > 0) {
+            stackIndex--;
           }
-          return mode;
+          return stackIndex;
         }
       }
       // even if on:end fires an `ignore` it's still possible
       // that we might trigger the end node because of a parent mode
-      if (mode.endsWithParent) {
-        return endOfMode(mode.parent, match, matchPlusRemainder);
+      if (mode.endsWithParent && stackIndex > 0) {
+        return endOfMode(stackIndex - 1, match, matchPlusRemainder);
       }
+      return null;
     }
 
     /**
@@ -420,9 +423,10 @@ const HLJS = function(hljs) {
       const lexeme = match[0];
       const matchPlusRemainder = codeToHighlight.substring(match.index);
 
-      const endMode = endOfMode(top, match, matchPlusRemainder);
-      if (!endMode) { return NO_MATCH; }
+      const endIndex = endOfMode(modeStack.length - 1, match, matchPlusRemainder);
+      if (endIndex === null) { return NO_MATCH; }
 
+      const endMode = modeStack[endIndex];
       const origin = top;
       if (top.endScope && top.endScope._wrap) {
         processBuffer();
@@ -441,15 +445,17 @@ const HLJS = function(hljs) {
           modeBuffer = lexeme;
         }
       }
-      do {
+      // pop through endMode (leave its parent on top)
+      while (modeStack.length > endIndex) {
         if (top.scope) {
           emitter.closeNode();
         }
         if (!top.skip && !top.subLanguage) {
           relevance += top.relevance;
         }
-        top = top.parent;
-      } while (top !== endMode.parent);
+        modeStack.pop();
+        top = modeStack[modeStack.length - 1];
+      }
       if (endMode.starts) {
         startNewMode(endMode.starts, match);
       }
@@ -457,13 +463,13 @@ const HLJS = function(hljs) {
     }
 
     function processContinuations() {
-      const list = [];
-      for (let current = top; current !== language; current = current.parent) {
-        if (current.scope) {
-          list.unshift(current.scope);
+      // reopen scopes for modes above the language root (index 0)
+      for (let i = 1; i < modeStack.length; i++) {
+        const scope = modeStack[i].scope;
+        if (scope) {
+          emitter.openNode(scope);
         }
       }
-      list.forEach(item => emitter.openNode(item));
     }
 
     /** @type {{type?: MatchType, index?: number, rule?: Mode}}} */
@@ -563,9 +569,11 @@ const HLJS = function(hljs) {
 
     const md = compileLanguage(language);
     let result = '';
+    /** @type {CompiledMode[]} */
+    const modeStack = continuation ? continuation.slice() : [md];
     /** @type {CompiledMode} */
-    let top = continuation || md;
-    /** @type Record<string,CompiledMode> */
+    let top = modeStack[modeStack.length - 1];
+    /** @type Record<string,CompiledMode[]> */
     const continuations = {}; // keep continuations for sub-languages
     const emitter = new options.__emitter(options);
     processContinuations();
@@ -613,7 +621,7 @@ const HLJS = function(hljs) {
         relevance,
         illegal: false,
         _emitter: emitter,
-        _top: top
+        _top: modeStack
       };
     } catch (err) {
       if (err.message && err.message.includes('Illegal')) {
@@ -639,7 +647,7 @@ const HLJS = function(hljs) {
           relevance: 0,
           errorRaised: err,
           _emitter: emitter,
-          _top: top
+          _top: modeStack
         };
       } else {
         throw err;
@@ -659,7 +667,7 @@ const HLJS = function(hljs) {
       value: escape(code),
       illegal: false,
       relevance: 0,
-      _top: PLAINTEXT_LANGUAGE,
+      _top: [PLAINTEXT_LANGUAGE],
       _emitter: new options.__emitter(options)
     };
     result._emitter.addText(code);
