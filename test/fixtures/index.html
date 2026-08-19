@@ -60,6 +60,9 @@ $colorGreenDark: #393;
 <!-- unsupported prefixed language and supported unprefixed language -->
 <pre><code class="python language-foo">for x in [1, 2, 3]: count(x)</code></pre>
 
+<!-- no-highlight should win over a matching language-* class -->
+<pre><code class="no-highlight language-js">var x = '&lt;p&gt;this should &lt;b&gt;not&lt;/b&gt; be highlighted as &lt;em&gt;JavaScript&lt;/em&gt;';</code></pre>
+
 </div>
 
 <!-- sub-languages -->
