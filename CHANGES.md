@@ -56,6 +56,7 @@ Core Grammars:
 - enh(go) recognize binary integer literals [spokodev][]
 - enh(groovy) support underscores in numeric literals [greymoth][]
 - fix(haskell) highlight `where` in GADT and closed type-family declarations, issue #3753 [Konstantin Baltsat][]
+- fix(ini) do not highlight the trailing digit of a dotted bare value (e.g. the `2` in `TLSv1.2`) as a number, issue #4038 [youdie006][]
 - enh(java) improve detection of types, including generic and array types [Hannes Wallnoefer][]
 - enh(javascript) add `self` to built-in variables [Dsaquel][]
 - enh(kotlin) add `ktm` and `ktx` aliases [DarkMatter-999][]
@@ -161,6 +162,7 @@ CONTRIBUTORS
 [allejo]: https://github.com/allejo
 [KJyang-0114]: https://github.com/KJyang-0114
 [webdiscus]: https://github.com/webdiscus
+[youdie006]: https://github.com/youdie006
 
 
 ## Version 11.11.2
