@@ -1,8 +1,8 @@
 import * as regex from './regex.js';
 
 /**
-@typedef {import('highlight.js').CallbackResponse} CallbackResponse
-@typedef {import('highlight.js').CompilerExt} CompilerExt
+@typedef {import('./hljs_types.js').CallbackResponse} CallbackResponse
+@typedef {import('./hljs_types.js').CompilerExt} CompilerExt
 */
 
 // Grammar extensions / plugins

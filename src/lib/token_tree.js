@@ -2,7 +2,7 @@ import HTMLRenderer from './html_renderer.js';
 
 /** @typedef {{scope?: string, language?: string, children: Node[]} | string} Node */
 /** @typedef {{scope?: string, language?: string, children: Node[]} } DataNode */
-/** @typedef {import('highlight.js').Emitter} Emitter */
+/** @typedef {import('./hljs_types.js').Emitter} Emitter */
 /**  */
 
 /** @returns {DataNode} */
@@ -60,10 +60,7 @@ class TokenTree {
    * @param {Renderer} builder
    */
   walk(builder) {
-    // this does not
-    return this.constructor._walk(builder, this.rootNode);
-    // this works
-    // return TokenTree._walk(builder, this.rootNode);
+    return TokenTree._walk(builder, this.rootNode);
   }
 
   /**

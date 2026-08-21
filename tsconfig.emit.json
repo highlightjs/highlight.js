@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "strict": false,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "rootDir": "./src",
+    "outDir": "./types/generated",
+    "lib": ["es2016", "dom"],
+    "resolveJsonModule": true,
+    "noEmitOnError": false,
+    "maxNodeModuleJsDepth": 0
+  },
+  "include": [
+    "src/highlight.js",
+    "src/lib/**/*.js"
+  ]
+}
