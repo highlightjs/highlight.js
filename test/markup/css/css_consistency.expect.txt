@@ -76,3 +76,9 @@
   <span class="hljs-comment">/* normal comment */</span>
   <span class="hljs-attribute">width</span>: <span class="hljs-comment">/* inline comment */</span> <span class="hljs-number">50px</span>;
 }
+
+<span class="hljs-comment">/* escaped special characters are part of the class or id name */</span>
+<span class="hljs-selector-class">.dark\:hover\:bg-sky-500</span><span class="hljs-selector-pseudo">:hover</span> {}
+<span class="hljs-selector-class">.w-1\/2</span> {}
+<span class="hljs-selector-class">.foo\3A bar</span> {}
+<span class="hljs-selector-id">#main\@md</span> {}
