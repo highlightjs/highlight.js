@@ -8,59 +8,56 @@ Category: template
 
 // TODO support filter tags like :javascript, support inline HTML
 export default function(hljs) {
+  const regex = hljs.regex;
   const SELECTOR_ID = {
-    className: 'selector-id',
-    begin: '#[\\w-]+'
+    scope: 'selector-id',
+    match: /#[\w-]+/
   };
   const SELECTOR_CLASS = {
-    className: 'selector-class',
-    begin: '\\.[\\w-]+'
+    scope: 'selector-class',
+    match: /\.[\w-]+/
   };
   const RUBY_HASH_ATTRS = {
     begin: /\{\s*/,
     end: /\s*\}/,
     contains: [
       {
-        begin: ':\\w+\\s*=>',
-        end: ',\\s+',
+        begin: /:\w+\s*=>/,
+        end: /,\s+/,
         returnBegin: true,
         endsWithParent: true,
         contains: [
           {
-            className: 'attr',
-            begin: ':\\w+'
+            scope: 'attr',
+            match: /:\w+/
           },
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
           {
-            begin: '\\w+',
-            relevance: 0
+            match: /\w+/
           }
         ]
       }
     ]
   };
   const HTML_ATTRS = {
-    begin: '\\(\\s*',
-    end: '\\s*\\)',
-    excludeEnd: true,
+    begin: /\(\s*/,
+    end: regex.lookahead(/\s*\)/),
     contains: [
       {
-        begin: '\\w+\\s*=',
-        end: '\\s+',
+        begin: /\w+\s*=/,
+        end: /\s+/,
         returnBegin: true,
         endsWithParent: true,
         contains: [
           {
-            className: 'attr',
-            begin: '\\w+',
-            relevance: 0
+            scope: 'attr',
+            match: /\w+/
           },
           hljs.APOS_STRING_MODE,
           hljs.QUOTE_STRING_MODE,
           {
-            begin: '\\w+',
-            relevance: 0
+            match: /\w+/
           }
         ]
       }
@@ -104,19 +101,15 @@ export default function(hljs) {
         ]
       },
       {
-        className: 'tag',
+        scope: 'tag',
         // implicit div: the line starts directly with `.class` or `#id`;
         // `[\w-]` keeps `#{interpolation}` out of this case
-        begin: '^\\s*(?=[.#][\\w-])',
-        // relevance 0 everywhere: lines starting with `.foo` / `#foo` are
-        // common in other languages (CSS selectors, C preprocessor,
-        // assembler directives), so they must not count towards HAML
-        relevance: 0,
+        begin: /^\s*(?=[.#][\w-])/,
         contains: [
-          hljs.inherit(SELECTOR_ID, { relevance: 0 }),
-          hljs.inherit(SELECTOR_CLASS, { relevance: 0 }),
-          hljs.inherit(RUBY_HASH_ATTRS, { relevance: 0 }),
-          hljs.inherit(HTML_ATTRS, { relevance: 0 })
+          SELECTOR_ID,
+          SELECTOR_CLASS,
+          RUBY_HASH_ATTRS,
+          HTML_ATTRS
         ]
       },
       { begin: '^\\s*[=~]\\s*' },
