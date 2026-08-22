@@ -27,6 +27,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | ARM assembler           | armasm, arm            |         |
 | AsciiDoc                | asciidoc, adoc         |         |
 | AspectJ                 | aspectj                |         |
+| Astro                   | astro, astrojs         | [highlightjs-astro](https://github.com/chrisknepper/highlightjs-astro) |
 | AutoHotkey              | autohotkey, ahk        |         |
 | AutoIt                  | autoit                 |         |
 | AVR assembler           | avrasm                 |         |
