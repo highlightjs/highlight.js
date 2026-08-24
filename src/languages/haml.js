@@ -8,7 +8,6 @@ Category: template
 
 // TODO support filter tags like :javascript, support inline HTML
 export default function(hljs) {
-  const regex = hljs.regex;
   const SELECTOR_ID = {
     scope: 'selector-id',
     match: /#[\w-]+/
@@ -18,8 +17,8 @@ export default function(hljs) {
     match: /\.[\w-]+/
   };
   const RUBY_HASH_ATTRS = {
-    begin: /\{\s*/,
-    end: /\s*\}/,
+    begin: /\{/,
+    end: /\}/,
     contains: [
       {
         begin: /:\w+\s*=>/,
@@ -41,8 +40,8 @@ export default function(hljs) {
     ]
   };
   const HTML_ATTRS = {
-    begin: /\(\s*/,
-    end: regex.lookahead(/\s*\)/),
+    begin: /\(/,
+    end: /\)/,
     contains: [
       {
         begin: /\w+\s*=/,
