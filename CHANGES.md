@@ -5,9 +5,14 @@ Documentation:
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
 - docs: revamp the docs landing page using sphinx-design [Haowei Hsu][]
 
+Core Grammars:
+
+- fix(ruby) don't treat `::` scope resolution as symbols after single-letter constants, issue #4516 [Xi-7yao][]
+
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[Xi-7yao]: https://github.com/Xi-7yao
 
 ## Version 11.12.0
 

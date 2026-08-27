@@ -8,3 +8,5 @@ Foo::Bar::baz(1)
 ClassName::method
 Math::PI
 ::TopLevel.new
+A::a
+A::B::c

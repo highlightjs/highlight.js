@@ -8,3 +8,5 @@ obj.send(<span class="hljs-symbol">:to_s</span>)
 <span class="hljs-title class_">ClassName</span>::method
 <span class="hljs-title class_">Math</span>::<span class="hljs-variable constant_">PI</span>
 ::<span class="hljs-title class_">TopLevel</span>.new
+A::a
+A::B::c
