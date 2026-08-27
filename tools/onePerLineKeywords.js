@@ -5,6 +5,7 @@
  *   node tools/onePerLineKeywords.js src/languages/cpp.js
  */
 const fs = require("fs");
+const path = require("path");
 
 const file = process.argv[2];
 if (!file) {
@@ -12,7 +13,14 @@ if (!file) {
   process.exit(1);
 }
 
-const src = fs.readFileSync(file, "utf8");
+const resolvedFile = path.resolve(file);
+const cwd = process.cwd();
+if (!resolvedFile.startsWith(cwd + path.sep) && resolvedFile !== cwd) {
+  console.error("error: file path must be within the current working directory");
+  process.exit(1);
+}
+
+const src = fs.readFileSync(resolvedFile, "utf8");
 const re = /keywords:\s*\{\s*keyword:\s*(?:((?:'[^']*'\s*\+\s*)*'[^']*')|\[([^\]]*)\])\s*\}/g;
 
 let count = 0;
@@ -33,5 +41,5 @@ if (count === 0) {
   process.exit(1);
 }
 
-fs.writeFileSync(file, out);
+fs.writeFileSync(resolvedFile, out);
 console.error(`expanded ${count} keyword list(s) in ${file}`);
