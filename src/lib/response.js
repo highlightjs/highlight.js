@@ -1,5 +1,5 @@
-/** @typedef {import('highlight.js').CallbackResponse} CallbackResponse */
-/** @typedef {import('highlight.js').CompiledMode} CompiledMode */
+/** @typedef {import('./hljs_types.js').CallbackResponse} CallbackResponse */
+/** @typedef {import('./hljs_types.js').CompiledMode} CompiledMode */
 /** @implements CallbackResponse */
 
 export default class Response {

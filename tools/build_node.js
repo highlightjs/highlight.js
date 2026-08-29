@@ -1,5 +1,6 @@
 const fs = require("fs").promises;
 const fss = require("fs");
+const path = require("path");
 const config = require("./build_config.js");
 const glob = require("glob-promise");
 const { getLanguages } = require("./lib/language.js");
@@ -107,6 +108,9 @@ const generatePackageExports = () => ({
     ...dual("./lib/index.js"),
   },
   "./package.json": "./package.json",
+  "./private": {
+    "types": "./types/private.d.ts"
+  },
   "./lib/common": dual("./lib/common.js"),
   "./lib/core": dual("./lib/core.js"),
   "./lib/languages/*": dual("./lib/languages/*.js"),
@@ -144,7 +148,8 @@ const CORE_FILES = [
   "SUPPORTED_LANGUAGES.md",
   "SECURITY.md",
   "CHANGES.md",
-  "types/index.d.ts"
+  "types/index.d.ts",
+  "types/private.d.ts"
 ];
 
 async function buildNode(options) {
@@ -152,10 +157,17 @@ async function buildNode(options) {
   mkdir("scss/base16");
   mkdir("styles/base16");
   mkdir("types");
+  mkdir("types/generated");
 
 
   CORE_FILES.forEach(file => {
     install(`./${file}`, file);
+  });
+  // emitted declarations (JSDoc → .d.ts)
+  glob.sync("**/*", { cwd: "./types/generated", nodir: true }).forEach((file) => {
+    const dest = `types/generated/${file}`;
+    mkdir(path.dirname(dest));
+    install(`./types/generated/${file}`, dest);
   });
   install("./src/core.d.ts", "lib/core.d.ts");
   install("./src/core.d.ts", "lib/common.d.ts");
