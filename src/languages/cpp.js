@@ -122,7 +122,8 @@ export default function(hljs) {
         begin: /<.*?>/
       },
       C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      NUMBERS
     ]
   };
 
