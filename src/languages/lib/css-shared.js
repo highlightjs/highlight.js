@@ -1,3 +1,32 @@
+/**
+ * A CSS escape sequence: a backslash followed either by up to six hex digits
+ * (with an optional single trailing space) or by any one character that is not
+ * a hex digit. Newlines cannot be escaped.
+ *
+ * The hex branches are kept disjoint so the sequence cannot be split more than
+ * one way, which would let the surrounding quantifier backtrack exponentially.
+ * A run of six digits is only taken when a seventh follows, since a hex escape
+ * stops after six; every shorter run has to reach a non-hex character.
+ *
+ * https://www.w3.org/TR/css-syntax-3/#escaping
+ */
+export const ESCAPE_RE = '\\\\(?:'
+  + '[\\da-fA-F]{6}(?=[\\da-fA-F])'
+  + '|[\\da-fA-F]{1,6}(?![\\da-fA-F]) ?'
+  + '|[^\\da-fA-F\\r\\n]'
+  + ')';
+
+/**
+ * Builds a selector name pattern that also accepts CSS escape sequences, so
+ * that names such as `.dark\\:hover\\:bg-sky-500` are matched in one piece
+ * instead of breaking apart at the backslash.
+ *
+ * @param {string} first character class the name may begin with
+ * @param {string} rest character class the remaining characters may use
+ */
+export const SELECTOR_IDENT_RE = (first, rest) =>
+  '(?:' + first + '|' + ESCAPE_RE + ')(?:' + rest + '|' + ESCAPE_RE + ')*';
+
 export const MODES = (hljs) => {
   return {
     IMPORTANT: {
