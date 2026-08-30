@@ -63,7 +63,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@types/mocha": "^10.0.2",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
+    "@typescript-eslint/parser": "^8.68.0",
     "ansis": "^4.3.1",
     "clean-css": "^5.3.2",
     "cli-table": "^0.3.1",
