@@ -290,6 +290,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | VBScript                | vbscript, vbs          |         |
 | VBScript in HTML        | vbscript-html          |         |
 | Verilog                 | verilog, v, sv, svh    |         |
+| Verse                   | verse                  | [highlightjs-verse](https://github.com/simnJS/highlightjs-verse) |
 | Veryl                   | veryl                  | [highlightjs-veryl](https://github.com/veryl-lang/veryl/tree/master/support/highlightjs) |
 | VHDL                    | vhdl                   |         |
 | Vim Script              | vim                    |         |
