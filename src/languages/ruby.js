@@ -360,12 +360,12 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
+      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:(?!:)',
       relevance: 0
     },
     {
       className: 'symbol',
-      begin: ':(?!\\s)',
+      begin: '(?<!:):(?!\\s)',
       contains: [
         STRING,
         { begin: RUBY_METHOD_RE }

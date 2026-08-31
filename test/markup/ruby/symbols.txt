@@ -8,3 +8,9 @@ Foo::Bar::baz(1)
 ClassName::method
 Math::PI
 ::TopLevel.new
+A::a
+A::B::c
+
+# left side of :: may be a variable, not just a CamelCase constant (#4518 regression check)
+an_alias = A
+an_alias::a_method(sym: 5)

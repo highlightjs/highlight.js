@@ -8,3 +8,9 @@ obj.send(<span class="hljs-symbol">:to_s</span>)
 <span class="hljs-title class_">ClassName</span>::method
 <span class="hljs-title class_">Math</span>::<span class="hljs-variable constant_">PI</span>
 ::<span class="hljs-title class_">TopLevel</span>.new
+A::a
+A::B::c
+
+<span class="hljs-comment"># left side of :: may be a variable, not just a CamelCase constant (#4518 regression check)</span>
+an_alias = A
+an_alias::a_method(<span class="hljs-symbol">sym:</span> <span class="hljs-number">5</span>)
