@@ -1,0 +1,16 @@
+_start:
+    mov     eax, 1
+
+.retry:
+    dec     eax
+
+    .align  16
+    ret
+
+    %%local:
+    nop
+
+bar label near
+
+foo
+    label near

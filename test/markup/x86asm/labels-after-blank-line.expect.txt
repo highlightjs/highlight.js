@@ -1,0 +1,16 @@
+<span class="hljs-symbol">_start:</span>
+    <span class="hljs-keyword">mov</span>     <span class="hljs-built_in">eax</span>, <span class="hljs-number">1</span>
+
+<span class="hljs-symbol">.retry:</span>
+    <span class="hljs-keyword">dec</span>     <span class="hljs-built_in">eax</span>
+
+<span class="hljs-meta">    .align</span>  <span class="hljs-number">16</span>
+    <span class="hljs-keyword">ret</span>
+
+<span class="hljs-symbol">    %%local:</span>
+    <span class="hljs-keyword">nop</span>
+
+<span class="hljs-symbol">bar label</span> <span class="hljs-built_in">near</span>
+
+foo
+    label <span class="hljs-built_in">near</span>

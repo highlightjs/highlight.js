@@ -87,9 +87,9 @@ export default function(hljs) {
         className: 'symbol',
         variants: [
           { // GNU MIPS syntax
-            begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:' },
+            begin: '^[ \\t]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:' },
           { // numbered local labels
-            begin: '^\\s*[0-9]+:' },
+            begin: '^[ \\t]*[0-9]+:' },
           { // number local label reference (backwards, forwards)
             begin: '[0-9]+[bf]' }
         ],

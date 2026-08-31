@@ -1,0 +1,5 @@
+<span class="hljs-symbol">entry:</span>
+  <span class="hljs-keyword">br</span> <span class="hljs-type">label</span> <span class="hljs-variable">%exit</span>
+
+<span class="hljs-symbol">exit:</span>
+  <span class="hljs-keyword">ret</span> <span class="hljs-type">void</span>
