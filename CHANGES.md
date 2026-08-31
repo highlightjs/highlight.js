@@ -3,6 +3,7 @@
 Core Grammars:
 
 - fix(x86asm, mipsasm, llvm) stop label and directive matches swallowing the preceding blank line, issue #4525 [Matt Godbolt][]
+- fix(mipsasm) stop mnemonic spans swallowing the whitespace that terminates them, issue #4525 [Matt Godbolt][]
 
 Documentation:
 

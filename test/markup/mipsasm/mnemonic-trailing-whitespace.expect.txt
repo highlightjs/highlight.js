@@ -1,8 +1,4 @@
 <span class="hljs-symbol">main:</span>
-        li      $<span class="hljs-built_in">v0</span>, <span class="hljs-number">1</span>
-
-<span class="hljs-symbol">loop:</span>
         <span class="hljs-keyword">addi</span>    $<span class="hljs-built_in">t0</span>, $<span class="hljs-built_in">t0</span>, <span class="hljs-number">1</span>
-
-<span class="hljs-symbol">    indented:</span>
+        <span class="hljs-keyword">nop</span>
         <span class="hljs-keyword">jr</span>      $<span class="hljs-built_in">ra</span>
