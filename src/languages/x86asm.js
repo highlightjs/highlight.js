@@ -121,7 +121,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'symbol',
+        scope: 'symbol',
         variants: [
           // Global label and local label
           { begin: '^[ \\t]*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|[ \\t]+label)' },
@@ -143,7 +143,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'meta',
+        scope: 'meta',
         begin: /^[ \t]*\.[\w_-]+/
       }
     ]

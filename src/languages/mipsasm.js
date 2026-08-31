@@ -84,7 +84,7 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'symbol',
+        scope: 'symbol',
         variants: [
           { // GNU MIPS syntax
             begin: '^[ \\t]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:' },
