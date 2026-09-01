@@ -5,9 +5,14 @@ Documentation:
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
 - docs: revamp the docs landing page using sphinx-design [Haowei Hsu][]
 
+Core Grammars:
+
+- enh(go) add `min`, `max`, and `clear` built-in functions (Go 1.21) [Dylan Pulver][]
+
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[Dylan Pulver]: https://github.com/dylanpulver
 
 ## Version 11.12.0
 

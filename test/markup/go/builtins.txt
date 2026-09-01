@@ -1,0 +1,10 @@
+package main
+
+func main() {
+	s := []int{3, 1, 2}
+	clear(s)
+	lo := min(1, 2)
+	hi := max(3, 4)
+	n := len(s)
+	_ = append(s, lo, hi, n)
+}
