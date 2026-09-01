@@ -121,12 +121,12 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'symbol',
+        scope: 'symbol',
         variants: [
           // Global label and local label
-          { begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)' },
+          { begin: '^[ \\t]*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|[ \\t]+label)' },
           // Macro-local label
-          { begin: '^\\s*%%[A-Za-z0-9_$#@~.?]*:' }
+          { begin: '^[ \\t]*%%[A-Za-z0-9_$#@~.?]*:' }
         ],
         relevance: 0
       },
@@ -143,8 +143,8 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'meta',
-        begin: /^\s*\.[\w_-]+/
+        scope: 'meta',
+        begin: /^[ \t]*\.[\w_-]+/
       }
     ]
   };
