@@ -1,0 +1,5 @@
+<?php
+// This won't be highlighted unless there is another
+// single apostrophe later.
+?>
+<p>Some HTML <?= '\code' ?></p>
