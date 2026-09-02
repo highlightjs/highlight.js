@@ -12,7 +12,6 @@ export default function(hljs) {
   return {
     name: 'OCaml',
     aliases: [
-			'ocaml',
 			'caml',
 			'ml'
 		],

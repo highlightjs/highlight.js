@@ -466,7 +466,6 @@ export default function(hljs) {
   return {
     name: 'Rocq',
 		aliases: [
-			'rocq',
 			'coq'
 		],
     keywords: {
