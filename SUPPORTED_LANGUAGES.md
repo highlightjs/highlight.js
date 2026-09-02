@@ -282,6 +282,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | TTCN-3                  | ttcn, ttcnpp, ttcn3    | [highlightjs-ttcn3](https://gitea.osmocom.org/ttcn3/highlightjs-ttcn3) |
 | Twig                    | twig, craftcms         |         |
 | TypeScript              | typescript, ts, tsx, mts, cts |         |
+| Typst                   | typst                  | [highlightjs-typst](https://github.com/fabeat/highlight-typst) |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
 | Unison                  | unison, u              | [highlightjs-unison](https://github.com/highlightjs/highlightjs-unison) |
 | Vala                    | vala                   |         |
