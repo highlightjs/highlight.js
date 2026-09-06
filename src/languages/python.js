@@ -358,6 +358,7 @@ export default function(hljs) {
     ]
   };
   SUBST.contains = [
+    'self',
     STRING,
     NUMBER,
     PROMPT
