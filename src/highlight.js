@@ -15,24 +15,20 @@ import HTMLInjectionError from "./lib/html_injection_error.js";
 
 
 /**
-@typedef {import('highlight.js').Mode} Mode
-@typedef {import('highlight.js').CompiledMode} CompiledMode
-@typedef {import('highlight.js').CompiledScope} CompiledScope
-@typedef {import('highlight.js').Language} Language
-@typedef {import('highlight.js').HLJSApi} HLJSApi
-@typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
-@typedef {import('highlight.js').PluginEvent} PluginEvent
-@typedef {import('highlight.js').HLJSOptions} HLJSOptions
-@typedef {import('highlight.js').LanguageFn} LanguageFn
-@typedef {import('highlight.js').HighlightedHTMLElement} HighlightedHTMLElement
-@typedef {import('highlight.js').BeforeHighlightContext} BeforeHighlightContext
-@typedef {import('highlight.js/private').MatchType} MatchType
-@typedef {import('highlight.js/private').KeywordData} KeywordData
-@typedef {import('highlight.js/private').EnhancedMatch} EnhancedMatch
-@typedef {import('highlight.js/private').AnnotatedError} AnnotatedError
-@typedef {import('highlight.js').AutoHighlightResult} AutoHighlightResult
-@typedef {import('highlight.js').HighlightOptions} HighlightOptions
-@typedef {import('highlight.js').HighlightResult} HighlightResult
+@typedef {import('./lib/hljs_types.js').Mode} Mode
+@typedef {import('./lib/hljs_types.js').CompiledMode} CompiledMode
+@typedef {import('./lib/hljs_types.js').CompiledScope} CompiledScope
+@typedef {import('./lib/hljs_types.js').Language} Language
+@typedef {import('./lib/hljs_types.js').HLJSApi} HLJSApi
+@typedef {import('./lib/hljs_types.js').HLJSPlugin} HLJSPlugin
+@typedef {import('./lib/hljs_types.js').PluginEvent} PluginEvent
+@typedef {import('./lib/hljs_types.js').HLJSOptions} HLJSOptions
+@typedef {import('./lib/hljs_types.js').LanguageFn} LanguageFn
+@typedef {import('./lib/hljs_types.js').HighlightedHTMLElement} HighlightedHTMLElement
+@typedef {import('./lib/hljs_types.js').BeforeHighlightContext} BeforeHighlightContext
+@typedef {import('./lib/hljs_types.js').AutoHighlightResult} AutoHighlightResult
+@typedef {import('./lib/hljs_types.js').HighlightOptions} HighlightOptions
+@typedef {import('./lib/hljs_types.js').HighlightResult} HighlightResult
 */
 
 
@@ -189,7 +185,7 @@ const HLJS = function(hljs) {
      * Return keyword data if a match is a keyword
      * @param {CompiledMode} mode - current mode
      * @param {string} matchText - the textual match
-     * @returns {KeywordData | false}
+     * @returns {import('./lib/hljs_types.js').KeywordData | false}
      */
     function keywordData(mode, matchText) {
       return mode.keywords[matchText];
@@ -271,7 +267,7 @@ const HLJS = function(hljs) {
     }
 
     /**
-     * @param {string} text
+     * @param {string} keyword
      * @param {string} scope
      */
     function emitKeyword(keyword, scope) {
@@ -383,7 +379,7 @@ const HLJS = function(hljs) {
     /**
      * Handle the start of a new potential mode match
      *
-     * @param {EnhancedMatch} match - the current match
+     * @param {import('./lib/hljs_types.js').EnhancedMatch} match - the current match
      * @returns {number} how far to advance the parse cursor
      */
     function doBeginMatch(match) {
@@ -472,14 +468,14 @@ const HLJS = function(hljs) {
       }
     }
 
-    /** @type {{type?: MatchType, index?: number, rule?: Mode}}} */
+    /** @type {{ type?: import('./lib/hljs_types.js').MatchType, index?: number, rule?: CompiledMode }} */
     let lastMatch = {};
 
     /**
      *  Process an individual match
      *
      * @param {string} textBeforeMatch - text preceding the match (since the last match)
-     * @param {EnhancedMatch} [match] - the match itself
+     * @param {import('./lib/hljs_types.js').EnhancedMatch} [match] - the match itself
      */
     function processLexeme(textBeforeMatch, match) {
       const lexeme = match && match[0];
@@ -500,7 +496,7 @@ const HLJS = function(hljs) {
         // spit the "skipped" character that our regex choked on back into the output sequence
         modeBuffer += codeToHighlight.slice(match.index, match.index + 1);
         if (!SAFE_MODE) {
-          /** @type {AnnotatedError} */
+          /** @type {import('./lib/hljs_types.js').AnnotatedError} */
           const err = new Error(`0 width match regex (${languageName})`);
           err.languageName = languageName;
           err.badRule = lastMatch.rule;
@@ -514,7 +510,7 @@ const HLJS = function(hljs) {
         return doBeginMatch(match);
       } else if (match.type === "illegal" && !ignoreIllegals) {
         // illegal match, we do not continue processing
-        /** @type {AnnotatedError} */
+        /** @type {import('./lib/hljs_types.js').AnnotatedError} */
         const err = new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.scope || '<unnamed>') + '"');
         err.mode = top;
         throw err;
@@ -981,8 +977,10 @@ const HLJS = function(hljs) {
   function fire(event, args) {
     const cb = event;
     plugins.forEach(function(plugin) {
-      if (plugin[cb]) {
-        plugin[cb](args);
+      /** @type {Record<string, any>} */
+      const p = plugin;
+      if (p[cb]) {
+        p[cb](args);
       }
     });
   }
@@ -1047,6 +1045,7 @@ const HLJS = function(hljs) {
 };
 
 // Other names for the variable may break build script
+/** @type {HLJSApi} */
 const highlight = HLJS({});
 
 // returns a new instance of the highlighter to be used for extensions

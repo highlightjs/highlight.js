@@ -1,21 +1,29 @@
 import { inherit } from './utils.js';
 import * as regex from './regex.js';
 
-/** @typedef {import('highlight.js').Mode} Mode */
-/** @typedef {import('highlight.js').ModeCallback} ModeCallback */
+/** @typedef {import('./hljs_types.js').Mode} Mode */
+/** @typedef {import('./hljs_types.js').ModeCallback} ModeCallback */
 
 // Common regexps
+/** @type {RegExp} */
 export const MATCH_NOTHING_RE = /\b\B/;
+/** @type {string} */
 export const IDENT_RE = '[a-zA-Z]\\w*';
+/** @type {string} */
 export const UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
+/** @type {string} */
 export const NUMBER_RE = '\\b\\d+(\\.\\d+)?';
+/** @type {string} */
 export const C_NUMBER_RE = '(-?)(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
+/** @type {string} */
 export const BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
+/** @type {string} */
 export const RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
 
 /**
-* @param { Partial<Mode> & {binary?: string | RegExp} } opts
-*/
+ * @param {Partial<Mode> & {binary?: string | RegExp}} [opts]
+ * @returns {Mode}
+ */
 export const SHEBANG = (opts = {}) => {
   const beginShebang = /^#![ ]*\//;
   if (opts.binary) {
@@ -38,9 +46,11 @@ export const SHEBANG = (opts = {}) => {
 };
 
 // Common modes
+/** @type {Mode} */
 export const BACKSLASH_ESCAPE = {
   begin: '\\\\[\\s\\S]', relevance: 0
 };
+/** @type {Mode} */
 export const APOS_STRING_MODE = {
   scope: 'string',
   begin: '\'',
@@ -48,6 +58,7 @@ export const APOS_STRING_MODE = {
   illegal: '\\n',
   contains: [BACKSLASH_ESCAPE]
 };
+/** @type {Mode} */
 export const QUOTE_STRING_MODE = {
   scope: 'string',
   begin: '"',
@@ -55,6 +66,7 @@ export const QUOTE_STRING_MODE = {
   illegal: '\\n',
   contains: [BACKSLASH_ESCAPE]
 };
+/** @type {Mode} */
 export const PHRASAL_WORDS_MODE = {
   begin: /\b(a|an|the|are|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such|will|you|your|they|like|more)\b/
 };
@@ -64,7 +76,7 @@ export const PHRASAL_WORDS_MODE = {
  * @param {string | RegExp} begin
  * @param {string | RegExp} end
  * @param {Mode | {}} [modeOptions]
- * @returns {Partial<Mode>}
+ * @returns {Mode}
  */
 export const COMMENT = function(begin, end, modeOptions = {}) {
   const mode = inherit(
@@ -131,24 +143,31 @@ export const COMMENT = function(begin, end, modeOptions = {}) {
   );
   return mode;
 };
+/** @type {Mode} */
 export const C_LINE_COMMENT_MODE = COMMENT('//', '$');
+/** @type {Mode} */
 export const C_BLOCK_COMMENT_MODE = COMMENT('/\\*', '\\*/');
+/** @type {Mode} */
 export const HASH_COMMENT_MODE = COMMENT('#', '$');
+/** @type {Mode} */
 export const NUMBER_MODE = {
   scope: 'number',
   begin: NUMBER_RE,
   relevance: 0
 };
+/** @type {Mode} */
 export const C_NUMBER_MODE = {
   scope: 'number',
   begin: C_NUMBER_RE,
   relevance: 0
 };
+/** @type {Mode} */
 export const BINARY_NUMBER_MODE = {
   scope: 'number',
   begin: BINARY_NUMBER_RE,
   relevance: 0
 };
+/** @type {Mode} */
 export const REGEXP_MODE = {
   scope: "regexp",
   begin: /\/(?=[^/\n]*\/)/,
@@ -163,16 +182,19 @@ export const REGEXP_MODE = {
     }
   ]
 };
+/** @type {Mode} */
 export const TITLE_MODE = {
   scope: 'title',
   begin: IDENT_RE,
   relevance: 0
 };
+/** @type {Mode} */
 export const UNDERSCORE_TITLE_MODE = {
   scope: 'title',
   begin: UNDERSCORE_IDENT_RE,
   relevance: 0
 };
+/** @type {Mode} */
 export const METHOD_GUARD = {
   // excludes method names from keyword processing
   begin: '\\.\\s*' + UNDERSCORE_IDENT_RE,
@@ -184,7 +206,8 @@ export const METHOD_GUARD = {
  *
  * Your mode must include at least a single () match group as that first match
  * group is what is used for comparison
- * @param {Partial<Mode>} mode
+ * @param {Mode} mode
+ * @returns {Mode}
  */
 export const END_SAME_AS_BEGIN = function(mode) {
   return Object.assign(mode,

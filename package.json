@@ -52,7 +52,8 @@
     "test-markup": "mocha test/markup",
     "test-detect": "mocha test/detect",
     "test-browser": "mocha test/browser",
-    "test-parser": "mocha test/parser"
+    "test-parser": "mocha test/parser",
+    "types:emit": "tsc -p tsconfig.emit.json"
   },
   "engines": {
     "node": ">=20.0.0"

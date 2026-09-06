@@ -3,7 +3,7 @@ import * as logger from "../../lib/logger.js";
 import * as regex from "../regex.js";
 
 /**
-@typedef {import('highlight.js').CompiledMode} CompiledMode
+@typedef {import('../hljs_types.js').CompiledMode} CompiledMode
 */
 
 const MultiClassError = new Error();
@@ -115,18 +115,19 @@ function scopeSugar(mode) {
 }
 
 /**
- * @param {CompiledMode} mode
+ * @param {CompiledMode | import('../hljs_types.js').Mode} mode
  */
 export function MultiClass(mode) {
-  scopeSugar(mode);
+  const m = /** @type {CompiledMode} */ (mode);
+  scopeSugar(m);
 
-  if (typeof mode.beginScope === "string") {
-    mode.beginScope = { _wrap: mode.beginScope };
+  if (typeof m.beginScope === "string") {
+    m.beginScope = { _wrap: m.beginScope };
   }
-  if (typeof mode.endScope === "string") {
-    mode.endScope = { _wrap: mode.endScope };
+  if (typeof m.endScope === "string") {
+    m.endScope = { _wrap: m.endScope };
   }
 
-  beginMultiClass(mode);
-  endMultiClass(mode);
+  beginMultiClass(m);
+  endMultiClass(m);
 }

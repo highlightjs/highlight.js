@@ -99,6 +99,7 @@ jobs:
       - name: Build Node.js package
         run: |
           npm ci
+          npm run types:emit
           node ./tools/build.js -t node
           npm test
 
