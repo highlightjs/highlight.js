@@ -7,37 +7,41 @@
   License: see project LICENSE
   Touched: 2023
 */
-  
+
   /* end baseline CSS */
-  
+
   .hljs {
     color: #0000ff;
     background: #ffffff;
   }
-  
+
   /* Base color: saturation 0; */
-  
+
   .hljs-subst {
     /* default */
   }
-  
+
   /* purposely ignored */
   .hljs-formula,
   .hljs-attr,
   .hljs-property {}
-  
+
   .hljs-comment {
     color: #008000;
   }
   .hljs-tag {
     color: #444a;
   }
-  
+
   .hljs-tag .hljs-name,
   .hljs-tag .hljs-attr {
     color: #444;
   }
-  
+
+  .hljs-function-built_in {
+    color: #800080
+  }
+
   .hljs-punctuation,
   .hljs-function,
   .hljs-keyword,
@@ -52,7 +56,7 @@
   .hljs-params {
     color: #0000ff;
   }
-  
+
   /* User color: hue: 0 */
 
   .hljs-string,
@@ -65,12 +69,12 @@
   .hljs-deletion {
     color: #000000;
   }
-  
+
   .hljs-title,
   .hljs-section {
     color: #0000ff;
   }
-  
+
   .hljs-regexp,
   .hljs-variable,
   .hljs-template-variable,
@@ -79,28 +83,28 @@
   .hljs-operator,
   .hljs-selector-pseudo {
     color: #ab5656;
-  }   
-  
+  }
+
   /* Language color: hue: 90; */
-  
+
   .hljs-literal {
     color: #ff0000;
   }
-  
+
   .hljs-built_in,
   .hljs-bullet,
   .hljs-code,
   .hljs-addition {
     color: #0000ff;
   }
-  
-  
+
+
   /* Meta color: hue: 200 */
-  
+
   .hljs-meta {
     color: #963200;
   }
-  
+
   .hljs-meta .hljs-string {
     color: #963200;
   }
@@ -108,14 +112,13 @@
   .hljs-meta .hljs-keyword {
     color: #963200;
   }
-  
+
   /* Misc effects */
 
   .hljs-emphasis {
     font-style: italic;
   }
-  
+
   .hljs-strong {
     font-weight: bold;
   }
-  
