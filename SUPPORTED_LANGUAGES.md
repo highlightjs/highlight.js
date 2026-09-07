@@ -130,6 +130,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Iptables                | iptables               | [highlightjs-iptables](https://github.com/highlightjs/highlightjs-iptables) |
 | IRPF90                  | irpf90                 |         |
 | ISBL                    | isbl                   |         |
+| Jai                     | jai, theLanguage, the_language | [highlightjs-jai](https://github.com/highlightjs/highlightjs-jai) |
 | Jaiva                   | jaiva, jiv, jva        | [highlightjs-jaiva](https://github.com/yetnt/highlightjs-jaiva) |
 | Java                    | java, jsp              |         |
 | JavaScript              | javascript, js, jsx, mjs, cjs |         |
