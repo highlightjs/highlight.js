@@ -27,6 +27,7 @@ export default function(hljs) {
     "bool",
     "BOOL",
     "id|0",
+    "instancetype",
     "_Bool"
   ];
   const KWS = [
@@ -63,7 +64,6 @@ export default function(hljs) {
     "readwrite",
     "self",
     "@synchronized",
-    "id",
     "typeof",
     "nonatomic",
     "IBOutlet",
@@ -123,7 +123,6 @@ export default function(hljs) {
     "null_unspecified",
     "null_resettable",
     "class",
-    "instancetype",
     "NS_DESIGNATED_INITIALIZER",
     "NS_UNAVAILABLE",
     "NS_REQUIRES_SUPER",

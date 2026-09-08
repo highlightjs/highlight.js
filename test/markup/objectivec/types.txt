@@ -1,0 +1,11 @@
+id obj;
+instancetype inst;
+BOOL flag;
+int count;
+void *ptr;
+unichar ch;
+
+- (instancetype)initWithObject:(id)object;
+- (void)doWork:(id)value;
+
+if (flag) return obj;
