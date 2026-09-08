@@ -1,0 +1,11 @@
+<span class="hljs-type">id</span> obj;
+<span class="hljs-type">instancetype</span> inst;
+<span class="hljs-type">BOOL</span> flag;
+<span class="hljs-type">int</span> count;
+<span class="hljs-type">void</span> *ptr;
+<span class="hljs-type">unichar</span> ch;
+
+- (<span class="hljs-type">instancetype</span>)initWithObject:(<span class="hljs-type">id</span>)object;
+- (<span class="hljs-type">void</span>)doWork:(<span class="hljs-type">id</span>)value;
+
+<span class="hljs-keyword">if</span> (flag) <span class="hljs-keyword">return</span> obj;
