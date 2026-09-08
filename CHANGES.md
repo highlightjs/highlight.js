@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(csharp) bound the run of type tokens in front of a method name (ReDoS), see #4362
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]

@@ -11,7 +11,8 @@ describe("function declaration backtracking", function() {
   const LANGUAGES = [
     'c',
     'cpp',
-    'arduino' // inherits from cpp
+    'arduino', // inherits from cpp
+    'csharp'
   ];
 
   // 32 KB of words that never form a function declaration.  The budget is
@@ -41,5 +42,12 @@ describe("function declaration backtracking", function() {
 
     const result = hljs.highlight(declaration, { language: 'c' });
     result.value.should.containEql('<span class="hljs-title function_">fn</span>');
+  });
+
+  it("should still find the csharp method title after many modifiers", function() {
+    const declaration = 'protected internal static extern unsafe override async Task<int> Fn<T>(T value);';
+
+    const result = hljs.highlight(declaration, { language: 'csharp' });
+    result.value.should.containEql('<span class="hljs-title">Fn</span>&lt;');
   });
 });
