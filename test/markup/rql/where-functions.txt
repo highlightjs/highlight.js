@@ -1,0 +1,2 @@
+from Products
+where search(Name, "chocolate") and boost(Discontinued = false, 2)

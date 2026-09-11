@@ -1,0 +1,4 @@
+<span class="hljs-keyword">from</span> Orders as o
+<span class="hljs-keyword">where</span> o.Company = <span class="hljs-string">&quot;companies/1-A&quot;</span>
+<span class="hljs-keyword">select</span> o.OrderedAt, o.ShipTo
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> o.OrderedAt <span class="hljs-type">desc</span>

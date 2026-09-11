@@ -244,6 +244,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Roboconf                | roboconf, graph, instances |         |
 | Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
 | RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |
+| RQL (RavenDB)           | rql                    |         |
 | Ruby                    | ruby, rb, gemspec, podspec, thor, irb | |
 | Rust                    | rust, rs               |         |
 | RVT Script              | rvt, rvt-script        | [highlightjs-rvt-script](https://github.com/Sopitive/highlightjs-rvt-script) |
