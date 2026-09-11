@@ -1,9 +1,28 @@
 /*
  Language: RQL
- Description: RavenDB's Query Language, used to query and patch documents in RavenDB.
+ Description: RQL (Raven Query Language) is the SQL-like query language used by RavenDB,
+              a document database. Queries written with RavenDB's high-level client APIs
+              are translated into RQL under the hood, and RQL can also be written directly
+              in the RavenDB Studio and via the low-level client API.
  Author: RavenDB <support@ravendb.net>
- Website: https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/what-is-rql
+ Website: https://docs.ravendb.net/7.2/querying/rql/what-is-rql
  Category: database
+
+ Goals:
+
+ This grammar aims to cover the language surface documented at
+ https://docs.ravendb.net/7.2/querying/rql/what-is-rql, plus the newer
+ vector-search / AI functions documented at
+ https://docs.ravendb.net/7.2/ai-integration/vector-search/start.
+
+ The keyword, function and operator lists are derived from RavenDB's own production
+ RQL tokenizer (the RavenDB Studio's query editor) and its ANTLR4 grammar (used by the
+ Studio's autocomplete/syntax-check service), both in https://github.com/ravendb/ravendb.
+
+ Not covered by this first version: the embedded JavaScript patch-script blocks that
+ `select { ... }` and `update { ... }` open (see
+ https://docs.ravendb.net/7.2/documents/patching-documents/overview) - those are highlighted
+ as plain RQL text here rather than switching into a JavaScript sub-grammar.
  */
 
 export default function(hljs) {
@@ -51,7 +70,8 @@ export default function(hljs) {
     "circle"
   ];
 
-  // vector search / AI functions, added in recent RQL versions
+  // Vector search / AI functions, added in recent RQL versions.
+  // See https://docs.ravendb.net/7.2/ai-integration/vector-search/start
   const AI_FUNCTIONS = [
     "vector.search",
     "embedding.i1",
