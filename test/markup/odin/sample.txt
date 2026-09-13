@@ -1,0 +1,65 @@
+﻿package main
+
+import "core:fmt"
+
+Foo :: struct {
+    x: int,
+    y: string,
+    z: bool
+    bar: Bar
+    bar_p: ^Bar
+    vector: [3]f32
+    dyn: [dynamic]Bar
+    dyn_p: [dynamic]^Bar
+    matrix:[4][4]f32
+    rl_vec: rl.Vector2
+    rl_vec_arr: [4]rl.Vector2
+    rl_vec_p: ^rl.Vector2
+    rl_vec_p_arr: [4]^rl.Vector2
+}
+
+main :: proc() {
+    x: f32 
+    x = 1.0
+    y := 2
+    pi :: 3.14
+    str := "Odin"
+    r := 'O'
+    vector: [3]f32
+    p: ^int
+    
+    do_something_with(&x)
+
+    foo := new(Foo)
+
+    for i := 0; i < 10; i += 1 { }
+    if x > y { }
+
+    fmt.println("Hellope!")
+
+    switch arch := ODIN_ARCH; arch {
+    case .i386, .wasm32, .arm32:
+    fmt.println("32 bit")
+    case .amd64, .wasm64p32, .arm64, .riscv64:
+    fmt.println("64 bit")
+    case .Unknown:
+    fmt.println("Unknown architecture")
+    }
+    
+    multiply(int(x), 2.3))
+    divide(pi,x)
+}
+
+multiply :: proc(x: int, y: int) -> f32 {
+    return f32(x * y)
+}
+
+increment :: proc(x: ^int) {
+    x = x + 1
+}
+
+do_something_with_matrix :: proc(mat: [4][4]f32) -> [4][4]f32 { }
+
+make_rl_vector :: proc(x, y: f32) -> rl.Vector2 {
+    return rl.Vector2{x,y}
+}
