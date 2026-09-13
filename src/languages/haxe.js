@@ -43,8 +43,7 @@ export default function(hljs) {
           },
           {
             className: 'subst', // interpolation
-            begin: /\$/,
-            end: /\W\}/
+            begin: new RegExp('\\$' + IDENT_RE)
           }
         ]
       },
