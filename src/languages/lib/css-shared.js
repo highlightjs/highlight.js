@@ -27,9 +27,15 @@ export const MODES = (hljs) => {
         hljs.QUOTE_STRING_MODE
       ]
     },
+    // Skip identifier-internal -<digit> (e.g. preserve-3d). Negative
+    // lengths such as -10px still match: the hyphen is then not
+    // preceded by an identifier character.
     CSS_NUMBER_MODE: {
       scope: 'number',
-      begin: hljs.NUMBER_RE + '(' +
+      begin: hljs.regex.concat(
+        /(?<![\w-]-)/,
+        hljs.NUMBER_RE,
+        '(',
         '%|em|ex|ch|rem' +
         '|vw|vh|vmin|vmax' +
         '|cm|mm|in|pt|pc|px' +
@@ -37,8 +43,8 @@ export const MODES = (hljs) => {
         '|s|ms' +
         '|Hz|kHz' +
         '|dpi|dpcm|dppx' +
-        ')?',
-      relevance: 0
+        ')?'
+      )
     },
     CSS_VARIABLE: {
       className: "attr",
