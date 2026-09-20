@@ -1,0 +1,7 @@
+<span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">transform-style</span>: preserve-3d;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">3px</span>;
+  <span class="hljs-attribute">margin</span>: -<span class="hljs-number">3px</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.5rem</span>;
+  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">100%</span>;
+}
