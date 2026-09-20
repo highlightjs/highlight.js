@@ -30,12 +30,10 @@ export const MODES = (hljs) => {
     // Skip identifier-internal -<digit> (e.g. preserve-3d). Negative
     // lengths such as -10px still match: the hyphen is then not
     // preceded by an identifier character.
+    // Lookbehind is ES2018; language grammars are linted as ES2015.
     CSS_NUMBER_MODE: {
       scope: 'number',
-      begin: hljs.regex.concat(
-        /(?<![\w-]-)/,
-        hljs.NUMBER_RE,
-        '(',
+      begin: hljs.NUMBER_RE + '(' +
         '%|em|ex|ch|rem' +
         '|vw|vh|vmin|vmax' +
         '|cm|mm|in|pt|pc|px' +
@@ -43,8 +41,14 @@ export const MODES = (hljs) => {
         '|s|ms' +
         '|Hz|kHz' +
         '|dpi|dpcm|dppx' +
-        ')?'
-      )
+        ')?',
+      "on:begin": (match, response) => {
+        const i = match.index;
+        if (i < 1 || match.input[i - 1] !== '-') return;
+        if (i >= 2 && /[\w-]/.test(match.input[i - 2])) {
+          response.ignoreMatch();
+        }
+      }
     },
     CSS_VARIABLE: {
       className: "attr",
