@@ -116,7 +116,7 @@ export default function(hljs) {
         // the `\` at the end of a line signaling continuation
         begin: /\\\n/,
       },
-      STRINGS,
+      hljs.inherit(STRINGS, { className: 'string' }),
       {
         scope: 'string',
         begin: /<.*?>/
@@ -126,9 +126,29 @@ export default function(hljs) {
     ]
   };
 
+  const CONTINUED_PREPROCESSOR_NUMBER = {
+    className: 'number',
+    begin: /[+-]?\b[0-9](?:'?[0-9])*(?:'\\\n[0-9](?:'?[0-9])*)+/,
+    relevance: 0
+  };
+
+  const UNHIGHLIGHTED_PREPROCESSOR_NUMBER = {
+    begin: /[+-]?\b[0-9](?:'?[0-9])*/,
+    relevance: 0
+  };
+
+  const PREPROCESSOR_CONTAINS = [
+    {
+      begin: /\\\n/,
+      relevance: 0
+    },
+    hljs.inherit(STRINGS, { className: 'string' }),
+    C_LINE_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE
+  ];
+
   const PREPROCESSOR = {
     className: 'meta',
-    begin: /#\s*[a-z]+\b/,
     end: /$/,
     keywords: [
       'if',
@@ -145,16 +165,26 @@ export default function(hljs) {
       '_Pragma',
       'ifdef',
       'ifndef',
+      'elifdef',
+      'elifndef',
       'include'
     ],
-    contains: [
+    variants: [
       {
-        begin: /\\\n/,
-        relevance: 0
+        begin: /#\s*define\b/,
+        contains: [
+          CONTINUED_PREPROCESSOR_NUMBER,
+          NUMBERS,
+          ...PREPROCESSOR_CONTAINS
+        ]
       },
-      hljs.inherit(STRINGS, { className: 'string' }),
-      C_LINE_COMMENT_MODE,
-      hljs.C_BLOCK_COMMENT_MODE
+      {
+        begin: /#\s*[a-z]+\b/,
+        contains: [
+          UNHIGHLIGHTED_PREPROCESSOR_NUMBER,
+          ...PREPROCESSOR_CONTAINS
+        ]
+      }
     ]
   };
 
