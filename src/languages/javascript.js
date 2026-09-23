@@ -316,8 +316,8 @@ export default function(hljs) {
     regex.either(
       // Hard coded exceptions
       /\bJSON/,
-      // Float32Array, OutT
-      /\b[A-Z][a-z]+([A-Z][a-z]*|\d)*/,
+      // Float32Array, OutT, Si18n
+      /\b[A-Z][a-z]+([A-Z][a-z]*|\d[a-z]+|\d)*/,
       // CSSFactory, CSSFactoryT
       /\b[A-Z]{2,}([A-Z][a-z]+|\d)+([A-Z][a-z]*)*/,
       // FPs, FPsT
