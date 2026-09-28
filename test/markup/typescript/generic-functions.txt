@@ -1,0 +1,13 @@
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+export async function load<T>(url: string): Promise<T> {}
+
+function pick<T extends Record<string, unknown>, K extends keyof T>(obj: T, key: K) {}
+
+function run<F extends (x: number) => void>(fn: F) {}
+
+function first<T,>(xs: T[]) {}
+
+function overload<T>(x: T): T;
