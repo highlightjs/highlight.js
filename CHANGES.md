@@ -82,6 +82,7 @@ Core Grammars:
 - fix(rust) recognize `\\` and `\"` char-literal escapes so highlighting doesn't leak, issue #4351 [Sarath Francis][]
 - enh(shell) match period (.) as part of shell prompt [Ian Wienand][]
 - enh(sqf) update to Arma 3 v2.22 [LouMontana][]
+- fix(typescript) highlight the name and params of generic function declarations like `function f<T>(x: T)` [Karim Masmoudi][]
 - fix(xml) remove recursive sublanguage references to prevent ReDoS [petejm][]
 
 Documentation:
@@ -168,6 +169,7 @@ CONTRIBUTORS
 [allejo]: https://github.com/allejo
 [KJyang-0114]: https://github.com/KJyang-0114
 [webdiscus]: https://github.com/webdiscus
+[Karim Masmoudi]: https://github.com/Kernel-Hunter
 
 
 ## Version 11.11.2
