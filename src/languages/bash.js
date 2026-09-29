@@ -109,9 +109,12 @@ export default function(hljs) {
     binary: `(${SH_LIKE_SHELLS.join("|")})`,
     relevance: 10
   });
+  // A function header always starts at a word boundary. Without `\b` the
+  // engine retries `\w[\w\d_]*` from every character of a long word while
+  // looking for `() {`, which is quadratic (see #4529).
   const FUNCTION = {
     className: 'function',
-    begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
+    begin: /\b\w[\w\d_]*\s*\(\s*\)\s*\{/,
     returnBegin: true,
     contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: /\w[\w\d_]*/ }) ],
     relevance: 0
