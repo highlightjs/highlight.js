@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(bash) match a function header only at a word boundary, so a long word is not rescanned from every character (ReDoS), issue #4529 [Maciej Zmitrukiewicz][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[Maciej Zmitrukiewicz]: https://github.com/MaciejZet
 
 ## Version 11.12.0
 
