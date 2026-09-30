@@ -18,12 +18,15 @@ export default function(hljs) {
   const BUILT_INS = [
     "append",
     "cap",
+    "clear",
     "close",
     "complex",
     "copy",
     "imag",
     "len",
     "make",
+    "max",
+    "min",
     "new",
     "panic",
     "print",
@@ -33,8 +36,10 @@ export default function(hljs) {
     "delete"
   ];
   const TYPES = [
+    "any",
     "bool",
     "byte",
+    "comparable",
     "complex64",
     "complex128",
     "error",
