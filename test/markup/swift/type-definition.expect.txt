@@ -59,3 +59,7 @@
 <span class="hljs-keyword">protocol</span> <span class="hljs-title class_">TestProtocol</span> {}
 <span class="hljs-keyword">protocol</span> <span class="hljs-title class_">TestProtocol</span>: <span class="hljs-title class_ inherited__">Conform</span> {}
 <span class="hljs-keyword">protocol</span> <span class="hljs-title class_">TestProtocol</span>&lt;<span class="hljs-type">T</span>, <span class="hljs-type">U</span>&gt; {}
+
+<span class="hljs-keyword">let</span> interactor <span class="hljs-operator">=</span> makeInteractor
+<span class="hljs-keyword">let</span> base <span class="hljs-operator">=</span> subclass
+<span class="hljs-keyword">return</span> base

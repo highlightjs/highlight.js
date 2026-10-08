@@ -491,7 +491,7 @@ export default function(hljs) {
 
   const TYPE_DECLARATION = {
     begin: [
-      /(struct|protocol|class|extension|enum|actor)/,
+      /\b(struct|protocol|class|extension|enum|actor)/,
       /\s+/,
       Swift.identifier,
       /\s*/,

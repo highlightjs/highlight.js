@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(swift) a name ending in `actor`, `class`, `struct`, `enum`, `protocol` or `extension` no longer starts a type declaration, issue #4554 [tomnvt][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[tomnvt]: https://github.com/tomnvt
 
 ## Version 11.12.0
 
