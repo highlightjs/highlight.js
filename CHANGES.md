@@ -2,7 +2,7 @@
 
 New Grammars:
 
-- added 3rd party NLP++ grammar to SUPPORTED_LANGUAGES [David de Hilster][]
+- added 3rd party NLP++ grammars (pass files, dictionaries, knowledge bases, analyzer sequences, parse trees) to SUPPORTED_LANGUAGES [David de Hilster][]
 
 Documentation:
 

@@ -190,6 +190,10 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Nim                     | nim                    |         |
 | Nix                     | nix, nixos             |         |
 | NLP++                   | nlpplus, nlp           | [highlightjs-nlpplus](https://github.com/VisualText/highlightjs-nlpplus) |
+| NLP++ Analyzer Sequence | nlpplus-seq            | [highlightjs-nlpplus](https://github.com/VisualText/highlightjs-nlpplus) |
+| NLP++ Dictionary        | nlpplus-dict           | [highlightjs-nlpplus](https://github.com/VisualText/highlightjs-nlpplus) |
+| NLP++ Knowledge Base    | nlpplus-kbb, kbb       | [highlightjs-nlpplus](https://github.com/VisualText/highlightjs-nlpplus) |
+| NLP++ Parse Tree        | nlpplus-tree           | [highlightjs-nlpplus](https://github.com/VisualText/highlightjs-nlpplus) |
 | Node REPL               | node-repl              |         |
 | NSIS                    | nsis                   |         |
 | Oak                     | oak                    | [highlightjs-oak](https://github.com/timlabs/highlightjs-oak) |
