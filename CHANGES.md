@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+New Grammars:
+
+- added 3rd party NLP++ grammars (pass files, dictionaries, knowledge bases, analyzer sequences, parse trees) to SUPPORTED_LANGUAGES [David de Hilster][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[David de Hilster]: https://github.com/ddehilster
 
 ## Version 11.12.0
 
