@@ -219,6 +219,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Prolog                  | prolog                 |         |
 | Properties              | properties             |         |
 | Protocol Buffers        | proto, protobuf        |         |
+| Pug                     | pug, jade              | [@nera-static/highlightjs-pug](https://github.com/seebaermichi/nera-highlightjs-pug) |
 | Puppet                  | puppet, pp             |         |
 | PureBASIC               | purebasic, pb, pbi     |         |
 | Python                  | python, py, gyp, ipython |         |
