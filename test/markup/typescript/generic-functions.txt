@@ -11,3 +11,7 @@ function run<F extends (x: number) => void>(fn: F) {}
 function first<T,>(xs: T[]) {}
 
 function overload<T>(x: T): T;
+
+function tag<T extends "a>b">(x: T) {}
+
+function id<T extends `${number}>`>(x: T) {}
