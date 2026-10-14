@@ -1,0 +1,16 @@
+struct Point {
+    x int
+    y int
+}
+
+fn (p Point) str() string {
+    return '${p.x}, ${p.y}'
+}
+
+pub fn main() {
+    mut points := []Point{}
+    points << Point{1, 2}
+    for pt in points {
+        println(pt.str())
+    }
+}

@@ -1,0 +1,7 @@
+mut nums := [1, 2, 3]
+mut names := ['John', 'Jane']
+mut m := map[string]int{}
+m['one'] = 1
+s := nums[1..3]
+fixed := [3]int{1, 2, 3}
+a := []int{len: 5, init: -1}

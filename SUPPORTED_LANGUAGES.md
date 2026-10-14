@@ -284,6 +284,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | TypeScript              | typescript, ts, tsx, mts, cts |         |
 | Unicorn Rails log       | unicorn-rails-log      | [highlightjs-unicorn-rails-log](https://github.com/sweetppro/highlightjs-unicorn-rails-log) |
 | Unison                  | unison, u              | [highlightjs-unison](https://github.com/highlightjs/highlightjs-unison) |
+| V                       | vlang                  |         |
 | Vala                    | vala                   |         |
 | VB.Net                  | vbnet, vb              |         |
 | VBA                     | vba                    | [highlightjs-vba](https://github.com/dullin/highlightjs-vba) |

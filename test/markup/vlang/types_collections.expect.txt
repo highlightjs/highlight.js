@@ -1,0 +1,7 @@
+<span class="hljs-keyword">mut</span> nums := [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+<span class="hljs-keyword">mut</span> names := [<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Jane&#x27;</span>]
+<span class="hljs-keyword">mut</span> m := map[<span class="hljs-type">string</span>]<span class="hljs-type">int</span>{}
+m[<span class="hljs-string">&#x27;one&#x27;</span>] = <span class="hljs-number">1</span>
+s := nums[<span class="hljs-number">1.</span><span class="hljs-number">.3</span>]
+fixed := [<span class="hljs-number">3</span>]<span class="hljs-type">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+a := []<span class="hljs-type">int</span>{len: <span class="hljs-number">5</span>, init: <span class="hljs-number">-1</span>}

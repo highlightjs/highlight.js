@@ -1,0 +1,10 @@
+#flag -lfoo
+#pkgconfig foo
+
+@[deprecated]
+fn old() {}
+
+fn main() {
+    x := Foo{1, "a"}
+    println(x)
+}

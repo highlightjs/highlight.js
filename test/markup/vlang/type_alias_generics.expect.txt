@@ -1,0 +1,6 @@
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Ints</span> = []<span class="hljs-type">int</span>
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">MyFn</span> = <span class="hljs-keyword">fn</span> <span class="hljs-params">(<span class="hljs-type">int</span>)</span> <span class="hljs-type">bool</span>
+
+<span class="hljs-keyword">fn</span> apply<span class="hljs-params">(f MyFn, n <span class="hljs-type">int</span>)</span> <span class="hljs-type">bool</span> {
+    <span class="hljs-keyword">return</span> f(n)
+}

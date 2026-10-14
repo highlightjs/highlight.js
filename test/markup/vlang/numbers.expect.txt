@@ -1,0 +1,8 @@
+a := <span class="hljs-number">123</span>
+b := <span class="hljs-number">0x7B</span>
+c := <span class="hljs-number">0b01111011</span>
+d := <span class="hljs-number">0o173</span>
+num := <span class="hljs-number">1_000_000</span>
+f := <span class="hljs-number">1.0</span>
+f2 := <span class="hljs-number">3.14e-2</span>
+x := <span class="hljs-type">i64</span>(<span class="hljs-number">123</span>)
