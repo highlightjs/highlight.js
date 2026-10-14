@@ -1,0 +1,14 @@
+enum Color {
+    red
+    green
+    blue
+}
+
+fn main() {
+    c := Color.green
+    match c {
+        .red { println('red') }
+        .green { println('green') }
+        else { println('other') }
+    }
+}

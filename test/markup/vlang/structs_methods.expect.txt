@@ -1,0 +1,16 @@
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">Point</span> {
+    x <span class="hljs-type">int</span>
+    y <span class="hljs-type">int</span>
+}
+
+<span class="hljs-keyword">fn</span> (p Point) <span class="hljs-title function_">str</span><span class="hljs-params">()</span> <span class="hljs-type">string</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;<span class="hljs-subst">${p.x}</span>, <span class="hljs-subst">${p.y}</span>&#x27;</span>
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    <span class="hljs-keyword">mut</span> points := []<span class="hljs-title class_">Point</span>{}
+    points &lt;&lt; <span class="hljs-title class_">Point</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+    <span class="hljs-keyword">for</span> pt <span class="hljs-keyword">in</span> points {
+        println(pt.str())
+    }
+}

@@ -1,0 +1,3 @@
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    println(<span class="hljs-string">&#x27;Hello, V!&#x27;</span>)
+}

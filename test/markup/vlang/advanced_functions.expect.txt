@@ -1,0 +1,19 @@
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">add</span><span class="hljs-params">(a <span class="hljs-type">int</span>, b <span class="hljs-type">int</span>)</span> <span class="hljs-type">int</span> {
+    <span class="hljs-keyword">return</span> a + b
+}
+
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">foo</span><span class="hljs-params">()</span> <span class="hljs-params">(<span class="hljs-type">int</span>, <span class="hljs-type">int</span>)</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>, <span class="hljs-number">3</span>
+}
+
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    double_fn := <span class="hljs-keyword">fn</span> <span class="hljs-params">(n <span class="hljs-type">int</span>)</span> <span class="hljs-type">int</span> {
+        <span class="hljs-keyword">return</span> n + n
+    }
+    a, b := foo()
+    <span class="hljs-keyword">defer</span> { println(<span class="hljs-string">&#x27;done&#x27;</span>) }
+    <span class="hljs-keyword">unsafe</span> {
+        x := a + b
+        println(x)
+    }
+}

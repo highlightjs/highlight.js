@@ -1,0 +1,5 @@
+name := <span class="hljs-string">&#x27;Bob&#x27;</span>
+println(<span class="hljs-string">&quot;Hello, <span class="hljs-subst">${name}</span>!&quot;</span>)
+raw := <span class="hljs-string">r&#x27;hello\nworld&#x27;</span>
+<span class="hljs-type">rune</span> := <span class="hljs-string">`🚀`</span>
+<span class="hljs-keyword">assert</span> <span class="hljs-string">`a`</span> == <span class="hljs-string">&#x27;\x61&#x27;</span>

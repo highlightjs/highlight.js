@@ -1,0 +1,10 @@
+<span class="hljs-meta">#flag -lfoo</span>
+<span class="hljs-meta">#pkgconfig foo</span>
+
+<span class="hljs-meta">@[deprecated]</span>
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">old</span><span class="hljs-params">()</span> {}
+
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    x := <span class="hljs-title class_">Foo</span>{<span class="hljs-number">1</span>, <span class="hljs-string">&quot;a&quot;</span>}
+    println(x)
+}

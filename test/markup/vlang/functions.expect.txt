@@ -1,0 +1,14 @@
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">name</span><span class="hljs-params">()</span>
+
+<span class="hljs-keyword">fn</span> name<span class="hljs-params">(<span class="hljs-type">int</span>, *some_pointer)</span> <span class="hljs-type">string</span>
+
+<span class="hljs-keyword">fn</span> add<span class="hljs-params">(x <span class="hljs-type">int</span>, y <span class="hljs-type">int</span>)</span> <span class="hljs-type">int</span> {
+	<span class="hljs-keyword">return</span> x + y
+}
+
+<span class="hljs-keyword">fn</span> (u User) <span class="hljs-title function_">can_register</span><span class="hljs-params">()</span> <span class="hljs-type">bool</span> {
+	<span class="hljs-keyword">return</span> u.age &gt; <span class="hljs-number">16</span>
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-keyword">fn</span> <span class="hljs-title function_">public_function</span><span class="hljs-params">()</span> {
+}
