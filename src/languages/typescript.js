@@ -141,6 +141,10 @@ export default function(hljs) {
     contains: [
       // `=>` inside a function type must not close the list
       { match: /=>/ },
+      // nor a `>` inside a string literal type
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      tsLanguage.exports.TEMPLATE_STRING,
       tsLanguage.exports.CLASS_REFERENCE,
       'self'
     ]

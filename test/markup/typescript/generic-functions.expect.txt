@@ -12,3 +12,6 @@
 
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">overload</span>&lt;T&gt;(<span class="hljs-params"><span class="hljs-attr">x</span>: T</span>): T;
 
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">tag</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;a&gt;b&quot;</span>&gt;(<span class="hljs-params"><span class="hljs-attr">x</span>: T</span>) {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">id</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">number</span>}</span>&gt;`</span>&gt;(<span class="hljs-params"><span class="hljs-attr">x</span>: T</span>) {}
