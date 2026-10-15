@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(tcl) highlight Tcl 8.6 and 9.0 commands and namespaced keywords, issue #4560 [Gabriel Alencar][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -7,6 +11,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[Gabriel Alencar]: https://github.com/Gaalbu
 [Haowei Hsu]: https://github.com/hwhsu1231
 
 ## Version 11.12.0
