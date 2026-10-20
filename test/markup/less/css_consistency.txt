@@ -75,3 +75,9 @@ main {
   /* normal comment */
   width: /* inline comment */ 50px;
 }
+
+/* escaped special characters are part of the class or id name */
+.dark\:hover\:bg-sky-500:hover {}
+.w-1\/2 {}
+.foo\3A bar {}
+#main\@md {}

@@ -16,6 +16,9 @@ export default function(hljs) {
   const AT_MODIFIERS = "and or not only";
   const IDENT_RE = '[\\w-]+'; // yes, Less identifiers may begin with a digit
   const INTERP_IDENT_RE = '(' + IDENT_RE + '|@\\{' + IDENT_RE + '\\})';
+  // as INTERP_IDENT_RE, but class and id names may also carry CSS escapes
+  const INTERP_SELECTOR_RE = '(' + css.SELECTOR_IDENT_RE('[\\w-]', '[\\w-]')
+    + '|@\\{' + IDENT_RE + '\\})';
 
   /* Generic Modes */
 
@@ -185,8 +188,8 @@ export default function(hljs) {
       },
       modes.CSS_NUMBER_MODE,
       IDENT_MODE('selector-tag', INTERP_IDENT_RE, 0),
-      IDENT_MODE('selector-id', '#' + INTERP_IDENT_RE),
-      IDENT_MODE('selector-class', '\\.' + INTERP_IDENT_RE, 0),
+      IDENT_MODE('selector-id', '#' + INTERP_SELECTOR_RE),
+      IDENT_MODE('selector-class', '\\.' + INTERP_SELECTOR_RE, 0),
       IDENT_MODE('selector-tag', '&', 0),
       modes.ATTRIBUTE_SELECTOR_MODE,
       {

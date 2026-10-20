@@ -73,13 +73,13 @@ export default function(hljs) {
 
       // class tag
       {
-        begin: '\\.[a-zA-Z][a-zA-Z0-9_-]*' + LOOKAHEAD_TAG_END,
+        begin: '\\.' + css.SELECTOR_IDENT_RE('[a-zA-Z]', '[a-zA-Z0-9_-]') + LOOKAHEAD_TAG_END,
         className: 'selector-class'
       },
 
       // id tag
       {
-        begin: '#[a-zA-Z][a-zA-Z0-9_-]*' + LOOKAHEAD_TAG_END,
+        begin: '#' + css.SELECTOR_IDENT_RE('[a-zA-Z]', '[a-zA-Z0-9_-]') + LOOKAHEAD_TAG_END,
         className: 'selector-id'
       },
 

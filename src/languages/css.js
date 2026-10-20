@@ -14,7 +14,7 @@ export default function(hljs) {
   const VENDOR_PREFIX = { begin: /-(webkit|moz|ms|o)-(?=[a-z])/ };
   const AT_MODIFIERS = "and or not only";
   const AT_PROPERTY_RE = /@-?\w[\w]*(-\w+)*/; // @-webkit-keyframes
-  const IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
+  const IDENT_RE = css.SELECTOR_IDENT_RE('[a-zA-Z-]', '[a-zA-Z0-9_-]');
   const STRINGS = [
     hljs.APOS_STRING_MODE,
     hljs.QUOTE_STRING_MODE
@@ -37,7 +37,7 @@ export default function(hljs) {
       modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
-        begin: /#[A-Za-z0-9_-]+/,
+        begin: '#' + css.SELECTOR_IDENT_RE('[A-Za-z0-9_-]', '[A-Za-z0-9_-]'),
         relevance: 0
       },
       {
