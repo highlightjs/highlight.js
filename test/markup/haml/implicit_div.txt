@@ -1,0 +1,8 @@
+%ul.list
+  .item plain class
+  .item.selected{:title=>'yes'} class with attrs
+  #main an id
+  #footer.dark{:id=>"f"} id, class and attrs
+    .nested
+      %h1.good explicit tags still work
+  #{interpolation} is not a div

@@ -8,6 +8,61 @@ Category: template
 
 // TODO support filter tags like :javascript, support inline HTML
 export default function(hljs) {
+  const SELECTOR_ID = {
+    scope: 'selector-id',
+    match: /#[\w-]+/
+  };
+  const SELECTOR_CLASS = {
+    scope: 'selector-class',
+    match: /\.[\w-]+/
+  };
+  const RUBY_HASH_ATTRS = {
+    begin: /\{/,
+    end: /\}/,
+    contains: [
+      {
+        begin: /:\w+\s*=>/,
+        end: /,\s+/,
+        returnBegin: true,
+        endsWithParent: true,
+        contains: [
+          {
+            scope: 'attr',
+            match: /:\w+/
+          },
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE,
+          {
+            match: /\w+/
+          }
+        ]
+      }
+    ]
+  };
+  const HTML_ATTRS = {
+    begin: /\(/,
+    end: /\)/,
+    contains: [
+      {
+        begin: /\w+\s*=/,
+        end: /\s+/,
+        returnBegin: true,
+        endsWithParent: true,
+        contains: [
+          {
+            scope: 'attr',
+            match: /\w+/
+          },
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE,
+          {
+            match: /\w+/
+          }
+        ]
+      }
+    ]
+  };
+
   return {
     name: 'HAML',
     case_insensitive: true,
@@ -38,64 +93,22 @@ export default function(hljs) {
             className: 'selector-tag',
             begin: '\\w+'
           },
-          {
-            className: 'selector-id',
-            begin: '#[\\w-]+'
-          },
-          {
-            className: 'selector-class',
-            begin: '\\.[\\w-]+'
-          },
-          {
-            begin: /\{\s*/,
-            end: /\s*\}/,
-            contains: [
-              {
-                begin: ':\\w+\\s*=>',
-                end: ',\\s+',
-                returnBegin: true,
-                endsWithParent: true,
-                contains: [
-                  {
-                    className: 'attr',
-                    begin: ':\\w+'
-                  },
-                  hljs.APOS_STRING_MODE,
-                  hljs.QUOTE_STRING_MODE,
-                  {
-                    begin: '\\w+',
-                    relevance: 0
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            begin: '\\(\\s*',
-            end: '\\s*\\)',
-            excludeEnd: true,
-            contains: [
-              {
-                begin: '\\w+\\s*=',
-                end: '\\s+',
-                returnBegin: true,
-                endsWithParent: true,
-                contains: [
-                  {
-                    className: 'attr',
-                    begin: '\\w+',
-                    relevance: 0
-                  },
-                  hljs.APOS_STRING_MODE,
-                  hljs.QUOTE_STRING_MODE,
-                  {
-                    begin: '\\w+',
-                    relevance: 0
-                  }
-                ]
-              }
-            ]
-          }
+          SELECTOR_ID,
+          SELECTOR_CLASS,
+          RUBY_HASH_ATTRS,
+          HTML_ATTRS
+        ]
+      },
+      {
+        scope: 'tag',
+        // implicit div: the line starts directly with `.class` or `#id`;
+        // `[\w-]` keeps `#{interpolation}` out of this case
+        begin: /^\s*(?=[.#][\w-])/,
+        contains: [
+          SELECTOR_ID,
+          SELECTOR_CLASS,
+          RUBY_HASH_ATTRS,
+          HTML_ATTRS
         ]
       },
       { begin: '^\\s*[=~]\\s*' },
