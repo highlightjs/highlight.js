@@ -11,8 +11,11 @@
  * https://www.w3.org/TR/css-syntax-3/#escaping
  */
 export const ESCAPE_RE = '\\\\(?:'
+  // The first six hex digits of a longer run; the seventh belongs to the name.
   + '[\\da-fA-F]{6}(?=[\\da-fA-F])'
+  // A complete run of one to six hex digits, optionally followed by one space.
   + '|[\\da-fA-F]{1,6}(?![\\da-fA-F]) ?'
+  // A non-hex escape such as \:; CR and LF cannot follow the backslash.
   + '|[^\\da-fA-F\\r\\n]'
   + ')';
 
