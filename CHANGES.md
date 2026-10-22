@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(scss, stylus) highlight `from`/`to` keyframe selectors like CSS does, issue #4489 [anyingiit][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[anyingiit]: https://github.com/anyingiit
 
 ## Version 11.12.0
 

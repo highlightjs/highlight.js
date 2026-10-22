@@ -1,0 +1,19 @@
+<span class="hljs-keyword">@keyframes</span> fade
+  <span class="hljs-selector-tag">from</span>
+    <span class="hljs-attribute">opacity</span> <span class="hljs-number">0</span>
+  <span class="hljs-number">50%</span>
+    <span class="hljs-attribute">opacity</span> <span class="hljs-number">0.5</span>
+  <span class="hljs-selector-tag">to</span>
+    <span class="hljs-attribute">opacity</span> <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">@keyframes</span> slide {
+  <span class="hljs-selector-tag">from</span>, <span class="hljs-number">50%</span> { <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>; }
+  <span class="hljs-selector-tag">to</span> { <span class="hljs-attribute">left</span>: <span class="hljs-number">100px</span>; }
+}
+
+<span class="hljs-selector-class">.banner</span>
+  <span class="hljs-attribute">background</span> <span class="hljs-built_in">linear-gradient</span>(to right, red, blue)
+
+<span class="hljs-selector-class">.fade</span>
+  &amp;-enter-from, &amp;-leave-to
+    <span class="hljs-attribute">opacity</span> <span class="hljs-number">0</span>

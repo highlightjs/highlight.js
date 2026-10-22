@@ -1,0 +1,16 @@
+@keyframes fade {
+  from, 50% { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+.banner {
+  background: linear-gradient(to right, red, blue);
+}
+
+.fade {
+  &-enter-from, &-leave-to { opacity: 0; }
+}

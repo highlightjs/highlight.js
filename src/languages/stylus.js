@@ -89,6 +89,9 @@ export default function(hljs) {
         className: 'selector-tag'
       },
 
+      // keyframe positions
+      modes.KEYFRAME_POSITION,
+
       // psuedo selectors
       {
         className: 'selector-pseudo',
