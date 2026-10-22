@@ -4,7 +4,7 @@
               a document database. Queries written with RavenDB's high-level client APIs
               are translated into RQL under the hood, and RQL can also be written directly
               in the RavenDB Studio and via the low-level client API.
- Author: RavenDB <support@ravendb.net>
+ Author: Lucas R. Tavares <https://github.com/leadsoftlucas>
  Website: https://docs.ravendb.net/7.2/querying/rql/what-is-rql
  Category: database
 
