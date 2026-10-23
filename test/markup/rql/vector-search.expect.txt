@@ -1,0 +1,2 @@
+<span class="hljs-keyword">from</span> Products
+<span class="hljs-keyword">where</span> <span class="hljs-built_in">vector.search</span>(<span class="hljs-built_in">embedding.text</span>(Description), $query)
