@@ -241,6 +241,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | ReScript                | rescript, res          | [highlightjs-rescript](https://github.com/tsnobip/highlightjs-rescript) |
 | RISC-V Assembly         | riscv, riscvasm        | [highlightjs-riscvasm](https://github.com/highlightjs/highlightjs-riscvasm) |
 | RiScript                | risc, riscript         | [highlightjs-riscript](https://github.com/highlightjs/highlightjs-riscript) |
+| RGC                     | rgc, rg               | [highlightjs-rgc](https://github.com/rgc-lang/highlightjs-rgc) |
 | Roboconf                | roboconf, graph, instances |         |
 | Robot Framework         | robot, rf              | [highlightjs-robot](https://github.com/highlightjs/highlightjs-robot) |
 | RPM spec files          | rpm-specfile, rpm, spec, rpm-spec, specfile | [highlightjs-rpm-specfile](https://github.com/highlightjs/highlightjs-rpm-specfile) |
