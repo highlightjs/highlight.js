@@ -1,0 +1,11 @@
+@override
+@Uint32()
+@Int64()
+@Float32x4()
+@_private
+@$dollar
+@a1_b2$c3
+@pragma('vm:entry-point')
+@ffi.Uint32()
+@ffi.Array.multi([2, 3])
+@$p._A.$b1()

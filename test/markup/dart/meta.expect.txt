@@ -1,0 +1,11 @@
+<span class="hljs-meta">@override</span>
+<span class="hljs-meta">@Uint32</span>()
+<span class="hljs-meta">@Int64</span>()
+<span class="hljs-meta">@Float32x4</span>()
+<span class="hljs-meta">@_private</span>
+<span class="hljs-meta">@$dollar</span>
+<span class="hljs-meta">@a1_b2$c3</span>
+<span class="hljs-meta">@pragma</span>(<span class="hljs-string">&#x27;vm:entry-point&#x27;</span>)
+<span class="hljs-meta">@ffi.Uint32</span>()
+<span class="hljs-meta">@ffi.Array.multi</span>([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+<span class="hljs-meta">@$p._A.$b1</span>()
