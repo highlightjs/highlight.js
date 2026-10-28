@@ -12,6 +12,8 @@ export default function(hljs) {
 
   const regex = hljs.regex;
 
+  const IDENT_RE = /[A-Za-z_$][A-Za-z0-9_$]*/;
+
   const SUBST = {
     className: 'subst',
     variants: [ { begin: '\\$[A-Za-z0-9_]+' } ]
@@ -283,8 +285,12 @@ export default function(hljs) {
       FUNCTION_REFERENCE,
       NUMBER,
       {
-        className: 'meta',
-        begin: '@[A-Za-z]+'
+        scope: 'meta',
+        match: regex.concat(
+          /@/,
+          IDENT_RE,
+          regex.concat('(?:\\.', IDENT_RE, '){0,2}')
+        )
       }
     ]
   };

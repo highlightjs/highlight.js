@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(dart) match full Dart identifiers (digits, `_`, `$`) and prefixed names in annotations, e.g. `@Uint32()`, `@ffi.Uint32()` [Slava Egorov][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[Slava Egorov]: https://github.com/mraleph
 
 ## Version 11.12.0
 
