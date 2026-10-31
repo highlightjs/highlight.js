@@ -33,6 +33,11 @@ export default function(hljs) {
     scope: 'variable',
     match: '\\$+' + IDENT_RE,
   };
+  // One-line comments end at the closing tag as well as at the end of the
+  // line, so `// ... ?>` must not swallow the tag.
+  const LINE_COMMENT_END = /$|(?=\?>)/;
+  const C_LINE_COMMENT_MODE = hljs.COMMENT('//', LINE_COMMENT_END);
+  const HASH_COMMENT_MODE = hljs.COMMENT('#', LINE_COMMENT_END);
   const PREPROCESSOR = {
     scope: "meta",
     variants: [
@@ -418,8 +423,8 @@ export default function(hljs) {
       VARIABLE,
       LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
       hljs.C_BLOCK_COMMENT_MODE,
-      hljs.C_LINE_COMMENT_MODE,
-      hljs.HASH_COMMENT_MODE,
+      C_LINE_COMMENT_MODE,
+      HASH_COMMENT_MODE,
       STRING,
       NUMBER,
       CONSTRUCTOR_CALL,
@@ -444,8 +449,8 @@ export default function(hljs) {
     NAMED_ARGUMENT,
     LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
     hljs.C_BLOCK_COMMENT_MODE,
-    hljs.C_LINE_COMMENT_MODE,
-    hljs.HASH_COMMENT_MODE,
+    C_LINE_COMMENT_MODE,
+    HASH_COMMENT_MODE,
     STRING,
     NUMBER,
     CONSTRUCTOR_CALL,
@@ -500,8 +505,8 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       ATTRIBUTES,
-      hljs.HASH_COMMENT_MODE,
-      hljs.COMMENT('//', '$'),
+      HASH_COMMENT_MODE,
+      C_LINE_COMMENT_MODE,
       hljs.COMMENT(
         '/\\*',
         '\\*/',
@@ -574,8 +579,8 @@ export default function(hljs) {
               VARIABLE,
               LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
               hljs.C_BLOCK_COMMENT_MODE,
-              hljs.C_LINE_COMMENT_MODE,
-              hljs.HASH_COMMENT_MODE,
+              C_LINE_COMMENT_MODE,
+              HASH_COMMENT_MODE,
               STRING,
               NUMBER
             ]
