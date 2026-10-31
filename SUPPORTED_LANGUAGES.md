@@ -259,6 +259,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Smalltalk               | smalltalk, st          |         |
 | SML                     | sml, ml                |         |
 | Solidity                | solidity, sol          | [highlightjs-solidity](https://github.com/highlightjs/highlightjs-solidity) |
+| SOML                    | soml                   | [highlightjs-soml](https://github.com/soml-lang/highlightjs-soml) |
 | Splunk SPL              | spl                    | [highlightjs-spl](https://github.com/swsoyee/highlightjs-spl) |
 | SQF                     | sqf                    |         |
 | SQL                     | sql                    |         |
