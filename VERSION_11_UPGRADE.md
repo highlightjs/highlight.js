@@ -102,13 +102,13 @@ The new API purposely does not support `continuation` as this is only intended f
 - `initHighlighting()` is deprecated (to be removed in 12.0).
 - `initHighlightingOnLoad()` is deprecated (to be removed in 12.0).
 
-**Use `highlightAll()` instead.** ([see docs](https://highlightjs.readthedocs.io/en/latest/api.html#highlight-all)) The old functions are now simply aliases of `highlightAll()`. The new function may be called before or after the DOM is loaded and should do the correct thing in all cases, replacing the need for the previous individual functions.
+**Use `highlightAll()` instead.** ([see docs](https://highlightjs.readthedocs.io/en/latest/api.html#highlightall)) The old functions are now simply aliases of `highlightAll()`. The new function may be called before or after the DOM is loaded and should do the correct thing in all cases, replacing the need for the previous individual functions.
 
 Note: `highlightAll()` does not guard against calling itself repeatedly as the previous functions did. Your code should be careful to avoid doing this.
 
 - `highlightBlock()` is deprecated (to be removed in 12.0).
 
-**Use `highlightElement()` instead.** ([see docs](https://highlightjs.readthedocs.io/en/latest/api.html#highlight-element)) This is merely a naming change.
+**Use `highlightElement()` instead.** ([see docs](https://highlightjs.readthedocs.io/en/latest/api.html#highlightelement)) This is merely a naming change.
 
 Note: The object literal passed to the `before:highlightElement` callback now passes the element in the `el` key vs the `block` key.
 
