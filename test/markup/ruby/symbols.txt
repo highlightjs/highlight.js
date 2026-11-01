@@ -8,3 +8,7 @@ Foo::Bar::baz(1)
 ClassName::method
 Math::PI
 ::TopLevel.new
+
+A::a_method(sym: 1)
+an_alias::a_method(sym: 5)
+A::B::C.new

@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Grammars:
+
+- fix(ruby) `Name::method` and `alias::method` are scope resolutions, not `Name:` symbols [Clark][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[Clark]: https://github.com/clark719664
 
 ## Version 11.12.0
 
