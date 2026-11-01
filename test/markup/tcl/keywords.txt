@@ -1,0 +1,58 @@
+try {
+    set doubled [lmap x $nums { expr {$x * 2} }]
+    set last [lpop doubled]
+    lremove doubled 0
+    set seq [lseq 1 5]
+    ledit doubled 0 end
+} on error {msg} {
+    throw {APP FAIL} $msg
+}
+
+coroutine task apply {{} {
+    yield
+    yieldto other
+}}
+coroinject task break
+coroprobe task
+tailcall task
+
+oo::class create Counter {
+    classvariable total
+    variable n
+    constructor {} {
+        set n 0
+        next
+    }
+    method inc {} {
+        my variable n
+        incr n
+        callback [mymethod log]
+        return [self]
+    }
+    method hop {} {
+        nextto Counter log
+        myclass
+    }
+}
+oo::define Counter {
+    method linkup {name} { link $name }
+}
+set obj [oo::object new]
+oo::objdefine $obj method ping {} { return 1 }
+oo::copy $obj clone
+oo::abstract create Shape {}
+oo::singleton create App {}
+oo::configurable create Widget {}
+
+const PI 3.14
+zlib push gzip $channel
+tcl::prefix match {alpha beta} a
+timerate { lindex $nums 0 }
+zipfs mount app.zip /app
+set text [readFile readme.txt]
+writeFile out.txt $text
+foreachLine line $text { puts $line }
+fpclassify $PI
+tcl::process list
+pkg::create -name demo -version 1.0
+platform::shell
