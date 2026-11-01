@@ -1,0 +1,17 @@
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">identity</span>&lt;T&gt;(<span class="hljs-params"><span class="hljs-attr">arg</span>: T</span>): T {
+  <span class="hljs-keyword">return</span> arg;
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">load</span>&lt;T&gt;(<span class="hljs-params"><span class="hljs-attr">url</span>: <span class="hljs-built_in">string</span></span>): <span class="hljs-title class_">Promise</span>&lt;T&gt; {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">pick</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Record</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">unknown</span>&gt;, K <span class="hljs-keyword">extends</span> keyof T&gt;(<span class="hljs-params"><span class="hljs-attr">obj</span>: T, <span class="hljs-attr">key</span>: K</span>) {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">run</span>&lt;F <span class="hljs-keyword">extends</span> (x: <span class="hljs-built_in">number</span>) =&gt; <span class="hljs-built_in">void</span>&gt;(<span class="hljs-params"><span class="hljs-attr">fn</span>: F</span>) {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">first</span>&lt;T,&gt;(<span class="hljs-params"><span class="hljs-attr">xs</span>: T[]</span>) {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">overload</span>&lt;T&gt;(<span class="hljs-params"><span class="hljs-attr">x</span>: T</span>): T;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">tag</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-string">&quot;a&gt;b&quot;</span>&gt;(<span class="hljs-params"><span class="hljs-attr">x</span>: T</span>) {}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">id</span>&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">number</span>}</span>&gt;`</span>&gt;(<span class="hljs-params"><span class="hljs-attr">x</span>: T</span>) {}
