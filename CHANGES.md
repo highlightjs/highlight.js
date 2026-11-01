@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- enh(go) add the predeclared identifiers `any`, `comparable`, `clear`, `max` and `min` [yu2971512385-ui][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[yu2971512385-ui]: https://github.com/yu2971512385-ui
 
 ## Version 11.12.0
 
