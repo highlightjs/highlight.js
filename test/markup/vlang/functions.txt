@@ -1,0 +1,14 @@
+fn name()
+
+fn name(int, *some_pointer) string
+
+fn add(x int, y int) int {
+	return x + y
+}
+
+fn (u User) can_register() bool {
+	return u.age > 16
+}
+
+pub fn public_function() {
+}

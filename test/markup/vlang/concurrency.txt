@@ -1,0 +1,12 @@
+fn worker() {
+    println('working')
+}
+
+fn main() {
+    go worker()
+    spawn worker()
+    shared data := 42
+    lock {
+        println(data)
+    }
+}

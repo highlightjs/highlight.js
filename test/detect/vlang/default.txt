@@ -1,0 +1,26 @@
+module main
+
+import os
+
+struct User {
+    name string
+    age  int
+}
+
+fn (u User) can_register() bool {
+    return u.age > 16
+}
+
+pub fn add(x int, y int) int {
+    return x + y
+}
+
+fn main() {
+    mutants := [User{"Bob", 21}]
+    bob := 'Bob'
+    println("Hello, ${bob}!")
+    r := f32(45.6)
+    q := r + 3.14
+    number := 1_000_000
+    assert number == 1000000
+}

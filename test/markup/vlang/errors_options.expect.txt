@@ -1,0 +1,13 @@
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">divide</span><span class="hljs-params">(a <span class="hljs-type">int</span>, b <span class="hljs-type">int</span>)</span> !<span class="hljs-type">int</span> {
+    <span class="hljs-keyword">if</span> b == <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">return</span> error(<span class="hljs-string">&#x27;division by zero&#x27;</span>)
+    }
+    <span class="hljs-keyword">return</span> a / b
+}
+
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    val := divide(<span class="hljs-number">10</span>, <span class="hljs-number">2</span>) <span class="hljs-keyword">or</span> { <span class="hljs-number">0</span> }
+    <span class="hljs-keyword">if</span> val? {
+        println(val)
+    }
+}

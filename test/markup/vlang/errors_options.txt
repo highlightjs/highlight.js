@@ -1,0 +1,13 @@
+fn divide(a int, b int) !int {
+    if b == 0 {
+        return error('division by zero')
+    }
+    return a / b
+}
+
+fn main() {
+    val := divide(10, 2) or { 0 }
+    if val? {
+        println(val)
+    }
+}

@@ -1,0 +1,5 @@
+name := 'Bob'
+println("Hello, ${name}!")
+raw := r'hello\nworld'
+rune := `🚀`
+assert `a` == '\x61'

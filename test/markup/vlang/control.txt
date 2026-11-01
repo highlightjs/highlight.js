@@ -1,0 +1,12 @@
+fn main() {
+    if x < 10 {
+        println('small')
+    } else if x > 10 {
+        println('large')
+    } else {
+        println('ten')
+    }
+    for i in 0 .. 5 {
+        println(i)
+    }
+}

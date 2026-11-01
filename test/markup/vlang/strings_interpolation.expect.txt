@@ -1,0 +1,7 @@
+name := <span class="hljs-string">&#x27;Bob&#x27;</span>
+age := <span class="hljs-number">12</span>
+println(<span class="hljs-string">&#x27;Hello, <span class="hljs-variable">$name</span>!&#x27;</span>)
+println(<span class="hljs-string">&#x27;age = <span class="hljs-subst">${age}</span>&#x27;</span>)
+raw := <span class="hljs-string">r&#x27;hello\nworld&#x27;</span>
+rocket := <span class="hljs-string">`🚀`</span>
+println(raw.len)

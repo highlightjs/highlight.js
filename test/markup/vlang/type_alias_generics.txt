@@ -1,0 +1,6 @@
+type Ints = []int
+type MyFn = fn (int) bool
+
+fn apply(f MyFn, n int) bool {
+    return f(n)
+}

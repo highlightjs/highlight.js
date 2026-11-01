@@ -1,0 +1,12 @@
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">10</span> {
+        println(<span class="hljs-string">&#x27;small&#x27;</span>)
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">10</span> {
+        println(<span class="hljs-string">&#x27;large&#x27;</span>)
+    } <span class="hljs-keyword">else</span> {
+        println(<span class="hljs-string">&#x27;ten&#x27;</span>)
+    }
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span> .. <span class="hljs-number">5</span> {
+        println(i)
+    }
+}

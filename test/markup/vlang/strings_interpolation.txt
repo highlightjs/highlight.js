@@ -1,0 +1,7 @@
+name := 'Bob'
+age := 12
+println('Hello, $name!')
+println('age = ${age}')
+raw := r'hello\nworld'
+rocket := `🚀`
+println(raw.len)

@@ -1,0 +1,14 @@
+<span class="hljs-keyword">enum</span> <span class="hljs-title class_">Color</span> {
+    red
+    green
+    blue
+}
+
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    c := Color.green
+    <span class="hljs-keyword">match</span> c {
+        .red { println(<span class="hljs-string">&#x27;red&#x27;</span>) }
+        .green { println(<span class="hljs-string">&#x27;green&#x27;</span>) }
+        <span class="hljs-keyword">else</span> { println(<span class="hljs-string">&#x27;other&#x27;</span>) }
+    }
+}
