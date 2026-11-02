@@ -8,7 +8,7 @@ Date: 2021-04-13
 */
 
 .hljs {
-  background: #1C1B19; /* Black */
+  background: #121110; /* Black */
   color: #FCE8C3; /* Bright White */
 }
 
@@ -78,7 +78,7 @@ Date: 2021-04-13
 .hljs-number,
 .hljs-comment,
 .hljs-meta {
-  color: #918175;
+  color: #917E6B;
 }
 
 .hljs-emphasis {
