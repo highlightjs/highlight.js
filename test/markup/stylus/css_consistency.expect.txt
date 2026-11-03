@@ -72,6 +72,11 @@
 }
 
 <span class="hljs-selector-tag">main</span> {
+  <span class="hljs-attribute">filter</span>: <span class="hljs-built_in">grayscale</span>(<span class="hljs-number">0.5</span>) <span class="hljs-built_in">blur</span>(<span class="hljs-number">10px</span>);
+  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">linear-gradient</span>(to right, <span class="hljs-built_in">rgb</span>(<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> / <span class="hljs-number">50%</span>), <span class="hljs-built_in">var</span>(--color));
+}
+
+<span class="hljs-selector-tag">main</span> {
   <span class="hljs-comment">/* normal comment */</span>
   <span class="hljs-attribute">width</span>: <span class="hljs-comment">/* inline comment */</span> <span class="hljs-number">50px</span>;
 }
