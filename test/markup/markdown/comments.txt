@@ -1,0 +1,14 @@
+<!-- This is an HTML comment -->
+
+<!-- livebook:{"default_language":"python"} -->
+
+# Section Title <!-- comment in header -->
+
+Text with _italics_ and **bold**.
+
+<!--
+Multiline comment
+with _underscores_ inside
+-->
+
+> <!-- quoted comment -->

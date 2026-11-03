@@ -1,0 +1,14 @@
+<span class="hljs-comment">&lt;!-- This is an HTML comment --&gt;</span>
+
+<span class="hljs-comment">&lt;!-- livebook:{&quot;default_language&quot;:&quot;python&quot;} --&gt;</span>
+
+<span class="hljs-section"># Section Title <span class="hljs-comment">&lt;!-- comment in header --&gt;</span></span>
+
+Text with <span class="hljs-emphasis">_italics_</span> and <span class="hljs-strong">**bold**</span>.
+
+<span class="hljs-comment">&lt;!--
+Multiline comment
+with _underscores_ inside
+--&gt;</span>
+
+<span class="hljs-quote">&gt; <span class="hljs-comment">&lt;!-- quoted comment --&gt;</span></span>

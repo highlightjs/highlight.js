@@ -14,6 +14,11 @@ export default function(hljs) {
     subLanguage: 'xml',
     relevance: 0
   };
+  const HTML_COMMENT = hljs.COMMENT(
+    '<!--',
+    '-->',
+    { relevance: 0 }
+  );
   // https://spec.commonmark.org/0.31.2/#thematic-breaks
   // three or more `-`, `*` or `_`, all the same character, optionally
   // separated and followed by spaces or tabs, and nothing else on the line
@@ -173,6 +178,7 @@ export default function(hljs) {
 
   let CONTAINABLE = [
     INLINE_HTML,
+    HTML_COMMENT,
     LINK
   ];
 
@@ -232,6 +238,7 @@ export default function(hljs) {
     contains: [
       HEADER,
       INLINE_HTML,
+      HTML_COMMENT,
       LIST,
       // must come before BOLD/ITALIC so that a `***` or `___` thematic break
       // isn't mistaken for the start of bold text
