@@ -1,0 +1,4 @@
+<span class="hljs-keyword">const</span> myVar = &lt;<span class="hljs-built_in">string</span>[]&gt;<span class="hljs-variable language_">this</span>.<span class="hljs-property">service</span>.<span class="hljs-title function_">invoke</span>();
+<span class="hljs-keyword">const</span> nums = &lt;<span class="hljs-built_in">number</span>[]&gt;<span class="hljs-title function_">getValues</span>();
+<span class="hljs-keyword">const</span> items = &lt;<span class="hljs-title class_">Item</span>[]&gt;list;
+<span class="hljs-keyword">const</span> nested = &lt;<span class="hljs-built_in">string</span>[][]&gt;matrix;

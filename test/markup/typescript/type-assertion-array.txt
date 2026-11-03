@@ -1,0 +1,4 @@
+const myVar = <string[]>this.service.invoke();
+const nums = <number[]>getValues();
+const items = <Item[]>list;
+const nested = <string[][]>matrix;
