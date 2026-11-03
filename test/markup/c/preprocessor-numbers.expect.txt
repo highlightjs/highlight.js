@@ -1,0 +1,7 @@
+<span class="hljs-comment">// #define with digit-separated integer literals must stay numbers and must not</span>
+<span class="hljs-comment">// swallow the following code as a string. See issue #4443.</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> INF <span class="hljs-number">1&#x27;000&#x27;000&#x27;000</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> MASK <span class="hljs-number">0xFF&#x27;FF</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> BITS <span class="hljs-number">0b1010&#x27;1010</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> OCT <span class="hljs-number">07&#x27;77</span></span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span> { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
