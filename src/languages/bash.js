@@ -111,7 +111,7 @@ export default function(hljs) {
   });
   const FUNCTION = {
     className: 'function',
-    begin: /\w[\w\d_]*\s*\(\s*\)\s*\{/,
+    begin: /\w[\w\d_]*?\s*\(\s*\)\s*\{/,
     returnBegin: true,
     contains: [ hljs.inherit(hljs.TITLE_MODE, { begin: /\w[\w\d_]*/ }) ],
     relevance: 0
