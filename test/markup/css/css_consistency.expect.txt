@@ -76,3 +76,9 @@
   <span class="hljs-comment">/* normal comment */</span>
   <span class="hljs-attribute">width</span>: <span class="hljs-comment">/* inline comment */</span> <span class="hljs-number">50px</span>;
 }
+
+<span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">transform-style</span>: preserve-3d;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">3px</span>;
+  <span class="hljs-attribute">margin</span>: -<span class="hljs-number">3px</span>;
+}

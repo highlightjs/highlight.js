@@ -76,3 +76,9 @@ main {
   /* normal comment */
   width: /* inline comment */ 50px;
 }
+
+div {
+  transform-style: preserve-3d;
+  width: 3px;
+  margin: -3px;
+}

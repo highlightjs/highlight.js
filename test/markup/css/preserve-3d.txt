@@ -1,0 +1,7 @@
+div {
+  transform-style: preserve-3d;
+  width: 3px;
+  margin: -3px;
+  font-size: 0.5rem;
+  opacity: 100%;
+}

@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(css, less, scss, stylus) do not highlight the digit inside `preserve-3d` as a number, issue #4531 [David][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -7,6 +11,7 @@ Documentation:
 
 CONTRIBUTORS
 
+[David]: https://github.com/dyk1454683243-sudo
 [Haowei Hsu]: https://github.com/hwhsu1231
 
 ## Version 11.12.0
