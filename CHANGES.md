@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(css, less, scss, stylus) keep escaped characters inside class and id names, issue #3965 [Maxim Gagiev][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[Maxim Gagiev]: https://github.com/maximilliangrand
 
 ## Version 11.12.0
 
