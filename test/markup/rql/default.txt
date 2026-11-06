@@ -1,0 +1,4 @@
+from Orders as o
+where o.Company = "companies/1-A"
+select o.OrderedAt, o.ShipTo
+order by o.OrderedAt desc

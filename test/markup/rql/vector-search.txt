@@ -1,0 +1,2 @@
+from Products
+where vector.search(embedding.text(Description), $query)

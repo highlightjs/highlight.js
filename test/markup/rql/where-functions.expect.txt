@@ -1,0 +1,2 @@
+<span class="hljs-keyword">from</span> Products
+<span class="hljs-keyword">where</span> <span class="hljs-built_in">search</span>(Name, <span class="hljs-string">&quot;chocolate&quot;</span>) <span class="hljs-keyword">and</span> <span class="hljs-built_in">boost</span>(Discontinued = <span class="hljs-literal">false</span>, <span class="hljs-number">2</span>)
