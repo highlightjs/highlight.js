@@ -38,17 +38,26 @@ export default function(hljs) {
     end: /\)/,
     contains: [ hljs.BACKSLASH_ESCAPE ]
   };
-  const COMMENT = hljs.inherit(
-    hljs.COMMENT(),
-    {
-      match: [
-        /(^|\s)/,
-        /#.*$/
-      ],
-      scope: {
-        2: 'comment'
-      }
+  // a comment begins at the start of a line or after whitespace,
+  // `foo#bar` (as in `nix run nixpkgs#btop`) is not a comment
+  function COMMENT_BOUNDARY_CALLBACK(match, response) {
+    if (match.index === 0) {
+      return;
     }
+
+    const charBeforeMatch = match.input[match.index - 1];
+    if (/\s/.test(charBeforeMatch)) {
+      return;
+    }
+
+    response.ignoreMatch();
+  }
+
+  // note: we can not use an array `match` + `scope: {}` here as that
+  // would silently drop the `contains` of COMMENT() (ie. doctags)
+  const COMMENT = hljs.inherit(
+    hljs.COMMENT('#', '$'),
+    { 'on:begin': COMMENT_BOUNDARY_CALLBACK }
   );
   const HERE_DOC = {
     begin: /<<-?\s*(?=\w+)/,

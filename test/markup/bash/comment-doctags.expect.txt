@@ -1,0 +1,2 @@
+<span class="hljs-comment"># <span class="hljs-doctag">TODO:</span> fix this bug</span>
+<span class="hljs-built_in">echo</span> hi <span class="hljs-comment"># <span class="hljs-doctag">FIXME:</span> crash here</span>
