@@ -8,12 +8,28 @@ Website: https://github.com/toml-lang/toml
 
 export default function(hljs) {
   const regex = hljs.regex;
+
+  // TODO: post v12 lets use look-behind, until then a callback filter is used
+  // const VALUE_BOUNDARY_RE = /(?<![\w.])/;
+  function VALUE_BOUNDARY_CALLBACK(matchdata, response) {
+    if (matchdata.index === 0) {
+      return;
+    }
+
+    const charBeforeMatch = matchdata.input[matchdata.index - 1];
+    if (/[\w.]/.test(charBeforeMatch)) {
+      // a number inside a larger bare token, like the `1.2` of `TLSv1.2`,
+      // is not a value of its own
+      response.ignoreMatch();
+    }
+  }
+
   const NUMBERS = {
     className: 'number',
     relevance: 0,
     variants: [
-      { begin: /([+-]+)?[\d]+_[\d_]+/ },
-      { begin: hljs.NUMBER_RE }
+      { begin: /([+-]+)?[\d]+_[\d_]+/, 'on:begin': VALUE_BOUNDARY_CALLBACK },
+      { begin: hljs.NUMBER_RE, 'on:begin': VALUE_BOUNDARY_CALLBACK }
     ]
   };
   const COMMENTS = hljs.COMMENT();
