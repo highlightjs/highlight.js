@@ -1,0 +1,7 @@
+plain = TLSv1.2
+env = TLSv1_2
+quoted = "TLSv1.2"
+digits = abc123def
+float = 1.23
+score = 1_234
+array = [1, 2.5, TLSv1.2]
