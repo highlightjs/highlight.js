@@ -1,3 +1,4 @@
 echo asdf#qwert yuiop
 
 echo asdf #qwert yuiop
+nix run nixpkgs#btop
