@@ -180,9 +180,10 @@ const HLJS = function(hljs) {
    * @param {string} codeToHighlight - the code to highlight
    * @param {boolean?} [ignoreIllegals] - whether to ignore illegal matches, default is to bail
     * @param {CompiledMode[]?} [continuation] - mode stack to resume, if any
+    * @param {boolean} [renderHTML] - whether to render `value`, when false it is left `null`
     * @returns {HighlightResult} - result of the highlight operation
    */
-  function _highlight(languageName, codeToHighlight, ignoreIllegals, continuation) {
+  function _highlight(languageName, codeToHighlight, ignoreIllegals, continuation, renderHTML = true) {
     const keywordHits = Object.create(null);
 
     /**
@@ -245,7 +246,8 @@ const HLJS = function(hljs) {
           emitter.addText(modeBuffer);
           return;
         }
-        result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage]);
+        // only the emitter is used, the HTML is rendered as part of the parent
+        result = _highlight(top.subLanguage, modeBuffer, true, continuations[top.subLanguage], false);
         continuations[top.subLanguage] = /** @type {CompiledMode[]} */ (result._top);
       } else {
         result = highlightAuto(modeBuffer, top.subLanguage.length ? top.subLanguage : null);
@@ -613,7 +615,7 @@ const HLJS = function(hljs) {
       }
 
       emitter.finalize();
-      result = emitter.toHTML();
+      result = renderHTML ? emitter.toHTML() : null;
 
       return {
         language: languageName,
@@ -693,7 +695,7 @@ const HLJS = function(hljs) {
     const plaintext = justTextHighlightResult(code);
 
     const results = languageSubset.filter(getLanguage).filter(autoDetection).map(name =>
-      _highlight(name, code, false)
+      _highlight(name, code, false, null, false)
     );
     results.unshift(plaintext); // plaintext is always an option
 
@@ -719,6 +721,10 @@ const HLJS = function(hljs) {
     });
 
     const [best, secondBest] = sorted;
+    // only the results we return need HTML, so render it for those alone
+    for (const r of [best, secondBest]) {
+      if (r && r.value === null) r.value = r._emitter.toHTML();
+    }
 
     /** @type {AutoHighlightResult} */
     const result = best;

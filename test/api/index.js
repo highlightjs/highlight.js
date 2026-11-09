@@ -7,6 +7,7 @@ describe('hljs', function() {
   require('./cNumber');
   require('./getLanguage');
   require('./highlight');
+  require('./highlightAuto');
   require('./ident');
   require('./keywords');
   require('./number');
