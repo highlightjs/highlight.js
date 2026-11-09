@@ -61,6 +61,15 @@ export default function(hljs) {
     built_in: ECMAScript.BUILT_INS.concat(LIVESCRIPT_BUILT_INS)
   };
   const JS_IDENT_RE = '[A-Za-z$_](?:-[0-9A-Za-z$_]|[0-9A-Za-z$_])*';
+  // The function and label patterns below are not anchored, so an unbounded
+  // identifier or `(.*)` run is retried from every character of a long word
+  // or every `(` of a long line, taking quadratic time (ReDoS), see issue
+  // #4529. Bounding the runs keeps them linear; real identifiers and one-line
+  // parameter lists are far shorter than these limits.
+  const MAX_IDENT_LENGTH = 64;
+  const MAX_PARAMS_LENGTH = 200;
+  const BOUNDED_IDENT_RE = '[A-Za-z$_](?:-[0-9A-Za-z$_]|[0-9A-Za-z$_]){0,' + (MAX_IDENT_LENGTH - 1) + '}';
+  const BOUNDED_PARAMS_RE = '\\(.{0,' + MAX_PARAMS_LENGTH + '}\\)';
   const TITLE = hljs.inherit(hljs.TITLE_MODE, { begin: JS_IDENT_RE });
   const SUBST = {
     className: 'subst',
@@ -207,22 +216,22 @@ export default function(hljs) {
         returnBegin: true,
         variants: [
           {
-            begin: '(' + JS_IDENT_RE + '\\s*(?:=|:=)\\s*)?(\\(.*\\)\\s*)?\\B->\\*?',
+            begin: '(' + BOUNDED_IDENT_RE + '\\s*(?:=|:=)\\s*)?(' + BOUNDED_PARAMS_RE + '\\s*)?\\B->\\*?',
             end: '->\\*?'
           },
           {
-            begin: '(' + JS_IDENT_RE + '\\s*(?:=|:=)\\s*)?!?(\\(.*\\)\\s*)?\\B[-~]{1,2}>\\*?',
+            begin: '(' + BOUNDED_IDENT_RE + '\\s*(?:=|:=)\\s*)?!?(' + BOUNDED_PARAMS_RE + '\\s*)?\\B[-~]{1,2}>\\*?',
             end: '[-~]{1,2}>\\*?'
           },
           {
-            begin: '(' + JS_IDENT_RE + '\\s*(?:=|:=)\\s*)?(\\(.*\\)\\s*)?\\B!?[-~]{1,2}>\\*?',
+            begin: '(' + BOUNDED_IDENT_RE + '\\s*(?:=|:=)\\s*)?(' + BOUNDED_PARAMS_RE + '\\s*)?\\B!?[-~]{1,2}>\\*?',
             end: '!?[-~]{1,2}>\\*?'
           }
         ]
       },
       CLASS_DEFINITION,
       {
-        begin: JS_IDENT_RE + ':',
+        begin: BOUNDED_IDENT_RE + ':',
         end: ':',
         returnBegin: true,
         returnEnd: true,

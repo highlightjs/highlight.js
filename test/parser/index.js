@@ -10,4 +10,5 @@ describe('hljs', function() {
   require('./compiler-extensions');
   require('./max_keyword_hits');
   require('./function-declaration-backtracking');
+  require('./livescript-function-backtracking');
 });
