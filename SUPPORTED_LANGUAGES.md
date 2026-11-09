@@ -152,6 +152,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Liquid                  | liquid                 | [highlightjs-liquid](https://github.com/highlightjs/highlightjs-liquid) |
 | Liquidsoap              | liq                    | [highlightjs-liquidsoap](https://github.com/savonet/highlightjs-liquidsoap) |
 | Lisp                    | lisp                   |         |
+| Lispex                  | lispex, lspx           | [highlightjs-lispex](https://github.com/studiohaze/highlightjs-lispex) |
 | LiveCode Server         | livecodeserver         |         |
 | LiveScript              | livescript, ls         |         |
 | LLVM IR                 | llvm                   |         |
@@ -259,6 +260,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Smalltalk               | smalltalk, st          |         |
 | SML                     | sml, ml                |         |
 | Solidity                | solidity, sol          | [highlightjs-solidity](https://github.com/highlightjs/highlightjs-solidity) |
+| SOML                    | soml                   | [highlightjs-soml](https://github.com/soml-lang/highlightjs-soml) |
 | Splunk SPL              | spl                    | [highlightjs-spl](https://github.com/swsoyee/highlightjs-spl) |
 | SQF                     | sqf                    |         |
 | SQL                     | sql                    |         |
@@ -277,6 +279,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Test Anything Protocol  | tap                    |         |
 | Thrift                  | thrift                 |         |
 | Toit                    | toit                   | [toit-highlight](https://github.com/snxx-lppxx/toit-highlight) |
+| Topaz                   | topaz, tpz             | [highlightjs-topaz](https://github.com/studiohaze/highlightjs-topaz) |
 | TP                      | tp                     |         |
 | Transact-SQL            | tsql                   | [highlightjs-tsql](https://github.com/highlightjs/highlightjs-tsql) |
 | TTCN-3                  | ttcn, ttcnpp, ttcn3    | [highlightjs-ttcn3](https://gitea.osmocom.org/ttcn3/highlightjs-ttcn3) |
