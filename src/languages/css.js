@@ -95,7 +95,8 @@ export default function(hljs) {
               }
             ]
           },
-          modes.FUNCTION_DISPATCH
+          modes.FUNCTION_DISPATCH,
+          modes.VALUE_IDENTIFIER
         ]
       },
       {

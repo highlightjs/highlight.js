@@ -1,0 +1,12 @@
+/* this test is shared with css, less, scss, and stylus to confirm consistent highlighting */
+
+div {
+  transform-style:preserve-3d;
+  animation-name: fade-3, -fade-3s, --3d;
+  font-family: Font-3d;
+  grid-column: column-3 / span 2;
+  margin: -3px 0.5em 20%;
+  width: calc(100% - 3px);
+  padding: var(--space-3, 3px);
+  transform: translate3d(3px, -3px, 0) scale(1.5);
+}
