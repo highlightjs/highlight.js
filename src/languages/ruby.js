@@ -360,7 +360,8 @@ export default function(hljs) {
     },
     {
       className: 'symbol',
-      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',
+      // `name:` is a symbol key, but `Name::method` is a scope resolution
+      begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:(?!:)',
       relevance: 0
     },
     {
