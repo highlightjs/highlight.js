@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Parser Engine:
+
+- enh(parser) only render HTML for the results `highlightAuto` returns, and never for sub-language results [Afonso Ribeiro][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -12,6 +16,7 @@ Core Grammars:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[Afonso Ribeiro]: https://github.com/deadstrobe5
 [Dylan Pulver]: https://github.com/dylanpulver
 
 ## Version 11.12.0
