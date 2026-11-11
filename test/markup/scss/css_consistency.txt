@@ -72,6 +72,11 @@ main {
 }
 
 main {
+  filter: grayscale(0.5) blur(10px);
+  background: linear-gradient(to right, rgb(0 0 0 / 50%), var(--color));
+}
+
+main {
   /* normal comment */
   width: /* inline comment */ 50px;
 }
