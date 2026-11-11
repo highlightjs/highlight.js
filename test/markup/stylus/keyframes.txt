@@ -1,0 +1,19 @@
+@keyframes fade
+  from
+    opacity 0
+  50%
+    opacity 0.5
+  to
+    opacity 1
+
+@keyframes slide {
+  from, 50% { left: 0; }
+  to { left: 100px; }
+}
+
+.banner
+  background linear-gradient(to right, red, blue)
+
+.fade
+  &-enter-from, &-leave-to
+    opacity 0

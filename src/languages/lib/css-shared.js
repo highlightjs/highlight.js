@@ -43,6 +43,16 @@ export const MODES = (hljs) => {
     CSS_VARIABLE: {
       className: "attr",
       begin: /--[A-Za-z_][A-Za-z0-9_-]*/
+    },
+    // `from` / `to` keyframe selectors (scoped like CSS does it), only as a
+    // whole word followed by `{`, `,` or the end of the line, so things like
+    // `to right`, `@for $i from 1 through 3` or `&-leave-to {}` are left alone
+    KEYFRAME_POSITION: {
+      match: [
+        /(?:^|[\s,{}])/,
+        /(?:from|to)(?=\s*(?:[{,]|$))/
+      ],
+      scope: { 2: 'selector-tag' }
     }
   };
 };

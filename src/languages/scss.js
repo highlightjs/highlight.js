@@ -50,6 +50,7 @@ export default function(hljs) {
         // was there, before, but why?
         relevance: 0
       },
+      modes.KEYFRAME_POSITION,
       {
         className: 'selector-pseudo',
         begin: ':(' + PSEUDO_CLASSES.join('|') + ')'
