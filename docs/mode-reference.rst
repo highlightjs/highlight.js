@@ -615,7 +615,7 @@ starts
 
 - **type**: mode
 
-The the mode that will start right after the current mode ends. The new mode will not be contained within the current one.
+The mode that will start right after the current mode ends. The new mode will not be contained within the current one.
 
 Currently this attribute is used to highlight JavaScript and CSS contained within HTML.
 Tags ``<script>`` and ``<style>`` start sub-modes that use another language definition to parse their contents (see :ref:`subLanguage`).
