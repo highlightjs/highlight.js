@@ -5,9 +5,14 @@ Documentation:
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
 - docs: revamp the docs landing page using sphinx-design [Haowei Hsu][]
 
+Core Grammars:
+
+- fix(bash) doctags in comments are highlighted again, issue #4234 [cdytotoro-ctrl][]
+
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[cdytotoro-ctrl]: https://github.com/cdytotoro-ctrl
 
 ## Version 11.12.0
 
