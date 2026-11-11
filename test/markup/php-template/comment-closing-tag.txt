@@ -1,0 +1,7 @@
+<div class="<?php echo esc_attr( $class ); // phpcs:ignore ?>">
+<?php # a hash comment ?>
+<p><?php echo 1; // a "quoted" ?> tail</p>
+<?php
+// a comment with no closing tag on its line
+echo 2;
+?>

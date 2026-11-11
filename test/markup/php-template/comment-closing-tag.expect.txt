@@ -1,0 +1,8 @@
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;</span></span></span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">esc_attr</span>( <span class="hljs-variable">$class</span> ); <span class="hljs-comment">// phpcs:ignore </span><span class="hljs-meta">?&gt;</span></span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+</span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-comment"># a hash comment </span><span class="hljs-meta">?&gt;</span></span><span class="language-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-number">1</span>; <span class="hljs-comment">// a &quot;quoted&quot; </span><span class="hljs-meta">?&gt;</span></span><span class="language-xml"> tail<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</span><span class="language-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// a comment with no closing tag on its line</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-number">2</span>;
+<span class="hljs-meta">?&gt;</span></span><span class="language-xml">
+</span>
