@@ -82,7 +82,8 @@ export default function(hljs) {
     },
     modes.IMPORTANT,
     { beginKeywords: 'and not' },
-    modes.FUNCTION_DISPATCH
+    modes.FUNCTION_DISPATCH,
+    modes.VALUE_IDENTIFIER
   );
 
   const VALUE_WITH_RULESETS = VALUE_MODES.concat({

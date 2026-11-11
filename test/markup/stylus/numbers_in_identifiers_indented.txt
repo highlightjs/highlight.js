@@ -1,0 +1,6 @@
+div
+  transform-style preserve-3d
+  animation-name fade-3
+  margin -3px 0.5em 20%
+  padding var(--space-3, 3px)
+  transform translate3d(3px, -3px, 0)

@@ -175,10 +175,10 @@ export default function(hljs) {
             modes.CSS_NUMBER_MODE,
             hljs.C_BLOCK_COMMENT_MODE,
             modes.IMPORTANT,
-            modes.FUNCTION_DISPATCH
+            modes.FUNCTION_DISPATCH,
+            modes.VALUE_IDENTIFIER
           ],
-          illegal: /\./,
-          relevance: 0
+          illegal: /\./
         }
       },
       modes.FUNCTION_DISPATCH

@@ -1,5 +1,9 @@
 ## Version 11.12.1
 
+Core Grammars:
+
+- fix(css, less, scss, stylus) keep digits inside property-value identifiers unhighlighted, issue #4531 [xiaoyao-666-coder][]
+
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
@@ -8,6 +12,7 @@ Documentation:
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[xiaoyao-666-coder]: https://github.com/xiaoyao-666-coder
 
 ## Version 11.12.0
 
