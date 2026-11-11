@@ -1,0 +1,3 @@
+trace('Interpreted: ${interpElapsed}s for $CALLS calls');
+trace('Compiled:    ${compiledElapsed}s for $CALLS calls');
+trace('Speedup: ${interpElapsed / compiledElapsed}x');
