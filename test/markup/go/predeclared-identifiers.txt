@@ -1,0 +1,10 @@
+type Set[E comparable] map[E]struct{}
+
+var data map[string]any
+
+func process(in any) any {
+  lo := min(1, 2)
+  hi := max(3, 4)
+  clear(data)
+  return lo + hi
+}
