@@ -456,7 +456,7 @@ export default function(hljs) {
     aliases: ['js', 'jsx', 'mjs', 'cjs'],
     keywords: KEYWORDS,
     // this will be extended by TypeScript
-    exports: { PARAMS_CONTAINS, CLASS_REFERENCE },
+    exports: { PARAMS_CONTAINS, CLASS_REFERENCE, TEMPLATE_STRING },
     illegal: /#(?![$_A-Za-z])/,
     contains: [
       hljs.SHEBANG({
