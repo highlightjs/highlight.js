@@ -1,0 +1,7 @@
+foo() {
+  echo hi
+}
+
+my_func () {
+  echo hi
+}
