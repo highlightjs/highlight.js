@@ -35,12 +35,12 @@ export default function(hljs) {
       modes.CSS_NUMBER_MODE,
       {
         className: 'selector-id',
-        begin: '#[A-Za-z0-9_-]+',
+        begin: '#' + css.SELECTOR_IDENT_RE('[A-Za-z0-9_-]', '[A-Za-z0-9_-]'),
         relevance: 0
       },
       {
         className: 'selector-class',
-        begin: '\\.[A-Za-z0-9_-]+',
+        begin: '\\.' + css.SELECTOR_IDENT_RE('[A-Za-z0-9_-]', '[A-Za-z0-9_-]'),
         relevance: 0
       },
       modes.ATTRIBUTE_SELECTOR_MODE,
