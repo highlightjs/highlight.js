@@ -1,0 +1,10 @@
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+	s := []<span class="hljs-type">int</span>{<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+	<span class="hljs-built_in">clear</span>(s)
+	lo := <span class="hljs-built_in">min</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+	hi := <span class="hljs-built_in">max</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+	n := <span class="hljs-built_in">len</span>(s)
+	_ = <span class="hljs-built_in">append</span>(s, lo, hi, n)
+}
