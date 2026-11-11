@@ -59,3 +59,7 @@ extension TestExtension<T, U> {}
 protocol TestProtocol {}
 protocol TestProtocol: Conform {}
 protocol TestProtocol<T, U> {}
+
+let interactor = makeInteractor
+let base = subclass
+return base
