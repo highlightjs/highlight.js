@@ -74,31 +74,36 @@ export default function(hljs) {
     ]
   };
   const URL_SCHEME = /[A-Za-z][A-Za-z0-9+.-]*/;
+  // Bounded so that text which opens a label or a destination but never closes one
+  // cannot be retried for the whole remaining input at every start offset.
+  const LABEL = /\[.{1,128}?\]/;
+  const POSSIBLY_EMPTY_LABEL = /\[.{0,128}?\]/;
+  const DESTINATION = /[^)\n]{0,512}/;
   const LINK = {
     variants: [
       // too much like nested array access in so many languages
       // to have any real relevance
       {
-        begin: /\[.+?\]\[.*?\]/,
+        begin: regex.concat(LABEL, /\[[^[\]\n]*\]/),
         relevance: 0
       },
       // popular internet URLs
       {
-        begin: /\[.+?\]\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/).*?\)/,
+        begin: regex.concat(LABEL, /\(((data|javascript|mailto):|(?:http|ftp)s?:\/\/)/, DESTINATION, /\)/),
         relevance: 2
       },
       {
-        begin: regex.concat(/\[.+?\]\(/, URL_SCHEME, /:\/\/.*?\)/),
+        begin: regex.concat(LABEL, /\(/, URL_SCHEME, /:\/\//, DESTINATION, /\)/),
         relevance: 2
       },
       // relative urls
       {
-        begin: /\[.+?\]\([./?&#].*?\)/,
+        begin: regex.concat(LABEL, /\([./?&#]/, DESTINATION, /\)/),
         relevance: 1
       },
       // whatever else, lower relevance (might not be a link at all)
       {
-        begin: /\[.*?\]\(.*?\)/,
+        begin: regex.concat(POSSIBLY_EMPTY_LABEL, /\(/, DESTINATION, /\)/),
         relevance: 0
       }
     ],
