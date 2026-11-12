@@ -56,4 +56,11 @@ describe('no highlighting', () => {
     actual.should.equal(expected);
   });
 
+  it('should keep block unchanged when no-highlight wins over a matching language-* class', () => {
+    const expected = "var x = '&lt;p&gt;this should &lt;b&gt;not&lt;/b&gt; be highlighted as &lt;em&gt;JavaScript&lt;/em&gt;';",
+          actual   = this.blocks[6];
+
+    actual.should.equal(expected);
+  });
+
 });
