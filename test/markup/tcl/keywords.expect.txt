@@ -1,0 +1,58 @@
+<span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">set</span> doubled [<span class="hljs-keyword">lmap</span> x <span class="hljs-variable">$nums</span> { <span class="hljs-keyword">expr</span> {<span class="hljs-variable">$x</span> * <span class="hljs-number">2</span>} }]
+    <span class="hljs-keyword">set</span> last [<span class="hljs-keyword">lpop</span> doubled]
+    <span class="hljs-keyword">lremove</span> doubled <span class="hljs-number">0</span>
+    <span class="hljs-keyword">set</span> seq [<span class="hljs-keyword">lseq</span> <span class="hljs-number">1</span> <span class="hljs-number">5</span>]
+    <span class="hljs-keyword">ledit</span> doubled <span class="hljs-number">0</span> end
+} on <span class="hljs-keyword">error</span> {msg} {
+    <span class="hljs-keyword">throw</span> {APP FAIL} <span class="hljs-variable">$msg</span>
+}
+
+<span class="hljs-keyword">coroutine</span> task <span class="hljs-keyword">apply</span> {{} {
+    <span class="hljs-keyword">yield</span>
+    <span class="hljs-keyword">yieldto</span> other
+}}
+<span class="hljs-keyword">coroinject</span> task <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">coroprobe</span> task
+<span class="hljs-keyword">tailcall</span> task
+
+<span class="hljs-keyword">oo::class</span> create Counter {
+    <span class="hljs-keyword">classvariable</span> total
+    <span class="hljs-keyword">variable</span> n
+    constructor {} {
+        <span class="hljs-keyword">set</span> n <span class="hljs-number">0</span>
+        <span class="hljs-keyword">next</span>
+    }
+    method inc {} {
+        <span class="hljs-keyword">my</span> <span class="hljs-keyword">variable</span> n
+        <span class="hljs-keyword">incr</span> n
+        <span class="hljs-keyword">callback</span> [<span class="hljs-keyword">mymethod</span> log]
+        <span class="hljs-keyword">return</span> [<span class="hljs-keyword">self</span>]
+    }
+    method hop {} {
+        <span class="hljs-keyword">nextto</span> Counter log
+        <span class="hljs-keyword">myclass</span>
+    }
+}
+<span class="hljs-keyword">oo::define</span> Counter {
+    method linkup {name} { <span class="hljs-keyword">link</span> <span class="hljs-variable">$name</span> }
+}
+<span class="hljs-keyword">set</span> obj [<span class="hljs-keyword">oo::object</span> new]
+<span class="hljs-keyword">oo::objdefine</span> <span class="hljs-variable">$obj</span> method ping {} { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> }
+<span class="hljs-keyword">oo::copy</span> <span class="hljs-variable">$obj</span> clone
+<span class="hljs-keyword">oo::abstract</span> create Shape {}
+<span class="hljs-keyword">oo::singleton</span> create App {}
+<span class="hljs-keyword">oo::configurable</span> create Widget {}
+
+<span class="hljs-keyword">const</span> PI <span class="hljs-number">3.14</span>
+<span class="hljs-keyword">zlib</span> push gzip <span class="hljs-variable">$channel</span>
+<span class="hljs-keyword">tcl::prefix</span> match {alpha beta} a
+<span class="hljs-keyword">timerate</span> { <span class="hljs-keyword">lindex</span> <span class="hljs-variable">$nums</span> <span class="hljs-number">0</span> }
+<span class="hljs-keyword">zipfs</span> mount app.zip /app
+<span class="hljs-keyword">set</span> text [<span class="hljs-keyword">readFile</span> readme.txt]
+<span class="hljs-keyword">writeFile</span> out.txt <span class="hljs-variable">$text</span>
+<span class="hljs-keyword">foreachLine</span> line <span class="hljs-variable">$text</span> { <span class="hljs-keyword">puts</span> <span class="hljs-variable">$line</span> }
+<span class="hljs-keyword">fpclassify</span> <span class="hljs-variable">$PI</span>
+<span class="hljs-keyword">tcl::process</span> <span class="hljs-keyword">list</span>
+<span class="hljs-keyword">pkg::create</span> -name demo -version <span class="hljs-number">1.0</span>
+<span class="hljs-keyword">platform::shell</span>
