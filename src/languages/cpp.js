@@ -98,6 +98,24 @@ export default function(hljs) {
     relevance: 0
   };
 
+  // Preprocessor directives (e.g. `#define`) do not highlight plain numbers -
+  // only the directive keyword, strings and comments. An integer literal that
+  // uses C++ digit separators (e.g. `1'000'000'000`) is the one exception: its
+  // apostrophes would otherwise be picked up by the character-literal string
+  // mode, leaving an unterminated `'` that swallows the rest of the line. This
+  // rule consumes only separator-bearing literals so they win over STRINGS
+  // without changing the highlighting of ordinary numeric `#define`s. See #3928.
+  const PREPROCESSOR_NUMBERS = {
+    scope: 'number',
+    begin:
+      "\\b(?:"
+      + "0[Bb][01]+(?:'[01]+)+" // Binary with separators.
+      + "|0[Xx][0-9A-Fa-f]+(?:'[0-9A-Fa-f]+)+" // Hexadecimal with separators.
+      + "|0[0-7]*(?:'[0-7]+)+" // Octal with separators.
+      + "|[1-9][0-9]*(?:'[0-9]+)+" // Decimal with separators.
+      + ")\\b"
+  };
+
   // `#include` is the only preprocessor directive that takes an angle-bracket
   // quoted header (`#include <header>`). Scoping that rule to `#include` keeps
   // the greedy `<...>` match from eating a `>` that belongs to the body of
@@ -152,6 +170,7 @@ export default function(hljs) {
         begin: /\\\n/,
         relevance: 0
       },
+      PREPROCESSOR_NUMBERS,
       hljs.inherit(STRINGS, { className: 'string' }),
       C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE
