@@ -34,8 +34,8 @@ export default function(hljs) {
     relevance: 0
   };
   const LABEL = {
-    className: 'symbol',
-    variants: [ { begin: /^\s*[a-z]+:/ }, // labels
+    scope: 'symbol',
+    variants: [ { begin: /^[ \t]*[a-z]+:/ }, // labels
     ],
     relevance: 0
   };

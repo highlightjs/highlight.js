@@ -1,0 +1,4 @@
+main:
+        addi    $t0, $t0, 1
+        nop
+        jr      $ra

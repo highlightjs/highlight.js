@@ -1,0 +1,5 @@
+entry:
+  br label %exit
+
+exit:
+  ret void

@@ -53,8 +53,10 @@ export default function(hljs) {
             + 'break|cache|d?eret|[de]i|ehb|mfc0|mtc0|pause|prefx?|rdhwr|'
             + 'rdpgpr|sdbbp|ssnop|synci?|syscall|teqi?|tgei?u?|tlb(p|r|w[ir])|'
             + 'tlti?u?|tnei?|wait|wrpgpr'
-        + ')',
-        end: '\\s'
+        + ')'
+        // lookahead, so the span doesn't swallow the whitespace (or newline)
+        // that terminates the mnemonic
+        + '(?=\\s|$)',
       },
       // lines ending with ; or # aren't really comments, probably auto-detect fail
       hljs.COMMENT('[;#](?!\\s*$)', '$'),
@@ -84,12 +86,12 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'symbol',
+        scope: 'symbol',
         variants: [
           { // GNU MIPS syntax
-            begin: '^\\s*[a-z_\\.\\$][a-z0-9_\\.\\$]+:' },
+            begin: '^[ \\t]*[a-z_\\.\\$][a-z0-9_\\.\\$]+:' },
           { // numbered local labels
-            begin: '^\\s*[0-9]+:' },
+            begin: '^[ \\t]*[0-9]+:' },
           { // number local label reference (backwards, forwards)
             begin: '[0-9]+[bf]' }
         ],
