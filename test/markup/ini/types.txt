@@ -18,3 +18,4 @@ b = no
 dotted.key = 1
 array = [1, 2, 3]
 inline = {name = "foo", id = 123}
+unquoted = TLSv1.2
