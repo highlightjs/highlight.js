@@ -1,0 +1,7 @@
+// #define with digit-separated integer literals must stay numbers and must not
+// swallow the following code as a string. See issue #4443.
+#define INF 1'000'000'000
+#define MASK 0xFF'FF
+#define BITS 0b1010'1010
+#define OCT 07'77
+int main(void) { return 0; }
