@@ -8,7 +8,7 @@ export function escape(value) {
 
 /**
  * @param {RegExp | string } re
- * @returns {string}
+ * @returns {string | null}
  */
 export function source(re) {
   if (!re) return null;
@@ -83,11 +83,14 @@ function stripOptionsFromArgs(args) {
  * @returns {string}
  */
 export function either(...args) {
-  /** @type { object & {capture?: boolean} }  */
+  /** @type {RegexEitherOptions} */
   const opts = stripOptionsFromArgs(args);
+  /** @type {(string | RegExp)[]} */
+  // @ts-ignore -- options object already removed by stripOptionsFromArgs
+  const expressions = args;
   const joined = '('
     + (opts.capture ? "" : "?:")
-    + args.map((x) => source(x)).join("|") + ")";
+    + expressions.map((x) => source(x)).join("|") + ")";
   return joined;
 }
 
@@ -103,6 +106,7 @@ export function countMatchGroups(re) {
  * Does lexeme start with a regular expression match at the beginning
  * @param {RegExp} re
  * @param {string} lexeme
+ * @returns {boolean | null}
  */
 export function startsWith(re, lexeme) {
   const match = re && re.exec(lexeme);

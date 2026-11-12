@@ -6,11 +6,11 @@ import { compileKeywords } from "./compile_keywords.js";
 import { MultiClass } from "./ext/multi_class.js";
 
 /**
-@typedef {import('highlight.js').Mode} Mode
-@typedef {import('highlight.js').CompiledMode} CompiledMode
-@typedef {import('highlight.js').Language} Language
-@typedef {import('highlight.js').HLJSPlugin} HLJSPlugin
-@typedef {import('highlight.js').CompiledLanguage} CompiledLanguage
+@typedef {import('./hljs_types.js').Mode} Mode
+@typedef {import('./hljs_types.js').CompiledMode} CompiledMode
+@typedef {import('./hljs_types.js').Language} Language
+@typedef {import('./hljs_types.js').HLJSPlugin} HLJSPlugin
+@typedef {import('./hljs_types.js').CompiledLanguage} CompiledLanguage
 */
 
 // compilation
@@ -238,7 +238,7 @@ export function compileLanguage(language) {
   function buildModeRegex(mode) {
     const mm = new ResumableMultiRegex();
 
-    mode.contains.forEach(term => mm.addRule(term.begin, { rule: term, type: "begin" }));
+    mode.contains.forEach(/** @param {CompiledMode} term */ term => mm.addRule(term.begin, { rule: term, type: "begin" }));
 
     if (mode.terminatorEnd) {
       mm.addRule(mode.terminatorEnd, { type: "end" });
@@ -319,7 +319,7 @@ export function compileLanguage(language) {
     mode.isCompiled = true;
 
     let keywordPattern = null;
-    if (typeof mode.keywords === "object" && mode.keywords.$pattern) {
+    if (typeof mode.keywords === "object" && !Array.isArray(mode.keywords) && mode.keywords.$pattern) {
       // we need a copy because keywords might be compiled multiple times
       // so we can't go deleting $pattern from the original on the first
       // pass
@@ -330,7 +330,12 @@ export function compileLanguage(language) {
     keywordPattern = keywordPattern || /\w+/;
 
     if (mode.keywords) {
-      mode.keywords = compileKeywords(mode.keywords, language.case_insensitive);
+      cmode.keywords = /** @type {import('./hljs_types.js').KeywordDict} */ (
+        compileKeywords(
+          /** @type {string | string[] | Record<string, string | string[]>} */ (mode.keywords),
+          language.case_insensitive
+        )
+      );
     }
 
     cmode.keywordPatternRe = langRe(keywordPattern, true);
@@ -371,7 +376,7 @@ export function compileLanguage(language) {
   // we need a null object, which inherit will guarantee
   language.classNameAliases = inherit(language.classNameAliases || {});
 
-  return compileMode(/** @type Mode */ (language));
+  return /** @type {CompiledLanguage} */ (compileMode(/** @type Mode */ (language)));
 }
 
 /**

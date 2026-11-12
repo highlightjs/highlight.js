@@ -34,8 +34,9 @@ jobs:
       uses: actions/setup-node@v7
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: node ./tools/build.js -t ${{ matrix.build-how }}
+    - run: |
+        npm ci
+        node ./tools/build.js -t ${{ matrix.build-how }}
     # normal browser build
     - if: contains(matrix.build-how, 'browser') || contains(matrix.build-how, 'cdn')
       name: Test browser/CDN build
@@ -60,3 +61,16 @@ jobs:
       run: |
         ./node_modules/.bin/rollup -c test/builds/rollup_import_via_commonjs.mjs
         node build/bundle.js
+
+  type-safety:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+    - name: Use Node.js 26.x
+      uses: actions/setup-node@v7
+      with:
+        node-version: 26.x
+    - run: |
+        npm ci
+        npm run types:emit
+        exit $?
