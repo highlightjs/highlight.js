@@ -263,6 +263,11 @@ export default function(hljs) {
     ]
   };
   const TYPE_IDENT_RE = hljs.IDENT_RE + '(<' + hljs.IDENT_RE + '(\\s*,\\s*' + hljs.IDENT_RE + ')*>)?(\\[\\])?';
+  // Bounded on purpose: an unbounded quantifier here consumes an arbitrarily
+  // long run of words, and when no method name follows it the engine retries
+  // the name at every token boundary of that run - quadratic in the size of
+  // the document.  See #4362.
+  const MAX_FUNCTION_TYPE_TOKENS = 12;
   const AT_IDENTIFIER = {
     // prevents expressions like `@class` from incorrect flagging
     // `class` as a keyword
@@ -371,7 +376,7 @@ export default function(hljs) {
       },
       {
         className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<[^=]+>\\s*)?\\(',
+        begin: '(' + TYPE_IDENT_RE + '\\s+){1,' + MAX_FUNCTION_TYPE_TOKENS + '}' + hljs.IDENT_RE + '\\s*(<[^=]+>\\s*)?\\(',
         returnBegin: true,
         end: /\s*[{;=]/,
         excludeEnd: true,
