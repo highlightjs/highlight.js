@@ -38,6 +38,11 @@
 <span class="hljs-title class_">InT</span>
 <span class="hljs-title class_">CSSParserT</span>
 <span class="hljs-title class_">IResponseTsS</span>
+<span class="hljs-title class_">Si18n</span>
+<span class="hljs-title class_">Foo123bar</span>
+<span class="hljs-title class_">Base64encoding</span>
+<span class="hljs-title class_">Md5sum</span>
+<span class="hljs-title class_">Utf8decoding</span>
 
 <span class="hljs-comment">// this class to show that the params may be seperated with space after the function name and highlighted as params also.</span>
 <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Vehicle</span> {
