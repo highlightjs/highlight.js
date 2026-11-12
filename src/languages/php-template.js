@@ -26,6 +26,22 @@ export default function(hljs) {
             end: '\\*/',
             skip: true
           },
+          // A quote inside a `//` or `#` line comment must not be treated as
+          // the start of a string, or it swallows everything up to the next
+          // matching quote in the document (see #4152). A line comment ends
+          // at the first newline, or right before `?>` so that construct can
+          // still close the block. `#[` starts a PHP 8 attribute, not a
+          // comment, so it's excluded here.
+          {
+            begin: /\/\//,
+            end: /\n|(?=\?>)/,
+            skip: true
+          },
+          {
+            begin: /#(?!\[)/,
+            end: /\n|(?=\?>)/,
+            skip: true
+          },
           {
             begin: 'b"',
             end: '"',
