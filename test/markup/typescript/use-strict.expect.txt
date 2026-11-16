@@ -1,0 +1,4 @@
+<span class="hljs-comment">/* license header */</span>
+
+
+<span class="hljs-meta">  &quot;use strict&quot;</span>;

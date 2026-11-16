@@ -105,8 +105,9 @@ export default function(hljs) {
     keywords: KEYWORDS,
     contains: [
       {
-        className: 'meta',
-        begin: /^\s*['"]use (strict|asm)['"]/
+        scope: 'meta',
+        // whitespace on the directive's own line only, never across a line break (#4582)
+        match: /^[^\S\r\n\u2028\u2029]*['"]use (strict|asm)['"]/
       },
       hljs.APOS_STRING_MODE,
       hljs.QUOTE_STRING_MODE,

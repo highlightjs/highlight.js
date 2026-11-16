@@ -339,9 +339,10 @@ export default function(hljs) {
 
   const USE_STRICT = {
     label: "use_strict",
-    className: 'meta',
+    scope: 'meta',
     relevance: 10,
-    begin: /^\s*['"]use (strict|asm)['"]/
+    // whitespace on the directive's own line only, never across a line break (#4582)
+    match: /^[^\S\r\n\u2028\u2029]*['"]use (strict|asm)['"]/
   };
 
   const FUNCTION_DEFINITION = {

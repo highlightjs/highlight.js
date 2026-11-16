@@ -50,9 +50,10 @@ export default function(hljs) {
     contains: [ tsLanguage.exports.CLASS_REFERENCE ]
   };
   const USE_STRICT = {
-    className: 'meta',
+    scope: 'meta',
     relevance: 10,
-    begin: /^\s*['"]use strict['"]/
+    // whitespace on the directive's own line only, never across a line break (#4582)
+    match: /^[^\S\r\n\u2028\u2029]*['"]use strict['"]/
   };
   const TS_SPECIFIC_KEYWORDS = [
     "type",
