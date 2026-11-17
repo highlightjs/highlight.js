@@ -1,0 +1,7 @@
+>> puts "hi"
+hi
+
+
+ => nil
+>> x = nil
+	=> nil

@@ -1,0 +1,2 @@
+<span class="hljs-built_in">ls</span>	<span class="hljs-attr">-la</span> /tmp
+grep  <span class="hljs-attr">--color</span>=auto   <span class="hljs-attr">-n</span> pattern file

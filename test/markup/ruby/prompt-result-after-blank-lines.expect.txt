@@ -1,0 +1,7 @@
+<span class="hljs-meta prompt_">&gt;&gt;</span> puts <span class="hljs-string">&quot;hi&quot;</span>
+hi
+
+
+ =&gt; nil
+<span class="hljs-meta prompt_">&gt;&gt;</span> x = <span class="hljs-literal">nil</span>
+	=&gt; nil
