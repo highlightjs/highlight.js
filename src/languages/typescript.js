@@ -131,6 +131,34 @@ export default function(hljs) {
   const functionDeclaration = tsLanguage.contains.find(m => m.label === "func.def");
   functionDeclaration.relevance = 0; // () => {} is more typical in TypeScript
 
+  // function identity<T>(arg: T): T {}
+  // the type parameters sit between the name and the params, so the JS
+  // rule (which expects `(` right after the name) does not match
+  const TYPE_PARAMETERS = {
+    begin: /</,
+    end: />/,
+    keywords: KEYWORDS,
+    contains: [
+      // `=>` inside a function type must not close the list
+      { match: /=>/ },
+      // nor a `>` inside a string literal type
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      tsLanguage.exports.TEMPLATE_STRING,
+      tsLanguage.exports.CLASS_REFERENCE,
+      'self'
+    ]
+  };
+  functionDeclaration.variants.unshift({
+    match: [
+      /function/,
+      /\s+/,
+      IDENT_RE,
+      /(?=\s*<)/
+    ]
+  });
+  functionDeclaration.contains.unshift(TYPE_PARAMETERS);
+
   Object.assign(tsLanguage, {
     name: 'TypeScript',
     aliases: [
