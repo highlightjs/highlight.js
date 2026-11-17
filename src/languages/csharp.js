@@ -124,6 +124,7 @@ export default function(hljs) {
     'descending',
     'dynamic',
     'equals',
+    'field',
     'file',
     'from',
     'get',
@@ -152,7 +153,13 @@ export default function(hljs) {
     'when',
     'where',
     'with',
-    'yield'
+    'yield',
+    '__arglist',
+    '__makeref',
+    '__reftype',
+    '__refvalue',
+    'module',
+    'assembly'
   ];
 
   const KEYWORDS = {
@@ -272,10 +279,7 @@ export default function(hljs) {
 
   return {
     name: 'C#',
-    aliases: [
-      'cs',
-      'c#'
-    ],
+    aliases: ['cs', 'c#'],
     keywords: KEYWORDS,
     illegal: /::/,
     contains: [
