@@ -8,11 +8,13 @@ Documentation:
 Core Grammars:
 
 - enh(go) add `min`, `max`, and `clear` built-in functions (Go 1.21) [Dylan Pulver][]
+- fix(yaml) cap keys at the 1024 characters YAML allows, so a long line no longer takes quadratic time, issue #4582 [Khagani Mamedov][]
 
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
 [Dylan Pulver]: https://github.com/dylanpulver
+[Khagani Mamedov]: https://github.com/prkomb
 
 ## Version 11.12.0
 

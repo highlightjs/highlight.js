@@ -19,10 +19,14 @@ export default function(hljs) {
   // ...and ending with a colon followed immediately by a space, tab or newline.
   // The YAML spec allows for much more than this, but this covers most use-cases.
   const KEY = {
-    className: 'attr',
+    scope: 'attr',
     variants: [
       // added brackets support and special char support
-      { begin: /[\w*@][\w*@ :()\./-]*:(?=[ \t]|$)/ },
+      // Bounded on purpose: YAML caps an implicit key at 1024 characters
+      // (spec 1.2.2, sections 7.4.2 and 8.2.2). Unbounded, a long line with no
+      // key was rescanned to its end from every word - quadratic in the length
+      // of the line. See #4582.
+      { begin: /[\w*@][\w*@ :()\./-]{0,1023}:(?=[ \t]|$)/ },
       { // double quoted keys - with brackets and special char support
         begin: /"[\w*@][\w*@ :()\./-]*":(?=[ \t]|$)/ },
       { // single quoted keys - with brackets and special char support
