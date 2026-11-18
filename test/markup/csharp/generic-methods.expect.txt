@@ -1,0 +1,8 @@
+<span class="hljs-function"><span class="hljs-keyword">public</span> Task&lt;<span class="hljs-built_in">int</span>&gt; <span class="hljs-title">Run</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">T item</span>)</span> { }
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IEnumerable&lt;TResult&gt; <span class="hljs-title">Select</span>&lt;<span class="hljs-title">TSource</span>, <span class="hljs-title">TResult</span>&gt;(<span class="hljs-params">IEnumerable&lt;TSource&gt; source</span>)</span> { }
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Repository</span>&lt;<span class="hljs-title">T</span>&gt; : <span class="hljs-title">IRepository</span>&lt;<span class="hljs-title">T</span>&gt;
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">Find</span>&lt;<span class="hljs-title">TKey</span>&gt;(<span class="hljs-params">TKey id</span>)</span> { }
+}

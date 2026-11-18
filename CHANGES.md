@@ -7,12 +7,14 @@ Documentation:
 
 Core Grammars:
 
+- fix(csharp) method type parameters stop at the first `<` or `>`, so `Task<int> Run<T>()` no longer highlights `Task` as the method name [Khagani Mamedov][]
 - enh(go) add `min`, `max`, and `clear` built-in functions (Go 1.21) [Dylan Pulver][]
 
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
 [Dylan Pulver]: https://github.com/dylanpulver
+[Khagani Mamedov]: https://github.com/prkomb
 
 ## Version 11.12.0
 
