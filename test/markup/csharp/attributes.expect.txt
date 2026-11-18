@@ -1,0 +1,13 @@
+<span class="hljs-keyword">using</span> System;
+
+[<span class="hljs-meta">Serializable</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Account</span>
+{
+
+
+    [<span class="hljs-meta">Obsolete(<span class="hljs-string">&quot;Use Close&quot;</span>)</span>]
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Shutdown</span>()</span> { }
+
+	[<span class="hljs-meta">Conditional(<span class="hljs-string">&quot;DEBUG&quot;</span>)</span>]
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Trace</span>()</span> { }
+}

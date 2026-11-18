@@ -1,0 +1,13 @@
+using System;
+
+[Serializable]
+public class Account
+{
+
+
+    [Obsolete("Use Close")]
+    public void Shutdown() { }
+
+	[Conditional("DEBUG")]
+    public void Trace() { }
+}

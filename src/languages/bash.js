@@ -118,7 +118,7 @@ export default function(hljs) {
   };
 
   const BASH_ARGUMENTS = {
-    match: [ /\s+/, /-{1,2}[\w-]+/ ],
+    match: [ /\s/, /-{1,2}[\w-]+/ ],
     scope: { 2: "attr" }
   };
 

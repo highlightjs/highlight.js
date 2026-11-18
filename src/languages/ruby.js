@@ -420,7 +420,7 @@ export default function(hljs) {
 
   const IRB_DEFAULT = [
     {
-      begin: /^\s*=>/,
+      begin: /^[^\S\r\n\u2028\u2029]*=>/,
       starts: {
         end: '$',
         contains: RUBY_DEFAULT_CONTAINS
