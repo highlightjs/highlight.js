@@ -1,0 +1,8 @@
+public Task<int> Run<T>(T item) { }
+
+public static IEnumerable<TResult> Select<TSource, TResult>(IEnumerable<TSource> source) { }
+
+public class Repository<T> : IRepository<T>
+{
+    public T Find<TKey>(TKey id) { }
+}

@@ -370,8 +370,10 @@ export default function(hljs) {
         relevance: 0
       },
       {
-        className: 'function',
-        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<[^=]+>\\s*)?\\(',
+        scope: 'function',
+        // a method's own type parameters never nest, so `<[^<>=]+>` stops at the
+        // first '>': in `Task<int> Run<T>(` the name is `Run`, not `Task`
+        begin: '(' + TYPE_IDENT_RE + '\\s+)+' + hljs.IDENT_RE + '\\s*(<[^<>=]+>\\s*)?\\(',
         returnBegin: true,
         end: /\s*[{;=]/,
         excludeEnd: true,
@@ -383,7 +385,7 @@ export default function(hljs) {
             relevance: 0
           },
           {
-            begin: hljs.IDENT_RE + '\\s*(<[^=]+>\\s*)?\\(',
+            begin: hljs.IDENT_RE + '\\s*(<[^<>=]+>\\s*)?\\(',
             returnBegin: true,
             contains: [
               hljs.TITLE_MODE,
