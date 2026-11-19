@@ -1,18 +1,20 @@
 ## Version 11.12.1
 
-Core Grammars:
-
-- fix(css, less, scss, stylus) keep digits inside property-value identifiers unhighlighted, issue #4531 [xiaoyao-666-coder][]
-
 Documentation:
 
 - docs: switch the Sphinx docs theme from ReadTheDocs to Shibuya [Haowei Hsu][]
 - docs: revamp the docs landing page using sphinx-design [Haowei Hsu][]
 
+Core Grammars:
+
+- enh(go) add `min`, `max`, and `clear` built-in functions (Go 1.21) [Dylan Pulver][]
+- fix(css, less, scss, stylus) keep digits inside property-value identifiers unhighlighted, issue #4531 [xiaoyao-666-coder][]
+
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
 [xiaoyao-666-coder]: https://github.com/xiaoyao-666-coder
+[Dylan Pulver]: https://github.com/dylanpulver
 
 ## Version 11.12.0
 

@@ -9,7 +9,7 @@ into the core library.* Instead, the project works by encouraging 3rd party
 language grammar development by willing contributors ready to help and maintain
 them. We're also happy to host those 3rd party language grammars at the
 ``highlightjs`` GitHub organization. Or you're welcome to host yourself - we're
-always happy to link to to new language grammars.
+always happy to link to new language grammars.
 
 We also make it easy to build, maintain, and distribute 3rd party grammar
 modules so that Highlight.js can always be easily extended with new languages.
