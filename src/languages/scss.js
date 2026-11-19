@@ -73,7 +73,6 @@ export default function(hljs) {
       {
         begin: /:/,
         end: /[;}{]/,
-        relevance: 0,
         contains: [
           modes.BLOCK_COMMENT,
           VARIABLE,
@@ -83,7 +82,8 @@ export default function(hljs) {
           hljs.QUOTE_STRING_MODE,
           hljs.APOS_STRING_MODE,
           modes.IMPORTANT,
-          modes.FUNCTION_DISPATCH
+          modes.FUNCTION_DISPATCH,
+          modes.VALUE_IDENTIFIER
         ]
       },
       // matching these here allows us to treat them more like regular CSS

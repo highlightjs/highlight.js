@@ -8,10 +8,12 @@ Documentation:
 Core Grammars:
 
 - enh(go) add `min`, `max`, and `clear` built-in functions (Go 1.21) [Dylan Pulver][]
+- fix(css, less, scss, stylus) keep digits inside property-value identifiers unhighlighted, issue #4531 [xiaoyao-666-coder][]
 
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[xiaoyao-666-coder]: https://github.com/xiaoyao-666-coder
 [Dylan Pulver]: https://github.com/dylanpulver
 
 ## Version 11.12.0

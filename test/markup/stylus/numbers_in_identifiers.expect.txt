@@ -1,0 +1,12 @@
+<span class="hljs-comment">/* this test is shared with css, less, scss, and stylus to confirm consistent highlighting */</span>
+
+<span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">transform-style</span>:preserve-3d;
+  <span class="hljs-attribute">animation-name</span>: fade-3, -fade-3s, --3d;
+  <span class="hljs-attribute">font-family</span>: Font-3d;
+  <span class="hljs-attribute">grid-column</span>: column-3 / span <span class="hljs-number">2</span>;
+  <span class="hljs-attribute">margin</span>: -<span class="hljs-number">3px</span> <span class="hljs-number">0.5em</span> <span class="hljs-number">20%</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">3px</span>);
+  <span class="hljs-attribute">padding</span>: <span class="hljs-built_in">var</span>(--space-3, <span class="hljs-number">3px</span>);
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate3d</span>(<span class="hljs-number">3px</span>, -<span class="hljs-number">3px</span>, <span class="hljs-number">0</span>) <span class="hljs-built_in">scale</span>(<span class="hljs-number">1.5</span>);
+}

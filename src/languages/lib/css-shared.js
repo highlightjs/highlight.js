@@ -17,6 +17,12 @@ export const MODES = (hljs) => {
       className: "built_in",
       begin: /[\w-]+(?=\()/
     },
+    VALUE_IDENTIFIER: {
+      // Consume the whole identifier so embedded digits are not parsed as numbers.
+      // Function dispatch must precede this mode in value containers.
+      match: /(?:--|-?[a-zA-Z_])[\w-]*/,
+      skip: true
+    },
     ATTRIBUTE_SELECTOR_MODE: {
       scope: 'selector-attr',
       begin: /\[/,
