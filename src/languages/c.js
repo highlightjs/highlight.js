@@ -111,17 +111,17 @@ export default function(hljs) {
     relevance: 0
   };  
   
-  // `#include` is the only preprocessor directive that takes an angle-bracket
-  // quoted header (`#include <header>`). Scoping that rule to `#include` keeps
-  // the greedy `<...>` match from eating a `>` that belongs to the body of
-  // another directive (e.g. `#define what do { cout << ">"; } while (0)`),
-  // which would otherwise leave an unbalanced `"` and break highlighting for
-  // the rest of the file. See issue #3505.
+  // `#include` and `#embed` are the preprocessor directives that take an
+  // angle-bracket quoted header (`#include <header>`, `#embed <file>`). Scoping
+  // that rule to them keeps the greedy `<...>` match from eating a `>` that
+  // belongs to the body of another directive (e.g. `#define what do { cout <<
+  // ">"; } while (0)`), which would otherwise leave an unbalanced `"` and
+  // break highlighting for the rest of the file. See issue #3505.
   const PREPROCESSOR_INCLUDE = {
     scope: 'meta',
-    begin: /#\s*include\b/,
+    begin: /#\s*(?:include|embed)\b/,
     end: /$/,
-    keywords: { keyword: 'include' },
+    keywords: { keyword: 'include embed' },
     contains: [
       {
         // the `\` at the end of a line signaling continuation

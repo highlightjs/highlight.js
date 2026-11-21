@@ -1,0 +1,5 @@
+<span class="hljs-meta">#<span class="hljs-keyword">embed</span> <span class="hljs-string">&quot;data.bin&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">embed</span> <span class="hljs-string">&lt;data.bin&gt;</span> limit(16)</span>
+<span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-type">unsigned</span> <span class="hljs-type">char</span> blob[] = {
+<span class="hljs-meta">#<span class="hljs-keyword">embed</span> <span class="hljs-string">&quot;data.bin&quot;</span></span>
+};

@@ -8,10 +8,12 @@ Documentation:
 Core Grammars:
 
 - enh(go) add `min`, `max`, and `clear` built-in functions (Go 1.21) [Dylan Pulver][]
+- enh(c) highlight the C23 `#embed` directive [suiso11][]
 
 CONTRIBUTORS
 
 [Haowei Hsu]: https://github.com/hwhsu1231
+[suiso11]: https://github.com/suiso11
 [Dylan Pulver]: https://github.com/dylanpulver
 
 ## Version 11.12.0

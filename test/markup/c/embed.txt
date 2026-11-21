@@ -1,0 +1,5 @@
+#embed "data.bin"
+#embed <data.bin> limit(16)
+static const unsigned char blob[] = {
+#embed "data.bin"
+};
