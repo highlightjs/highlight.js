@@ -152,11 +152,11 @@ export default function(hljs) {
     contains: [], // defined later
     variants: [
       {
-        begin: /\*(?![*\s])/,
+        begin: /(?<!\\)\*(?![*\s])/,
         end: /\*/
       },
       {
-        begin: /_(?![_\s])/,
+        begin: /(?<!\\)_(?![_\s])/,
         end: /_/,
         relevance: 0
       }
