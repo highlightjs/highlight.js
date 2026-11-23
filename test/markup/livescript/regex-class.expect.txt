@@ -1,0 +1,9 @@
+r = <span class="hljs-regexp">/[/a]/g</span>
+r = <span class="hljs-regexp">/[a/b]/</span>
+url = <span class="hljs-regexp">/https?:\/\/[/a-z]+/i</span>
+r = <span class="hljs-regexp">/[#/x]/</span>; <span class="hljs-literal">true</span>
+r = <span class="hljs-regexp">/[/]/g</span>
+r = <span class="hljs-regexp">/[^/]+$/</span>
+r = <span class="hljs-regexp">/[\]/]/g</span>
+r = <span class="hljs-regexp">/abc/g</span>
+x = a / <span class="hljs-number">2</span> / <span class="hljs-number">3</span>
