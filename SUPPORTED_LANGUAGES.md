@@ -211,6 +211,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | Pine Script             | pine, pinescript       | [highlightjs-pine](https://github.com/jeyllani/highlightjs-pine) |
 | Pkl                     | pkl                    | [highlightjs-pkl](https://github.com/apple/highlightjs-pkl) |
 | Plaintext               | plaintext, txt, text   |         |
+| Plumlang                | plum                   | [highlightjs-plum](https://github.com/plumlang/highlightjs-plum) |
 | Pony                    | pony                   |         |
 | PostgreSQL & PL/pgSQL   | pgsql, postgres, postgresql |    |
 | PowerOn                 | poweron, po            | [highlightjs-poweron](https://github.com/libum-llc/highlightjs-poweron) |
