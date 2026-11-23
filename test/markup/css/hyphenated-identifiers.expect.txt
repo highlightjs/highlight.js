@@ -1,0 +1,6 @@
+<span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">transform-style</span>: preserve-3d;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--gray-500);
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translate3d</span>(<span class="hljs-number">10px</span>, -<span class="hljs-number">20px</span>, <span class="hljs-number">0</span>);
+  <span class="hljs-attribute">margin</span>: -<span class="hljs-number">10px</span> <span class="hljs-number">20px</span>;
+}

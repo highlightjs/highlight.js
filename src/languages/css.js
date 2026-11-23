@@ -95,7 +95,13 @@ export default function(hljs) {
               }
             ]
           },
-          modes.FUNCTION_DISPATCH
+          modes.FUNCTION_DISPATCH,
+          // consume hyphenated identifiers (e.g. `preserve-3d`, `--gray-500`) so
+          // digits following a hyphen aren't highlighted as numbers
+          {
+            match: /[a-zA-Z_][a-zA-Z0-9_-]*/,
+            relevance: 0
+          }
         ]
       },
       {

@@ -1,0 +1,6 @@
+div {
+  transform-style: preserve-3d;
+  color: var(--gray-500);
+  transform: translate3d(10px, -20px, 0);
+  margin: -10px 20px;
+}
