@@ -1,0 +1,12 @@
+div {
+  transform-style: preserve-3d;
+  transform-style: -webkit-preserve-3d;
+  animation: fade-in-2s 2s ease-in-out;
+  font-family: iso-8859-1;
+  font-weight: 400;
+  z-index: -1;
+  margin: 10px -20px;
+  color: var(--3d);
+  width: calc(100% - 80px);
+  grid-template-columns: repeat(3, 1fr);
+}

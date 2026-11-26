@@ -1,0 +1,12 @@
+<span class="hljs-selector-tag">div</span> {
+  <span class="hljs-attribute">transform-style</span>: preserve-3d;
+  <span class="hljs-attribute">transform-style</span>: -webkit-preserve-3d;
+  <span class="hljs-attribute">animation</span>: fade-in-2s <span class="hljs-number">2s</span> ease-in-out;
+  <span class="hljs-attribute">font-family</span>: iso-8859-1;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
+  <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span> -<span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--3d);
+  <span class="hljs-attribute">width</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-number">100%</span> - <span class="hljs-number">80px</span>);
+  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>fr);
+}
