@@ -38,6 +38,19 @@ export const MODES = (hljs) => {
         '|Hz|kHz' +
         '|dpi|dpcm|dppx' +
         ')?',
+      // Ignore numbers inside hyphenated identifiers like `preserve-3d` or `iso-8859-1`
+      // without using regex lookbehind (for Safari / ES2015 compatibility).
+      'on:begin': (match, response) => {
+        if (match.index === 0 || match.input[match.index - 1] !== '-') return;
+        let i = match.index - 2;
+        while (i >= 0 && /[a-zA-Z0-9_-]/.test(match.input[i])) {
+          i--;
+        }
+        const prefix = match.input.slice(i + 1, match.index);
+        if (/^(?:--|-?[a-zA-Z_])/.test(prefix)) {
+          response.ignoreMatch();
+        }
+      },
       relevance: 0
     },
     CSS_VARIABLE: {
