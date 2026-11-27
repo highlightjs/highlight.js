@@ -139,6 +139,7 @@ The table below shows the full list of languages (and corresponding classes/alia
 | JSONata                 | jsonata                | [highlightjs-jsonata](https://github.com/DevDimov/highlightjs-jsonata) |
 | Julia                   | julia                   |         |
 | Julia REPL              | julia-repl, jldoctest  |         |
+| Just                    | just, justfile         | [highlightjs-just](https://github.com/jvacek/highlightjs-just) |
 | Kotlin                  | kotlin, kt, kts, ktm, ktx |         |
 | Kusto Query Language    | kql, kusto             | [highlightjs-kql](https://github.com/ivanduplenskikh/highlightjs-kql) |
 | L4                      | l4, legal              | [highlightjs-l4](https://github.com/legalese/highlightjs-l4)
